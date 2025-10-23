@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Add Outline SDK to your Go code
 
 This guide walks you through the process of setting up your Go environment and

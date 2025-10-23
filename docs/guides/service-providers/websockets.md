@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Shadowsocks-over-WebSockets
 
 _Outline Client v1.15.0+._

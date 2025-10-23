@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Deploy using the Outline Manager
 
 This guide walks you through the process of setting up an Outline Server to

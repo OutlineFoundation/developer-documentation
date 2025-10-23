@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Share management access with others
 
 As your Outline service expands, you might find it necessary to delegate

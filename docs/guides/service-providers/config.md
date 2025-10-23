@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Access Key Configuration
 
 Outline uses a YAML-based configuration to define VPN parameters and handle

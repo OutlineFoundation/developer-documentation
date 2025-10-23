@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Concepts
 
 The Outline SDK is built upon some basic concepts, defined as interoperable

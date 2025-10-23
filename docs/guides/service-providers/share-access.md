@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Share access to your server
 
 After successfully installing your Outline server, you'll be directed to the

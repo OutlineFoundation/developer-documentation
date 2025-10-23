@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Dynamic Access Keys
 
 Outline offers two types of access keys: static and dynamic. Static keys encode

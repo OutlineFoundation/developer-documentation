@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Remotely Characterizing and Bypassing Network Interference with the Outline SDK
 
 This guide demonstrates how to use the Outline SDK's command line tools to
@@ -149,4 +146,3 @@ This too returns `<title>YouTube</title>`.
 ## Further Analysis and Resources
 
 For discussions and questions, visit the [Outline SDK Discussion Group](https://github.com/Jigsaw-Code/outline-sdk/discussions).
-

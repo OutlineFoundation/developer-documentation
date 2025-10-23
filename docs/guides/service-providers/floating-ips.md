@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Set Up a Blocking-Resistant Server With Floating IPs
 
 ## Introduction

@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Accessing Outline Server Performance Metrics
 
 Outline provides detailed performance metrics through

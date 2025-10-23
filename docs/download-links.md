@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Concepts
 
 Outline helps users bypass restrictions to access the open internet. Here's are

@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Add Outline SDK to your mobile app
 
 This document outlines how to integrate the Outline SDK into your mobile

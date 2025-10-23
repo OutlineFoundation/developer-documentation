@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # What is the SDK
 
 The Outline SDK is a library and collection of tools designed to help developers

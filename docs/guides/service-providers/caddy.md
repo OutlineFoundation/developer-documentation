@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Automatic HTTPS with Caddy
 
 This guide explains how to use [Caddy](https://caddyserver.com/), a powerful and

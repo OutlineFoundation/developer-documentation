@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Connection Prefix Disguises
 
 As of Outline Client version 1.9.0, access keys support the "prefix" option. The

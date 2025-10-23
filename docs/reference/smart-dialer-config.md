@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Smart Dialer Config
 
 The **Smart Dialer** searches for a strategy that unblocks DNS and TLS for a
