@@ -1,0 +1,105 @@
+upper_tabs:
+
+# Outline VPN hub
+- name: Outline
+  heading: Outline
+  lower_tabs:
+    other:
+    - name: Guides
+      contents:
+      - heading: Discover
+      - title: Why Outline?
+        path: /outline/docs/why-outline
+      - title: Concepts
+        path: /outline/docs/concepts
+
+      - heading: Get started
+      - title: Deploy a server
+        section:
+        - title: Deploy using the Outline Manager
+          path: /outline/docs/guides/service-providers/server-setup-manager
+          step_group: get_started
+        - title: Deploy using an installation script
+          path: /outline/docs/guides/service-providers/server-setup-advanced
+      - title: Share access to your server
+        path: /outline/docs/guides/service-providers/share-access
+        step_group: get_started
+
+      - heading: Manage and scale your server
+      - title: Share management access with others
+        path: /outline/docs/guides/service-providers/share-management-access
+      - title: Scale access key distribution
+        section:
+        - title: Dynamic access keys
+          path: /outline/docs/guides/service-providers/dynamic-access-keys
+        - title: Configure access keys
+          path: /outline/docs/guides/service-providers/config
+      - title: Access performance metrics
+        path: /outline/docs/guides/service-providers/metrics
+      - title: Advanced deployments
+        section:
+        - title: Deploy with automatic HTTPS using Caddy
+          path: /outline/docs/guides/service-providers/caddy
+
+      - heading: Increase resilience against blocking
+      - title: Use a domain name with floating IPs
+        path: /outline/docs/guides/service-providers/floating-ips
+      - title: Disguise connections with prefixes
+        path: /outline/docs/guides/service-providers/prefixing
+      - title: Disguise connections as web traffic with Shadowsocks-over-WebSockets
+        path: /outline/docs/guides/service-providers/websockets
+
+    - name: Reference
+      contents:
+      - title: Access key config
+        path: /outline/docs/reference/config
+      - title: Management API
+        path: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/shadowbox/server/api.yml
+        status: external
+
+    - name: Support
+      contents:
+      - title: Get help
+        path: https://support.google.com/outline/
+        status: external
+      - title: Alternative download links
+        path: /outline/docs/download-links
+
+# Outline SDK hub
+- name: Outline SDK
+  heading: Outline SDK
+  lower_tabs:
+    other:
+    - name: Guides
+      contents:
+      - heading: Discover
+      - title: What is the SDK
+        path: /outline/docs/guides/sdk/what-is-the-sdk
+      - title: Concepts
+        path: /outline/docs/guides/sdk/concepts
+
+      - heading: Integrate
+      - title: Add Outline SDK to your mobile app
+        path: /outline/docs/guides/sdk/mobile-app-integration
+      - title: Add Outline SDK to your Go code
+        path: /outline/docs/guides/sdk/use-sdk-in-go
+
+      - heading: Tools
+      - title: Command line debugging
+        path: /outline/docs/guides/sdk/command-line-debugging
+
+    - name: Reference
+      contents:
+      - title: Smart Dialer Config
+        path: /outline/docs/reference/smart-dialer-config
+
+      - heading: Client libraries
+      - title: Go
+        path: https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk
+        status: external
+
+    - name: Support
+      contents:
+      - title: Get help
+        path: https://github.com/Jigsaw-Code/outline-sdk/discussions
+        status: external

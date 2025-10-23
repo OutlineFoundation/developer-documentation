@@ -1,0 +1,30 @@
+footer:
+- linkboxes:
+  - name: Product Info
+    contents:
+    - label: Download Outline
+      path: https://getoutline.org/
+    - label: Terms of Service
+      path: https://s3.amazonaws.com/outline-vpn/static_downloads/Outline-Terms-of-Service.html
+    - label: Data Collection Policy
+      path: https://support.google.com/outline/answer/14915905
+    - label: Branding Guidelines
+      path: https://support.google.com/outline/answer/15331625
+  - name: Jigsaw
+    contents:
+    - label: About Jigsaw
+      path: https://jigsaw.google.com/
+    - label: Jigsaw Blog
+      path: https://medium.com/jigsaw
+    - label: "@Jigsaw on X (Twitter)"
+      path: http://www.x.com/jigsaw
+  - name: Get Help
+    contents:
+    - label: Help Center
+      path: https://support.getoutline.org/
+    - label: GitHub
+      path: https://github.com/Jigsaw-Code/?q=outline
+    - label: Reddit
+      path: https://www.reddit.com/r/outlinevpn/
+    - label: Contact Us
+      path: https://support.getoutline.org/s/contactsupport
