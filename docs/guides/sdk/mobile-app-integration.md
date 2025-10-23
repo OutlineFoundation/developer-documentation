@@ -12,11 +12,11 @@ proxy.
 
 **App without MobileProxy**
 
-![Content app without MobileProxy](/outline/images/mobileproxy-before.png)
+![Content app without MobileProxy](../../../images/mobileproxy-before.png)
 
 **App with MobileProxy**
 
-![Content app with MobileProxy](/outline/images/mobileproxy-after.png)
+![Content app with MobileProxy](../../../images/mobileproxy-after.png)
 
 ## Step 1: Building MobileProxy mobile libraries
 

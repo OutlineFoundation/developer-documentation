@@ -47,7 +47,7 @@ If you have a running DigitalOcean server, skip to the next step.
 1. Click "Create Server" on the "DigitalOcean" button and follow the directions
   in the app.
 
-<img src="/outline/images/create-DO-server.png" alt="Create server">
+<img src="../../../images/create-DO-server.png" alt="Create server">
 
 ## Make a Hostname for Your Server
 
@@ -66,7 +66,7 @@ If you have a running DigitalOcean server, skip to the next step.
    "Hostname", type the hostname you purchased and click "SAVE". This will make
    all future access keys use this hostname instead of the server's IP address.
 
-<img src="/outline/images/set-hostname.png" alt="Set the hostname">
+<img src="../../../images/set-hostname.png" alt="Set the hostname">
 
 ## Change the Server's IP address
 
@@ -74,11 +74,11 @@ If you have a running DigitalOcean server, skip to the next step.
 
 8. Click "Enable Now" in the top right of the window next to "Floating IP".
 
-<img src="/outline/images/floating-ip-DO.png" alt="Enable floating IP">
+<img src="../../../images/floating-ip-DO.png" alt="Enable floating IP">
 
 9. Find your server in the list of Droplets and click "Assign Floating IP".
 
-<img src="/outline/images/assign-floating-ip-DO.png" alt="Assign floating IP">
+<img src="../../../images/assign-floating-ip-DO.png" alt="Assign floating IP">
 
 10. Navigate back to the DNS tab on Google Domains.
 
@@ -90,7 +90,7 @@ If you have a running DigitalOcean server, skip to the next step.
     and enter your domain name to see when the change in the last step took
     place.
 
-<img src="/outline/images/google-dns.png" alt="Search your domain on the Google DNS tool">
+<img src="../../../images/google-dns.png" alt="Search your domain on the Google DNS tool">
 
 Once this change propagates, clients will now connect to the new IP address. You
 can connect to your server with a new key and open <https://ipinfo.io> to make
