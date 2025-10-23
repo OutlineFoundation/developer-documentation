@@ -1,6 +1,3 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
-
 # Why Outline?
 
 Are you passionate about digital freedom and helping users bypass censorship?
