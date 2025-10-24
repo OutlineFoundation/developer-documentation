@@ -1,39 +1,45 @@
-# Concepts
+# Alternative Download Links
 
-Outline helps users bypass restrictions to access the open internet. Here's are
-some key concepts to understand how it works:
+The Outline Manager and Outline Client can be downloaded from the following
+links. Find more information on setting up Outline at <https://getoutline.org/>.
 
-## Service providers and end users
+Important: The following links are the only official sources to download the
+Outline Manager and Outline Client applications. We don't directly distribute
+these files through social media or messaging apps, including Telegram and
+WhatsApp.
 
-The Outline system involves two main roles: **service providers**, who manage
-the servers, and **end users**, who access the internet through those servers.
+## Outline Manager
 
--   **Service providers** create the Outline servers, generate **access keys**,
-    and **distribute the keys** to end users. One way to do this is using the
-    **Outline Manager** application.
--   **End users** install the **Outline Client** application, paste in the
-    **access key** they received, and **connect** to a secure tunnel.
+-   **Windows:**
+    <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
 
-## Access keys {:#access-keys}
+-   **MacOS:**
+    <https://s3.amazonaws.com/outline-releases/manager/macos/stable/Outline-Manager.dmg>
 
-Access keys are the credentials that allow users to connect to an Outline
-server. They contain the necessary information for the Outline Client to
-establish a secure connection. There are two types of access keys:
+-   **Linux:**
+    <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
--   **Static access keys** encode all the server information needed to connect
-    (server address, port, password, encryption method), preventing the access
-    information from being modified. Users paste this key into the Outline
-    Client.
+## Outline Client
 
-    Example:
+-   **Windows:**
+    <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
 
-    ```none
-    ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
-    ```
+-   **MacOS:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
 
--   **Dynamic access keys** allow a service provider to host the server access
-    information remotely. This lets providers update their server configuration
-    (server address, port, passwords, encryption method) without needing to
-    reissue new access keys to end users. For more detailed documentation, see
-    [Dynamic Access
-    Keys](guides/service-providers/dynamic-access-keys.md).
+-   **Linux:** <https://support.google.com/outline/answer/15331527>
+
+    -   **Alternative:**
+        <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
+
+-   **ChromeOS:**
+    <https://play.google.com/store/apps/details?id=org.outline.android.client>
+
+-   **iOS:** <https://itunes.apple.com/us/app/outline-app/id1356177741>
+
+-   **Android:**
+    <https://play.google.com/store/apps/details?id=org.outline.android.client>
+
+    -   **Alternative[^1]:**
+        <https://s3.amazonaws.com/outline-releases/client/android/stable/Outline-Client.apk>
+
+[^1]: If the Outline Client is side loaded by directly downloading and installing the APK file, the app won't receive automatic updates and will need to be updated manually to take advantage of the latest features. In order to install the app, you may need to change your Settings to allow installation of unknown apps. After installing Outline, it is recommended to immediately change the setting back to disabling installation of unknown apps. This helps prevent installing potentially harmful or malicious apps from unsafe sources.
