@@ -119,7 +119,7 @@ Keys](dynamic-access-keys).
 
 ## Step 4: Connect with the Outline Client
 
-Use one of the official [Outline Client](/outline/docs/download-links)
+Use one of the official [Outline Client](../../download-links.md)
 applications (versions 1.15.0+) and add your newly created dynamic access key as
 a server entry. Click **Connect** to start tunneling to your server using the
 Shadowsocks-over-Websocket configuration.

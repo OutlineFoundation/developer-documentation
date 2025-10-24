@@ -36,9 +36,9 @@ Some examples of effective prefixes look like common protocols:
 
 ### Dynamic Access Keys
 
-To use the prefix feature with [Dynamic Access Keys](/outline/docs/guides/service-providers/dynamic-access-keys.md) (`ssconf://`),
+To use the prefix feature with [Dynamic Access Keys](../service-providers/dynamic-access-keys.md) (`ssconf://`),
 add a "prefix" key to the JSON object, with a **JSON-encoded** value
-representing the prefix you want_ (see examples in the table above)_. You can
+representing the prefix you want (see examples in the table above). You can
 use escape codes (like \u00FF) to represent non-printable Unicode codepoints in
 the `U+0` to `U+FF` range. For example:
 

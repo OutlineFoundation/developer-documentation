@@ -9,50 +9,50 @@ upper_tabs:
       contents:
       - heading: Discover
       - title: Why Outline?
-        path: /outline/docs/why-outline
-      - title: Concepts
-        path: /outline/docs/concepts
+        path: docs/why-outline
+      - title: Concepts 
+        path: docs/concepts.md
 
       - heading: Get started
       - title: Deploy a server
         section:
         - title: Deploy using the Outline Manager
-          path: /outline/docs/guides/service-providers/server-setup-manager
+          path: docs/guides/service-providers/server-setup-manager.md
           step_group: get_started
         - title: Deploy using an installation script
-          path: /outline/docs/guides/service-providers/server-setup-advanced
+          path: docs/guides/service-providers/server-setup-advanced.md
       - title: Share access to your server
-        path: /outline/docs/guides/service-providers/share-access
+        path: docs/guides/service-providers/share-access.md
         step_group: get_started
 
       - heading: Manage and scale your server
       - title: Share management access with others
-        path: /outline/docs/guides/service-providers/share-management-access
+        path: docs/guides/service-providers/share-management-access.md
       - title: Scale access key distribution
         section:
         - title: Dynamic access keys
-          path: /outline/docs/guides/service-providers/dynamic-access-keys
+          path: docs/guides/service-providers/dynamic-access-keys.md
         - title: Configure access keys
-          path: /outline/docs/guides/service-providers/config
+          path: docs/guides/service-providers/config.md
       - title: Access performance metrics
-        path: /outline/docs/guides/service-providers/metrics
+        path: docs/guides/service-providers/metrics.md
       - title: Advanced deployments
         section:
         - title: Deploy with automatic HTTPS using Caddy
-          path: /outline/docs/guides/service-providers/caddy
+          path: docs/guides/service-providers/caddy.md
 
       - heading: Increase resilience against blocking
       - title: Use a domain name with floating IPs
-        path: /outline/docs/guides/service-providers/floating-ips
+        path: docs/guides/service-providers/floating-ips.md
       - title: Disguise connections with prefixes
-        path: /outline/docs/guides/service-providers/prefixing
+        path: docs/guides/service-providers/prefixing.md
       - title: Disguise connections as web traffic with Shadowsocks-over-WebSockets
-        path: /outline/docs/guides/service-providers/websockets
+        path: docs/guides/service-providers/websockets.md
 
     - name: Reference
       contents:
       - title: Access key config
-        path: /outline/docs/reference/config
+        path: docs/reference/config.md
       - title: Management API
         path: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/shadowbox/server/api.yml
         status: external
@@ -63,7 +63,7 @@ upper_tabs:
         path: https://support.google.com/outline/
         status: external
       - title: Alternative download links
-        path: /outline/docs/download-links
+        path: docs/download-links.md
 
 # Outline SDK hub
 - name: Outline SDK
@@ -73,25 +73,25 @@ upper_tabs:
     - name: Guides
       contents:
       - heading: Discover
-      - title: What is the SDK
-        path: /outline/docs/guides/sdk/what-is-the-sdk
+      - title: What is the SDK?
+        path: docs/guides/sdk/what-is-the-sdk.md
       - title: Concepts
-        path: /outline/docs/guides/sdk/concepts
+        path: docs/guides/sdk/concepts.md
 
       - heading: Integrate
       - title: Add Outline SDK to your mobile app
-        path: /outline/docs/guides/sdk/mobile-app-integration
+        path: docs/guides/sdk/mobile-app-integration.md
       - title: Add Outline SDK to your Go code
-        path: /outline/docs/guides/sdk/use-sdk-in-go
+        path: docs/guides/sdk/use-sdk-in-go.md
 
       - heading: Tools
       - title: Command line debugging
-        path: /outline/docs/guides/sdk/command-line-debugging
+        path: docs/guides/sdk/command-line-debugging.md
 
     - name: Reference
       contents:
       - title: Smart Dialer Config
-        path: /outline/docs/reference/smart-dialer-config
+        path: docs/reference/smart-dialer-config.md
 
       - heading: Client libraries
       - title: Go

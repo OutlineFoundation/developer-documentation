@@ -5,7 +5,7 @@ TCP/UDP traffic. The configuration supports composability at multiple levels,
 enabling flexible and extensible setups.
 
 The top-level configuration specifies a
-[TunnelConfig](/outline/docs/reference/config#tunnelconfig).
+[TunnelConfig](../../reference/config.md#tunnelconfig).
 
 ## Examples
 

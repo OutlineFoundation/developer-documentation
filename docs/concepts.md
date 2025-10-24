@@ -36,4 +36,4 @@ establish a secure connection. There are two types of access keys:
     (server address, port, passwords, encryption method) without needing to
     reissue new access keys to end users. For more detailed documentation, see
     [Dynamic Access
-    Keys](/outline/docs/guides/service-providers/dynamic-access-keys).
+    Keys](guides/service-providers/dynamic-access-keys.md).

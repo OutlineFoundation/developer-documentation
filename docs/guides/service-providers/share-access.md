@@ -2,8 +2,7 @@
 
 After successfully installing your Outline server, you'll be directed to the
 server details page within Outline Manager. This page is your central hub for
-generating and managing access to your server using [access
-keys](/outline/docs/concepts#access-keys).
+generating and managing access to your server using [access keys](../../concepts.md#access-keys).
 
 ## Create and share access keys
 
