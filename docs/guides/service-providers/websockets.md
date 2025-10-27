@@ -20,16 +20,16 @@ Create a new `config.yaml` file with the following configuration:
 web:
   servers:
     - id: server1
-        listen: "127.0.0.1:<WEB_SERVER_PORT>"
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
 
 services:
   - listeners:
       - type: websocket-stream
         web_server: server1
-        path: "/<TCP_PATH>"
+        path: /<TCP_PATH>
       - type: websocket-packet
         web_server: server1
-        path: "/<UDP_PATH>"
+        path: /<UDP_PATH>
     keys:
       - id: 1
         cipher: chacha20-ietf-poly1305

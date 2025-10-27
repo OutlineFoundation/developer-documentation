@@ -66,18 +66,18 @@ apps:
         routes:
           - match:
             - host:
-              - '<DOMAIN_NAME>'
+              - <DOMAIN_NAME>
             - path:
-              - "/<TCP_PATH>"
+              - /<TCP_PATH>
             handle:
             - handler: websocket2layer4
               type: stream
               connection_handler: ss1
           - match:
             - host:
-              - '<DOMAIN_NAME>'
+              - <DOMAIN_NAME>
             - path:
-              - "/<UDP_PATH>"
+              - /<UDP_PATH>
             handle:
               - handler: websocket2layer4
                 type: packet
