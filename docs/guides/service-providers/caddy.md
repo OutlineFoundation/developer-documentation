@@ -35,7 +35,7 @@ to your server's IP address.
     authoritative lookup:
 
     ```sh
-    curl "https://cloudflare-dns.com/dns-query?name=<var>DOMAIN_NAME</var>&type=A" \
+    curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
       -H "accept: application/dns-json"
     ```
 
@@ -66,18 +66,18 @@ apps:
         routes:
           - match:
             - host:
-              - '<var>DOMAIN_NAME</var>'
+              - '<DOMAIN_NAME>'
             - path:
-              - "/<var>TCP_PATH</var>"
+              - "/<TCP_PATH>"
             handle:
             - handler: websocket2layer4
               type: stream
               connection_handler: ss1
           - match:
             - host:
-              - '<var>DOMAIN_NAME</var>'
+              - '<DOMAIN_NAME>'
             - path:
-              - "/<var>UDP_PATH</var>"
+              - "/<UDP_PATH>"
             handle:
               - handler: websocket2layer4
                 type: packet
@@ -92,16 +92,14 @@ apps:
           keys:
             - id: user-1
               cipher: chacha20-ietf-poly1305
-              secret: <var>SHADOWSOCKS_SECRET</var>
+              secret: <SHADOWSOCKS_SECRET>
 ```
 
 Important: Keep the `path` secret to avoid probing. It acts as a secret
 endpoint. A long, randomly generated path is recommended.
 
 This configuration represents a Shadowsocks-over-WebSockets strategy with a web
-server listening on port `443`, accepting TCP and UDP Shadowsocks wrapped
-traffic at paths {{ '<VAR>TCP_PATH</VAR>' }} and {{ '<VAR>UDP_PATH</VAR>' }}
-respectively.
+server listening on port `443`, accepting TCP and UDP Shadowsocks wrapped traffic at paths `/<TCP_PATH>` and `/<UDP_PATH>` respectively.
 
 Run the Caddy server extended with Outline using the created configuration:
 
@@ -132,18 +130,18 @@ transport:
 
     endpoint:
       $type: websocket
-      url: wss://{{"<var>"}}DOMAIN_NAME{{"</var>"}}/{{"<var>"}}TCP_PATH{{"</var>"}}
+      url: wss://<DOMAIN_NAME>/<TCP_PATH>
     cipher: chacha20-ietf-poly1305
-    secret: {{"<var>"}}SHADOWSOCKS_SECRET{{"</var>"}}
+    secret: <SHADOWSOCKS_SECRET>
 
   udp:
     $type: shadowsocks
 
     endpoint:
       $type: websocket
-      url: wss://{{"<var>"}}DOMAIN_NAME{{"</var>"}}/{{"<var>"}}UDP_PATH{{"</var>"}}
+      url: wss://<DOMAIN_NAME>/<UDP_PATH>
     cipher: chacha20-ietf-poly1305
-    secret: {{"<var>"}}SHADOWSOCKS_SECRET{{"</var>"}}
+    secret: <SHADOWSOCKS_SECRET>
 ```
 
 After generating the dynamic access key YAML file, you need to get it to your

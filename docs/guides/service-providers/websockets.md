@@ -20,21 +20,20 @@ Create a new `config.yaml` file with the following configuration:
 web:
   servers:
     - id: server1
-      listen:
-          - "127.0.0.1:<var>WEB_SERVER_PORT</var>"
+        listen: "127.0.0.1:<WEB_SERVER_PORT>"
 
 services:
   - listeners:
       - type: websocket-stream
         web_server: server1
-        path: "/<var>TCP_PATH</var>"
+        path: "/<TCP_PATH>"
       - type: websocket-packet
         web_server: server1
-        path: "/<var>UDP_PATH</var>"
+        path: "/<UDP_PATH>"
     keys:
       - id: 1
         cipher: chacha20-ietf-poly1305
-        secret: <var>SHADOWSOCKS_SECRET</var>
+        secret: <SHADOWSOCKS_SECRET>
 ```
 
 Tip: Keep the `path` secret to avoid probing. It acts as a secret endpoint. A
@@ -75,7 +74,7 @@ your local web server without opening inbound ports.
 1.  Create a tunnel pointing to your local web server port:
 
     ```sh
-    cloudflared tunnel --url http://127.0.0.1:{{ '<var>WEB_SERVER_PORT</var>' }}
+    cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
     ```
 
 Cloudflare will provide a subdomain (e.g.,
@@ -98,18 +97,18 @@ transport:
 
     endpoint:
       $type: websocket
-      url: wss://{{"<var>"}}DOMAIN{{"</var>"}}/{{"<var>"}}TCP_PATH{{"</var>"}}
+      url: wss://<DOMAIN>/<TCP_PATH>
     cipher: chacha20-ietf-poly1305
-    secret: {{"<var>"}}SHADOWSOCKS_SECRET{{"</var>"}}
+    secret: <SHADOWSOCKS_SECRET>
 
   udp:
     $type: shadowsocks
 
     endpoint:
       $type: websocket
-      url: wss://{{"<var>"}}DOMAIN{{"</var>"}}/{{"<var>"}}UDP_PATH{{"</var>"}}
+      url: wss://<DOMAIN>/<UDP_PATH>
     cipher: chacha20-ietf-poly1305
-    secret: {{"<var>"}}SHADOWSOCKS_SECRET{{"</var>"}}
+    secret: <SHADOWSOCKS_SECRET>
 ```
 
 After generating the dynamic access key YAML file, you need to get it to your
