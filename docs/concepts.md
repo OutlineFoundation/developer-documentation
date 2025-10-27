@@ -14,7 +14,7 @@ the servers, and **end users**, who access the internet through those servers.
 -   **End users** install the **Outline Client** application, paste in the
     **access key** they received, and **connect** to a secure tunnel.
 
-## Access keys {:#access-keys}
+## Access keys
 
 Access keys are the credentials that allow users to connect to an Outline
 server. They contain the necessary information for the Outline Client to

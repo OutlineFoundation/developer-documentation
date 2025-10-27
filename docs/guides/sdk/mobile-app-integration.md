@@ -86,8 +86,8 @@ dynamic strategy selection.
 -   **Static transport configuration**: Use the `RunProxy` function with a local
     address and transport configuration.
 
-    *   {Android}
-
+    #### Android
+    
         ```kotlin
         import mobileproxy.*
 
@@ -101,8 +101,8 @@ dynamic strategy selection.
         proxy.stop()
         ```
 
-    *   {iOS}
-
+    #### iOS
+    
         ```swift
         import Mobileproxy
 
@@ -121,8 +121,8 @@ dynamic strategy selection.
     strategy in YAML format
     ([example](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
-    *   {Android}
-
+    #### Android
+    
         ```kotlin
         val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
         val strategiesConfig = "..."  // Config YAML.
@@ -136,8 +136,8 @@ dynamic strategy selection.
         proxy.stop()
         ```
 
-    *   {iOS}
-
+    #### iOS
+    
         ```swift
         import Mobileproxy
 
@@ -256,8 +256,8 @@ Configure your networking libraries to use the local proxy address and port.
     val client = OkHttpClient.Builder().proxy(proxyConfig).build()
     ```
 
-*   {JVM (Java, Kotlin)}
-
+### JVM (Java, Kotlin)
+    
     Configure the proxy to use with [system
     properties](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html):
 

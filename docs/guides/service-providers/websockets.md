@@ -21,20 +21,20 @@ web:
   servers:
     - id: server1
       listen:
-        - "127.0.0.1:{{"<var>"}}WEB_SERVER_PORT{{"</var>"}}"
+          - "127.0.0.1:<var>WEB_SERVER_PORT</var>"
 
 services:
   - listeners:
       - type: websocket-stream
         web_server: server1
-        path: "/{{"<var>"}}TCP_PATH{{"</var>"}}"
+        path: "/<var>TCP_PATH</var>"
       - type: websocket-packet
         web_server: server1
-        path: "/{{"<var>"}}UDP_PATH{{"</var>"}}"
+        path: "/<var>UDP_PATH</var>"
     keys:
       - id: 1
         cipher: chacha20-ietf-poly1305
-        secret: {{"<var>"}}SHADOWSOCKS_SECRET{{"</var>"}}
+        secret: <var>SHADOWSOCKS_SECRET</var>
 ```
 
 Tip: Keep the `path` secret to avoid probing. It acts as a secret endpoint. A

@@ -21,11 +21,11 @@ next step.
 For installation, you can follow the [official guide](https://go.dev/doc/install);
 or, if you use a package manager:
 
-* {Linux}
+### Linux
 
   Follow the steps in [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-* {Mac}
+### Mac
 
   ```sh
   brew install go

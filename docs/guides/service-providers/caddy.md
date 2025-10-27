@@ -35,11 +35,11 @@ to your server's IP address.
     authoritative lookup:
 
     ```sh
-    curl "https://cloudflare-dns.com/dns-query?name={{"<var>"}}DOMAIN_NAME{{"</var>"}}&type=A" \
+    curl "https://cloudflare-dns.com/dns-query?name=<var>DOMAIN_NAME</var>&type=A" \
       -H "accept: application/dns-json"
     ```
 
-## Step 3: Build and Run a Custom Caddy Build {: #build-and-run}
+## Step 3: Build and Run a Custom Caddy Build
 
 Using `xcaddy`, you can build a custom `caddy` binary that includes the Outline
 core server module and other needed server extension modules.
@@ -66,18 +66,18 @@ apps:
         routes:
           - match:
             - host:
-              - '{{"<var>"}}DOMAIN_NAME{{"</var>"}}'
+              - '<var>DOMAIN_NAME</var>'
             - path:
-              - "/{{"<var>"}}TCP_PATH{{"</var>"}}"
+              - "/<var>TCP_PATH</var>"
             handle:
             - handler: websocket2layer4
               type: stream
               connection_handler: ss1
           - match:
             - host:
-              - '{{"<var>"}}DOMAIN_NAME{{"</var>"}}'
+              - '<var>DOMAIN_NAME</var>'
             - path:
-              - "/{{"<var>"}}UDP_PATH{{"</var>"}}"
+              - "/<var>UDP_PATH</var>"
             handle:
               - handler: websocket2layer4
                 type: packet
@@ -92,7 +92,7 @@ apps:
           keys:
             - id: user-1
               cipher: chacha20-ietf-poly1305
-              secret: {{"<var>"}}SHADOWSOCKS_SECRET{{"</var>"}}
+              secret: <var>SHADOWSOCKS_SECRET</var>
 ```
 
 Important: Keep the `path` secret to avoid probing. It acts as a secret
