@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '95644b1d-ca16-4df3-b658-a2b53a7349ca'}, 'string_id': '4925008635219124492', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Configurer la clé d'accès"
+}

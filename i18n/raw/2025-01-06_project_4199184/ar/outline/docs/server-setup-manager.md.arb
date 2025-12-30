@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '16f40f65-6a52-496f-93ca-5c84af96793f'}, 'string_id': '5016549043304130312', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "تعليمات مفصَّلة",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fe21119d-d0a5-40e6-8e1c-0b8244b9e918'}, 'string_id': '16509802911453266336', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "إعداد خادم Outline"
+}

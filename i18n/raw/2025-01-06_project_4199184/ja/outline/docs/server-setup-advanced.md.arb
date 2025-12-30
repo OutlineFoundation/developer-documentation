@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '45ec1639-5e55-4089-80b8-992fd75ad13f'}, 'string_id': '5016549043304130312', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "手順ガイド",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2e9ad245-ffef-41f7-9d2a-816c5ffcf787'}, 'string_id': '16509802911453266336', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline サーバーを設定する"
+}

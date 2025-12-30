@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '78ce6f56-096e-4769-ba23-d2b584e9f0db'}, 'string_id': '5016549043304130312', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Istruzioni passo passo",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '96619ed7-eda5-4ed7-a679-cbf188cb71f4'}, 'string_id': '521136309318789897', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Risorse aggiuntive",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '86312b57-626e-4670-8265-52f51e8bbc5c'}, 'string_id': '16509802911453266336', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Configurare un server Outline"
+}

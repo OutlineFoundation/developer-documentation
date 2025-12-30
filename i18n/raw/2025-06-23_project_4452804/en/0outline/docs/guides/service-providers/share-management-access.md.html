@@ -1,0 +1,105 @@
+<html devsite=""><head>
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '49d5432e-202c-4d17-adc0-c81a247c4f1d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '735d5bbb-4166-4f00-b002-3c629843d57e'}, 'string_id': '9809964781874779152', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>As your Outline service expands, you might find it necessary to delegate
+management responsibilities to other trusted individuals. This document outlines
+the various methods available for sharing management access with other managers.</p>
+
+<p>The method for sharing management access varies depending on how your Outline
+server was initially deployed.</p>
+
+<h2 data-text="13728169041147034497" id="cloud_provider_deployments" tabindex="-1">Cloud provider deployments</h2>
+
+<p>For Outline servers deployed on cloud platforms such as DigitalOcean, AWS, or
+Google Cloud, management access is typically handled through the provider&#39;s
+integrated identity and access management (IAM) capabilities, offering a more
+secure and controlled approach compared to manual configuration sharing.</p>
+
+<h3 data-text="11998350115201903559" id="digitalocean" tabindex="-1">DigitalOcean</h3>
+
+<p>DigitalOcean provides a robust <strong>Teams</strong> feature that lets you invite other
+DigitalOcean users to collaborate on your projects. This is the recommended way
+to grant management access to your Outline server hosted on their platform.</p>
+
+<h4 data-text="17607204335383283215" id="1_grant_team_access" tabindex="-1">1. Grant team access</h4>
+
+<p>The most effective way to share management of your Outline server hosted on
+DigitalOcean is by utilizing DigitalOcean&#39;s <strong>Teams</strong> feature.</p>
+
+<ul>
+<li>Sign in to your DigitalOcean account.</li>
+<li>Navigate to the <strong>Teams</strong> section.</li>
+<li>Create a new team (if you haven&#39;t already) or invite existing DigitalOcean
+users to your team.</li>
+<li>When inviting members, you can assign them specific roles and grant them
+access to specific resources, including your Droplet(s) running Outline.</li>
+</ul>
+
+<h4 data-text="10945940193545886169" id="2_control_permissions" tabindex="-1">2. Control permissions</h4>
+
+<p>Carefully consider the permissions you grant to team members. For managing the
+Outline server, you might grant them &quot;Read&quot; and &quot;Write&quot; access to the specific
+Droplet. This will allow them to:</p>
+
+<ul>
+<li>View the Droplet&#39;s details (IP address, status, etc.).</li>
+<li>Access the Droplet&#39;s console (if necessary for troubleshooting).</li>
+<li>Potentially perform actions like restarting the Droplet (depending on the
+granted permissions).</li>
+</ul>
+
+<p>Users that connect the Outline Manager to their DigitalOcean account will now be
+able to view and manage all Outline servers linked to that account.</p>
+<aside class="tip"><strong>Tip:</strong><span> Encourage new managers to enable multi-factor authentication (MFA) on their
+cloud provider accounts for enhanced security.</span></aside>
+<h2 data-text="790790574632918007" id="manual_installations" tabindex="-1">Manual installations</h2>
+<aside class="caution"><strong>Caution:</strong><span> Sharing management access to manual installations makes revoking access
+challenging. The most direct method is a full server reinstallation, which
+generates a new configuration but also resets all user access keys.</span></aside>
+<p>For those who have manually installed Outline on their own servers using the
+<a l10n-placeholder3="3">installation script</a>, the primary way to grant
+management access is by sharing the <strong>access config</strong>.</p>
+
+<p>The Outline Manager application needs a specific configuration string to connect
+to and manage an Outline server. This configuration string contains all the
+necessary information, including the server address, port, and a secret key for
+authentication.</p>
+
+<h3 data-text="17272662573092759529" id="1_locate_the_accesstxt_file" tabindex="-1">1. Locate the <code dir="ltr" translate="no">access.txt</code> file</h3>
+
+<p>On the server where Outline is installed, navigate to the Outline directory. The
+exact location might vary slightly depending on your installation method, but
+common locations include:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">/opt/outline/access.txt</code></li>
+<li><code dir="ltr" translate="no">/etc/outline/access.txt</code></li>
+<li>Within the Docker volume used by the Outline server container.</li>
+</ul>
+
+<h3 data-text="6477120201181214791" id="2_retrieve_the_access_config" tabindex="-1">2. Retrieve the access config</h3>
+
+<p>Once you found the <code dir="ltr" translate="no">access.txt</code> file, convert it into JSON, which is the format
+the Outline Manager expects in the next step.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>The output will contain the self-signed certificate fingerprint (<code dir="ltr" translate="no">certSha256</code>)
+and the endpoint of the management API on the server (<code dir="ltr" translate="no">apiUrl</code>):</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code><aside class="special"><strong>Important:</strong><span> This line contains sensitive information. Share it only with trusted
+individuals who need management access.</span></aside>
+<h3 data-text="14920691555231850591" id="3_share_the_access_config_securely" tabindex="-1">3. Share the access config securely</h3>
+
+<p>Copy the output and securely share it with the new Outline Manager. Avoid
+sending it using unencrypted channels like plain email or instant messaging.
+Consider using a password manager&#39;s secure sharing feature or another encrypted
+communication method.</p>
+
+<p>Pasting the provided <strong>access config</strong> into the Outline Manager allows the new
+manager to add and subsequently manage the Outline server through the
+application&#39;s interface. Additional support for using the Outline Manager is
+available in the <a l10n-placeholder4="4">Outline Help Center</a>.</p>
+
+  
+</body></html>

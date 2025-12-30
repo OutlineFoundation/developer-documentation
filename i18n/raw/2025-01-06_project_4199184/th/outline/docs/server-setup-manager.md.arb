@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '58a58fe4-3b98-4a7d-a0af-52aad320afab'}, 'string_id': '5016549043304130312', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "วิธีการทีละขั้นตอน",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7d99e81e-b0a5-4c49-be99-171ec0472c79'}, 'string_id': '16509802911453266336', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "การตั้งค่าเซิร์ฟเวอร์ Outline"
+}

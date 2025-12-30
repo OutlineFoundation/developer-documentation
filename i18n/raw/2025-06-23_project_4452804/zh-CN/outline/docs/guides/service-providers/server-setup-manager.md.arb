@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ff090185-d19c-4763-9e21-48a7f9a747d9'}, 'string_id': '14713100077450840501', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "后续步骤",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3e34de7a-87ba-4476-baab-c2b8b9db8737'}, 'string_id': '6973735686693164871', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用 Outline 管理器进行部署"
+}

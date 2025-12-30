@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '180af7e9-e7af-4cfa-9d59-42d58b3e52bd'}, 'string_id': '3741584843529720981', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline 的運作方式"
+}

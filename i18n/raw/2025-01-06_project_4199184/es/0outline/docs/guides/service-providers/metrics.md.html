@@ -1,0 +1,105 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'abdc10fc-6e6e-4634-b39a-3f00dc0e6945'}, 'string_id': '2283833681218792954', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline ofrece métricas de rendimiento detalladas a través de <a l10n-placeholder2="2">Prometheus</a>, lo que te permite acceder a estadísticas más exhaustivas sobre el uso y el estado de tu servidor. Esta guía explica el proceso de obtener y consultar esas métricas.</p>
+
+<p><strong>Nota importante:</strong> En esta guía se asume que tienes nociones básicas de Prometheus y PromQL. Si nunca has usado Prometheus, te recomendamos consultar su documentación y tutoriales antes de analizar las métricas de Outline.</p>
+
+<h2 data-text="4807615820961821477" id="prerequisites" tabindex="-1">Requisitos previos</h2>
+
+<ul>
+<li><p><strong>Servidor de Outline con Prometheus habilitado:</strong> asegúrate de que tu servidor de Outline tiene habilitadas las métricas de Prometheus (suele ser la configuración predeterminada).</p></li>
+<li><p><strong>Acceso SSH a tu servidor:</strong> necesitarás acceso SSH para redirigir el puerto de Prometheus.</p></li>
+</ul>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Instrucciones</h2>
+
+<ol>
+<li><p><strong>Redirigir el puerto de Prometheus</strong></p>
+
+<p>Conéctate a tu servidor mediante SSH y redirige el puerto 9090:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p><strong>Acceder a la interfaz web de Prometheus</strong></p>
+
+<p>Abre tu navegador web y ve a: <a l10n-placeholder3="3">http://localhost:9090/graph</a>
+Consultar las métricas de Prometheus</p></li>
+<li><p><strong>Usa las consultas de PromQL para obtener las métricas que te interesen.</strong></p></li>
+</ol>
+
+<h3 data-text="6683563352978147389" id="example_promql_queries" tabindex="-1">Ejemplos de consultas de PromQL</h3>
+
+<h4 data-text="4657019715771097711" id="usage" tabindex="-1">Uso</h4>
+
+<ul>
+<li><p><strong>Bytes de datos (por clave de acceso, protocolo y dirección):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_data_bytes[1d])</code></p></li>
+<li><p><strong>Bytes de datos (agregados por clave de acceso):</strong></p>
+
+<p><code dir="ltr" translate="no">sum(increase(shadowsocks_data_bytes[1d])) by (access_key)</code></p></li>
+<li><p><strong>Bytes de datos (para el cálculo de límites de datos):</strong></p>
+
+<p><code dir="ltr" translate="no">sum(increase(shadowsocks_data_bytes{dir=~&quot;c&lt;p|p&gt;t&quot;}[30d])) by (access_key)</code></p></li>
+<li><p><strong>Bytes de datos (por ubicación, protocolo y dirección):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_data_bytes_per_location[1d])</code></p></li>
+</ul>
+
+<h4 data-text="15614318898198878462" id="active_access_keys" tabindex="-1">Claves de acceso activas</h4>
+
+<p><code dir="ltr" translate="no">sum(max(max_over_time(shadowsocks_data_bytes{access_key!=&quot;&quot;} [1h])) by (access_key) &gt; bool 0)</code></p>
+
+<h4 data-text="10291694465361430901" id="tcp_connections" tabindex="-1">Conexiones TCP</h4>
+
+<ul>
+<li><p><strong>Conexiones TCP (por clave de acceso, ubicación y estado):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_tcp_connections_closed[1d])</code></p></li>
+<li><p><strong>Conexiones TCP (por ubicación):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_tcp_connections_opened[1d])</code></p></li>
+</ul>
+
+<h4 data-text="17994417296960730219" id="udp" tabindex="-1">UDP</h4>
+
+<ul>
+<li><p><strong>Paquetes UDP (por ubicación y estado):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_udp_packets_from_client_per_location[1d])</code></p></li>
+<li><p><strong>Asociaciones UDP (sin desglose):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_udp_nat_entries_added[1d])</code></p></li>
+</ul>
+
+<h4 data-text="4957710212888807504" id="performance" tabindex="-1">Rendimiento</h4>
+
+<ul>
+<li><p><strong>Uso de CPU (por proceso):</strong></p>
+
+<p><code dir="ltr" translate="no">rate(process_cpu_seconds_total[10m])</code></p></li>
+<li><p><strong>Memoria (por proceso):</strong></p>
+
+<p><code dir="ltr" translate="no">process_virtual_memory_bytes</code></p></li>
+</ul>
+
+<h4 data-text="14146192432541994297" id="build_information" tabindex="-1">Información de compilación</h4>
+
+<ul>
+<li><p><strong>Prometheus:</strong></p>
+
+<p><code dir="ltr" translate="no">prometheus_build_info</code></p></li>
+<li><p><strong>outline-ss-server:</strong></p>
+
+<p><code dir="ltr" translate="no">shadowsocks_build_info</code></p></li>
+<li><p><strong>Node.js:</strong></p>
+
+<p><code dir="ltr" translate="no">nodejs_version_info</code></p></li>
+</ul>
+
+<p>Puedes consultar la lista completa de las métricas disponibles en el <a l10n-placeholder4="4">código fuente</a> de <code dir="ltr" translate="no">outline-ss-server</code>.</p>
+
+  
+</body></html>

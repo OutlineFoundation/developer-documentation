@@ -1,0 +1,92 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2cf0e91e-e2b8-4956-83c8-a24e24b5c140'}, 'string_id': '11452553123190334191', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>El <strong>marcador inteligente</strong> busca una estrategia que desbloquee DNS y TLS en la lista proporcionada de dominios de prueba. Necesita una configuración que describa varias estrategias entre las que elegir.</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">Configuración de YAML para el marcador inteligente</h2>
+
+<p>El marcador inteligente necesita una configuración en formato YAML. Aquí tienes un ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">Configuración de DNS</h3>
+
+<ul>
+<li>El campo <code dir="ltr" translate="no">dns</code> especifica la lista de resoluciones de DNS que se deben probar.</li>
+<li>Las resoluciones de DNS pueden ser de uno de estos tipos:<ul>
+<li><code dir="ltr" translate="no">system</code>: usa la resolución del sistema. Se especifica con un objeto vacío.</li>
+<li><code dir="ltr" translate="no">https</code>: usa una resolución de DNS‑over‑HTTPS (DoH) cifrada.</li>
+<li><code dir="ltr" translate="no">tls</code>: usa una resolución de DNS a través de TLS cifrada.</li>
+<li><code dir="ltr" translate="no">udp</code>: usa una resolución de UDP.</li>
+<li><code dir="ltr" translate="no">tcp</code>: usa una resolución de TCP.</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">Resolución de DNS‑over‑HTTPS (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: nombre de dominio del servidor de DoH.</li>
+<li><code dir="ltr" translate="no">address</code>: host:puerto del servidor de DoH. El valor predeterminado es <code dir="ltr" translate="no">name</code>:443.</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">Resolución de DNS a través de TLS (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: nombre de dominio del servidor de DoT.</li>
+<li><code dir="ltr" translate="no">address</code>: host:puerto del servidor de DoT. El valor predeterminado es <code dir="ltr" translate="no">name</code>:853.</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">Resolución de UDP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: host:puerto de la resolución de UDP.</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">Resolución de TCP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: host:puerto de la resolución de TCP.</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">Configuración de TLS</h3>
+
+<ul>
+<li>El campo <code dir="ltr" translate="no">tls</code> especifica la lista de transportes TLS que se deben probar.</li>
+<li>Cada transporte TLS es una cadena que especifica qué transporte se debe usar.</li>
+<li>Por ejemplo, <code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> especifica un transporte que usa ocultación de dominios con Cloudflare y fragmentación de TLS. Para obtener más información, consulta la <a l10n-placeholder10="10">documentación sobre la configuración</a>.</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">Configuración de respaldo</h3>
+
+<p>Si ninguna de las estrategias sin proxy logra conectar, se usa una configuración de respaldo. Por ejemplo, se puede especificar que un servidor proxy de copia de seguridad intente establecer la conexión del usuario. El método de respaldo tarda más en iniciarse, ya que antes deben fallar o agotar el tiempo de espera las demás estrategias de DNS o TLS.</p>
+
+<p>Las cadenas de respaldo deben ser lo siguiente:</p>
+
+<ul>
+<li>Una cadena de configuración <code dir="ltr" translate="no">StreamDialer</code> válida, tal como se defina en <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a>.</li>
+<li>Un objeto de configuración de Psiphon válido que sea un elemento secundario de un campo <code dir="ltr" translate="no">psiphon</code>.</li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">Ejemplo de servidor Shadowsocks</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">Ejemplo de servidor SOCKS5</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">Ejemplo de configuración de Psiphon</h4>
+
+<p>Para usar la red <a l10n-placeholder12="12">Psiphon</a>, debes hacer lo siguiente:</p>
+
+<ol>
+<li>Ponerte en contacto con el equipo de Psiphon para obtener una configuración que te dé acceso a su red. Puede que tengas que firmar un contrato.</li>
+<li>Añadir la configuración de Psiphon que recibas a la sección <code dir="ltr" translate="no">fallback</code> de la configuración de tu marcador inteligente. JSON es compatible con YAML, así que puedes copiar y pegar la configuración de Psiphon directamente en la sección <code dir="ltr" translate="no">fallback</code>, como en este ejemplo:</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>Nota:</strong><span> El código base de Psiphon tiene licencia de GPL, que puede imponer restricciones a tu propio código. Plantéate pedirles una licencia especial.</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">Cómo usar el marcador inteligente</h3>
+
+<p>Para usar el marcador inteligente, crea un objeto <code dir="ltr" translate="no">StrategyFinder</code> y llama al método <code dir="ltr" translate="no">NewDialer</code> pasando la lista de dominios de prueba y la configuración de YAML.
+El método <code dir="ltr" translate="no">NewDialer</code> devuelve un objeto <code dir="ltr" translate="no">transport.StreamDialer</code> que sirve para crear conexiones empleando la estrategia encontrada. Por ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>Este es un ejemplo básico que quizá debas adaptar a tu caso práctico específico.</p>
+
+  
+</body></html>

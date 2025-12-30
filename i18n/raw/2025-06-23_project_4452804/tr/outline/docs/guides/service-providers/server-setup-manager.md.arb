@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '20b7e4dd-d0d8-46b6-a03b-39695ddb80e9'}, 'string_id': '6973735686693164871', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline Manager'ı kullanarak dağıtma"
+}

@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '03d9098d-2fb8-4ecb-829a-8165fb7d3f4d'}, 'string_id': '17610956299883319320', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Quando devo usar?",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'deef8688-20b7-48c0-8a66-9d768851e43c'}, 'string_id': '12628245661512439499', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instruções",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ddf199f8-8b61-493e-a79c-070cba2b9d98'}, 'string_id': '13867626750959801949', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Chaves de acesso dinâmicas",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'bf88bcd6-ec1d-47a8-af52-35c68d3181ae'}, 'string_id': '1939603936418792745', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Chaves de acesso estáticas",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'eb9365b4-1ceb-4deb-bdec-bea1c6fb6239'}, 'string_id': '14564037127126080661', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Disfarces de prefixo de conexão"
+}

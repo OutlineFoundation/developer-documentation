@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'df23fc6a-2f8c-4369-bc1b-3b9e7c0b5ddc'}, 'string_id': '12628245661512439499', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Istruzioni",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '441b391e-4e32-4e22-819c-9dc04bd8735b'}, 'string_id': '11461176644196079266', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Crea un server Outline su DigitalOcean",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e1e61290-3411-40dc-adbb-2c2f94f074f7'}, 'string_id': '4069928074011065574', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Crea un nome host per il tuo server",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9061b71a-ffe3-4954-9a39-d408ee065d12'}, 'string_id': '607812462890340981', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Cambia l'indirizzo IP del server",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7bfbc421-9fe0-48cb-bbba-10cca2d099a7'}, 'string_id': '3798279135713745', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Configura un server resistente ai blocchi con IP mobili"
+}

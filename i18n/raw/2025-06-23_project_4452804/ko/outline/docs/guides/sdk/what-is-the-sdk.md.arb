@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e6ab437b-118a-46d1-a570-7bd3e5d26246'}, 'string_id': '17850610955705022423', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline SDK로 할 수 있는 작업",
+  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ef37228b-9138-4ab4-8e11-d5000e171b46'}, 'string_id': '14026997848341032675', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "주요 이점",
+  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4fe78a3f-4d9e-4fbc-8166-da30afb46ca8'}, 'string_id': '3492466098233101230', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "SDK의 정의"
+}

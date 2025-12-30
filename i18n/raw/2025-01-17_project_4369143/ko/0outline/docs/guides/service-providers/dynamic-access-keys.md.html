@@ -1,0 +1,138 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'eb192da1-ff60-4b9d-ac4b-80d723177f76', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '929c3f18-d777-4951-9177-5f639fcb15d5'}, 'string_id': '9197675375058541232', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>버전 1.8.0부터 Outline 클라이언트에서는 동적 액세스 키를 베타 지원합니다. 이전에는 Outline VPN에 액세스하는 데 필요한 정보가 액세스 키 자체에 정적으로 저장되었습니다. 하지만 동적 액세스 키를 사용하면 이 정보를 원격 위치에 호스팅하고 동적으로 업데이트할 수 있습니다.</p>
+
+<p>즉, VPN 위치와 VPN이 호스팅된 포트, VPN에 액세스하는 비밀번호, 사용되는 암호화 방법을 즉시 전환할 수 있으며 이때 모든 클라이언트 사용자에게 액세스 키를 다시 발급하지 않아도 됩니다.</p>
+
+<h2 data-text="8644459730891964801" id="hosting_your_access_information_as_an_ss_link" tabindex="-1">ss:// 링크로 액세스 정보 호스팅하기</h2>
+
+<p>Outline 클라이언트 버전 1.8.1부터 동적 액세스 키 링크에 저장된 액세스 정보는 ss:// 링크일 수 있습니다. 이전에 동적 키는 아래 설명과 같이 JSON 객체만 될 수 있었습니다. 이 솔루션은 서버나 포트, 암호화 방법을 동적으로 변경할 계획은 없지만 연결되는 서버를 즉시 변경할 수 있기를 바라는 사용자에게 적합합니다. ss 키를 JSON 객체로 변환하지 않아도 되고 동적 키를 Google Sheets에 저장할 수 있다는 장점이 있는데 이는 Google Sheets를 사용할 수 있는 장소에서 검열 방지 옵션입니다.</p>
+
+<ul>
+<li><a l10n-placeholder4="4">Google Sheets</a>에 액세스 정보 저장하기
+<ul>
+<li>Google 계정을 만듭니다.</li>
+<li><a l10n-placeholder5="5">https://sheets.new</a>를 통해 새 스프레드시트를 시작합니다.</li>
+<li>A1 셀로 <code dir="ltr" translate="no">ss://</code> 링크를 붙여넣습니다.</li>
+<li>'파일 / 공유 / 웹에 게시'를 선택합니다.</li>
+<li>링크 탭에서 Sheet1과 쉼표로 구분된 값(.csv)을 선택합니다.</li>
+<li>'게시'를 클릭합니다.</li>
+<li>링크가 다음과 같이 표시됩니다. <code dir="ltr" translate="no">https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+<li><code dir="ltr" translate="no">https://</code>를 <code dir="ltr" translate="no">ssconf://</code>로 바꿔 동적 액세스 키를 만듭니다. 그러면 다음과 같이 표시됩니다. <code dir="ltr" translate="no">ssconf://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+</ul></li>
+<li>액세스 정보를 저장하기 위한 기타 검열 방지 옵션은 아래에서 확인할 수 있습니다.</li>
+</ul>
+
+<h2 data-text="16992700024475287942" id="hosting_your_access_information_as_a_json_object" tabindex="-1">JSON 객체로 액세스 정보 호스팅하기</h2>
+
+<p>액세스 정보는 다음 키가 포함된 JSON 객체로도 저장할 수 있습니다.</p>
+
+<ul>
+<li><p><strong>server:</strong> VPN이 호스팅되는 서버의 도메인 또는 IP 주소입니다(큰따옴표로 묶음).</p></li>
+<li><p><strong>server_port:</strong> VPN 서비스가 실행되는 포트입니다.</p>
+
+<p>기본적으로 Outline Manager는 서버에서 실행될 수 있는 다른 작업을 방해하지 않기 위해 임시 포트에 VPN을 호스팅합니다. 가능한 경우 VPN을 표준 포트(예: 443)에 호스팅하세요. 그러면 포트 스캐너에서 쉽게 감지할 수 없습니다.</p></li>
+<li><p><strong>password:</strong> VPN에 들어가는 데 필요한 비밀 문구나 토큰입니다(큰따옴표로 묶음). 말 그대로 비밀번호입니다.</p>
+
+<p>비밀번호는 엔트로피가 높을수록 좋습니다. 비밀번호의 길이가 20자(영문 기준) 이상이면 무차별 대입 방식으로 깨는 것은 평균적으로 불가능하다고 볼 수 있습니다.</p></li>
+<li><p><strong>method:</strong> VPN에서 사용한 암호화 방법입니다(큰따옴표로 묶음). 지원되는 암호화 방법에 관한 자세한 내용은 <a l10n-placeholder6="6">shadowsocks 웹사이트</a>에서 확인할 수 있습니다.</p></li>
+</ul>
+
+<p>JSON 예시:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p><strong>참고: 표준 큰따옴표 문자(")를 사용하고 있는지 확인하세요. 다른 플랫폼에서 종종 사용하는 방식인 기울어진 따옴표(")로 변경할 경우 파싱되지 않으므로, 이러한 스타일의 따옴표는 사용하지 마시기 바랍니다.</strong></p>
+
+<p>현재 차단되지 않는 액세스 정보를 저장할 위치를 선택하는 것은 VPN 관리자의 몫입니다. 다음은 선택할 수 있는 검열 방지 옵션의 예입니다.</p>
+
+<ul>
+<li><p><a l10n-placeholder7="7">pad.riseup.net</a></p>
+
+<ul>
+<li>이 옵션을 선택하면 새 계정을 만들지 않아도 됩니다.</li>
+<li>파일을 만든 후 오른쪽 상단에서 Share(공유) 버튼을 클릭하고 Read only(읽기 전용) 전환 버튼을 사용으로 설정합니다. 링크를 복사합니다. 링크는 다음과 같이 표시됩니다. https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24</li>
+<li>링크 끝에 /export/txt를 추가하면 링크는 다음과 같이 표시됩니다. https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+<li><code dir="ltr" translate="no">https://</code>를 <code dir="ltr" translate="no">ssconf://</code>로 바꿔 동적 액세스 키를 만듭니다. 그러면 다음과 같이 표시됩니다. ssconf://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+</ul></li>
+<li><p><a l10n-placeholder8="8">S3</a>(<a l10n-placeholder9="9">경로 스타일 액세스</a>를 사용해야 함)</p>
+
+<ul>
+<li>AWS 계정을 만들고 새 버킷을 만듭니다.</li>
+<li>버킷 'Permissions'(권한) 설정에서 'Object Ownership'(객체 소유권)에 대해 'ACLs enabled'(ACL 사용 설정) 및 'Bucket owner preferred'(버킷 소유자 선호)를 선택합니다.</li>
+<li>액세스 제어 목록(ACL)에서 'Everyone(public access)'(모두(공개 액세스))에 대한 버킷 ACL에 'Read'(읽기) 액세스 권한을 할당합니다.</li>
+<li>버킷에 JSON 파일을 추가합니다. 텍스트 편집기에서 파일을 만든 다음 <code dir="ltr" translate="no">.json</code> 확장자를 사용하여 저장하세요.</li>
+<li>객체를 선택하고 'Copy URL'(URL 복사)을 선택한 후 시크릿 모드 브라우저 창에서 테스트하여 파일이 표시되는지 확인합니다. URL은 다음과 같이 표시됩니다. https://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+<li>https://를 ssconf://로 바꿔 동적 액세스 키를 만듭니다. 그러면 다음과 같이 표시됩니다. ssconf://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+</ul></li>
+<li><p><a l10n-placeholder10="10">Netlify</a></p></li>
+</ul>
+
+<h2 data-text="8168403626127095668" id="rolling_your_own_dynamic_key_solution" tabindex="-1">자체 동적 키 솔루션 실행</h2>
+
+<p>직접 동적 키를 호스팅하려는 경우 교차 출처 요청('<a l10n-placeholder11="11">CORS</a>'라고도 함)을 사용 설정해야 합니다. 이는 와일드 카드 값(예: '*')을 사용하여 모든 서버 응답에 <a l10n-placeholder12="12">Access-Control-Allow-Origin</a> 헤더를 추가하여 동적 키에 누구나 액세스할 수 있다고 클라이언트에 알리면 됩니다.</p>
+
+<h2 data-text="5930897059554919762" id="getting_your_access_information_from_the_static_access_key" tabindex="-1">정적 액세스 키에서 액세스 정보 가져오기</h2>
+
+<p>시작한 지 얼마 되지 않았고 기존 Outline VPN에 복잡한 맞춤 배포가 아닌 간접성을 한 층 강화하려는 경우 너무 걱정하지 마세요.
+기존 액세스 키에서 액세스 정보를 추출하면 됩니다. 아래 예시는 각각 '서버', '서버 포트', '비밀번호', '방법'에 해당하는 관련 정보를 찾을 수 있는 위치를 보여줍니다.</p>
+
+<p>정적 액세스 키 예시:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1</code></p>
+
+<ol>
+<li><p><strong>서버</strong></p>
+
+<p>'서버' 위치는 '@' 기호와 그다음 ':' 기호 사이의 정적 액세스 키 부분입니다.</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@<strong>outline-server.example.com</strong>:17178/?outline=1</p></li>
+<li><p><strong>서버 포트</strong></p>
+
+<p>'서버 포트' 위치는 두 번째 ':' 기호와 그다음 '/' 기호 사이의 정적 액세스 키 부분입니다.</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:<strong>17178</strong>/?outline=1</p></li>
+<li><p><strong>비밀번호</strong></p>
+
+<p>이 부분부터는 조금 헷갈릴 수 있습니다. 'ss://'와 '@' 기호 사이에 있는 키 부분은 base64 형식으로 인코딩됩니다. 이 부분에 숨겨진 내용은 <a l10n-placeholder13="13">base64 디코더</a>를 사용하여 확인할 수 있습니다.</p>
+
+<p>ss://<strong>Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw</strong>@outline-server.example.com:17178/?outline=1</p>
+
+<p>여기서는 키의 이 부분을 디코딩하면 다음과 같은 결과가 나오며 굵게 표시된 부분(':' 이후)이 '비밀번호'입니다.</p>
+
+<p>chacha20-ietf-poly1305:<strong>5REfxTjltz2L</strong></p></li>
+<li><p><strong>방법</strong></p>
+
+<p>그리고 위에 나온 결과 예시의 ':' 이전 부분이 '방법'입니다.</p>
+
+<p><strong>chacha20-ietf-poly1305</strong>:5REfxTjltz2L</p></li>
+</ol>
+
+<p>동적 액세스 키 예시</p>
+
+<p>따라서 여기에 나온 예시 키의 최종 액세스 정보 JSON은 다음과 같습니다.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5441970926354769528" id="creating_your_dynamic_access_key" tabindex="-1">동적 액세스 키 만들기</h2>
+
+<p>액세스 정보가 저장되는 URL이 있는 경우 <code dir="ltr" translate="no">https://</code> 프로토콜을 <code dir="ltr" translate="no">ssconf://</code> 프로토콜로 바꾸기만 하면 동적 액세스 키를 만들 수 있습니다. 이렇게 하면 Outline 클라이언트에 특정 액세스 키를 처리하는 방법이 전달됩니다.</p>
+
+<p>변경 전(https 프로토콜)
+https://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>변경 후(ssconf 프로토콜을 사용한 동적 액세스 키)
+ssconf://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>그러면 이 키를 Outline 클라이언트에 추가할 수 있습니다.</p>
+
+<h2 data-text="481607094415320096" id="custom_errors" tabindex="-1">맞춤 오류</h2>
+
+<p>클라이언트 v1.13부터 동적 액세스 키를 통해 최종 사용자에게 맞춤 오류 메시지를 전송할 수 있습니다. 이렇게 하려면 JSON에 오류 키를 추가하세요.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>다음번에 최종 사용자가 연결하면 연결이 실패하고 화면 하단에 다음과 같은 오류 메시지가 표시됩니다.</p>
+
+<p><img alt="할당량 초과 알림" src="/static/outline/images/quota-exceeded.png" /></p>
+
+  
+</body></html>

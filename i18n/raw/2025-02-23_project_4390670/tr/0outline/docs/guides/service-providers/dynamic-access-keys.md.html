@@ -1,0 +1,82 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5560b8f6-9959-4192-aada-f2be70ea0061'}, 'string_id': '7370928615664798887', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline iki tür erişim anahtarı sunar: statik ve dinamik. Statik anahtarlar, tüm bağlantı bilgilerini anahtarın içinde kodlar. Dinamik anahtarlar ise bağlantı bilgilerinin konumunu kodlayarak bu bilgileri uzaktan saklamanıza ve gerektiğinde değiştirmenize olanak tanır. Bu sayede, kullanıcılarınıza yeni anahtarlar oluşturmak ve dağıtmak zorunda kalmadan sunucu yapılandırmanızı güncelleyebilirsiniz. Bu belgede, Outline sunucunuzun daha esnek ve verimli yönetimi için dinamik erişim anahtarlarının nasıl kullanılacağı açıklanmıştır.</p>
+
+<p>Dinamik erişim anahtarlarınız tarafından kullanılacak erişim bilgilerini belirtmek için üç biçiminiz vardır:</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1"><code dir="ltr" translate="no">ss://</code> bağlantısı kullanma</h3>
+
+<p><em>Outline istemcisi (1.8.1+ sürümleri)</em></p>
+
+<p>Doğrudan mevcut bir <code dir="ltr" translate="no">ss://</code> bağlantısı kullanabilirsiniz. Sunucuyu, bağlantı noktasını veya şifreleme yöntemini sık sık değiştirmeniz gerekmiyorsa ancak yine de sunucu adresini güncelleme esnekliğine sahip olmak istiyorsanız bu yöntem idealdir.</p>
+
+<p><strong>Örnek:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">JSON nesnesi kullanma</h3>
+
+<p><em>Outline istemcisi (1.8.0+ sürümleri)</em></p>
+
+<p>Bu yöntem, kullanıcılarınızın Outline bağlantısının tüm yönlerini yönetmek için daha fazla esneklik sunar. Sunucu, bağlantı noktası, şifre ve şifreleme yöntemini bu şekilde güncelleyebilirsiniz.</p>
+
+<p><strong>Örnek:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server:</strong> VPN sunucunuzun alanı veya IP adresi</li>
+<li><strong>server_port:</strong> VPN sunucunuzun çalıştığı bağlantı noktası numarası</li>
+<li><strong>password:</strong> VPN'e bağlanmak için gereken şifre</li>
+<li><strong>method:</strong> VPN tarafından kullanılan şifreleme yöntemi (Desteklenen Shadowsocks <a l10n-placeholder5="5">AEAD şifrelerine</a> bakın.)</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">YAML nesnesi kullanma</h3>
+
+<p><em>Outline istemcisi (1.15.0+ sürümleri)</em></p>
+
+<p>Bu yöntem, önceki JSON yöntemine benzer ancak Outline'ın gelişmiş yapılandırma biçiminden yararlanarak daha da fazla esneklik sağlar. Sunucuyu, bağlantı noktasını, şifreyi, şifreleme yöntemini ve çok daha fazlasını güncelleyebilirsiniz.</p>
+
+<p><strong>Örnek:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport:</strong> Kullanılacak araç protokollerini tanımlar (bu durumda TCP ve UDP).</li>
+<li><strong>tcp/udp:</strong> Her protokol için yapılandırmayı belirtir.
+<ul>
+<li><strong>$type:</strong> Yapılandırma türünü belirtir, burada shadowsocks'tur.</li>
+<li><strong>endpoint:</strong> VPN sunucunuzun alan adı veya IP adresi ve bağlantı noktası</li>
+<li><strong>secret:</strong> VPN'e bağlanmak için gereken şifre</li>
+<li><strong>cipher:</strong> VPN tarafından kullanılan şifreleme yöntemi (Desteklenen Shadowsocks <a l10n-placeholder6="6">AEAD şifrelerine</a> bakın.)</li>
+</ul></li>
+</ul>
+
+<p>Araçlar, uç noktalar, çeviriciler ve paket işleyiciler dahil olmak üzere Outline sunucunuza erişimi yapılandırabileceğiniz tüm yöntemler hakkında ayrıntılı bilgi için <a l10n-placeholder7="7">Erişim Anahtarı Yapılandırması</a> bölümüne bakın.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">Statik anahtardan erişim bilgilerini ayıklama</h2>
+
+<p>Mevcut bir statik erişim anahtarınız varsa JSON veya YAML tabanlı bir dinamik erişim anahtarı oluşturmak için bilgileri ayıklayabilirsiniz. Statik erişim anahtarları aşağıdaki şekildedir:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Örnek:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>Sunucu:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>Sunucu bağlantı noktası:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>Kullanıcı bilgisi:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> <a l10n-placeholder9="9">Google Yönetici Araç Kutusu Kodlama/Kod Çözme</a> gibi bir araç kullanılarak <a l10n-placeholder8="8">base64</a> şeklinde kodu çözülür.</p>
+
+<ul>
+<li><strong>Yöntem</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>Şifre</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">Barındırma platformu seçme</h2>
+
+<p>Dinamik erişim anahtarı oluşturmayı öğrendiğinize göre erişim anahtarı yapılandırmanız için uygun bir barındırma platformu seçmeniz önemlidir. Bu kararı verirken platformun güvenilirliği, güvenliği, kullanım kolaylığı ve sansüre dayanıklılığı gibi etmenleri göz önünde bulundurun. Platform, erişim anahtarı bilgilerinizi kesinti olmadan sürekli olarak yayınlayacak mı? Yapılandırmanızı korumak için uygun güvenlik önlemleri sunuyor mu? Platformda erişim anahtarı bilgilerinizi yönetmek ne kadar kolay? Platforma, internet sansürü olan bölgelerden erişilebilir mi?</p>
+
+<p>Bilgiye erişimin kısıtlanabileceği durumlar için <a l10n-placeholder10="10">Google Drive</a>, <a l10n-placeholder11="11">pad.riseup.net</a>, <a l10n-placeholder12="12">Amazon S3</a> (path-style erişimi olan), <a l10n-placeholder13="13">Netlify</a> veya <a l10n-placeholder14="14">GitHub gizli gist'leri</a> gibi sansüre dayanıklı platformlarda barındırma yapabilirsiniz.
+Dağıtımınıza özel ihtiyaçları değerlendirin ve erişilebilirlik ile güvenlik gerekliliklerinize uygun bir platform seçin.</p>
+
+  
+</body></html>

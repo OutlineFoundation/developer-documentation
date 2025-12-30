@@ -1,0 +1,43 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '36f074e4-5948-4fb1-8e73-cd7b2ece89a0'}, 'string_id': '1234691844019891530', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>O Outline usa uma configuração baseada em YAML para definir parâmetros de VPN e gerenciar
+o tráfego TCP/UDP. A configuração oferece suporte à composição em vários níveis,
+permitindo configurações flexíveis e extensíveis.</p>
+
+<p>A configuração de nível superior especifica uma
+<a l10n-placeholder7="7">TunnelConfig</a>.</p>
+
+<h2 data-text="14665129214657206841" id="examples" tabindex="-1">Exemplos</h2>
+
+<p>Uma configuração típica do Shadowsocks será semelhante a esta:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Observe como agora podemos ter TCP e UDP em execução em diferentes portas ou endpoints e
+com diferentes prefixos.</p>
+
+<p>Você pode usar âncoras YAML e a chave de mesclagem <code dir="ltr" translate="no">&lt;&lt;</code> para evitar duplicação:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Agora é possível compor estratégias e fazer vários saltos:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>Em caso de bloqueio de protocolos look-like-nothing como o Shadowsocks, você pode
+usar o Shadowsocks sobre Websockets. Confira o <a l10n-placeholder8="8">exemplo de
+configuração do servidor</a> (em inglês)
+para saber como implantá-lo. Uma configuração de cliente será semelhante a:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Observe que o endpoint do Websocket pode, por sua vez, tomar um endpoint, que pode ser
+aproveitado para ignorar o bloqueio baseado em DNS:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Para garantir a compatibilidade entre diferentes versões do app cliente do Outline, use a
+opção <code dir="ltr" translate="no">first-supported</code> na sua configuração. Isso é particularmente importante
+à medida que novas estratégias e recursos são adicionados ao Outline, porque nem todos os usuários podem ter
+atualizado para o software cliente mais recente. Ao usar o <code dir="ltr" translate="no">first-supported</code>, você pode
+fornecer uma configuração única que funciona em várias plataformas
+e versões de cliente, garantindo compatibilidade com versões anteriores e uma experiência
+de usuário consistente.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+
+  
+</body></html>

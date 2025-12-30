@@ -1,0 +1,10 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9d57e3b9-1073-4328-ad17-a1f23d6ef4e3'}, 'string_id': '8644459730891964801', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "將存取資訊以 ss:// 連結形式託管",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fbb16de4-c4a4-4b6c-98ff-5dd701df2052'}, 'string_id': '16992700024475287942', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "將存取資訊以 JSON 物件形式託管",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a2bcc61f-9bfe-4a3d-82b8-5a62184508c4'}, 'string_id': '8168403626127095668', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "自建動態金鑰解決方案",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f867f10b-8df6-4ff4-b83b-0988ccf04b73'}, 'string_id': '5930897059554919762', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "從靜態存取金鑰取得存取資訊",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f00f2886-5cd5-4021-9bda-36f63b450985'}, 'string_id': '5441970926354769528', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "建立動態存取金鑰",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ee90ab75-304d-4b22-b5e0-03918ae2fa12'}, 'string_id': '481607094415320096', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "自訂錯誤訊息",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '90f69ce2-42a0-4362-8cc2-b1fac74ab8e8'}, 'string_id': '13867626750959801949', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "動態存取金鑰"
+}

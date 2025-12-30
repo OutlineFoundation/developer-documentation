@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6d959b4b-c4aa-4f62-97ce-a31628527e65'}, 'string_id': '14753740374766196622', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ss:// 링크 사용",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2ab4fa8e-b731-4264-8bef-dcdc649586fb'}, 'string_id': '11158397983543878601', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "JSON 객체 사용",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'aa15a28d-ae3f-4fb2-8134-683874525e5d'}, 'string_id': '13953653058714610730', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "YAML 객체 사용",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5045ab2a-774e-45e2-ab9f-dc1add136ab0'}, 'string_id': '8073710844695383258', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "정적 키에서 액세스 정보 추출",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '494f2874-b670-4dac-9a79-6d702f263a3b'}, 'string_id': '7529702666558473090', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "호스팅 플랫폼 선택"
+}

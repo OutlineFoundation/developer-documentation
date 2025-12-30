@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '010a561a-e01f-4a29-981a-a16441f96458'}, 'string_id': '6825331562406542929', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Servicevoorwaarden",
+  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6df022be-574d-4598-addc-d3de9d968062'}, 'string_id': '12990728899913647929', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Productgegevens",
+  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9a66b4f5-41e3-4cc0-85e7-3aeba39175e3'}, 'string_id': '431604438871611837', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "GitHub",
+  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '838aaabf-745a-4aea-97c6-c7d35a5e00b8'}, 'string_id': '15008440364347205577', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Reddit"
+}

@@ -1,0 +1,128 @@
+<html devsite=""><head>
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '11ce5384-efb1-4b52-9010-ec778de61ff2', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8e6ad983-ada2-427f-9eb2-8300948c160e'}, 'string_id': '3525800959540017658', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>This document outlines how to integrate the Outline SDK into your mobile
+applications, focusing on the <code dir="ltr" translate="no">MobileProxy</code> library for simplified local proxy
+management.</p>
+
+<p><code dir="ltr" translate="no">MobileProxy</code> is a Go-based library designed to streamline the integration of
+proxy functionalities into mobile apps. It utilizes <a l10n-placeholder15="15">Go
+Mobile</a> to generate mobile libraries, enabling you
+to configure your app&#39;s networking libraries to route traffic through a local
+proxy.</p>
+
+<p><strong>App without MobileProxy</strong></p>
+
+<p><img alt="Content app without MobileProxy" src="/static/outline/images/mobileproxy-before.png" /></p>
+
+<p><strong>App with MobileProxy</strong></p>
+
+<p><img alt="Content app with MobileProxy" src="/static/outline/images/mobileproxy-after.png" /></p>
+
+<h2 data-text="1718791822104478012" id="step_1_building_mobileproxy_mobile_libraries" tabindex="-1">Step 1: Building MobileProxy mobile libraries</h2>
+
+<p>Use <a l10n-placeholder16="16">gomobile</a> to compile
+the Go code into libraries for Android and iOS.</p>
+<ol>
+<li><p>Clone the Outline SDK repository:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p>Build the Go Mobile binaries with <a l10n-placeholder17="17"><code dir="ltr" translate="no">go
+build</code></a>:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h4 data-text="5204948932184765095" id="adding_psiphon_support" tabindex="-1">Adding Psiphon Support</h4>
+
+<p>You can add support to use the <a l10n-placeholder18="18">Psiphon</a> network by
+following these extra steps:</p>
+
+<ul>
+<li>Contact the Psiphon team to obtain a config that gives you access to
+their network. This may require a contract.</li>
+<li>Add the received Psiphon config to the <code dir="ltr" translate="no">fallback</code> section of your
+<code dir="ltr" translate="no">SmartDialer</code> config.</li>
+<li><p>Build the Mobile Proxy using the <code dir="ltr" translate="no">-tags psiphon</code> flag:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ul>
+
+<p>The <code dir="ltr" translate="no">-tags psiphon</code> flag is required because the Psiphon codebase is
+licensed under the GPL, which can impose license restrictions on your own
+code. You may want to consider obtaining a special license from them.</p></li>
+<li><p>Generate mobile libraries and add them to your project:</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>In Android Studio select <strong>File &gt; Import Project…</strong> to import the generated <code dir="ltr" translate="no">out/mobileproxy.aar</code> bundle. For more help see Go Mobile&#39;s <a l10n-placeholder19="19">Building and deploying to Android</a>.</p></section>
+<section><h3 data-text="6603727412053336878" id="ios" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Drag the <code dir="ltr" translate="no">out/mobileproxy.xcframework</code> bundle to the Xcode project. For
+more help see Go Mobile&#39;s <a l10n-placeholder20="20">Building and deploying to
+iOS</a>.</p></section>
+</div></li>
+</ol>
+<h2 data-text="4024228036659309866" id="step_2_run_the_mobileproxy" tabindex="-1">Step 2: Run the MobileProxy</h2>
+
+<p>Initialize and start the <code dir="ltr" translate="no">MobileProxy</code> local proxy within your app&#39;s runtime.
+You can use either a static transport configuration or the Smart Proxy for
+dynamic strategy selection.</p>
+<ul>
+<li><p><strong>Static transport configuration</strong>: Use the <code dir="ltr" translate="no">RunProxy</code> function with a local
+address and transport configuration.</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_1" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_1" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code></section>
+</div></li>
+<li><p><strong>Smart Proxy</strong>: The Smart Proxy dynamically selects DNS and TLS strategies
+based on specified test domains. You need to specify the configuration
+strategy in YAML format
+(<a l10n-placeholder21="21">example</a>).</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_2" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_2" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code></section>
+</div></li>
+</ul>
+<h2 data-text="13344055017641912209" id="step_3_configure_http_clients_and_networking_libraries" tabindex="-1">Step 3: Configure HTTP clients and networking libraries</h2>
+
+<p>Configure your networking libraries to use the local proxy address and port.</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="300587700062067095" id="dartflutter-httpclient" tabindex="-1">Dart/Flutter HttpClient</h3><p>Set the proxy with
+<a l10n-placeholder22="22"><code dir="ltr" translate="no">HttpClient.findProxy</code></a>.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder10 --></devsite-code></section>
+<section><h3 data-text="13799614901616739506" id="okhttp-android" tabindex="-1">OkHttp (Android)</h3><p>Set the proxy with
+<a l10n-placeholder23="23"><code dir="ltr" translate="no">OkHttpClient.Builder.proxy</code></a>.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder11 --></devsite-code></section>
+<section><h3 data-text="15870589425629705190" id="jvm-java,-kotlin" tabindex="-1">JVM (Java, Kotlin)</h3><p>Configure the proxy to use with <a l10n-placeholder24="24">system
+properties</a>:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder12 --></devsite-code></section>
+<section><h3 data-text="17545990191176204585" id="android-web-view" tabindex="-1">Android Web View</h3><p>Apply a proxy configuration to all the web views in your application with
+the
+<a l10n-placeholder25="25"><code dir="ltr" translate="no">androidx.webview</code></a>
+library:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder13 --></devsite-code></section>
+<section><h3 data-text="7272650420158412024" id="ios-web-view" tabindex="-1">iOS Web View</h3><p></p>
+
+<p>As of iOS 17, you can add a proxy configuration to a <code dir="ltr" translate="no">WKWebView</code> using its
+<a l10n-placeholder26="26"><code dir="ltr" translate="no">WKWebsiteDataStore</code>
+property</a>:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder14 --></devsite-code></section>
+</div>
+<h2 data-text="8443850987242321729" id="advanced_generate_a_custom_mobile_library" tabindex="-1">Advanced: Generate a custom mobile library</h2>
+
+<p>For advanced use cases, you can generate your own mobile libraries:</p>
+
+<ol>
+<li><strong>Create a Go library</strong>: Develop a Go package wrapping the required SDK
+functionalities.</li>
+<li><strong>Generate mobile libraries</strong>: Use <code dir="ltr" translate="no">gomobile bind</code> to produce Android
+Archives (AAR) and Apple Frameworks. Examples:
+<ul>
+<li><a l10n-placeholder27="27">Outline Android Archive</a></li>
+<li><a l10n-placeholder28="28">Outline Apple Framework</a></li>
+</ul></li>
+<li><strong>Integrate into your app</strong>: Add the generated library to your mobile
+application.</li>
+</ol>
+<aside class="note"><strong>Note:</strong><span> Use <code dir="ltr" translate="no">gomobile bind</code> on your custom package, not directly on the SDK
+packages.</span></aside>
+
+  
+</body></html>

@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '47b1f865-1cc8-4e36-afc7-29ea76abc8a3'}, 'string_id': '14665129214657206841', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ตัวอย่าง",
+  "{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd25b75df-f43d-4a90-ad7b-c4db4b2d8e25'}, 'string_id': '4925008635219124492', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "การกำหนดค่าคีย์การเข้าถึง"
+}

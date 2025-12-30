@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e6f85dd1-f86d-475b-a3a3-b65404390cae'}, 'string_id': '17610956299883319320', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Wanneer moet ik dit proberen?",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '79c43ffa-b64c-4cc6-94f1-28e908bb5d2b'}, 'string_id': '12628245661512439499', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instructies",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'dcf8a6aa-30d2-4608-a993-fd657ea9f462'}, 'string_id': '13867626750959801949', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Dynamische toegangssleutels",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ace115af-f23a-4a25-ae90-2626236065c7'}, 'string_id': '1939603936418792745', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Statische toegangssleutels",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c8aac24a-8356-498a-8199-e38b390f64db'}, 'string_id': '14564037127126080661', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Vermommingen van verbindingsvoorvoegsels"
+}

@@ -1,0 +1,139 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fe2cc285-698d-4ca8-b2a9-ab0bde273e3e'}, 'string_id': '11957149958150890303', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Od wersji 1.8.0 w kliencie Outline dostępna jest wersja beta funkcji obsługi dynamicznych kluczy dostępu. Wcześniej dane potrzebne do uzyskania dostępu do usługi VPN Outline były przechowywanie (statycznie) w samym kluczu dostępu. Przy użyciu dynamicznych kluczy dostępu te dane można jednak przechowywać w odległym miejscu oraz dynamicznie je aktualizować.</p>
+
+<p>Dzięki temu możesz szybko zmienić lokalizację usługi VPN, port, na którym jest hostowana, jej hasło dostępu oraz używaną metodę szyfrowania bez konieczności ponownego przekazywania kluczy dostępu wszystkim użytkownikom Twojego klienta.</p>
+
+<h2 data-text="8644459730891964801" id="hosting_your_access_information_as_an_ss_link" tabindex="-1">Hostowanie danych potrzebnych do uzyskania dostępu w postaci linku ss://</h2>
+
+<p>Od wersji 1.8.1 klienta Outline dane dostępowe przechowywane pod linkiem dynamicznego klucza dostępu mogą mieć formę linku ss:// (wcześniej klucz dynamiczny mógł mieć tylko postać opisanego poniżej obiektu JSON). To rozwiązanie jest odpowiednie dla osób nieplanujących dynamicznie zmieniać serwera, portu ani metody szyfrowania, ale potrzebujących możliwości szybkiej zmiany serwera, z którym nawiązywane jest połączenie. Eliminuje ono konieczność zamiany klucza ss na obiekt JSON. Kolejną jego zaletą jest to, że klucz dynamiczny może być przechowywany w Arkuszach Google, co pozwala obejść cenzurę w miejscach, gdzie ten program jest dostępny.</p>
+
+<ul>
+<li>Przechowywanie danych potrzebnych do uzyskania dostępu w <a l10n-placeholder4="4">Arkuszach Google</a><ul>
+<li>Utwórz konto Google.</li>
+<li>Otwórz nowy arkusz kalkulacyjny przy użyciu linku <a l10n-placeholder5="5">https://sheets.new</a>.</li>
+<li>Wklej link <code dir="ltr" translate="no">ss://</code> do komórki A1.</li>
+<li>Wybierz Plik / Udostępnij / Opublikuj w internecie.</li>
+<li>Na karcie Link wybierz Arkusz1 i Wartości rozdzielane przecinkami (.csv).</li>
+<li>Kliknij Opublikuj.</li>
+<li>Link będzie wyglądał mniej więcej tak: <code dir="ltr" translate="no">https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code>.</li>
+<li>Zamień <code dir="ltr" translate="no">https://</code> na <code dir="ltr" translate="no">ssconf://</code>, aby utworzyć dynamiczny klucz dostępu, który będzie wyglądać mniej więcej tak:
+<code dir="ltr" translate="no">ssconf://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+</ul></li>
+<li>Poniżej znajdziesz opis innych opcji pozwalających przechowywać dane dostępowe w sposób pozwalający obejść cenzurę.</li>
+</ul>
+
+<h2 data-text="16992700024475287942" id="hosting_your_access_information_as_a_json_object" tabindex="-1">Hostowanie danych potrzebnych do uzyskania dostępu w postaci obiektu JSON</h2>
+
+<p>Dane dostępowe mogą być również przechowywane w postaci obiektu JSON, który zawiera następujące klucze:</p>
+
+<ul>
+<li><p><strong>server:</strong> domena lub adres IP serwera, na którym hostowana jest usługa VPN, w cudzysłowie.</p></li>
+<li><p><strong>server_port:</strong> port, na którym uruchomiona jest Twoja usługa VPN.</p>
+
+<p>Menedżer Outline domyślnie hostuje usługę VPN na porcie efemerycznym. Pozwala to uniknąć zakłócania innych procesów uruchomionych na serwerze. Rozważ hostowanie usługi VPN na porcie standardowym (takim jak 443), żeby utrudnić jej wykrycie przez skaner portów.</p></li>
+<li><p><strong>password:</strong> tajna fraza lub token wymagany do uzyskania dostępu do usługi VPN, w cudzysłowie. Coś jak "Sezamie, otwórz się!".</p>
+
+<p>Pamiętaj, że im większa jest entropia hasła, tym lepiej. Na siłowe złamanie hasła składającego się z przynajmniej 20 znaków potrzeba średnio więcej czasu, niż wynosi przewidywany łączny czas istnienia wszechświata.</p></li>
+<li><p><strong>method:</strong> metoda szyfrowania używana przez usługę VPN, w cudzysłowie. Więcej informacji o obsługiwanych przez nas metodach znajdziesz na <a l10n-placeholder6="6">stronie internetowej Shadowsocks</a>.</p></li>
+</ul>
+
+<p>Przykładowy obiekt JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p><strong>Uwaga: pamiętaj, żeby używać standardowego znaku cudzysłowu ". Wiele platform zamienia go w pochyłe cudzysłowy -- " -- . Unikaj stosowania tego stylu, ponieważ uniemożliwia on analizę.</strong></p>
+
+<p>Jako osoba zarządzająca siecią VPN musisz teraz wybrać nieobjętą blokadami lokalizację, w której będą przechowywane dane potrzebne do uzyskania dostępu. Oto kilka przykładowych opcji pozwalających obejść cenzurę:</p>
+
+<ul>
+<li><p><a l10n-placeholder7="7">pad.riseup.net</a></p>
+
+<ul>
+<li>Ta opcja nie wymaga utworzenia nowego konta.</li>
+<li>Po utworzeniu pliku kliknij przycisk „Share” (Udostępnij) w prawym górnym rogu i włącz przełącznik „Read only” (Tylko do odczytu). Skopiuj link, który będzie wyglądać mniej więcej tak: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24.</li>
+<li>Dodaj /export/txt na końcu linku, żeby uzyskać link, który wygląda tak: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt.</li>
+<li>Zastąp <code dir="ltr" translate="no">https://</code> prefiksem <code dir="ltr" translate="no">ssconf://</code>, aby utworzyć dynamiczny klucz dostępu, który będzie przypominać ten: ssconf://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt.</li>
+</ul></li>
+<li><p><a l10n-placeholder8="8">S3</a> (pamiętaj o użyciu <a l10n-placeholder9="9">dostępu za pomocą ścieżek</a>)</p>
+
+<ul>
+<li>Utwórz konto AWS i nowy zasobnik.</li>
+<li>W ustawieniach „Permissions” (Uprawnienia) zasobnika w sekcji „Object ownership” (Własność obiektu) wybierz „ACLs enabled” (Listy kontroli dostępu włączone) oraz „Bucket owner preferred” (Preferowany jest właściciel zasobnika).</li>
+<li>Na liście kontroli dostępu (ACL) przypisz dostęp „Read” (Do odczytu) do listy kontroli dostępu zasobnika dla opcji „Everyone (public access)” (Wszyscy – dostęp publiczny).</li>
+<li>Dodaj plik JSON do zasobnika (wskazówka: utwórz go w edytorze tekstu i zapisz go przy użyciu rozszerzenia <code dir="ltr" translate="no">.json</code>).</li>
+<li>Sprawdź, czy plik można wyświetlić. W tym celu wybierz obiekt i „Copy URL” (Skopiuj URL) oraz przetestuj go w oknie incognito przeglądarki. Adres URL powinien przypominać ten: https://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+<li>Zastąp https:// prefiksem ssconf://, żeby utworzyć dynamiczny klucz dostępu, który będzie wyglądać mniej więcej tak:
+ssconf://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+</ul></li>
+<li><p><a l10n-placeholder10="10">Netlify</a></p></li>
+</ul>
+
+<h2 data-text="8168403626127095668" id="rolling_your_own_dynamic_key_solution" tabindex="-1">Tworzenie i wdrażanie obsługi klucza dynamicznego oraz zarządzanie nim</h2>
+
+<p>Jeśli chcesz samodzielnie hostować klucz dynamiczny, pamiętaj o włączeniu żądań z innej domeny (Cross-Origin requests sharing, <a l10n-placeholder11="11">CORS</a>). Możesz to zrobić, dodając nagłówek <a l10n-placeholder12="12">Access-Control-Allow-Origin</a> do wszystkich odpowiedzi serwera z wartością wieloznaczną (np. „*”). Poinformuje to klienta, że wszyscy mogą uzyskać dostęp do klucza dynamicznego.</p>
+
+<h2 data-text="5930897059554919762" id="getting_your_access_information_from_the_static_access_key" tabindex="-1">Otrzymywanie danych potrzebnych do uzyskania dostępu ze statycznego klucza dostępu</h2>
+
+<p>Jeśli dopiero zaczynasz i chcesz zastosować dodatkową warstwę pośredniości w istniejącej usłudze VPN Outline zamiast używania jakiegoś wymyślnego niestandardowego wdrożenia, możesz to zrobić bez obaw.
+Możesz pobrać potrzebne dane z istniejącego klucza dostępu. Przykład poniżej pokazuje, gdzie znajdziesz wszystkie istotne dane: „server”, „server_port”, „password” oraz „method”.</p>
+
+<p>Przykładowy statyczny klucz dostępu:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1</code></p>
+
+<ol>
+<li><p><strong>Server</strong></p>
+
+<p>Lokalizacja „server” stanowi część statycznego klucza dostępu między symbolem „@” a następnym znakiem „:”.</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@<strong>outline-server.example.com</strong>:17178/?outline=1</p></li>
+<li><p><strong>Server Port</strong></p>
+
+<p>Lokalizacja "server_port" stanowi część statycznego klucza dostępu między symbolem „:” a następnym znakiem „/”.</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:<strong>17178</strong>/?outline=1</p></li>
+<li><p><strong>Password</strong></p>
+
+<p>W tym miejscu sytuacja trochę się komplikuje. Część klucza pomiędzy „ss://” a „@” jest zakodowana w formacie base64. Żeby zobaczyć, co ukrywa ta część, możesz użyć <a l10n-placeholder13="13">dekodera base64</a>:</p>
+
+<p>ss://<strong>Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw</strong>@outline-server.example.com:17178/?outline=1</p>
+
+<p>Kiedy zdekodujemy tę część klucza, otrzymamy wynik umieszczony poniżej, gdzie pogrubiona część (po „:”) to „password”:</p>
+
+<p>chacha20-ietf-poly1305:<strong>5REfxTjltz2L</strong></p></li>
+<li><p><strong>Method</strong></p>
+
+<p>Pewnie już się domyślasz, że część wyniku powyżej przed „:” to „method”:</p>
+
+<p><strong>chacha20-ietf-poly1305</strong>:5REfxTjltz2L</p></li>
+</ol>
+
+<p>Przykładowy dynamiczny klucz dostępu</p>
+
+<p>Ostateczny obiekt JSN z danymi potrzebnymi do uzyskania dostępu dla naszego przykładowego klucza będzie wyglądać tak:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5441970926354769528" id="creating_your_dynamic_access_key" tabindex="-1">Tworzenie dynamicznego klucza dostępu</h2>
+
+<p>Kiedy uzyskasz adres URL, pod którym przechowywane są dane dostępowe, to aby utworzyć dynamiczny klucz dostępu, musisz tylko zastąpić protokół <code dir="ltr" translate="no">https://</code> protokołem <code dir="ltr" translate="no">ssconf://</code>. Dzięki temu klient Outline będzie wiedzieć, jak postępować z danym kluczem dostępu.</p>
+
+<p>PRZED (protokół https)
+https://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>PO (dynamiczny klucz dostępu z protokołem ssconf)
+ssconf://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>Ten klucz można następnie dodać do klienta Outline.</p>
+
+<h2 data-text="481607094415320096" id="custom_errors" tabindex="-1">Niestandardowe komunikaty o błędach</h2>
+
+<p>Od wersji 1.13 klienta Outline możesz przy użyciu dynamicznych kluczy dostępu wysyłać do użytkowników niestandardowe komunikaty o błędach. W tym celu dodaj klucz błędu do obiektu JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>Następna próba nawiązania połączenia przez użytkownika nie powiedzie się, a na dole jego ekranu wyświetli się ten komunikat o błędzie:</p>
+
+<p><img alt="Alert o przekroczeniu limitu" src="/static/outline/images/quota-exceeded.png" /></p>
+
+  
+</body></html>

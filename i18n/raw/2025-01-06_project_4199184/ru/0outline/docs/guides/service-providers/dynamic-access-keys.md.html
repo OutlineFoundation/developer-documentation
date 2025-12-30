@@ -1,0 +1,139 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a3c63f11-1d46-408e-a19b-01fc38181254'}, 'string_id': '11957149958150890303', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>В клиенте Outline версии 1.8.0 есть бета-поддержка динамических ключей доступа. Ранее информация, необходимая для подключения к VPN Outline, статично хранилась в самом ключе доступа. Но благодаря динамическим ключам доступа ее можно хранить удаленно и обновлять.</p>
+
+<p>Это значит, что вы можете быстро менять местоположение своей сети VPN, порт, на котором она размещена, пароль для подключения и метод шифрования, не перевыпуская ключи доступа для всех пользователей клиента.</p>
+
+<h2 data-text="8644459730891964801" id="hosting_your_access_information_as_an_ss_link" tabindex="-1">Размещение информации о доступе в качестве ссылки ss://</h2>
+
+<p>В клиенте Outline версии 1.8.1 разместить информацию о доступе, хранящуюся по ссылке динамического ключа доступа, можно в виде ссылки ss://. Ранее динамический ключ представлял собой только объект JSON. Новое решение подойдет вам, если вы не планируете динамически менять сервер, порт или метод шифрования, но хотите иметь возможность быстро менять сервер, с которым установлено подключение. Вам не нужно будет переводить ключ ss в объект JSON, и вы сможете хранить динамический ключ в Google Таблицах, которые защищены от цензуры там, где они доступны.</p>
+
+<ul>
+<li>Хранение информации о доступе в <a l10n-placeholder4="4">Google Таблицах</a>
+<ul>
+<li>Создайте аккаунт Google.</li>
+<li>Создайте новую таблицу, перейдя на страницу <a l10n-placeholder5="5">https://sheets.new</a>.</li>
+<li>Вставьте ссылку <code dir="ltr" translate="no">ss://</code> в ячейку A1.</li>
+<li>Выберите "Файл > Поделиться > Опубликовать в интернете".</li>
+<li>На вкладке "Ссылка" выберите параметры "Лист1" и "Файл CSV".</li>
+<li>Нажмите "Опубликовать".</li>
+<li>Вы получите ссылку следующего вида: <code dir="ltr" translate="no">https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+<li>Замените <code dir="ltr" translate="no">https://</code> на <code dir="ltr" translate="no">ssconf://</code>, чтобы создать динамический ключ доступа, который будет выглядеть следующим образом:
+<code dir="ltr" translate="no">ssconf://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+</ul></li>
+<li>Другие защищенные от цензуры способы хранения информации о доступе перечислены ниже.</li>
+</ul>
+
+<h2 data-text="16992700024475287942" id="hosting_your_access_information_as_a_json_object" tabindex="-1">Размещение информации о доступе в качестве объекта JSON</h2>
+
+<p>Информацию о доступе можно хранить в качестве объекта JSON, который содержит следующие ключи:</p>
+
+<ul>
+<li><p><strong>server:</strong> домен или IP-адрес сервера, на котором размещена ваша сеть VPN, в двойных кавычках.</p></li>
+<li><p><strong>server_port:</strong> порт, на котором запущен ваш сервис VPN.</p>
+
+<p>По умолчанию Менеджер Outline размещает VPN на динамическом порте, чтобы избежать пересечения с другими сервисами, запущенными на сервере. По возможности разместите свою сеть VPN на стандартном порте (например, 443), чтобы ее было сложнее распознать сканеру портов.</p></li>
+<li><p><strong>password:</strong> секретная фраза или токен, необходимый для подключения к VPN, в двойных кавычках, например "Сезам, откройся!".</p>
+
+<p>Чем сложнее пароль, тем он надежнее. Например, чтобы взломать пароль из 20 символов путем перебора всех возможных вариантов, потребуется время равное возрасту вселенной.</p></li>
+<li><p><strong>method:</strong> метод шифрования, используемый в VPN, в двойных кавычках. Подробнее <a l10n-placeholder6="6">о поддерживаемых методах</a>…</p></li>
+</ul>
+
+<p>Пример кода JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p><strong>Примечание. Многие платформы меняют стандартные двойные кавычки (") на наклонные ("), которые не позволяют обработать код. Обязательно проверяйте правильность кавычек.</strong></p>
+
+<p>Как администратор VPN, вы можете выбирать место для хранения информации о доступе, которая не заблокирована. Ниже перечислено несколько вариантов:</p>
+
+<ul>
+<li><p><a l10n-placeholder7="7">pad.riseup.net</a></p>
+
+<ul>
+<li>Этот вариант не требует создания нового аккаунта.</li>
+<li>После создания файла в правом верхнем углу нажмите кнопку "Поделиться" и установите переключатель "Только чтение". Скопируйте ссылку, которая будет выглядеть примерно так: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24</li>
+<li>Добавьте /export/txt в конце ссылки, чтобы получилось так: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+<li>Замените <code dir="ltr" translate="no">https://</code> на <code dir="ltr" translate="no">ssconf://</code>. Будет создан динамический ключ доступа, который будет выглядеть следующим образом: ssconf://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+</ul></li>
+<li><p><a l10n-placeholder8="8">S3</a> (обязательно используйте <a l10n-placeholder9="9">модель адресации path-style</a>)</p>
+
+<ul>
+<li>Создайте аккаунт AWS и новый сегмент.</li>
+<li>В разделе Permissions (Разрешения) настроек сегмента для параметра Object Ownership (Право собственности на объект) выберите ACLs enabled (Списки контроля доступа включены) и Bucket owner preferred (Предпочтителен владелец сегмента).</li>
+<li>В списке контроля доступа к сегменту установите разрешение на чтение (Read) для всех (Everyone (public access)).</li>
+<li>Добавьте файл JSON в сегмент. Вы можете создать его в текстовом редакторе и сохранить с расширением <code dir="ltr" translate="no">.json</code>.</li>
+<li>Проверьте доступность файла. Для этого выберите объект, нажмите Copy URL (Копировать URL) и попробуйте открыть скопированную ссылку в браузере в режиме инкогнито. URL должен выглядеть следующим образом: https://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+<li>Замените https:// на ssconf://. Будет создан динамический ключ доступа, который будет выглядеть следующим образом: ssconf://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+</ul></li>
+<li><p><a l10n-placeholder10="10">Netlify</a></p></li>
+</ul>
+
+<h2 data-text="8168403626127095668" id="rolling_your_own_dynamic_key_solution" tabindex="-1">Внедрение собственного решения для динамических ключей</h2>
+
+<p>В этом случае обязательно включите междоменные запросы (<a l10n-placeholder11="11">CORS</a>). Для этого добавьте во все ответы сервера заголовок <a l10n-placeholder12="12">Access-Control-Allow-Origin</a> с подстановочным знаком (*). Таким образом доступ к динамическому ключу будет разрешен для всех.</p>
+
+<h2 data-text="5930897059554919762" id="getting_your_access_information_from_the_static_access_key" tabindex="-1">Получение информации о доступе из статического ключа</h2>
+
+<p>Если вы просто хотите добавить ещё один вариант обхода для существующей сети VPN Outline, а не настраивать специальное развертывание,
+вы можете извлечь информацию из существующего ключа доступа. В примере ниже показано, где найти необходимые фрагменты информации: server, server_port, password и method.</p>
+
+<p>Пример статического ключа доступа:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1</code></p>
+
+<ol>
+<li><p><strong>Сервер</strong></p>
+
+<p>Фрагмент server, указывающий на сервер, расположен между символом @ и последующим двоеточием (:).</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@<strong>outline-server.example.com</strong>:17178/?outline=1</p></li>
+<li><p><strong>Порт сервера</strong></p>
+
+<p>Фрагмент server_port, указывающий на порт сервера, расположен между вторым двоеточием (:) и последующей косой чертой (/).</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:<strong>17178</strong>/?outline=1</p></li>
+<li><p><strong>Пароль</strong></p>
+
+<p>Здесь всё немного сложнее. Эта часть ключа доступа, расположенная между ss:// и символом @, закодирована в формате Base64. Для ее расшифровки можно использовать <a l10n-placeholder13="13">специальный декодировщик</a>.</p>
+
+<p>ss://<strong>Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw</strong>@outline-server.example.com:17178/?outline=1</p>
+
+<p>В нашем примере после дешифровки этой части ключа получается указанная ниже строка, в которой пароль – это выделенный полужирным шрифтом фрагмент после двоеточия.</p>
+
+<p>chacha20-ietf-poly1305:<strong>5REfxTjltz2L</strong></p></li>
+<li><p><strong>Метод шифрования</strong></p>
+
+<p>Как вы могли догадаться, фрагмент до двоеточия из предыдущего результата дешифровки и есть метод.</p>
+
+<p><strong>chacha20-ietf-poly1305</strong>:5REfxTjltz2L</p></li>
+</ol>
+
+<p>Пример динамического ключа доступа</p>
+
+<p>Объект JSON для нашего примера будет выглядеть следующим образом:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5441970926354769528" id="creating_your_dynamic_access_key" tabindex="-1">Создание динамического ключа доступа</h2>
+
+<p>Если у вас есть URL, в котором хранится информация о доступе, для создания динамического ключа доступа вам нужно просто заменить протокол <code dir="ltr" translate="no">https://</code> на <code dir="ltr" translate="no">ssconf://</code>. Это нужно для того, чтобы клиент Outline правильно обработал этот ключ доступа.</p>
+
+<p>ДО (протокол https)
+https://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>ПОСЛЕ (динамический ключ доступа с протоколом ssconf)
+ssconf://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>Получившийся ключ можно добавить к клиенту Outline.</p>
+
+<h2 data-text="481607094415320096" id="custom_errors" tabindex="-1">Собственные сообщения об ошибках</h2>
+
+<p>В клиенте версии 1.13 вы можете отправлять конечным пользователям собственные сообщения об ошибках с помощью динамических ключей доступа. Для этого вам нужно добавить ключ ошибки в объект JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>Когда пользователь подключится в следующий раз, подключение будет разорвано и в нижней части экрана появится ваше сообщение об ошибке:</p>
+
+<p><img alt="Сообщение о превышении квоты" src="/static/outline/images/quota-exceeded.png" /></p>
+
+  
+</body></html>

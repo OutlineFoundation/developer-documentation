@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3e8633f3-d0c6-4b36-a7a2-b460f17eb7c2'}, 'string_id': '3741584843529720981', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "‫Outline چگونه کار می‌کند",
+  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '79e5d585-8b8e-4610-ac77-4be5a5e02002'}, 'string_id': '11870202262232851900', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مفاهیم"
+}

@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'aed27cd2-fc42-4601-a2f1-5413bf680d96', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f3f1199d-f6ce-4baa-880c-57f2c5faae97'}, 'string_id': '5820574533520724211', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "借助 Outline，创建 VPN 服务器变得轻而易举，从而让每个人都能获享自由、开放的互联网体验。\n"
+}

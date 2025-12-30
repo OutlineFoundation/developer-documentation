@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '033c7e5d-2945-48e6-9d50-d207b852079a'}, 'string_id': '17610956299883319320', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Когда следует применять этот прием",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b63fecba-7e88-4e66-aedc-8fd4db30df9a'}, 'string_id': '12628245661512439499', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Инструкции",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9ea253e2-5b71-4a02-95ef-4e3b0f23af35'}, 'string_id': '13867626750959801949', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Динамические ключи доступа",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4e82a594-b5fa-4156-a525-df1b8e0c8e0a'}, 'string_id': '1939603936418792745', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Статические ключи доступа",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '44ea50fa-2e56-4e85-b366-507af88aa6b5'}, 'string_id': '14564037127126080661', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Маскировка префикса подключения"
+}

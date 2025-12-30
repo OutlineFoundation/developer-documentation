@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '003b8f0c-3884-439c-80a9-d64f5f47770e'}, 'string_id': '6973735686693164871', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline Manager를 사용하여 배포하기"
+}

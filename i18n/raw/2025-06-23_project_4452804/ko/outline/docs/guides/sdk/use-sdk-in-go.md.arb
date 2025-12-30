@@ -1,0 +1,9 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4e92e15a-79d6-440a-a552-223a64c4e16e'}, 'string_id': '16661675211452763894', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "1단계: Go 설정하기",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '394945ab-d909-4635-9b6a-c4222503891d'}, 'string_id': '3023597709538309427', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "2단계: splitfetch 애플리케이션 만들기",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f35b4543-d184-4be9-bc35-be295a85ae0c'}, 'string_id': '17182550796958715326', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "3단계: 애플리케이션에서 Outline SDK 사용하기",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f0387037-e594-4b64-a75f-150dddab1904'}, 'string_id': '7267145364279818799', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "4단계: 애플리케이션 실행하기",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0f2ec9cd-e421-4263-aaed-6dd37ab0e4d1'}, 'string_id': '4853434236971195657', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Linux 및 Mac",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0b97679d-8fd2-46fb-b603-20ced4a621cb'}, 'string_id': '5930303504392201038', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Go 코드에 Outline SDK 추가하기"
+}

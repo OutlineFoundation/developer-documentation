@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'aed27cd2-fc42-4601-a2f1-5413bf680d96', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4881c357-e6c2-4083-9f1e-1bdc423e9911'}, 'string_id': '5820574533520724211', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline ทำให้การสร้างเซิร์ฟเวอร์ VPN เป็นเรื่องง่าย เพื่อให้ทุกคนมีสิทธิ์เข้าถึงอินเทอร์เน็ตสาธารณะฟรีได้"
+}

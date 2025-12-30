@@ -1,0 +1,9 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6910a636-76bd-4533-ab2e-9b53267026ab'}, 'string_id': '3219292919370569962', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مرحله ۱: پیکربندی و اجرای سرور Outline",
+  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8f017c91-96e1-4f2f-91a0-0fb6451a4a7f'}, 'string_id': '13863900454741714233', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مرحله ۲: افشا کردن سرور وب",
+  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '65bec80e-51e9-43b6-9ea3-ef1b6acb5394'}, 'string_id': '3170636391706646543', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "نمونه استفاده از TryCloudflare",
+  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'eaa97351-d19c-41f6-ba7b-2044e1fe8d87'}, 'string_id': '9658797778242291426', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مرحله ۳: ساختن کلید دسترسی پویا",
+  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6c5a380b-e5f7-4911-9d95-43d0645d8d78'}, 'string_id': '2168107751447403705', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مرحله ۴: اتصال با کارخواه Outline",
+  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'adb78d6d-1865-4035-b0e3-9fb83558546d'}, 'string_id': '11548199827800752885', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSockets"
+}

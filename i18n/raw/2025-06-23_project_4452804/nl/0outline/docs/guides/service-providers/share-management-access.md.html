@@ -1,0 +1,72 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '49d5432e-202c-4d17-adc0-c81a247c4f1d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2a60e251-e2e1-4c15-b28f-f8a8b807e643'}, 'string_id': '9809964781874779152', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Als je Outline-service groeit, wil je andere mensen die je vertrouwt misschien beheerverantwoordelijkheden geven. In dit document vind je uitleg over de verschillende methoden waarmee je andere mensen beheertoegang kunt geven.</p>
+
+<p>Hoe je beheertoegang geeft, hangt af van hoe je je Outline-server in eerste instantie hebt geïmplementeerd.</p>
+
+<h2 data-text="13728169041147034497" id="cloud_provider_deployments" tabindex="-1">Implementatie op cloudproviders</h2>
+
+<p>Voor Outline-servers die zijn geïmplementeerd op cloudplatforms zoals DigitalOcean, AWS of Google Cloud geef je beheertoegang meestal via de geïntegreerde functies voor identiteits- en toegangsbeheer (IAM) van de provider. Dit biedt meer beveiliging en controle dan de configuratie handmatig delen.</p>
+
+<h3 data-text="11998350115201903559" id="digitalocean" tabindex="-1">DigitalOcean</h3>
+
+<p>DigitalOcean biedt de krachtige functie <strong>Teams</strong> waarmee je andere DigitalOcean-gebruikers kunt uitnodigen om samen te werken aan je projecten. Dit is de aanbevolen manier om beheertoegang te geven tot je Outline-server als die is gehost op het platform van DigitalOcean.</p>
+
+<h4 data-text="17607204335383283215" id="1_grant_team_access" tabindex="-1">1. Teamtoegang instellen</h4>
+
+<p>De meest effectieve manier om beheertoegang te geven tot je Outline-server als die is gehost op het platform van DigitalOcean is door de functie <strong>Teams</strong> van DigitalOcean te gebruiken.</p>
+
+<ul>
+<li>Log in op je DigitalOcean-account.</li>
+<li>Ga naar het gedeelte <strong>Teams</strong>.</li>
+<li>Maak een nieuw team (als je nog geen team hebt) of nodig bestaande DigitalOcean-gebruikers uit voor je team.</li>
+<li>Als je leden uitnodigt, kun je ze specifieke rollen geven en ze toegang geven tot specifieke resources, inclusief je Droplets die Outline uitvoeren.</li>
+</ul>
+
+<h4 data-text="10945940193545886169" id="2_control_permissions" tabindex="-1">2. Rechten beheren</h4>
+
+<p>Bepaal zorgvuldig welke rechten je teamleden geeft. Voor het beheer van de Outline-server kun je ze lees- en schrijftoegang geven tot de specifieke Droplet. Ze kunnen dan het volgende doen:</p>
+
+<ul>
+<li>De details van de Droplet (IP-adres, status, etc.) bekijken.</li>
+<li>De console van de Droplet openen (indien nodig voor probleemoplossing).</li>
+<li>Eventueel acties uitvoeren zoals het opnieuw opstarten van de Droplet (afhankelijk van de rechten die ze hebben gekregen).</li>
+</ul>
+
+<p>Gebruikers die Outline Manager koppelen aan hun DigitalOcean-account kunnen nu alle Outline-servers die zijn gekoppeld aan dat account bekijken en beheren.</p>
+<aside class="tip"><strong>Tip:</strong><span> Vraag nieuwe beheerders om multifactorauthenticatie (MFA) aan te zetten voor hun account bij de cloudprovider voor meer beveiliging.</span></aside>
+<h2 data-text="790790574632918007" id="manual_installations" tabindex="-1">Handmatige installaties</h2>
+<aside class="caution"><strong>Waarschuwing:</strong><span> Als je beheertoegang tot handmatige installaties geeft, is het moeilijk om die toegang weer in te trekken. De meest directe methode is de server compleet opnieuw installeren. Er wordt dan een nieuwe configuratie gegenereerd, maar alle toegangssleutels van gebruikers worden ook gereset.</span></aside>
+<p>Als je Outline handmatig hebt geïnstalleerd op je eigen server via het <a l10n-placeholder3="3">installatiescript</a>, is de primaire manier om beheertoegang te geven door de <strong>toegangsconfiguratie</strong> te delen.</p>
+
+<p>De Outline Manager-app heeft een specifieke configuratietekenreeks nodig om verbinding te maken met een Outline-server en deze te beheren. Deze configuratietekenreeks bevat alle nodige informatie, inclusief het serveradres, de poort en een geheime sleutel voor verificatie.</p>
+
+<h3 data-text="17272662573092759529" id="1_locate_the_accesstxt_file" tabindex="-1">1. Zoek het <code dir="ltr" translate="no">access.txt</code>-bestand</h3>
+
+<p>Ga op de server waarop Outline is geïnstalleerd naar de Outline-directory. De exacte locatie kan verschillen, afhankelijk van je installatiemethode, maar dit zijn enkele veelgebruikte locaties:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">/opt/outline/access.txt</code></li>
+<li><code dir="ltr" translate="no">/etc/outline/access.txt</code></li>
+<li>In het Docker-volume dat wordt gebruikt door de Outline-servercontainer.</li>
+</ul>
+
+<h3 data-text="6477120201181214791" id="2_retrieve_the_access_config" tabindex="-1">2. Haal de toegangsconfiguratie op</h3>
+
+<p>Nadat je het <code dir="ltr" translate="no">access.txt</code>-bestand hebt gevonden, converteer je het naar json. Dit is de indeling die Outline Manager verwacht in de volgende stap.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>De uitvoer bevat de zelfondertekende vingerafdruk van het certificaat (<code dir="ltr" translate="no">certSha256</code>) en het eindpunt van de beheer-API op de server (<code dir="ltr" translate="no">apiUrl</code>):</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code><aside class="special"><strong>Belangrijk:</strong><span> Deze regel bevat gevoelige informatie. Deel deze alleen met mensen die je vertrouwt en die beheertoegang moeten hebben.</span></aside>
+<h3 data-text="14920691555231850591" id="3_share_the_access_config_securely" tabindex="-1">3. Deel de toegangsconfiguratie op een beveiligde manier</h3>
+
+<p>Kopieer de uitvoer en deel deze beveiligd met de nieuwe Outline-beheerder. Stuur de uitvoer niet via onversleutelde kanalen zoals gewone e-mail of instant messaging.
+We raden je aan de functie voor beveiligd delen van een wachtwoordmanager of een andere versleutelde communicatiemethode te gebruiken.</p>
+
+<p>Als de nieuwe beheerder de ontvangen <strong>toegangsconfiguratie</strong> in Outline Manager plakt, kan deze de Outline-server toevoegen en daarna beheren via de app-interface. Je vindt meer hulp voor het gebruik van Outline Manager in het <a l10n-placeholder4="4">Helpcentrum van Outline</a>.</p>
+
+  
+</body></html>

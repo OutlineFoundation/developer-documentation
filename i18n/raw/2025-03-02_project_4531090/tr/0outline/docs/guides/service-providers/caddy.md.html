@@ -1,0 +1,62 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '79ec3d92-2daf-4576-ba37-0d88e3ba3374', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fa6a4d6a-7d8a-4be8-ae0c-7a5b0d6c30ab'}, 'string_id': '1771782244284931348', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Bu rehberde, güçlü ve kullanıcı dostu <a l10n-placeholder6="6">Caddy</a> web sunucusunu kullanarak Outline sunucu kurulumunuzu nasıl optimize edeceğiniz gösterilmektedir. <a l10n-placeholder7="7">Otomatik HTTPS</a> özellikleri ve esnek yapılandırması sayesinde Caddy, özellikle WebSocket taşıyıcısı kullanılırken Outline sunucunuzu desteklemek için ideal bir seçenektir.</p>
+
+<h2 data-text="355743447653748466" id="what_is_caddy" tabindex="-1">Caddy nedir?</h2>
+
+<p>Caddy; kullanım kolaylığı, otomatik HTTPS ve çeşitli protokolleri desteklemesiyle bilinen açık kaynaklı bir web sunucusudur. Web sunucusu yapılandırmasını basitleştirir ve şu gibi özelliklere sahiptir:</p>
+
+<ul>
+<li><strong>Otomatik HTTPS:</strong> Caddy, TLS sertifikalarını otomatik olarak alıp yenileyerek güvenli bağlantılar sağlar.</li>
+<li><strong>HTTP/3 desteği:</strong> Caddy, daha hızlı ve daha verimli web trafiği için en yeni HTTP/3 protokolünü destekler.</li>
+<li><strong>Eklentilerle genişletilebilirlik:</strong> Caddy, ters proxy ve yük dengeleme gibi çeşitli işlevleri desteklemek için eklentilerle genişletilebilir.</li>
+</ul>
+
+<h2 data-text="8657841238772566975" id="step_1_prerequisites" tabindex="-1">1. adım: Ön koşullar</h2>
+
+<ul>
+<li><a l10n-placeholder8="8"><code dir="ltr" translate="no">xcaddy</code></a>'yi indirip yükleyin.</li>
+</ul>
+
+<h2 data-text="954093604514145141" id="step_2_configure_your_domain" tabindex="-1">2. adım: Alan adınızı yapılandırın</h2>
+
+<p>Caddy'yi başlatmadan önce alan adınızın, sunucunuzun IP adresini gösterecek şekilde doğru yapılandırıldığından emin olun.</p>
+
+<ul>
+<li><strong>A/AAAA kayıtlarını ayarlayın:</strong> DNS sağlayıcınızda oturum açın ve alan adınızın A ile AAAA kayıtlarını sırasıyla sunucunuzun IPv4 ve IPv6 adreslerini gösterecek şekilde ayarlayın.</li>
+<li><p><strong>DNS kayıtlarını doğrulayın:</strong> Yetkili bir aramayla DNS kayıtlarınızın doğru ayarlandığını onaylayın:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+</ul>
+
+<h2 data-text="8552920132448623781" id="build-and-run" tabindex="-1">3. adım: Özel Caddy derlemesi oluşturup çalıştırın</h2>
+
+<p><code dir="ltr" translate="no">xcaddy</code> kullanarak, Outline temel sunucu modülünü ve diğer gerekli sunucu uzantısı modüllerini içeren özel bir <code dir="ltr" translate="no">caddy</code> ikili programı oluşturabilirsiniz.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5300590180445875246" id="step_4_configure_and_run_the_caddy_server_with_outline" tabindex="-1">4. adım: Outline ile Caddy sunucusunu yapılandırıp çalıştırın</h2>
+
+<p>Aşağıdaki yapılandırmayı kullanarak yeni bir <code dir="ltr" translate="no">config.yaml</code> dosyası oluşturun:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code><aside class="special"><strong>Önemli:</strong><span> Durum kontrolünden kaçınmak için <code dir="ltr" translate="no">path</code> gizli anahtarına dokunmayın. Bu anahtar, gizli uç nokta görevi görür. Rastgele oluşturulmuş, uzun bir yol önerilir.</span></aside>
+<p>Bu yapılandırma, bir web sunucusunun <code dir="ltr" translate="no">443</code> bağlantı noktasını dinleyip sırasıyla <var translate="no">TCP_PATH</var> ve <var translate="no">UDP_PATH</var> yollarındaki TCP ve UDP ile sarmalanmış Shadowsocks trafiğini kabul ettiği bir "Shadowsocks-over-WebSockets" stratejisidir.</p>
+
+<p>Oluşturulan yapılandırma kullanılarak Outline ile genişletilmiş Caddy sunucusunu çalıştırın:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code><aside class="note"><strong>Not:</strong><span> Daha okunabilir ve not eklemesi kolay olduğu için örnekte YAML kullanılmıştır. Dilerseniz doğrudan JSON'u da (Caddy'nin yerel yapılandırma dili) kullanabilirsiniz. Bu yapılandırma dilini kullanırsanız <code dir="ltr" translate="no">--adapter yaml</code> işareti olmadan çalıştırabilir ve <a l10n-placeholder9="9">derleme ile çalıştırma</a> adımında YAML bağdaştırıcı bağımlısını kaldırabilirsiniz.</span></aside>
+<p><a l10n-placeholder10="10">outline-ss-server/outlinecaddy GitHub depomuzda</a> daha fazla sayıda örnek yapılandırma bulabilirsiniz.</p>
+
+<h2 data-text="7010145673871148721" id="step_5_create_a_dynamic_access_key" tabindex="-1">5. adım: Dinamik erişim anahtarı oluşturun</h2>
+
+<p><a l10n-placeholder11="11">Gelişmiş yapılandırma</a> biçimini kullanarak kullanıcılarınız için istemci erişim anahtarlarını içeren bir YAML dosyası oluşturun ve sunucu tarafında önceden yapılandırılmış WebSocket uç noktalarını ekleyin:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Dinamik erişim anahtarlarını içeren YAML dosyasını oluşturduktan sonra bu dosyayı kullanıcılarınıza iletmeniz gerekir. Dosyayı statik bir web barındırma hizmetinde barındırabilir veya dinamik olarak oluşturabilirsiniz. <a l10n-placeholder12="12">Dinamik erişim anahtarlarını</a> kullanma hakkında daha fazla bilgi edinin.</p>
+
+<h2 data-text="15445614553436477202" id="step_6_connect_with_the_outline_client" tabindex="-1">6. adım: Outline istemcisine bağlanın</h2>
+
+<p>Resmi <a l10n-placeholder13="13">Outline istemcisi</a> uygulamalarından birini kullanın (1.15.0 ve sonraki sürümler) ve yeni oluşturduğunuz dinamik erişim anahtarını sunucu girişi olarak ekleyin. "Shadowsocks-over-Websocket" yapılandırmasını kullanarak sunucunuza tünel oluşturmak için <strong>Bağlan</strong>'ı tıklayın.</p>
+
+<p>İnternette Outline sunucunuz üzerinden gezinmekte olduğunuzu doğrulamak için <a l10n-placeholder14="14">IPInfo</a> gibi bir araç kullanın.</p>
+
+  
+</body></html>

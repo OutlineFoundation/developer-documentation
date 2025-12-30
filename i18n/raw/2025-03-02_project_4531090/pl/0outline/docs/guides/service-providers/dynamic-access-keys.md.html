@@ -1,0 +1,80 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'ca9add1a-4183-4774-bb18-99de56742c84', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'aef39780-5ec0-497a-8f1c-7f2c6933d277'}, 'string_id': '15596045178784656997', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>W Outline dostępne są 2 rodzaje kluczy dostępu: statyczne i dynamiczne. Klucze statyczne kodują wszystkie informacje dotyczące połączania wewnątrz samego klucza, natomiast klucze dynamiczne kodują lokalizację informacji dotyczących połączenia, dzięki czemu możesz przechowywać je zdalnie i zmieniać, gdy zajdzie taka potrzeba. Oznacza to, że możesz aktualizować konfigurację swojego serwera bez konieczności generowania nowych kluczy i przekazywania ich użytkownikom. Z tego dokumentu dowiesz się, jak korzystać z dynamicznych kluczy dostępu, aby zwiększyć elastyczność i wydajność zarządzania serwerem Outline.</p>
+
+<p>Istnieją 3 sposoby na określenie informacji dostępowych, które będą wykorzystywane przez Twoje dynamiczne klucze dostępu:</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">Korzystanie z linku <code dir="ltr" translate="no">ss://</code></h3>
+
+<p><em>Klient Outline – wersja 1.8.1+.</em></p>
+
+<p>Możesz skorzystać bezpośrednio z istniejącego linku <code dir="ltr" translate="no">ss://</code>. Ta metoda jest optymalna, jeśli nie musisz często zmieniać serwera, portu ani metody szyfrowania, ale mimo to zależy Ci na elastyczności w zakresie aktualizowania adresu serwera.</p>
+
+<p><strong>Przykład:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">Korzystanie z obiektu JSON</h3>
+
+<p><em>Klient Outline – wersja 1.8.0+.</em></p>
+
+<p>Ta metoda zapewnia większą elastyczność w zakresie zarządzania wszystkimi aspektami połączeń Outline użytkowników. Możesz w ten sposób aktualizować serwer, port, hasło i metodę szyfrowania.</p>
+
+<p><strong>Przykład:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server</strong>: domena lub adres IP Twojego serwera VPN;</li>
+<li><strong>server_port</strong>: numer portu, na którym uruchomiony jest Twój serwer VPN;</li>
+<li><strong>password</strong>: hasło wymagane do połączenia z usługą VPN;</li>
+<li><strong>method</strong>: metoda szyfrowania używana przez usługę VPN. Zapoznaj się z <a l10n-placeholder6="6">algorytmami AEAD</a> obsługiwanymi przez Shadowsocks.</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">Korzystanie z obiektu YAML</h3>
+
+<p><em>Klient Outline – wersja 1.15.0+.</em></p>
+
+<p>Te metoda jest podobna do poprzedniej metody JSON, ale zapewnia większą elastyczność dzięki wykorzystaniu zaawansowanego formatu konfiguracji Outline. Możesz aktualizować serwer, port, hasło i metodę szyfrowania oraz wykonywać wiele innych czynności.</p>
+
+<p><strong>Przykład:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport</strong>: definiuje protokoły transportowe, które będą używane (w tym przypadku TCP i UDP);</li>
+<li><strong>tcp/udp</strong>: określa konfigurację dla każdego protokołu;
+<ul>
+<li><strong>$type</strong>: określa rodzaj konfiguracji, w tym przypadku jest to shadowsocks;</li>
+<li><strong>endpoint</strong>: domena lub adres IP i port Twojego serwera VPN;</li>
+<li><strong>secret</strong>: hasło wymagane do połączenie z usługą VPN;</li>
+<li><strong>cipher</strong>: metoda szyfrowania używana przez usługę VPN. Zapoznaj się z <a l10n-placeholder7="7">algorytmami AEAD</a> obsługiwanymi przez Shadowsocks.</li>
+</ul></li>
+</ul>
+
+<p>W <a l10n-placeholder8="8">Konfiguracji klucza dostępu</a> znajdziesz szczegółowe informacje dotyczące wszystkich sposobów konfigurowania dostępu do serwera Outline, w tym o transportach, punktach końcowych, dialerach i odbiorcach pakietów.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">Pobieranie informacji dostępowych z klucza statycznego</h2>
+
+<p>Jeśli masz istniejący statyczny klucz dostępu, możesz pobrać informacje, aby utworzyć dynamiczny klucz dostępu w formacie JSON lub YAML. Statyczne klucze dostępu mają następujący wzór:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Przykład:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><strong>Serwer:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>Port serwera:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>Informacje o użytkowniku:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> dekodowane jako <a l10n-placeholder9="9">base64</a> za pomocą narzędzia, takiego jak <a l10n-placeholder10="10">kodowanie/dekodowanie narzędzi administracyjnych Google</a></p>
+
+<ul>
+<li><strong>Metoda</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>Hasło</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">Wybór platformy hostingowej</h2>
+
+<p>Gdy wiesz już, jak tworzyć dynamiczne klucze dostępu, ważne, aby wybrać odpowiednią platformę hostingową dla swojej konfiguracji klucza dostępu. Przy podejmowaniu decyzji weź pod uwagę czynniki, takie jak niezawodność, bezpieczeństwo, łatwość użycia i odporność na cenzurę platformy. Czy platforma będzie stabilnie wyświetlać informacje o kluczu dostępu bez przestojów? Czy zapewnia odpowiednie środki bezpieczeństwa, aby chronić Twoją konfigurację? Jak łatwe jest zarządzanie informacjami o kluczu dostępu na platformie? Czy platforma jest dostępna w regionach z cenzurą internetu?</p>
+
+<p>W przypadku sytuacji ograniczonego dostępu do informacji zastanów się nad hostingiem na platformach odpornych na cenzurę, takich jak <a l10n-placeholder11="11">Dysk Google</a>, <a l10n-placeholder12="12">pad.riseup.net</a>, <a l10n-placeholder13="13">Amazon S3</a> (z dostępem za pomocą ścieżek), <a l10n-placeholder14="14">Netlify</a> lub <a l10n-placeholder15="15">tajne gisty GitHub</a>.
+Oceń określone potrzeby swojego wdrożenia i wybierz platformę, która spełnia Twoje wymagania dotyczące dostępności i bezpieczeństwa.</p>
+
+  
+</body></html>

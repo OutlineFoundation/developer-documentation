@@ -1,0 +1,200 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '71f34fdd-db60-4037-a30f-798a7370679d'}, 'string_id': '11957149958150890303', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>يتوافق الإصدار 1.8.0 من تطبيق "عميل Outline" مع مفاتيح الوصول
+الديناميكية بشكل تجريبي. سابقًا كانت المعلومات المطلوبة للوصول إلى شبكة VPN الخاصّة بـ Outline
+تُخزَّن (بشكل ثابت) في مفتاح الوصول نفسه. ومن خلال استخدام مفاتيح الوصول الديناميكية،
+يمكنك استضافة هذه المعلومات في موقع بعيد وتحديثها بشكل ديناميكي.</p>
+
+<p>ويعني ذلك أنّه يمكنك سريعًا تبديل موقع شبكة VPN والمنفذ المستضِيف لها
+وكلمة المرور المستخدَمة للوصول إليها، وطريقة التشفير المستخدَمة،
+بدون الحاجة إلى إعادة إنشاء مفاتيح وصول لجميع مستخدمي البرنامج.</p>
+
+<h2 data-text="8644459730891964801" id="hosting_your_access_information_as_an_ss_link" tabindex="-1">استضافة معلومات الوصول كرابط ss://‎</h2>
+
+<p>اعتبارًا من الإصدار 1.8.1 من تطبيق "عميل Outline"، يمكن للمعلومات المخزَّنة في رابط مفتاح الوصول
+الديناميكي أن تكون ببساطة رابط ss://‎. (في السابق، كان لمفتاح الوصول الديناميكي
+أن يكون فقط على شكل عنصر JSON كما وُصِف أدناه.) هذا الحل مناسب لمَن
+لا يريدون تغيير الخادم أو المنفذ أو طريقة التشفير بشكل ديناميكي،
+ويريدون في الوقت نفسه توفُّر إمكانية تغيير الخادم المرتبط
+سريعًا. وبهذا الإجراء، لن يكون إنشاء مفتاح ss على شكل عنصر JSON مطلوبًا، وستُتاح إمكانية
+تخزين مفتاح الوصول الديناميكي في "جداول بيانات Google"،
+وهو خيار مقاوم للرقابة حيث يكون الوصول إلى "جداول بيانات Google" متاحًا.</p>
+
+<ul>
+<li>تخزين معلومات الوصول في <a l10n-placeholder4="4">جداول بيانات Google</a>
+<ul>
+<li>أنشئ حساب Google</li>
+<li>افتح جدول بيانات جديدًا من خلال الرابط <a l10n-placeholder5="5">https://sheets.new</a></li>
+<li>الصَق رابط <code dir="ltr" translate="no">ss://</code> في الخلية A1</li>
+<li>انقر على "ملف" / "مشاركة" / "النشر على الويب"</li>
+<li>في علامة التبويب "ربط"، اختَر Sheet1 ثمّ "قيم مفصولة بفواصل (‎.csv)"</li>
+<li>انقر على "نشر"</li>
+<li>سيكون الرابط شبيهًا بالآتي: <code dir="ltr" translate="no">https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+<li>استبدِل <code dir="ltr" translate="no">https://</code> بـ <code dir="ltr" translate="no">ssconf://</code> لإنشاء مفاتيح وصول ديناميكية تشبه
+الآتي:
+<code dir="ltr" translate="no">ssconf://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+</ul></li>
+<li>يمكنك أدناه الاطّلاع على خيارات أخرى مقاومة للرقابة لتخزين
+معلومات الوصول.</li>
+</ul>
+
+<h2 data-text="16992700024475287942" id="hosting_your_access_information_as_a_json_object" tabindex="-1">استضافة معلومات الوصول كعنصر JSON</h2>
+
+<p>بدلاً ممّا سبق، يمكن تخزين معلومات الوصول كعنصر JSON
+يتضمّن المفاتيح التالية:</p>
+
+<ul>
+<li><p>‫<strong>server:</strong> النطاق أو عنوان IP الخاص بالخادم والذي يستضيف شبكة VPN،
+موضوع بين علامتَي تنصيص</p></li>
+<li><p>‫<strong>server_port:</strong> المنفذ الذي تعمل عليه خدمة شبكة VPN</p>
+
+<p>يستضيف "مدير Outline" تلقائيًا شبكة VPN في منفذ مؤقّت لتجنُّب
+التداخل مع العناصر الأخرى التي قد تكون مشغَّلة على الخادم. ويمكنك
+استضافة شبكة VPN في منفذ عادي (مثل 443)، لكي لا يتم رصدها
+بسهولة من قِبَل أداة فحص المنافذ.</p></li>
+<li><p>‫<strong>password:</strong> عبارة أو رمز مميز مطلوبان لدخول شبكة VPN، موضوعان بين
+علامتَي تنصيص، مثل: "افتح يا سمسم"</p>
+
+<p>من المهم أنّ تكون كلمة المرور عشوائية. كلمات المرور
+المكوَّنة من عشرين حرفًا أو أكثر يستغرق اختراقها باستخدام هجوم القوة العمياء
+وقتًا طويلاً جدًا في المتوسط.</p></li>
+<li><p>‫<strong>method:</strong> طريقة التشفير التي تستخدمها شبكة VPN، موضوعة بين علامتَي تنصيص. ويمكنك
+معرفة المزيد حول طرق التشفير المتوافقة بزيارة
+<a l10n-placeholder6="6">موقع Shadowsocks الإلكتروني</a>.</p></li>
+</ul>
+
+<p>مثال على عناصر JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p><strong>ملاحظة: يُرجى التأكّد من استخدام علامة التنصيص العادية ("). تُغيّر العديد من
+المنصات علامة التنصيص العادية إلى أخرى مائلة مثل (")، لذا يُرجى تجنُّب
+هذا الشكل من علامات التنصيص لأنّه لا يمكن تحليلها.</strong></p>
+
+<p>بصفتك مدير شبكة VPN، يمكنك الآن اختيار
+موقع غير محظور لتخزين معلومات الوصول. وإليك بعض الأمثلة
+على الخيارات المقاومة للرقابة:</p>
+
+<ul>
+<li><p><a l10n-placeholder7="7">pad.riseup.net</a></p>
+
+<ul>
+<li>لا يتطلّب هذا الخيار إنشاء حساب جديد</li>
+<li>بعد إنشاء ملفك، انقر على زر "مشاركة" (Share) في أعلى اليسار ثمّ فعِّل
+مفتاح تبديل "القراءة فقط" (Read only). انسخ الرابط الذي يشبه
+الآتي: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24</li>
+<li>أضِف ‎/export/txt في نهاية الرابط لكي يصبح شكله
+مثل: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+<li>استبدِل <code dir="ltr" translate="no">https://</code> بـ <code dir="ltr" translate="no">ssconf://</code> لإنشاء مفاتيح وصول ديناميكية تشبه
+الآتي: ssconf://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+</ul></li>
+<li><p>‫<a l10n-placeholder8="8">S3</a> (يُرجى التأكّد من استخدام <a l10n-placeholder9="9">إذن وصول نمط المسار</a>)</p>
+
+<ul>
+<li>بعد إنشاء حساب على AWS، أنشئ حزمة جديدة</li>
+<li>في إعدادات حزمة "الأذونات" (Permissions)، لـ "ملكيّة العناصر" (Object Ownership)، اختَر
+"ملفات ACL مُفعَّلة" ‏(ACLs enabled) و"الإدارة غير التلقائية لمالك الحزمة" (Bucket owner preferred)</li>
+<li>في ملفات "قائمة التحكّم بالوصول" (ACL)، اجعل إذن الوصول "القراءة" (Read) لملف ACL الخاص بالحزمة
+"الجميع (إذن وصول علني)" (Everyone (public access))</li>
+<li>أضِف ملف JSON إلى الحزمة (ملاحظة: يُرجى إنشاء الملف في محرِّر نصوص ثمّ
+حفظه بامتداد <code dir="ltr" translate="no">.json</code>)</li>
+<li>تأكَّد من إمكانية عرض الملف عن طريق اختيار العنصر والنقر على
+"نسخ عنوان URL" ‏(Copy URL) ثمّ اختباره في نافذة تصفُّح متخفٍ. ويجب أن يشبه عنوان URL
+الرابط التالي:
+https://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+<li>استبدِل the https://‎ بـ ssconf://‎ لإنشاء مفاتيح وصول ديناميكية
+تشبه الرابط التالي:
+ssconf://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+</ul></li>
+<li><p><a l10n-placeholder10="10">Netlify</a></p></li>
+</ul>
+
+<h2 data-text="8168403626127095668" id="rolling_your_own_dynamic_key_solution" tabindex="-1">إنشاء مفاتيح الوصول الديناميكية وإدارتها</h2>
+
+<p>إذا اخترت استضافة مفتاح الوصول الديناميكي بنفسك، يُرجى التأكّد
+من تفعيل ميزة "الطلبات من مصدر خارجي" (Cross-Origin requests) (والمعروفة أيضًا باسم
+"<a l10n-placeholder11="11">CORS</a>"). ولتنفيذ ذلك،
+أضِف العنوان <a l10n-placeholder12="12">Access-Control-Allow-Origin</a>
+إلى كل استجابات الخادم التي تتضمّن قيمة حرف بدل (مثل "*") لكي يفهم
+البرنامج أنّ مفتاح الوصول الديناميكي متاح للجميع.</p>
+
+<h2 data-text="5930897059554919762" id="getting_your_access_information_from_the_static_access_key" tabindex="-1">الحصول على معلومات الوصول من مفاتيح الوصول الثابتة</h2>
+
+<p>إذا كان الأمر جديدًا بالنسبة إليك وتريد إضافة طبقة إضافية من التخفّي
+لشبكة VPN الخاصّة بك على Outline بدلًا من نشر خادم مخصَّص، لا تقلق فالأمر بسيط.
+يمكنك استخراج معلومات الوصول من مفتاح وصول حالي. يظهر في المثال
+أدناه مكان تواجد كل معلومة من المعلومات ذات الصلة التالية:
+"server" و"server_port" و"password" و"method".</p>
+
+<p>مثال على مفاتيح الوصول الثابتة:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1</code></p>
+
+<ol>
+<li><p><strong>الخادم (Server)</strong></p>
+
+<p>يقع server في مفتاح الوصول الثابت في الجزء ما بين رمز @
+ورمز : الذي يليه</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@<strong>outline-server.example.com</strong>:17178/?outline=1</p></li>
+<li><p><strong>منفذ الخادم (Server Port):</strong></p>
+
+<p>يقع server_port في مفتاح الوصول الثابت في الجزء ما بين
+رمز : الثاني ورمز / الذي يليه</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:<strong>17178</strong>/?outline=1</p></li>
+<li><p><strong>كلمة المرور (Password)</strong></p>
+
+<p>طريقة إيجاد كلمة المرور هنا معقّدة بعض الشيء، وذلك لأنّه يتم ترميز الجزء من المفتاح ما بين
+ss://‎ ورمز @ بصيغة base64. ويمكنك استخدام
+<a l10n-placeholder13="13">أداة فك ترميز base64</a>
+لمعرفة هذا الجزء المخفيّ:</p>
+
+<p>ss://<strong>Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw</strong>@outline-server.example.com:17178/?outline=1</p>
+
+<p>في هذه الحالة، عند فك ترميز هذا الجزء من المفتاح، سنحصل على النتيجة أدناه، حيث يكون
+الجزء الغامق بعد الرمز : هو كلمة المرور:</p>
+
+<p>chacha20-ietf-poly1305:<strong>5REfxTjltz2L</strong></p></li>
+<li><p><strong>طريقة التشفير (Method)</strong></p>
+
+<p>كما توقعت، فإنّ الجزء الواقع قبل رمز :
+في النتيجة السابقة هو مكان كلمة method.</p>
+
+<p><strong>chacha20-ietf-poly1305</strong>:5REfxTjltz2L</p></li>
+</ol>
+
+<p>مثال على مفاتيح الوصول الديناميكية</p>
+
+<p>ذكرنا في السابق أنّ معلومات وصول JSON النهائية لمفتاح الوصول في المثال
+تشبه الآتي:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5441970926354769528" id="creating_your_dynamic_access_key" tabindex="-1">إنشاء مفاتيح الوصول الديناميكية</h2>
+
+<p>عند الحصول على عنوان URL لموقع تخزين معلومات الوصول، ما عليك
+سوى استبدال بروتوكول <code dir="ltr" translate="no">https://</code>ببروتوكول <code dir="ltr" translate="no">ssconf://</code>
+لإنشاء مفاتيح الوصول الديناميكية. وهذا الإجراء يساعد تطبيق "عميل Outline" في التعرّف على كيفية استخدام
+مفتاح الوصول المُحدّد.</p>
+
+<p>قبل الإجراء (بروتوكول HTTPS):
+https://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>بعد الإجراء (مفتاح وصول ديناميكي ببروتوكول ssconf):
+ssconf://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>يمكن إضافة هذا المفتاح بعد ذلك إلى تطبيق "عميل Outline".</p>
+
+<h2 data-text="481607094415320096" id="custom_errors" tabindex="-1">الأخطاء التي يمكن تخصيص رسائلها</h2>
+
+<p>يمكنك الآن في الإصدار 1.13 من تطبيق "عميل Outline" إرسال رسائل خطأ مخصّصة إلى المستخدمِين النهائيين من خلال
+مفاتيح الوصول الديناميكية. ولتنفيذ ذلك، أضِف مفتاح الخطأ إلى عناصر JSON كالتالي:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>عند محاولة المستخدمِين النهائيين الاتصال في المرة القادمة، سيتعذّر ذلك وستظهر لهم
+رسالة الخطأ التالية أسفل الشاشة:</p>
+
+<p><img alt="تنبيه بتجاوز الحد المخصَّص" src="/static/outline/images/quota-exceeded.png" /></p>
+
+  
+</body></html>

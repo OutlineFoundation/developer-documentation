@@ -1,0 +1,29 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '77181daa-af47-468a-9bfd-27a769e5c8ae'}, 'string_id': '1234691844019891530', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline utilizza una configurazione basata su YAML per definire i parametri VPN e gestire il traffico TCP/UDP. La configurazione supporta la componibilità a più livelli, consentendo configurazioni flessibili ed estensibili.</p>
+
+<p>La configurazione di livello superiore specifica un <a l10n-placeholder7="7">TunnelConfig</a>.</p>
+
+<h2 data-text="14665129214657206841" id="examples" tabindex="-1">Esempi</h2>
+
+<p>Una tipica configurazione Shadowsocks sarà simile a questa:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Tieni presente che ora possiamo avere TCP e UDP in esecuzione su porte o endpoint diversi e con prefissi diversi.</p>
+
+<p>Puoi utilizzare anchor YAML e la chiave di unione <code dir="ltr" translate="no">&lt;&lt;</code> per evitare duplicati:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Ora è possibile comporre strategie ed eseguire hop multipli:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>In caso di blocco dei protocolli "look-like-nothing" come Shadowsocks, puoi utilizzare Shadowsocks-over-Websockets. Fai riferimento alla <a l10n-placeholder8="8">configurazione di esempio del server</a> per sapere come eseguirne il deployment. Una configurazione client apparirà così:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Nota che l'endpoint Websocket può, a sua volta, prendere un endpoint, che può essere sfruttato per bypassare il blocco basato su DNS:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Per garantire la compatibilità tra diverse versioni del client Outline, utilizza l'opzione <code dir="ltr" translate="no">first-supported</code> nella tua configurazione. Ciò è particolarmente importante perché vengono aggiunte nuove strategie e funzionalità a Outline, poiché non tutti gli utenti potrebbero aver aggiornato il software client più recente. Utilizzando <code dir="ltr" translate="no">first-supported</code>, puoi fornire una singola configurazione che funziona senza problemi su diverse piattaforme e versioni client, garantendo la compatibilità con le versioni precedenti e un'esperienza utente coerente.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+
+  
+</body></html>

@@ -1,0 +1,34 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0e1810ef-fcdd-421a-a345-63bc8de4e073'}, 'string_id': '6201848709562429957', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>De Outline SDK is gemaakt aan de hand van enkele basisconcepten, beschreven als interoperabele interfaces die makkelijk kunnen worden aangepast en hergebruikt.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Verbindingen</h2>
+
+<p>Verbindingen maken communicatie tussen 2 eindpunten via een abstracte transportmanier mogelijk. Er zijn 2 soorten verbindingen:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: Streamgebaseerde verbinding, zoals TCP en het type Posix-netwerkverbinding <code dir="ltr" translate="no">SOCK_STREAM</code>.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: Datagramgebaseerde verbinding, zoals UDP en het type Posix-netwerkverbinding <code dir="ltr" translate="no">SOCK_DGRAM</code>.
+We gebruiken het woord Packet in plaats van Datagram, omdat dat de conventie is in de standaard Go-bibliotheek.</li>
+</ul>
+
+<p>Je kunt verbindingen verpakken om geneste verbindingen mogelijk te maken via een nieuwe transportmanier.
+Een <code dir="ltr" translate="no">StreamConn</code> kan bijvoorbeeld worden gestuurd over TCP, over TLS over TCP, over HTTP over TLS over TCP of over QUIC.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Dialers</h2>
+
+<p>Dialers zorgen dat er verbinding kan worden gemaakt als je een host:port-adres opgeeft terwijl het onderliggende transport of proxyprotocol wordt ingekapseld.
+De typen <code dir="ltr" translate="no">StreamDialer</code> en <code dir="ltr" translate="no">PacketDialer</code> zorgen respectievelijk voor <code dir="ltr" translate="no">StreamConn</code>- en <code dir="ltr" translate="no">PacketConn</code>-verbindingen als je een adres opgeeft. Je kunt dialers ook nesten.
+Een TLS Stream Dialer kan bijvoorbeeld een TCP Dialer gebruiken om een <code dir="ltr" translate="no">StreamConn</code> te maken die wordt ondersteund door een TCP-verbinding, en dan een TLS <code dir="ltr" translate="no">StreamConn</code> maken die wordt ondersteund door de TCP <code dir="ltr" translate="no">StreamConn</code>. Een SOCKS5-over-TLS Dialer kan de TLS Dialer gebruiken om de TLS <code dir="ltr" translate="no">StreamConn</code> te maken voor de proxy voordat de SOCKS5-verbinding met het doeladres wordt gemaakt.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Resolvers</h2>
+
+<p>Resolvers (<code dir="ltr" translate="no">dns.Resolver</code>) zorgen dat DNS-vragen kunnen worden beantwoord terwijl het onderliggende algoritme of protocol wordt ingekapseld.
+Resolvers worden voornamelijk gebruikt om domeinnamen toe te wijzen aan IP-adressen.</p>
+
+  
+</body></html>

@@ -1,0 +1,10 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd3d67ad3-b601-4481-b8ba-484e9e0948ed'}, 'string_id': '11712707079961707559', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline をダウンロード",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1c4b39e3-ba91-45cc-b781-6900e3ea396c'}, 'string_id': '1456459139838371626', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "データ収集ポリシー",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '98d691f0-28ce-45b0-b138-5ece59f50fdb'}, 'string_id': '17678143428868842904', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Jigsaw について",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a43f3c43-1145-4589-82fd-8b378f3598c6'}, 'string_id': '5373474850364280522', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Jigsaw ブログ",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3874f11d-d9df-4668-81cf-3d8e3c8c8250'}, 'string_id': '7560670162491454367', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "X（旧 Twitter）の @Jigsaw",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8714a4da-a7cd-49b4-a4ce-a9d44d12158d'}, 'string_id': '9449960773181486596', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Jigsaw",
+  "{'source_id': 'a158f7f9-b493-49ed-92a8-ba92ce4c80b6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b13a1ac7-e511-47ef-b4d3-41662d0cbaee'}, 'string_id': '7914285668778184041', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "お問い合わせ"
+}

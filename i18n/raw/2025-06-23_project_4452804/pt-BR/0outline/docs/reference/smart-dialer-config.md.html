@@ -1,0 +1,108 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '05886d04-c11e-4fa2-a31b-e9914725d4b7'}, 'string_id': '11452553123190334191', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>O <strong>Discador Inteligente</strong> procura uma estratégia de desbloqueio de DNS e TLS para uma
+lista de domínios de teste. Ele aceita configurações que descrevem várias estratégias
+opcionais.</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">Configuração do YAML para o Discador Inteligente</h2>
+
+<p>As configurações que o Discador Inteligente aceita devem estar no formato YAML. Veja um exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">Configuração do DNS</h3>
+
+<ul>
+<li>O campo <code dir="ltr" translate="no">dns</code> especifica uma lista de resolvedores de DNS para testar.</li>
+<li>Cada resolvedor de DNS pode ser de um dos seguintes tipos:
+<ul>
+<li><code dir="ltr" translate="no">system</code>: use o resolvedor do sistema. Especifique com um objeto vazio.</li>
+<li><code dir="ltr" translate="no">https</code>: use um resolvedor criptografado de DNS sobre HTTPS (DoH).</li>
+<li><code dir="ltr" translate="no">tls</code>: use um resolvedor criptografado de DNS sobre TLS (DoT).</li>
+<li><code dir="ltr" translate="no">udp</code>: use um resolvedor de UDP.</li>
+<li><code dir="ltr" translate="no">tcp</code>: use um resolvedor de TCP.</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">Resolvedor de DNS sobre HTTPS (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: o nome de domínio do servidor de DoH.</li>
+<li><code dir="ltr" translate="no">address</code>: o host:porta do servidor de DoH. O padrão é <code dir="ltr" translate="no">name</code>:443.</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">Resolvedor de DNS sobre TLS (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: o nome de domínio do servidor de DoT.</li>
+<li><code dir="ltr" translate="no">address</code>: o host:porta do servidor de DoT. O padrão é <code dir="ltr" translate="no">name</code>:853.</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">Resolvedor de UDP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: o host:porta do resolvedor de UDP.</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">Resolvedor de TCP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: o host:porta do resolvedor de TCP.</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">Configuração de TLS</h3>
+
+<ul>
+<li>O campo <code dir="ltr" translate="no">tls</code> especifica uma lista de transportes de TLS para testar.</li>
+<li>Cada transporte de TLS é uma string que especifica o transporte a ser usado.</li>
+<li>Por exemplo, <code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> especifica um transporte
+que usa domain fronting com Cloudflare e fragmentação de TLS. Confira a
+<a l10n-placeholder10="10">documentação de configuração</a>
+(em inglês) para mais detalhes.</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">Configuração alternativa</h3>
+
+<p>Uma configuração alternativa é usada se a conexão não for possível com nenhuma das estratégias
+sem proxy. Por exemplo, ela pode especificar um servidor proxy de backup para tentar conectar
+o usuário. Ao usar uma configuração alternativa, o início será mais lento, já que primeiro as outras
+estratégias de DNS/TLS precisam falhar ou exceder o tempo limite.</p>
+
+<p>As strings alternativas devem ser:</p>
+
+<ul>
+<li>Uma string de configuração <code dir="ltr" translate="no">StreamDialer</code> válida conforme definido em <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a> (em inglês).</li>
+<li>Um objeto de configuração Psiphon como filho de um campo <code dir="ltr" translate="no">psiphon</code>.</li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">Exemplo de servidor do Shadowsocks</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">Exemplo de servidor do SOCKS5</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">Exemplo de configuração do Psiphon</h4>
+
+<p>Para usar a rede <a l10n-placeholder12="12">Psiphon</a>, você vai precisar:</p>
+
+<ol>
+<li>Entrar em contato com a equipe do Psiphon para obter uma configuração que dê acesso à
+rede deles. Isso pode requerer um contrato.</li>
+<li>Adicionar a configuração do Psiphon que você recebeu à seção <code dir="ltr" translate="no">fallback</code> da sua configuração do
+Discador Inteligente. Já que JSON e YAML são compatíveis, você pode copiar e colar
+sua configuração do Psiphon diretamente na seção <code dir="ltr" translate="no">fallback</code>, assim:</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>Observação</strong><span>: a base de código do Psiphon é licenciada sob o GPL, o que pode impor restrições
+de licença ao seu próprio código. Pode ser uma boa ideia adquirir uma licença
+especial com eles.</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">Como usar o Discador Inteligente</h3>
+
+<p>Para usar o Discador Inteligente, crie um objeto <code dir="ltr" translate="no">StrategyFinder</code> e chame o
+método <code dir="ltr" translate="no">NewDialer</code>, transmitindo a lista de domínios de teste e a configuração do YAML.
+O método <code dir="ltr" translate="no">NewDialer</code> vai retornar um <code dir="ltr" translate="no">transport.StreamDialer</code> que pode ser usado
+para criar conexões usando a estratégia encontrada. Por exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>Este é um exemplo básico. Adapte-o ao seu caso de uso específico.</p>
+
+  
+</body></html>

@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '93a043b9-9445-44d7-b761-66a7e78ec1e0'}, 'string_id': '14753740374766196622', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用 ss:// 連結",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '57051018-59da-488f-8cd4-a3e9689436e8'}, 'string_id': '11158397983543878601', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用 JSON 物件",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'bff77fad-4f80-4be6-93d0-869cc86452a5'}, 'string_id': '13953653058714610730', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用 YAML 物件",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '80e73a3a-b5e3-45cc-b13d-f46bc654bacc'}, 'string_id': '8073710844695383258', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "從靜態金鑰擷取存取資訊",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e6473255-51ba-497d-be86-50740b5df587'}, 'string_id': '7529702666558473090', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "選擇託管平台"
+}

@@ -1,0 +1,258 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f674f77a-35b4-4640-8f46-941fa8441ba5', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a86552ee-fa3d-4812-93ac-0cba47f9be4a'}, 'string_id': '12154004287846702215', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="7551542352463182819" id="tunnels" tabindex="-1">الاتصالات النفَقية</h2>
+
+<h3 data-text="5334038409748665214" id="tunnelconfig" tabindex="-1">TunnelConfig</h3>
+
+<p>الاتصال النفَقي هو العنصر الأعلى مستوى في إعدادات Outline؛ وذلك لأنه يحدِّد كيفية
+ضبط شبكة VPN.</p>
+
+<p><strong>التنسيق:</strong> <a l10n-placeholder9="9">ExplicitTunnelConfig</a> |
+‫<a l10n-placeholder10="10">LegacyShadowsocksConfig</a> |
+‫<a l10n-placeholder11="11">LegacyShadowsocksURI</a></p>
+
+<h3 data-text="17567925323603000549" id="explicittunnelconfig" tabindex="-1">ExplicitTunnelConfig</h3>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">transport</code> (<a l10n-placeholder12="12">TransportConfig</a>): بروتوكول نقل البيانات المستخدَم في
+تبادل الحِزم مع الوجهة النهائية</li>
+<li>‫<code dir="ltr" translate="no">error</code> (<em>struct</em>): المعلومات التي تصل المستخدِم في حال حدوث
+خطأ بالخدمة (مثل انتهاء صلاحية المفتاح أو استهلاك الحصة المخصّصة)
+<ul>
+<li>‫<code dir="ltr" translate="no">message</code> (<em>string</em>): رسالة ودية تُعرض للمستخدِم</li>
+<li>‫<code dir="ltr" translate="no">details</code> (<em>string</em>): رسالة تُعرض عندما يفتح المستخدم تفاصيل
+الخطأ، وهي مفيدة في تحديد المشاكل وحلّها</li>
+</ul></li>
+</ul>
+
+<p>يستبعد كلُّ من الحقلَين <code dir="ltr" translate="no">error</code> و<code dir="ltr" translate="no">transport</code> الآخر.</p>
+
+<p>أمثلة ناجحة:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>أمثلة بها أخطاء:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5117449539369487677" id="transports" tabindex="-1">بروتوكولات نقل البيانات</h2>
+
+<h3 data-text="14190027968284396058" id="transportconfig" tabindex="-1">TransportConfig</h3>
+
+<p>تحدِّد كيفية تبادُل الحِزم مع الوجهة النهائية.</p>
+
+<p><strong>التنسيق:</strong> <a l10n-placeholder13="13">Interface</a></p>
+
+<p>أنواع Interface المتوافقة:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcpudp</code>: <a l10n-placeholder14="14">TCPUDPConfig</a></li>
+</ul>
+
+<h3 data-text="12455139361718416191" id="tcpudpconfig" tabindex="-1">TCPUDPConfig</h3>
+
+<p>يمكن استخدام TCPUDPConfig لضبط استراتيجيات منفصلة لمنفذَي TCP وUDP.</p>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">tcp</code> (<a l10n-placeholder15="15">DialerConfig</a>): هو "برنامج اتصال البث" المستخدَم في اتصالات
+TCP.</li>
+<li>‫<code dir="ltr" translate="no">udp</code> (<a l10n-placeholder16="16">PacketListenerConfig</a>): هو "متتبِّع الحِزم"
+المستخدَم في حِزم UDP.</li>
+</ul>
+
+<p>مثال على إرسال حِزم TCP وUDP إلى نقاط نهاية مختلفة:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<h2 data-text="659650101501710648" id="endpoints" tabindex="-1">نقاط النهاية</h2>
+
+<p>تنشئ نقاط النهاية اتصالات تؤدي إلى نقطة نهاية ثابتة. وهذا الخيار مفضَّل على
+"برامج الاتصال"؛ لأنّه يتيح إجراء تحسينات خاصة بنقاط النهاية. وتنقسم نقاط النهاية إلى "نقاط نهاية للبث"
+و"نقاط نهاية للحِزم".</p>
+
+<h3 data-text="11446759888020662416" id="endpointconfig" tabindex="-1">EndpointConfig</h3>
+
+<p><strong>التنسيق:</strong> <em>string</em> | ‏<a l10n-placeholder17="17">Interface</a></p>
+
+<p>نقطة النهاية <em>string</em> هي العنوان من المضيف إلى المنفذ لنقطة النهاية المحدّدة. ويتم إنشاء
+الاتصال باستخدام "برنامج الاتصال" التلقائي.</p>
+
+<p>أنواع Interface المتوافقة مع "نقاط نهاية البث" و"نقاط نهاية الحِزم":</p>
+
+<ul>
+<li><code dir="ltr" translate="no">dial</code>: <a l10n-placeholder18="18">DialEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder19="19">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">websocket</code>: <a l10n-placeholder20="20">WebsocketEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder21="21">ShadowsocksConfig</a></li>
+</ul>
+
+<h3 data-text="11716336102764925006" id="dialendpointconfig" tabindex="-1">DialEndpointConfig</h3>
+
+<p>يستخدم برنامج اتصال يتيح إنشاء الاستراتيجيات للاتصال
+بعنوان ثابت.</p>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">address</code> (<em>string</em>): عنوان نقطة النهاية المستخدَم للاتصال</li>
+<li>‫<code dir="ltr" translate="no">dialer</code> (<a l10n-placeholder22="22">DialerConfig</a>): برنامج الاتصال المستخدَم للاتصال
+بالعنوان</li>
+</ul>
+
+<h3 data-text="17640163708559704415" id="websocketendpointconfig" tabindex="-1">WebsocketEndpointConfig</h3>
+
+<p>تعمل الاتصالات النفَقية على بثّ وتجميع الاتصالات في حِزم وإرسالها إلى نقطة نهاية عبر بروتوكولات Websocket.</p>
+
+<p>لبثّ الاتصالات، يتم تحويل كل نص إلى رسالة Websocket. ولتجميع
+الاتصالات في حِزم، يتم تحويل كل حزمة إلى رسالة Websocket.</p>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">url</code> (<em>string</em>): هو عنوان URL لنقطة نهاية Websocket. ويجب أن يكون المخطَّط
+<code dir="ltr" translate="no">https</code> أو <code dir="ltr" translate="no">wss</code> لاتصال Websocket عبر بروتوكول TLS، و<code dir="ltr" translate="no">http</code> أو <code dir="ltr" translate="no">ws</code> لنص Websocket
+عادي.</li>
+<li>‫<code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder23="23">EndpointConfig</a>): نقطة نهاية خادم الويب التي يتم
+الاتصال بها. وفي حال غيابها، تتصل نقطة النهاية بالعنوان المرتبط بعنوان URL.</li>
+</ul>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">برامج الاتصال</h2>
+
+<p>تنشئ برامج الاتصال اتصالات بعنوان نقطة نهاية معيّنة. وتنقسم برامج الاتصال إلى نوعَين: "برامج اتصال البثّ"
+و"برامج اتصال الحِزم".</p>
+
+<h3 data-text="9627478273327751697" id="dialerconfig" tabindex="-1">DialerConfig</h3>
+
+<p><strong>التنسيق:</strong> <em>null</em> | ‏<a l10n-placeholder24="24">Interface</a></p>
+
+<p>يكون "برنامج الاتصال" التلقائي بتنسيق <em>القيمة الفارغة (null)</em>، ويستخدم اتصالات TCP
+المباشرة في "برامج اتصال البثّ" واتصالات UDP المباشرة في "برامج اتصال الحِزم".</p>
+
+<p>أنواع Interface المتوافقة مع "برامج اتصال البثّ" و"برامج اتصال الحِزم":</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder25="25">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder26="26">ShadowsocksConfig</a></li>
+</ul>
+
+<h2 data-text="2039682242780633119" id="packet_listeners" tabindex="-1">متتبِّعات الحِزم</h2>
+
+<p>يُنشئ "متتبِّع الحِزم" اتصالاً من خلال الحِزم غير المحدودة والذي يمكن أن يُستخدم
+لإرسال حِزم إلى وجهات متعددة.</p>
+
+<h3 data-text="15852079316549004264" id="packetlistenerconfig" tabindex="-1">PacketListenerConfig</h3>
+
+<p><strong>التنسيق:</strong> <em>null</em> | ‏<a l10n-placeholder27="27">Interface</a></p>
+
+<p>يكون "متتبِّع الحِزم" التلقائي بتنسيق <em>القيمة الفارغة (null)</em>، وهو
+"متتبِّع حِزم" خاص ببروتوكول UDP.</p>
+
+<p>أنواع Interface المتوافقة:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder28="28">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder29="29">ShadowsocksPacketListenerConfig</a></li>
+</ul>
+
+<h2 data-text="6016290251325397531" id="strategies" tabindex="-1">الاستراتيجيات</h2>
+
+<h3 data-text="16260889002875646941" id="shadowsocks" tabindex="-1">Shadowsocks</h3>
+
+<h4 data-text="13137755849223030902" id="legacyshadowsocksconfig" tabindex="-1">LegacyShadowsocksConfig</h4>
+
+<p>يمثِّل الإعداد LegacyShadowsocksConfig "اتصالاً نفَقيًا" يستخدم Shadowsocks
+على أنّه بروتوكول نقل البيانات. ويُطبِّق هذا الإعداد التنسيق القديم للتوافق مع الأنظمة القديمة.</p>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">server</code> (<em>string</em>): المضيف الذي يتم الاتصال به</li>
+<li>‫<code dir="ltr" translate="no">server_port</code> (<em>number</em>): رقم المنفذ الذي يتم الاتصال به</li>
+<li>‫<code dir="ltr" translate="no">method</code> (<em>string</em>): <a l10n-placeholder30="30">رمز AEAD
+</a> المستخدَم</li>
+<li>‫<code dir="ltr" translate="no">password</code> (<em>string</em>): يُستخدَم لإنشاء مفتاح التشفير</li>
+<li>‫<code dir="ltr" translate="no">prefix</code> (<em>string</em>): طريقة <a l10n-placeholder31="31">إخفاء
+البادئات</a> المستخدَمة
+وتتوافق مع اتصالات البثّ والحِزم.</li>
+</ul>
+
+<p>مثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<h4 data-text="4781365069853549991" id="legacyshadowsocksuri" tabindex="-1">LegacyShadowsocksURI</h4>
+
+<p>يُمثّل الإعداد LegacyShadowsocksURI "اتصالاً نفَقيًا" يستخدم بروتوكول Shadowsocks
+كنقطة اتصال.
+ويُطبِّق هذا الإعداد تنسيق عنوان URL القديم للتوافق مع الأنظمة القديمة.</p>
+
+<p><strong>التنسيق:</strong> <em>string</em></p>
+
+<p>يُرجى الاطّلاع على <a l10n-placeholder32="32">تنسيق URI لبروتوكول Shadowsocks
+القديم</a> و<a l10n-placeholder33="33">مخطَّط URI رقم
+SIP002</a>، مع العِلم أنّنا لا نوفِّر المكوّنات الإضافية.</p>
+
+<p>مثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<h4 data-text="10756671213903401832" id="shadowsocksconfig" tabindex="-1">ShadowsocksConfig</h4>
+
+<p>يُمثِّل الإعداد ShadowsocksConfig "برامج اتصال البثّ" أو "برامج اتصال الحِزم" وأيضًا "متتبِّع
+الحِزم" الذي يستخدِم Shadowsocks.</p>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder34="34">EndpointConfig</a>): نقطة نهاية Shadowsocks
+التي يتم الاتصال بها</li>
+<li>‫<code dir="ltr" translate="no">cipher</code> (<em>string</em>): <a l10n-placeholder35="35">رمز AEAD
+</a> المستخدَم</li>
+<li>‫<code dir="ltr" translate="no">secret</code> (<em>string</em>): يُستخدَم لإنشاء مفتاح التشفير</li>
+<li>‫<code dir="ltr" translate="no">prefix</code> (<em>string</em>، اختياري): طريقة <a l10n-placeholder36="36">إخفاء
+البادئات</a> المستخدَمة
+وتتوافق مع اتصالات البثّ والحِزم.</li>
+</ul>
+
+<p>مثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h2 data-text="10249180210045793508" id="meta_definitions" tabindex="-1">أنواع الكائن الوصفي</h2>
+
+<h3 data-text="1718163546114050573" id="firstsupportedconfig" tabindex="-1">FirstSupportedConfig</h3>
+
+<p>يستخدم هذا الإعداد أول إعداد متوافق مع التطبيق. وهو طريقة
+تُستخدم لتضمين الإعدادات الجديدة مع مواصلة التوافق مع الإعدادات القديمة.</p>
+
+<p><strong>التنسيق:</strong> <em>struct</em></p>
+
+<p><strong>الحقول:</strong></p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">options</code> (<a l10n-placeholder37="37">EndpointConfig[]</a> |
+‫<a l10n-placeholder38="38">DialerConfig[]</a> |
+‫<a l10n-placeholder39="39">PacketListenerConfig[]</a>): قائمة بالخيارات
+المتاحة</li>
+</ul>
+
+<p>مثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h3 data-text="10701474329256839971" id="interface" tabindex="-1">الواجهة (Interface)</h3>
+
+<p>تُتيح الواجهات اختيار أحد عمليات الاستخدام المتعددة. وتستخدم هذه الواجهات الحقل
+<code dir="ltr" translate="no">$type</code> لتحديد نوع الإعدادات التي تُمثّلها.</p>
+
+<p>مثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code>
+
+  
+</body></html>

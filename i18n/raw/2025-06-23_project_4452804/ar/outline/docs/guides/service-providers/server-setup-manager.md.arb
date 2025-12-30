@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '023089df-2a4c-4a33-acf2-83b6517477e4'}, 'string_id': '14713100077450840501', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "الخطوات التالية",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c3cbf8c7-b450-4dc0-a421-e24ed00d1723'}, 'string_id': '6973735686693164871', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "النشر باستخدام تطبيق \"مدير Outline\""
+}

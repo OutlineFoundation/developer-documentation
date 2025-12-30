@@ -1,0 +1,109 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3f001d4f-4294-44c7-a244-ac475e399a1d'}, 'string_id': '5203438546915857294', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="4874468153219405670" id="introduction" tabindex="-1">Introdução</h2>
+
+<p>Às vezes, servidores do Outline são descobertos e bloqueados
+por redes altamente censuradas. É possível e relativamente fácil recuperar
+um servidor bloqueado se ele tiver sido configurado corretamente. Vamos mostrar como fazer isso usando o DNS, a
+tecnologia de Internet que converte nomes de domínios (como <code dir="ltr" translate="no">getoutline.org</code>) em
+endereços IP físicos (como <code dir="ltr" translate="no">216.239.36.21</code>). Também vamos usar IPs flutuantes, um recurso na nuvem,
+para a atribuição de mais de um endereço IP a um servidor do Outline.</p>
+
+<h2 data-text="13686080004592407858" id="requirements" tabindex="-1">Requisitos</h2>
+
+<p>Para seguir as instruções deste guia, é necessário ter um nível mínimo de habilidades técnicas. Noções
+básicas sobre DNS podem ser úteis, mas não são obrigatórias. Confira a
+introdução no guia <a l10n-placeholder1="1">MDN</a>
+sobre nomes de domínio.</p>
+
+<p>Para vermos um exemplo concreto, vamos usar domínios da DigitalOcean e do Google, mas qualquer
+provedor de nuvem que permita a atribuição de endereços IP (como Google Cloud ou
+<a l10n-placeholder2="2">AWS Lightsail</a>)
+e qualquer registrador de domínio (como
+<a l10n-placeholder3="3">AWS Route 53</a>)
+vai funcionar também.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Instruções</h2>
+
+<ol>
+<li><p>A lista a seguir resume as etapas para fazer a rotação do endereço IP de um servidor:</p></li>
+<li><p>Compre um nome de domínio.</p></li>
+<li><p>Aponte o nome de domínio para o endereço IP do nosso servidor.</p></li>
+<li><p>Gere chaves de acesso usando o nome de domínio.</p></li>
+<li><p>Atribua um IP flutuante ao droplet do servidor.</p></li>
+<li><p>Altere o nome de domínio para apontar para o novo endereço IP.</p></li>
+</ol>
+
+<h2 data-text="11461176644196079266" id="create_an_outline_server_on_digitalocean" tabindex="-1">Criar um servidor do Outline na plataforma DigitalOcean</h2>
+
+<p>Se você já tiver um servidor da DigitalOcean, pule para a próxima etapa.</p>
+
+<ol>
+<li><p>Abra o Outline Manager e clique no botão "+" na parte inferior esquerda da tela para entrar na tela de
+criação do servidor.</p></li>
+<li><p>Clique em "Criar servidor" no botão "DigitalOcean" e siga as instruções
+no app.</p></li>
+</ol>
+
+<p><img alt="Criar servidor" src="/static/outline/images/create-DO-server.png" /></p>
+
+<h2 data-text="4069928074011065574" id="make_a_hostname_for_your_server" tabindex="-1">Definir o nome do host para o servidor</h2>
+
+<!-- TODO: Revamp now that Google Domains is no more. -->
+
+<ol>
+<li><p>Vá para <a l10n-placeholder4="4">Google Domains</a> e
+clique em "Encontre o domínio perfeito".</p></li>
+<li><p>Insira o nome de domínio na barra de pesquisa e escolha um nome. Nós usamos
+<code dir="ltr" translate="no">outlinedemo.info</code> como exemplo.</p></li>
+<li><p>Vá para a guia "DNS" no Google Domains. Em "Registros de recursos personalizados",
+digite o endereço IP do seu servidor no campo indicado como "Endereço IPV4".</p></li>
+<li><p>Vá para a guia "Configurações" do seu servidor no Outline Manager. Em "Nome do host", digite o nome que você comprou e clique em "Salvar". Com isso, todas as futuras chaves de acesso vão usar esse nome do host em vez do endereço IP do servidor.</p></li>
+</ol>
+
+<p><img alt="Definir o nome do host" src="/static/outline/images/set-hostname.png" /></p>
+
+<h2 data-text="607812462890340981" id="change_the_servers_ip_address" tabindex="-1">Mudar o endereço IP do servidor</h2>
+
+<ol>
+<li><p>Vá para seu servidor na página "Droplets" da DigitalOcean.</p></li>
+<li><p>Clique em "Ativar agora" na parte superior direita da janela ao lado de "IP flutuante".</p></li>
+</ol>
+
+<p><img alt="Ativar o IP flutuante" src="/static/outline/images/floating-ip-DO.png" /></p>
+
+<ol>
+<li>Encontre seu servidor na lista de droplets e clique em "Atribuir IP flutuante".</li>
+</ol>
+
+<p><img alt="Atribuir IP flutuante" src="/static/outline/images/assign-floating-ip-DO.png" /></p>
+
+<ol>
+<li><p>Volte para a guia "DNS" no Google Domains.</p></li>
+<li><p>Altere o endereço IP como você já fez, mas dessa vez o substitua pelo endereço IP
+flutuante. A mudança pode demorar 48 horas para entrar em vigor, mas geralmente leva
+poucos minutos.</p></li>
+<li><p>Vá para a <a l10n-placeholder5="5">ferramenta DNS on-line do Google</a>
+e insira seu nome de domínio para ver quando a mudança foi feita na última
+etapa.</p></li>
+</ol>
+
+<p><img alt="Pesquisar o domínio na ferramenta DNS do Google" src="/static/outline/images/google-dns.png" /></p>
+
+<p>Quando essa mudança se propagar, os clientes vão se conectar ao novo endereço IP. Você
+pode se conectar ao seu servidor com uma nova chave e abrir <a l10n-placeholder6="6">https://ipinfo.io</a> para
+confirmar que o novo endereço IP está aparecendo.</p>
+
+<p>Conclusão:
+a rotação de endereços IP de um servidor do Outline é uma forma rápida de desbloquear um servidor
+e restaurar o serviço para os clientes. Se tiver dúvidas, você pode comentar no
+<a l10n-placeholder7="7">post do anúncio</a>, visitar a
+<a l10n-placeholder8="8">página de suporte do Outline</a> ou
+<a l10n-placeholder9="9">entrar em contato direto conosco</a>.</p>
+
+  
+</body></html>

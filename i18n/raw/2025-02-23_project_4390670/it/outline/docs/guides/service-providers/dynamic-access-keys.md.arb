@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'de025894-979b-4147-989c-fa35b983fa91'}, 'string_id': '14753740374766196622', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Utilizza un link ss://",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '59973157-d15c-4049-b18c-53726305d308'}, 'string_id': '11158397983543878601', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Utilizza un oggetto JSON",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '27a318c1-0fc3-45d7-8783-a69f844b464b'}, 'string_id': '13953653058714610730', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Utilizza un oggetto YAML",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a5d29f9e-c575-47d0-b674-85d7bb3b50f0'}, 'string_id': '8073710844695383258', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Estrai le informazioni di accesso da una chiave statica",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8720ccff-4845-4059-be06-a01e928fb18f'}, 'string_id': '7529702666558473090', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Scegli una piattaforma di hosting"
+}

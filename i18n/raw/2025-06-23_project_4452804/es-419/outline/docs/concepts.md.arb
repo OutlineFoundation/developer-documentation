@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'e5e0f819-12dc-49cb-8af2-878c4e7a6993', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a8531bb7-6c14-4296-ba5c-49c92cd4f054'}, 'string_id': '5764561982385948460', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Proveedores de servicios y usuarios finales",
+  "{'source_id': 'e5e0f819-12dc-49cb-8af2-878c4e7a6993', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6bd1bbdd-c3b9-4ff7-88a4-48ea5ee547d6'}, 'string_id': '5213716419800865354', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Claves de acceso"
+}

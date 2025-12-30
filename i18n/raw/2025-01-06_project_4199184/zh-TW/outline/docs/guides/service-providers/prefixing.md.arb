@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '22606b85-bd90-4786-a92f-1c1ecc00bb0f'}, 'string_id': '17610956299883319320', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "何時應嘗試使用 prefix？",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5b29484a-0801-4f69-a2c7-f1fba4b9c8c0'}, 'string_id': '12628245661512439499', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "操作說明",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4ba24a3b-9e4e-4f17-a843-71bbe823c9fe'}, 'string_id': '13867626750959801949', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "動態存取金鑰",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e219ab39-7f97-4305-9fc7-22829d18929b'}, 'string_id': '1939603936418792745', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "靜態存取金鑰",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e4e0eefd-7b8c-4112-9357-34943049ad34'}, 'string_id': '14564037127126080661', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "prefix 偽裝的連線"
+}

@@ -1,0 +1,113 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b03f74c6-54ea-401c-89db-1061a75cf8f6'}, 'string_id': '2283833681218792954', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>‫Outline سنجه‌های عملکرد مشروحی را ازطریق
+<a l10n-placeholder2="2">Prometheus</a> ارائه می‌کند که به شما اجازه می‌دهد اطلاعات آماری عمیق‌تری را درباره
+کاربرد و سلامت سرور خود به‌دست آورید. این راهنما شما را در فرایند
+بازیابی و مشاهده این سنجه‌ها همراهی می‌کند.</p>
+
+<p><strong>نکته مهم:</strong> این راهنما فرض می‌کند شما آشنایی پایه‌ای از
+Prometheus و PromQL دارید. اگر Prometheus برایتان مقوله جدیدی است،
+مستندات و آموزش‌های گام‌به‌گام آن را پیش‌از ورود به موضوع سنجه‌های Outline بخوانید.</p>
+
+<h2 data-text="4807615820961821477" id="prerequisites" tabindex="-1">پیش‌نیازها</h2>
+
+<ul>
+<li><p><strong>سرور Outline فعال‌شده با Prometheus</strong>: مطمئن شوید که سرور Outline شما دارای
+سنجه‌های Prometheus فعال‌شده باشد. (این حالت معمولاً در پیکربندی پیش‌فرض است).</p></li>
+<li><p><strong>دسترسی «پوسته امن» (SSH) به سرور شما</strong>: برای بازارسال کردن درگاه Prometheus،
+به دسترسی «پوسته امن» نیاز خواهید داشت.</p></li>
+</ul>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">دستورالعمل‌ها</h2>
+
+<ol>
+<li><p><strong>بازارسال کردن درگاه Prometheus</strong></p>
+
+<p>اتصال به سرور شما بااستفاده از «پوسته امن» و بازارسال درگاه ۹۰۹۰:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p><strong>دسترسی به میانای وب Prometheus</strong></p>
+
+<p>مرورگر وب خود را باز کنید و به نشانی زیر پیمایش کنید: <a l10n-placeholder3="3">http://localhost:9090/graph</a>
+پُرسمان سنجه‌های Prometheus</p></li>
+<li><p><strong>از پُرسمان‌های PromQL استفاده کنید تا سنجه‌های خاصی را که می‌خواهید بازیابی کنید.</strong></p></li>
+</ol>
+
+<h3 data-text="6683563352978147389" id="example_promql_queries" tabindex="-1">نمونه پُرسمان‌های PromQL</h3>
+
+<h4 data-text="4657019715771097711" id="usage" tabindex="-1">کاربرد</h4>
+
+<ul>
+<li><p><strong>بایت‌های داده (براساس کلید دسترسی، پروتکل، و مسیر):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_data_bytes[1d])</code></p></li>
+<li><p><strong>بایت‌های داده (تجمیع‌شده با کلید دسترسی):</strong></p>
+
+<p><code dir="ltr" translate="no">sum(increase(shadowsocks_data_bytes[1d])) by (access_key)</code></p></li>
+<li><p><strong>بایت‌های داده (برای محاسبه محدودیت‌های داده):</strong></p>
+
+<p><code dir="ltr" translate="no">sum(increase(shadowsocks_data_bytes{dir=~&quot;c&lt;p|p&gt;t&quot;}[30d])) by (access_key)</code></p></li>
+<li><p><strong>بایت‌های داده (براساس مکان، پروتکل، و مسیر):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_data_bytes_per_location[1d])</code></p></li>
+</ul>
+
+<h4 data-text="15614318898198878462" id="active_access_keys" tabindex="-1">کلیدهای دسترسی فعال</h4>
+
+<p><code dir="ltr" translate="no">sum(max(max_over_time(shadowsocks_data_bytes{access_key!=&quot;&quot;} [1h])) by (access_key) &gt; bool 0)</code></p>
+
+<h4 data-text="10291694465361430901" id="tcp_connections" tabindex="-1">اتصال‌های TCP</h4>
+
+<ul>
+<li><p><strong>اتصال‌های TCP (براساس کلید دسترسی، مکان، و وضعیت):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_tcp_connections_closed[1d])</code></p></li>
+<li><p><strong>اتصال‌های TCP (براساس مکان):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_tcp_connections_opened[1d])</code></p></li>
+</ul>
+
+<h4 data-text="17994417296960730219" id="udp" tabindex="-1">UDP</h4>
+
+<ul>
+<li><p><strong>بسته‌های UDP (براساس مکان و وضعیت):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_udp_packets_from_client_per_location[1d])</code></p></li>
+<li><p><strong>انجمن‌های UDP (بدون تفکیک):</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_udp_nat_entries_added[1d])</code></p></li>
+</ul>
+
+<h4 data-text="4957710212888807504" id="performance" tabindex="-1">عملکرد</h4>
+
+<ul>
+<li><p><strong>کاربرد CPU (براساس پردازش):</strong></p>
+
+<p><code dir="ltr" translate="no">rate(process_cpu_seconds_total[10m])</code></p></li>
+<li><p><strong>حافظه (براساس پردازش):</strong></p>
+
+<p><code dir="ltr" translate="no">process_virtual_memory_bytes</code></p></li>
+</ul>
+
+<h4 data-text="14146192432541994297" id="build_information" tabindex="-1">ساختن اطلاعات</h4>
+
+<ul>
+<li><p><strong>Prometheus:</strong></p>
+
+<p><code dir="ltr" translate="no">prometheus_build_info</code></p></li>
+<li><p><strong>outline-ss-server:</strong></p>
+
+<p><code dir="ltr" translate="no">shadowsocks_build_info</code></p></li>
+<li><p><strong>Node.js:</strong></p>
+
+<p><code dir="ltr" translate="no">nodejs_version_info</code></p></li>
+</ul>
+
+<p>فهرست کامل سنجه‌های دردسترس را در<code dir="ltr" translate="no">outline-ss-server</code>
+<a l10n-placeholder4="4">کد منبع</a> ببینید.</p>
+
+  
+</body></html>
