@@ -1,0 +1,49 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '65a2072a-4023-44f6-bbb1-03815423347f'}, 'string_id': '8881571525508256907', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><em>ไคลเอ็นต์ Outline เวอร์ชัน 1.15.0 ขึ้นไป</em></p>
+
+<p>บทแนะนำนี้จะอธิบายคำแนะนำแบบละเอียดทีละขั้นเพื่อช่วยคุณติดตั้งใช้งาน Shadowsocks-over-WebSockets ซึ่งเป็นเทคนิคที่มีประสิทธิภาพในการหลบเลี่ยงการเซ็นเซอร์ในสภาพแวดล้อมที่มีการบล็อกการเชื่อมต่อ Shadowsocks แบบปกติ การห่อหุ้มข้อมูลการเข้าชม Shadowsocks ภายใน WebSocket จะทำให้คุณปลอมแปลงการเข้าชมดังกล่าวเป็นการเข้าชมเว็บมาตรฐานได้ ซึ่งจะช่วยเพิ่มความยืดหยุ่นและการเข้าถึง</p>
+<aside class="note"><strong>หมายเหตุ:</strong><span> เฉพาะไคลเอ็นต์ Outline เวอร์ชัน 1.15.0 ขึ้นไปเท่านั้นที่รองรับ Shadowsocks-over-WebSockets โดยคุณต้องคงการกำหนดค่าที่มีอยู่ไว้เพื่อรองรับไคลเอ็นต์เวอร์ชันเก่า</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">ขั้นตอนที่ 1: กำหนดค่าและเรียกใช้เซิร์ฟเวอร์ Outline</h2>
+
+<p>สร้างไฟล์ <code dir="ltr" translate="no">config.yaml</code> ใหม่ที่มีการกำหนดค่าต่อไปนี้</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>เคล็ดลับ:</strong><span> เก็บ <code dir="ltr" translate="no">path</code> ไว้เป็นความลับเพื่อหลีกเลี่ยงการตรวจสอบ ซึ่งเส้นทางนี้จะเป็นปลายทางลับ เราจึงแนะนำให้ใช้เส้นทางที่สร้างแบบสุ่มและมีความยาว</span></aside>
+<p>ดาวน์โหลด <a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a> เวอร์ชันล่าสุดและเรียกใช้โดยใช้การกำหนดค่าที่สร้างไว้ดังต่อไปนี้</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">ขั้นตอนที่ 2: เปิดใช้งานเว็บเซิร์ฟเวอร์</h2>
+
+<p>หากต้องการให้เว็บเซิร์ฟเวอร์ WebSocket เข้าถึงได้แบบสาธารณะ คุณจะต้องเปิดใช้งานเว็บดังกล่าวบนอินเทอร์เน็ตและกำหนดค่า <a l10n-placeholder6="6">TLS</a>
+โดยมีตัวเลือกหลายวิธีในการดำเนินการดังกล่าว คุณสามารถใช้เว็บเซิร์ฟเวอร์ในเครื่อง เช่น
+<a l10n-placeholder7="7">Caddy</a>, <a l10n-placeholder8="8">nginx</a> หรือ <a l10n-placeholder9="9">Apache</a> โดยตรวจสอบว่าเว็บเซิร์ฟเวอร์มีใบรับรอง TLS ที่ถูกต้อง หรือใช้บริการการสร้างอุโมงค์เสมือน เช่น <a l10n-placeholder10="10">Cloudflare Tunnel</a> หรือ <a l10n-placeholder11="11">ngrok</a></p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">ตัวอย่างการใช้ TryCloudflare</h3>
+<aside class="caution"><strong>ข้อควรระวัง:</strong><span> TryCloudflare มีไว้สำหรับเดโมและการทดสอบเท่านั้น</span></aside>
+<p>ในตัวอย่างนี้ เราจะสาธิตการใช้ <a l10n-placeholder12="12">TryCloudflare</a> เพื่อสร้างอุโมงค์ข้อมูลอย่างรวดเร็ว ซึ่งเป็นวิธีที่สะดวกและปลอดภัยในการเปิดใช้งานเว็บเซิร์ฟเวอร์ในเครื่องโดยไม่ต้องเปิดพอร์ตขาเข้า</p>
+
+<ol>
+<li><p>ดาวน์โหลดและติดตั้ง <a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a></p></li>
+<li><p>สร้างอุโมงค์ข้อมูลที่ชี้ไปยังพอร์ตเว็บเซิร์ฟเวอร์ในเครื่อง โดยทำดังนี้</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>Cloudflare จะจัดหาโดเมนย่อย (เช่น
+<code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code>) เพื่อเข้าถึงปลายทาง WebSocket และจัดการ TLS โดยอัตโนมัติ โปรดจดโดเมนย่อยนี้ไว้เนื่องจากคุณจะต้องใช้ในภายหลัง</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">ขั้นตอนที่ 3: สร้างคีย์การเข้าถึงแบบไดนามิก</h2>
+
+<p>สร้างไฟล์ YAML ของคีย์การเข้าถึงไคลเอ็นต์สำหรับผู้ใช้โดยใช้รูปแบบ<a l10n-placeholder14="14">การกำหนดค่าคีย์การเข้าถึง</a> และระบุปลายทาง WebSocket ที่กําหนดค่าไว้ก่อนหน้านี้ในฝั่งเซิร์ฟเวอร์</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>หลังจากสร้างไฟล์ YAML ของคีย์การเข้าถึงแบบไดนามิกแล้ว คุณต้องส่งไฟล์ดังกล่าวให้ผู้ใช้ โดยสามารถฝากไฟล์ไว้ในบริการเว็บโฮสติ้งแบบคงที่หรือจะสร้างไฟล์แบบไดนามิกก็ได้ โปรดดูข้อมูลเพิ่มเติมเกี่ยวกับวิธีใช้<a l10n-placeholder15="15">คีย์การเข้าถึงแบบไดนามิก</a></p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">ขั้นตอนที่ 4: เชื่อมต่อกับไคลเอ็นต์ Outline</h2>
+
+<p>ใช้แอปพลิเคชัน<a l10n-placeholder16="16">ไคลเอ็นต์ Outline</a> แบบทางการ (เวอร์ชัน 1.15.0 ขึ้นไป) และเพิ่มคีย์การเข้าถึงแบบไดนามิกที่สร้างขึ้นใหม่เป็นรายการเซิร์ฟเวอร์ คลิก<strong>เชื่อมต่อ</strong>เพื่อเริ่มการสร้างอุโมงค์เสมือนไปยังเซิร์ฟเวอร์โดยใช้การกำหนดค่า Shadowsocks ผ่าน WebSocket</p>
+
+<p>ใช้เครื่องมืออย่าง <a l10n-placeholder17="17">IPInfo</a> เพื่อยืนยันว่าคุณกำลังท่องอินเทอร์เน็ตผ่านเซิร์ฟเวอร์ Outline</p>
+
+  
+</body></html>

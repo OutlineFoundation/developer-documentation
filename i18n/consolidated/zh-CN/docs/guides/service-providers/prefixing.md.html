@@ -1,0 +1,94 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd3a65304-df58-42ce-9df8-7faa46e5e683'}, 'string_id': '5183224559080815140', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>从 Outline 客户端 1.9.0 版开始，访问密钥支持“prefix”选项。“prefix”是一个字节列表，用作 Shadowsocks TCP 连接的<a l10n-placeholder4="4">盐</a>的第一个字节。
+这可以让连接看起来像是网络允许的协议，从而绕过会拒绝陌生协议的防火墙。</p>
+
+<h2 data-text="17610956299883319320" id="when_should_i_try_this" tabindex="-1">何时尝试此选项？</h2>
+
+<p>如果您怀疑自己的 Outline 部署的用户仍然处于被封锁状态，不妨考虑尝试一些不同的 prefix。</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">操作说明</h2>
+
+<p>prefix 不应超过 16 个字节。prefix 太长可能会导致盐冲突，进而影响到加密安全性，造成连接被检测到。请使用尽可能短的 prefix，这有助于绕过您当前面临的封锁。</p>
+
+<p>您使用的端口应与 prefix 所伪装的协议相匹配。IANA 维护着一个<a l10n-placeholder5="5">传输协议端口号注册表</a>，该表将协议和端口号对应起来。</p>
+
+<p>下面是一些可伪装成常见协议的有效 prefix 示例：</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>建议的端口</th>
+<th>JSON 编码格式</th>
+<th>网址编码格式</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HTTP 请求</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;POST &quot;</code></td>
+<td><code dir="ltr" translate="no">POST%20</code></td>
+</tr>
+<tr>
+<td>HTTP 响应</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;HTTP/1.1 &quot;</code></td>
+<td><code dir="ltr" translate="no">HTTP%2F1.1%20</code></td>
+</tr>
+<tr>
+<td>DNS-over-TCP 请求</td>
+<td>53 (dns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0005\u00DC\u005F\u00E0\u0001\u0020&quot;</code></td>
+<td><code dir="ltr" translate="no">%05%C3%9C_%C3%A0%01%20</code></td>
+</tr>
+<tr>
+<td>TLS ClientHello</td>
+<td>443 (https)、463 (smtps)、563 (nntps)、636 (ldaps)、989 (ftps-data)、990 (ftps)、993 (imaps)、995 (pop3s)、5223 (Apple APN)、5228 (Play 商店)、5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0001\u0000\u00a8\u0001\u0001&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%01%00%C2%A8%01%01</code></td>
+</tr>
+<tr>
+<td>TLS 应用数据</td>
+<td>443 (https)、463 (smtps)、563 (nntps)、636 (ldaps)、989 (ftps-data)、990 (ftps)、993 (imaps)、995 (pop3s)、5223 (Apple APN)、5228 (Play 商店)、5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0013\u0003\u0003\u003F&quot;</code></td>
+<td><code dir="ltr" translate="no">%13%03%03%3F</code></td>
+</tr>
+<tr>
+<td>TLS ServerHello</td>
+<td>443 (https)、463 (smtps)、563 (nntps)、636 (ldaps)、989 (ftps-data)、990 (ftps)、993 (imaps)、995 (pop3s)、5223 (Apple APN)、5228 (Play 商店)、5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0003\u0040\u0000\u0002&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%03%40%00%02</code></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22 (ssh)、830 (netconf-ssh)、4334 (netconf-ch-ssh)、5162 (snmpssh-trap)</td>
+<td><code dir="ltr" translate="no">&quot;SSH-2.0\r\n&quot;</code></td>
+<td><code dir="ltr" translate="no">SSH-2.0%0D%0A</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 data-text="13867626750959801949" id="dynamic_access_keys" tabindex="-1">动态访问密钥</h3>
+
+<p>如需将 prefix 功能与<a l10n-placeholder6="6">动态访问密钥</a> (<code dir="ltr" translate="no">ssconf://</code>) 搭配使用，请为 JSON 对象添加一个“prefix”键，并采用 <strong>JSON 编码</strong>值来表示所需的 prefix（请参见上方表格中的示例）。您可以使用转义代码（例如 \u00FF）来表示 <code dir="ltr" translate="no">U+0</code> 至 <code dir="ltr" translate="no">U+FF</code> 范围内不可打印的 Unicode 代码点。例如：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="1939603936418792745" id="static_access_keys" tabindex="-1">静态访问密钥</h3>
+
+<p>如需将 prefix 与<strong>静态访问密钥</strong> (ss://) 搭配使用，您需要修改现有的密钥，然后再进行分发。如果您拥有 Outline 管理器生成的静态访问密钥，请提取<strong>网址编码</strong>格式的 prefix（请参见上方表格中的示例），然后将其添加到访问密钥的末尾，例如：</p>
+
+<p><code dir="ltr" translate="no">ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&amp;prefix=&lt;your url-encoded prefix goes here&gt;</code></p>
+
+<p>对于高级用户，您可以使用浏览器的 <code dir="ltr" translate="no">encodeURIComponent()</code> 函数，将 <strong>JSON 编码格式</strong>的 prefix 转换为<strong>网址编码格式</strong>的 prefix。为此，请打开 Web Inspector 控制台（在 Chrome 中依次找到*“开发者”>“JavaScript Web 控制台”*），然后输入以下内容：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>按 Enter 键。所生成的值将采用*网址编码*格式。例如：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+
+  
+</body></html>

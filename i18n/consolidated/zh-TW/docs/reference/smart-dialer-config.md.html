@@ -1,0 +1,93 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f7cbfa34-f18f-4efd-b6d8-385cbc5751f1'}, 'string_id': '11452553123190334191', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><strong>Smart Dialer</strong> 會針對指定測試網域，搜尋能解除 DNS 和 TLS 封鎖的策略。這個元件會讀取包含多種策略的設定，並從中選擇一種策略。</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">Smart Dialer 的 YAML 設定</h2>
+
+<p>Smart Dialer 使用的設定為 YAML 格式，範例如下：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">DNS 設定</h3>
+
+<ul>
+<li><code dir="ltr" translate="no">dns</code> 欄位用於指定要測試的一組 DNS 解析器。</li>
+<li>DNS 解析器可為下列任一類型：
+<ul>
+<li><code dir="ltr" translate="no">system</code>：使用系統解析器，需透過空物件指定。</li>
+<li><code dir="ltr" translate="no">https</code>：使用加密的 DNS-over-HTTPS (DoH) 解析器。</li>
+<li><code dir="ltr" translate="no">tls</code>：使用加密的 DNS-over-TLS (DoT) 解析器。</li>
+<li><code dir="ltr" translate="no">udp</code>：使用 UDP 解析器。</li>
+<li><code dir="ltr" translate="no">tcp</code>：使用 TCP 解析器。</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">DNS-over-HTTPS 解析器 (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>：DoH 伺服器的網域名稱。</li>
+<li><code dir="ltr" translate="no">address</code>：DoH 伺服器的主機和通訊埠，格式為 &lt;主機>:&lt;通訊埠>。預設為 <code dir="ltr" translate="no">name</code>:443。</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">DNS-over-TLS 解析器 (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>：DoT 伺服器的網域名稱。</li>
+<li><code dir="ltr" translate="no">address</code>：DoT 伺服器的主機和通訊埠，格式為 &lt;主機>:&lt;通訊埠>。預設為 <code dir="ltr" translate="no">name</code>:853。</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">UDP 解析器</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>：UDP 解析器的主機和通訊埠，格式為 &lt;主機>:&lt;通訊埠>。</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">TCP 解析器</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>：TCP 解析器的主機和通訊埠，格式為 &lt;主機>:&lt;通訊埠>。</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">TLS 設定</h3>
+
+<ul>
+<li><code dir="ltr" translate="no">tls</code> 欄位用於指定一組要測試的 TLS 傳輸方式。</li>
+<li>每個 TLS 傳輸方式皆以一組字串表示，指定所用傳輸機制。</li>
+<li>例如，<code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> 表示使用 Cloudflare 的網域前置技術和 TLS 分割進行傳輸，詳見<a l10n-placeholder10="10">設定說明文件</a>。</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">備援設定</h3>
+
+<p>當所有無 Proxy 策略都無法建立連線時，系統會使用備援設定。例如，備援設定可指定備用的 Proxy 伺服器，嘗試與使用者建立連線。只有在其他 DNS/TLS 策略失敗或逾時時，系統才會使用備援設定，因此連線啟動時間會較長。</p>
+
+<p>備援設定字串應符合以下格式：</p>
+
+<ul>
+<li>有效的 <code dir="ltr" translate="no">StreamDialer</code> 設定字串，定義於 <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a> 中。</li>
+<li>有效的 Psiphon 設定物件，做為 <code dir="ltr" translate="no">psiphon</code> 欄位的子項。</li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">Shadowsocks 伺服器範例</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">SOCKS5 伺服器範例</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">Psiphon 設定範例</h4>
+
+<p>如要使用 <a l10n-placeholder12="12">Psiphon</a> 網路，請採取以下行動：</p>
+
+<ol>
+<li>聯絡 Psiphon 團隊，取得可連上他們網路的設定。這可能需要簽訂合約。</li>
+<li>將取得的 Psiphon 設定加入 Smart Dialer 設定的 <code dir="ltr" translate="no">fallback</code> 區塊。由於 JSON 與 YAML 相容，所以直接將 Psiphon 設定內容複製貼到 <code dir="ltr" translate="no">fallback</code> 區塊即可，如下所示：</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>注意：</strong><span>Psiphon 程式碼集採用 GPL 授權，可能會對您的程式碼產生授權限制。建議您考慮向 Psiphon 團隊洽談特殊授權，以免受到影響。</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">如何使用 Smart Dialer</h3>
+
+<p>如要使用 Smart Dialer，請建立 <code dir="ltr" translate="no">StrategyFinder</code> 物件並呼叫 <code dir="ltr" translate="no">NewDialer</code> 方法，傳入測試網域清單和 YAML 設定。
+<code dir="ltr" translate="no">NewDialer</code> 方法會傳回 <code dir="ltr" translate="no">transport.StreamDialer</code>，可用來依據選出的策略建立連線。例如：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>這是基本範例，實際使用時可能需要根據具體情況做調整。</p>
+
+  
+</body></html>

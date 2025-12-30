@@ -1,0 +1,34 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f5dde51d-3136-49f8-a765-69b6c3d11d2a'}, 'string_id': '6201848709562429957', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline SDK si basa su concetti fondamentali rappresentati da interfacce interoperabili, progettate per la componibilità e per essere facilmente riutilizzabili.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Connessioni</h2>
+
+<p>Le connessioni consentono la comunicazione tra due endpoint attraverso un trasporto astratto. Esistono due tipi di connessioni:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: connessione basata su stream, come TCP, e tipo di socket Posix <code dir="ltr" translate="no">SOCK_STREAM</code>.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: connessione basata su datagrammi, come UDP, e tipo di socket Posix <code dir="ltr" translate="no">SOCK_DGRAM</code>.
+Utilizziamo "Packet" anziché "Datagram" perché questa è la convenzione nella libreria Go standard.</li>
+</ul>
+
+<p>Le connessioni possono essere aggregate in modo da creare connessioni nidificate su un nuovo trasporto.
+Ad esempio, tra le varie opzioni per una <code dir="ltr" translate="no">StreamConn</code> ci possono essere la connessione su TCP, su TLS su TCP, su HTTP su TLS su TCP o su QUIC.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Dialer</h2>
+
+<p>I dialer consentono di creare connessioni a partire da un indirizzo host:porta, incapsulando il protocollo di trasporto o proxy sottostante.
+I tipi <code dir="ltr" translate="no">StreamDialer</code> e <code dir="ltr" translate="no">PacketDialer</code> creano rispettivamente connessioni <code dir="ltr" translate="no">StreamConn</code> e <code dir="ltr" translate="no">PacketConn</code> a partire da un indirizzo. Anche i dialer possono essere nidificati.
+Ad esempio, uno Stream Dialer TLS può usare un dialer TCP per creare una <code dir="ltr" translate="no">StreamConn</code> basata su TCP e quindi creare una <code dir="ltr" translate="no">StreamConn</code> TLS appoggiata sulla connessione <code dir="ltr" translate="no">StreamConn</code> TCP. Un dialer SOCKS5 su TLS potrebbe utilizzare il dialer TLS per creare la <code dir="ltr" translate="no">StreamConn</code> TLS al proxy prima di effettuare la connessione SOCKS5 all'indirizzo di destinazione.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Resolver</h2>
+
+<p>I resolver (<code dir="ltr" translate="no">dns.Resolver</code>) consentono di rispondere alle domande DNS incapsulando l'algoritmo o il protocollo sottostante.
+I resolver vengono usati principalmente per mappare i nomi di dominio a indirizzi IP.</p>
+
+  
+</body></html>

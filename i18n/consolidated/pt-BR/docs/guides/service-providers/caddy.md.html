@@ -1,0 +1,91 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '79ec3d92-2daf-4576-ba37-0d88e3ba3374', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '333baaa4-905b-477f-b4b5-5e9fef46765d'}, 'string_id': '1771782244284931348', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Este guia explica como usar o <a l10n-placeholder6="6">Caddy</a>, um servidor da Web
+potente e fácil de usar, para aprimorar a configuração do seu servidor Outline (os links relacionados ao Caddy nesta página estão em inglês). Com
+<a l10n-placeholder7="7">HTTPS automático</a> e
+configuração flexível, o Caddy é uma excelente opção para atender ao seu servidor Outline,
+especialmente ao usar um transporte WebSocket.</p>
+
+<h2 data-text="355743447653748466" id="what_is_caddy" tabindex="-1">O que é Caddy?</h2>
+
+<p>O Caddy é um servidor da Web de código aberto conhecido por sua facilidade de uso, HTTPS automático
+e suporte a vários protocolos. Ele simplifica a configuração do servidor da Web e
+oferece recursos como:</p>
+
+<ul>
+<li><strong>HTTPS automático</strong>: o Caddy obtém e renova automaticamente os certificados TLS,
+garantindo conexões seguras.</li>
+<li><strong>Suporte a HTTP/3</strong>: o Caddy aceita o protocolo HTTP/3 mais recente, garantindo mais rapidez e eficácia no tráfego da Web.</li>
+<li><strong>Extensível com plug-ins</strong>: o Caddy aceita plug-ins para permitir
+várias funcionalidades, como proxy reverso e balanceamento de carga.</li>
+</ul>
+
+<h2 data-text="8657841238772566975" id="step_1_prerequisites" tabindex="-1">Etapa 1: pré-requisitos</h2>
+
+<ul>
+<li>Baixe e instale o <a l10n-placeholder8="8"><code dir="ltr" translate="no">xcaddy</code></a></li>
+</ul>
+
+<h2 data-text="954093604514145141" id="step_2_configure_your_domain" tabindex="-1">Etapa 2: configurar seu domínio</h2>
+
+<p>Antes de iniciar o Caddy, verifique se o nome de domínio está configurado para apontar
+para o endereço IP do seu servidor.</p>
+
+<ul>
+<li><strong>Defina registros A/AAAA</strong>: entre no seu provedor de DNS e defina os registros A e AAAA
+do seu domínio para apontar para os endereços IPv4 e IPv6 do seu servidor, respectivamente.</li>
+<li><p><strong>Verifique os registros DNS</strong>: verifique se os registros DNS estão definidos corretamente com uma
+pesquisa autoritativa:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+</ul>
+
+<h2 data-text="8552920132448623781" id="build-and-run" tabindex="-1">Etapa 3: criar e executar um build personalizado do Caddy</h2>
+
+<p>Com o <code dir="ltr" translate="no">xcaddy</code>, é possível criar um <code dir="ltr" translate="no">caddy</code> binário personalizado que inclui o módulo de servidor principal do Outline
+e outros módulos de extensão de servidor necessários.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5300590180445875246" id="step_4_configure_and_run_the_caddy_server_with_outline" tabindex="-1">Etapa 4: configurar e executar o servidor do Caddy com o Outline</h2>
+
+<p>Crie um novo arquivo <code dir="ltr" translate="no">config.yaml</code> com a seguinte configuração:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code><aside class="special"><strong>Importante</strong><span>: mantenha o <code dir="ltr" translate="no">path</code> em sigilo para evitar sondagens. Ele funciona como um endpoint
+secreto. Recomendamos um caminho longo e gerado aleatoriamente.</span></aside>
+<p>Essa configuração representa uma estratégia do Shadowsocks sobre WebSockets com um servidor da Web
+que detecta na porta <code dir="ltr" translate="no">443</code>, aceitando tráfego TCP e UDP encapsulado
+do Shadowsocks nos caminhos <var translate="no">TCP_PATH</var> e <var translate="no">UDP_PATH</var>,
+respectivamente.</p>
+
+<p>Execute o servidor Caddy estendido com o Outline usando a configuração criada:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code><aside class="note"><strong>Observação</strong><span>: o exemplo usa YAML porque é mais legível e fácil de anotar,
+mas também é possível usar o JSON (linguagem de configuração nativa do Caddy). Se você usá-lo,
+poderá executar sem a flag <code dir="ltr" translate="no">--adapter yaml</code> e remover a
+dependência do adaptador YAML na <a l10n-placeholder9="9">etapa de criação e execução</a>.</span></aside>
+<p>Você pode encontrar mais exemplos de configurações em nosso <a l10n-placeholder10="10">repositório do GitHub
+outline-ss-server/outlinecaddy</a> (em inglês).</p>
+
+<h2 data-text="7010145673871148721" id="step_5_create_a_dynamic_access_key" tabindex="-1">Etapa 5: criar uma chave de acesso dinâmica</h2>
+
+<p>Gere um arquivo YAML de chave de acesso do cliente para seus usuários usando
+o formato de <a l10n-placeholder11="11">configuração avançada</a> e inclua os endpoints
+do WebSocket configurados anteriormente no lado do servidor:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Depois de gerar o arquivo YAML de chaves de acesso dinâmicas, você terá que entregá-lo aos seus
+usuários. É possível hospedar o arquivo em um serviço estático de hospedagem
+na Web ou gerá-lo dinamicamente. Saiba mais sobre como usar as <a l10n-placeholder12="12">chaves de acesso
+dinâmicas</a>.</p>
+
+<h2 data-text="15445614553436477202" id="step_6_connect_with_the_outline_client" tabindex="-1">Etapa 6: estabelecer conexão com o app cliente do Outline</h2>
+
+<p>Use um dos aplicativos oficiais do <a l10n-placeholder13="13">app cliente do Outline</a>
+(versões 1.15.0+) e adicione a chave de acesso dinâmica que você criou como
+uma entrada de servidor. Clique em <strong>Conectar</strong> para iniciar o encapsulamento para seu servidor usando a
+configuração Shadowsocks sobre WebSocket.</p>
+
+<p>Use uma ferramenta como o <a l10n-placeholder14="14">IPInfo</a> (em inglês) para verificar se você está navegando na
+Internet pelo seu servidor Outline.</p>
+
+  
+</body></html>

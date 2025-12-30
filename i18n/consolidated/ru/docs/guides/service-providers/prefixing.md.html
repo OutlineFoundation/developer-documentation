@@ -1,0 +1,95 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9cce2d97-f431-43ba-8103-4393a218a168'}, 'string_id': '5183224559080815140', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>В клиенте Outline версии 1.9.0 ключи доступа поддерживают префикс. Это список байтов, используемых в качестве первых байтов <a l10n-placeholder4="4">соли</a> TCP-подключения Shadowsocks.
+Благодаря этому подключение выглядит как протокол, разрешенный в сети, и обходит брандмауэры, которые блокируют нераспознанные протоколы.</p>
+
+<h2 data-text="17610956299883319320" id="when_should_i_try_this" tabindex="-1">Когда следует применять этот прием</h2>
+
+<p>Если вам кажется, что пользователи вашего сервера Outline все ещё заблокированы, вы можете попробовать другие префиксы.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Инструкции</h2>
+
+<p>Длина префикса не должна превышать 16 байтов. Более длинный префикс может вызвать коллизии солей. Это повлияет на безопасность шифрования и может привести к обнаружению подключений. Используйте наиболее короткий префикс из возможных, чтобы обойти блокировку.</p>
+
+<p>Используемый порт должен совпадать с протоколом вашего префикса.
+Найти сопоставленные протоколы и номера портов можно в <a l10n-placeholder5="5">этом списке</a>.</p>
+
+<p>Ниже перечислены некоторые примеры префиксов, которые выглядят как распространенные протоколы.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Рекомендуемый порт</th>
+<th>Кодировка JSON</th>
+<th>Кодировка URL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HTTP-запрос</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;POST &quot;</code></td>
+<td><code dir="ltr" translate="no">POST%20</code></td>
+</tr>
+<tr>
+<td>HTTP-ответ</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;HTTP/1.1 &quot;</code></td>
+<td><code dir="ltr" translate="no">HTTP%2F1.1%20</code></td>
+</tr>
+<tr>
+<td>DNS-over-TCP-запрос</td>
+<td>53 (dns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0005\u00DC\u005F\u00E0\u0001\u0020&quot;</code></td>
+<td><code dir="ltr" translate="no">%05%C3%9C_%C3%A0%01%20</code></td>
+</tr>
+<tr>
+<td>TLS ClientHello</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0001\u0000\u00a8\u0001\u0001&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%01%00%C2%A8%01%01</code></td>
+</tr>
+<tr>
+<td>TLS Application Data</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0013\u0003\u0003\u003F&quot;</code></td>
+<td><code dir="ltr" translate="no">%13%03%03%3F</code></td>
+</tr>
+<tr>
+<td>TLS ServerHello</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0003\u0040\u0000\u0002&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%03%40%00%02</code></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22 (ssh), 830 (netconf-ssh), 4334 (netconf-ch-ssh), 5162 (snmpssh-trap)</td>
+<td><code dir="ltr" translate="no">&quot;SSH-2.0\r\n&quot;</code></td>
+<td><code dir="ltr" translate="no">SSH-2.0%0D%0A</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 data-text="13867626750959801949" id="dynamic_access_keys" tabindex="-1">Динамические ключи доступа</h3>
+
+<p>Чтобы использовать префикс с <a l10n-placeholder6="6">динамическими ключами доступа</a> (<code dir="ltr" translate="no">ssconf://</code>), добавьте к объекту JSON ключ префикса со значением в <strong>кодировке JSON</strong>, представляющим нужный префикс (примеры указаны в таблице выше). Вы можете использовать управляющие символы (например, \u00FF) для непечатных кодовых точек Unicode в диапазоне от <code dir="ltr" translate="no">U+0</code> до <code dir="ltr" translate="no">U+FF</code>. Например:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="1939603936418792745" id="static_access_keys" tabindex="-1">Статические ключи доступа</h3>
+
+<p>Чтобы использовать префикс со <strong>статическими ключами доступа</strong> (ss://), необходимо изменить существующий ключ перед его предоставлением. Если вы сгенерировали в Менеджере Outline статический ключ доступа, добавьте к нему в конце версию префикса в <strong>кодировке URL</strong> (примеры указаны в таблице выше). Вот как это может выглядеть:</p>
+
+<p><code dir="ltr" translate="no">ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&amp;prefix=&lt;your url-encoded prefix goes here&gt;</code></p>
+
+<p>Вы также можете использовать функцию браузера <code dir="ltr" translate="no">encodeURIComponent()</code>, чтобы преобразовать кодировку префикса из <strong>JSON</strong> в <strong>URL</strong>. Для этого откройте консоль JavaScript в браузере Chrome: в меню выберите "Дополнительные инструменты > Инструменты разработчика" и откройте вкладку Console (Консоль). Затем введите следующее:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Нажмите "Ввод". Полученное значение будет префиксом в кодировке URL. Например:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+
+  
+</body></html>

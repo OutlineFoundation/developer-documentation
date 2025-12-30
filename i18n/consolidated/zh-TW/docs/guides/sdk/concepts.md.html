@@ -1,0 +1,29 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '10093cfc-e562-42ec-8632-4c29edefcf9b'}, 'string_id': '6201848709562429957', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline SDK 的設計基於幾項基本概念，這些概念以可互通的介面為核心，介面能靈活組合，並方便重複使用。</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">連線</h2>
+
+<p>連線讓兩個端點能透過抽象的傳輸方式互相通訊，主要分為兩種：</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>：以串流為基礎的連線，例如 TCP 和 <code dir="ltr" translate="no">SOCK_STREAM</code> Posix 通訊端類型。</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>：以資料元為基礎的連線，例如 UDP 和 <code dir="ltr" translate="no">SOCK_DGRAM</code> Posix 通訊端類型。「封包」是 Go 標準程式庫的慣用稱呼，所以我們選擇用這個詞，而不是「資料元」。</li>
+</ul>
+
+<p>連線可透過封裝疊加新的傳輸層，形成巢狀連線。舉例來說，<code dir="ltr" translate="no">StreamConn</code> 可以是 TCP，也可以是基於 TCP 的 TLS，或是在 TLS 上再疊加 HTTP，甚至 QUIC 或其他可能組合。</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">撥號器</h2>
+
+<p>撥號器可根據 &lt;主機>:&lt;通訊埠> 位址建立連線，同時封裝底層的傳輸方式或 Proxy 通訊協定。<code dir="ltr" translate="no">StreamDialer</code> 和 <code dir="ltr" translate="no">PacketDialer</code> 類型分別能根據位址建立 <code dir="ltr" translate="no">StreamConn</code> 和 <code dir="ltr" translate="no">PacketConn</code> 連線。撥號器也可以是巢狀結構。舉例來說，TLS 串流撥號器可先用 TCP 撥號器建立以 TCP 連線為基礎的 <code dir="ltr" translate="no">StreamConn</code>，再建立由 TCP <code dir="ltr" translate="no">StreamConn</code> 支援的 TLS <code dir="ltr" translate="no">StreamConn</code>。或者，SOCKS5-over-TLS 撥號器可用 TLS 撥號器建立連到 Proxy 的 TLS <code dir="ltr" translate="no">StreamConn</code>，接著再透過該連線與目標位址進行 SOCKS5 通訊。</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">解析器</h2>
+
+<p>解析器 (<code dir="ltr" translate="no">dns.Resolver</code>) 負責回應 DNS 查詢，並封裝底層的演算法或通訊協定，主要用於將網域名稱解析成 IP 位址。</p>
+
+  
+</body></html>

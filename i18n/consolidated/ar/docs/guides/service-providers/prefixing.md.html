@@ -1,0 +1,113 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd98c9baa-5186-4b88-b365-c3cdb3890dc0'}, 'string_id': '5183224559080815140', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>تتوافق مفاتيح الوصول مع خيار "البادئة" (prefix) وذلك في الإصدار 1.9.0 من تطبيق "عميل Outline". و
+"البادئة" هي قائمة وحدات البايت المستخدَمة كأوّل وحدات بايت
+<a l10n-placeholder4="4">للقيمة العشوائية</a> في اتصال Shadowsocks TCP.
+وهي تجعل الاتصال يبدو كبروتوكول مسموح به في
+الشبكة، ما يسمح بالتحايل على جدران الحماية التي ترفض البروتوكولات غير المعروفة.</p>
+
+<h2 data-text="17610956299883319320" id="when_should_i_try_this" tabindex="-1">متى يمكن تجربة هذا؟</h2>
+
+<p>إذا كنت تشكّ أنّ مستخدمي خادم Outline المنشور لا يزالون محظورين، يمكنك
+تجربة استخدام بادئات مختلفة.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">التعليمات</h2>
+
+<p>يجب ألّا تزيد البادئة عن 16 بايت. وقد تُسبّب البادئات الطويلة تضارُبًا
+في القيم العشوائية ما يمكن أن يهدد سلامة التشفير ويتسبّب في إمكانية رصد
+الاتصالات. لذا يُنصح باستخدام أقصر بادئة ممكنة لتفادي احتمالية
+الحظر.</p>
+
+<p>يجب أن يتوافق المنفذ الذي تستخدمه مع البروتوكول الذي تتظاهر به البادئة.
+لدى هيئة أرقام الإنترنت المخصّصة (IANA) <a l10n-placeholder5="5">قاعدة بيانات أرقام منافذ بروتوكولات النقل</a>،
+وهي قاعدة تربط بين البروتوكولات وأرقام المنافذ.</p>
+
+<p>إليك بعض الأمثلة على بادئات فعّالة تبدو مثل البروتوكولات الشائعة:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>المنفذ المُقتَرح</th>
+<th>بترميز JSON</th>
+<th>بترميز عنوان URL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>طلب HTTP</td>
+<td>‫80 (HTTP)</td>
+<td><code dir="ltr" translate="no">&quot;POST &quot;</code></td>
+<td><code dir="ltr" translate="no">POST%20</code></td>
+</tr>
+<tr>
+<td>استجابة HTTP</td>
+<td>‫80 (HTTP)</td>
+<td><code dir="ltr" translate="no">&quot;HTTP/1.1 &quot;</code></td>
+<td><code dir="ltr" translate="no">HTTP%2F1.1%20</code></td>
+</tr>
+<tr>
+<td>طلب نظام أسماء النطاقات عبر TCP</td>
+<td>‫53 (نظام أسماء النطاقات)</td>
+<td><code dir="ltr" translate="no">&quot;\u0005\u00DC\u005F\u00E0\u0001\u0020&quot;</code></td>
+<td><code dir="ltr" translate="no">%05%C3%9C_%C3%A0%01%20</code></td>
+</tr>
+<tr>
+<td>TLS ClientHello</td>
+<td>‫443 (بروتوكول HTTPS)، 463 (بروتوكول نقل البريد البسيط SMTP)، 563 (بروتوكول نقل المقالات الإخبارية NNTP)، 636 (بروتوكول LDAP)، 989 (بروتوكول نقل الملفات والبيانات)، 990 (بروتوكول نقل الملفات)، 993 (بروتوكول IMAP)، 995 (بروتوكول POP3)، 5223 (بروتوكول Apple APN)، 5228 (بروتوكول متجر Play)، 5349 (بروتوكول TURNS)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0001\u0000\u00a8\u0001\u0001&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%01%00%C2%A8%01%01</code></td>
+</tr>
+<tr>
+<td>بيانات تطبيق بروتوكول أمان طبقة النقل (TLS)</td>
+<td>‫443 (بروتوكول HTTPS)، 463 (بروتوكول نقل البريد البسيط SMTP)، 563 (بروتوكول نقل المقالات الإخبارية NNTP)، 636 (بروتوكول LDAP)، 989 (بروتوكول نقل الملفات والبيانات)، 990 (بروتوكول نقل الملفات)، 993 (بروتوكول IMAP)، 995 (بروتوكول POP3)، 5223 (بروتوكول Apple APN)، 5228 (بروتوكول متجر Play)، 5349 (بروتوكول TURNS)</td>
+<td><code dir="ltr" translate="no">&quot;\u0013\u0003\u0003\u003F&quot;</code></td>
+<td><code dir="ltr" translate="no">%13%03%03%3F</code></td>
+</tr>
+<tr>
+<td>TLS ServerHello</td>
+<td>‫443 (بروتوكول HTTPS)، 463 (بروتوكول نقل البريد البسيط SMTP)، 563 (بروتوكول نقل المقالات الإخبارية NNTP)، 636 (بروتوكول LDAP)، 989 (بروتوكول نقل الملفات والبيانات)، 990 (بروتوكول نقل الملفات)، 993 (بروتوكول IMAP)، 995 (بروتوكول POP3)، 5223 (بروتوكول Apple APN)، 5228 (بروتوكول متجر Play)، 5349 (بروتوكول TURNS)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0003\u0040\u0000\u0002&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%03%40%00%02</code></td>
+</tr>
+<tr>
+<td>بروتوكول النقل الآمن (SSH)</td>
+<td>‫22 (بروتوكول النقل الآمن SSH)، 830 (بروتوكول netconf-ssh)، 4334 (بروتوكول netconf-ch-ssh)، 5162 (بروتوكول snmpssh-trap)</td>
+<td><code dir="ltr" translate="no">&quot;SSH-2.0\r\n&quot;</code></td>
+<td><code dir="ltr" translate="no">SSH-2.0%0D%0A</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 data-text="13867626750959801949" id="dynamic_access_keys" tabindex="-1">مفاتيح الوصول الديناميكية</h3>
+
+<p>لاستخدام ميزة البادئة مع <a l10n-placeholder6="6">مفاتيح الوصول الديناميكية</a> (<code dir="ltr" translate="no">ssconf://</code>)،
+أضِف مفتاح "بادئة" (prefix) لعنصر JSON مع قيمة <strong>بترميز JSON</strong>
+التي تمثل البادئة المطلوبة (اطّلِع على الأمثلة في الجدول أعلاه). ويمكنك
+استخدام رموز إلغاء (مثل ‎\u00FF) لتُمثل نقاط رموز يونيكود غير القابلة للطباعة في
+النطاق من <code dir="ltr" translate="no">U+0</code> إلى <code dir="ltr" translate="no">U+FF</code>. على سبيل المثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="1939603936418792745" id="static_access_keys" tabindex="-1">مفاتيح الوصول الثابتة</h3>
+
+<p>لاستخدام البادئات مع <strong>مفاتيح الوصول الثابتة</strong> (ss://‎)، ستحتاج إلى تعديل
+المفتاح الحالي قبل نشره. وإذا كنت قد أنشأت مفتاح وصول ثابت في السابق
+من خلال "مدير Outline"، ابحث عن بادئة <strong>بترميز عنوان URL</strong> (اطّلع على الأمثلة
+في الجدول أعلاه) وأضِفها على نهاية مفتاح الوصول كالتالي:</p>
+
+<p><code dir="ltr" translate="no">ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&amp;prefix=&lt;your url-encoded prefix goes here&gt;</code></p>
+
+<p>للمستخدمين المتقدّمين، يمكن استخدام وظيفة <code dir="ltr" translate="no">encodeURIComponent()</code> للمتصفح
+لتحويل البادئة <strong>بترميز JSON</strong> إلى بادئة <strong>بترميز عنوان URL</strong>. ولتنفيذ هذا الإجراء،
+افتح وحدة تحكُّم أداة فحص الويب
+(*"المطوّر" > "وحدة تحكّم أداة فحص الويب لـ JavaScript" *على متصفّح Chrome)، ثم اكتب ما يلي:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>اضغط على مفتاح Enter. ستكون القيمة الناتجة هي النسخة *بترميز عنوان URL*. على سبيل المثال:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+
+  
+</body></html>

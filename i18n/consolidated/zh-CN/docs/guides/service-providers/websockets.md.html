@@ -1,0 +1,46 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '187f8501-958a-4e5a-89b6-2ef73eaab550'}, 'string_id': '8881571525508256907', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline 客户端 1.15.0 及以上版本。<em></em></p>
+
+<p>本教程提供了详细的操作步骤，可帮助您实现 Shadowsocks-over-WebSocket，这是一种强大的技术，可在常规 Shadowsocks 连接被屏蔽的环境中绕过审查。通过将 Shadowsocks 流量封装在 WebSocket 中，您可以将其伪装成标准 Web 流量，从而提高弹性和可访问性。</p>
+<aside class="note"><strong>注意：</strong><span>只有 Outline 客户端 1.15.0 及以上版本支持 Shadowsocks-over-WebSocket。您必须保留现有配置，才能支持较低的客户端版本。</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">第 1 步：配置并运行 Outline 服务器</h2>
+
+<p>创建一个包含以下配置的新 <code dir="ltr" translate="no">config.yaml</code> 文件：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>提示：</strong><span>确保 <code dir="ltr" translate="no">path</code> 的机密性，以免被探测。它充当秘密端点。建议使用随机生成的长路径。</span></aside>
+<p>下载最新的 <a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a>，并使用创建的配置来运行它：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">第 2 步：公开 Web 服务器</h2>
+
+<p>若要让 WebSocket Web 服务器可公开访问，您需要将其公开到互联网并配置 <a l10n-placeholder6="6">TLS</a>。您可以通过多种方式实现此目的。您可以使用 <a l10n-placeholder7="7">Caddy</a>、<a l10n-placeholder8="8">nginx</a> 或 <a l10n-placeholder9="9">Apache</a> 等本地 Web 服务器，确保它具有有效的 TLS 证书，也可以使用 <a l10n-placeholder10="10">Cloudflare Tunnel</a> 或 <a l10n-placeholder11="11">ngrok</a> 等隧道服务。</p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">使用 TryCloudflare 的示例</h3>
+<aside class="caution"><strong>注意：</strong><span>TryCloudflare 仅用于演示和测试。</span></aside>
+<p>在本示例中，我们将演示如何使用 <a l10n-placeholder12="12">TryCloudflare</a> 创建快速隧道。这样，您就可以安全便捷地公开本地 Web 服务器，而无需打开入站端口。</p>
+
+<ol>
+<li><p>下载并安装 <a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a>。</p></li>
+<li><p>创建指向本地 Web 服务器端口的隧道：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>Cloudflare 将提供一个子网域（例如 <code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code>）来访问您的 WebSocket 端点并自动处理 TLS。记下此子网域，您稍后需要用到它。</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">第 3 步：创建动态访问密钥</h2>
+
+<p>使用<a l10n-placeholder14="14">访问密钥配置</a>格式为用户生成客户端访问密钥 YAML 文件，并在其中添加之前在服务器端配置的 WebSocket 端点：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>生成动态访问密钥 YAML 文件后，您需要将其提供给用户。您可以将文件托管在静态网站托管服务上，也可以动态生成文件。详细了解如何使用<a l10n-placeholder15="15">动态访问密钥</a>。</p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">第 4 步：连接到 Outline 客户端</h2>
+
+<p>使用某个官方 <a l10n-placeholder16="16">Outline 客户端</a>应用（1.15.0 及更高版本），将新创建的动态访问密钥添加为服务器条目。点击<strong>连接</strong>，开始使用 Shadowsocks-over-WebSocket 配置通过隧道连接到服务器。</p>
+
+<p>使用 <a l10n-placeholder17="17">IPInfo</a> 等工具验证您目前是否在通过 Outline 服务器浏览互联网。</p>
+
+  
+</body></html>

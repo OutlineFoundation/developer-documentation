@@ -1,0 +1,105 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '09d8a241-6ab3-4d0a-898d-972432cfd2e4'}, 'string_id': '2283833681218792954', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline ให้ข้อมูลเมตริกประสิทธิภาพโดยละเอียดผ่าน <a l10n-placeholder2="2">Prometheus</a> ซึ่งช่วยให้คุณทำความเข้าใจการใช้งานและประสิทธิภาพของเซิร์ฟเวอร์ได้อย่างลึกซึ่งยิ่งขึ้น โดยคู่มือนี้จะแนะนำขั้นตอนการดึงข้อมูลและการดูเมตริกดังกล่าว</p>
+
+<p><strong>หมายเหตุสำคัญ:</strong> คุณควรมีความรู้พื้นฐานเกี่ยวกับ Prometheus และ PromQL มาก่อนใช้คู่มือนี้ ในกรณีที่คุณยังไม่คุ้นเคยกับ Prometheus โปรดดูเอกสารประกอบและบทแนะนำต่างๆ ก่อนจะมาเจาะลึกเรื่องเมตริกของ Outline</p>
+
+<h2 data-text="4807615820961821477" id="prerequisites" tabindex="-1">สิ่งที่ต้องดำเนินการก่อน</h2>
+
+<ul>
+<li><p><strong>เปิดใช้ Prometheus ในเซิร์ฟเวอร์ Outline</strong>: ตรวจสอบว่าเซิร์ฟเวอร์ Outline ของคุณได้เปิดใช้เมตริกของ Prometheus แล้ว (ส่วนใหญ่จะเป็นการกำหนดค่าเริ่มต้นไว้แล้ว)</p></li>
+<li><p><strong>การเข้าถึง SSH ในเซิร์ฟเวอร์ของคุณ</strong>: คุณต้องมีสิทธิ์เข้าถึง SSH เพื่อส่งต่อพอร์ต Prometheus</p></li>
+</ul>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">วิธีการ</h2>
+
+<ol>
+<li><p><strong>ส่งต่อพอร์ต Prometheus</strong></p>
+
+<p>เชื่อมต่อกับเซิร์ฟเวอร์ของคุณโดยใช้ SSH และส่งต่อพอร์ต 9090</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p><strong>เข้าถึงอินเทอร์เฟซเว็บ Prometheus</strong></p>
+
+<p>เปิดเว็บเบราว์เซอร์และไปที่ <a l10n-placeholder3="3">http://localhost:9090/graph</a>
+เมตริกการค้นหาของ Prometheus</p></li>
+<li><p><strong>ใช้การค้นหา PromQL เพื่อดึงข้อมูลเมตริกที่คุณสนใจ</strong></p></li>
+</ol>
+
+<h3 data-text="6683563352978147389" id="example_promql_queries" tabindex="-1">ตัวอย่างการค้นหา PromQL</h3>
+
+<h4 data-text="4657019715771097711" id="usage" tabindex="-1">การใช้งาน</h4>
+
+<ul>
+<li><p><strong>ไบต์ (จำแนกตามคีย์การเข้าถึง โปรโตคอล และทิศทาง)</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_data_bytes[1d])</code></p></li>
+<li><p><strong>ไบต์ (รวมโดยคีย์การเข้าถึง)</strong></p>
+
+<p><code dir="ltr" translate="no">sum(increase(shadowsocks_data_bytes[1d])) by (access_key)</code></p></li>
+<li><p><strong>ไบต์ (สำหรับการคำนวณขีดจำกัดของข้อมูล)</strong></p>
+
+<p><code dir="ltr" translate="no">sum(increase(shadowsocks_data_bytes{dir=~&quot;c&lt;p|p&gt;t&quot;}[30d])) by (access_key)</code></p></li>
+<li><p><strong>ไบต์ (จำแนกตามตำแหน่ง โปรโตคอล และทิศทาง)</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_data_bytes_per_location[1d])</code></p></li>
+</ul>
+
+<h4 data-text="15614318898198878462" id="active_access_keys" tabindex="-1">คีย์การเข้าถึงที่ใช้งานอยู่</h4>
+
+<p><code dir="ltr" translate="no">sum(max(max_over_time(shadowsocks_data_bytes{access_key!=&quot;&quot;} [1h])) by (access_key) &gt; bool 0)</code></p>
+
+<h4 data-text="10291694465361430901" id="tcp_connections" tabindex="-1">การเชื่อมต่อ TCP</h4>
+
+<ul>
+<li><p><strong>การเชื่อมต่อ TCP (จำแนกตามคีย์การเข้าถึง ตำแหน่ง และสถานะ)</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_tcp_connections_closed[1d])</code></p></li>
+<li><p><strong>การเชื่อมต่อ TCP (จำแนกตามตำแหน่ง)</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_tcp_connections_opened[1d])</code></p></li>
+</ul>
+
+<h4 data-text="17994417296960730219" id="udp" tabindex="-1">UDP</h4>
+
+<ul>
+<li><p><strong>แพ็กเก็ต UDP (จำแนกตามตำแหน่งและสถานะ)</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_udp_packets_from_client_per_location[1d])</code></p></li>
+<li><p><strong>การเชื่อมโยง UDP (ไม่มีรายละเอียด)</strong></p>
+
+<p><code dir="ltr" translate="no">increase(shadowsocks_udp_nat_entries_added[1d])</code></p></li>
+</ul>
+
+<h4 data-text="4957710212888807504" id="performance" tabindex="-1">ประสิทธิภาพ</h4>
+
+<ul>
+<li><p><strong>การใช้ CPU (จำแนกตามกระบวนการ)</strong></p>
+
+<p><code dir="ltr" translate="no">rate(process_cpu_seconds_total[10m])</code></p></li>
+<li><p><strong>หน่วยความจำ (จำแนกตามกระบวนการ)</strong></p>
+
+<p><code dir="ltr" translate="no">process_virtual_memory_bytes</code></p></li>
+</ul>
+
+<h4 data-text="14146192432541994297" id="build_information" tabindex="-1">ข้อมูลบิลด์</h4>
+
+<ul>
+<li><p><strong>Prometheus</strong></p>
+
+<p><code dir="ltr" translate="no">prometheus_build_info</code></p></li>
+<li><p><strong>outline-ss-server</strong></p>
+
+<p><code dir="ltr" translate="no">shadowsocks_build_info</code></p></li>
+<li><p><strong>Node.js</strong></p>
+
+<p><code dir="ltr" translate="no">nodejs_version_info</code></p></li>
+</ul>
+
+<p>โปรดดูรายการเมตริกที่มีทั้งหมดใน<a l10n-placeholder4="4">ซอร์สโค้ด</a> <code dir="ltr" translate="no">outline-ss-server</code></p>
+
+  
+</body></html>

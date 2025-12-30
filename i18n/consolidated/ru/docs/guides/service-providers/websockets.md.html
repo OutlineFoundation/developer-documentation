@@ -1,0 +1,48 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e02deb61-58c4-49f9-b7cf-a354d993b8ab'}, 'string_id': '8881571525508256907', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><em>Для клиента Outline 1.15.0 или более поздних версий</em></p>
+
+<p>Это руководство содержит подробные инструкции по реализации Shadowsocks-over-WebSockets – мощного метода обхода цензуры в ситуациях, когда стандартные подключения Shadowsocks блокируются. Инкапсулируя трафик Shadowsocks в WebSockets, вы можете замаскировать его под обычный веб-трафик, повысив устойчивость и доступность соединения.</p>
+<aside class="note"><strong>Примечание.</strong><span> Shadowsocks-over-WebSockets поддерживается только в клиенте Outline 1.15.0 и более поздних версий. Для совместимости с более ранними версиями клиентов необходимо использовать текущие конфигурации.</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">Шаг 1. Настройте и запустите сервер Outline</h2>
+
+<p>Создайте новый файл <code dir="ltr" translate="no">config.yaml</code> со следующей конфигурацией:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>Совет.</strong><span> Чтобы избежать автоматического сканирования и возможных атак, держите значение <code dir="ltr" translate="no">path</code> в секрете. Он выполняет роль секретной конечной точки. Рекомендуется использовать длинный, случайно сгенерированный путь.</span></aside>
+<p>Скачайте последнюю версию <a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a> и запустите ее с созданной конфигурацией.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">Шаг 2. Настройте доступ к веб-серверу</h2>
+
+<p>Чтобы сделать веб-сервер WebSocket общедоступным, необходимо настроить на нем внешний доступ и включить <a l10n-placeholder6="6">TLS</a>.
+Вы можете использовать для этого указанные ниже способы. Можно настроить локальный веб-сервер (например, <a l10n-placeholder7="7">Caddy</a>, <a l10n-placeholder8="8">nginx</a> или <a l10n-placeholder9="9">Apache</a>) с действующим TLS-сертификатом или использовать сервис туннелирования (например, <a l10n-placeholder10="10">Cloudflare Tunnel</a> или <a l10n-placeholder11="11">ngrok</a>).</p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">Пример использования TryCloudflare</h3>
+<aside class="caution"><strong>Предупреждение.</strong><span> TryCloudflare предназначен только для демонстраций и тестирования.</span></aside>
+<p>В этом примере мы покажем, как быстро создать туннель с помощью <a l10n-placeholder12="12">TryCloudflare</a>. Это удобный и безопасный способ настроить внешний доступ на локальном веб-сервере без необходимости открывать входящие порты.</p>
+
+<ol>
+<li><p>Скачайте и установите <a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a>.</p></li>
+<li><p>Создайте туннель, указав порт вашего локального веб-сервера:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>Cloudflare предоставит субдомен
+(например, <code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code>), который позволит подключиться к конечной точке WebSocket и автоматически настроить TLS. Сохраните этот субдомен, так как он понадобится вам позже.</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">Шаг 3. Создайте динамический ключ доступа</h2>
+
+<p>Сгенерируйте YAML-файл с ключами доступа для пользователей, используя <a l10n-placeholder14="14">указанный в этой статье формат</a>. Включите в файл конечные точки WebSocket, настроенные на сервере.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>После создания YAML-файла с динамическим ключом доступа его нужно передать пользователям. Вы можете разместить файл на статическом веб-хостинге или настроить динамическую генерацию. Подробнее о том, <a l10n-placeholder15="15">как использовать динамические ключи доступа</a>…</p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">Шаг 4. Подключитесь к клиенту Outline</h2>
+
+<p>Используйте официальное приложение <a l10n-placeholder16="16">клиента Outline</a> 1.15.0 или более поздних версий и добавьте созданный динамический ключ доступа в список серверов. Нажмите <strong>Подключить</strong>, чтобы начать туннелирование трафика через сервер с конфигурацией Shadowsocks-over-Websocket.</p>
+
+<p>Чтобы убедиться, что трафик проходит через ваш сервер Outline, воспользуйтесь инструментом <a l10n-placeholder17="17">IPInfo</a>.</p>
+
+  
+</body></html>

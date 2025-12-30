@@ -1,0 +1,81 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'ca9add1a-4183-4774-bb18-99de56742c84', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7dfa25c5-6acf-472f-8f28-bd1e1a62c1fe'}, 'string_id': '15596045178784656997', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline использует два типа ключей доступа: статические и динамические. В случае статического ключа доступа вся информация, необходимая для подключения к серверу, хранится в самом ключе. В случае динамического – в ключе кодируется лишь местоположение информации о подключении, что позволяет хранить ее удаленно и при необходимости изменять. Это означает, что вы можете изменять конфигурацию сервера без необходимости создавать и распространять новые ключи среди пользователей. В этом руководстве описывается, как применять динамические ключи доступа для более удобного и эффективного управления сервером Outline.</p>
+
+<p>Вы можете указывать информацию о доступе для динамических ключей в одном из описанных ниже форматов.</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">С помощью ссылки <code dir="ltr" translate="no">ss://</code></h3>
+
+<p><em>Для клиента Outline 1.8.1 или более поздних версий</em></p>
+
+<p>Вы можете использовать уже существующую ссылку <code dir="ltr" translate="no">ss://</code>. Этот способ подходит, если вам не требуется часто менять сервер, порт или метод шифрования, но важно сохранить возможность менять адрес сервера.</p>
+
+<p><strong>Пример:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">С помощью объекта JSON</h3>
+
+<p><em>Для клиента Outline 1.8.0 или более поздних версий</em></p>
+
+<p>Этот способ дает больше свободы в управлении подключением пользователей к Outline, позволяя изменять сервер, порт, пароль и метод шифрования.</p>
+
+<p><strong>Пример:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server:</strong> домен или IP-адрес вашего VPN-сервера.</li>
+<li><strong>server_port:</strong> номер порта, на котором работает ваш VPN-сервер.</li>
+<li><strong>password:</strong> пароль, необходимый для подключения к VPN.</li>
+<li><strong>method:</strong> метод шифрования, используемый VPN. Список поддерживаемых <a l10n-placeholder6="6">AEAD-шифров</a> можно найти в Shadowsocks.</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">С помощью объекта YAML</h3>
+
+<p><em>Для клиента Outline 1.15.0 или более поздних версий</em></p>
+
+<p>Этот способ напоминает предыдущий вариант с JSON, но обеспечивает ещё большую гибкость благодаря расширенному формату конфигурации Outline. Он позволяет изменять сервер, порт, пароль, метод шифрования и другие настройки.</p>
+
+<p><strong>Пример:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport:</strong> определяет используемые транспортные протоколы (в данном случае TCP и UDP).</li>
+<li><strong>tcp/udp:</strong> указывает настройки для каждого протокола.
+<ul>
+<li><strong>$type:</strong> обозначает тип конфигурации (здесь это Shadowsocks).</li>
+<li><strong>endpoint:</strong> домен или IP-адрес и порт вашего VPN-сервера.</li>
+<li><strong>secret:</strong> пароль, необходимый для подключения к VPN.</li>
+<li><strong>cipher:</strong> метод шифрования, используемый VPN. Список поддерживаемых <a l10n-placeholder7="7">AEAD-шифров</a> можно найти в Shadowsocks.</li>
+</ul></li>
+</ul>
+
+<p>Ознакомьтесь с <a l10n-placeholder8="8">Конфигурацией ключей доступа</a>, чтобы узнать обо всех способах настройки доступа к вашему серверу Outline, включая Transport, Endpoint, Dialer и Packet Listener.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">Как извлечь информацию о доступе из статического ключа</h2>
+
+<p>Если у вас уже есть статический ключ доступа, вы можете извлечь из него информацию в формате JSON или YAML для создания динамического ключа. Статические ключи доступа имеют следующий формат:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Пример:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><strong>Сервер:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>Порт сервера:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>Информация о пользователе:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code>
+Данные в формате <a l10n-placeholder9="9">base64</a>, декодированные с помощью специального инструмента, например <a l10n-placeholder10="10">Набора инструментов администратора Google</a>.</p>
+
+<ul>
+<li><strong>Метод шифрования</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>Пароль</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">Как выбрать хостинговую платформу</h2>
+
+<p>Теперь, когда вы знаете, как создавать динамические ключи доступа, важно выбрать подходящую платформу для их хостинга. Учитывайте такие факторы, как надежность, безопасность, удобство использования и устойчивость к цензуре. Чтобы сделать правильный выбор, ответьте на следующие вопросы: Сможет ли платформа стабильно предоставлять информацию о ключах доступа без простоев? Обеспечивает ли платформа достаточную защиту конфигурации? Насколько легко управлять информацией о ключах доступа на платформе? Доступна ли платформа в регионах с цензурой в интернете?</p>
+
+<p>Если доступ к информации может быть ограничен, подумайте об использовании устойчивых к цензуре платформ, таких как <a l10n-placeholder11="11">Google Диск</a>, <a l10n-placeholder12="12">pad.riseup.net</a>, <a l10n-placeholder13="13">Amazon S3</a> (с именем ресурса по пути), <a l10n-placeholder14="14">Netlify</a> или <a l10n-placeholder15="15">приватные gist в GitHub</a>.
+Выбирайте платформу, исходя из особенностей вашего развертывания. Также учитывайте требования к доступности и безопасности.</p>
+
+  
+</body></html>

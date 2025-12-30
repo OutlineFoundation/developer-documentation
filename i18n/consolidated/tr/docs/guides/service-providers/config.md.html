@@ -1,0 +1,29 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a554cd75-473c-4558-9266-9e534795cdee'}, 'string_id': '1234691844019891530', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline, VPN parametrelerini tanımlamak ve TCP/UDP trafiğini işlemek için YAML tabanlı bir yapılandırma kullanır. Yapılandırma, birden fazla düzeyde birleştirilebilirliği destekler. Böylece esnek ve genişletilebilir kurumlara olanak tanır.</p>
+
+<p>Üst düzey yapılandırmada <a l10n-placeholder7="7">TunnelConfig</a> kullanılır.</p>
+
+<h2 data-text="14665129214657206841" id="examples" tabindex="-1">Örnekler</h2>
+
+<p>Standart bir Shadowsocks yapılandırması şöyle olur:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>TCP ve UDP'nin artık farklı bağlantı noktalarında veya uç noktalarda ve farklı öneklerle nasıl çalıştığına dikkat edin.</p>
+
+<p>Yinelemeyi önlemek için YAML anchor'larını ve <code dir="ltr" translate="no">&lt;&lt;</code> birleştirme anahtarını kullanabilirsiniz:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Artık strateji oluşturabilir ve birden çok aşamalı işlemler yapabilirsiniz:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>Shadowsocks gibi trafiği değiştiren protokollerin engellenmesi durumunda, Shadowsocks-over-Websockets kullanabilirsiniz. Nasıl dağıtılacağına ilişkin <a l10n-placeholder8="8">sunucu örneği</a> yapılandırmasına bakın. Bir istemci yapılandırması şöyle olur:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Websocket uç noktasının da bir uç noktaya bağlanabileceğini unutmayın. Bu yöntem, DNS tabanlı engellemeyi atlamak için kullanılabilir:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Farklı Outline istemci sürümleri arasında uyumluluğu sağlamak için yapılandırmanızda <code dir="ltr" translate="no">first-supported</code> seçeneğini kullanın. Bu yöntem, kullanıcıların tamamı en yeni istemci yazılımına güncelleme yapmamış olabileceğinden, Outline'a yeni stratejiler ve özellikler eklendikçe özellikle önemlidir. <code dir="ltr" translate="no">first-supported</code> kullanarak, çeşitli platformlarda ve istemci sürümlerinde sorunsuz bir şekilde çalışan tek bir yapılandırma sunabilirsiniz. Böylece geriye dönük uyumluluk ve tutarlı bir kullanıcı deneyimi sağlayabilirsiniz.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+
+  
+</body></html>

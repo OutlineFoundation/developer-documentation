@@ -1,0 +1,62 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '79ec3d92-2daf-4576-ba37-0d88e3ba3374', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '33ed7afd-bdbe-40a0-afe8-0aaf45bbe3c6'}, 'string_id': '1771782244284931348', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>W tym przewodniku znajdziesz informacje o tym, jak korzystać z <a l10n-placeholder6="6">Caddy</a>, zaawansowanego i przyjaznego dla użytkownika serwera WWW, aby udoskonalić konfigurację serwera Outline. Funkcje serwera Caddy dotyczące <a l10n-placeholder7="7">automatycznego protokołu HTTPS</a> oraz jego elastyczna konfiguracja sprawiają, że jest to doskonały wybór do obsługi serwera Outline, zwłaszcza w przypadku korzystania z transportu webSocket.</p>
+
+<h2 data-text="355743447653748466" id="what_is_caddy" tabindex="-1">Czym jest serwer Caddy?</h2>
+
+<p>Caddy to serwer WWW na licencji open source znany z łatwości użytkowania, automatycznego protokołu HTTPS i obsługi wielu różnych protokołów. Upraszcza konfigurację serwera WWW i zapewnia funkcje takie jak:</p>
+
+<ul>
+<li><strong>Automatyczny protokół HTTPS:</strong> Caddy automatycznie uzyskuje i odnawia certyfikaty TLS, zapewniając tym samym bezpieczne połączenia.</li>
+<li><strong>Obsługa HTTP/3:</strong> Caddy obsługuje najnowszy protokół HTTP/3, co przekłada się na szybszy i wydajniejszy ruch w sieci.</li>
+<li><strong>Rozszerzalność za pomocą wtyczek:</strong> Caddy można rozszerzyć za pomocą wtyczek o różne funkcje, w tym odwrotne serwery proxy i równoważenie obciążenia.</li>
+</ul>
+
+<h2 data-text="8657841238772566975" id="step_1_prerequisites" tabindex="-1">Krok 1. Wymagania wstępne</h2>
+
+<ul>
+<li>Pobierz i zainstaluj <a l10n-placeholder8="8"><code dir="ltr" translate="no">xcaddy</code></a>.</li>
+</ul>
+
+<h2 data-text="954093604514145141" id="step_2_configure_your_domain" tabindex="-1">Krok 2. Skonfiguruj domenę</h2>
+
+<p>Przed uruchomieniem serwera Caddy upewnij się, że nazwa Twojej domeny jest poprawnie skonfigurowana, tak aby wskazywała na adres IP Twojego serwera.</p>
+
+<ul>
+<li><strong>Ustaw rekordy A/AAAA:</strong> zaloguj się do swojego dostawcy DNS i skonfiguruj rekordy A i AAAA dla swojej domeny, tak aby wskazywały odpowiednio na adresy IPv4 i IPv6 Twojego serwera.</li>
+<li><p><strong>Sprawdź rekordy DNS:</strong> sprawdź, czy Twoje rekordy DNS są ustawione poprawnie, za pomocą wyszukiwania autorytatywnego:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+</ul>
+
+<h2 data-text="8552920132448623781" id="build-and-run" tabindex="-1">Krok 3. Utwórz i uruchom odpowiedni serwer Caddy</h2>
+
+<p>Korzystając z <code dir="ltr" translate="no">xcaddy</code>, możesz skompilować spersonalizowany plik binarny <code dir="ltr" translate="no">caddy</code> zawierający główny moduł serwera Outline i inne moduły rozszerzenia serwera, które są potrzebne.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5300590180445875246" id="step_4_configure_and_run_the_caddy_server_with_outline" tabindex="-1">Krok 4. Skonfiguruj i uruchom serwer Caddy z Outline</h2>
+
+<p>Utwórz nowy plik <code dir="ltr" translate="no">config.yaml</code> o następującej konfiguracji:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code><aside class="special"><strong>Ważne:</strong><span> utrzymuj parametr <code dir="ltr" translate="no">path</code> w tajemnicy, aby uniknąć prób jego odkrycia. Pełni funkcję sekretnego punktu końcowego. Zaleca się stworzenie długiej, wygenerowanej losowo ścieżki.</span></aside>
+<p>Ta konfiguracja reprezentuje strategię Shadowsocks-over-WebSockets z serwerem WWW nasłuchującym na porcie <code dir="ltr" translate="no">443</code>, przyjmującym spakowany ruch protokołów Shadowsocks TCP i UDP odpowiednio przy ścieżkach <var translate="no">TCP_PATH</var> i <var translate="no">UDP_PATH</var>.</p>
+
+<p>Uruchom serwer Caddy rozszerzony za pomocą Outline, korzystając z utworzonej konfiguracji:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code><aside class="note"><strong>Uwaga:</strong><span> w tym przykładzie korzystamy z języka YAML, ponieważ jest bardziej czytelny i łatwiej dodawać w nim adnotacje; możesz też jednak korzystać bezpośrednio z formatu JSON (języka pierwotnej konfiguracji Caddy). Jeśli z tak zrobisz, możesz uruchomić serwer bez oznaczenia <code dir="ltr" translate="no">--adapter yaml</code> i usunąć zależność od adaptera YAML w <a l10n-placeholder9="9">kroku tworzenia i uruchamiania</a>.</span></aside>
+<p>Więcej przykładów konfiguracji znajdziesz w naszym <a l10n-placeholder10="10">repozytorium GitHub outline-ss-server/outlinecaddy</a>.</p>
+
+<h2 data-text="7010145673871148721" id="step_5_create_a_dynamic_access_key" tabindex="-1">Krok 5. Utwórz dynamiczny klucz dostępu</h2>
+
+<p>Wygeneruj plik YAML z kluczem dostępu klienta dla użytkowników korzystających z formatu <a l10n-placeholder11="11">zaawansowanej konfiguracji</a> i uwzględnij punkty końcowe WebSocket skonfigurowane po stronie serwera:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Po wygenerowaniu pliku YAML z dynamicznym kluczem dostępu musisz dostarczyć go swoim użytkownikom. Możesz hostować plik na statycznym hostingu WWW lub generować go dynamicznie. Dowiedz się więcej o <a l10n-placeholder12="12">dynamicznych kluczach dostępu</a>.</p>
+
+<h2 data-text="15445614553436477202" id="step_6_connect_with_the_outline_client" tabindex="-1">Krok 6. Połącz się z klientem Outline</h2>
+
+<p>Skorzystaj z jednej z oficjalnych aplikacji <a l10n-placeholder13="13">klienta Outline</a> (wersja 1.15.0 i nowsze) i dodaj swój nowo utworzony dynamiczny klucz dostępu jako wpis serwera. Kliknij <strong>Połącz</strong>, aby rozpocząć tunelowanie do swojego serwera za pomocą konfiguracji Shadowsocks-over-Websocket.</p>
+
+<p>Skorzystaj z narzędzia takiego jak <a l10n-placeholder14="14">IPInfo</a>, aby potwierdzić, że przeglądasz internet za pomocą swojego serwera Outline.</p>
+
+  
+</body></html>

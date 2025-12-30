@@ -1,0 +1,96 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '11ce5384-efb1-4b52-9010-ec778de61ff2', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9415157f-2fbe-4f25-b7cb-2749e5323548'}, 'string_id': '3525800959540017658', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>本文档概述了如何将 Outline SDK 集成到移动应用中，并重点讲解如何使用 <code dir="ltr" translate="no">MobileProxy</code> 库简化本地代理管理。</p>
+
+<p><code dir="ltr" translate="no">MobileProxy</code> 是一个基于 Go 的库，旨在简化将代理服务器功能集成到移动应用中的流程。该库利用 <a l10n-placeholder15="15">Go Mobile</a> 生成移动端库，让您能够配置应用的网络库，将流量通过本地代理进行传输。</p>
+
+<p><strong>不使用 MobileProxy 的应用</strong></p>
+
+<p><img alt="不使用 MobileProxy 的内容应用" src="/static/outline/images/mobileproxy-before.png" /></p>
+
+<p><strong>使用 MobileProxy 的应用</strong></p>
+
+<p><img alt="使用 MobileProxy 的内容应用" src="/static/outline/images/mobileproxy-after.png" /></p>
+
+<h2 data-text="1718791822104478012" id="step_1_building_mobileproxy_mobile_libraries" tabindex="-1">第 1 步：构建 MobileProxy 移动端库</h2>
+
+<p>使用 <a l10n-placeholder16="16">gomobile</a> 将 Go 代码编译为 Android 和 iOS 库。</p>
+<ol>
+<li><p>克隆 Outline SDK 仓库：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p>使用 <a l10n-placeholder17="17"><code dir="ltr" translate="no">go
+build</code></a> 构建 Go Mobile 二进制文件：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h4 data-text="5204948932184765095" id="adding_psiphon_support" tabindex="-1">添加 Psiphon 支持</h4>
+
+<p>要想让应用支持使用 <a l10n-placeholder18="18">Psiphon</a> 网络，请按以下额外步骤操作：</p>
+
+<ul>
+<li>与 Psiphon 团队联系，获取用于访问其网络的配置，可能需要签订合同。</li>
+<li>将获得的 Psiphon 配置添加到 <code dir="ltr" translate="no">SmartDialer</code> 配置的 <code dir="ltr" translate="no">fallback</code> 部分。</li>
+<li><p>使用 <code dir="ltr" translate="no">-tags psiphon</code> 标记构建 MobileProxy：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ul>
+
+<p>由于 Psiphon 代码库基于 GPL 协议授予许可，可能会对您的代码施加许可限制，因此需要使用 <code dir="ltr" translate="no">-tags psiphon</code> 标记。您可能需要考虑申请特殊许可。</p></li>
+<li><p>生成移动端库并将其添加到项目中：</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>在 Android Studio 中，依次选择<strong>文件 > 导入项目…</strong>，导入生成的 <code dir="ltr" translate="no">out/mobileproxy.aar</code> 软件包。如需获取更多帮助，请参阅 Go Mobile 的<a l10n-placeholder19="19">构建并部署到 Android</a>。</p></section>
+<section><h3 data-text="6603727412053336878" id="ios" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>将 <code dir="ltr" translate="no">out/mobileproxy.xcframework</code> 软件包拖放到 Xcode 项目中。如需获取更多帮助，请参阅 Go Mobile 的<a l10n-placeholder20="20">构建并部署到 iOS</a>。</p></section>
+</div></li>
+</ol>
+<h2 data-text="4024228036659309866" id="step_2_run_the_mobileproxy" tabindex="-1">第 2 步：运行 MobileProxy</h2>
+
+<p>在应用的运行时内初始化并启动 <code dir="ltr" translate="no">MobileProxy</code> 本地代理服务器。您可以使用静态传输配置，或通过 Smart Proxy 实现动态策略选择。</p>
+<ul>
+<li><p><strong>静态传输配置</strong>：将 <code dir="ltr" translate="no">RunProxy</code> 函数与本地地址和传输配置结合使用。</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_1" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_1" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code></section>
+</div></li>
+<li><p><strong>Smart Proxy</strong>：Smart Proxy 可根据指定的测试网域动态选择 DNS 和 TLS 策略。您需要以 YAML 格式指定配置策略（<a l10n-placeholder21="21">示例</a>）。</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_2" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_2" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code></section>
+</div></li>
+</ul>
+<h2 data-text="13344055017641912209" id="step_3_configure_http_clients_and_networking_libraries" tabindex="-1">第 3 步：配置 HTTP 客户端和网络库</h2>
+
+<p>配置网络库以使用本地代理服务器地址和端口。</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="300587700062067095" id="dartflutter-httpclient" tabindex="-1">Dart/Flutter HttpClient</h3><p>通过 <a l10n-placeholder22="22"><code dir="ltr" translate="no">HttpClient.findProxy</code></a> 设置代理服务器。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder10 --></devsite-code></section>
+<section><h3 data-text="13799614901616739506" id="okhttp-android" tabindex="-1">OkHttp (Android)</h3><p>通过 <a l10n-placeholder23="23"><code dir="ltr" translate="no">OkHttpClient.Builder.proxy</code></a> 设置代理服务器。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder11 --></devsite-code></section>
+<section><h3 data-text="15870589425629705190" id="jvm-java,-kotlin" tabindex="-1">JVM（Java、Kotlin）</h3><p>使用<a l10n-placeholder24="24">系统属性</a>配置要使用的代理服务器：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder12 --></devsite-code></section>
+<section><h3 data-text="17545990191176204585" id="android-web-view" tabindex="-1">Android WebView</h3><p>通过 <a l10n-placeholder25="25"><code dir="ltr" translate="no">androidx.webview</code></a> 库将代理服务器配置应用于应用中的所有 WebView：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder13 --></devsite-code></section>
+<section><h3 data-text="7272650420158412024" id="ios-web-view" tabindex="-1">iOS WebView</h3><p></p>
+
+<p>从 iOS 17 开始，您可以使用 <a l10n-placeholder26="26"><code dir="ltr" translate="no">WKWebsiteDataStore</code> 属性</a>将代理服务器配置添加到 <code dir="ltr" translate="no">WKWebView</code>：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder14 --></devsite-code></section>
+</div>
+<h2 data-text="8443850987242321729" id="advanced_generate_a_custom_mobile_library" tabindex="-1">高级：生成自定义移动端库</h2>
+
+<p>对于高级应用场景，您可以生成自己的移动端库：</p>
+
+<ol>
+<li><strong>创建 Go 库</strong>：开发一个封装了所需 SDK 功能的 Go 库。</li>
+<li><strong>生成移动端库</strong>：使用 <code dir="ltr" translate="no">gomobile bind</code> 生成 Android Archive (AAR) 和 Apple 框架。示例：
+<ul>
+<li><a l10n-placeholder27="27">Outline Android Archive</a></li>
+<li><a l10n-placeholder28="28">Outline Apple 框架</a></li>
+</ul></li>
+<li><strong>集成到应用中</strong>：将生成的库添加到移动应用中。</li>
+</ol>
+<aside class="note"><strong>注意：</strong><span>请在自定义软件包上使用 <code dir="ltr" translate="no">gomobile bind</code>，不要直接在 SDK 软件包上使用。</span></aside>
+
+  
+</body></html>

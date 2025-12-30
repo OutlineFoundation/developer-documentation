@@ -1,0 +1,34 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'cb97db84-d2c2-41cd-98bd-e53de4f95798'}, 'string_id': '6201848709562429957', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline SDK основан на ряде базовых концепций, реализованных в виде совместимых интерфейсов, которые можно комбинировать и легко использовать повторно.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Подключения</h2>
+
+<p>Подключения обеспечивают связь между двумя конечными точками через абстрактный протокол. Существует два типа подключений:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: потоковое подключение, например TCP и тип сокета POSIX <code dir="ltr" translate="no">SOCK_STREAM</code>.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: подключение на основе датаграммы, например UDP и тип сокета Posix <code dir="ltr" translate="no">SOCK_DGRAM</code>.
+Мы используем Packet вместо Datagram, поскольку так принято в стандартной библиотеке Go.</li>
+</ul>
+
+<p>Подключения можно упаковывать, создавая вложенные подключения через новые протоколы.
+Например, <code dir="ltr" translate="no">StreamConn</code> может работать поверх TCP, поверх TLS поверх TCP, поверх HTTP поверх TLS поверх TCP, поверх QUIC и других вариантов.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Дайлеры</h2>
+
+<p>Дайлеры позволяют создавать подключения по адресу вида host:port, при этом инкапсулируя используемый транспортный или прокси-протокол.
+Типы <code dir="ltr" translate="no">StreamDialer</code> и <code dir="ltr" translate="no">PacketDialer</code> создают подключения <code dir="ltr" translate="no">StreamConn</code> и <code dir="ltr" translate="no">PacketConn</code> исходя из заданного адреса. Дайлеры также могут быть вложенными.
+Например, дайлер TLS Stream может использовать дайлер TCP, чтобы создать <code dir="ltr" translate="no">StreamConn</code> на основе TCP-подключения, а затем создать TLS <code dir="ltr" translate="no">StreamConn</code> на основе TCP <code dir="ltr" translate="no">StreamConn</code>. Дайлер типа SOCKS5-over-TLS может использовать дайлер TLS, чтобы установить TLS-подключение <code dir="ltr" translate="no">StreamConn</code> с прокси-сервером перед выполнением SOCKS5-подключения к целевому адресу.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Резолверы</h2>
+
+<p>Резолверы (<code dir="ltr" translate="no">dns.Resolver</code>) позволяют отвечать на DNS-запросы, инкапсулируя реализацию алгоритма или протокола.
+В первую очередь они используются для сопоставления доменных имен с IP-адресами.</p>
+
+  
+</body></html>

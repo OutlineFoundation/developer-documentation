@@ -1,0 +1,81 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7fe17576-e0e7-48d0-874f-d86ecf0749ee'}, 'string_id': '5203438546915857294', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="4874468153219405670" id="introduction" tabindex="-1">简介</h2>
+
+<p>在网络审查严格的环境下，Outline 服务器有时可能会被发现和封锁。如果服务器设置正确，即使被封锁也有可能恢复，并且操作难度也不大。我们将使用 DNS 和浮动 IP 来恢复被封锁的服务器。DNS 是一种互联网技术，可以将域名（例如 <code dir="ltr" translate="no">getoutline.org</code>）转换为实际 IP 地址（例如 <code dir="ltr" translate="no">216.239.36.21</code>）；而浮动 IP 是一项云功能，支持向一个 Outline 服务器分配多个 IP 地址。</p>
+
+<h2 data-text="13686080004592407858" id="requirements" tabindex="-1">要求</h2>
+
+<p>只要具备一定基础技能，就能按照本指南完成操作。对 DNS 有基本了解会起到帮助作用，但并非必要条件。这篇 <a l10n-placeholder1="1">MDN</a> 指南介绍了域名的概念，可供参考。</p>
+
+<p>为了提供具体示例，我们将使用 DigitalOcean 和 Google Domains，但只要是支持分配 IP 地址的云提供商（例如 Google Cloud 或 <a l10n-placeholder2="2">AWS Lightsail</a>）以及域名注册商（例如 <a l10n-placeholder3="3">AWS Route 53</a>）均可使用。</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">操作说明</h2>
+
+<ol>
+<li><p>下表概述了轮换服务器 IP 地址的步骤：</p></li>
+<li><p>购买域名。</p></li>
+<li><p>将该域名指向我们服务器的 IP 地址。</p></li>
+<li><p>使用该域名发放访问密钥。</p></li>
+<li><p>为服务器的 Droplet 分配浮动 IP。</p></li>
+<li><p>更改域名，使其指向新的 IP 地址。</p></li>
+</ol>
+
+<h2 data-text="11461176644196079266" id="create_an_outline_server_on_digitalocean" tabindex="-1">在 DigitalOcean 上创建 Outline 服务器</h2>
+
+<p>如果您已有正在运行的 DigitalOcean 服务器，请直接跳到下一步。</p>
+
+<ol>
+<li><p>打开 Outline 管理器，点击左下角的“+”进入服务器创建界面。</p></li>
+<li><p>点击“DigitalOcean”按钮上的“创建服务器”，按照应用中的说明操作。</p></li>
+</ol>
+
+<p><img alt="创建服务器" src="/static/outline/images/create-DO-server.png" /></p>
+
+<h2 data-text="4069928074011065574" id="make_a_hostname_for_your_server" tabindex="-1">为服务器设置主机名</h2>
+
+<!-- TODO: Revamp now that Google Domains is no more. -->
+
+<ol>
+<li><p>前往 <a l10n-placeholder4="4">Google Domains</a>，点击“找到最佳选择”。</p></li>
+<li><p>在搜索栏中输入域名，然后选择一个想要的名称。在示例中，我们使用了 <code dir="ltr" translate="no">outlinedemo.info</code>。</p></li>
+<li><p>前往 Google Domains 中的“DNS”标签页。在“自定义资源记录”下的“IPV4 地址”字段中输入服务器的 IP 地址。</p></li>
+<li><p>在 Outline 管理器中，前往服务器的“设置”标签页。在“主机名”下输入您购买的主机名，然后点击“保存”。这会使得日后所有的访问密钥使用此主机名，而不是使用服务器的 IP 地址。</p></li>
+</ol>
+
+<p><img alt="设置主机名" src="/static/outline/images/set-hostname.png" /></p>
+
+<h2 data-text="607812462890340981" id="change_the_servers_ip_address" tabindex="-1">更改服务器的 IP 地址</h2>
+
+<ol>
+<li><p>在 DigitalOcean 的“Droplets”页面上找到您的服务器。</p></li>
+<li><p>在窗口的右上角，点击“Floating IP”（浮动 IP）旁边的“Enable Now”（立即启用）。</p></li>
+</ol>
+
+<p><img alt="启用浮动 IP" src="/static/outline/images/floating-ip-DO.png" /></p>
+
+<ol>
+<li>在 Droplet 列表中找到您的服务器，然后点击“Assign Floating IP”（分配浮动 IP）。</li>
+</ol>
+
+<p><img alt="分配浮动 IP" src="/static/outline/images/assign-floating-ip-DO.png" /></p>
+
+<ol>
+<li><p>返回 Google Domains 中的“DNS”标签页。</p></li>
+<li><p>像之前一样更改 IP 地址，但这一次改用新的浮动 IP 地址。此操作最多可能需要 48 小时才能生效，但通常只需要几分钟。</p></li>
+<li><p>进入 <a l10n-placeholder5="5">Google 的在线 DNS 工具</a>，输入您的域名即可查看在最后一步中完成的更改何时生效。</p></li>
+</ol>
+
+<p><img alt="在 Google DNS 工具中搜索域名" src="/static/outline/images/google-dns.png" /></p>
+
+<p>一旦此更改生效，客户端就会连接到新的 IP 地址。您可以使用新密钥连接到服务器，打开 <a l10n-placeholder6="6">https://ipinfo.io</a>，确保页面显示了服务器的新 IP 地址。</p>
+
+<p>总结
+轮换 Outline 服务器的 IP 地址可以快速将服务器解除封锁，恢复对客户端的服务。如有其他疑问，欢迎随时在<a l10n-placeholder7="7">通知帖子</a>下发表评论，访问 <a l10n-placeholder8="8">Outline 的支持页面</a>，或者<a l10n-placeholder9="9">直接与我们联系</a>。</p>
+
+  
+</body></html>

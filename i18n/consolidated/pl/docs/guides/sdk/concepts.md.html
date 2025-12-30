@@ -1,0 +1,34 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b963ee4c-b621-4f42-aec9-baaed6670685'}, 'string_id': '6201848709562429957', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Pakiet Outline SDK jest oparty na podstawowych koncepcjach zdefiniowanych jako interfejsy interoperacyjne, które zapewniają kompozycyjność i możliwość łatwego ponownego wykorzystania.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Połączenia</h2>
+
+<p>Połączenia umożliwiają komunikację między 2 punktami końcowymi przez abstrakcyjny transport. Dostępne są 2 typy połączeń:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: połączenie strumieniowe, takie jak TCP i gniazdo POSIX <code dir="ltr" translate="no">SOCK_STREAM</code>.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: połączenie oparte na datagramach, takie jak UDP i gniazdo POSIX <code dir="ltr" translate="no">SOCK_DGRAM</code>.
+W dokumentacji używamy terminu „pakiet” zamiast „datagram”, ponieważ taka konwencja jest stosowana w standardowej bibliotece Go.</li>
+</ul>
+
+<p>Połączenia można opakowywać w celu tworzenia. połączeń zagnieżdżonych w ramach nowego transportu.
+Na przykład <code dir="ltr" translate="no">StreamConn</code> można realizować przez TCP, TLS-over-TCP, HTTP-over-TLS przez TCP, QUIC itd.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Dialery</h2>
+
+<p>Dialery umożliwiają tworzenie połączeń z adresami w formacie host:port przy jednoczesnej hermetyzacji podstawowego protokołu transportu lub proxy.
+Typy <code dir="ltr" translate="no">StreamDialer</code> i <code dir="ltr" translate="no">PacketDialer</code> tworzą odpowiednio połączenia <code dir="ltr" translate="no">StreamConn</code> i <code dir="ltr" translate="no">PacketConn</code> z podanym adresem. Dialery można także zagnieżdżać.
+Na przykład dialer strumienia TLS może użyć dialera TCP do utworzenia połączenia <code dir="ltr" translate="no">StreamConn</code> obsługiwanego przez połączenie TCP, a następnie utworzyć połączenie TLS <code dir="ltr" translate="no">StreamConn</code> obsługiwane przez połączenie TCP <code dir="ltr" translate="no">StreamConn</code>. Dialer SOCKS5 przez TLS może użyć dialera TLS do utworzenia połączenia TLS <code dir="ltr" translate="no">StreamConn</code> z serwerem proxy przed nawiązaniem połączenia SOCKS5 z adresem docelowym.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Resolvery</h2>
+
+<p>Resolvery (<code dir="ltr" translate="no">dns.Resolver</code>) umożliwiają odpowiadanie na zapytania DNS, jednocześnie hermetyzując podstawowy algorytm lub protokół.
+Resolvery są używane głównie do mapowania nazw domen na adresy IP.</p>
+
+  
+</body></html>

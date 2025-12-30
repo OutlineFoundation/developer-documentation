@@ -1,0 +1,93 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '26835d97-352f-469b-a6ab-b13092825164'}, 'string_id': '11452553123190334191', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><strong>Smart Dialer</strong> recherche une stratégie qui débloque les protocoles DNS et TLS pour une liste spécifique de domaines de test. Il part d'une configuration décrivant plusieurs stratégies pour faire son choix.</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">Configuration YAML pour Smart Dialer</h2>
+
+<p>La configuration que Smart Dialer utilise est au format YAML. Voici un exemple :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">Configuration DNS</h3>
+
+<ul>
+<li>Le champ <code dir="ltr" translate="no">dns</code> spécifie une liste de résolveurs DNS à tester.</li>
+<li>Chaque résolveur DNS peut être de l'un des types suivants :
+<ul>
+<li><code dir="ltr" translate="no">system</code> : utilisation du résolveur du système. Il est spécifié avec un objet vide.</li>
+<li><code dir="ltr" translate="no">https</code> : utilisation d'un résolveur DNS-over-HTTPS (DoH) chiffré.</li>
+<li><code dir="ltr" translate="no">tls</code> : utilisation d'un résolveur DNS-over-TLS (DoT) chiffré.</li>
+<li><code dir="ltr" translate="no">udp</code> : utilisation d'un résolveur UDP.</li>
+<li><code dir="ltr" translate="no">tcp</code> : utilisation d'un résolveur TCP.</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">Résolveur DNS-over-HTTPS (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code> : nom de domaine du serveur DoH.</li>
+<li><code dir="ltr" translate="no">address</code> : adresse hôte:port du serveur DoH. La valeur par défaut est <code dir="ltr" translate="no">name</code>:443.</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">Résolveur DNS-over-TLS (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code> : nom de domaine du serveur DoT.</li>
+<li><code dir="ltr" translate="no">address</code> : adresse hôte:port du serveur DoT. La valeur par défaut est <code dir="ltr" translate="no">name</code>:853.</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">Résolveur UDP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code> : adresse hôte:port du résolveur UDP.</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">Résolveur TCP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code> : adresse hôte:port du résolveur TCP.</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">Configuration TLS</h3>
+
+<ul>
+<li>Le champ <code dir="ltr" translate="no">tls</code> spécifie une liste de transports TLS à tester.</li>
+<li>Chaque transport TLS est une chaîne qui spécifie le transport à utiliser.</li>
+<li>Par exemple, <code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> spécifie un transport qui utilise le domain fronting avec Cloudflare et la fragmentation TLS. Consultez la <a l10n-placeholder10="10">documentation sur la configuration</a> pour en savoir plus.</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">Configuration de remplacement</h3>
+
+<p>Une configuration de remplacement est utilisée si aucune des stratégies sans proxy ne parvient à établir une connexion. Par exemple, elle peut spécifier un serveur proxy de secours pour tenter de connecter l'utilisateur. Le lancement de la stratégie de remplacement prend plus de temps, puisque les autres stratégies DNS ou TLS doivent avoir échoué ou expiré d'abord.</p>
+
+<p>Les chaînes de la configuration de remplacement doivent respecter ces caractéristiques :</p>
+
+<ul>
+<li>Être des chaînes de configuration <code dir="ltr" translate="no">StreamDialer</code> valides, telles que définies dans <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a></li>
+<li>Être des objets de configuration Psiphon valides, en tant qu'éléments enfants d'un champ <code dir="ltr" translate="no">psiphon</code></li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">Exemple de serveur Shadowsocks</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">Exemple de serveur SOCKS5</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">Exemple de configuration Psiphon</h4>
+
+<p>Pour utiliser le réseau <a l10n-placeholder12="12">Psiphon</a> :</p>
+
+<ol>
+<li>Contactez l'équipe Psiphon pour obtenir une configuration qui vous donne accès à son réseau. Un contrat peut être nécessaire.</li>
+<li>Ajoutez la configuration Psiphon reçue à la section <code dir="ltr" translate="no">fallback</code> de votre configuration Smart Dialer. Puisque JSON est compatible avec YAML, vous pouvez copier et coller votre configuration Psiphon directement dans la section <code dir="ltr" translate="no">fallback</code>, comme suit :</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>Remarque</strong><span> : Le codebase Psiphon est sous licence GPL, ce qui peut imposer des restrictions de licence à votre propre code. Vous pouvez envisager d'obtenir une licence spéciale auprès de Psiphon.</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">Comment utiliser Smart Dialer</h3>
+
+<p>Pour utiliser Smart Dialer, créez un objet <code dir="ltr" translate="no">StrategyFinder</code> et appelez la méthode <code dir="ltr" translate="no">NewDialer</code>, en donnant la liste de domaines de test et la configuration YAML.
+La méthode <code dir="ltr" translate="no">NewDialer</code> renvoie un <code dir="ltr" translate="no">transport.StreamDialer</code>, qui peut être utilisé pour établir des connexions à l'aide de la stratégie trouvée. Par exemple :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>Il s'agit d'un exemple basique. Vous devrez peut-être l'adapter à votre cas d'utilisation.</p>
+
+  
+</body></html>
