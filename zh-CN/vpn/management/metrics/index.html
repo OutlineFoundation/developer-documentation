@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Access Performance Metrics | Outline Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.getoutline.org/zh-CN/images/outline-logo.png"><meta data-rh="true" name="twitter:image" content="https://developer.getoutline.org/zh-CN/images/outline-logo.png"><meta data-rh="true" property="og:url" content="https://developer.getoutline.org/zh-CN/vpn/management/metrics"><meta data-rh="true" property="og:locale" content="zh_CN"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" property="og:locale:alternate" content="ar"><meta data-rh="true" property="og:locale:alternate" content="de"><meta data-rh="true" property="og:locale:alternate" content="es"><meta data-rh="true" property="og:locale:alternate" content="es_419"><meta data-rh="true" property="og:locale:alternate" content="fa"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" property="og:locale:alternate" content="it"><meta data-rh="true" property="og:locale:alternate" content="ja"><meta data-rh="true" property="og:locale:alternate" content="ko"><meta data-rh="true" property="og:locale:alternate" content="nl"><meta data-rh="true" property="og:locale:alternate" content="pl"><meta data-rh="true" property="og:locale:alternate" content="pt_BR"><meta data-rh="true" property="og:locale:alternate" content="ru"><meta data-rh="true" property="og:locale:alternate" content="th"><meta data-rh="true" property="og:locale:alternate" content="tr"><meta data-rh="true" property="og:locale:alternate" content="zh_TW"><meta data-rh="true" name="docusaurus_locale" content="zh-CN"><meta data-rh="true" name="docsearch:language" content="zh-CN"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Access Performance Metrics | Outline Developer Documentation"><meta data-rh="true" name="description" content="Outline 通过 Prometheus 提供详细的性能指标，可助您深入了解有关服务器的使用情况和健康状况。本指南为您详细介绍了检索和查看这些指标的相关流程。"><meta data-rh="true" property="og:description" content="Outline 通过 Prometheus 提供详细的性能指标，可助您深入了解有关服务器的使用情况和健康状况。本指南为您详细介绍了检索和查看这些指标的相关流程。"><link data-rh="true" rel="icon" href="/zh-CN/images/outline-logo.png"><link data-rh="true" rel="canonical" href="https://developer.getoutline.org/zh-CN/vpn/management/metrics"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/management/metrics" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ar/vpn/management/metrics" hreflang="ar"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/de/vpn/management/metrics" hreflang="de"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es/vpn/management/metrics" hreflang="es"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es-419/vpn/management/metrics" hreflang="es-419"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fa/vpn/management/metrics" hreflang="fa"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fr/vpn/management/metrics" hreflang="fr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/it/vpn/management/metrics" hreflang="it"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ja/vpn/management/metrics" hreflang="ja"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ko/vpn/management/metrics" hreflang="ko"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/nl/vpn/management/metrics" hreflang="nl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pl/vpn/management/metrics" hreflang="pl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pt-BR/vpn/management/metrics" hreflang="pt-BR"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ru/vpn/management/metrics" hreflang="ru"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/th/vpn/management/metrics" hreflang="th"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/tr/vpn/management/metrics" hreflang="tr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-CN/vpn/management/metrics" hreflang="zh-CN"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-TW/vpn/management/metrics" hreflang="zh-TW"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/management/metrics" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Performance Metrics","item":"https://developer.getoutline.org/zh-CN/vpn/management/metrics"}]}</script><link rel="stylesheet" href="/zh-CN/assets/css/styles.754e1d4a.css">
-<script src="/zh-CN/assets/js/runtime~main.438e414b.js" defer="defer"></script>
+<script src="/zh-CN/assets/js/runtime~main.b61efbf1.js" defer="defer"></script>
 <script src="/zh-CN/assets/js/main.e2dfe58d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -15,101 +15,85 @@
 <p><strong>重要注意事项</strong>：本指南在编写时假定您对 Prometheus 和 PromQL 有基本的了解。如果您刚刚接触 Prometheus，不妨先查阅相关的文档和教程，然后再探索 Outline 的各项指标。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="前提条件">前提条件<a href="#前提条件" class="hash-link" aria-label="前提条件的直接链接" title="前提条件的直接链接" translate="no">​</a></h2>
 <ul>
-<li class=""></li>
-</ul>
+<li class="">
 <p><strong>Outline 服务器（已启用 Prometheus）</strong>：确保您的 Outline 服务器已启用 Prometheus 指标。（这通常是默认配置）。</p>
-<ul>
-<li class=""></li>
-</ul>
+</li>
+<li class="">
 <p><strong>对服务器的 SSH 访问权限</strong>：您需要使用 SSH 访问权限来转发 Prometheus 端口。</p>
+</li>
+</ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="操作说明">操作说明<a href="#操作说明" class="hash-link" aria-label="操作说明的直接链接" title="操作说明的直接链接" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
+<li class=""><strong>转发 Prometheus 端口</strong></li>
 </ol>
-<p><strong>转发 Prometheus 端口</strong></p>
 <p>使用 SSH 连接到服务器，并转发 9090 端口：</p>
 <ol start="2">
-<li class=""></li>
+<li class=""><strong>访问 Prometheus 网页界面</strong></li>
 </ol>
-<p><strong>访问 Prometheus 网页界面</strong></p>
 <p>打开网络浏览器，并访问 <a href="http://localhost:9090/graph" target="_blank" rel="noopener noreferrer" class="">http://localhost:9090/graph</a>
 查询 Prometheus 指标</p>
 <ol start="3">
-<li class=""></li>
+<li class=""><strong>使用 PromQL 查询检索您感兴趣的指标。</strong></li>
 </ol>
-<p><strong>使用 PromQL 查询检索您感兴趣的指标。</strong></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="promql-查询示例">PromQL 查询示例<a href="#promql-查询示例" class="hash-link" aria-label="PromQL 查询示例的直接链接" title="PromQL 查询示例的直接链接" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用情况">使用情况<a href="#使用情况" class="hash-link" aria-label="使用情况的直接链接" title="使用情况的直接链接" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>数据字节数（按访问密钥、协议和方向统计）：</strong></li>
 </ul>
-<p><strong>数据字节数（按访问密钥、协议和方向统计）：</strong></p>
 <p><code>increase(shadowsocks_data_bytes[1d])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>数据字节数（按访问密钥汇总）：</strong></li>
 </ul>
-<p><strong>数据字节数（按访问密钥汇总）：</strong></p>
 <p><code>sum(increase(shadowsocks_data_bytes[1d])) by (access_key)</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>数据字节数（用于数据限值计算）：</strong></li>
 </ul>
-<p><strong>数据字节数（用于数据限值计算）：</strong></p>
 <p><code>sum(increase(shadowsocks_data_bytes{dir=~&quot;c&lt;p|p&gt;t&quot;}[30d])) by (access_key)</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>数据字节数（按位置、协议和方向统计）：</strong></li>
 </ul>
-<p><strong>数据字节数（按位置、协议和方向统计）：</strong></p>
 <p><code>increase(shadowsocks_data_bytes_per_location[1d])</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="有效的访问密钥">有效的访问密钥<a href="#有效的访问密钥" class="hash-link" aria-label="有效的访问密钥的直接链接" title="有效的访问密钥的直接链接" translate="no">​</a></h4>
 <p><code>sum(max(max_over_time(shadowsocks_data_bytes{access_key!=&quot;&quot;} [1h])) by (access_key) &gt; bool 0)</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="tcp-连接">TCP 连接<a href="#tcp-连接" class="hash-link" aria-label="TCP 连接的直接链接" title="TCP 连接的直接链接" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>TCP 连接数（按访问密钥、位置和状态统计）：</strong></li>
 </ul>
-<p><strong>TCP 连接数（按访问密钥、位置和状态统计）：</strong></p>
 <p><code>increase(shadowsocks_tcp_connections_closed[1d])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>TCP 连接数（按位置统计）：</strong></li>
 </ul>
-<p><strong>TCP 连接数（按位置统计）：</strong></p>
 <p><code>increase(shadowsocks_tcp_connections_opened[1d])</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="udp">UDP<a href="#udp" class="hash-link" aria-label="UDP的直接链接" title="UDP的直接链接" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>UDP 数据包量（按位置和状态统计）：</strong></li>
 </ul>
-<p><strong>UDP 数据包量（按位置和状态统计）：</strong></p>
 <p><code>increase(shadowsocks_udp_packets_from_client_per_location[1d])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>UDP 关联量（无细分）：</strong></li>
 </ul>
-<p><strong>UDP 关联量（无细分）：</strong></p>
 <p><code>increase(shadowsocks_udp_nat_entries_added[1d])</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="性能">性能<a href="#性能" class="hash-link" aria-label="性能的直接链接" title="性能的直接链接" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>CPU 使用情况（按进程统计）：</strong></li>
 </ul>
-<p><strong>CPU 使用情况（按进程统计）：</strong></p>
 <p><code>rate(process_cpu_seconds_total[10m])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>内存（按进程统计）：</strong></li>
 </ul>
-<p><strong>内存（按进程统计）：</strong></p>
 <p><code>process_virtual_memory_bytes</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="构建信息">构建信息<a href="#构建信息" class="hash-link" aria-label="构建信息的直接链接" title="构建信息的直接链接" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>Prometheus：</strong></li>
 </ul>
-<p><strong>Prometheus：</strong></p>
 <p><code>prometheus_build_info</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>outline-ss-server：</strong></li>
 </ul>
-<p><strong>outline-ss-server：</strong></p>
 <p><code>shadowsocks_build_info</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Node.js：</strong></li>
 </ul>
-<p><strong>Node.js：</strong></p>
 <p><code>nodejs_version_info</code></p>
 <p>如需查看可用指标的完整列表，请参阅 <code>outline-ss-server</code> <a href="https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go" target="_blank" rel="noopener noreferrer" class="">源代码</a>。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/OutlineFoundation/developer-documentation/edit/main/docs/vpn/management/metrics.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/zh-CN/vpn/management/config"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Configure Access Keys</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/zh-CN/vpn/advanced/floating-ips"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Domain with Floating IPs</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#前提条件" class="table-of-contents__link toc-highlight">前提条件</a></li><li><a href="#操作说明" class="table-of-contents__link toc-highlight">操作说明</a><ul><li><a href="#promql-查询示例" class="table-of-contents__link toc-highlight">PromQL 查询示例</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://getoutline.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Download Outline<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://s3.amazonaws.com/outline-vpn/static_downloads/Outline-Terms-of-Service.html" target="_blank" rel="noopener noreferrer" class="footer__link-item">Terms of Service<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://support.google.com/outline/answer/14915905" target="_blank" rel="noopener noreferrer" class="footer__link-item">Data Collection Policy<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Jigsaw-Code/?q=outline" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/outlinevpn/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://support.getoutline.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Help Center<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Jigsaw</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://jigsaw.google.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">About Jigsaw<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://medium.com/jigsaw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Jigsaw Blog<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Jigsaw. Built with Docusaurus.</div></div></div></footer></div>
 </body>

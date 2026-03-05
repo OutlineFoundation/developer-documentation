@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Access Performance Metrics | Outline Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.getoutline.org/pt-BR/images/outline-logo.png"><meta data-rh="true" name="twitter:image" content="https://developer.getoutline.org/pt-BR/images/outline-logo.png"><meta data-rh="true" property="og:url" content="https://developer.getoutline.org/pt-BR/vpn/management/metrics"><meta data-rh="true" property="og:locale" content="pt_BR"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" property="og:locale:alternate" content="ar"><meta data-rh="true" property="og:locale:alternate" content="de"><meta data-rh="true" property="og:locale:alternate" content="es"><meta data-rh="true" property="og:locale:alternate" content="es_419"><meta data-rh="true" property="og:locale:alternate" content="fa"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" property="og:locale:alternate" content="it"><meta data-rh="true" property="og:locale:alternate" content="ja"><meta data-rh="true" property="og:locale:alternate" content="ko"><meta data-rh="true" property="og:locale:alternate" content="nl"><meta data-rh="true" property="og:locale:alternate" content="pl"><meta data-rh="true" property="og:locale:alternate" content="ru"><meta data-rh="true" property="og:locale:alternate" content="th"><meta data-rh="true" property="og:locale:alternate" content="tr"><meta data-rh="true" property="og:locale:alternate" content="zh_CN"><meta data-rh="true" property="og:locale:alternate" content="zh_TW"><meta data-rh="true" name="docusaurus_locale" content="pt-BR"><meta data-rh="true" name="docsearch:language" content="pt-BR"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Access Performance Metrics | Outline Developer Documentation"><meta data-rh="true" name="description" content="Com o Prometheus, o Outline mostra métricas de performance"><meta data-rh="true" property="og:description" content="Com o Prometheus, o Outline mostra métricas de performance"><link data-rh="true" rel="icon" href="/pt-BR/images/outline-logo.png"><link data-rh="true" rel="canonical" href="https://developer.getoutline.org/pt-BR/vpn/management/metrics"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/management/metrics" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ar/vpn/management/metrics" hreflang="ar"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/de/vpn/management/metrics" hreflang="de"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es/vpn/management/metrics" hreflang="es"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es-419/vpn/management/metrics" hreflang="es-419"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fa/vpn/management/metrics" hreflang="fa"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fr/vpn/management/metrics" hreflang="fr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/it/vpn/management/metrics" hreflang="it"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ja/vpn/management/metrics" hreflang="ja"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ko/vpn/management/metrics" hreflang="ko"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/nl/vpn/management/metrics" hreflang="nl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pl/vpn/management/metrics" hreflang="pl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pt-BR/vpn/management/metrics" hreflang="pt-BR"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ru/vpn/management/metrics" hreflang="ru"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/th/vpn/management/metrics" hreflang="th"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/tr/vpn/management/metrics" hreflang="tr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-CN/vpn/management/metrics" hreflang="zh-CN"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-TW/vpn/management/metrics" hreflang="zh-TW"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/management/metrics" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Performance Metrics","item":"https://developer.getoutline.org/pt-BR/vpn/management/metrics"}]}</script><link rel="stylesheet" href="/pt-BR/assets/css/styles.754e1d4a.css">
-<script src="/pt-BR/assets/js/runtime~main.7da39306.js" defer="defer"></script>
+<script src="/pt-BR/assets/js/runtime~main.3b4cd56e.js" defer="defer"></script>
 <script src="/pt-BR/assets/js/main.5f67857d.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -20,103 +20,87 @@ Prometheus e o PromQL. Se você não tiver familiaridade com o Prometheus,
 leia a documentação e assista aos tutoriais antes de se aprofundar nas métricas do Outline.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="pré-requisitos">Pré-requisitos<a href="#pré-requisitos" class="hash-link" aria-label="Link direto para Pré-requisitos" title="Link direto para Pré-requisitos" translate="no">​</a></h2>
 <ul>
-<li class=""></li>
-</ul>
+<li class="">
 <p><strong>Servidor do Outline com o Prometheus ativado</strong>: verifique se as métricas do Prometheus
 estão ativadas no servidor do Outline. Essa geralmente é a configuração padrão.</p>
-<ul>
-<li class=""></li>
-</ul>
+</li>
+<li class="">
 <p><strong>Acesso SSH ao servidor</strong>: você precisará de acesso SSH para encaminhar a
 porta do Prometheus.</p>
+</li>
+</ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="instruções">Instruções<a href="#instruções" class="hash-link" aria-label="Link direto para Instruções" title="Link direto para Instruções" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
+<li class=""><strong>Encaminhar a porta do Prometheus</strong></li>
 </ol>
-<p><strong>Encaminhar a porta do Prometheus</strong></p>
 <p>Conecte-se ao seu servidor usando SSH e encaminhe a porta 9090:</p>
 <ol start="2">
-<li class=""></li>
+<li class=""><strong>Acessar a interface da Web do Prometheus</strong></li>
 </ol>
-<p><strong>Acessar a interface da Web do Prometheus</strong></p>
 <p>Abra o navegador da Web e acesse: <a href="http://localhost:9090/graph" target="_blank" rel="noopener noreferrer" class="">http://localhost:9090/graph</a>.
 Consultar as métricas do Prometheus</p>
 <ol start="3">
-<li class=""></li>
+<li class=""><strong>Use as consultas PromQL para ver as métricas que você quiser.</strong></li>
 </ol>
-<p><strong>Use as consultas PromQL para ver as métricas que você quiser.</strong></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="exemplo-de-consultas-promql">Exemplo de consultas PromQL<a href="#exemplo-de-consultas-promql" class="hash-link" aria-label="Link direto para Exemplo de consultas PromQL" title="Link direto para Exemplo de consultas PromQL" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="uso">Uso<a href="#uso" class="hash-link" aria-label="Link direto para Uso" title="Link direto para Uso" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>Bytes de dados (por chave de acesso, protocolo e rotas)</strong>:</li>
 </ul>
-<p><strong>Bytes de dados (por chave de acesso, protocolo e rotas)</strong>:</p>
 <p><code>increase(shadowsocks_data_bytes[1d])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Bytes de dados (agregados por chave de acesso)</strong>:</li>
 </ul>
-<p><strong>Bytes de dados (agregados por chave de acesso)</strong>:</p>
 <p><code>sum(increase(shadowsocks_data_bytes[1d])) by (access_key)</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Bytes de dados (para o cálculo dos limites de dados)</strong>:</li>
 </ul>
-<p><strong>Bytes de dados (para o cálculo dos limites de dados)</strong>:</p>
 <p><code>sum(increase(shadowsocks_data_bytes{dir=~&quot;c&lt;p|p&gt;t&quot;}[30d])) by (access_key)</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Bytes de dados (por local, protocolo e rotas)</strong>:</li>
 </ul>
-<p><strong>Bytes de dados (por local, protocolo e rotas)</strong>:</p>
 <p><code>increase(shadowsocks_data_bytes_per_location[1d])</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="chaves-de-acesso-ativas">Chaves de acesso ativas<a href="#chaves-de-acesso-ativas" class="hash-link" aria-label="Link direto para Chaves de acesso ativas" title="Link direto para Chaves de acesso ativas" translate="no">​</a></h4>
 <p><code>sum(max(max_over_time(shadowsocks_data_bytes{access_key!=&quot;&quot;} [1h])) by (access_key) &gt; bool 0)</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="conexões-tcp">Conexões TCP<a href="#conexões-tcp" class="hash-link" aria-label="Link direto para Conexões TCP" title="Link direto para Conexões TCP" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>Conexões TCP (por chave de acesso, local e status)</strong>:</li>
 </ul>
-<p><strong>Conexões TCP (por chave de acesso, local e status)</strong>:</p>
 <p><code>increase(shadowsocks_tcp_connections_closed[1d])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Conexões TCP (por local)</strong>:</li>
 </ul>
-<p><strong>Conexões TCP (por local)</strong>:</p>
 <p><code>increase(shadowsocks_tcp_connections_opened[1d])</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="udp">UDP<a href="#udp" class="hash-link" aria-label="Link direto para UDP" title="Link direto para UDP" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>Pacotes UDP (por local e status)</strong>:</li>
 </ul>
-<p><strong>Pacotes UDP (por local e status)</strong>:</p>
 <p><code>increase(shadowsocks_udp_packets_from_client_per_location[1d])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Associações UDP (sem detalhamento)</strong>:</li>
 </ul>
-<p><strong>Associações UDP (sem detalhamento)</strong>:</p>
 <p><code>increase(shadowsocks_udp_nat_entries_added[1d])</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance">Performance<a href="#performance" class="hash-link" aria-label="Link direto para Performance" title="Link direto para Performance" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>Uso da CPU (por processo)</strong>:</li>
 </ul>
-<p><strong>Uso da CPU (por processo)</strong>:</p>
 <p><code>rate(process_cpu_seconds_total[10m])</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Memória (por processo)</strong>:</li>
 </ul>
-<p><strong>Memória (por processo)</strong>:</p>
 <p><code>process_virtual_memory_bytes</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="informações-sobre-a-versão">Informações sobre a versão<a href="#informações-sobre-a-versão" class="hash-link" aria-label="Link direto para Informações sobre a versão" title="Link direto para Informações sobre a versão" translate="no">​</a></h4>
 <ul>
-<li class=""></li>
+<li class=""><strong>Prometheus</strong>:</li>
 </ul>
-<p><strong>Prometheus</strong>:</p>
 <p><code>prometheus_build_info</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>outline-ss-server</strong>:</li>
 </ul>
-<p><strong>outline-ss-server</strong>:</p>
 <p><code>shadowsocks_build_info</code></p>
 <ul>
-<li class=""></li>
+<li class=""><strong>Node.js</strong>:</li>
 </ul>
-<p><strong>Node.js</strong>:</p>
 <p><code>nodejs_version_info</code></p>
 <p>A lista completa das métricas está disponível no
 <a href="https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go" target="_blank" rel="noopener noreferrer" class="">código-fonte</a> <code>outline-ss-server</code>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/OutlineFoundation/developer-documentation/edit/main/docs/vpn/management/metrics.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Editar esta página</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Páginas de documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/pt-BR/vpn/management/config"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Configure Access Keys</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/pt-BR/vpn/advanced/floating-ips"><div class="pagination-nav__sublabel">Próxima</div><div class="pagination-nav__label">Domain with Floating IPs</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#pré-requisitos" class="table-of-contents__link toc-highlight">Pré-requisitos</a></li><li><a href="#instruções" class="table-of-contents__link toc-highlight">Instruções</a><ul><li><a href="#exemplo-de-consultas-promql" class="table-of-contents__link toc-highlight">Exemplo de consultas PromQL</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Product</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://getoutline.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Download Outline<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://s3.amazonaws.com/outline-vpn/static_downloads/Outline-Terms-of-Service.html" target="_blank" rel="noopener noreferrer" class="footer__link-item">Terms of Service<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://support.google.com/outline/answer/14915905" target="_blank" rel="noopener noreferrer" class="footer__link-item">Data Collection Policy<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Jigsaw-Code/?q=outline" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.reddit.com/r/outlinevpn/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Reddit<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://support.getoutline.org/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Help Center<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Jigsaw</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://jigsaw.google.com/" target="_blank" rel="noopener noreferrer" class="footer__link-item">About Jigsaw<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://medium.com/jigsaw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Jigsaw Blog<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Jigsaw. Built with Docusaurus.</div></div></div></footer></div>

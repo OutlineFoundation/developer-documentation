@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Use a Domain Name with Floating IPs | Outline Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.getoutline.org/ja/images/outline-logo.png"><meta data-rh="true" name="twitter:image" content="https://developer.getoutline.org/ja/images/outline-logo.png"><meta data-rh="true" property="og:url" content="https://developer.getoutline.org/ja/vpn/advanced/floating-ips"><meta data-rh="true" property="og:locale" content="ja"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" property="og:locale:alternate" content="ar"><meta data-rh="true" property="og:locale:alternate" content="de"><meta data-rh="true" property="og:locale:alternate" content="es"><meta data-rh="true" property="og:locale:alternate" content="es_419"><meta data-rh="true" property="og:locale:alternate" content="fa"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" property="og:locale:alternate" content="it"><meta data-rh="true" property="og:locale:alternate" content="ko"><meta data-rh="true" property="og:locale:alternate" content="nl"><meta data-rh="true" property="og:locale:alternate" content="pl"><meta data-rh="true" property="og:locale:alternate" content="pt_BR"><meta data-rh="true" property="og:locale:alternate" content="ru"><meta data-rh="true" property="og:locale:alternate" content="th"><meta data-rh="true" property="og:locale:alternate" content="tr"><meta data-rh="true" property="og:locale:alternate" content="zh_CN"><meta data-rh="true" property="og:locale:alternate" content="zh_TW"><meta data-rh="true" name="docusaurus_locale" content="ja"><meta data-rh="true" name="docsearch:language" content="ja"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Use a Domain Name with Floating IPs | Outline Developer Documentation"><meta data-rh="true" name="description" content="はじめに"><meta data-rh="true" property="og:description" content="はじめに"><link data-rh="true" rel="icon" href="/ja/images/outline-logo.png"><link data-rh="true" rel="canonical" href="https://developer.getoutline.org/ja/vpn/advanced/floating-ips"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/advanced/floating-ips" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ar/vpn/advanced/floating-ips" hreflang="ar"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/de/vpn/advanced/floating-ips" hreflang="de"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es/vpn/advanced/floating-ips" hreflang="es"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es-419/vpn/advanced/floating-ips" hreflang="es-419"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fa/vpn/advanced/floating-ips" hreflang="fa"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fr/vpn/advanced/floating-ips" hreflang="fr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/it/vpn/advanced/floating-ips" hreflang="it"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ja/vpn/advanced/floating-ips" hreflang="ja"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ko/vpn/advanced/floating-ips" hreflang="ko"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/nl/vpn/advanced/floating-ips" hreflang="nl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pl/vpn/advanced/floating-ips" hreflang="pl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pt-BR/vpn/advanced/floating-ips" hreflang="pt-BR"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ru/vpn/advanced/floating-ips" hreflang="ru"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/th/vpn/advanced/floating-ips" hreflang="th"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/tr/vpn/advanced/floating-ips" hreflang="tr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-CN/vpn/advanced/floating-ips" hreflang="zh-CN"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-TW/vpn/advanced/floating-ips" hreflang="zh-TW"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/advanced/floating-ips" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domain with Floating IPs","item":"https://developer.getoutline.org/ja/vpn/advanced/floating-ips"}]}</script><link rel="stylesheet" href="/ja/assets/css/styles.754e1d4a.css">
-<script src="/ja/assets/js/runtime~main.9805c035.js" defer="defer"></script>
+<script src="/ja/assets/js/runtime~main.091e3620.js" defer="defer"></script>
 <script src="/ja/assets/js/main.b3794dc0.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -18,84 +18,77 @@
 <p>具体的な例を示すために、DigitalOcean と Google Domains を使用しますが、IP アドレスを割り当てることができるどのクラウド プロバイダ（Google Cloud や <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip" target="_blank" rel="noopener noreferrer" class="">AWS Lightsail</a> など）でも、またどのドメイン登録事業者（<a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance" target="_blank" rel="noopener noreferrer" class="">AWS Route 53</a> など）でも使用できます。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="手順">手順<a href="#手順" class="hash-link" aria-label="手順 への直接リンク" title="手順 への直接リンク" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>次のリストは、サーバーの IP アドレスをローテーションする手順を要約したものです。</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>ドメイン名を購入します。</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>ドメイン名がサーバーの IP アドレスを指すようにします。</p>
-<ol start="4">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>ドメイン名を使用してアクセスキーを発行します。</p>
-<ol start="5">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>フローティング IP をサーバーの Droplet に割り当てます。</p>
-<ol start="6">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>新しい IP アドレスを指すようにドメイン名を変更します。</p>
+</li>
+</ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="digitalocean-上で-outline-サーバーを作成する">DigitalOcean 上で Outline サーバーを作成する<a href="#digitalocean-上で-outline-サーバーを作成する" class="hash-link" aria-label="DigitalOcean 上で Outline サーバーを作成する への直接リンク" title="DigitalOcean 上で Outline サーバーを作成する への直接リンク" translate="no">​</a></h2>
 <p>実行中の DigitalOcean サーバーがある場合は、次のステップに進みます。</p>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Outline マネージャーを開き、左下の [+] をクリックしてサーバー作成画面を表示します。</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>[DigitalOcean] ボタンで [サーバーを作成] をクリックし、アプリの指示に従います。</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="サーバーを作成" src="/ja/assets/images/create-DO-server-fcbcaa1314171e95eda17d258f5dd24b.png" width="912" height="989" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="サーバーのホスト名を指定する">サーバーのホスト名を指定する<a href="#サーバーのホスト名を指定する" class="hash-link" aria-label="サーバーのホスト名を指定する への直接リンク" title="サーバーのホスト名を指定する への直接リンク" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p><a href="https://domains.google.com/m/registrar/" target="_blank" rel="noopener noreferrer" class="">Google Domains</a> に移動し、[最適なドメインを検索] をクリックします。</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>検索バーにドメイン名を入力し、名前を選択します。例として <code>outlinedemo.info</code> を使用しています。</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Google Domains の [DNS] タブに移動します。[カスタム リソース レコード] で、[IPV4 アドレス] と表示されているフィールドにサーバーの IP アドレスを入力します。</p>
-<ol start="4">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Outline マネージャーでサーバーの [設定] タブに移動します。[ホスト名] タブに、購入したホスト名を入力し、[保存] をクリックします。これで、今後のすべてのアクセスキーで、サーバーの IP アドレスではなく、このホスト名が使用されるようになります。</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="ホスト名を設定" src="/ja/assets/images/set-hostname-cb937078c6ea225d230313f752104786.png" width="512" height="555" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="サーバーの-ip-アドレスを変更する">サーバーの IP アドレスを変更する<a href="#サーバーの-ip-アドレスを変更する" class="hash-link" aria-label="サーバーの IP アドレスを変更する への直接リンク" title="サーバーの IP アドレスを変更する への直接リンク" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>DigitalOcean の [Droplets] ページでサーバーに移動します。</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>ウィンドウの右上（[Floating IP] の横）の [Enable Now] をクリックします。</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="フローティング IP を有効にする" src="/ja/assets/images/floating-ip-DO-9dcf29443ff7fb7e5989ec41a579f5f4.png" width="1024" height="328" class="img_ev3q"></p>
 <ol>
 <li class="">Droplets のリストでサーバーを見つけて、[Assign Floating IP] をクリックします。</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="フローティング IP を割り当てる" src="/ja/assets/images/assign-floating-ip-DO-9a3e550a44abfa10203b76507f2f40ab.png" width="947" height="414" class="img_ev3q"></p>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Google Domains の [DNS] タブに戻ります。</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>前と同じように IP アドレスを変更しますが、今回は新しいフローティング IP アドレスを使用します。変更が反映されるまで最大 48 時間かかることもありますが、数分程度しかかからない場合がほとんどです。</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p><a href="https://toolbox.googleapps.com/apps/dig/#A/" target="_blank" rel="noopener noreferrer" class="">Google のオンライン DNS ツール</a>に移動し、ドメイン名を入力して、前のステップの変更がいつ行われたかを確認します。</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Google DNS ツールでドメインを検索" src="/ja/assets/images/google-dns-9169711c413abb5a38f207942833d5bf.png" width="1024" height="525" class="img_ev3q"></p>
 <p>この変更が反映されると、クライアントが新しい IP アドレスに接続します。新しいキーでサーバーに接続し、<a href="https://ipinfo.io" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io</a> を開いて、サーバーの新しい IP アドレスが表示されていることを確認できます。</p>
 <p>まとめ

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Use a Domain Name with Floating IPs | Outline Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.getoutline.org/de/images/outline-logo.png"><meta data-rh="true" name="twitter:image" content="https://developer.getoutline.org/de/images/outline-logo.png"><meta data-rh="true" property="og:url" content="https://developer.getoutline.org/de/vpn/advanced/floating-ips"><meta data-rh="true" property="og:locale" content="de"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" property="og:locale:alternate" content="ar"><meta data-rh="true" property="og:locale:alternate" content="es"><meta data-rh="true" property="og:locale:alternate" content="es_419"><meta data-rh="true" property="og:locale:alternate" content="fa"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" property="og:locale:alternate" content="it"><meta data-rh="true" property="og:locale:alternate" content="ja"><meta data-rh="true" property="og:locale:alternate" content="ko"><meta data-rh="true" property="og:locale:alternate" content="nl"><meta data-rh="true" property="og:locale:alternate" content="pl"><meta data-rh="true" property="og:locale:alternate" content="pt_BR"><meta data-rh="true" property="og:locale:alternate" content="ru"><meta data-rh="true" property="og:locale:alternate" content="th"><meta data-rh="true" property="og:locale:alternate" content="tr"><meta data-rh="true" property="og:locale:alternate" content="zh_CN"><meta data-rh="true" property="og:locale:alternate" content="zh_TW"><meta data-rh="true" name="docusaurus_locale" content="de"><meta data-rh="true" name="docsearch:language" content="de"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Use a Domain Name with Floating IPs | Outline Developer Documentation"><meta data-rh="true" name="description" content="Einführung"><meta data-rh="true" property="og:description" content="Einführung"><link data-rh="true" rel="icon" href="/de/images/outline-logo.png"><link data-rh="true" rel="canonical" href="https://developer.getoutline.org/de/vpn/advanced/floating-ips"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/advanced/floating-ips" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ar/vpn/advanced/floating-ips" hreflang="ar"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/de/vpn/advanced/floating-ips" hreflang="de"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es/vpn/advanced/floating-ips" hreflang="es"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es-419/vpn/advanced/floating-ips" hreflang="es-419"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fa/vpn/advanced/floating-ips" hreflang="fa"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fr/vpn/advanced/floating-ips" hreflang="fr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/it/vpn/advanced/floating-ips" hreflang="it"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ja/vpn/advanced/floating-ips" hreflang="ja"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ko/vpn/advanced/floating-ips" hreflang="ko"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/nl/vpn/advanced/floating-ips" hreflang="nl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pl/vpn/advanced/floating-ips" hreflang="pl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pt-BR/vpn/advanced/floating-ips" hreflang="pt-BR"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ru/vpn/advanced/floating-ips" hreflang="ru"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/th/vpn/advanced/floating-ips" hreflang="th"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/tr/vpn/advanced/floating-ips" hreflang="tr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-CN/vpn/advanced/floating-ips" hreflang="zh-CN"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-TW/vpn/advanced/floating-ips" hreflang="zh-TW"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/advanced/floating-ips" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domain with Floating IPs","item":"https://developer.getoutline.org/de/vpn/advanced/floating-ips"}]}</script><link rel="stylesheet" href="/de/assets/css/styles.754e1d4a.css">
-<script src="/de/assets/js/runtime~main.04b482a9.js" defer="defer"></script>
+<script src="/de/assets/js/runtime~main.234e7dbd.js" defer="defer"></script>
 <script src="/de/assets/js/main.e9cf9e17.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -18,84 +18,77 @@
 <p>Als konkretes Beispiel nutzen wir Domains von DigitalOcean und Google. Jeder Cloud-Anbieter, der eine Zuweisung von IP-Adressen zulässt (wie Google Cloud oder <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip" target="_blank" rel="noopener noreferrer" class="">AWS Lightsail</a>), und jeder Domainregistrar (z. B. <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance" target="_blank" rel="noopener noreferrer" class="">AWS Route 53</a>) bietet sich aber genauso dafür an.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="anleitung">Anleitung<a href="#anleitung" class="hash-link" aria-label="Direkter Link zur Anleitung" title="Direkter Link zur Anleitung" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Mit den folgenden Schritten können Sie einen Server periodisch zwischen mehreren IP‑Adressen umschalten lassen:</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Erwerben Sie einen Domainnamen.</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Lassen Sie den Domainnamen auf die IP-Adresse unseres Servers verweisen.</p>
-<ol start="4">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Verteilen Sie unter Verwendung des Domainnamens Zugriffsschlüssel.</p>
-<ol start="5">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Weisen Sie dem Droplet des Servers eine Floating-IP-Adresse zu.</p>
-<ol start="6">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Ändern Sie den Domainnamen, sodass er auf die neue IP-Adresse verweist.</p>
+</li>
+</ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="einen-outline-server-bei-digitalocean-erstellen">Einen Outline-Server bei DigitalOcean erstellen<a href="#einen-outline-server-bei-digitalocean-erstellen" class="hash-link" aria-label="Direkter Link zur Einen Outline-Server bei DigitalOcean erstellen" title="Direkter Link zur Einen Outline-Server bei DigitalOcean erstellen" translate="no">​</a></h2>
 <p>Wenn Sie bereits einen laufenden DigitalOcean-Server haben, überspringen Sie den nächsten Schritt.</p>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Öffnen Sie den Outline-Manager und klicken Sie unten links auf die Schaltfläche „+“, um zum Bildschirm zum Erstellen eines Servers zu gelangen.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Klicken Sie auf der Schaltfläche „DigitalOcean“ auf „Server erstellen“ und folgen Sie den Anweisungen in der App.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Server erstellen" src="/de/assets/images/create-DO-server-fcbcaa1314171e95eda17d258f5dd24b.png" width="912" height="989" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="einen-hostnamen-für-ihren-server-festlegen">Einen Hostnamen für Ihren Server festlegen<a href="#einen-hostnamen-für-ihren-server-festlegen" class="hash-link" aria-label="Direkter Link zur Einen Hostnamen für Ihren Server festlegen" title="Direkter Link zur Einen Hostnamen für Ihren Server festlegen" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Gehen Sie zu <a href="https://domains.google.com/m/registrar/" target="_blank" rel="noopener noreferrer" class="">Google Domains</a> und klicken Sie auf „Sichern Sie sich die perfekte Domain“.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Geben Sie in der Suchleiste einen Domainnamen ein und wählen Sie einen Namen aus. Für unser Beispiel nutzen wir <code>outlinedemo.info</code> als Namen.</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Gehen Sie auf „Google Domains“ zum DNS-Tab. Tippen Sie unter „Benutzerdefinierte Ressourceneinträge“ im Feld „IPv4-Adresse“ die IP-Adresse Ihres Servers ein.</p>
-<ol start="4">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Gehen Sie im Outline-Manager zum Tab „Einstellungen“ für Ihren Server. Geben Sie unter „Hostname“ den von Ihnen gekauften Hostnamen ein und klicken SIe auf „Speichern“. Dadurch nutzen alle zukünftigen Zugriffsschlüssel anstelle der IP-Adresse des Servers diesen Hostnamen.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Den Hostnamen festlegen" src="/de/assets/images/set-hostname-cb937078c6ea225d230313f752104786.png" width="512" height="555" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="die-ip-adresse-des-servers-ändern">Die IP-Adresse des Servers ändern<a href="#die-ip-adresse-des-servers-ändern" class="hash-link" aria-label="Direkter Link zur Die IP-Adresse des Servers ändern" title="Direkter Link zur Die IP-Adresse des Servers ändern" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Gehen Sie auf der Seite „Droplets“ bei DigitalOcean auf Ihren Server.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Klicken Sie rechts oben neben „Floating-IP-Adressen“ auf „Jetzt aktivieren“.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Floating-IP-Adresse aktivieren" src="/de/assets/images/floating-ip-DO-9dcf29443ff7fb7e5989ec41a579f5f4.png" width="1024" height="328" class="img_ev3q"></p>
 <ol>
 <li class="">Suchen Sie in der Liste mit den Droplets nach Ihrem Server und klicken Sie auf „Floating-IP-Adresse zuweisen“.</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="Floating-IP-Adresse zuweisen" src="/de/assets/images/assign-floating-ip-DO-9a3e550a44abfa10203b76507f2f40ab.png" width="947" height="414" class="img_ev3q"></p>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Gehen Sie auf Google Domains zurück auf den DNS-Tab.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Ändern Sie wie zuvor die IP-Adresse. Ersetzen Sie sie diesmal durch die neue Floating-IP-Adresse. Bis zur Änderung könnte es 48 dauern; oft vergehen aber nur ein paar Minuten.</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Gehen Sie auf <a href="https://toolbox.googleapps.com/apps/dig/#A/" target="_blank" rel="noopener noreferrer" class="">Das Online-DNS-Tool von Google</a> und geben SIe Ihren Domainnamen ein. Nachfolgend wird Ihnen angezeigt, wann die Änderung im letzten Schritt stattgefunden hat.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Suchen Sie mit dem DNS-Tool von Google nach Ihrer Domain." src="/de/assets/images/google-dns-9169711c413abb5a38f207942833d5bf.png" width="1024" height="525" class="img_ev3q"></p>
 <p>Sobald die Änderung übernommen wurde, werden sich Kunden mit der neuen IP-Adresse verbinden. Wenn Sie sich über einen neuen Schlüssel mit Ihrem Server verbinden und <a href="https://ipinfo.io" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io</a> aufrufen, können Sie die neue IP-Adresse Ihres Servers sehen.</p>
 <p>Fazit

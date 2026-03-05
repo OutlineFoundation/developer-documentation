@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Use a Domain Name with Floating IPs | Outline Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://developer.getoutline.org/tr/images/outline-logo.png"><meta data-rh="true" name="twitter:image" content="https://developer.getoutline.org/tr/images/outline-logo.png"><meta data-rh="true" property="og:url" content="https://developer.getoutline.org/tr/vpn/advanced/floating-ips"><meta data-rh="true" property="og:locale" content="tr"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" property="og:locale:alternate" content="ar"><meta data-rh="true" property="og:locale:alternate" content="de"><meta data-rh="true" property="og:locale:alternate" content="es"><meta data-rh="true" property="og:locale:alternate" content="es_419"><meta data-rh="true" property="og:locale:alternate" content="fa"><meta data-rh="true" property="og:locale:alternate" content="fr"><meta data-rh="true" property="og:locale:alternate" content="it"><meta data-rh="true" property="og:locale:alternate" content="ja"><meta data-rh="true" property="og:locale:alternate" content="ko"><meta data-rh="true" property="og:locale:alternate" content="nl"><meta data-rh="true" property="og:locale:alternate" content="pl"><meta data-rh="true" property="og:locale:alternate" content="pt_BR"><meta data-rh="true" property="og:locale:alternate" content="ru"><meta data-rh="true" property="og:locale:alternate" content="th"><meta data-rh="true" property="og:locale:alternate" content="zh_CN"><meta data-rh="true" property="og:locale:alternate" content="zh_TW"><meta data-rh="true" name="docusaurus_locale" content="tr"><meta data-rh="true" name="docsearch:language" content="tr"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Use a Domain Name with Floating IPs | Outline Developer Documentation"><meta data-rh="true" name="description" content="Giriş"><meta data-rh="true" property="og:description" content="Giriş"><link data-rh="true" rel="icon" href="/tr/images/outline-logo.png"><link data-rh="true" rel="canonical" href="https://developer.getoutline.org/tr/vpn/advanced/floating-ips"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/advanced/floating-ips" hreflang="en"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ar/vpn/advanced/floating-ips" hreflang="ar"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/de/vpn/advanced/floating-ips" hreflang="de"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es/vpn/advanced/floating-ips" hreflang="es"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/es-419/vpn/advanced/floating-ips" hreflang="es-419"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fa/vpn/advanced/floating-ips" hreflang="fa"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/fr/vpn/advanced/floating-ips" hreflang="fr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/it/vpn/advanced/floating-ips" hreflang="it"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ja/vpn/advanced/floating-ips" hreflang="ja"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ko/vpn/advanced/floating-ips" hreflang="ko"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/nl/vpn/advanced/floating-ips" hreflang="nl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pl/vpn/advanced/floating-ips" hreflang="pl"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/pt-BR/vpn/advanced/floating-ips" hreflang="pt-BR"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/ru/vpn/advanced/floating-ips" hreflang="ru"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/th/vpn/advanced/floating-ips" hreflang="th"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/tr/vpn/advanced/floating-ips" hreflang="tr"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-CN/vpn/advanced/floating-ips" hreflang="zh-CN"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/zh-TW/vpn/advanced/floating-ips" hreflang="zh-TW"><link data-rh="true" rel="alternate" href="https://developer.getoutline.org/vpn/advanced/floating-ips" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Domain with Floating IPs","item":"https://developer.getoutline.org/tr/vpn/advanced/floating-ips"}]}</script><link rel="stylesheet" href="/tr/assets/css/styles.754e1d4a.css">
-<script src="/tr/assets/js/runtime~main.fe8a8c4f.js" defer="defer"></script>
+<script src="/tr/assets/js/runtime~main.e56aca87.js" defer="defer"></script>
 <script src="/tr/assets/js/main.4a0679a7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -18,84 +18,77 @@
 <p>Somut örnekler verebilmek için DigitalOcean ve Google Domains&#x27;i kullanacağız. Ancak IP adreslerinin atanabildiği herhangi bir bulut sağlayıcı (ör. Google Cloud veya <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip" target="_blank" rel="noopener noreferrer" class="">AWS Lightsail</a>) ve herhangi bir alan kayıt operatörü (ör. <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance" target="_blank" rel="noopener noreferrer" class="">AWS Route 53</a>) de işe yarayacaktır.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="talimatlar">Talimatlar<a href="#talimatlar" class="hash-link" aria-label="Talimatlar doğrudan bağlantı" title="Talimatlar doğrudan bağlantı" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Aşağıdaki listede, bir sunucunun IP adresini değiştirme adımları özetlenmiştir:</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Alan adı satın alın.</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Alan adını sunucumuzun IP adresine yönlendirin.</p>
-<ol start="4">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Alan adını kullanarak erişim anahtarları oluşturun.</p>
-<ol start="5">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Sunucunun Droplet&#x27;ine bir kayan IP atayın.</p>
-<ol start="6">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Alan adını yeni IP adresine yönlendirin.</p>
+</li>
+</ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="digitaloceanda-outline-sunucusu-oluşturma">DigitalOcean&#x27;da Outline sunucusu oluşturma<a href="#digitaloceanda-outline-sunucusu-oluşturma" class="hash-link" aria-label="DigitalOcean&#x27;da Outline sunucusu oluşturma doğrudan bağlantı" title="DigitalOcean&#x27;da Outline sunucusu oluşturma doğrudan bağlantı" translate="no">​</a></h2>
 <p>Çalışan bir DigitalOcean sunucunuz varsa sonraki adıma geçin.</p>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Outline Manager&#x27;ı açın ve sol alttaki &quot;+&quot; simgesini tıklayarak sunucu oluşturma ekranını açın.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>&quot;DigitalOcean&quot; bölümündeki &quot;Sunucu oluştur&quot; düğmesini tıklayın ve uygulamadaki talimatları izleyin.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Sunucu oluştur" src="/tr/assets/images/create-DO-server-fcbcaa1314171e95eda17d258f5dd24b.png" width="912" height="989" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sunucunuz-için-ana-makine-adı-oluşturma">Sunucunuz için ana makine adı oluşturma<a href="#sunucunuz-için-ana-makine-adı-oluşturma" class="hash-link" aria-label="Sunucunuz için ana makine adı oluşturma doğrudan bağlantı" title="Sunucunuz için ana makine adı oluşturma doğrudan bağlantı" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p><a href="https://domains.google.com/m/registrar/" target="_blank" rel="noopener noreferrer" class="">Google Domains</a>&#x27;e gidin ve &quot;Mükemmel alanı bul&quot;u tıklayın.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Arama çubuğuna bir alan adı yazın ve bir adı seçin. Örnek olarak <code>outlinedemo.info</code> adını kullandık.</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Google Domains&#x27;de DNS sekmesine gidin. &quot;Özel kaynak kayıtları&quot; bölümünde, &quot;IPV4 adresi&quot; adlı alana sunucunuzun IP adresini yazın.</p>
-<ol start="4">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Outline Manager&#x27;da sunucunuzun &quot;Ayarlar&quot; sekmesine gidin. &quot;Ana makine adı&quot; bölümünde, satın aldığınız ana makine adını yazın ve &quot;KAYDET&quot;i tıklayın. Bu sayede, gelecekteki tüm erişim anahtarları, sunucunun IP adresi yerine bu ana makine adını kullanacak.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Ana makine adını belirleme" src="/tr/assets/images/set-hostname-cb937078c6ea225d230313f752104786.png" width="512" height="555" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sunucunun-ip-adresini-değiştirme">Sunucunun IP adresini değiştirme<a href="#sunucunun-ip-adresini-değiştirme" class="hash-link" aria-label="Sunucunun IP adresini değiştirme doğrudan bağlantı" title="Sunucunun IP adresini değiştirme doğrudan bağlantı" translate="no">​</a></h2>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>DigitalOcean&#x27;ın &quot;Droplets&quot; (Droplet&#x27;ler) sayfasında sunucunuza gidin.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Pencerenin sağ üst köşesinde, &quot;Floating IP&quot;nin (Kayan IP) yanındaki &quot;Enable Now&quot;ı (Şimdi etkinleştir) tıklayın.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Kayan IP&amp;#39;yi etkinleştirme" src="/tr/assets/images/floating-ip-DO-9dcf29443ff7fb7e5989ec41a579f5f4.png" width="1024" height="328" class="img_ev3q"></p>
 <ol>
 <li class="">Droplet listesinde sunucunuzu bulun ve &quot;Assign Floating IP&quot;yi (Kayan IP ata) tıklayın.</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="Kayan IP atama" src="/tr/assets/images/assign-floating-ip-DO-9a3e550a44abfa10203b76507f2f40ab.png" width="947" height="414" class="img_ev3q"></p>
 <ol>
-<li class=""></li>
-</ol>
+<li class="">
 <p>Google Domains&#x27;deki DNS sekmesine dönün.</p>
-<ol start="2">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p>Önceden olduğu gibi IP adresini değiştirin ama bu sefer yeni kayan IP adresini kullanın. Etkinleşmesi 48 saati bulabilir ama genellikle yalnızca birkaç dakika sürer.</p>
-<ol start="3">
-<li class=""></li>
-</ol>
+</li>
+<li class="">
 <p><a href="https://toolbox.googleapps.com/apps/dig/#A/" target="_blank" rel="noopener noreferrer" class="">Google&#x27;ın online DNS aracına</a> gidin ve son adımdaki değişikliğin ne zaman yapıldığını görmek için alan adınızı girin.</p>
+</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="Google DNS aracında alanınızı arama" src="/tr/assets/images/google-dns-9169711c413abb5a38f207942833d5bf.png" width="1024" height="525" class="img_ev3q"></p>
 <p>Bu değişiklik uygulandıktan sonra istemciler artık yeni IP adresine bağlanır. Yeni bir anahtarla sunucunuza bağlanabilir ve <a href="https://ipinfo.io" target="_blank" rel="noopener noreferrer" class="">https://ipinfo.io</a> adresinde sunucunuzun yeni IP adresini doğrulayabilirsiniz.</p>
 <p>Sonuç
