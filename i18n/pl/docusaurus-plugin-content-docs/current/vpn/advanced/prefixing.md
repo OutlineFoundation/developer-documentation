@@ -62,6 +62,16 @@ SSH
 
 Żeby używać funkcji prefiksu z [dynamicznymi kluczami dostępu](../management/dynamic-access-keys) (`ssconf://`), dodaj klucz „prefiksu” do obiektu JSON z wartością **zakodowaną w formacie JSON**, która reprezentuje wybrany prefiks (zobacz przykłady w tabeli powyżej). Możesz użyć kodów modyfikacji (takich jak \u00FF), żeby reprezentować niedrukowalne punkty kodowe Unicode w przedziale od `U+0` do `U+FF`, na przykład:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Statyczne klucze dostępu
 
 Żeby użyć prefiksów ze **statycznymi kluczami dostępu** (ss://), musisz zmodyfikować istniejący klucz przed jego rozpowszechnieniem. Jeśli masz statyczny klucz dostępu wygenerowany przez Menedżera Outline, uzyskaj wersję prefiksu **zakodowaną w formacie adresu URL** (zobacz przykłady w tabeli powyżej) i dodaj ją na końcu klucza dostępu w ten sposób:
@@ -70,4 +80,13 @@ SSH
 
 Zaawansowani użytkownicy mogą przekonwertować prefiks **zakodowany w formacie JSON** na **zakodowany w formacie adresu URL** przy użyciu funkcji `encodeURIComponent()` przeglądarki. W tym celu należy otworzyć konsolę do badania sieci (*Deweloper > Konsola sieciowa w Javascripcie *w Chrome) i wpisać:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Naciśnij Enter. Wygenerowana zostanie wartość w *wersji *zakodowanej w formacie adresu URL, na przykład:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

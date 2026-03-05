@@ -23,6 +23,10 @@ ter flexibilidade para atualizar o endereço do servidor.
 
 **Exemplo:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### Usar um objeto JSON
 
 *App cliente do Outline v1.8.0+.*
@@ -32,6 +36,15 @@ com o Outline. Ele permite atualizar o servidor, a porta, a senha e o método
 de criptografia.
 
 **Exemplo:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server**: domínio ou endereço IP do seu servidor de VPN.
 
@@ -50,6 +63,21 @@ flexibilidade ao aproveitar o formato de configuração avançado do Outline. Vo
 atualizar o servidor, a porta, a senha, o método de criptografia e muito mais.
 
 **Exemplo:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport**: define os protocolos de transporte a serem usados (TCP e UDP,
 neste caso).
@@ -76,7 +104,17 @@ Se você tiver uma chave de acesso estática, poderá extrair as informações p
 criar uma chave de acesso dinâmica baseada em JSON ou YAML. As chaves de acesso estáticas obedecem ao
 seguinte padrão:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 Exemplo:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Servidor**: `outline-server.example.com`
 

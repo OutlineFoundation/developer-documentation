@@ -15,6 +15,10 @@ Outline ให้บริการคีย์การเข้าถึง 2 
 
 **ตัวอย่าง**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### ใช้ออบเจ็กต์ JSON
 
 *ไคลเอ็นต์ Outline เวอร์ชัน 1.8.0 ขึ้นไป*
@@ -22,6 +26,15 @@ Outline ให้บริการคีย์การเข้าถึง 2 
 วิธีนี้ช่วยเพิ่มความยืดหยุ่นในการจัดการการเชื่อมต่อ Outline ของผู้ใช้ในทุกๆ ด้าน คุณสามารถอัปเดตเซิร์ฟเวอร์ พอร์ต รหัสผ่าน และวิธีการเข้ารหัสได้ด้วยวิธีนี้
 
 **ตัวอย่าง**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** โดเมนหรือที่อยู่ IP ของเซิร์ฟเวอร์ VPN ของคุณ
 
@@ -38,6 +51,21 @@ Outline ให้บริการคีย์การเข้าถึง 2 
 วิธีนี้คล้ายกับวิธี JSON ก่อนหน้า แต่เพิ่มความยืดหยุ่นมากยิ่งขึ้นโดยใช้ประโยชน์จากรูปแบบการกำหนดค่าขั้นสูงของ Outline คุณจึงสามารถอัปเดตเซิร์ฟเวอร์ พอร์ต รหัสผ่าน วิธีการเข้ารหัส และอื่นๆ ได้อีกมากมาย
 
 **ตัวอย่าง**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** กำหนดโปรโตคอลการรับส่งที่จะใช้ (TCP และ UDP ในกรณีนี้)
 
@@ -57,7 +85,17 @@ Outline ให้บริการคีย์การเข้าถึง 2 
 
 หากมีคีย์การเข้าถึงแบบคงที่อยู่แล้ว คุณสามารถดึงข้อมูลออกมาเพื่อสร้างคีย์การเข้าถึงแบบไดนามิกในรูปแบบ JSON หรือ YAML ได้ โดยคีย์การเข้าถึงแบบคงที่จะเป็นไปตามรูปแบบต่อไปนี้
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 ตัวอย่าง
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **เซิร์ฟเวอร์:** `outline-server.example.com`
 

@@ -22,4 +22,8 @@ Die Zugriffsschlüssel sind die Anmeldedaten, mit denen Nutzer eine Verbindung z
 
 Beispiel:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - Mit einem **dynamischen Zugriffsschlüssel** können Serviceprovider die Informationen für den Serverzugriff aus der Ferne hosten. So können Provider die Serverkonfiguration – Serveradresse, Port, Passwörter, Verschlüsselungsmethode – aktualisieren, ohne neue Zugriffsschlüssel an die Endnutzer ausstellen zu müssen. Weitere Informationen finden Sie unter [Dynamische Zugriffsschlüssel](vpn/management/dynamic-access-keys).

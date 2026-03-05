@@ -35,7 +35,22 @@ Los campos `error` y `transport` son mutuamente excluyentes.
 
 Ejemplo sin errores:
 
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    ...  # Stream Dialer for TCP
+  udp:
+    ...  # Packet Listener for UDP
+```
+
 Ejemplo con errores:
+
+```yaml
+error:
+  message: Quota exceeded
+  details: Used 100GB out of 100GB
+```
 
 ## Transportes
 
@@ -64,6 +79,21 @@ TCP.
 que se usará para los paquetes UDP.
 
 Ejemplo de envío TCP y UDP a diferentes extremos:
+
+```yaml
+tcp:
+  $type: shadowsocks
+  endpoint: ss.example.com:80
+  <<: &cipher
+    cipher: chacha20-ietf-poly1305
+    secret: SECRET
+  prefix: "POST "
+
+udp:
+  $type: shadowsocks
+  endpoint: ss.example.com:53
+  <<: *cipher
+```
 
 ## Extremos
 
@@ -183,6 +213,14 @@ Se admite en conexiones de transmisiones y de paquetes.
 
 Ejemplo:
 
+```yaml
+server: example.com
+server_port: 4321
+method: chacha20-ietf-poly1305
+password: SECRET
+prefix: "POST "
+```
+
 #### LegacyShadowsocksURI
 
 LegacyShadowsocksURI representa un túnel que utiliza Shadowsocks como
@@ -196,6 +234,10 @@ y el [esquema de
 URI SIP002](https://shadowsocks.org/doc/sip002.html). No admitimos complementos.
 
 Ejemplo:
+
+```yaml
+ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
+```
 
 #### ShadowsocksConfig
 
@@ -219,6 +261,13 @@ Se admite en conexiones de transmisiones y de paquetes.
 
 Ejemplo:
 
+```yaml
+endpoint: example.com:80
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+prefix: "POST "
+```
+
 ## Metadefiniciones
 
 ### FirstSupportedConfig
@@ -237,9 +286,23 @@ se consideran.
 
 Ejemplo:
 
+```yaml
+options:
+  - $type: websocket
+    url: wss://example.com/SECRET_PATH
+  - ss.example.com:4321
+```
+
 ### Interface
 
 Las Interfaces permiten elegir una implementación entre varias. Usa el
 campo `$type` para especificar el tipo que representa ese parámetro de configuración.
 
 Ejemplo:
+
+```yaml
+$type: shadowsocks
+endpoint: example.com:4321
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+```

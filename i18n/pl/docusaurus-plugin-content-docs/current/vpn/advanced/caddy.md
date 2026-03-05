@@ -27,23 +27,102 @@ Przed uruchomieniem serwera Caddy upewnij się, że nazwa Twojej domeny jest pop
 
 - **Sprawdź rekordy DNS:** sprawdź, czy Twoje rekordy DNS są ustawione poprawnie, za pomocą wyszukiwania autorytatywnego:
 
+```sh
+curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
+  -H "accept: application/dns-json"
+```
+
 ## Krok 3. Utwórz i uruchom odpowiedni serwer Caddy
 
 Korzystając z `xcaddy`, możesz skompilować spersonalizowany plik binarny `caddy` zawierający główny moduł serwera Outline i inne moduły rozszerzenia serwera, które są potrzebne.
+
+```sh
+xcaddy build \
+  # The example uses a YAML config, so include a YAML config adapter module.
+  --with github.com/iamd3vil/caddy_yaml_adapter \
+  # The Outline core server module.
+  --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
+```
 
 ## Krok 4. Skonfiguruj i uruchom serwer Caddy z Outline
 
 Utwórz nowy plik `config.yaml` o następującej konfiguracji:
 
+```yaml
+apps:
+  http:
+    servers:
+      server1:
+        listen:
+          - ":443"
+        routes:
+          - match:
+            - host:
+              - <DOMAIN_NAME>
+            - path:
+              - /<TCP_PATH>
+            handle:
+            - handler: websocket2layer4
+              type: stream
+              connection_handler: ss1
+          - match:
+            - host:
+              - <DOMAIN_NAME>
+            - path:
+              - /<UDP_PATH>
+            handle:
+              - handler: websocket2layer4
+                type: packet
+                connection_handler: ss1
+  outline:
+    shadowsocks:
+      replay_history: 10000
+    connection_handlers:
+      - name: ss1
+        handle:
+          handler: shadowsocks
+          keys:
+            - id: user-1
+              cipher: chacha20-ietf-poly1305
+              secret: <SHADOWSOCKS_SECRET>
+```
+
 Ta konfiguracja reprezentuje strategię Shadowsocks-over-WebSockets z serwerem WWW nasłuchującym na porcie `443`, przyjmującym spakowany ruch protokołów Shadowsocks TCP i UDP odpowiednio przy ścieżkach `TCP_PATH` i `UDP_PATH`.
 
 Uruchom serwer Caddy rozszerzony za pomocą Outline, korzystając z utworzonej konfiguracji:
+
+```sh
+caddy run --config config.yaml --adapter yaml --watch
+```
 
 Więcej przykładów konfiguracji znajdziesz w naszym [repozytorium GitHub outline-ss-server/outlinecaddy](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples).
 
 ## Krok 5. Utwórz dynamiczny klucz dostępu
 
 Wygeneruj plik YAML z kluczem dostępu klienta dla użytkowników korzystających z formatu [zaawansowanej konfiguracji](../management/config) i uwzględnij punkty końcowe WebSocket skonfigurowane po stronie serwera:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN_NAME>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN_NAME>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Po wygenerowaniu pliku YAML z dynamicznym kluczem dostępu musisz dostarczyć go swoim użytkownikom. Możesz hostować plik na statycznym hostingu WWW lub generować go dynamicznie. Dowiedz się więcej o [dynamicznych kluczach dostępu](../management/dynamic-access-keys).
 

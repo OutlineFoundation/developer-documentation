@@ -82,8 +82,16 @@ Outline، يمكنك منحهم إذنَيّ "القراءة" (Read) و"التع
 عند العثور على ملف `access.txt`، يجب تحويله إلى تنسيق JSON الذي يتوقّعه
 تطبيق &quot;مدير Outline&quot; في الخطوة التالية.
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 سيتضمّن الناتج الملف المرجعي للشهادة الموقَّع ذاتيًا (`certSha256`)
 ونقطة نهاية واجهة برمجة التطبيقات Management API على الخادم (`apiUrl`):
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### ‫3. مشاركة إعدادات الوصول بأمان
 

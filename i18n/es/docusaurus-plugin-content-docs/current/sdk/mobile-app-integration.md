@@ -21,8 +21,17 @@ Usa [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) para compila
 
 1. Clona el repositorio del SDK de Outline:
 
+```sh
+git clone https://github.com/Jigsaw-Code/outline-sdk.git
+cd outline-sdk/x
+```
+
 2. Compila los binarios de Go Mobile con [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
+
+```sh
+go build -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.org/x/mobile/cmd/gobind
+```
 
 #### Añade compatibilidad con Psiphon
 
@@ -34,15 +43,27 @@ Para habilitar el uso de la red [Psiphon](https://psiphon.ca/), sigue estos otro
 
     - Compila MobileProxy con la marca `-tags psiphon`:
 
+```sh
+go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.org/x/mobile/cmd/gobind
+```
+
 La marca `-tags psiphon` es obligatoria porque el código base de Psiphon tiene licencia de GPL, que puede imponer restricciones a tu propio código. Plantéate pedirles una licencia especial.
 
 3. Genera bibliotecas para dispositivos móviles y añádelas a tu proyecto:
 
 ### Android
 
+```sh
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+```
+
 En Android Studio, selecciona **File > Import Project…** (Archivo > Importar proyecto…) para importar el paquete `out/mobileproxy.aar` generado. Si necesitas más ayuda, consulta la sección sobre [compilación e implementación en Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) de Go Mobile.
 
 ### iOS
+
+```sh
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+```
 
 Arrastra el paquete `out/mobileproxy.xcframework` al proyecto Xcode. Si necesitas más ayuda, consulta la sección sobre [compilación e implementación en iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) de Go Mobile.
 
@@ -55,13 +76,74 @@ Puedes usar una configuración de transporte estática o SmartProxy si prefieres
 
 ### Android
 
+```kotlin
+import mobileproxy.*
+
+val dialer = StreamDialer("split:3")
+
+// Use port zero to let the system pick an open port for you.
+val proxy = Mobileproxy.runProxy("localhost:0", dialer)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
+
 ### iOS
+
+```swift
+import Mobileproxy
+
+let dialer = MobileproxyStreamDialer("split:3")
+
+// Use port zero to let the system pick an open port for you.
+let proxy = MobileproxyRunProxy("localhost:0", dialer)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
 
 - **SmartProxy:** SmartProxy selecciona dinámicamente estrategias de DNS o TLS en función de los dominios de prueba especificados. Debes especificar la estrategia de configuración en formato YAML ([ejemplo](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android
 
+```kotlin
+val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
+val strategiesConfig = "..."  // Config YAML.
+val dialer = Mobileproxy.newSmartStreamDialer(testDomains, strategiesConfig, Mobileproxy.newStderrLogWriter())
+
+// Use port zero to let the system pick an open port for you.
+val proxy = Mobileproxy.runProxy("localhost:0", dialer)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
+
 ### iOS
+
+```swift
+import Mobileproxy
+
+var dialerError: NSError?
+let testDomains = MobileproxyNewListFromLines("www.youtube.com\ni.ytimg.com")
+let strategiesConfig = "..."  // Config YAML.
+let dialer = MobileproxyNewSmartStreamDialer(
+    testDomains,
+    strategiesConfig,
+    MobileproxyNewStderrLogWriter(),
+    &dialerError
+)
+
+var proxyError: NSError?
+// Use port zero to let the system pick an open port for you.
+MobileproxyRunProxy("localhost:0", dialer, &proxyError)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
 
 ## Paso 3: Configurar clientes HTTP y bibliotecas de redes
 
@@ -71,21 +153,60 @@ Configura tus bibliotecas de redes de modo que usen la dirección y el puerto de
 
 Define el proxy con [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html).
 
+```dart
+HttpClient client = HttpClient();
+client.findProxy = (Uri uri) {
+  return "PROXY " + proxy.address();
+};
+```
+
 ### OkHttp (Android)
 
 Define el proxy con [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/).
+
+```kotlin
+val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.port()))
+val client = OkHttpClient.Builder().proxy(proxyConfig).build()
+```
 
 ### JVM (Java o Kotlin)
 
 Configura el proxy que se debe usar con [propiedades del sistema](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html):
 
+```kotlin
+System.setProperty("http.proxyHost", proxy.host())
+System.setProperty("http.proxyPort", String.valueOf(proxy.port()))
+System.setProperty("https.proxyHost", proxy.host())
+System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
+```
+
 ### Android WebView
 
 Aplica una configuración de proxy a todas las vistas web de tu aplicación con la biblioteca [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController):
 
+```java
+ProxyController.getInstance()
+    .setProxyOverride(
+        ProxyConfig.Builder()
+            .addProxyRule(this.proxy!!.address())
+            .build(),
+        {}, // execution context for the following callback - do anything needed here once the proxy is applied, like refreshing web views
+        {} // callback to be called once the ProxyConfig is applied
+    )
+```
+
 ### iOS WebView
 
 En iOS 17, puedes añadir una configuración de proxy a `WKWebView` usando su [propiedad `WKWebsiteDataStore`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration):
+
+```swift
+let configuration = WKWebViewConfiguration()
+let endpoint = NWEndpoint.hostPort(host: NWEndpoint.Host(proxyHost), port: NWEndpoint.Port(proxyPort)!)
+let proxyConfig = ProxyConfiguration.init(httpCONNECTProxy: endpoint)
+let websiteDataStore = WKWebsiteDataStore.default()
+websiteDataStore.proxyConfigurations = [proxyConfig]
+let webview = WKWebView(configuration: configuration)
+```
 
 ## Procedimiento avanzado: genera una biblioteca para dispositivos móviles personalizada
 

@@ -11,7 +11,31 @@ Este tutorial es una guía detallada para ayudarte a implementar Shadowsocks a t
 
 Crea un archivo `config.yaml` con la siguiente configuración:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Descarga la última versión de [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) y ejecútala con la configuración que has creado:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Paso 2: Expón el servidor web
 
@@ -26,11 +50,38 @@ En este ejemplo, vamos a hacer una demo con [TryCloudflare](https://developers.c
 
 2. Crea un túnel que dirija al puerto de tu servidor web local:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare proporcionará un subdominio (por ejemplo, `acids-iceland-davidson-lb.trycloudflare.com`) para acceder a tu endpoint de WebSocket y gestionar automáticamente TLS. Apunta el subdominio para consultarlo más tarde.
 
 ## Paso 3: Crea una clave de acceso dinámica
 
 Genera un archivo YAML de clave de acceso de cliente para tus usuarios utilizando el formato de la página [Configuración de claves de acceso](../management/config) e incluye los endpoints de WebSocket que has configurado previamente del lado del servidor:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Después de generar el archivo YAML de la clave de acceso dinámica, debes enviárselo a tus usuarios. Puedes alojar el archivo en un servicio de alojamiento web estático o generarlo de forma dinámica. [Más información sobre cómo usar claves de acceso dinámicas](../management/dynamic-access-keys)
 

@@ -11,7 +11,31 @@ sidebar_label: "WebSockets"
 
 Создайте новый файл `config.yaml` со следующей конфигурацией:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Скачайте последнюю версию [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) и запустите ее с созданной конфигурацией.
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Шаг 2. Настройте доступ к веб-серверу
 
@@ -26,12 +50,39 @@ sidebar_label: "WebSockets"
 
 2. Создайте туннель, указав порт вашего локального веб-сервера:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare предоставит субдомен
 (например, `acids-iceland-davidson-lb.trycloudflare.com`), который позволит подключиться к конечной точке WebSocket и автоматически настроить TLS. Сохраните этот субдомен, так как он понадобится вам позже.
 
 ## Шаг 3. Создайте динамический ключ доступа
 
 Сгенерируйте YAML-файл с ключами доступа для пользователей, используя [указанный в этой статье формат](../management/config). Включите в файл конечные точки WebSocket, настроенные на сервере.
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 После создания YAML-файла с динамическим ключом доступа его нужно передать пользователям. Вы можете разместить файл на статическом веб-хостинге или настроить динамическую генерацию. Подробнее о том, [как использовать динамические ключи доступа](../management/dynamic-access-keys)…
 

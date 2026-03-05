@@ -61,6 +61,16 @@ SSH
 
 如需将 prefix 功能与[动态访问密钥](../management/dynamic-access-keys) (`ssconf://`) 搭配使用，请为 JSON 对象添加一个“prefix”键，并采用 **JSON 编码**值来表示所需的 prefix（请参见上方表格中的示例）。您可以使用转义代码（例如 \u00FF）来表示 `U+0` 至 `U+FF` 范围内不可打印的 Unicode 代码点。例如：
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### 静态访问密钥
 
 如需将 prefix 与**静态访问密钥** (ss://) 搭配使用，您需要修改现有的密钥，然后再进行分发。如果您拥有 Outline 管理器生成的静态访问密钥，请提取**网址编码**格式的 prefix（请参见上方表格中的示例），然后将其添加到访问密钥的末尾，例如：
@@ -69,4 +79,13 @@ SSH
 
 对于高级用户，您可以使用浏览器的 `encodeURIComponent()` 函数，将 **JSON 编码格式**的 prefix 转换为**网址编码格式**的 prefix。为此，请打开 Web Inspector 控制台（在 Chrome 中依次找到*“开发者”>“JavaScript Web 控制台”*），然后输入以下内容：
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 按 Enter 键。所生成的值将采用*网址编码*格式。例如：
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

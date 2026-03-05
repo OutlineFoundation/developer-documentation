@@ -31,7 +31,22 @@ Los campos `error` y `transport` se excluyen entre sí.
 
 Ejemplo de operación correcta:
 
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    ...  # Stream Dialer for TCP
+  udp:
+    ...  # Packet Listener for UDP
+```
+
 Ejemplo de error:
+
+```yaml
+error:
+  message: Quota exceeded
+  details: Used 100GB out of 100GB
+```
 
 ## Transportes
 
@@ -58,6 +73,21 @@ TCPUDPConfig permite configurar estrategias de TCP y UDP por separado.
 - `udp` ([PacketListenerConfig](#packetlistenerconfig)): agente de escucha de paquetes que debe usarse para los paquetes UDP.
 
 Ejemplo de envío de TCP y UDP a distintos endpoints:
+
+```yaml
+tcp:
+  $type: shadowsocks
+  endpoint: ss.example.com:80
+  <<: &cipher
+    cipher: chacha20-ietf-poly1305
+    secret: SECRET
+  prefix: "POST "
+
+udp:
+  $type: shadowsocks
+  endpoint: ss.example.com:53
+  <<: *cipher
+```
 
 ## Endpoints
 
@@ -162,6 +192,14 @@ Se admite en conexiones de flujos y de paquetes.
 
 Ejemplo:
 
+```yaml
+server: example.com
+server_port: 4321
+method: chacha20-ietf-poly1305
+password: SECRET
+prefix: "POST "
+```
+
 #### LegacyShadowsocksURI
 
 LegacyShadowsocksURI representa un túnel que usa Shadowsocks como transporte.
@@ -172,6 +210,10 @@ Implementa el formato antiguo de la URL para la retrocompatibilidad.
 Consulta el [formato antiguo del URI de Shadowsocks](https://shadowsocks.org/doc/configs.html#uri-and-qr-code) y el [esquema del URI de SIP002](https://shadowsocks.org/doc/sip002.html). No admitimos los complementos.
 
 Ejemplo:
+
+```yaml
+ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
+```
 
 #### ShadowsocksConfig
 
@@ -192,6 +234,13 @@ Se admite en conexiones de flujos y de paquetes.
 
 Ejemplo:
 
+```yaml
+endpoint: example.com:80
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+prefix: "POST "
+```
+
 ## Metadefiniciones
 
 ### FirstSupportedConfig
@@ -208,8 +257,22 @@ Usa la primera configuración admitida por la aplicación. De esta forma, se inc
 
 Ejemplo:
 
+```yaml
+options:
+  - $type: websocket
+    url: wss://example.com/SECRET_PATH
+  - ss.example.com:4321
+```
+
 ### Interface
 
 Los objetos Interface permiten elegir una implementación de entre muchas. Utiliza el campo `$type` para especificar el tipo que esa configuración representa.
 
 Ejemplo:
+
+```yaml
+$type: shadowsocks
+endpoint: example.com:4321
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+```

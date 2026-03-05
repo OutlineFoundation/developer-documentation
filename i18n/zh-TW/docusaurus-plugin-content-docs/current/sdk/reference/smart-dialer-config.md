@@ -9,6 +9,22 @@ sidebar_label: "Smart Dialer Config"
 
 Smart Dialer 使用的設定為 YAML 格式，範例如下：
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### DNS 設定
 
 - `dns` 欄位用於指定要測試的一組 DNS 解析器。
@@ -27,11 +43,23 @@ Smart Dialer 使用的設定為 YAML 格式，範例如下：
 
 #### DNS-over-HTTPS 解析器 (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`：DoH 伺服器的網域名稱。
 
 - `address`：DoH 伺服器的主機和通訊埠，格式為 <主機>:<通訊埠>。預設為 `name`:443。
 
 #### DNS-over-TLS 解析器 (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`：DoT 伺服器的網域名稱。
 
@@ -39,9 +67,19 @@ Smart Dialer 使用的設定為 YAML 格式，範例如下：
 
 #### UDP 解析器
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`：UDP 解析器的主機和通訊埠，格式為 <主機>:<通訊埠>。
 
 #### TCP 解析器
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`：TCP 解析器的主機和通訊埠，格式為 <主機>:<通訊埠>。
 
@@ -65,7 +103,17 @@ Smart Dialer 使用的設定為 YAML 格式，範例如下：
 
 #### Shadowsocks 伺服器範例
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### SOCKS5 伺服器範例
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Psiphon 設定範例
 
@@ -75,9 +123,55 @@ Smart Dialer 使用的設定為 YAML 格式，範例如下：
 
 2. 將取得的 Psiphon 設定加入 Smart Dialer 設定的 `fallback` 區塊。由於 JSON 與 YAML 相容，所以直接將 Psiphon 設定內容複製貼到 `fallback` 區塊即可，如下所示：
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### 如何使用 Smart Dialer
 
 如要使用 Smart Dialer，請建立 `StrategyFinder` 物件並呼叫 `NewDialer` 方法，傳入測試網域清單和 YAML 設定。
 `NewDialer` 方法會傳回 `transport.StreamDialer`，可用來依據選出的策略建立連線。例如：
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 這是基本範例，實際使用時可能需要根據具體情況做調整。

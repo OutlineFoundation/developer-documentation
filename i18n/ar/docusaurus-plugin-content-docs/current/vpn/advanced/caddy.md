@@ -40,20 +40,76 @@ Outline، خصوصًا في حال استخدام نقطة اتصال WebSocket.
 - **التأكُّد من سجلّات نظام أسماء النطاقات:** يجب التأكُّد من أنّ سجلّات نظام أسماء النطاقات تم ضبطها بشكل صحيح
 من خلال إجراء بحث موثوق:
 
+```sh
+curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
+  -H "accept: application/dns-json"
+```
+
 ## الخطوة 3: إنشاء إصدار Caddy مخصّص وتشغيله
 
 باستخدام `xcaddy`، يمكنك إنشاء برنامج `caddy` ثنائي مخصّص يتضمّن الوحدة
 الأساسية لخادم Outline ووحدات إضافات الخادم الأخرى التي سنحتاج إليها.
 
+```sh
+xcaddy build \
+  # The example uses a YAML config, so include a YAML config adapter module.
+  --with github.com/iamd3vil/caddy_yaml_adapter \
+  # The Outline core server module.
+  --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
+```
+
 ## الخطوة 4: ضبط خادم Caddy وتشغيله مع Outline
 
 عليك إنشاء ملف `config.yaml` جديد بالإعدادات التالية:
+
+```yaml
+apps:
+  http:
+    servers:
+      server1:
+        listen:
+          - ":443"
+        routes:
+          - match:
+            - host:
+              - <DOMAIN_NAME>
+            - path:
+              - /<TCP_PATH>
+            handle:
+            - handler: websocket2layer4
+              type: stream
+              connection_handler: ss1
+          - match:
+            - host:
+              - <DOMAIN_NAME>
+            - path:
+              - /<UDP_PATH>
+            handle:
+              - handler: websocket2layer4
+                type: packet
+                connection_handler: ss1
+  outline:
+    shadowsocks:
+      replay_history: 10000
+    connection_handlers:
+      - name: ss1
+        handle:
+          handler: shadowsocks
+          keys:
+            - id: user-1
+              cipher: chacha20-ietf-poly1305
+              secret: <SHADOWSOCKS_SECRET>
+```
 
 يعبّر هذا الإعداد عن استراتيجية إعدادات Shadowsocks-over-WebSocket مع خادم
 ويب يشير إلى منفذ `443`، والذي يقبل الزيارات المغلّفة عبر بروتوكول Shadowsocks باستخدام منفذَي TCP وUDP على المسارَين `TCP_PATH` و`UDP_PATH`
 على التوالي.
 
 عليك تشغيل خادم Caddy المرتبط بـ Outline باستخدام الإعدادات المُنشأة:
+
+```sh
+caddy run --config config.yaml --adapter yaml --watch
+```
 
 ويمكنك الاطّلاع على المزيد من الأمثلة عن الإعدادات في مستودع GitHub على [outline-ss-server/outlinecaddy](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples).
 
@@ -62,6 +118,29 @@ Outline، خصوصًا في حال استخدام نقطة اتصال WebSocket.
 يجب إنشاء ملف YAML يتضمّن مفتاح وصول يمكن استخدامه في تطبيق &quot;عميل Outline&quot; للمستخدمين باستخدام تنسيق [الإعدادات
 المتقدّمة](../management/config)، ثم تضمين نقاط نهاية WebSocket التي تم
 ضبطها سابقًا في جهة الخادم:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN_NAME>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN_NAME>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 بعد إنشاء ملف YAML الذي يتضمّن مفتاح الوصول الديناميكي، عليك نشره
 للمستخدمين. ويمكنك استضافة الملف على خدمة استضافة ويب ثابتة أو إنشاؤه

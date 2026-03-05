@@ -9,6 +9,22 @@ De **Smart Dialer** zoekt naar een strategie waarmee DNS en TLS voor een bepaald
 
 De configuratie die de Smart Dialer gebruikt, staat in de YAML-indeling. Een voorbeeld:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### DNS-configuratie
 
 - In het veld `dns` staat een lijst met DNS-resolvers om te testen.
@@ -27,11 +43,23 @@ De configuratie die de Smart Dialer gebruikt, staat in de YAML-indeling. Een voo
 
 #### DNS-over-HTTPS-resolver (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: De domeinnaam van de DoH-server.
 
 - `address`: De host:port van de DoH-server. De standaardwaarde is `name`:443.
 
 #### DNS-over-TLS-resolver (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: De domeinnaam van de DoT-server.
 
@@ -39,9 +67,19 @@ De configuratie die de Smart Dialer gebruikt, staat in de YAML-indeling. Een voo
 
 #### UDP-resolver
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: De host:port van de UDP-resolver.
 
 #### TCP-resolver
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: De host:port van de TCP-resolver.
 
@@ -65,7 +103,17 @@ De reservetekenreeksen moeten de volgende zijn:
 
 #### Voorbeeld voor Shadowsocks-server
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### Voorbeeld voor SOCKS5-server
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Voorbeeld van Psiphon-configuratie
 
@@ -75,9 +123,55 @@ Als je het [Psiphon](https://psiphon.ca/)-netwerk wilt gebruiken, moet je het vo
 
 2. Voeg de Psiphon-configuratie die je hebt gekregen toe aan het gedeelte `fallback` van je Smart Dialer-configuratie. Json is compatibel met YAML, dus je kunt je Psiphon-configuratie rechtstreeks in het gedeelte `fallback` kopiëren en plakken, zoals hier:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### De Smart Dialer gebruiken
 
 Als je de Smart Dialer wilt gebruiken, maak je een `StrategyFinder`-object en roep je de methode `NewDialer` aan. Geef hierbij de lijst met testdomeinen en de YAML-configuratie mee.
 Via de methode `NewDialer` krijg je een `transport.StreamDialer` waarmee je verbinding kunt maken via de gevonden strategie. Bijvoorbeeld:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 Dit is een algemeen voorbeeld, je moet het misschien aanpassen voor jouw specifieke use case.

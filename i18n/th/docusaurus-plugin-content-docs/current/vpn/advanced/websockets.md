@@ -11,7 +11,31 @@ sidebar_label: "WebSockets"
 
 สร้างไฟล์ `config.yaml` ใหม่ที่มีการกำหนดค่าต่อไปนี้
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 ดาวน์โหลด [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) เวอร์ชันล่าสุดและเรียกใช้โดยใช้การกำหนดค่าที่สร้างไว้ดังต่อไปนี้
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## ขั้นตอนที่ 2: เปิดใช้งานเว็บเซิร์ฟเวอร์
 
@@ -27,12 +51,39 @@ sidebar_label: "WebSockets"
 
 2. สร้างอุโมงค์ข้อมูลที่ชี้ไปยังพอร์ตเว็บเซิร์ฟเวอร์ในเครื่อง โดยทำดังนี้
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare จะจัดหาโดเมนย่อย (เช่น
 `acids-iceland-davidson-lb.trycloudflare.com`) เพื่อเข้าถึงปลายทาง WebSocket และจัดการ TLS โดยอัตโนมัติ โปรดจดโดเมนย่อยนี้ไว้เนื่องจากคุณจะต้องใช้ในภายหลัง
 
 ## ขั้นตอนที่ 3: สร้างคีย์การเข้าถึงแบบไดนามิก
 
 สร้างไฟล์ YAML ของคีย์การเข้าถึงไคลเอ็นต์สำหรับผู้ใช้โดยใช้รูปแบบ[การกำหนดค่าคีย์การเข้าถึง](../management/config) และระบุปลายทาง WebSocket ที่กําหนดค่าไว้ก่อนหน้านี้ในฝั่งเซิร์ฟเวอร์
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 หลังจากสร้างไฟล์ YAML ของคีย์การเข้าถึงแบบไดนามิกแล้ว คุณต้องส่งไฟล์ดังกล่าวให้ผู้ใช้ โดยสามารถฝากไฟล์ไว้ในบริการเว็บโฮสติ้งแบบคงที่หรือจะสร้างไฟล์แบบไดนามิกก็ได้ โปรดดูข้อมูลเพิ่มเติมเกี่ยวกับวิธีใช้[คีย์การเข้าถึงแบบไดนามิก](../management/dynamic-access-keys)
 

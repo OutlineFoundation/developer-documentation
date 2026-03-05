@@ -21,4 +21,8 @@ Les clés d'accès sont des identifiants grâce auxquels les utilisateurs peuven
 
 Exemple :
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - Les **clés d'accès dynamiques** qui permettent à un fournisseur de services d'héberger à distance les informations d'accès au serveur. Les fournisseurs peuvent ainsi modifier la configuration de leur serveur (adresse du serveur, port, mots de passe, méthode de chiffrement) sans avoir à distribuer de nouvelles clés d'accès aux utilisateurs finaux. Pour accéder à une documentation plus détaillée, consultez [Clés d'accès dynamiques](vpn/management/dynamic-access-keys).

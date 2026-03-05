@@ -21,4 +21,8 @@ Las claves de acceso son las credenciales que permiten a los usuarios conectarse
 
 Ejemplo:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - Las **claves de acceso dinámicas** permiten que un proveedor de servicios aloje la información de acceso al servidor de forma remota. Esto hace posible que los proveedores actualicen la configuración de su servidor (dirección del servidor, puerto, contraseñas y método de cifrado) sin necesidad de volver a emitir nuevas claves de acceso para los usuarios finales. Para acceder a documentación más detallada, consulta el artículo [Claves de acceso dinámicas](vpn/management/dynamic-access-keys).

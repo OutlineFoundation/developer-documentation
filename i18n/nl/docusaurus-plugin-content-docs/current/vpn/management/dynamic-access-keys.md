@@ -15,6 +15,10 @@ Je kunt een bestaande `ss://`-link rechtstreeks gebruiken. Deze methode is ideaa
 
 **Voorbeeld:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### Een json-object gebruiken
 
 *Outline-client v1.8.0+.*
@@ -22,6 +26,15 @@ Je kunt een bestaande `ss://`-link rechtstreeks gebruiken. Deze methode is ideaa
 Met deze methode heb je de flexibiliteit om alle aspecten van de Outline-verbinding van je gebruikers te beheren. Hiermee kun je de server, de poort, het wachtwoord en de versleutelingsmethode updaten.
 
 **Voorbeeld:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** Het domein of IP-adres van je VPN-server.
 
@@ -38,6 +51,21 @@ Met deze methode heb je de flexibiliteit om alle aspecten van de Outline-verbind
 Deze methode lijkt op de eerder genoemde json-methode, maar voegt nog meer flexibiliteit toe door de geavanceerde configuratie-indeling van Outline in te zetten. Je kunt naast de server, de poort, het wachtwoord en de versleutelingsmethode nog veel meer updaten.
 
 **Voorbeeld:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** De transportprotocollen die moeten worden gebruikt (in dit geval TCP en UDP).
 
@@ -57,7 +85,17 @@ Ga naar [Configuratie van toegangssleutel](config) voor informatie over alle man
 
 Als je een bestaande statische sleutel hebt, kun je de informatie daaruit ophalen om een op json of YAML gebaseerde dynamische toegangssleutel te maken. Statische toegangssleutels volgen dit patroon:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 Voorbeeld:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Server:** `outline-server.example.com`
 

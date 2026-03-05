@@ -60,6 +60,16 @@ SSH
 
 如要在[動態存取金鑰](../management/dynamic-access-keys) (`ssconf://`) 中使用 prefix 功能，請在 JSON 物件中新增「prefix」鍵，並將所需的 prefix 以 **JSON 編碼**表示 (參見上表示例)。您可以使用 \u00FF 之類的逸出代碼，表示 `U+0` 至 `U+FF` 範圍內的不可列印 Unicode 代碼點，例如：
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### 靜態存取金鑰
 
 如要在**靜態存取金鑰** (ss://) 中使用 prefix，您需要先修改現有金鑰再發布。如果您使用 Outline Manager 生成的靜態存取金鑰，請將您的 prefix 轉換為**網址編碼**版本 (參見上表示例)，然後加入存取金鑰末端，如下所示：
@@ -68,4 +78,13 @@ SSH
 
 對於進階使用者，您可以運用瀏覽器的 `encodeURIComponent()` 函式將 **JSON 編碼**的 prefix 轉換為**網址編碼**版本。如要這麼做，請開啟網頁檢查器控制台 (在 Chrome 中依序點選「Developer」>「JavaScript Web Console」) 並輸入以下內容：
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 按下 Enter 鍵，生成的值即為「網址編碼」版本，例如：
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

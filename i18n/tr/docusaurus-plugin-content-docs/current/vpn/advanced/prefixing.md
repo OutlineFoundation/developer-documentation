@@ -62,6 +62,16 @@ SSH
 
 [Dinamik erişim anahtarları](../management/dynamic-access-keys) (`ssconf://`) ile önek özelliğini kullanmak için JSON nesnesine "önek" anahtarı ekleyin ve istediğiniz öneki temsil eden değeri **JSON biçiminde** belirtin (Örnekleri yukarıdaki tabloda bulabilirsiniz). `U+0` - `U+FF` aralığındaki yazdırılamayan Unicode karakterlerini temsil edecek çıkış kodları (ör. \u00FF) kullanabilirsiniz. Örneğin:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Statik erişim anahtarları
 
 **Statik erişim anahtarları** (ss://) ile önekleri kullanmak için mevcut anahtarınızı dağıtmadan önce değiştirmeniz gerekir. Outline Manager'ın oluşturduğu bir statik erişim anahtarınız varsa önekinizin **URL biçiminde kodlanmış** sürümünü alın (Yukarıdaki tabloda örneklerini görebilirsiniz.) ve aşağıdaki şekilde erişim anahtarınızın sonuna ekleyin:
@@ -70,4 +80,13 @@ SSH
 
 Kodlama bilginiz ileri seviyedeyse tarayıcınızın `encodeURIComponent()` fonksiyonunu kullanarak **JSON biçiminde kodlanmış** önekinizi **URL biçiminde kodlanmış** öneke dönüştürebilirsiniz. Bunu yapmak için web denetleme konsolunuzu açın (Chrome'da "Geliştirici > JavaScript Web Konsolu") ve aşağıdaki kodu yazın:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Enter tuşuna basın. Üretilen değer, "URL biçiminde kodlanmış" sürümdür. Örneğin:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

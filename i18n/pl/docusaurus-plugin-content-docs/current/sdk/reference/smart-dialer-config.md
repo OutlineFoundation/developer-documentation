@@ -9,6 +9,22 @@ sidebar_label: "Smart Dialer Config"
 
 Inteligentny dialer obsługuje konfigurację w formacie YAML. Oto przykład:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### Konfiguracja DNS
 
 - Pole `dns` określa listę resolverów DNS do przetestowania.
@@ -27,11 +43,23 @@ Inteligentny dialer obsługuje konfigurację w formacie YAML. Oto przykład:
 
 #### Resolver DNS-over-HTTPS (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: nazwa domeny serwera DoH.
 
 - `address`: adres serwera DoH w formacie host:port. Domyślna wartość to `name`:443.
 
 #### Resolver DNS-over-TLS (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: nazwa domeny serwera DoT.
 
@@ -39,9 +67,19 @@ Inteligentny dialer obsługuje konfigurację w formacie YAML. Oto przykład:
 
 #### Resolver UDP
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: adres resolvera UDP w formacie host:port.
 
 #### Resolver TCP
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: adres resolvera TCP w formacie host:port.
 
@@ -65,7 +103,17 @@ Zastępczymi ciągami tekstowymi powinny być:
 
 #### Przykład dotyczący serwera Shadowsocks
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### Przykład dotyczący serwera SOCKS5
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Przykład konfiguracji Psiphon
 
@@ -75,9 +123,55 @@ Aby móc korzystać z sieci [Psiphon](https://psiphon.ca/):
 
 2. Dodaj otrzymaną konfigurację Psiphon do sekcji `fallback` konfiguracji inteligentnego dialera. Ponieważ format JSON jest zgodny z YAML, konfigurację Psiphon możesz skopiować i wkleić bezpośrednio do sekcji `fallback`, tak jak w tym przykładzie:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### Jak korzystać z inteligentnego dialera
 
 Aby użyć inteligentnego dialera, utwórz obiekt `StrategyFinder` i wywołaj metodę `NewDialer`, przekazując listę domen testowych i konfigurację w formacie YAML.
 Metoda `NewDialer` zwróci wartość implementację interfejsu `transport.StreamDialer`, której będzie można użyć do utworzenia połączeń z wykorzystaniem znalezionej strategii. Przykład:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 Jest to podstawowy przykład, który może wymagać dostosowania do konkretnego przypadku użycia.

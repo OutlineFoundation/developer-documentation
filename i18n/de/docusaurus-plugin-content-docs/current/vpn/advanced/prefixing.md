@@ -66,6 +66,16 @@ Um die Präfix-Funktion mit [dynamischen Zugriffsschlüsseln](../management/dyna
 fügen Sie dem JSON-Objekt einen „Präfix“ hinzu. Dabei sollte ein **im JSON-Format verschlüsselter** Wert
 den Präfix repräsentieren, den Sie möchten (Siehe Beispiele in der Tabelle oben). Sie können Escape-Codes (wie \u00FF) verwenden, um nicht druckbare Unicode-Zeichen im Bereich `U+0` bis `U+FF` zu repräsentieren. Beispiel:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Statische Zugriffsschlüssel
 
 Um Präfixe mit **statischen Zugriffsschlüsseln** (ss://) zu verwenden, müssen Sie Ihren bestehenden Schlüssel ändern, bevor Sie ihn bereitstellen. Wenn Sie einen vom Outline-Manager erstellten Zugriffsschlüssel haben, verwenden Sie eine **URL-codierte** Version Ihres Präfixes (siehe Beispiele in der Tabelle oben) und fügen Sie sie wie im Folgenden beschrieben am Ende des Zugriffsschlüssels ein:
@@ -74,4 +84,13 @@ Um Präfixe mit **statischen Zugriffsschlüsseln** (ss://) zu verwenden, müssen
 
 Fortgeschrittene Nutzer können die `encodeURIComponent()`-Funktion ihres Browsers nutzen, um ihren **JSON-codierten** Präfix in ein **URL-codiertes** zu konvertieren. Rufen Sie dafür Ihre Web Inspector-Konsole auf (*Entwickler> JavaScript Web Console *auf Chrome), und tippen Sie das Folgende ein:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Drücken Sie die Eingabetaste. Der erzielte Wert ist die *URL-codierte *Version. Beispiel:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

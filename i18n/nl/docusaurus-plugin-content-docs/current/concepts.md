@@ -22,4 +22,8 @@ Toegangssleutels zijn de inloggegevens waarmee gebruikers verbinding kunnen make
 
 Voorbeeld:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - **Dynamische toegangssleutels**: Hiermee kan een serviceprovider de toegangsinformatie tot de server op afstand hosten. Zo kunnen providers hun serverconfiguratie updaten (serveradres, poort, wachtwoorden, versleutelingsmethode) zonder nieuwe toegangssleutels te hoeven uitgeven aan eindgebruikers. Ga naar [dynamische toegangssleutels](vpn/management/dynamic-access-keys) voor meer informatie.

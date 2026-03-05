@@ -62,6 +62,16 @@ SSH
 
 [동적 액세스 키](../management/dynamic-access-keys)(`ssconf://`)와 함께 접두사 기능을 사용하려면 원하는 접두사를 나타내는 **JSON 인코딩** 값(위 표의 예 참고)을 사용하여 'prefix' 키를 JSON 객체에 추가합니다. 이스케이프 코드(예: \u00FF)를 사용하여 `U+0`~`U+FF` 범위에서 인쇄할 수 없는 유니코드 코드 포인트를 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### 정적 액세스 키
 
 **정적 액세스 키**(ss://)와 함께 접두사를 사용하려면 기존 키를 수정한 후 배포해야 합니다. Outline Manager에서 생성한 정적 액세스 키가 있다면 **URL 인코딩** 버전의 접두사(위 표의 예 참고)를 가져와 다음과 같이 액세스 키 끝에 추가하세요.
@@ -70,4 +80,13 @@ SSH
 
 고급 사용자의 경우 브라우저의 `encodeURIComponent()` 함수를 사용하여 **JSON 인코딩** 접두사를 **URL 인코딩** 접두사로 변환할 수 있습니다. 웹 검사기 콘솔을 열고(*개발자 > *Chrome의 JavaScript 웹 콘솔) 다음과 같이 입력하면 됩니다.
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Enter 키를 누릅니다. 생성된 값은 *URL 인코딩 *버전입니다. 예를 들면 다음과 같습니다.
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

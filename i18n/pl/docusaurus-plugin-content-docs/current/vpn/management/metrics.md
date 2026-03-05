@@ -19,6 +19,10 @@ Outline zapewnia dostęp do szczegółowych danych dotyczących wydajności, uż
 
 Połącz się z serwerem przy użyciu SSH i przekieruj port 9090:
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **Uzyskiwanie dostępu do interfejsu internetowego pakietu Prometheus**
 
 Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytania dotyczącego danych z pakietu Prometheus

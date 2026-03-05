@@ -15,6 +15,10 @@ Vous pouvez utiliser directement un lien `ss://` existant. Cette méthode est id
 
 **Exemple :**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### Utiliser un objet JSON
 
 *Client Outline v1.8.0 et versions ultérieures*
@@ -22,6 +26,15 @@ Vous pouvez utiliser directement un lien `ss://` existant. Cette méthode est id
 Cette méthode vous permet de gérer tous les aspects de la connexion Outline de vos utilisateurs avec plus de flexibilité. Vous pouvez modifier le serveur, le port, le mot de passe et la méthode de chiffrement.
 
 **Exemple :**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server** : domaine ou adresse IP de votre serveur VPN
 
@@ -38,6 +51,21 @@ Cette méthode vous permet de gérer tous les aspects de la connexion Outline de
 Cette méthode est semblable à la méthode JSON décrite ci-dessus, mais elle offre encore plus de flexibilité, car elle utilise le format de configuration avancée d'Outline. Vous pouvez modifier le serveur, le port, le mot de passe, la méthode de chiffrement et plus encore.
 
 **Exemple :**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport** : définit les protocoles de transport à utiliser (TCP et UDP dans ce cas)
 
@@ -57,7 +85,17 @@ Consultez [Configuration de la clé d'accès](config) pour découvrir plus en d�
 
 Si vous avez déjà une clé d'accès statique, vous pouvez en extraire les informations pour créer une clé d'accès dynamique au format JSON ou YAML. Les clés d'accès statiques sont configurées comme ceci :
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 Exemple :
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Serveur** : `outline-server.example.com`
 

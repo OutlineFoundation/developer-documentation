@@ -11,7 +11,31 @@ Dieses Tutorial bietet eine Schritt-für-Schritt-Anleitung zur Implementierung v
 
 Erstellen Sie eine neue `config.yaml`-Datei mit der folgenden Konfiguration:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Laden Sie den neuesten [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) herunter und führen Sie ihn mit der erstellten Konfiguration aus:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Schritt 2: Webserver freigeben
 
@@ -27,11 +51,38 @@ In diesem Beispiel erstellen wir mit [TryCloudflare](https://developers.cloudfla
 
 2. Erstellen Sie einen Tunnel, der auf den Port Ihres lokalen Webservers zeigt:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare stellt eine Subdomain (z. B. `acids-iceland-davidson-lb.trycloudflare.com`) für den Zugriff auf Ihren WebSocket-Endpunkt und die automatische Handhabung von TLS bereit. Notieren Sie sich die Subdomain. Sie benötigen sie später.
 
 ## Schritt 3: Dynamischen Zugriffsschlüssel erstellen
 
 Generieren Sie eine YAML-Datei mit dem Client-Zugriffsschlüssel für die Nutzer. Verwenden Sie dazu das Format für die [Zugriffsschlüssel-Konfiguration](../management/config) und die WebSocket-Endpunkte, die Sie zuvor auf Serverseite konfiguriert haben:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Nachdem Sie die YAML-Datei mit dem dynamischen Zugriffsschlüssel erstellt haben, müssen Sie diese Ihren Nutzern zukommen lassen. Sie können die Datei auf einem statischen Webhosting-Dienst hosten oder dynamisch generieren. Weitere Informationen zur Verwendung von [dynamischen Zugriffsschlüsseln](../management/dynamic-access-keys)
 

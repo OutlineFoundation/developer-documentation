@@ -15,4 +15,8 @@ Ce guide vous explique comment configurer un serveur Outline pour fournir un acc
 
 1. Téléchargez et exécutez le script d'installation d'Outline.
 
+```sh
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+```
+
 2. Suivez les instructions à l'écran.

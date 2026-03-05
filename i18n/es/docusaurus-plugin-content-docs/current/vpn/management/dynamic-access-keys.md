@@ -15,6 +15,10 @@ Puedes usar un enlace `ss://` que ya tengas directamente. Este método es ideal 
 
 **Ejemplo:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### Usar un objeto JSON
 
 *Versiones 1.8.0 o posteriores del cliente de Outline.*
@@ -22,6 +26,15 @@ Puedes usar un enlace `ss://` que ya tengas directamente. Este método es ideal 
 Este método ofrece más flexibilidad para gestionar todos los aspectos de la conexión a Outline de tus usuarios. Te permite actualizar el servidor, el puerto, la contraseña y el método de cifrado.
 
 **Ejemplo:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** la dirección IP o del dominio de tu servidor de VPN.
 
@@ -38,6 +51,21 @@ Este método ofrece más flexibilidad para gestionar todos los aspectos de la co
 Este método es similar al método JSON anterior, pero añade aún más flexibilidad al aprovechar el formato de configuración avanzado de Outline. Puedes actualizar el servidor, el puerto, la contraseña, el método de cifrado y mucho más.
 
 **Ejemplo:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** define los protocolos de transporte que deben usarse (TCP y UDP en este caso).
 
@@ -57,7 +85,17 @@ Consulta el artículo [Configuración de claves de acceso](config) para obtener 
 
 Si tienes una clave de acceso estática, puedes obtener la información necesaria para crear una clave de acceso dinámica basada en JSON o YAML. Las claves de acceso estáticas siguen el siguiente patrón:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 Ejemplo:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Servidor:** `outline-server.example.com`
 

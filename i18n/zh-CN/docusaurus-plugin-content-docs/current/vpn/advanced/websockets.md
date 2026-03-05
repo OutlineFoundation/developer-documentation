@@ -11,7 +11,31 @@ Outline 客户端 1.15.0 及以上版本。**
 
 创建一个包含以下配置的新 `config.yaml` 文件：
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 下载最新的 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)，并使用创建的配置来运行它：
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## 第 2 步：公开 Web 服务器
 
@@ -25,11 +49,38 @@ Outline 客户端 1.15.0 及以上版本。**
 
 2. 创建指向本地 Web 服务器端口的隧道：
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare 将提供一个子网域（例如 `acids-iceland-davidson-lb.trycloudflare.com`）来访问您的 WebSocket 端点并自动处理 TLS。记下此子网域，您稍后需要用到它。
 
 ## 第 3 步：创建动态访问密钥
 
 使用[访问密钥配置](../management/config)格式为用户生成客户端访问密钥 YAML 文件，并在其中添加之前在服务器端配置的 WebSocket 端点：
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 生成动态访问密钥 YAML 文件后，您需要将其提供给用户。您可以将文件托管在静态网站托管服务上，也可以动态生成文件。详细了解如何使用[动态访问密钥](../management/dynamic-access-keys)。
 

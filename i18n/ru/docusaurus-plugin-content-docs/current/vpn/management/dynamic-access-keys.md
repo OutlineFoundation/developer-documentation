@@ -15,6 +15,10 @@ Outline использует два типа ключей доступа: ста
 
 **Пример:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### С помощью объекта JSON
 
 *Для клиента Outline 1.8.0 или более поздних версий*
@@ -22,6 +26,15 @@ Outline использует два типа ключей доступа: ста
 Этот способ дает больше свободы в управлении подключением пользователей к Outline, позволяя изменять сервер, порт, пароль и метод шифрования.
 
 **Пример:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** домен или IP-адрес вашего VPN-сервера.
 
@@ -38,6 +51,21 @@ Outline использует два типа ключей доступа: ста
 Этот способ напоминает предыдущий вариант с JSON, но обеспечивает ещё большую гибкость благодаря расширенному формату конфигурации Outline. Он позволяет изменять сервер, порт, пароль, метод шифрования и другие настройки.
 
 **Пример:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** определяет используемые транспортные протоколы (в данном случае TCP и UDP).
 
@@ -57,7 +85,17 @@ Outline использует два типа ключей доступа: ста
 
 Если у вас уже есть статический ключ доступа, вы можете извлечь из него информацию в формате JSON или YAML для создания динамического ключа. Статические ключи доступа имеют следующий формат:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 Пример:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Сервер:** `outline-server.example.com`
 

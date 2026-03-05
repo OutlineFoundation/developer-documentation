@@ -24,6 +24,10 @@ sidebar_label: "Dynamic Access Keys"
 
 **مثال:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### استخدام عنصر JSON
 
 *الإصدار 1.8.0 من تطبيق &quot;عميل Outline&quot; والإصدارات الأحدث*
@@ -33,6 +37,15 @@ Outline الخاص بالمستخدمين. ويمكنك تعديل الخادم 
 التشفير بهذه الطريقة.
 
 **مثال:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - ‫**server:** النطاق أو عنوان IP الخاص بخادم VPN
 
@@ -52,6 +65,21 @@ Outline الخاص بالمستخدمين. ويمكنك تعديل الخادم 
 تعديل الخادم والمنفذ وكلمة المرور وطريقة التشفير والمزيد.
 
 **مثال:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - ‫**transport:** يحدِّد بروتوكولات نقل البيانات التي سيتم استخدامها (TCP وUDP
 في هذه الحالة)
@@ -78,7 +106,17 @@ Outline الخاص بالمستخدمين. ويمكنك تعديل الخادم 
 مفتاح وصول ديناميكي استنادًا إلى عناصر JSON أو YAML. وتكون مفاتيح الوصول الثابتة
 بالنمط التالي:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 مثال:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **الخادم (Server):** `outline-server.example.com`
 

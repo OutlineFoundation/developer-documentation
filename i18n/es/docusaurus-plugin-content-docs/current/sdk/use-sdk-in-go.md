@@ -23,21 +23,105 @@ Sigue los pasos que se explican en [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu)
 
 ### Mac
 
+```sh
+brew install go
+```
+
 ### Windows
 
+```powershell
+winget install --id=GoLang.Go  -e
+```
+
 Cuando termines, comprueba si Go se ha instalado correctamente. Para ello, ejecuta el siguiente comando en un terminal:
+
+```sh
+go version
+```
 
 ## Paso 2: Crear la aplicación `splitfetch`
 
 Vamos a configurar el proyecto `splitfetch`. Primero, crea el directorio del proyecto e inicializa un módulo de Go:
 
+```sh
+mkdir splitfetch
+cd splitfetch
+go mod init example/splitfetch
+```
+
 A continuación, añade el SDK de Outline y crea tu archivo `main.go`:
+
+```sh
+go get github.com/Jigsaw-Code/outline-sdk@latest
+touch main.go
+```
 
 ## Paso 3: Usar el SDK de Outline en la aplicación
 
 Abre el archivo `main.go` en el editor de código que prefieras y pega en él el siguiente código. Este código incluye toda la lógica de nuestra aplicación `splitfetch`.
 
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"log"
+	"net"
+	"net/http"
+	"os"
+
+	"github.com/Jigsaw-Code/outline-sdk/transport"
+	"github.com/Jigsaw-Code/outline-sdk/transport/split"
+)
+
+// The number of bytes to send in the first packet.
+const splitPacketSize = 3
+
+func main() {
+	// 1. Get the URL from the command-line arguments.
+	if len(os.Args) < 2 {
+		log.Fatalf("Usage: %s <URL>", os.Args[0])
+	}
+	url := os.Args[1]
+
+	// 2. Create a split dialer from the Outline SDK.
+	// This dialer wraps a standard TCP dialer to add the splitting behavior.
+	dialer, err := split.NewStreamDialer(&transport.TCPDialer{}, split.NewFixedSplitIterator(splitPacketSize))
+	if err != nil {
+		log.Fatalf("Failed to create split dialer: %v", err)
+	}
+
+	// 3. Configure an HTTP client to use our custom split dialer for TCP connections.
+	httpClient := &http.Client{
+		Transport: &http.Transport{
+			DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+				return dialer.DialStream(ctx, addr)
+			},
+		},
+	}
+
+	// 4. Use the custom client to make the HTTP GET request.
+	resp, err := httpClient.Get(url)
+	if err != nil {
+		log.Fatalf("HTTP request failed: %v", err)
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalf("Failed to read response body: %v", err)
+	}
+	fmt.Println(string(body))
+}
+```
+
 Después de guardar el código, ejecuta el siguiente comando en el terminal para comprobar si el archivo `go.mod` se ha actualizado correctamente.
+
+```sh
+go mod tidy
+```
 
 ## Paso 4: Ejecutar la aplicación
 
@@ -45,13 +129,29 @@ Una vez que el código esté listo, ya puedes ejecutar la aplicación `splitfetc
 
 Desde el directorio `splitfetch`, ejecuta el siguiente comando en el terminal y envía una URL como argumento:
 
+```sh
+go run . https://getoutline.org
+```
+
 Así se compila y se ejecuta la aplicación, que muestra el contenido HTML de la página web.
 
 Si quieres crear y distribuir un programa independiente que puedas ejecutar sin `go`, usa el comando `go build`:
 
 ### Linux y Mac
 
+```sh
+go build -o splitfetch .
+```
+
 ### Windows
+
+```sh
+go build -o splitfetch.exe .
+```
 
 Una vez terminada la compilación, ya puedes distribuir y ejecutar la aplicación.
 Por ejemplo:
+
+```sh
+./splitfetch https://getoutline.org
+```

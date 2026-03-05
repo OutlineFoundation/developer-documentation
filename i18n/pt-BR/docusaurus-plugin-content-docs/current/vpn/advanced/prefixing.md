@@ -74,6 +74,16 @@ representando o prefixo que você quer. Veja exemplos na tabela acima. Você pod
 usar códigos de escape (como \u00FF) para representar pontos de código Unicode não imprimíveis no
 intervalo entre `U+0` e `U+FF`. Por exemplo:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Chaves de acesso estáticas
 
 Para usar prefixos com **chaves de acesso estáticas** (ss://), você precisa modificar sua
@@ -88,4 +98,13 @@ do navegador para converter o prefixo **codificado para JSON** em outro **codifi
 abra o console de inspeção na Web
 (*Desenvolvedor > Console JavaScript na Web* no Chrome) e digite o seguinte:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Pressione "Enter". O valor resultante será a versão *codificada para URL*. Por exemplo:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

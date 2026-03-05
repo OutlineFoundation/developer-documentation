@@ -9,6 +9,22 @@ sidebar_label: "Smart Dialer Config"
 
 การกำหนดค่าที่ Smart Dialer ใช้จะอยู่ในรูปแบบ YAML ดังตัวอย่างต่อไปนี้
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### การกำหนดค่า DNS
 
 - ฟิลด์ `dns` จะระบุรายการรีโซลเวอร์ DNS ที่จะทดสอบ
@@ -27,11 +43,23 @@ sidebar_label: "Smart Dialer Config"
 
 #### รีโซลเวอร์ DNS-over-HTTPS (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: ชื่อโดเมนของเซิร์ฟเวอร์ DoH
 
 - `address`: host:port ของเซิร์ฟเวอร์ DoH ค่าเริ่มต้นคือ `name`:443
 
 #### รีโซลเวอร์ DNS-over-TLS (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: ชื่อโดเมนของเซิร์ฟเวอร์ DoT
 
@@ -39,9 +67,19 @@ sidebar_label: "Smart Dialer Config"
 
 #### รีโซลเวอร์ UDP
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: host:port ของรีโซลเวอร์ UDP
 
 #### รีโซลเวอร์ TCP
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: host:port ของรีโซลเวอร์ TCP
 
@@ -66,7 +104,17 @@ sidebar_label: "Smart Dialer Config"
 
 #### ตัวอย่างเซิร์ฟเวอร์ Shadowsocks
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### ตัวอย่างเซิร์ฟเวอร์ SOCKS5
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### ตัวอย่างการกำหนดค่า Psiphon
 
@@ -76,10 +124,56 @@ sidebar_label: "Smart Dialer Config"
 
 2. เพิ่มการกำหนดค่า Psiphon ที่ได้รับมาในส่วน `fallback` ของการกำหนดค่า Smart Dialer เนื่องจาก JSON สามารถใช้งานร่วมกับ YAML คุณจึงคัดลอกและวางการกำหนดค่า Psiphon ลงในส่วน `fallback` ได้โดยตรงดังนี้
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### วิธีใช้ Smart Dialer
 
 หากต้องการใช้ Smart Dialer ให้สร้างออบเจ็กต์ `StrategyFinder` และเรียกใช้เมธอด
 `NewDialer` ซึ่งส่งผ่านในรายการโดเมนทดสอบและการกำหนดค่า YAML
 เมธอด `NewDialer` จะส่งกลับ `transport.StreamDialer` ที่สามารถใช้สร้างการเชื่อมต่อโดยใช้กลยุทธ์ที่พบ เช่น
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 นี่เป็นเพียงตัวอย่างพื้นฐานและอาจต้องมีการปรับเปลี่ยนให้เข้ากับ Use Case ของคุณโดยเฉพาะ

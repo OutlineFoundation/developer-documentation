@@ -15,9 +15,33 @@ aumentando a resiliência e a acessibilidade.
 
 Crie um novo arquivo `config.yaml` com a seguinte configuração:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Baixe a versão mais recente do
 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) (em inlgês)
 e execute-a usando a configuração criada:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Etapa 2: exponha o servidor da Web
 
@@ -42,6 +66,10 @@ seu servidor da Web local sem abrir portas de entrada.
 
 2. Crie um túnel apontando para a porta do seu servidor da Web local:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 O Cloudflare vai fornecer um subdomínio (por exemplo,
 `acids-iceland-davidson-lb.trycloudflare.com`) para acessar seu endpoint WebSocket
 e gerenciar automaticamente o TLS. Anote esse subdomínio, porque ele será necessário
@@ -52,6 +80,29 @@ mais tarde.
 Gere um arquivo YAML de chaves de acesso do cliente para seus usuários com o formato de [configuração de chave de acesso](../management/config)
 e inclua os endpoints do WebSocket que foram configurados
 no lado do servidor:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Depois de gerar o arquivo YAML de chaves de acesso dinâmicas, você terá que entregá-lo aos seus
 usuários. É possível armazenar o arquivo em um serviço estático de hospedagem na Web ou gerá-lo dinamicamente. Saiba mais sobre como usar as [chaves de acesso

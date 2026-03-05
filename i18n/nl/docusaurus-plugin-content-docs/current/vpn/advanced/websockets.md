@@ -11,7 +11,31 @@ In deze handleiding staat stapsgewijs uitgelegd hoe je Shadowsocks-over-WebSocke
 
 Maak een nieuw `config.yaml`-bestand met de volgende configuratie:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Download de nieuwste [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) en voer deze uit met de gemaakte configuratie:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Stap 2: Stel de webserver bloot
 
@@ -26,12 +50,39 @@ In dit voorbeeld gebruiken we [TryCloudflare](https://developers.cloudflare.com/
 
 2. Maak een tunnel die wijst naar je lokale webserverpoort:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Je krijgt van Cloudflare een subdomein (zoals
 `acids-iceland-davidson-lb.trycloudflare.com`) om toegang te krijgen tot je WebSocket-eindpunt en TLS automatisch af te handelen. Noteer dit subdomein, je hebt het later weer nodig.
 
 ## Stap 3: Maak een dynamische toegangssleutel
 
 Maak een YAML-bestand met de clienttoegangssleutel voor je gebruikers met de indeling voor de [configuratie van de toegangssleutel](../management/config). Voeg het WebSockets-eindpunt toe dat je eerder hebt ingesteld aan de serverzijde:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Nadat je het YAML-bestand met de dynamische toegangssleutel hebt gemaakt, moet je zorgen dat je gebruikers er toegang toe hebben. Je kunt het bestand hosten op een statische webhostingservice of het dynamisch genereren. Meer informatie over hoe je [dynamische toegangssleutels](../management/dynamic-access-keys) gebruikt.
 

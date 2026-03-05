@@ -15,4 +15,8 @@ Esta guía explica el proceso de configurar un servidor de Outline para ofrecer 
 
 1. Descarga y ejecuta la secuencia de comandos de instalación de Outline.
 
+```sh
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+```
+
 2. Sigue las indicaciones que aparecen en pantalla.

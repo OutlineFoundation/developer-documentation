@@ -15,6 +15,10 @@ Outline 客户端 1.8.1 及以上版本。**
 
 **示例：**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### 使用 JSON 对象
 
 Outline 客户端 1.8.0 及以上版本。**
@@ -22,6 +26,15 @@ Outline 客户端 1.8.0 及以上版本。**
 此种方法可以让您更灵活地管理用户 Outline 连接的各个方面。您可以用这种方式更新服务器、端口、密码和加密方法。
 
 **示例：**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server**：VPN 服务器的域名或 IP 地址。
 
@@ -38,6 +51,21 @@ Outline 客户端 1.15.0 及以上版本。**
 此方法与前面的 JSON 方法类似，但它利用 Outline 的高级配置格式增加了更多灵活性。您可以更新服务器、端口、密码、加密方法等等。
 
 **示例：**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport**：定义要使用的传输协议（本例中为 TCP 和 UDP）。
 
@@ -57,7 +85,17 @@ Outline 客户端 1.15.0 及以上版本。**
 
 如果您已有静态访问密钥，则可以从中提取信息来创建基于 JSON 或 YAML 的动态访问密钥。静态访问密钥遵循以下模式：
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 示例：
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **服务器**：`outline-server.example.com`
 

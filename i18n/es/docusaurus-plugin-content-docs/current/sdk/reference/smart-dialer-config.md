@@ -9,6 +9,22 @@ El **marcador inteligente** busca una estrategia que desbloquee DNS y TLS en la 
 
 El marcador inteligente necesita una configuración en formato YAML. Aquí tienes un ejemplo:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### Configuración de DNS
 
 - El campo `dns` especifica la lista de resoluciones de DNS que se deben probar.
@@ -27,11 +43,23 @@ El marcador inteligente necesita una configuración en formato YAML. Aquí tiene
 
 #### Resolución de DNS‑over‑HTTPS (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: nombre de dominio del servidor de DoH.
 
 - `address`: host:puerto del servidor de DoH. El valor predeterminado es `name`:443.
 
 #### Resolución de DNS a través de TLS (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: nombre de dominio del servidor de DoT.
 
@@ -39,9 +67,19 @@ El marcador inteligente necesita una configuración en formato YAML. Aquí tiene
 
 #### Resolución de UDP
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: host:puerto de la resolución de UDP.
 
 #### Resolución de TCP
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: host:puerto de la resolución de TCP.
 
@@ -65,7 +103,17 @@ Las cadenas de respaldo deben ser lo siguiente:
 
 #### Ejemplo de servidor Shadowsocks
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### Ejemplo de servidor SOCKS5
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Ejemplo de configuración de Psiphon
 
@@ -75,9 +123,55 @@ Para usar la red [Psiphon](https://psiphon.ca/), debes hacer lo siguiente:
 
 2. Añadir la configuración de Psiphon que recibas a la sección `fallback` de la configuración de tu marcador inteligente. JSON es compatible con YAML, así que puedes copiar y pegar la configuración de Psiphon directamente en la sección `fallback`, como en este ejemplo:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### Cómo usar el marcador inteligente
 
 Para usar el marcador inteligente, crea un objeto `StrategyFinder` y llama al método `NewDialer` pasando la lista de dominios de prueba y la configuración de YAML.
 El método `NewDialer` devuelve un objeto `transport.StreamDialer` que sirve para crear conexiones empleando la estrategia encontrada. Por ejemplo:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 Este es un ejemplo básico que quizá debas adaptar a tu caso práctico específico.

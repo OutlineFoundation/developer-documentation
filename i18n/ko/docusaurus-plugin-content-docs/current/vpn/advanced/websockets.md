@@ -11,7 +11,31 @@ sidebar_label: "WebSockets"
 
 다음 구성을 사용하여 새 `config.yaml` 파일을 만듭니다.
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 최신 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)를 다운로드하고 생성된 구성을 사용하여 실행합니다.
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## 2단계: 웹 서버 노출
 
@@ -26,12 +50,39 @@ WebSocket 웹 서버를 공개적으로 액세스할 수 있도록 하려면 인
 
 2. 로컬 웹 서버 포트를 가리키는 터널을 만듭니다.
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare는 WebSocket 엔드포인트에 액세스하고
 TLS를 자동으로 처리할 하위 도메인(예:`acids-iceland-davidson-lb.trycloudflare.com`)을 제공합니다. 이 하위 도메인은 나중에 필요하므로 적어 두세요.
 
 ## 3단계: 동적 액세스 키 만들기
 
 [액세스 키 구성](../management/config) 형식을 사용하여 사용자의 클라이언트 액세스 키 YAML 파일을 생성하고 이전에 서버 측에서 구성한 WebSocket 엔드포인트를 포함합니다.
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 동적 액세스 키 YAML 파일을 생성한 후에는 사용자에게 제공해야 합니다. 정적 웹 호스팅 서비스에서 파일을 호스팅하거나 동적으로 생성할 수 있습니다. [동적 액세스 키](../management/dynamic-access-keys) 사용 방법을 자세히 알아보세요.
 

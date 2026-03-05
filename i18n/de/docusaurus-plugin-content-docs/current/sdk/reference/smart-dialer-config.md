@@ -9,6 +9,22 @@ Der **Smart Dialer** sucht nach einer Strategie, die DNS und TLS für eine besti
 
 Die config, die der Smart Dialer auswählt, hat das YAML-Format. Hier ein Beispiel:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### DNS-Konfiguration
 
 - Das `dns`-Feld führt eine Liste mit zu testenden DNS-Resolvern auf.
@@ -27,11 +43,23 @@ Die config, die der Smart Dialer auswählt, hat das YAML-Format. Hier ein Beispi
 
 #### DNS-over-HTTPS-Resolver (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: Der Domainname des DoH-Servers.
 
 - `address`: Der host:port des DoH-Servers. Die Standardeinstellung von `name` ist 443.
 
 #### DNS-over-TLS Resolver (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: Der Domainname des DoT-Servers.
 
@@ -39,9 +67,19 @@ Die config, die der Smart Dialer auswählt, hat das YAML-Format. Hier ein Beispi
 
 #### UDP-Resolver
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: Der host:port des UDP-Resolvers.
 
 #### TCP-Resolver
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: Der host:port des TCP-Resolvers.
 
@@ -65,7 +103,17 @@ Die Fallback-Strings sollten Folgendes sein:
 
 #### Shadowsocks-Server-Beispiel
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### SOCKS5-Server-Beispiel
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Psiphon config-Beispiel
 
@@ -75,9 +123,55 @@ Um das [Psiphon](https://psiphon.ca/)-Netzwerk zu nutzen, ist Folgendes nötig:
 
 2. Fügen Sie die erhaltene Psiphon-Konfiguration in den `fallback`-Abschnitt Ihrer Smart Dialer-Konfiguration ein. Da JSON mit YAML kompatibel ist, können Sie Ihre Psiphon-Konfiguration kopieren und direkt in den `fallback`-Abschnitt einfügen, wie hier gezeigt:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### Verwendung des Smart Dialers
 
 Um den Smart Dialer zu verwenden, erstellen Sie ein `StrategyFinder`-Objekt. Rufen Sie die `NewDialer`-Methode auf und übergeben Sie die Liste der Testdomains und die YAML-Konfiguration.
 Die `NewDialer`-Methode wird einen `transport.StreamDialer` zurückgeben, der zur Erstellung von Verbindungen mit der gefundenen Strategie verwendet werden kann. Beispiel:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 Dies ist ein einfaches Beispiel, das möglicherweise an Ihren speziellen Anwendungsfall angepasst werden muss.

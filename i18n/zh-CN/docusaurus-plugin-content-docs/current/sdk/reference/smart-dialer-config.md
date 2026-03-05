@@ -9,6 +9,22 @@ sidebar_label: "Smart Dialer Config"
 
 Smart Dialer 采用的是 YAML 格式的配置，示例如下：
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### DNS 配置
 
 - `dns` 字段用于指定要测试的 DNS 解析器列表。
@@ -27,11 +43,23 @@ Smart Dialer 采用的是 YAML 格式的配置，示例如下：
 
 #### DNS-over-HTTPS 解析器 (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`：DoH 服务器的域名。
 
 - `address`：DoH 服务器的 host:port。默认为 `name`:443。
 
 #### DNS-over-TLS 解析器 (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`：DoT 服务器的域名。
 
@@ -39,9 +67,19 @@ Smart Dialer 采用的是 YAML 格式的配置，示例如下：
 
 #### UDP 解析器
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`：UDP 解析器的 host:port。
 
 #### TCP 解析器
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`：TCP 解析器的 host:port。
 
@@ -65,7 +103,17 @@ Smart Dialer 采用的是 YAML 格式的配置，示例如下：
 
 #### Shadowsocks 服务器示例
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### SOCKS5 服务器示例
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Psiphon 配置示例
 
@@ -75,8 +123,54 @@ Smart Dialer 采用的是 YAML 格式的配置，示例如下：
 
 2. 将获得的 Psiphon 配置添加到 Smart Dialer 配置的 `fallback` 部分。由于 JSON 与 YAML 兼容，您可以直接将 Psiphon 配置复制并粘贴到 `fallback` 部分，如下所示：
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### 如何使用 Smart Dialer
 
 要使用 Smart Dialer，请创建一个 `StrategyFinder` 对象，然后调用 `NewDialer` 方法，以传入测试网域列表和 YAML 配置。`NewDialer` 方法将返回一个 `transport.StreamDialer`，可将其用于使用找到的策略创建连接。例如：
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 这是一个基本示例，可能需要根据具体应用场景进行调整。

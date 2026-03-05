@@ -21,8 +21,17 @@ sidebar_label: "Mobile App Integration"
 
 1. 克隆 Outline SDK 仓库：
 
+```sh
+git clone https://github.com/Jigsaw-Code/outline-sdk.git
+cd outline-sdk/x
+```
+
 2. 使用 [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 Go Mobile 二进制文件：
+
+```sh
+go build -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.org/x/mobile/cmd/gobind
+```
 
 #### 添加 Psiphon 支持
 
@@ -34,15 +43,27 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 
 
     - 使用 `-tags psiphon` 标记构建 MobileProxy：
 
+```sh
+go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.org/x/mobile/cmd/gobind
+```
+
 由于 Psiphon 代码库基于 GPL 协议授予许可，可能会对您的代码施加许可限制，因此需要使用 `-tags psiphon` 标记。您可能需要考虑申请特殊许可。
 
 3. 生成移动端库并将其添加到项目中：
 
 ### Android
 
+```sh
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+```
+
 在 Android Studio 中，依次选择**文件 > 导入项目…**，导入生成的 `out/mobileproxy.aar` 软件包。如需获取更多帮助，请参阅 Go Mobile 的[构建并部署到 Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1)。
 
 ### iOS
+
+```sh
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+```
 
 将 `out/mobileproxy.xcframework` 软件包拖放到 Xcode 项目中。如需获取更多帮助，请参阅 Go Mobile 的[构建并部署到 iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1)。
 
@@ -54,13 +75,74 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 
 
 ### Android
 
+```kotlin
+import mobileproxy.*
+
+val dialer = StreamDialer("split:3")
+
+// Use port zero to let the system pick an open port for you.
+val proxy = Mobileproxy.runProxy("localhost:0", dialer)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
+
 ### iOS
+
+```swift
+import Mobileproxy
+
+let dialer = MobileproxyStreamDialer("split:3")
+
+// Use port zero to let the system pick an open port for you.
+let proxy = MobileproxyRunProxy("localhost:0", dialer)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
 
 - **Smart Proxy**：Smart Proxy 可根据指定的测试网域动态选择 DNS 和 TLS 策略。您需要以 YAML 格式指定配置策略（[示例](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)）。
 
 ### Android
 
+```kotlin
+val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
+val strategiesConfig = "..."  // Config YAML.
+val dialer = Mobileproxy.newSmartStreamDialer(testDomains, strategiesConfig, Mobileproxy.newStderrLogWriter())
+
+// Use port zero to let the system pick an open port for you.
+val proxy = Mobileproxy.runProxy("localhost:0", dialer)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
+
 ### iOS
+
+```swift
+import Mobileproxy
+
+var dialerError: NSError?
+let testDomains = MobileproxyNewListFromLines("www.youtube.com\ni.ytimg.com")
+let strategiesConfig = "..."  // Config YAML.
+let dialer = MobileproxyNewSmartStreamDialer(
+    testDomains,
+    strategiesConfig,
+    MobileproxyNewStderrLogWriter(),
+    &dialerError
+)
+
+var proxyError: NSError?
+// Use port zero to let the system pick an open port for you.
+MobileproxyRunProxy("localhost:0", dialer, &proxyError)
+// Configure your networking library using proxy.host() and proxy.port() or proxy.address().
+// ...
+// Stop running the proxy.
+proxy.stop()
+```
 
 ## 第 3 步：配置 HTTP 客户端和网络库
 
@@ -70,21 +152,60 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 
 
 通过 [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html) 设置代理服务器。
 
+```dart
+HttpClient client = HttpClient();
+client.findProxy = (Uri uri) {
+  return "PROXY " + proxy.address();
+};
+```
+
 ### OkHttp (Android)
 
 通过 [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/) 设置代理服务器。
+
+```kotlin
+val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.port()))
+val client = OkHttpClient.Builder().proxy(proxyConfig).build()
+```
 
 ### JVM（Java、Kotlin）
 
 使用[系统属性](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html)配置要使用的代理服务器：
 
+```kotlin
+System.setProperty("http.proxyHost", proxy.host())
+System.setProperty("http.proxyPort", String.valueOf(proxy.port()))
+System.setProperty("https.proxyHost", proxy.host())
+System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
+```
+
 ### Android WebView
 
 通过 [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController) 库将代理服务器配置应用于应用中的所有 WebView：
 
+```java
+ProxyController.getInstance()
+    .setProxyOverride(
+        ProxyConfig.Builder()
+            .addProxyRule(this.proxy!!.address())
+            .build(),
+        {}, // execution context for the following callback - do anything needed here once the proxy is applied, like refreshing web views
+        {} // callback to be called once the ProxyConfig is applied
+    )
+```
+
 ### iOS WebView
 
 从 iOS 17 开始，您可以使用 [`WKWebsiteDataStore` 属性](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration)将代理服务器配置添加到 `WKWebView`：
+
+```swift
+let configuration = WKWebViewConfiguration()
+let endpoint = NWEndpoint.hostPort(host: NWEndpoint.Host(proxyHost), port: NWEndpoint.Port(proxyPort)!)
+let proxyConfig = ProxyConfiguration.init(httpCONNECTProxy: endpoint)
+let websiteDataStore = WKWebsiteDataStore.default()
+websiteDataStore.proxyConfigurations = [proxyConfig]
+let webview = WKWebView(configuration: configuration)
+```
 
 ## 高级：生成自定义移动端库
 

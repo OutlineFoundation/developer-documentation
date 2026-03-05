@@ -59,7 +59,15 @@ Outline'ın yüklü olduğu sunucuda Outline dizinine gidin. Dizinin konumu yük
 
 `access.txt` dosyasını bulduğunuzda dosyayı JSON'a dönüştürün. Outline Manager bir sonraki adımda bu biçimi bekler.
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 Çıkışta kendinden imzalı sertifika parmak izi (`certSha256`) ve sunucudaki yönetim API'sinin uç noktası (`apiUrl`) bulunur:
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### 3. Erişim yapılandırmasını güvenle paylaşma
 

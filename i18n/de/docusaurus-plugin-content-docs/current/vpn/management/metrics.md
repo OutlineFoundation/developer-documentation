@@ -19,6 +19,10 @@ Outline bietet detaillierte Leistungsmesswerte mit [Prometheus](https://promethe
 
 Verbinden Sie sich über SSH mit Ihrem Server und leiten Sie den Port 9090 weiter:
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **Auf Prometheus-Weboberfläche zugreifen**
 
 Öffnen Sie Ihren Browser und gehen Sie zu: <http://localhost:9090/graph> Prometheus-Messwerte abfragen

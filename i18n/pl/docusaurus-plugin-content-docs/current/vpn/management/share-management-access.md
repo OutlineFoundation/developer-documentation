@@ -59,7 +59,15 @@ Na serwerze, na którym zainstalowano Outline, przejdź do katalogu Outline. Jeg
 
 Po znalezieniu pliku `access.txt` przekonwertuj go na format JSON, którego Menedżer Outline będzie oczekiwać w następnym kroku.
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 Dane wyjściowe będą zawierać odcisk cyfrowy podpisanego samodzielnie certyfikatu (`certSha256`) i punkt końcowy interfejsu API zarządzania na serwerze (`apiUrl`):
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### 3. Bezpieczne udostępnianie konfiguracji dostępu
 

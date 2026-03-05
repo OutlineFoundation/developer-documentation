@@ -15,9 +15,33 @@ lo que mejora la resiliencia y la accesibilidad.
 
 Crea un archivo `config.yaml` con la siguiente configuración:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Descarga la versión más reciente de
 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)
 y ejecútala con la configuración que creaste:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Paso 2: Expón el servidor web
 
@@ -42,6 +66,10 @@ servidores web locales sin abrir puertos entrantes.
 
 2. Crea un túnel que apunte al puerto del servidor web local:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare proporcionará un subdominio (p. ej.,
 `acids-iceland-davidson-lb.trycloudflare.com`) para acceder a tu extremo de WebSocket
 y controlar TLS automáticamente. Anota este subdominio, ya que lo necesitarás más
@@ -52,6 +80,29 @@ adelante.
 Genera un archivo YAML de clave de acceso de cliente para tus usuarios usando el formato de [configuración de claves de
 acceso](../management/config) y, luego, incluye los extremos de WebSocket previamente
 configurados en el servidor:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Después de generar el archivo YAML de clave de acceso dinámica, debes enviárselo a los
 usuarios. Puedes alojar el archivo en un servicio de hosting web estático o generarlo

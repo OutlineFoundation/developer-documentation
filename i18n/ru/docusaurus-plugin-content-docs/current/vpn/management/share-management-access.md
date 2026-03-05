@@ -59,7 +59,15 @@ sidebar_label: "Share Management Access"
 
 Когда вы найдете файл `access.txt`, преобразуйте его в формат JSON. Такой формат требуется приложению "Менеджер Outline" на следующем шаге.
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 Результат будет содержать самозаверяющий цифровой отпечаток сертификата (`certSha256`) и конечную точку Management API на сервере (`apiUrl`).
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### 3. Безопасно поделитесь файлом с конфигурацией доступа
 

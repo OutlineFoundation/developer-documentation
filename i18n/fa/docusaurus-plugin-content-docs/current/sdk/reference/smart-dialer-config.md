@@ -11,6 +11,22 @@ sidebar_label: "Smart Dialer Config"
 
 پیکربندی‌ای که «شماره‌گیر هوشمند» استفاده می‌کند در قالب YAML است. برای مثال:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### پیکربندی ساناد
 
 - فیلد `dns` فهرستی از رافع‌های ساناد را برای آزمایش معین می‌کند.
@@ -29,11 +45,23 @@ sidebar_label: "Smart Dialer Config"
 
 #### رافع DNS-over-HTTP (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - ‫`name`:نام دامنه سرور DoH.
 
 - ‫`address`: میزبان:درگاه سرور DoH. پیش‌فرض‌ها به `name`‏:۴۴۳.
 
 #### رافع DNS-over-TLS (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - ‫`name`: نام دامنه سرور DoT
 
@@ -41,9 +69,19 @@ sidebar_label: "Smart Dialer Config"
 
 #### رافع UDP
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - ‫`address`: میزبان:درگاه رافع UDP.
 
 #### رافع TCP
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - ‫`address`: میزبان:درگاه رافع TCP.
 
@@ -73,7 +111,17 @@ sidebar_label: "Smart Dialer Config"
 
 #### نمونه سرور Shadowsocks
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### نمونه سرور SOCKS5
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### نمونه پیکربندی Psiphon
 
@@ -86,11 +134,57 @@ sidebar_label: "Smart Dialer Config"
 پیکربندی «شماره‌گیر هوشمند» خودتان اضافه کنید. چون JSON با YAML سازگار است، می‌توانید پیکربندی Psiphon خودتان را مستقیماً در
 بخش `fallback` کپی و جای‌گذاری کنید، مثل این:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### چگونگی استفاده کردن از «شماره‌گیر هوشمند»
 
 برای استفاده کردن از «شماره‌گیر هوشمند»، شیء `StrategyFinder` را بسازید و با
 گذر از فهرست دامنه‌های آزمایشی و پیکربندی YAML، به‌روش `NewDialer` تماس بگیرید.
 روش `NewDialer`‏ `transport.StreamDialer` را برمی‌گرداند که می‌تواند برای
 ساختن اتصال‌هایی به‌کار رود که از راهبرد یافت‌شده استفاده می‌کنند. برای مثال:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 این مثالی ساده است و ممکن است برای استفاده کردن برای مورد ویژه شما لازم باشد آن را سازگار کنید.

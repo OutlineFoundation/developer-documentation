@@ -11,9 +11,33 @@ Ce tutoriel détaillé vous aidera à implémenter Shadowsocks-over-WebSockets, 
 
 Créez un fichier `config.yaml` avec la configuration suivante :
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Téléchargez le dernier
 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)
 et exécutez-le avec la configuration créée :
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Étape 2 : Révélez le serveur Web
 
@@ -35,12 +59,39 @@ pour créer un tunnel rapide. C'est un moyen pratique et sécurisé de révéler
 
 2. Créez un tunnel pointant vers le port de votre serveur Web local :
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare fournira un sous-domaine (exemple :
 `acids-iceland-davidson-lb.trycloudflare.com`) pour accéder à votre point de terminaison WebSocket et gérer automatiquement le protocole TLS. Notez le nom de ce sous-domaine, car vous en aurez besoin ultérieurement.
 
 ## Étape 3 : Créez une clé d'accès dynamique
 
 Générez un fichier YAML de clé d'accès client pour vos utilisateurs à l'aide du format de [configuration de la clé d'accès](../management/config) et indiquez les points de terminaison WebSocket configurés précédemment côté serveur :
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Après avoir généré le fichier YAML de clé d'accès dynamique, vous devez le fournir à vos utilisateurs. Vous pouvez héberger le fichier sur un service d'hébergement Web statique ou bien le générer de façon dynamique. En savoir plus sur les [clés d'accès dynamiques](../management/dynamic-access-keys)
 

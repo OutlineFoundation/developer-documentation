@@ -31,6 +31,10 @@ Outline.
 
 Ejemplo:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - Las **claves de acceso dinámicas**, que permiten que un proveedor de servicios aloje la información de acceso
 del servidor de forma remota. Esto permite que los proveedores actualicen su configuración del servidor
 (dirección del servidor, puerto, contraseña y método de encriptación) sin

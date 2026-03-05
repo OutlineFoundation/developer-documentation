@@ -15,6 +15,10 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 
 **예:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### JSON 객체 사용
 
 *Outline 클라이언트 v1.8.0+*
@@ -22,6 +26,15 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 이 방법을 사용하면 사용자의 Outline 연결의 모든 측면을 더 유연하게 관리할 수 있습니다. 이 방법으로 서버와 포트, 비밀번호, 암호화 방법을 업데이트할 수 있습니다.
 
 **예:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** VPN 서버의 도메인이나 IP 주소입니다.
 
@@ -38,6 +51,21 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 이 방법은 앞서 언급한 JSON을 사용하는 방법과 비슷하지만, Outline의 고급 구성 형식을 활용하므로 더욱 유연합니다. 서버와 포트, 비밀번호, 암호화 방법 등을 업데이트할 수 있습니다.
 
 **예:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** 사용할 전송 프로토콜을 정의합니다(여기서는 TCP, UDP).
 
@@ -57,7 +85,17 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 
 기존의 정적 액세스 키가 있다면 정보를 추출하여 JSON 또는 YAML 기반 동적 액세스 키를 만들 수 있습니다. 정적 액세스 키는 다음 패턴을 따릅니다.
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 예:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **서버:** `outline-server.example.com`
 

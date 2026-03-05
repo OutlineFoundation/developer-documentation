@@ -62,6 +62,16 @@ SSH
 
 Para usar la opción de prefijo con las [claves de acceso dinámicas](../management/dynamic-access-keys) (`ssconf://`), añade una clave "prefix" al objeto JSON, con un valor **codificado como JSON** que represente el prefijo que quieras (consulta algunos ejemplos en la tabla de arriba). Puedes usar códigos de escape (como \u00FF) para representar puntos de código Unicode no imprimibles en el intervalo de `U+0` a `U+FF`. Por ejemplo:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Claves de acceso estáticas
 
 Para usar prefijos con las **claves de acceso estáticas** (ss://), debes modificar tu clave antes de distribuirla. Si tienes una clave de acceso estática generada por Administrador de Outline, consigue una versión de tu prefijo **codificada como URL** (consulta algunos ejemplos en la tabla de arriba) y añádela al final de la clave de acceso de esta forma:
@@ -70,4 +80,13 @@ Para usar prefijos con las **claves de acceso estáticas** (ss://), debes modifi
 
 Si eres un usuario avanzado, puedes usar la función `encodeURIComponent()` de tu navegador para convertir tu prefijo **codificado como JSON** en uno **codificado como URL**. Para ello, abre la pestaña Consola del inspector web (*Desarrollador > consola web de JavaScript* en Chrome) y escribe lo siguiente:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Pulsa Intro. El valor que se genera es la versión *codificada como URL*. Por ejemplo:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

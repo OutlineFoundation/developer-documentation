@@ -11,7 +11,31 @@ Outline 用戶端 1.15.0 以上版本。**
 
 建立新的 `config.yaml` 檔案並加入以下設定：
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 下載最新的 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)，並使用已建立的設定執行，如下所示：
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## 步驟 2：公開網路伺服器
 
@@ -25,11 +49,38 @@ Outline 用戶端 1.15.0 以上版本。**
 
 2. 建立指向本機網路伺服器通訊埠的通道，如下所示：
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare 會提供一個子網域 (例如 `acids-iceland-davidson-lb.trycloudflare.com`)，用於存取您的 WebSocket 端點並自動處理 TLS。請記下這個子網域，後續設定將會用到。
 
 ## 步驟 3：建立動態存取金鑰
 
 使用[存取金鑰設定](../management/config)格式為使用者產生用戶端存取金鑰 YAML 檔案，並納入先前在伺服器端設定的 WebSocket 端點，如下所示：
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 產生動態存取金鑰 YAML 檔案後，您需要將檔案提供給使用者，比如將檔案託管於靜態網站代管服務，或動態產生檔案。進一步瞭解如何使用[動態存取金鑰](../management/dynamic-access-keys)。
 

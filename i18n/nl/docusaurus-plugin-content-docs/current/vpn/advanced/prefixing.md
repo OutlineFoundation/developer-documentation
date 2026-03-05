@@ -62,6 +62,16 @@ SSH
 
 Als je een prefix wilt gebruiken met [dynamische toegangssleutels](../management/dynamic-access-keys) (`ssconf://`), voeg je een 'prefix'-sleutel toe aan het json-object, met een **json-gecodeerde** waarde die de gewenste prefix aangeeft (ga naar de tabel hierboven voor voorbeelden). Je kunt escapecodes (zoals \u00FF) gebruiken om niet-afdrukbare Unicode-codepunten in het bereik `U+0` tot `U+FF` te vertegenwoordigen. Bijvoorbeeld:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Statische toegangssleutels
 
 Als je prefixes wilt gebruiken met **statische toegangssleutels** (ss://) moet je je bestaande sleutel aanpassen voordat je deze aan anderen geeft. Als je een statische toegangssleutel hebt die is gegenereerd door Outline Manager, neem je een **URL-gecodeerde** versie van de prefix (ga naar de tabel hierboven voor voorbeelden) en voeg je die op deze manier toe aan het einde van de toegangssleutel:
@@ -70,4 +80,13 @@ Als je prefixes wilt gebruiken met **statische toegangssleutels** (ss://) moet j
 
 Geavanceerde gebruikers kunnen de functie `encodeURIComponent()` van de browser gebruiken om een **json-gecodeerde** prefix om te zetten in een **URL-gecodeerde** prefix. Open hiervoor de webinspectieconsole (in Chrome is dit *Ontwikkelaars > JavaScript-webconsole*) en typ het volgende:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Druk op Enter. De resulterende waarde is de *URL-gecodeerde* versie. Bijvoorbeeld:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

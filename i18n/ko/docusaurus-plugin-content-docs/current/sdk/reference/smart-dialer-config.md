@@ -9,6 +9,22 @@ sidebar_label: "Smart Dialer Config"
 
 스마트 다이얼러에서 사용하는 구성은 YAML 형식입니다. 예를 들면 다음과 같습니다.
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### DNS 구성
 
 - `dns` 필드는 테스트하려는 DNS 리졸버 목록을 지정합니다.
@@ -27,11 +43,23 @@ sidebar_label: "Smart Dialer Config"
 
 #### DNS-over-HTTPS 리졸버(DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: DoH 서버의 도메인 이름입니다.
 
 - `address`: DoH 서버의 호스트:포트입니다. 기본값은 `name`:443입니다.
 
 #### DNS-over-TLS 리졸버(DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: DoH 서버의 도메인 이름입니다.
 
@@ -39,9 +67,19 @@ sidebar_label: "Smart Dialer Config"
 
 #### UDP 리졸버
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: UDP 리졸버의 호스트:포트입니다.
 
 #### TCP 리졸버
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: TCP 리졸버의 호스트:포트입니다.
 
@@ -65,7 +103,17 @@ sidebar_label: "Smart Dialer Config"
 
 #### Shadowsocks 서버 예
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### SOCKS5 서버 예
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Psiphon 구성 예
 
@@ -75,9 +123,55 @@ sidebar_label: "Smart Dialer Config"
 
 2. 수신한 Psiphon 구성 정보를 스마트 다이얼러 구성의 `fallback` 섹션에 추가합니다. JSON은 YAML과 호환되므로 다음과 같이 Psiphon 구성을 `fallback` 섹션에 직접 복사하여 붙여넣을 수 있습니다.
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### 스마트 다이얼러 사용 방법
 
 스마트 다이얼러를 사용하려면 `StrategyFinder` 객체를 만들고 `NewDialer` 메서드를 호출하여 테스트 도메인 목록과 YAML 구성을 전달합니다.
 `NewDialer` 메서드는 찾은 전략을 사용하여 연결을 생성할 수 있는 `transport.StreamDialer` 객체를 반환합니다. 예를 들면 다음과 같습니다.
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 이 예시는 기본적인 사용 방법일 뿐이며 특정 사용 사례에 따라 조정이 필요할 수 있습니다.

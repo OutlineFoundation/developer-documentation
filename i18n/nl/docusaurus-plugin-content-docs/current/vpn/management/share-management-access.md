@@ -59,7 +59,15 @@ Ga op de server waarop Outline is geïnstalleerd naar de Outline-directory. De e
 
 Nadat je het `access.txt`-bestand hebt gevonden, converteer je het naar json. Dit is de indeling die Outline Manager verwacht in de volgende stap.
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 De uitvoer bevat de zelfondertekende vingerafdruk van het certificaat (`certSha256`) en het eindpunt van de beheer-API op de server (`apiUrl`):
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### 3. Deel de toegangsconfiguratie op een beveiligde manier
 

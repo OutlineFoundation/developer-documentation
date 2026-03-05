@@ -15,9 +15,33 @@ sidebar_label: "WebSockets"
 
 عليك إنشاء ملف `config.yaml` جديد بالإعدادات التالية:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 يجب تنزيل وتشغيل
 [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) الأحدث
 باستخدام الإعدادات التي تم إنشاؤها:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## الخطوة 2: السماح بالوصول إلى خادم الويب
 
@@ -42,6 +66,10 @@ Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-net
 
 2. عليك إنشاء اتصال نفَقي يشير إلى منفذ خادم الويب المحلي:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 سيقدّم Cloudflare نطاقًا فرعيًا (مثل:
 `acids-iceland-davidson-lb.trycloudflare.com`) للوصول إلى نقطة نهاية بروتوكول WebSocket
 والتعامل تلقائيًا مع بروتوكول TLS. يُرجى الاحتفاظ بهذا النطاق الفرعي؛ لأنّك ستحتاجه
@@ -52,6 +80,29 @@ Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-net
 عليك إنشاء ملف YAML يتضمّن مفتاح وصول يمكن استخدامه في تطبيق "عميل Outline" للمستخدمين باستخدام تنسيق [إعدادات
 مفاتيح الوصول](../management/config)، ثمّ تضمين نقاط نهاية WebSocket التي تم ضبطها
 سابقًا في جهة الخادم:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 بعد إنشاء ملف YAML الذي يتضمّن مفتاح الوصول الديناميكي، يجب نشره
 للمستخدمين. ويمكنك استضافة الملف على خدمة استضافة ويب ثابتة أو إنشاؤه

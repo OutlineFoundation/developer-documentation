@@ -19,6 +19,10 @@ Outline에서는 [Prometheus](https://prometheus.io/)를 통해 자세한 성능
 
 SSH를 사용하여 서버에 연결하고 포트 9090을 전달합니다.
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **Prometheus 웹 인터페이스 액세스**
 
 웹브라우저를 열고 <http://localhost:9090/graph> Query Prometheus Metrics로 이동합니다.

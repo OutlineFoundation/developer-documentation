@@ -59,7 +59,15 @@ Gehen Sie auf dem Server, auf dem Outline installiert ist, zum Outline-Verzeichn
 
 Wenn Sie die `access.txt`-Datei gefunden haben, konvertieren Sie diese in JSON, das Format, das der Outline-Manager im nächsten Schritt erwartet.
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 Die Ausgabe enthält den selbst signierten Zertifikat-Fingerabdruck (`certSha256`) und den Endpunkt der Management API auf dem Server (`apiUrl`):
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### 3. Die access config sicher weitergeben
 

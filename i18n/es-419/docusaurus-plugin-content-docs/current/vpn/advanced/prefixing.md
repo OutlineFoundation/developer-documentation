@@ -73,6 +73,16 @@ agrega una clave de "prefijo" al objeto JSON, con un valor **codificado con JSON
 usar códigos de escape (como \u00FF) para representar puntos de código Unicode en
 el rango de `U+0` a `U+FF`. Por ejemplo:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Claves de acceso estáticas
 
 Para usar prefijos con **claves de acceso estáticas** (ss://), deberás modificar tu
@@ -87,4 +97,13 @@ para convertir tu prefijo **codificado con JSON** a uno **codificado con URL**. 
 abre la consola de tu inspector web
 (*Desarrollador > Consola web de JavaScript *en Chrome) y escribe lo siguiente:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Presiona Intro. El valor que se produzca será la *versión *codificada con URL. Por ejemplo:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

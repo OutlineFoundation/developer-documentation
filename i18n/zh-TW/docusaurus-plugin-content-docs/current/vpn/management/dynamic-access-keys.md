@@ -15,6 +15,10 @@ Outline 用戶端 1.8.1 以上版本。**
 
 **示例：**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### 使用 JSON 物件
 
 Outline 用戶端 1.8.0 以上版本。**
@@ -22,6 +26,15 @@ Outline 用戶端 1.8.0 以上版本。**
 採用這種方法，您可以更靈活管理使用者的 Outline 連線設定，例如更新伺服器、通訊埠、密碼及加密方法。
 
 **示例：**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server：**VPN 伺服器的網域或 IP 位址。
 
@@ -38,6 +51,21 @@ Outline 用戶端 1.15.0 以上版本。**
 這種方法和上述的 JSON 方法類似，但因使用 Outline 的進階設定格式而更具彈性。您可以更新伺服器、通訊埠、密碼、加密方法等設定。
 
 **示例：**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport：**定義要使用的傳輸通訊協定 (此例中為 TCP 和 UDP)。
 
@@ -57,7 +85,17 @@ Outline 用戶端 1.15.0 以上版本。**
 
 如果您已經有靜態存取金鑰，可以擷取其中的資訊來建立 JSON 或 YAML 格式的動態存取金鑰。靜態存取金鑰的形式如下：
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 示例：
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Server：**`outline-server.example.com`
 

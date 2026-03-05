@@ -35,7 +35,22 @@ sidebar_label: "Access Key Config"
 
 أمثلة ناجحة:
 
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    ...  # Stream Dialer for TCP
+  udp:
+    ...  # Packet Listener for UDP
+```
+
 أمثلة بها أخطاء:
+
+```yaml
+error:
+  message: Quota exceeded
+  details: Used 100GB out of 100GB
+```
 
 ## بروتوكولات نقل البيانات
 
@@ -64,6 +79,21 @@ TCP.
 المستخدَم في حِزم UDP.
 
 مثال على إرسال حِزم TCP وUDP إلى نقاط نهاية مختلفة:
+
+```yaml
+tcp:
+  $type: shadowsocks
+  endpoint: ss.example.com:80
+  <<: &cipher
+    cipher: chacha20-ietf-poly1305
+    secret: SECRET
+  prefix: "POST "
+
+udp:
+  $type: shadowsocks
+  endpoint: ss.example.com:53
+  <<: *cipher
+```
 
 ## نقاط النهاية
 
@@ -183,6 +213,14 @@ TCP.
 
 مثال:
 
+```yaml
+server: example.com
+server_port: 4321
+method: chacha20-ietf-poly1305
+password: SECRET
+prefix: "POST "
+```
+
 #### LegacyShadowsocksURI
 
 يُمثّل الإعداد LegacyShadowsocksURI "اتصالاً نفَقيًا" يستخدم بروتوكول Shadowsocks
@@ -196,6 +234,10 @@ TCP.
 SIP002](https://shadowsocks.org/doc/sip002.html)، مع العِلم أنّنا لا نوفِّر المكوّنات الإضافية.
 
 مثال:
+
+```yaml
+ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
+```
 
 #### ShadowsocksConfig
 
@@ -219,6 +261,13 @@ SIP002](https://shadowsocks.org/doc/sip002.html)، مع العِلم أنّنا 
 
 مثال:
 
+```yaml
+endpoint: example.com:80
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+prefix: "POST "
+```
+
 ## أنواع الكائن الوصفي
 
 ### FirstSupportedConfig
@@ -237,9 +286,23 @@ SIP002](https://shadowsocks.org/doc/sip002.html)، مع العِلم أنّنا 
 
 مثال:
 
+```yaml
+options:
+  - $type: websocket
+    url: wss://example.com/SECRET_PATH
+  - ss.example.com:4321
+```
+
 ### الواجهة (Interface)
 
 تُتيح الواجهات اختيار أحد عمليات الاستخدام المتعددة. وتستخدم هذه الواجهات الحقل
 `$type` لتحديد نوع الإعدادات التي تُمثّلها.
 
 مثال:
+
+```yaml
+$type: shadowsocks
+endpoint: example.com:4321
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+```

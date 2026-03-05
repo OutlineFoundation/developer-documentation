@@ -19,6 +19,10 @@ Outline biedt uitgebreide prestatiestatistieken via [Prometheus](https://prometh
 
 Maak verbinding met je server via SSH en stuur poort 9090 door:
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **De Prometheus-webinterface openen**
 
 Open je webbrowser en ga naar: <http://localhost:9090/graph>

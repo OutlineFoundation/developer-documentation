@@ -19,6 +19,10 @@ Outline ofrece métricas de rendimiento detalladas a través de [Prometheus](htt
 
 Conéctate a tu servidor mediante SSH y redirige el puerto 9090:
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **Acceder a la interfaz web de Prometheus**
 
 Abre tu navegador web y ve a: <http://localhost:9090/graph>

@@ -24,6 +24,10 @@ sidebar_label: "Dynamic Access Keys"
 
 **نمونه:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### استفاده از شیء JSON
 
 *کارخواه Outline نسخه ۱.۸.۰ به بالا.*
@@ -33,6 +37,15 @@ sidebar_label: "Dynamic Access Keys"
 به‌روز کنید.
 
 **نمونه:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **سرور:** دامنه یا نشانی IP مربوط به سرور وی‌پی‌ان.
 
@@ -52,6 +65,21 @@ sidebar_label: "Dynamic Access Keys"
 سرور، درگاه، گذرواژه، روش رمزگذاری، و موارد بسیار بیشتری را به‌روز کنید.
 
 **نمونه:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **حمل‌ونقل:** پروتکل‌های حمل‌ونقلی را که استفاده می‌شوند تعریف می‌کند (در این حالت،
 TCP و UDP).
@@ -77,7 +105,17 @@ TCP و UDP).
 کلید دسترسی پویایی برپایه JSON یا YAML بسازید. کلیدهای دسترسی ثابت از
 الگوی زیر پیروی می‌کنند:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 نمونه:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **سرور:** `outline-server.example.com`
 

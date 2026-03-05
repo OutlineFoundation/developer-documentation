@@ -17,4 +17,8 @@ você ter um acesso seguro e irrestrito à internet.
 
 1. Faça o download e execute o script de instalação do Outline.
 
+```sh
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+```
+
 2. Siga as instruções na tela.

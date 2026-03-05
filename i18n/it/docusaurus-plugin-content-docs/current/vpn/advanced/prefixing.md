@@ -72,6 +72,16 @@ aggiungi una chiave "prefisso" all'oggetto JSON, con un valore **JSON-encoded**
 che rappresenta il prefisso desiderato (vedi esempi nella tabella sopra)_. Puoi
 utilizzare codici di escape (come \u00FF) per rappresentare codepoint Unicode non stampabili nell'intervallo da `U+0` a `U+FF`. Ad esempio:
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Chiavi di accesso statiche
 
 Per utilizzare i prefissi con **chiavi di accesso statiche** (ss://), dovrai modificare la
@@ -86,4 +96,13 @@ per convertire il prefisso **con codifica JSON** in uno **con codifica URL**. Pe
 apri la console dell'ispezione web
 (*Sviluppatore > Console web JavaScript* su Chrome) e digita quanto segue:
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Premi Invio. Il valore prodotto sarà la versione *con codifica URL*. Ad esempio:
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

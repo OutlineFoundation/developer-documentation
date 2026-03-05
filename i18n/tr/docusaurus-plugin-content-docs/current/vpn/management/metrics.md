@@ -19,6 +19,10 @@ Outline, [Prometheus](https://prometheus.io/) aracılığıyla ayrıntılı perf
 
 SSH aracılığıyla sunucunuza bağlanın ve 9090 bağlantı noktasını yönlendirin:
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **Prometheus web arayüzüne erişme**
 
 Web tarayıcınızı açıp şu adrese gidin: <http://localhost:9090/graph>

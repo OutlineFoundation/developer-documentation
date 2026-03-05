@@ -26,6 +26,10 @@ porta do Prometheus.
 
 Conecte-se ao seu servidor usando SSH e encaminhe a porta 9090:
 
+```sh
+ssh root@your_server_ip -L 9090:localhost:9090
+```
+
 2. **Acessar a interface da Web do Prometheus**
 
 Abra o navegador da Web e acesse: <http://localhost:9090/graph>. 

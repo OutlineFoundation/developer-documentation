@@ -21,4 +21,8 @@ Outline システムに関連する主な立場として、サーバーを管理
 
 例:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - **動的アクセスキー**: サービス プロバイダがサーバー アクセス情報をリモートでホストできるようにします。プロバイダはエンドユーザーに新しいアクセスキーを再発行することなく、サーバーの構成（サーバー アドレス、ポート、パスワード、暗号化方式）を更新できます。詳細については、[動的アクセスキー](vpn/management/dynamic-access-keys)をご覧ください。

@@ -35,7 +35,22 @@ Os campos `error` e `transport` são mutuamente exclusivos.
 
 Exemplo bem-sucedido:
 
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    ...  # Stream Dialer for TCP
+  udp:
+    ...  # Packet Listener for UDP
+```
+
 Exemplo de erro:
+
+```yaml
+error:
+  message: Quota exceeded
+  details: Used 100GB out of 100GB
+```
 
 ## Transportes
 
@@ -64,6 +79,21 @@ conexões TCP.
 a ser usado para pacotes UDP.
 
 Exemplo de envio de TCP e UDP para diferentes endpoints:
+
+```yaml
+tcp:
+  $type: shadowsocks
+  endpoint: ss.example.com:80
+  <<: &cipher
+    cipher: chacha20-ietf-poly1305
+    secret: SECRET
+  prefix: "POST "
+
+udp:
+  $type: shadowsocks
+  endpoint: ss.example.com:53
+  <<: *cipher
+```
 
 ## Endpoints
 
@@ -183,6 +213,14 @@ Compatível com conexões de pacotes e fluxo.
 
 Exemplo:
 
+```yaml
+server: example.com
+server_port: 4321
+method: chacha20-ietf-poly1305
+password: SECRET
+prefix: "POST "
+```
+
 #### LegacyShadowsocksURI
 
 O LegacyShadowsocksURI representa um túnel que usa o Shadowsocks como transporte.
@@ -195,6 +233,10 @@ legado do Shadowsocks](https://shadowsocks.org/doc/configs.html#uri-and-qr-code)
 de URI SIP002](https://shadowsocks.org/doc/sip002.html) (links em inglês). Não oferecemos suporte a plug-ins.
 
 Exemplo:
+
+```yaml
+ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
+```
 
 #### ShadowsocksConfig
 
@@ -218,6 +260,13 @@ Compatível com conexões de pacotes e fluxo.
 
 Exemplo:
 
+```yaml
+endpoint: example.com:80
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+prefix: "POST "
+```
+
 ## Metadefinições
 
 ### FirstSupportedConfig
@@ -236,9 +285,23 @@ a considerar
 
 Exemplo:
 
+```yaml
+options:
+  - $type: websocket
+    url: wss://example.com/SECRET_PATH
+  - ss.example.com:4321
+```
+
 ### Interface
 
 As interfaces permitem escolher uma entre diversas implementações. Elas usam o campo
 `$type` para especificar o tipo que a configuração representa.
 
 Exemplo:
+
+```yaml
+$type: shadowsocks
+endpoint: example.com:4321
+cipher: chacha20-ietf-poly1305
+secret: SECRET
+```

@@ -21,4 +21,8 @@ Le chiavi di accesso sono le credenziali che consentono agli utenti di connetter
 
 Esempio:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - Le **chiavi di accesso dinamiche** consentono a un fornitore di servizi di ospitare le informazioni di accesso al server in remoto. Ciò consente ai fornitori di aggiornare la configurazione del server (indirizzo del server, porta, password, metodo di crittografia) senza dover riemettere nuove chiavi di accesso per gli utenti finali. Per una documentazione più dettagliata, consulta [Chiavi di accesso dinamiche](vpn/management/dynamic-access-keys).

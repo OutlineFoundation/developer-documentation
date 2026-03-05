@@ -63,6 +63,16 @@ SSH
 Pour utiliser des préfixes avec les [clés d'accès dynamiques](../management/dynamic-access-keys) (`ssconf://`),
 ajoutez une clé "prefix" à l'objet JSON et définissez la valeur **encodée au format JSON** de votre choix (voir les exemples dans le tableau ci-dessus). Vous pouvez utiliser des codes d'échappement (\u00FF, par exemple) pour représenter les points de code Unicode non imprimables dans la plage `U+0` à `U+FF`. Par exemple :
 
+```json
+{
+    "server": "example.com",
+    "server_port": 8388,
+    "password": "example",
+    "method": "chacha20-ietf-poly1305",
+    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
+}
+```
+
 ### Clés d'accès statiques
 
 Pour utiliser des préfixes avec les **clés d'accès statiques** (ss://), vous devrez modifier votre clé existante avant de la distribuer. Si vous possédez une clé d'accès statique générée par Outline Manager, ajoutez une version **encodée au format URL** de votre préfixe (voir les exemples dans le tableau ci-dessus) à la fin de votre clé d'accès comme suit :
@@ -71,4 +81,13 @@ Pour utiliser des préfixes avec les **clés d'accès statiques** (ss://), vous 
 
 Si vous êtes expérimenté, vous pouvez utiliser la fonction `encodeURIComponent()` de votre navigateur pour convertir votre préfixe **encodé au format JSON** en préfixe **encodé au format URL**. Pour ce faire, ouvrez la console de l'outil d'inspection Web (sur Chrome : Outils de développement > Console Web JavaScript), et saisissez ce qui suit :
 
+```js
+encodeURIComponent("<your json-encoded prefix goes here>")
+```
+
 Appuyez sur "Entrée". La valeur générée correspond à la version encodée au format URL. Par exemple :
+
+```js
+encodeURIComponent("\u0016\u0003\u0001\u0000\u00a8\u0001\u0001")
+'%16%03%01%00%C2%A8%01%01'
+```

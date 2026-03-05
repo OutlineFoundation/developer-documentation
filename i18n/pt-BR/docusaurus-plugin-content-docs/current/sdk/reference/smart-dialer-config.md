@@ -11,6 +11,22 @@ opcionais.
 
 As configurações que o Discador Inteligente aceita devem estar no formato YAML. Veja um exemplo:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### Configuração do DNS
 
 - O campo `dns` especifica uma lista de resolvedores de DNS para testar.
@@ -29,11 +45,23 @@ As configurações que o Discador Inteligente aceita devem estar no formato YAML
 
 #### Resolvedor de DNS sobre HTTPS (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: o nome de domínio do servidor de DoH.
 
 - `address`: o host:porta do servidor de DoH. O padrão é `name`:443.
 
 #### Resolvedor de DNS sobre TLS (DoT)
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: o nome de domínio do servidor de DoT.
 
@@ -41,9 +69,19 @@ As configurações que o Discador Inteligente aceita devem estar no formato YAML
 
 #### Resolvedor de UDP
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: o host:porta do resolvedor de UDP.
 
 #### Resolvedor de TCP
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: o host:porta do resolvedor de TCP.
 
@@ -73,7 +111,17 @@ As strings alternativas devem ser:
 
 #### Exemplo de servidor do Shadowsocks
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### Exemplo de servidor do SOCKS5
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Exemplo de configuração do Psiphon
 
@@ -86,11 +134,57 @@ rede deles. Isso pode requerer um contrato.
 Discador Inteligente. Já que JSON e YAML são compatíveis, você pode copiar e colar
 sua configuração do Psiphon diretamente na seção `fallback`, assim:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### Como usar o Discador Inteligente
 
 Para usar o Discador Inteligente, crie um objeto `StrategyFinder` e chame o
 método `NewDialer`, transmitindo a lista de domínios de teste e a configuração do YAML.
 O método `NewDialer` vai retornar um `transport.StreamDialer` que pode ser usado
 para criar conexões usando a estratégia encontrada. Por exemplo:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 Este é um exemplo básico. Adapte-o ao seu caso de uso específico.

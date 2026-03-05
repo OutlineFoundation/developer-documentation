@@ -59,7 +59,15 @@ Outline 管理器应用需要使用特定的配置字符串来连接和管理 Ou
 
 找到 `access.txt` 文件后，将其转换为 JSON 格式，以便接下来在 Outline 管理器中使用。
 
+```sh
+sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\n' -s | sed 'H;1h;$!d;x;s/\n/", \"apiUrl\": \"/g; s/^/{"certSha256": \"/; s/$/\"}/'
+```
+
 输出内容将包含自签名证书指纹 (`certSha256`) 以及服务器上的管理 API 端点 (`apiUrl`)：
+
+```json
+{"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
+```
 
 ### 3. 安全地分享访问权限配置
 

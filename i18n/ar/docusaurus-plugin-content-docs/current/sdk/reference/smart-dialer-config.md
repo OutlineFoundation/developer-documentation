@@ -11,6 +11,22 @@ sidebar_label: "Smart Dialer Config"
 
 يُستخدم ملف إعداد بتنسيق YAML لضبط إعدادات "برنامج الاتصال الذكي"، وفي ما يلي مثال على هذا:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### إعدادات نظام أسماء النطاقات
 
 - يحدّد حقل `dns` قائمة ببرامج تعيين نظام أسماء النطاقات لاختبارها.
@@ -29,11 +45,23 @@ sidebar_label: "Smart Dialer Config"
 
 #### برنامج تعيين يعتمد على "معالجة نظام أسماء النطاقات عبر بروتوكول HTTPS"‏ (DoH)
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - ‫`name`: اسم نطاق خادم "معالجة نظام أسماء النطاقات عبر بروتوكول HTTPS"‏ (DoH).
 
 - ‫`address`: الإعداد من المضيف إلى المنفذ لخادم "معالجة نظام أسماء النطاقات عبر بروتوكول HTTPS"‏ (DoH)، والقيمة التلقائية هي `name`:443.
 
 #### برنامج تعيين يعتمد على "معالجة نظام أسماء النطاقات عبر بروتوكول TLS" ‏(DoT).
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - ‫`name`: اسم نطاق خادم "معالجة نظام أسماء النطاقات عبر بروتوكول TLS" ‏(DoT).
 
@@ -41,9 +69,19 @@ sidebar_label: "Smart Dialer Config"
 
 #### برنامج تعيين يعتمد على بروتوكول UDP
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - ‫`address`: الإعداد من المضيف إلى المنفذ لبرنامج تعيين يعتمد على بروتوكول UDP.
 
 #### برنامج تعيين يعتمد على بروتوكول TCP
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - ‫`address`: الإعداد من المضيف إلى المنفذ لبرنامج تعيين يعتمد على بروتوكول TCP.
 
@@ -72,7 +110,17 @@ sidebar_label: "Smart Dialer Config"
 
 #### مثال على خادم Shadowsocks
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### مثال على خادم SOCKS5
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### مثال على إعدادات Psiphon
 
@@ -85,11 +133,57 @@ sidebar_label: "Smart Dialer Config"
 "برنامج الاتصال الذكي". وبما أنّ تنسيق JSON يتوافق مع YAML، يمكنك نسخ ولصق
 إعدادات Psiphon مباشرةً في القسم `fallback` على النحو التالي:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### كيفية استخدام برنامج الاتصال الذكي
 
 لاستخدام برنامج الاتصال الذكي، عليك إنشاء عنصر `StrategyFinder` وطلب
 طريقة `NewDialer` وذلك لتحديد قائمة نطاقات الاختبار وملف الإعدادات بتنسيق YAML.
 تعرِض الطريقة `NewDialer` العنصر `transport.StreamDialer` الذي يمكن
 استخدامه لإنشاء الاتصالات باستخدام الاستراتيجية التي تم العثور عليها. على سبيل المثال:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 هذا المثال بسيط وقد يلزم تعديله ليتلاءم مع حالة الاستخدام المحدّدة.

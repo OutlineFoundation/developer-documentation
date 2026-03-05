@@ -21,4 +21,8 @@ Erişim anahtarları, kullanıcıların Outline sunucusuna bağlanmasına olanak
 
 Örnek:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - **Dinamik erişim anahtarları**, servis sağlayıcının sunucu erişim bilgilerini uzaktan barındırmasına izin verir. Bu sayede servis sağlayıcı, son kullanıcılara yeni erişim anahtarları tahsis etmeye gerek kalmadan sunucu yapılandırmalarını (sunucu adresi, bağlantı noktası, şifreler, şifreleme yöntemi) güncelleyebilir. Daha ayrıntılı dokümanlara göz atmak için [Dinamik erişim anahtarları](vpn/management/dynamic-access-keys)'na göz atın.

@@ -11,7 +11,31 @@ Bu eğitimde, normal Shadowsocks bağlantılarının engellendiği ortamlarda sa
 
 Aşağıdaki yapılandırmayı kullanarak yeni bir `config.yaml` dosyası oluşturun:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 En yeni [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)'ı indirin ve oluşturulan yapılandırmayı kullanarak çalıştırın.
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## 2. adım: Web sunucusunu internete açın
 
@@ -26,12 +50,39 @@ Bu örnekte, hızlıca bir tünel oluşturmak için [TryCloudflare](https://deve
 
 2. Yerel web sunucusu bağlantı noktanıza yönlendiren bir tünel oluşturun:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare, WebSocket uç noktanıza erişmek ve TLS'yi otomatik olarak işlemek için bir alt alan adı
 `acids-iceland-davidson-lb.trycloudflare.com`) sağlar. Daha sonra ihtiyaç duyacağınız için bu alt alan adını not edin.
 
 ## 3. adım: Dinamik erişim anahtarı oluşturun
 
 [Erişim anahtarı yapılandırması](../management/config) biçimini kullanarak kullanıcılarınız için istemci erişim anahtarını içeren bir YAML dosyası oluşturun ve sunucu tarafında önceden yapılandırılmış WebSocket uç noktalarını ekleyin:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Dinamik erişim anahtarlarını içeren YAML dosyasını oluşturduktan sonra bu dosyayı kullanıcılarınıza iletmeniz gerekir. Dosyayı statik bir web barındırma hizmetinde barındırabilir veya dinamik olarak oluşturabilirsiniz. [Dinamik erişim anahtarlarını](../management/dynamic-access-keys) kullanma hakkında daha fazla bilgi edinin.
 

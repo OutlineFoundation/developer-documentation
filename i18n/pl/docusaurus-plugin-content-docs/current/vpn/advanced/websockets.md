@@ -11,7 +11,31 @@ W tym przewodniku znajdziesz szczegółowe instrukcje, które pomogą Ci wdroż
 
 Utwórz nowy plik `config.yaml` o następującej konfiguracji:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Pobierz najnowszy [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) i uruchom go za pomocą utworzonej konfiguracji.
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Krok 2. Udostępnij serwer WWW
 
@@ -26,12 +50,39 @@ W tym przykładzie pokażemy, jak za pomocą [TryCloudflare](https://developers
 
 2. Utwórz tunel skierowany na port Twojego lokalnego serwera WWW:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare stworzy subdomenę (np.
 `acids-iceland-davidson-lb.trycloudflare.com`) zapewniającą dostęp do punktu końcowego WebSocket i automatycznie zajmie się protokołem TLS. Pamiętaj o tej subdomenie, ponieważ będzie Ci ona potrzebna później.
 
 ## Krok 3. Utwórz dynamiczny klucz dostępu
 
 Wygeneruj plik YAML z kluczem dostępu klienta dla użytkowników korzystających z formatu [konfiguracji klucza dostępu](../management/config) i uwzględnij punkty końcowe WebSocket skonfigurowane wcześniej po stronie serwera:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Po wygenerowaniu pliku YAML z dynamicznym kluczem dostępu musisz dostarczyć go swoim użytkownikom. Możesz hostować plik na statycznym hostingu WWW lub generować go dynamicznie. Dowiedz się więcej o [dynamicznych kluczach dostępu](../management/dynamic-access-keys).
 

@@ -15,6 +15,10 @@ Sie können einen vorhandenen `ss://`-Link direkt verwenden. Diese Methode ist i
 
 **Beispiel:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### JSON-Objekt
 
 *Outline-Client v1.8.0+*
@@ -22,6 +26,15 @@ Sie können einen vorhandenen `ss://`-Link direkt verwenden. Diese Methode ist i
 Diese Methode bietet flexiblere Möglichkeiten, alle Aspekte der Outline-Verbindungen Ihrer Nutzer zu verwalten. Hiermit können Sie Server, Port, Passwort und Verschlüsselungsmethode aktualisieren.
 
 **Beispiel:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** die Domain oder IP-Adresse des VPN-Servers.
 
@@ -38,6 +51,21 @@ Diese Methode bietet flexiblere Möglichkeiten, alle Aspekte der Outline-Verbind
 Diese Methode ähnelt der Methode mit dem JSON-Objekt, bietet aber noch mehr Flexibilität, weil das erweiterte Konfigurationsformat von Outline genutzt wird. Hiermit können Sie Server, Port, Passwort, Verschlüsselungsmethode und mehr aktualisieren.
 
 **Beispiel:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** Definiert die zu verwendenden Transportprotokolle (in diesem Fall TCP und UDP).
 
@@ -57,7 +85,17 @@ Detaillierte Informationen zu allen Möglichkeiten zur Konfiguration des Zugriff
 
 Wenn Sie einen vorhandenen statischen Zugriffsschlüssel haben, können Sie die Informationen extrahieren, um einen JSON- oder YAML-basierten dynamischen Zugriffsschlüssel zu erstellen. Statische Zugriffsschlüssel haben das folgende Muster:
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 Beispiel:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **Server:** `outline-server.example.com`
 

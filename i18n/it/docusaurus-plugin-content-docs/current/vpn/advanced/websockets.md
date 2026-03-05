@@ -11,7 +11,31 @@ Questo tutorial fornisce una procedura dettagliata per aiutarti a implementare S
 
 Crea un nuovo file `config.yaml` con la seguente configurazione:
 
+```yaml
+web:
+  servers:
+    - id: server1
+        listen: 127.0.0.1:<WEB_SERVER_PORT>
+
+services:
+  - listeners:
+      - type: websocket-stream
+        web_server: server1
+        path: /<TCP_PATH>
+      - type: websocket-packet
+        web_server: server1
+        path: /<UDP_PATH>
+    keys:
+      - id: 1
+        cipher: chacha20-ietf-poly1305
+        secret: <SHADOWSOCKS_SECRET>
+```
+
 Scarica l'ultimo [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) ed eseguilo utilizzando la configurazione creata:
+
+```sh
+outline-ss-server -config=config.yaml
+```
 
 ## Passaggio 2: esponi il server web
 
@@ -26,11 +50,38 @@ Per questo esempio, mostreremo come utilizzare [TryCloudflare](https://developer
 
 2. Crea un tunnel che punti alla porta del tuo server web locale:
 
+```sh
+cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
+```
+
 Cloudflare fornirà un sottodominio (ad es. `acids-iceland-davidson-lb.trycloudflare.com`) per accedere al tuo endpoint WebSocket e gestire automaticamente TLS. Prendi nota di questo sottodominio, perché ti servirà in seguito.
 
 ## Passaggio 3: crea una chiave di accesso dinamica
 
 Genera un file YAML della chiave di accesso client per i tuoi utenti utilizzando il formato della [configurazione delle chiavi di accesso](../management/config) e includi gli endpoint WebSocket precedentemente configurati sul lato server:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<TCP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+
+  udp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: websocket
+      url: wss://<DOMAIN>/<UDP_PATH>
+    cipher: chacha20-ietf-poly1305
+    secret: <SHADOWSOCKS_SECRET>
+```
 
 Dopo aver generato il file YAML della chiave di accesso dinamica, devi inviarlo ai tuoi utenti. Puoi ospitare il file su un servizio di web hosting statico o generarlo dinamicamente. Scopri di più su come utilizzare le [chiavi di accesso dinamiche](../management/dynamic-access-keys).
 

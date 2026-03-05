@@ -9,6 +9,22 @@ sidebar_label: "Smart Dialer Config"
 
 Smart Dialer'ın aldığı yapılandırma YAML biçimindedir. Örnek:
 
+```yaml
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 ### DNS Yapılandırması
 
 - `dns` alanı, test edilecek DNS çözümleyicilerin listesini belirtir.
@@ -27,11 +43,23 @@ Smart Dialer'ın aldığı yapılandırma YAML biçimindedir. Örnek:
 
 #### DNS-over-HTTPS (DoH) Çözümleyici
 
+```yaml
+https:
+  name: dns.google
+  address: 8.8.8.8
+```
+
 - `name`: DoH sunucusunun alan adı.
 
 - `address`: DoH sunucusunun ana makine:bağlantı noktası bilgisi. Varsayılan değer `name`:443'tür.
 
 #### DNS-over-TLS (DoT) Çözümleyici
+
+```yaml
+tls:
+  name: dns.google
+  address: 8.8.8.8
+```
 
 - `name`: DoT sunucusunun alan adı.
 
@@ -39,9 +67,19 @@ Smart Dialer'ın aldığı yapılandırma YAML biçimindedir. Örnek:
 
 #### UDP Çözümleyici
 
+```yaml
+udp:
+  address: 8.8.8.8
+```
+
 - `address`: UDP çözümleyicinin ana makine:bağlantı noktası bilgisi.
 
 #### TCP Çözümleyici
+
+```yaml
+tcp:
+  address: 8.8.8.8
+```
 
 - `address`: TCP çözümleyicinin ana makine:bağlantı noktası bilgisi.
 
@@ -65,7 +103,17 @@ Yedek dizeler şu özellikleri taşımalıdır:
 
 #### Shadowsocks sunucusu ile ilgili örnek
 
+```yaml
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+```
+
 #### SOCKS5 sunucusu ile ilgili örnek
+
+```yaml
+fallback:
+  - socks5://[USERINFO]@[HOST]:[PORT]
+```
 
 #### Psiphon yapılandırması ile ilgili örnek
 
@@ -75,9 +123,55 @@ Yedek dizeler şu özellikleri taşımalıdır:
 
 2. Aldığınız Psiphon yapılandırmasını, Smart Dialer yapılandırmanızın `fallback` bölümüne ekleyin. JSON YAML ile uyumlu olduğundan, Psiphon yapılandırmanızı `fallback` bölümüne şu şekilde doğrudan yapıştırabilirsiniz:
 
+```yaml
+fallback:
+  - psiphon: {
+      "PropagationChannelId": "FFFFFFFFFFFFFFFF",
+      "SponsorId": "FFFFFFFFFFFFFFFF",
+      "DisableLocalSocksProxy" : true,
+      "DisableLocalHTTPProxy" : true,
+      ...
+    }
+```
+
 ### Smart Dialer'ı Kullanma
 
 Smart Dialer'ı kullanmak için bir `StrategyFinder` nesnesi oluşturun ve `NewDialer` yöntemini çağırın. Bunun için test alan adları listesini ve YAML yapılandırmasını sağlamanız gerekir.
 `NewDialer` yöntemi bir `transport.StreamDialer` değeri döndürür. Bu değer, bulunan stratejiyle bağlantı oluşturmak için kullanılabilir. Örneğin:
+
+```go
+finder := &smart.StrategyFinder{
+    TestTimeout:  5 * time.Second,
+    LogWriter:   os.Stdout,
+    StreamDialer: &transport.TCPDialer{},
+    PacketDialer: &transport.UDPDialer{},
+}
+
+configBytes := []byte(`
+dns:
+  - system: {}
+  - https:
+      name: 8.8.8.8
+  - https:
+      name: 9.9.9.9
+tls:
+  - ""
+  - split:2
+  - tlsfrag:1
+fallback:
+  - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
+`)
+
+dialer, err := finder.NewDialer(
+  context.Background(),
+  []string{"www.google.com"},
+  configBytes
+)
+if err != nil {
+    // Handle error.
+}
+
+// Use dialer to create connections.
+```
 
 Bu basit bir örnek olup kendi kullanım alanınıza göre uyarlanması gerekebilir.

@@ -30,6 +30,10 @@ app cliente do Outline.
 
 Exemplo:
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1
+```
+
 - As **chaves de acesso dinâmicas** permitem que um provedor de serviços hospede remotamente as informações
 de acesso ao servidor. Isso permite aos provedores atualizar a configuração do servidor
 (endereço, porta, senhas e método de criptografia do servidor) sem precisar

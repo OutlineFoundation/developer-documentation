@@ -15,6 +15,10 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 
 **例:**
 
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
+
 ### JSON オブジェクトを使用する
 
 **Outline クライアント v1.8.0 以降。
@@ -22,6 +26,15 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 この方法では、ユーザーの Outline 接続のすべての面を柔軟に管理できます。サーバー、ポート、パスワード、暗号化方式をこの方法で更新できます。
 
 **例:**
+
+```json
+{
+  "server": "outline-server.example.com",
+  "server_port": 8388,
+  "password": "example",
+  "method": "chacha20-ietf-poly1305"
+}
+```
 
 - **server:** VPN サーバーのドメインまたは IP アドレス。
 
@@ -38,6 +51,21 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 この方法は、前述の JSON 方式と似ていますが、Outline の高度な構成形式を利用してさらに柔軟性が強化されています。サーバー、ポート、パスワード、暗号化方式などを更新できます。
 
 **例:**
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+  udp:
+    $type: shadowsocks
+    endpoint: outline-server.example.com:8388
+    cipher: chacha20-ietf-poly1305
+    secret: example
+```
 
 - **transport:** 使用するトランスポート プロトコルを定義します（この場合は TCP と UDP）。
 
@@ -57,7 +85,17 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 
 既存の静的アクセスキーがある場合は、JSON または YAML ベースの動的アクセスキーを作成するのに必要な情報を抽出できます。静的アクセスキーは、次のパターンに従います。
 
+```none
+SS-URI = "ss://" userinfo "@" hostname ":" port [ "/" ] [ "#" tag ]
+userinfo = websafe-base64-encode-utf8(method  ":" password)
+           method ":" password
+```
+
 例:
+
+```none
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
+```
 
 - **サーバー:** `outline-server.example.com`
 

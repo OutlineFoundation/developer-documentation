@@ -16,4 +16,8 @@ sidebar_label: "Using Installation Script"
 
 1. دستورگان نصب Outline را بارگیری و اجرا کنید.
 
+```sh
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+```
+
 2. پیام‌واره‌های روی صفحه را دنبال کنید.
