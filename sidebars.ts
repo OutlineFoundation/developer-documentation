@@ -2,12 +2,19 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   docs: [
-    'why-outline',
-    'concepts',
     {
       type: 'category',
       label: 'Outline VPN',
       items: [
+        {
+          type: 'category',
+          label: 'Discover',
+          key: 'vpn-discover',
+          items: [
+            'why-outline',
+            'concepts',
+          ],
+        },
         {
           type: 'category',
           label: 'Get Started',
@@ -65,6 +72,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Discover',
+          key: 'sdk-discover',
           items: [
             'sdk/what-is-the-sdk',
             'sdk/concepts',
