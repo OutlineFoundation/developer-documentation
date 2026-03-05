@@ -1,0 +1,83 @@
+---
+title: "Smart Dialer Configuration"
+sidebar_label: "Smart Dialer Config"
+---
+
+De **Smart Dialer** zoekt naar een strategie waarmee DNS en TLS voor een bepaalde lijst testdomeinen wordt gedeblokkeerd. Je hebt hiervoor een configuratie nodig waarin meerdere strategieën worden beschreven om uit te kiezen.
+
+## YAML-configuratie voor de Smart Dialer
+
+De configuratie die de Smart Dialer gebruikt, staat in de YAML-indeling. Een voorbeeld:
+
+### DNS-configuratie
+
+- In het veld `dns` staat een lijst met DNS-resolvers om te testen.
+
+- Elke DNS-resolver kan een van de volgende typen zijn:
+
+    - `system`: Gebruik de systeemresolver. Specificeer met een leeg object.
+
+    - `https`: Gebruik een versleutelde DNS-over-HTTPS-resolver (DoH).
+
+    - `tls`: Gebruik een versleutelde DNS-over-TLS-resolver (DoT).
+
+    - `udp`: Gebruik een UDP-resolver.
+
+    - `tcp`: Gebruik een TCP-resolver.
+
+#### DNS-over-HTTPS-resolver (DoH)
+
+- `name`: De domeinnaam van de DoH-server.
+
+- `address`: De host:port van de DoH-server. De standaardwaarde is `name`:443.
+
+#### DNS-over-TLS-resolver (DoT)
+
+- `name`: De domeinnaam van de DoT-server.
+
+- `address`: De host:port van de DoT-server. De standaardwaarde is `name`:853.
+
+#### UDP-resolver
+
+- `address`: De host:port van de UDP-resolver.
+
+#### TCP-resolver
+
+- `address`: De host:port van de TCP-resolver.
+
+### TLS-configuratie
+
+- In het veld `tls` staat een lijst met TLS-transporten om te testen.
+
+- Elk TLS-transport is een tekenreeks die aangeeft welk transport moet worden gebruikt.
+
+- `override:host=cloudflare.net|tlsfrag:1` geeft bijvoorbeeld een transport aan dat domain fronting gebruikt met Cloudflare en TLS-fragmentatie. In de [configuratiedocumentatie](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) vind je meer informatie.
+
+### Reserveconfiguratie
+
+Een reserveconfiguratie wordt gebruikt als via geen van de proxyloze strategieën verbinding kan worden gemaakt. Je kunt er bijvoorbeeld een back-upproxyserver in opgeven om de verbinding van de gebruiker mee te proberen. Als je een reserveconfiguratie gebruikt, start deze langzamer, omdat de andere DNS-/TLS-strategieën eerst moeten mislukken of er een time-out voor moet optreden.
+
+De reservetekenreeksen moeten de volgende zijn:
+
+- Een geldige `StreamDialer`-configuratietekenreeks zoals beschreven in [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+
+- Een geldig Psiphon-configuratieobject als onderliggend object van een `psiphon`-veld.
+
+#### Voorbeeld voor Shadowsocks-server
+
+#### Voorbeeld voor SOCKS5-server
+
+#### Voorbeeld van Psiphon-configuratie
+
+Als je het [Psiphon](https://psiphon.ca/)-netwerk wilt gebruiken, moet je het volgende doen:
+
+1. Vraag het Psiphon-team om een configuratie waarmee je toegang krijgt tot hun netwerk. Je moet hiervoor misschien een contract aangaan.
+
+2. Voeg de Psiphon-configuratie die je hebt gekregen toe aan het gedeelte `fallback` van je Smart Dialer-configuratie. Json is compatibel met YAML, dus je kunt je Psiphon-configuratie rechtstreeks in het gedeelte `fallback` kopiëren en plakken, zoals hier:
+
+### De Smart Dialer gebruiken
+
+Als je de Smart Dialer wilt gebruiken, maak je een `StrategyFinder`-object en roep je de methode `NewDialer` aan. Geef hierbij de lijst met testdomeinen en de YAML-configuratie mee.
+Via de methode `NewDialer` krijg je een `transport.StreamDialer` waarmee je verbinding kunt maken via de gevonden strategie. Bijvoorbeeld:
+
+Dit is een algemeen voorbeeld, je moet het misschien aanpassen voor jouw specifieke use case.

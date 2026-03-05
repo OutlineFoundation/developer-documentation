@@ -1,0 +1,216 @@
+---
+title: "Access Key Configuration Reference"
+sidebar_label: "Access Key Config"
+---
+
+## Tunnels
+
+### TunnelConfig
+
+Tunnel est l'objet de premier niveau dans une configuration Outline. Il indique comment le VPN doit être configuré.
+
+**Format** : [ExplicitTunnelConfig](#explicittunnelconfig) |
+[LegacyShadowsocksConfig](#legacyshadowsocksconfig) |
+[LegacyShadowsocksURI](#legacyshadowsocksuri)
+
+### ExplicitTunnelConfig
+
+**Format** : *struct*
+
+**Champs** :
+
+- `transport` ([TransportConfig](#transportconfig)) : transport à utiliser pour échanger des paquets avec la destination cible
+
+- `error` (*struct*) : informations à communiquer à l'utilisateur en cas d'erreur du service (par exemple : clé expirée, quota épuisé)
+
+    - `message` (*string*) : message convivial à afficher pour l'utilisateur
+
+    - `details` (*string*) : message à afficher lorsque l'utilisateur ouvre les détails de l'erreur afin de faciliter le dépannage
+
+Les champs `error` et `transport` s'excluent mutuellement.
+
+Exemple de réussite :
+
+Exemple d'erreur :
+
+## Transports
+
+### TransportConfig
+
+TransportConfig indique comment les paquets doivent être échangés avec la destination cible
+
+**Format** : [Interface](#interface)
+
+Types d'Interface compatibles :
+
+- `tcpudp` : [TCPUDPConfig](#tcpudpconfig)
+
+### TCPUDPConfig
+
+TCPUDPConfig permet de configurer des stratégies TCP et UDP distinctes.
+
+**Format** : *struct*
+
+**Champs** :
+
+- `tcp` ([DialerConfig](#dialerconfig)) : Stream Dialer à utiliser pour les connexions TCP
+
+- `udp` ([PacketListenerConfig](#packetlistenerconfig)) : Packet Listener à utiliser pour les paquets UDP
+
+Exemple avec un envoi TCP et UDP vers différents points de terminaison :
+
+## Endpoints
+
+Les Endpoints établissent des connexions vers un point de terminaison fixe. Ils sont préférables aux dialers, car ils permettent des optimisations spécifiques aux points de terminaison. Il existe des Endpoints Stream et des Endpoints Packet.
+
+### EndpointConfig
+
+**Format** : *string* | [Interface](#interface)
+
+Le Endpoint *string* est l'adresse hôte:port du point de terminaison sélectionné. La connexion est établie à l'aide du dialer par défaut.
+
+Types d'interface acceptés pour les Endpoints Stream et Packet :
+
+- `dial` : [DialEndpointConfig](#dialendpointconfig)
+
+- `first-supported` : [FirstSupportedConfig](#firstsupportedconfig)
+
+- `websocket` : [WebsocketEndpointConfig](#websocketendpointconfig)
+
+- `shadowsocks` : [ShadowsocksConfig](#shadowsocksconfig)
+
+### DialEndpointConfig
+
+DialEndpointConfig permet d'établir des connexions en composant une adresse fixe. Un dialer peut être ajouté pour associer plusieurs stratégies.
+
+**Format** : *struct*
+
+**Champs** :
+
+- `address` (*string*) : adresse du point de terminaison à composer
+
+- `dialer` ([DialerConfig](#dialerconfig)) : dialer à utiliser pour composer l'adresse
+
+### WebsocketEndpointConfig
+
+WebsocketEndpointConfig tunnelise les connexions de flux et de paquets vers un point de terminaison sur Websockets.
+
+Pour les connexions de flux, chaque message est transformé en message Websocket. Pour les connexions de paquets, chaque paquet est transformé en message Websocket.
+
+**Format** : *struct*
+
+**Champs** :
+
+- `url` (*string*) : URL du point de terminaison Websocket. Le schéma doit être
+`https` ou `wss` pour Websocket sur TLS, et `http` ou `ws` pour Websocket en texte brut.
+
+- `endpoint` ([EndpointConfig](#endpointconfig)) : point de terminaison du serveur Web auquel se connecter. S'il n'est pas indiqué, la connexion s'effectue à l'adresse indiquée dans l'URL.
+
+## Dialers
+
+Les dialers établissent des connexions à une adresse de point de terminaison. Il existe des Dialers Stream et Dialers Packet.
+
+### DialerConfig
+
+**Format** : *null* | [Interface](#interface)
+
+Le Dialer *null* (absent) est le dialer par défaut, qui utilise des connexions TCP directes pour Stream et des connexions UDP directes pour Packets.
+
+Types d'interface acceptés pour les Dialers Stream et Packet :
+
+- `first-supported` : [FirstSupportedConfig](#firstsupportedconfig)
+
+- `shadowsocks` : [ShadowsocksConfig](#shadowsocksconfig)
+
+## Packet Listeners
+
+Un Packet Listener établit une connexion de paquet illimitée qui peut être utilisée pour envoyer des paquets vers de multiples destinations.
+
+### PacketListenerConfig
+
+**Format** : *null* | [Interface](#interface)
+
+Le Packet Listener *null* (absent) est le Packet Listener par défaut, c'est-à-dire le Packet Listener UDP.
+
+Types d'interface compatibles :
+
+- `first-supported` : [FirstSupportedConfig](#firstsupportedconfig)
+
+- `shadowsocks` : [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
+
+## Strategies
+
+### Shadowsocks
+
+#### LegacyShadowsocksConfig
+
+LegacyShadowsocksConfig représente un Tunnel qui utilise Shadowsocks comme transport. Il implémente l'ancien format pour assurer la rétrocompatibilité.
+
+**Format** : *struct*
+
+**Champs** :
+
+- `server` (*string*) : hôte auquel se connecter
+
+- `server_port` (*number*) : numéro de port auquel se connecter
+
+- `method` (*string*) : [algorithme de chiffrement AEAD](https://shadowsocks.org/doc/aead.html#aead-ciphers) à utiliser
+
+- `password` (*string*) : utilisé pour générer la clé de chiffrement
+
+- `prefix` (*string*) : méthode de [dissimulation des préfixes](https://www.reddit.com/r/outlinevpn/wiki/index/prefixing/) à utiliser
+(compatible avec les connexions de flux et de paquets)
+
+Exemple :
+
+#### LegacyShadowsocksURI
+
+LegacyShadowsocksURI représente un Tunnel qui utilise Shadowsocks comme transport.
+Il implémente l'ancien format d'URL pour assurer la rétrocompatibilité.
+
+**Format** : *string*
+
+Voir l'[ancien format d'URI Shadowsocks](https://shadowsocks.org/doc/configs.html#uri-and-qr-code) et le [schéma d'URI SIP002](https://shadowsocks.org/doc/sip002.html). Les plug-ins ne sont pas compatibles.
+
+Exemple :
+
+#### ShadowsocksConfig
+
+ShadowsocksConfig peut représenter des Stream Dialers ou des Packet Dialers, ainsi qu'un Packet Listener qui utilise Shadowsocks.
+
+**Format** : *struct*
+
+**Champs** :
+
+- `endpoint` ([EndpointConfig](#endpointconfig)) : point de terminaison Shadowsocks auquel se connecter
+
+- `cipher` (*string*) : [algorithme de chiffrement AEAD](https://shadowsocks.org/doc/aead.html#aead-ciphers) à utiliser
+
+- `secret` (*string*) : utilisé pour générer la clé de chiffrement
+
+- `prefix` (*string*, facultatif) : méthode de [dissimulation des préfixes](https://www.reddit.com/r/outlinevpn/wiki/index/prefixing/) à utiliser
+(compatible avec les connexions de flux et de paquets)
+
+Exemple :
+
+## Meta Definitions
+
+### FirstSupportedConfig
+
+FirstSupportedConfig utilise la première configuration acceptée par l'application. Cela permet d'incorporer de nouvelles configurations tout en maintenant la rétrocompatibilité avec les anciennes.
+
+**Format** : *struct*
+
+**Champs** :
+
+- `options` ([EndpointConfig[]](#endpointconfig) |
+[DialerConfig[]](#dialerconfig) |
+[PacketListenerConfig[]](#packetlistenerconfig)) : liste d'options à prendre en compte
+
+Exemple :
+
+### Interface
+
+Les Interfaces permettent de choisir une implémentation parmi plusieurs. Le champ `$type` est utilisé pour indiquer le type de configuration représentée.
+
+Exemple :

@@ -1,0 +1,114 @@
+---
+title: "Add Outline SDK to Your Mobile App"
+sidebar_label: "Mobile App Integration"
+---
+
+Questo documento illustra come integrare Outline SDK nelle tue applicazioni mobile ed è incentrato sulla libreria `MobileProxy` per una gestione semplificata del proxy locale.
+
+`MobileProxy` è una libreria basata su Go, progettata per semplificare l'integrazione delle funzionalità proxy nelle app mobile. Utilizza [Go Mobile](https://go.dev/wiki/Mobile) per generare librerie per dispositivi mobili, consentendoti di configurare le librerie di networking della tua app in modo da instradare il traffico attraverso un proxy locale.
+
+**App senza MobileProxy**
+
+![App di contenuti senza MobileProxy](/images/mobileproxy-before.png)
+
+**App con MobileProxy**
+
+![App di contenuti con MobileProxy](/images/mobileproxy-after.png)
+
+## Passaggio 1: crea librerie per dispositivi mobili MobileProxy
+
+Usa [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) per compilare il codice Go in librerie per Android e iOS.
+
+1. 
+
+Clona il repository Outline SDK:
+
+2. 
+
+Crea i file binari Go Mobile con [`go
+build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
+
+#### Aggiunta del supporto di Psiphon
+
+Puoi aggiungere il supporto per l'utilizzo della rete [Psiphon](https://psiphon.ca/) eseguendo questi passaggi aggiuntivi:
+
+    - Contatta il team di Psiphon per ottenere una configurazione di accesso alla loro rete. Può essere necessario stipulare un contratto.
+
+    - Aggiungi la configurazione di Psiphon alla sezione `fallback` della configurazione del tuo `SmartDialer`.
+
+    - 
+
+Crea il MobileProxy usando il flag `-tags psiphon`:
+
+Il flag `-tags psiphon` è necessario perché l'utilizzo del codebase di Psiphon è concesso ai sensi della licenza GPL, che può imporre limitazioni sul tuo codice. Valuta l'opportunità di richiedere una licenza speciale.
+
+3. 
+
+Genera le librerie per dispositivi mobili e aggiungile al progetto:
+
+### Android
+
+In Android Studio seleziona **File > Import Project…** per importare il pacchetto `out/mobileproxy.aar` generato. Per altre informazioni, vedi le istruzioni sulla [creazione e distribuzione in Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) di Go Mobile.
+
+### iOS
+
+Trascina il pacchetto `out/mobileproxy.xcframework` nel progetto Xcode. Per altre informazioni, vedi le istruzioni sulla [creazione e distribuzione in iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) di Go Mobile.
+
+## Passaggio 2: esegui il MobileProxy
+
+Inizializza e avvia il proxy locale `MobileProxy` con il runtime della tua app.
+Puoi usare una configurazione del trasporto statica o lo Smart Proxy per la selezione dinamica della strategia.
+
+- 
+
+**Configurazione del trasporto statica**: usa la funzione `RunProxy` con una configurazione del trasporto e un indirizzo locali.
+
+### Android
+
+### iOS
+
+- 
+
+**Smart Proxy**: lo Smart Proxy seleziona in modo dinamico le strategie DNS e TLS in base ai domini di test specificati. Devi specificare la strategia di configurazione in formato YAML ([esempio](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+
+### Android
+
+### iOS
+
+## Passaggio 3: configura i client HTTP e le librerie di networking
+
+Configura le tue librerie di networking in modo da usare la porta e l'indirizzo del proxy locali.
+
+### HttpClient Dart/Flutter
+
+Imposta il proxy con [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html).
+
+### OkHttp (Android)
+
+Imposta il proxy con [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/).
+
+### JVM (Java, Kotlin)
+
+Configura il proxy da usare con le [proprietà di sistema](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html):
+
+### WebView Android
+
+Applica una configurazione proxy a tutti gli oggetti WebView della tua applicazione con la libreria [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController):
+
+### WebView iOS
+
+A partire da iOS 17 è possibile aggiungere una configurazione proxy a un oggetto `WKWebView` usando la sua [proprietà `WKWebsiteDataStore`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration):
+
+## Uso avanzato: genera una libreria per dispositivi mobili avanzata
+
+Per i casi d'uso avanzati puoi generare librerie per dispositivi mobili personalizzate:
+
+1. **Crea una libreria Go**: sviluppa un pacchetto Go con le funzionalità dell'SDK necessarie.
+
+2. **Genera librerie per dispositivi mobili**: usa `gomobile bind` per produrre file Android Archive (AAR) e framework Apple. Esempi:
+
+    - [Archivio Android di Outline](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+
+    - [Framework Apple di Outline](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+
+3. **Integra la libreria nell'app**: aggiungi la libreria generata alla tua applicazione mobile.

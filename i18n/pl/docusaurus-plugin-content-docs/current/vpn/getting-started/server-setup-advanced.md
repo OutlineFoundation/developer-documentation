@@ -1,0 +1,22 @@
+---
+title: "Deploy Using an Installation Script"
+sidebar_label: "Using Installation Script"
+---
+
+Ten przewodnik przeprowadzi Cię przez proces konfigurowania serwera Outline w celu zapewnienia bezpiecznego i nieograniczonego dostępu do internetu.
+
+## Wymagania wstępne
+
+- Serwer (fizyczny lub wirtualny) z obsługiwanym systemem operacyjnym (Ubuntu 20.04 LTS lub Debian 10)
+
+- Dostęp na poziomie roota lub sudo do serwera
+
+## Instrukcje
+
+1. 
+
+Pobierz i uruchom skrypt instalacyjny Outline.
+
+2. 
+
+Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.

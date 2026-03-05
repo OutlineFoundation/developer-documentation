@@ -1,0 +1,211 @@
+---
+title: "Access Key Configuration Reference"
+sidebar_label: "Access Key Config"
+---
+
+## Туннели
+
+### TunnelConfig
+
+Tunnel – это основной объект в конфигурации Outline. Он определяет, как должен быть настроен VPN.
+
+**Формат:** [ExplicitTunnelConfig](#explicittunnelconfig) | [LegacyShadowsocksConfig](#legacyshadowsocksconfig) | [LegacyShadowsocksURI](#legacyshadowsocksuri)
+
+### ExplicitTunnelConfig
+
+**Формат:** *struct*
+
+**Поля**
+
+- `transport` ([TransportConfig](#transportconfig)): протокол для передачи пакетов к целевому узлу.
+
+- `error` (*struct*): информация об ошибке сервиса (например, истечение срока действия ключа или превышение квоты).
+
+    - `message` (*string*): текстовое сообщение для пользователя.
+
+    - `details` (*string*): дополнительная информация об ошибке, доступная по запросу. Может быть полезной при устранении неполадок.
+
+Поля `error` и `transport` являются взаимоисключающими.
+
+Пример эффективной конфигурации:
+
+Пример ошибки:
+
+## Протоколы
+
+### TransportConfig
+
+Определяет, каким образом пакеты передаются к целевому узлу.
+
+**Формат:** [Interface](#interface)
+
+Поддерживаемые типы Interface:
+
+- `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
+
+### TCPUDPConfig
+
+TCPUDPConfig позволяет задавать отдельные стратегии для протоколов TCP и UDP.
+
+**Формат:** *struct*
+
+**Поля**
+
+- `tcp` ([DialerConfig](#dialerconfig)): конфигурация Stream Dialer для TCP-соединений.
+
+- `udp` ([PacketListenerConfig](#packetlistenerconfig)): конфигурация Packet Listener для обработки UDP-трафика.
+
+Пример отправки TCP и UDP на разные конечные точки:
+
+## Конечные точки
+
+Объект Endpoint устанавливает соединение с фиксированной конечной точкой. В отличие от Dialer, этот объект позволяет применять оптимизированные настройки для определенного узла. Существует два типа объектов Endpoint: Stream и Packet.
+
+### EndpointConfig
+
+**Формат:** *string* | [Interface](#interface)
+
+Endpoint формата *string* – это адрес выбранной конечной точки в формате host:port. Подключение устанавливается через объект Dialer по умолчанию.
+
+Поддерживаемые типы Interface для Stream и Packet:
+
+- `dial`: [DialEndpointConfig](#dialendpointconfig)
+
+- `first-supported`: [FirstSupportedConfig](#firstsupportedconfig)
+
+- `websocket`: [WebsocketEndpointConfig](#websocketendpointconfig)
+
+- `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
+
+### DialEndpointConfig
+
+Отвечает за установку подключений с фиксированным адресом. Может использовать Dialer, что позволяет комбинировать стратегии подключения.
+
+**Формат:** *struct*
+
+**Поля**
+
+- `address` (*string*): адрес конечной точки, с которой устанавливается соединение.
+
+- `dialer` ([DialerConfig](#dialerconfig)): Dialer, используемый для подключения к указанному адресу.
+
+### WebsocketEndpointConfig
+
+Туннелирует Stream- и Packet-подключения к конечной точке через WebSockets.
+
+В Stream-подключениях каждая запись превращается в сообщение WebSocket. В Packet-подключениях каждый пакет передается как отдельное сообщение WebSocket.
+
+**Формат:** *struct*
+
+**Поля**
+
+- `url` (*string*): URL конечной точки WebSocket. Для WebSocket через TLS требуется использовать схему `https` или `wss`, а для обычного WebSocket – `http` или `ws`.
+
+- `endpoint` ([EndpointConfig](#endpointconfig)): конечная точка веб-сервера для подключения. Если параметр отсутствует, подключение устанавливается к адресу, указанному в URL.
+
+## Dialer
+
+Объект Dialer устанавливает подключение к конечной точке с заданным адресом. Существуют два типа объектов Dialer: Stream и Packet.
+
+### DialerConfig
+
+**Формат:** *null*, [Interface](#interface)
+
+Значение *null* означает, что используется объект Dialer по умолчанию, который устанавливает прямые TCP-подключения для Stream и прямые UDP-подключения для Packet.
+
+Поддерживаемые типы Interface для Stream и Packer:
+
+- `first-supported`: [FirstSupportedConfig](#firstsupportedconfig)
+
+- `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
+
+## Packet Listener
+
+Объект Packet Listener устанавливает неограниченное пакетное подключение, которое можно использовать для отправки пакетов на разные конечные точки.
+
+### PacketListenerConfig
+
+**Формат:** *null*, [Interface](#interface)
+
+Значение *null* означает, что используется объект Packet Listener по умолчанию, который используется для прослушивания UDP-пакетов.
+
+Поддерживаемые типы Interface:
+
+- `first-supported`: [FirstSupportedConfig](#firstsupportedconfig)
+
+- `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
+
+## Стратегии
+
+### Shadowsocks
+
+#### LegacyShadowsocksConfig
+
+LegacyShadowsocksConfig представляет объект Tunnel, использующий Shadowsocks в качестве протокола. Он реализует устаревший формат для обратной совместимости.
+
+**Формат:** *struct*
+
+**Поля**
+
+- `server` (*string*): хост, к которому устанавливается подключение.
+
+- `server_port` (*number*): номер порта для подключения.
+
+- `method` (*string*): [AEAD-шифр](https://shadowsocks.org/doc/aead.html#aead-ciphers), используемый для шифрования.
+
+- `password` (*string*): пароль, используемый для генерации ключа шифрования.
+
+- `prefix` (*string*): [префикс для маскировки](https://www.reddit.com/r/outlinevpn/wiki/index/prefixing/).
+Поддерживается при Stream- и Packet-подключениях.
+
+Пример:
+
+#### LegacyShadowsocksURI
+
+LegacyShadowsocksURI представляет объект Tunnel, использующий Shadowsocks в качестве протокола.
+Реализует устаревший формат URL для обратной совместимости.
+
+**Формат:** *string*
+
+Ознакомьтесь с [устаревшим форматом Shadowsocks URI](https://shadowsocks.org/doc/configs.html#uri-and-qr-code) и [схемой SIP002 URI](https://shadowsocks.org/doc/sip002.html). Плагины не поддерживаются.
+
+Пример:
+
+#### ShadowsocksConfig
+
+ShadowsocksConfig может представлять Stream Dialer, Packet Dialer или Packet Listener, использующие Shadowsocks.
+
+**Формат:** *struct*
+
+**Поля**
+
+- `endpoint` ([EndpointConfig](#endpointconfig)): конечная точка Shadowsocks для подключения.
+
+- `cipher` (*string*): [AEAD-шифр](https://shadowsocks.org/doc/aead.html#aead-ciphers), используемый для шифрования.
+
+- `secret` (*string*): пароль, используемый для генерации ключа шифрования.
+
+- `prefix` (*string*): [префикс для маскировки](https://www.reddit.com/r/outlinevpn/wiki/index/prefixing/).
+Поддерживается при Stream- и Packet-подключениях.
+
+Пример:
+
+## Метаопределения
+
+### FirstSupportedConfig
+
+Использует первую конфигурацию, поддерживаемую приложением. Это позволяет добавлять новые конфигурации, сохраняя обратную совместимость со старыми.
+
+**Формат:** *struct*
+
+**Поля**
+
+- `options` ([EndpointConfig[]](#endpointconfig) | [DialerConfig[]](#dialerconfig) | [PacketListenerConfig[]](#packetlistenerconfig)): список возможных конфигураций.
+
+Пример:
+
+### Interface
+
+Interface позволяет выбирать одну из нескольких реализаций. Для указания типа конфигурации используется поле `$type`.
+
+Пример:

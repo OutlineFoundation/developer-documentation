@@ -1,0 +1,56 @@
+---
+title: "Deploy with Automatic HTTPS Using Caddy"
+sidebar_label: "HTTPS with Caddy"
+---
+
+In diesem Leitfaden erfahren Sie, wie Sie mit [Caddy](https://caddyserver.com/), einem leistungsstarken und nutzerfreundlichen Webserver, Ihre Outline-Serverkonfiguration optimieren. Dank [automatischem HTTPS](https://caddyserver.com/docs/automatic-https) und flexiblen Konfigurationsmöglichkeiten ist Caddy eine sehr gute Wahl für Ihren Outline-Server, insbesondere, wenn Sie das WebSocket-Übertragungsprotokoll verwenden.
+
+## Was ist Caddy?
+
+Caddy ist ein Open-Source-Webserver, der für seine Nutzerfreundlichkeit, die automatische Umleitung auf HTTPS („Automatisches HTTPS“) und die Unterstützung verschiedener Protokolle bekannt ist. Er vereinfacht die Webserver-Konfiguration und bietet Funktionen wie:
+
+- **Automatisches HTTPS:** Caddy erhält und erneuert TLS-Zertifikate automatisch und sorgt so für sichere Verbindungen.
+
+- **Unterstützung von HTTP/3:** Caddy unterstützt das neueste HTTP/3-Protokoll für schnelleren und effizienteren Web-Traffic.
+
+- **Plug‑ins:** Caddy lässt sich mit Plug‑ins um verschiedene Funktionen erweitern, darunter Reverse-Proxyvorgänge und Load Balancing.
+
+## Schritt 1: Voraussetzungen
+
+- Laden Sie [`xcaddy`](https://github.com/caddyserver/xcaddy) herunter und führen Sie die Installation durch.
+
+## Schritt 2: Domain konfigurieren
+
+Bevor Sie Caddy starten, vergewissern Sie sich, dass Ihr Domainname richtig konfiguriert ist und auf die IP‑Adresse Ihres Servers verweist.
+
+- **A‑/AAAA-Einträge festlegen:** Melden Sie sich bei Ihrem DNS-Anbieter an und legen Sie die A‑ und AAAA-Einträge für Ihre Domain so fest, dass sie jeweils auf die IPv4- bzw. auf die IPv6-Adressen Ihres Servers verweisen.
+
+- 
+
+**DNS-Einträge prüfen:** Prüfen Sie, ob die DNS-Einträge für die maßgebliche Domain festgelegt sind:
+
+## Schritt 3: Benutzerdefinierten Caddy-Build erstellen und ausführen
+
+Mit `xcaddy` können Sie ein benutzerdefiniertes `caddy`-Binärprogramm erstellen, das das Kernmodul des Outline-Servers sowie weitere benötigte Server-Erweiterungsmodule enthält.
+
+## Schritt 4: Caddy-Server konfigurieren und mit Outline ausführen
+
+Erstellen Sie eine neue `config.yaml`-Datei mit der folgenden Konfiguration:
+
+Diese Konfiguration stellt eine Shadowsocks‑over-WebSockets-Strategie dar, mit einem Webserver, der Port `443` überwacht und getarnten Shadowsocks-Traffic über TCP und UDP auf den Pfaden `TCP_PATH` und `UDP_PATH` akzeptiert.
+
+Führen Sie den Caddy-Server mit Outline als Erweiterung mit der erstellten Konfiguration aus:
+
+Weitere Beispielkonfigurationen [finden Sie hier](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples).
+
+## Schritt 5: Dynamischen Zugriffsschlüssel erstellen
+
+Generieren Sie eine YAML-Datei mit dem Client-Zugriffsschlüssel für Ihre Nutzer. Verwenden Sie dazu das Format für die [erweiterte Konfiguration](../management/config) und die WebSocket-Endpunkte, die Sie zuvor auf Serverseite konfiguriert haben:
+
+Nachdem Sie die YAML-Datei mit dem dynamischen Zugriffsschlüssel erstellt haben, müssen Sie diese Ihren Nutzern zukommen lassen. Sie können die Datei auf einem statischen Webhosting-Dienst hosten oder dynamisch generieren. Weitere Informationen zur Verwendung von [dynamischen Zugriffsschlüsseln](../management/dynamic-access-keys)
+
+## Schritt 6: Mit dem Outline-Client verbinden
+
+Fügen Sie in einer der offiziellen [Outline-Client](../../download-links)-Anwendungen (ab Version 1.15.0) den gerade erstellten dynamischen Zugriffsschlüssel für den Server hinzu. Klicken Sie auf **Verbinden**, um mit der Shadowsocks‑over-WebSocket-Konfiguration eine Tunnelverbindung zu Ihrem Server herzustellen.
+
+Vergewissern Sie sich mit einem Tool wie [IPInfo](https://ipinfo.io), dass Sie über Ihren Outline-Server mit dem Internet verbunden sind.

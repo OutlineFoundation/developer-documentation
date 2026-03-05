@@ -1,0 +1,31 @@
+---
+title: "Deploy Using the Outline Manager"
+sidebar_label: "Using Outline Manager"
+---
+
+このガイドでは、制限のない安全なインターネット アクセスを提供するように Outline サーバーを設定するプロセスについて説明します。
+
+1. 
+
+Linux、macOS、または Windows 版の Outline マネージャーを <https://getoutline.org> からダウンロードします。
+
+2. 
+
+Outline マネージャーで [+] ボタンをクリックして新しいサーバーを追加します。
+
+3. 
+
+使用するクラウド プロバイダ（DigitalOcean、Amazon、Google
+Cloud など）を選択するか、独自のサーバーがある場合は [どこにでも Outline をセットアップ可能] を選択します。
+
+4. 
+
+選択したプロバイダまたはユーザーによる設定に応じて画面上に表示される指示に従います。
+
+5. 
+
+Outline マネージャーがサーバーの作成手順を示します。
+
+## 次のステップ
+
+Outline サーバーのセットアップが完了したので、次はユーザーにアクセスを共有します。

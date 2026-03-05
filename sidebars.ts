@@ -46,6 +46,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Reference',
+          key: 'vpn-reference',
           items: [
             'vpn/reference/access-key-config',
             {
@@ -87,6 +88,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Reference',
+          key: 'sdk-reference',
           items: [
             'sdk/reference/smart-dialer-config',
             {

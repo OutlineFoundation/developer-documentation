@@ -2,6 +2,21 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const SUPPORTED_LOCALES = [
+  'en', 'ar', 'de', 'es', 'es-419', 'fa', 'fr', 'it', 'ja', 'ko',
+  'nl', 'pl', 'pt-BR', 'ru', 'th', 'tr', 'zh-CN', 'zh-TW',
+];
+
+function buildLocaleConfigs(): Record<string, {label: string; direction: 'ltr' | 'rtl'}> {
+  const configs: Record<string, {label: string; direction: 'ltr' | 'rtl'}> = {};
+  for (const locale of SUPPORTED_LOCALES) {
+    const label = new Intl.DisplayNames([locale], {type: 'language'}).of(locale) ?? locale;
+    const {direction} = (new Intl.Locale(locale) as Intl.Locale & {textInfo: {direction: 'ltr' | 'rtl'}}).textInfo;
+    configs[locale] = {label, direction};
+  }
+  return configs;
+}
+
 const config: Config = {
   title: 'Outline Developer Documentation',
   tagline: 'Build tools for internet freedom',
@@ -26,7 +41,8 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: SUPPORTED_LOCALES,
+    localeConfigs: buildLocaleConfigs(),
   },
 
   presets: [
@@ -64,6 +80,10 @@ const config: Config = {
           sidebarId: 'docs',
           position: 'left',
           label: 'Documentation',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://getoutline.org',
