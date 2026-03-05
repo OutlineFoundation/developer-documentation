@@ -25,9 +25,7 @@ Przed uruchomieniem serwera Caddy upewnij się, że nazwa Twojej domeny jest pop
 
 - **Ustaw rekordy A/AAAA:** zaloguj się do swojego dostawcy DNS i skonfiguruj rekordy A i AAAA dla swojej domeny, tak aby wskazywały odpowiednio na adresy IPv4 i IPv6 Twojego serwera.
 
-- 
-
-**Sprawdź rekordy DNS:** sprawdź, czy Twoje rekordy DNS są ustawione poprawnie, za pomocą wyszukiwania autorytatywnego:
+- **Sprawdź rekordy DNS:** sprawdź, czy Twoje rekordy DNS są ustawione poprawnie, za pomocą wyszukiwania autorytatywnego:
 
 ## Krok 3. Utwórz i uruchom odpowiedni serwer Caddy
 

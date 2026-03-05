@@ -23,18 +23,14 @@ Chaves de acesso são credenciais que permitem aos usuários se conectar a um se
 do Outline. Elas têm as informações necessárias para que o app cliente do Outline
 estabeleça uma conexão segura. Existem dois tipos de chaves de acesso:
 
-- 
-
-As **chaves de acesso estáticas** codificam todas as informações do servidor necessárias para conexão
+- As **chaves de acesso estáticas** codificam todas as informações do servidor necessárias para conexão
 (endereço, porta, senha e método de criptografia do servidor), impedindo que as informações
 de acesso sejam modificadas. Os usuários colam a chave no
 app cliente do Outline.
 
 Exemplo:
 
-- 
-
-As **chaves de acesso dinâmicas** permitem que um provedor de serviços hospede remotamente as informações
+- As **chaves de acesso dinâmicas** permitem que um provedor de serviços hospede remotamente as informações
 de acesso ao servidor. Isso permite aos provedores atualizar a configuração do servidor
 (endereço, porta, senhas e método de criptografia do servidor) sem precisar
 emitir novas chaves de acesso para os usuários finais. Para uma documentação mais detalhada, consulte

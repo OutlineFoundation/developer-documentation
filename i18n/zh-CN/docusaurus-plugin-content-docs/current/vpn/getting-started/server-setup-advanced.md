@@ -13,10 +13,6 @@ sidebar_label: "Using Installation Script"
 
 ## 操作说明
 
-1. 
+1. 下载并运行 Outline 安装脚本。
 
-下载并运行 Outline 安装脚本。
-
-2. 
-
-按照屏幕上的提示操作。
+2. 按照屏幕上的提示操作。

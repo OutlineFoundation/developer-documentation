@@ -9,57 +9,39 @@ Outline에서는 [Prometheus](https://prometheus.io/)를 통해 자세한 성능
 
 ## 기본 요건
 
-- 
+- **Prometheus가 사용 설정된 Outline 서버**: Outline 서버에 Prometheus 측정항목이 사용 설정되어 있어야 합니다. 이는 일반적으로 기본 구성입니다.
 
-**Prometheus가 사용 설정된 Outline 서버**: Outline 서버에 Prometheus 측정항목이 사용 설정되어 있어야 합니다. 이는 일반적으로 기본 구성입니다.
-
-- 
-
-**서버에 대한 SSH 액세스**: Prometheus 포트를 전달하려면 SSH 액세스가 필요합니다.
+- **서버에 대한 SSH 액세스**: Prometheus 포트를 전달하려면 SSH 액세스가 필요합니다.
 
 ## 안내
 
-1. 
-
-**Prometheus 포트 전달**
+1. **Prometheus 포트 전달**
 
 SSH를 사용하여 서버에 연결하고 포트 9090을 전달합니다.
 
-2. 
-
-**Prometheus 웹 인터페이스 액세스**
+2. **Prometheus 웹 인터페이스 액세스**
 
 웹브라우저를 열고 <http://localhost:9090/graph> Query Prometheus Metrics로 이동합니다.
 
-3. 
-
-**PromQL 쿼리를 사용하여 관심 있는 특정 측정항목 검색**
+3. **PromQL 쿼리를 사용하여 관심 있는 특정 측정항목 검색**
 
 ### PromQL 쿼리 예
 
 #### 사용
 
-- 
-
-**데이터 바이트(액세스 키, 프로토콜, 방향별):**
+- **데이터 바이트(액세스 키, 프로토콜, 방향별):**
 
 `increase(shadowsocks_data_bytes[1d])`
 
-- 
-
-**데이터 바이트(액세스 키별로 집계):**
+- **데이터 바이트(액세스 키별로 집계):**
 
 `sum(increase(shadowsocks_data_bytes[1d])) by (access_key)`
 
-- 
-
-**데이터 바이트(데이터 한도 계산용):**
+- **데이터 바이트(데이터 한도 계산용):**
 
 `sum(increase(shadowsocks_data_bytes{dir=~"c<p|p>t"}[30d])) by (access_key)`
 
-- 
-
-**데이터 바이트(위치, 프로토콜, 방향별):**
+- **데이터 바이트(위치, 프로토콜, 방향별):**
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
@@ -69,63 +51,45 @@ SSH를 사용하여 서버에 연결하고 포트 9090을 전달합니다.
 
 #### TCP 연결
 
-- 
-
-**TCP 연결(액세스 키, 위치, 상태별):**
+- **TCP 연결(액세스 키, 위치, 상태별):**
 
 `increase(shadowsocks_tcp_connections_closed[1d])`
 
-- 
-
-**TCP 연결(위치별):**
+- **TCP 연결(위치별):**
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
 #### UDP
 
-- 
-
-**UDP 패킷(위치, 상태별):**
+- **UDP 패킷(위치, 상태별):**
 
 `increase(shadowsocks_udp_packets_from_client_per_location[1d])`
 
-- 
-
-**UDP 연결(분류 없음):**
+- **UDP 연결(분류 없음):**
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
 #### 성능
 
-- 
-
-**CPU 사용량(프로세스별):**
+- **CPU 사용량(프로세스별):**
 
 `rate(process_cpu_seconds_total[10m])`
 
-- 
-
-**메모리(프로세스별):**
+- **메모리(프로세스별):**
 
 `process_virtual_memory_bytes`
 
 #### 빌드 정보
 
-- 
-
-**Prometheus:**
+- **Prometheus:**
 
 `prometheus_build_info`
 
-- 
-
-**outline-ss-server:**
+- **outline-ss-server:**
 
 `shadowsocks_build_info`
 
-- 
-
-**Node.js:**
+- **Node.js:**
 
 `nodejs_version_info`
 

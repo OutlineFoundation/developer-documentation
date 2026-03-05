@@ -38,13 +38,9 @@ En este ejemplo, usaremos
 para crear un túnel rápido, lo que brinda una forma conveniente y segura de exponer
 servidores web locales sin abrir puertos entrantes.
 
-1. 
+1. Descarga e instala [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-Descarga e instala [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-Crea un túnel que apunte al puerto del servidor web local:
+2. Crea un túnel que apunte al puerto del servidor web local:
 
 Cloudflare proporcionará un subdominio (p. ej.,
 `acids-iceland-davidson-lb.trycloudflare.com`) para acceder a tu extremo de WebSocket

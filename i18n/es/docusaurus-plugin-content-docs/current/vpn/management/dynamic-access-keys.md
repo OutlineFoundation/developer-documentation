@@ -63,9 +63,7 @@ Ejemplo:
 
 - **Puerto del servidor:** `8388`
 
-- 
-
-**Información del usuario:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` decodificado con el formato [base64](https://en.wikipedia.org/wiki/Base64) con una herramienta como [la codificación o la decodificación de Caja de herramientas de Google Admin](https://toolbox.googleapps.com/apps/encode_decode/)
+- **Información del usuario:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` decodificado con el formato [base64](https://en.wikipedia.org/wiki/Base64) con una herramienta como [la codificación o la decodificación de Caja de herramientas de Google Admin](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **Método:** `chacha20-ietf-poly1305`
 

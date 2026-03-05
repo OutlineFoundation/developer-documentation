@@ -15,73 +15,45 @@ En este ejemplo, vamos a usar DigitalOcean y Google Domains, pero también sirve
 
 ## Instrucciones
 
-1. 
+1. La siguiente lista resume los pasos para rotar la dirección IP de un servidor:
 
-La siguiente lista resume los pasos para rotar la dirección IP de un servidor:
+2. Compra un nombre de dominio.
 
-2. 
+3. Dirige el nombre de dominio a la dirección IP del servidor.
 
-Compra un nombre de dominio.
+4. Emite claves de acceso usando el nombre de dominio.
 
-3. 
+5. Asigna una IP flotante al Droplet del servidor.
 
-Dirige el nombre de dominio a la dirección IP del servidor.
-
-4. 
-
-Emite claves de acceso usando el nombre de dominio.
-
-5. 
-
-Asigna una IP flotante al Droplet del servidor.
-
-6. 
-
-Cambia el nombre de dominio para que dirija a la nueva dirección IP.
+6. Cambia el nombre de dominio para que dirija a la nueva dirección IP.
 
 ## Crear un servidor de Outline en DigitalOcean
 
 Si tienes un servidor de DigitalOcean activo, ve al siguiente paso.
 
-1. 
+1. Abre Administrador de Outline y haz clic en el símbolo "+" de la parte inferior izquierda para acceder a la pantalla de creación del servidor.
 
-Abre Administrador de Outline y haz clic en el símbolo "+" de la parte inferior izquierda para acceder a la pantalla de creación del servidor.
-
-2. 
-
-Haz clic en "Create Server" (Crear servidor) en la sección "DigitalOcean" y sigue las indicaciones en la aplicación.
+2. Haz clic en "Create Server" (Crear servidor) en la sección "DigitalOcean" y sigue las indicaciones en la aplicación.
 
 ![Crear servidor](/images/create-DO-server.png)
 
 ## Asignar un nombre de host a tu servidor
 
-1. 
+1. Ve a [Google Domains](https://domains.google.com/m/registrar/) y haz clic en "Encuentra el dominio perfecto".
 
-Ve a [Google Domains](https://domains.google.com/m/registrar/) y haz clic en "Encuentra el dominio perfecto".
+2. Introduce un nombre de dominio en la barra de búsqueda y elige un nombre. En este ejemplo hemos usado `outlinedemo.info`.
 
-2. 
+3. Ve a la pestaña DNS en Google Domains. En "Registros de recursos personalizados", escribe la dirección IP de tu servidor en el campo "Dirección IPv4".
 
-Introduce un nombre de dominio en la barra de búsqueda y elige un nombre. En este ejemplo hemos usado `outlinedemo.info`.
-
-3. 
-
-Ve a la pestaña DNS en Google Domains. En "Registros de recursos personalizados", escribe la dirección IP de tu servidor en el campo "Dirección IPv4".
-
-4. 
-
-Ve a la pestaña "Ajustes" de tu servidor en Administrador de Outline. En "Nombre de host", escribe el nombre del que has comprado y haz clic en "GUARDAR". De esta forma, las futuras claves de acceso usarán este nombre de host en lugar de la dirección IP del servidor.
+4. Ve a la pestaña "Ajustes" de tu servidor en Administrador de Outline. En "Nombre de host", escribe el nombre del que has comprado y haz clic en "GUARDAR". De esta forma, las futuras claves de acceso usarán este nombre de host en lugar de la dirección IP del servidor.
 
 ![Configurar el nombre de host](/images/set-hostname.png)
 
 ## Cambiar la dirección IP del servidor
 
-1. 
+1. Ve a tu servidor en la página "Droplets" de DigitalOcean.
 
-Ve a tu servidor en la página "Droplets" de DigitalOcean.
-
-2. 
-
-Haz clic en "Enable now" (Habilitar ahora) en la parte superior derecha de la ventana situada junto a "Floating IP" (IP flotante).
+2. Haz clic en "Enable now" (Habilitar ahora) en la parte superior derecha de la ventana situada junto a "Floating IP" (IP flotante).
 
 ![Habilitar la IP flotante](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ Haz clic en "Enable now" (Habilitar ahora) en la parte superior derecha de la ve
 
 ![Asignar la IP flotante](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Vuelve a la pestaña DNS en Google Domains.
 
-Vuelve a la pestaña DNS en Google Domains.
+2. Cambia la dirección IP como antes, pero esta vez por la nueva dirección IP flotante. Normalmente, el cambio suele surtir efecto en unos minutos, pero puede tardar hasta 48 horas.
 
-2. 
-
-Cambia la dirección IP como antes, pero esta vez por la nueva dirección IP flotante. Normalmente, el cambio suele surtir efecto en unos minutos, pero puede tardar hasta 48 horas.
-
-3. 
-
-Ve a la [herramienta DNS online de Google](https://toolbox.googleapps.com/apps/dig/#A/) y escribe tu nombre de dominio para ver cuándo se efectuó el cambio del último paso.
+3. Ve a la [herramienta DNS online de Google](https://toolbox.googleapps.com/apps/dig/#A/) y escribe tu nombre de dominio para ver cuándo se efectuó el cambio del último paso.
 
 ![Buscar tu dominio en la herramienta DNS de Google](/images/google-dns.png)
 

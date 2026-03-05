@@ -22,13 +22,9 @@ sidebar_label: "WebSockets"
 
 В этом примере мы покажем, как быстро создать туннель с помощью [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/). Это удобный и безопасный способ настроить внешний доступ на локальном веб-сервере без необходимости открывать входящие порты.
 
-1. 
+1. Скачайте и установите [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-Скачайте и установите [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-Создайте туннель, указав порт вашего локального веб-сервера:
+2. Создайте туннель, указав порт вашего локального веб-сервера:
 
 Cloudflare предоставит субдомен
 (например, `acids-iceland-davidson-lb.trycloudflare.com`), который позволит подключиться к конечной точке WebSocket и автоматически настроить TLS. Сохраните этот субдомен, так как он понадобится вам позже.

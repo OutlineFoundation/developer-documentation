@@ -13,10 +13,6 @@ sidebar_label: "Using Installation Script"
 
 ## 안내
 
-1. 
+1. Outline 설치 스크립트를 다운로드하여 실행합니다.
 
-Outline 설치 스크립트를 다운로드하여 실행합니다.
-
-2. 
-
-화면에 표시되는 안내를 따릅니다.
+2. 화면에 표시되는 안내를 따릅니다.

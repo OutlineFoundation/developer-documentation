@@ -83,9 +83,7 @@ TCP و UDP).
 
 - **درگاه سرور:** `8388`
 
-- 
-
-**اطلاعات کاربر:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` رمزگشایی‌شده به‌صورت
+- **اطلاعات کاربر:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` رمزگشایی‌شده به‌صورت
 [پایه ۶۴تایی](https://en.wikipedia.org/wiki/Base64) بااستفاده از ابزاری مثل [جعبه‌ابزار کدبندی/ رمزگشایی Google
 Admin](https://toolbox.googleapps.com/apps/encode_decode/)
 

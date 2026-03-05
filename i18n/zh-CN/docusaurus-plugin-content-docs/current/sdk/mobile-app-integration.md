@@ -19,13 +19,9 @@ sidebar_label: "Mobile App Integration"
 
 使用 [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) 将 Go 代码编译为 Android 和 iOS 库。
 
-1. 
+1. 克隆 Outline SDK 仓库：
 
-克隆 Outline SDK 仓库：
-
-2. 
-
-使用 [`go
+2. 使用 [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 Go Mobile 二进制文件：
 
 #### 添加 Psiphon 支持
@@ -36,15 +32,11 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 
 
     - 将获得的 Psiphon 配置添加到 `SmartDialer` 配置的 `fallback` 部分。
 
-    - 
-
-使用 `-tags psiphon` 标记构建 MobileProxy：
+    - 使用 `-tags psiphon` 标记构建 MobileProxy：
 
 由于 Psiphon 代码库基于 GPL 协议授予许可，可能会对您的代码施加许可限制，因此需要使用 `-tags psiphon` 标记。您可能需要考虑申请特殊许可。
 
-3. 
-
-生成移动端库并将其添加到项目中：
+3. 生成移动端库并将其添加到项目中：
 
 ### Android
 
@@ -58,17 +50,13 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) 构建 
 
 在应用的运行时内初始化并启动 `MobileProxy` 本地代理服务器。您可以使用静态传输配置，或通过 Smart Proxy 实现动态策略选择。
 
-- 
-
-**静态传输配置**：将 `RunProxy` 函数与本地地址和传输配置结合使用。
+- **静态传输配置**：将 `RunProxy` 函数与本地地址和传输配置结合使用。
 
 ### Android
 
 ### iOS
 
-- 
-
-**Smart Proxy**：Smart Proxy 可根据指定的测试网域动态选择 DNS 和 TLS 策略。您需要以 YAML 格式指定配置策略（[示例](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)）。
+- **Smart Proxy**：Smart Proxy 可根据指定的测试网域动态选择 DNS 和 TLS 策略。您需要以 YAML 格式指定配置策略（[示例](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)）。
 
 ### Android
 

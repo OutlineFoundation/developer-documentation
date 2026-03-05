@@ -15,10 +15,6 @@ proporcionar acceso a Internet seguro y sin restricciones.
 
 ## Instrucciones
 
-1. 
+1. Descarga y ejecuta la secuencia de comandos de instalación de Outline.
 
-Descarga y ejecuta la secuencia de comandos de instalación de Outline.
-
-2. 
-
-Sigue las indicaciones que aparecen en pantalla.
+2. Sigue las indicaciones que aparecen en pantalla.

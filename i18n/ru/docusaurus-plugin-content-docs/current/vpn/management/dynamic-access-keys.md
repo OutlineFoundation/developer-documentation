@@ -63,9 +63,7 @@ Outline использует два типа ключей доступа: ста
 
 - **Порт сервера:** `8388`
 
-- 
-
-**Информация о пользователе:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`
+- **Информация о пользователе:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`
 Данные в формате [base64](https://en.wikipedia.org/wiki/Base64), декодированные с помощью специального инструмента, например [Набора инструментов администратора Google](https://toolbox.googleapps.com/apps/encode_decode/).
 
     - **Метод шифрования**: `chacha20-ietf-poly1305`

@@ -15,73 +15,45 @@ sidebar_label: "Domain with Floating IPs"
 
 ## 操作说明
 
-1. 
+1. 下表概述了轮换服务器 IP 地址的步骤：
 
-下表概述了轮换服务器 IP 地址的步骤：
+2. 购买域名。
 
-2. 
+3. 将该域名指向我们服务器的 IP 地址。
 
-购买域名。
+4. 使用该域名发放访问密钥。
 
-3. 
+5. 为服务器的 Droplet 分配浮动 IP。
 
-将该域名指向我们服务器的 IP 地址。
-
-4. 
-
-使用该域名发放访问密钥。
-
-5. 
-
-为服务器的 Droplet 分配浮动 IP。
-
-6. 
-
-更改域名，使其指向新的 IP 地址。
+6. 更改域名，使其指向新的 IP 地址。
 
 ## 在 DigitalOcean 上创建 Outline 服务器
 
 如果您已有正在运行的 DigitalOcean 服务器，请直接跳到下一步。
 
-1. 
+1. 打开 Outline 管理器，点击左下角的“+”进入服务器创建界面。
 
-打开 Outline 管理器，点击左下角的“+”进入服务器创建界面。
-
-2. 
-
-点击“DigitalOcean”按钮上的“创建服务器”，按照应用中的说明操作。
+2. 点击“DigitalOcean”按钮上的“创建服务器”，按照应用中的说明操作。
 
 ![创建服务器](/images/create-DO-server.png)
 
 ## 为服务器设置主机名
 
-1. 
+1. 前往 [Google Domains](https://domains.google.com/m/registrar/)，点击“找到最佳选择”。
 
-前往 [Google Domains](https://domains.google.com/m/registrar/)，点击“找到最佳选择”。
+2. 在搜索栏中输入域名，然后选择一个想要的名称。在示例中，我们使用了 `outlinedemo.info`。
 
-2. 
+3. 前往 Google Domains 中的“DNS”标签页。在“自定义资源记录”下的“IPV4 地址”字段中输入服务器的 IP 地址。
 
-在搜索栏中输入域名，然后选择一个想要的名称。在示例中，我们使用了 `outlinedemo.info`。
-
-3. 
-
-前往 Google Domains 中的“DNS”标签页。在“自定义资源记录”下的“IPV4 地址”字段中输入服务器的 IP 地址。
-
-4. 
-
-在 Outline 管理器中，前往服务器的“设置”标签页。在“主机名”下输入您购买的主机名，然后点击“保存”。这会使得日后所有的访问密钥使用此主机名，而不是使用服务器的 IP 地址。
+4. 在 Outline 管理器中，前往服务器的“设置”标签页。在“主机名”下输入您购买的主机名，然后点击“保存”。这会使得日后所有的访问密钥使用此主机名，而不是使用服务器的 IP 地址。
 
 ![设置主机名](/images/set-hostname.png)
 
 ## 更改服务器的 IP 地址
 
-1. 
+1. 在 DigitalOcean 的“Droplets”页面上找到您的服务器。
 
-在 DigitalOcean 的“Droplets”页面上找到您的服务器。
-
-2. 
-
-在窗口的右上角，点击“Floating IP”（浮动 IP）旁边的“Enable Now”（立即启用）。
+2. 在窗口的右上角，点击“Floating IP”（浮动 IP）旁边的“Enable Now”（立即启用）。
 
 ![启用浮动 IP](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ sidebar_label: "Domain with Floating IPs"
 
 ![分配浮动 IP](/images/assign-floating-ip-DO.png)
 
-1. 
+1. 返回 Google Domains 中的“DNS”标签页。
 
-返回 Google Domains 中的“DNS”标签页。
+2. 像之前一样更改 IP 地址，但这一次改用新的浮动 IP 地址。此操作最多可能需要 48 小时才能生效，但通常只需要几分钟。
 
-2. 
-
-像之前一样更改 IP 地址，但这一次改用新的浮动 IP 地址。此操作最多可能需要 48 小时才能生效，但通常只需要几分钟。
-
-3. 
-
-进入 [Google 的在线 DNS 工具](https://toolbox.googleapps.com/apps/dig/#A/)，输入您的域名即可查看在最后一步中完成的更改何时生效。
+3. 进入 [Google 的在线 DNS 工具](https://toolbox.googleapps.com/apps/dig/#A/)，输入您的域名即可查看在最后一步中完成的更改何时生效。
 
 ![在 Google DNS 工具中搜索域名](/images/google-dns.png)
 

@@ -35,9 +35,7 @@ para o endereço IP do seu servidor.
 - **Defina registros A/AAAA**: entre no seu provedor de DNS e defina os registros A e AAAA
 do seu domínio para apontar para os endereços IPv4 e IPv6 do seu servidor, respectivamente.
 
-- 
-
-**Verifique os registros DNS**: verifique se os registros DNS estão definidos corretamente com uma
+- **Verifique os registros DNS**: verifique se os registros DNS estão definidos corretamente com uma
 pesquisa autoritativa:
 
 ## Etapa 3: criar e executar um build personalizado do Caddy

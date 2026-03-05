@@ -21,13 +21,9 @@ Outline 用戶端 1.15.0 以上版本。**
 
 我們將以 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) 為例，示範如何建立快速通道。這個方法既便利又安全，讓您無需開放傳入通訊埠，即可公開本機網路伺服器。
 
-1. 
+1. 下載並安裝 [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)。
 
-下載並安裝 [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)。
-
-2. 
-
-建立指向本機網路伺服器通訊埠的通道，如下所示：
+2. 建立指向本機網路伺服器通訊埠的通道，如下所示：
 
 Cloudflare 會提供一個子網域 (例如 `acids-iceland-davidson-lb.trycloudflare.com`)，用於存取您的 WebSocket 端點並自動處理 TLS。請記下這個子網域，後續設定將會用到。
 

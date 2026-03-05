@@ -17,12 +17,8 @@ Outline sisteminde iki ana rol vardır: sunucuları yöneten **servis sağlayıc
 
 Erişim anahtarları, kullanıcıların Outline sunucusuna bağlanmasına olanak tanıyan kimlik bilgileridir. Outline istemcisinin güvenli bağlantı kurması için gerekli bilgileri içerir. İki tür erişim anahtarı vardır:
 
-- 
-
-**Statik erişim anahtarları**, bağlanmak için gereken tüm sunucu bilgilerini (sunucu adresi, bağlantı noktası, şifre, şifreleme yöntemi) şifreleyerek erişim bilgilerinin değiştirilmesini önler. Kullanıcılar, bu anahtarı Outline istemcisine yapıştırır.
+- **Statik erişim anahtarları**, bağlanmak için gereken tüm sunucu bilgilerini (sunucu adresi, bağlantı noktası, şifre, şifreleme yöntemi) şifreleyerek erişim bilgilerinin değiştirilmesini önler. Kullanıcılar, bu anahtarı Outline istemcisine yapıştırır.
 
 Örnek:
 
-- 
-
-**Dinamik erişim anahtarları**, servis sağlayıcının sunucu erişim bilgilerini uzaktan barındırmasına izin verir. Bu sayede servis sağlayıcı, son kullanıcılara yeni erişim anahtarları tahsis etmeye gerek kalmadan sunucu yapılandırmalarını (sunucu adresi, bağlantı noktası, şifreler, şifreleme yöntemi) güncelleyebilir. Daha ayrıntılı dokümanlara göz atmak için [Dinamik erişim anahtarları](vpn/management/dynamic-access-keys)'na göz atın.
+- **Dinamik erişim anahtarları**, servis sağlayıcının sunucu erişim bilgilerini uzaktan barındırmasına izin verir. Bu sayede servis sağlayıcı, son kullanıcılara yeni erişim anahtarları tahsis etmeye gerek kalmadan sunucu yapılandırmalarını (sunucu adresi, bağlantı noktası, şifreler, şifreleme yöntemi) güncelleyebilir. Daha ayrıntılı dokümanlara göz atmak için [Dinamik erişim anahtarları](vpn/management/dynamic-access-keys)'na göz atın.

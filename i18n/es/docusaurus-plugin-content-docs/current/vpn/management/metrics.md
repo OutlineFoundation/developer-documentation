@@ -9,58 +9,40 @@ Outline ofrece métricas de rendimiento detalladas a través de [Prometheus](htt
 
 ## Requisitos previos
 
-- 
+- **Servidor de Outline con Prometheus habilitado:** asegúrate de que tu servidor de Outline tiene habilitadas las métricas de Prometheus (suele ser la configuración predeterminada).
 
-**Servidor de Outline con Prometheus habilitado:** asegúrate de que tu servidor de Outline tiene habilitadas las métricas de Prometheus (suele ser la configuración predeterminada).
-
-- 
-
-**Acceso SSH a tu servidor:** necesitarás acceso SSH para redirigir el puerto de Prometheus.
+- **Acceso SSH a tu servidor:** necesitarás acceso SSH para redirigir el puerto de Prometheus.
 
 ## Instrucciones
 
-1. 
-
-**Redirigir el puerto de Prometheus**
+1. **Redirigir el puerto de Prometheus**
 
 Conéctate a tu servidor mediante SSH y redirige el puerto 9090:
 
-2. 
-
-**Acceder a la interfaz web de Prometheus**
+2. **Acceder a la interfaz web de Prometheus**
 
 Abre tu navegador web y ve a: <http://localhost:9090/graph>
 Consultar las métricas de Prometheus
 
-3. 
-
-**Usa las consultas de PromQL para obtener las métricas que te interesen.**
+3. **Usa las consultas de PromQL para obtener las métricas que te interesen.**
 
 ### Ejemplos de consultas de PromQL
 
 #### Uso
 
-- 
-
-**Bytes de datos (por clave de acceso, protocolo y dirección):**
+- **Bytes de datos (por clave de acceso, protocolo y dirección):**
 
 `increase(shadowsocks_data_bytes[1d])`
 
-- 
-
-**Bytes de datos (agregados por clave de acceso):**
+- **Bytes de datos (agregados por clave de acceso):**
 
 `sum(increase(shadowsocks_data_bytes[1d])) by (access_key)`
 
-- 
-
-**Bytes de datos (para el cálculo de límites de datos):**
+- **Bytes de datos (para el cálculo de límites de datos):**
 
 `sum(increase(shadowsocks_data_bytes{dir=~"c<p|p>t"}[30d])) by (access_key)`
 
-- 
-
-**Bytes de datos (por ubicación, protocolo y dirección):**
+- **Bytes de datos (por ubicación, protocolo y dirección):**
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
@@ -70,63 +52,45 @@ Consultar las métricas de Prometheus
 
 #### Conexiones TCP
 
-- 
-
-**Conexiones TCP (por clave de acceso, ubicación y estado):**
+- **Conexiones TCP (por clave de acceso, ubicación y estado):**
 
 `increase(shadowsocks_tcp_connections_closed[1d])`
 
-- 
-
-**Conexiones TCP (por ubicación):**
+- **Conexiones TCP (por ubicación):**
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
 #### UDP
 
-- 
-
-**Paquetes UDP (por ubicación y estado):**
+- **Paquetes UDP (por ubicación y estado):**
 
 `increase(shadowsocks_udp_packets_from_client_per_location[1d])`
 
-- 
-
-**Asociaciones UDP (sin desglose):**
+- **Asociaciones UDP (sin desglose):**
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
 #### Rendimiento
 
-- 
-
-**Uso de CPU (por proceso):**
+- **Uso de CPU (por proceso):**
 
 `rate(process_cpu_seconds_total[10m])`
 
-- 
-
-**Memoria (por proceso):**
+- **Memoria (por proceso):**
 
 `process_virtual_memory_bytes`
 
 #### Información de compilación
 
-- 
-
-**Prometheus:**
+- **Prometheus:**
 
 `prometheus_build_info`
 
-- 
-
-**outline-ss-server:**
+- **outline-ss-server:**
 
 `shadowsocks_build_info`
 
-- 
-
-**Node.js:**
+- **Node.js:**
 
 `nodejs_version_info`
 

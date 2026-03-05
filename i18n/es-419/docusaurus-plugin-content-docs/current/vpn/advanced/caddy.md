@@ -37,9 +37,7 @@ a la dirección IP de tu servidor.
 de tu dominio para que apunten a las direcciones IPv4 e IPv6 de tu servidor,
 respectivamente.
 
-- 
-
-**Verifica los registros DNS:** Comprueba que tus registros DNS estén correctamente configurados con una
+- **Verifica los registros DNS:** Comprueba que tus registros DNS estén correctamente configurados con una
 búsqueda autorizada.
 
 ## Paso 3: Crea y ejecuta una compilación personalizada de Caddy

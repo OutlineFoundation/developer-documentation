@@ -63,9 +63,7 @@ Przykład:
 
 - **Port serwera:** `8388`
 
-- 
-
-**Informacje o użytkowniku:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` dekodowane jako [base64](https://en.wikipedia.org/wiki/Base64) za pomocą narzędzia, takiego jak [kodowanie/dekodowanie narzędzi administracyjnych Google](https://toolbox.googleapps.com/apps/encode_decode/)
+- **Informacje o użytkowniku:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` dekodowane jako [base64](https://en.wikipedia.org/wiki/Base64) za pomocą narzędzia, takiego jak [kodowanie/dekodowanie narzędzi administracyjnych Google](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **Metoda**: `chacha20-ietf-poly1305`
 

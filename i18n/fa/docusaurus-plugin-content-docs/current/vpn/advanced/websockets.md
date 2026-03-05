@@ -38,14 +38,10 @@ Cloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect
 ساختن تونل سریع را نمایش می‌دهیم. این کار روشی راحت و ایمن را ارائه می‌کند تا
 سرور وب محلی‌تان بدون اینکه درگاه‌های ورودی‌اش باز شود افشا شود.
 
-1. 
-
-بارگیری و نصب
+1. بارگیری و نصب
 [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-2. 
-
-ساختن تونلی که به درگاه سرور وب محلی‌تان هدایت می‌کند:
+2. ساختن تونلی که به درگاه سرور وب محلی‌تان هدایت می‌کند:
 
 ‫Cloudflare زیردامنه‌ای را ارائه می‌دهد (برای نمونه،
 `acids-iceland-davidson-lb.trycloudflare.com`) تا به نقطه پایانی WebSocket دسترسی پیدا کند

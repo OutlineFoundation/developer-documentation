@@ -22,13 +22,9 @@ Je kunt dit op verschillende manieren doen. Je kunt een lokale webserver gebruik
 
 In dit voorbeeld gebruiken we [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) om te demonstreren hoe je snel een tunnel maakt. Dit is een handige, goed beveiligde manier om je lokale webserver bloot te stellen zonder inkomende poorten te openen.
 
-1. 
+1. Download en installeer [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-Download en installeer [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-Maak een tunnel die wijst naar je lokale webserverpoort:
+2. Maak een tunnel die wijst naar je lokale webserverpoort:
 
 Je krijgt van Cloudflare een subdomein (zoals
 `acids-iceland-davidson-lb.trycloudflare.com`) om toegang te krijgen tot je WebSocket-eindpunt en TLS automatisch af te handelen. Noteer dit subdomein, je hebt het later weer nodig.

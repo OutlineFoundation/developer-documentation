@@ -18,12 +18,8 @@ Het Outline-systeem bestaat uit 2 partijen: **serviceproviders** die de servers 
 
 Toegangssleutels zijn de inloggegevens waarmee gebruikers verbinding kunnen maken met een Outline-server. Ze bevatten de nodige informatie voor de Outline-client om een beveiligde verbinding te maken. Er zijn 2 typen toegangssleutels:
 
-- 
-
-**Statische toegangssleutels** coderen alle serverinformatie die nodig is om verbinding te maken (serveradres, poort, wachtwoord, versleutelingsmethode), wat ertoe leidt dat de toegangsinformatie niet gewijzigd kan worden. Gebruikers plakken deze sleutel in de Outline-client.
+- **Statische toegangssleutels** coderen alle serverinformatie die nodig is om verbinding te maken (serveradres, poort, wachtwoord, versleutelingsmethode), wat ertoe leidt dat de toegangsinformatie niet gewijzigd kan worden. Gebruikers plakken deze sleutel in de Outline-client.
 
 Voorbeeld:
 
-- 
-
-**Dynamische toegangssleutels**: Hiermee kan een serviceprovider de toegangsinformatie tot de server op afstand hosten. Zo kunnen providers hun serverconfiguratie updaten (serveradres, poort, wachtwoorden, versleutelingsmethode) zonder nieuwe toegangssleutels te hoeven uitgeven aan eindgebruikers. Ga naar [dynamische toegangssleutels](vpn/management/dynamic-access-keys) voor meer informatie.
+- **Dynamische toegangssleutels**: Hiermee kan een serviceprovider de toegangsinformatie tot de server op afstand hosten. Zo kunnen providers hun serverconfiguratie updaten (serveradres, poort, wachtwoorden, versleutelingsmethode) zonder nieuwe toegangssleutels te hoeven uitgeven aan eindgebruikers. Ga naar [dynamische toegangssleutels](vpn/management/dynamic-access-keys) voor meer informatie.

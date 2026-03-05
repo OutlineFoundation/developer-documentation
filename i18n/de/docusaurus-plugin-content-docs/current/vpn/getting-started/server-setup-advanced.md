@@ -13,10 +13,6 @@ In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung eines 
 
 ## Anleitung
 
-1. 
+1. Laden Sie das Installationsskript für Outline herunter und führen sie es aus.
 
-Laden Sie das Installationsskript für Outline herunter und führen sie es aus.
-
-2. 
-
-Folgen Sie anschließend der Anleitung auf dem Bildschirm.
+2. Folgen Sie anschließend der Anleitung auf dem Bildschirm.

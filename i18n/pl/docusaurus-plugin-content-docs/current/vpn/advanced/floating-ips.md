@@ -15,73 +15,45 @@ Jako konkretnego przykładu użyjemy DigitalOcean i Google Domains, ale możesz 
 
 ## Instrukcje
 
-1. 
+1. Lista poniżej zawiera podsumowanie kroków potrzebnych do przeprowadzenia rotacji adresów IP serwera:
 
-Lista poniżej zawiera podsumowanie kroków potrzebnych do przeprowadzenia rotacji adresów IP serwera:
+2. Kup nazwę domeny.
 
-2. 
+3. Skieruj nazwę domeny na adres IP serwera.
 
-Kup nazwę domeny.
+4. Udostępnij klucze dostępu przy użyciu nazwy domeny.
 
-3. 
+5. Przypisz pływający adres IP do maszyny wirtualnej Droplet serwera.
 
-Skieruj nazwę domeny na adres IP serwera.
-
-4. 
-
-Udostępnij klucze dostępu przy użyciu nazwy domeny.
-
-5. 
-
-Przypisz pływający adres IP do maszyny wirtualnej Droplet serwera.
-
-6. 
-
-Zmień nazwę domeny, tak żeby była skierowana na nowy adres IP.
+6. Zmień nazwę domeny, tak żeby była skierowana na nowy adres IP.
 
 ## Tworzenie serwera Outline w DigitalOcean
 
 Jeśl masz uruchomiony serwer DigitalOcean, przejdź do następnego kroku.
 
-1. 
+1. Otwórz Menedżera Outline i kliknij „+” w lewym dolnym rogu, żeby otworzyć ekran tworzenia serwera.
 
-Otwórz Menedżera Outline i kliknij „+” w lewym dolnym rogu, żeby otworzyć ekran tworzenia serwera.
-
-2. 
-
-Kliknij „Utwórz serwer” na przycisku „DigitalOcean” i postępuj zgodnie z instrukcjami w aplikacji.
+2. Kliknij „Utwórz serwer” na przycisku „DigitalOcean” i postępuj zgodnie z instrukcjami w aplikacji.
 
 ![Utwórz serwer](/images/create-DO-server.png)
 
 ## Tworzenie nazwy hosta dla serwera
 
-1. 
+1. Przejdź do [Google Domains](https://domains.google.com/m/registrar/) i kliknij „Znajdź idealną domenę”.
 
-Przejdź do [Google Domains](https://domains.google.com/m/registrar/) i kliknij „Znajdź idealną domenę”.
+2. Wpisz nazwę domeny na pasku wyszukiwania i wybierz ją. Jako przykładu użyliśmy `outlinedemo.info`.
 
-2. 
+3. Przejdź do karty DNS w Google Domains. W sekcji „Niestandardowe rekordy zasobów” w polu „Adres IPV4” wpisz adres IP serwera.
 
-Wpisz nazwę domeny na pasku wyszukiwania i wybierz ją. Jako przykładu użyliśmy `outlinedemo.info`.
-
-3. 
-
-Przejdź do karty DNS w Google Domains. W sekcji „Niestandardowe rekordy zasobów” w polu „Adres IPV4” wpisz adres IP serwera.
-
-4. 
-
-Otwórz kartę „Ustawienia” serwera w aplikacji Menedżer Outline. W sekcji „Nazwa hosta” wpisz zakupioną nazwę hosta i kliknij „ZAPISZ”. Dzięki temu wszystkie przyszłe klucze dostępu będą używać tej nazwy hosta zamiast adresu IP serwera.
+4. Otwórz kartę „Ustawienia” serwera w aplikacji Menedżer Outline. W sekcji „Nazwa hosta” wpisz zakupioną nazwę hosta i kliknij „ZAPISZ”. Dzięki temu wszystkie przyszłe klucze dostępu będą używać tej nazwy hosta zamiast adresu IP serwera.
 
 ![Ustaw nazwę hosta](/images/set-hostname.png)
 
 ## Zmienianie adresu IP serwera
 
-1. 
+1. Przejdź do swojego serwera na stronie „Droplets” (maszyny wirtualne Droplet) DigitalOcean.
 
-Przejdź do swojego serwera na stronie „Droplets” (maszyny wirtualne Droplet) DigitalOcean.
-
-2. 
-
-Kliknij „Enable Now” (Włącz teraz) w prawym górnym rogu okna obok „Floating IP” (Pływający adres IP).
+2. Kliknij „Enable Now” (Włącz teraz) w prawym górnym rogu okna obok „Floating IP” (Pływający adres IP).
 
 ![Włącz pływający adres IP](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ Kliknij „Enable Now” (Włącz teraz) w prawym górnym rogu okna obok „Floa
 
 ![Przypisz pływający adres IP](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Wróć na kartę DNS w Google Domains.
 
-Wróć na kartę DNS w Google Domains.
+2. Zmień adres IP tak jak wcześniej, ale tym razem użyj nowego pływającego adresu IP. Może to zająć nawet 48 godzin, ale czasami trzeba poczekać tylko kilka minut.
 
-2. 
-
-Zmień adres IP tak jak wcześniej, ale tym razem użyj nowego pływającego adresu IP. Może to zająć nawet 48 godzin, ale czasami trzeba poczekać tylko kilka minut.
-
-3. 
-
-Otwórz [narzędzie online DNS Google](https://toolbox.googleapps.com/apps/dig/#A/) i wpisz nazwę domeny, żeby sprawdzić, kiedy zmiana opisana w ostatnim kroku została wprowadzona.
+3. Otwórz [narzędzie online DNS Google](https://toolbox.googleapps.com/apps/dig/#A/) i wpisz nazwę domeny, żeby sprawdzić, kiedy zmiana opisana w ostatnim kroku została wprowadzona.
 
 ![Wyszukaj swoją domenę w narzędziu DNS Google](/images/google-dns.png)
 

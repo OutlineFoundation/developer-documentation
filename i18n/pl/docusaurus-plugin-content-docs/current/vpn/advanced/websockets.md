@@ -22,13 +22,9 @@ Możesz to zrobić na kilka sposobów. Możesz wykorzystać lokalny serwer WWW, 
 
 W tym przykładzie pokażemy, jak za pomocą [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) utworzyć szybki tunel. To wygodny i bezpieczny sposób na udostępnienie lokalnego serwera WWW bez konieczności otwierania portów przychodzących.
 
-1. 
+1. Pobierz i zainstaluj [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-Pobierz i zainstaluj [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-Utwórz tunel skierowany na port Twojego lokalnego serwera WWW:
+2. Utwórz tunel skierowany na port Twojego lokalnego serwera WWW:
 
 Cloudflare stworzy subdomenę (np.
 `acids-iceland-davidson-lb.trycloudflare.com`) zapewniającą dostęp do punktu końcowego WebSocket i automatycznie zajmie się protokołem TLS. Pamiętaj o tej subdomenie, ponieważ będzie Ci ona potrzebna później.

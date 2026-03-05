@@ -13,10 +13,6 @@ Bu kılavuzda, internet erişimini güvenli ve sınırsız hale getirmek için O
 
 ## Talimatlar
 
-1. 
+1. Outline yükleme komut dosyasını indirip çalıştırın.
 
-Outline yükleme komut dosyasını indirip çalıştırın.
-
-2. 
-
-Ekranda gösterilen adımları izleyin.
+2. Ekranda gösterilen adımları izleyin.

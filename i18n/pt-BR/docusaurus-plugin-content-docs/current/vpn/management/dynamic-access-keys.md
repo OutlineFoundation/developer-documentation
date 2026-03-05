@@ -82,9 +82,7 @@ Exemplo:
 
 - **Porta do servidor**: `8388`
 
-- 
-
-**Informações do usuário**: `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` decodificadas como
+- **Informações do usuário**: `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` decodificadas como
 [base64](https://en.wikipedia.org/wiki/Base64) com uma ferramenta como a [Codificação/Decodificação
 do Google
 Admin Toolbox](https://toolbox.googleapps.com/apps/encode_decode/)

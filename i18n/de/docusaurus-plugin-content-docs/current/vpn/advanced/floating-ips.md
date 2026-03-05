@@ -15,73 +15,45 @@ Als konkretes Beispiel nutzen wir Domains von DigitalOcean und Google. Jeder Clo
 
 ## Anleitung
 
-1. 
+1. Mit den folgenden Schritten können Sie einen Server periodisch zwischen mehreren IP‑Adressen umschalten lassen:
 
-Mit den folgenden Schritten können Sie einen Server periodisch zwischen mehreren IP‑Adressen umschalten lassen:
+2. Erwerben Sie einen Domainnamen.
 
-2. 
+3. Lassen Sie den Domainnamen auf die IP-Adresse unseres Servers verweisen.
 
-Erwerben Sie einen Domainnamen.
+4. Verteilen Sie unter Verwendung des Domainnamens Zugriffsschlüssel.
 
-3. 
+5. Weisen Sie dem Droplet des Servers eine Floating-IP-Adresse zu.
 
-Lassen Sie den Domainnamen auf die IP-Adresse unseres Servers verweisen.
-
-4. 
-
-Verteilen Sie unter Verwendung des Domainnamens Zugriffsschlüssel.
-
-5. 
-
-Weisen Sie dem Droplet des Servers eine Floating-IP-Adresse zu.
-
-6. 
-
-Ändern Sie den Domainnamen, sodass er auf die neue IP-Adresse verweist.
+6. Ändern Sie den Domainnamen, sodass er auf die neue IP-Adresse verweist.
 
 ## Einen Outline-Server bei DigitalOcean erstellen
 
 Wenn Sie bereits einen laufenden DigitalOcean-Server haben, überspringen Sie den nächsten Schritt.
 
-1. 
+1. Öffnen Sie den Outline-Manager und klicken Sie unten links auf die Schaltfläche „+“, um zum Bildschirm zum Erstellen eines Servers zu gelangen.
 
-Öffnen Sie den Outline-Manager und klicken Sie unten links auf die Schaltfläche „+“, um zum Bildschirm zum Erstellen eines Servers zu gelangen.
-
-2. 
-
-Klicken Sie auf der Schaltfläche „DigitalOcean“ auf „Server erstellen“ und folgen Sie den Anweisungen in der App.
+2. Klicken Sie auf der Schaltfläche „DigitalOcean“ auf „Server erstellen“ und folgen Sie den Anweisungen in der App.
 
 ![Server erstellen](/images/create-DO-server.png)
 
 ## Einen Hostnamen für Ihren Server festlegen
 
-1. 
+1. Gehen Sie zu [Google Domains](https://domains.google.com/m/registrar/) und klicken Sie auf „Sichern Sie sich die perfekte Domain“.
 
-Gehen Sie zu [Google Domains](https://domains.google.com/m/registrar/) und klicken Sie auf „Sichern Sie sich die perfekte Domain“.
+2. Geben Sie in der Suchleiste einen Domainnamen ein und wählen Sie einen Namen aus. Für unser Beispiel nutzen wir `outlinedemo.info` als Namen.
 
-2. 
+3. Gehen Sie auf „Google Domains“ zum DNS-Tab. Tippen Sie unter „Benutzerdefinierte Ressourceneinträge“ im Feld „IPv4-Adresse“ die IP-Adresse Ihres Servers ein.
 
-Geben Sie in der Suchleiste einen Domainnamen ein und wählen Sie einen Namen aus. Für unser Beispiel nutzen wir `outlinedemo.info` als Namen.
-
-3. 
-
-Gehen Sie auf „Google Domains“ zum DNS-Tab. Tippen Sie unter „Benutzerdefinierte Ressourceneinträge“ im Feld „IPv4-Adresse“ die IP-Adresse Ihres Servers ein.
-
-4. 
-
-Gehen Sie im Outline-Manager zum Tab „Einstellungen“ für Ihren Server. Geben Sie unter „Hostname“ den von Ihnen gekauften Hostnamen ein und klicken SIe auf „Speichern“. Dadurch nutzen alle zukünftigen Zugriffsschlüssel anstelle der IP-Adresse des Servers diesen Hostnamen.
+4. Gehen Sie im Outline-Manager zum Tab „Einstellungen“ für Ihren Server. Geben Sie unter „Hostname“ den von Ihnen gekauften Hostnamen ein und klicken SIe auf „Speichern“. Dadurch nutzen alle zukünftigen Zugriffsschlüssel anstelle der IP-Adresse des Servers diesen Hostnamen.
 
 ![Den Hostnamen festlegen](/images/set-hostname.png)
 
 ## Die IP-Adresse des Servers ändern
 
-1. 
+1. Gehen Sie auf der Seite „Droplets“ bei DigitalOcean auf Ihren Server.
 
-Gehen Sie auf der Seite „Droplets“ bei DigitalOcean auf Ihren Server.
-
-2. 
-
-Klicken Sie rechts oben neben „Floating-IP-Adressen“ auf „Jetzt aktivieren“.
+2. Klicken Sie rechts oben neben „Floating-IP-Adressen“ auf „Jetzt aktivieren“.
 
 ![Floating-IP-Adresse aktivieren](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ Klicken Sie rechts oben neben „Floating-IP-Adressen“ auf „Jetzt aktivieren
 
 ![Floating-IP-Adresse zuweisen](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Gehen Sie auf Google Domains zurück auf den DNS-Tab.
 
-Gehen Sie auf Google Domains zurück auf den DNS-Tab.
+2. Ändern Sie wie zuvor die IP-Adresse. Ersetzen Sie sie diesmal durch die neue Floating-IP-Adresse. Bis zur Änderung könnte es 48 dauern; oft vergehen aber nur ein paar Minuten.
 
-2. 
-
-Ändern Sie wie zuvor die IP-Adresse. Ersetzen Sie sie diesmal durch die neue Floating-IP-Adresse. Bis zur Änderung könnte es 48 dauern; oft vergehen aber nur ein paar Minuten.
-
-3. 
-
-Gehen Sie auf [Das Online-DNS-Tool von Google](https://toolbox.googleapps.com/apps/dig/#A/) und geben SIe Ihren Domainnamen ein. Nachfolgend wird Ihnen angezeigt, wann die Änderung im letzten Schritt stattgefunden hat.
+3. Gehen Sie auf [Das Online-DNS-Tool von Google](https://toolbox.googleapps.com/apps/dig/#A/) und geben SIe Ihren Domainnamen ein. Nachfolgend wird Ihnen angezeigt, wann die Änderung im letzten Schritt stattgefunden hat.
 
 ![Suchen Sie mit dem DNS-Tool von Google nach Ihrer Domain.](/images/google-dns.png)
 

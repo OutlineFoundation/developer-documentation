@@ -25,13 +25,9 @@ local.
 Use o [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) (em inglês) para compilar
 o código Go em bibliotecas para Android e iOS.
 
-1. 
+1. Clone o repositório do SDK Outline:
 
-Clone o repositório do SDK Outline:
-
-2. 
-
-Crie os binários do Go Mobile com [`go
+2. Crie os binários do Go Mobile com [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) (em inglês):
 
 #### Adicionar suporte do Psiphon
@@ -45,17 +41,13 @@ rede deles. Isso pode requerer um contrato.
     - Adicione a configuração do Psiphon que você recebeu à seção `fallback` da sua
 configuração `SmartDialer`.
 
-    - 
-
-Crie a MobileProxy usando o sinalizador `-tags psiphon`:
+    - Crie a MobileProxy usando o sinalizador `-tags psiphon`:
 
 O sinalizador `-tags psiphon` é obrigatório, porque a base de código Psiphon é
 licenciada sob o GPL, que pode impor restrições de licença ao seu próprio
 código. Pode ser uma boa ideia adquirir uma licença especial com eles.
 
-3. 
-
-Gere bibliotecas para dispositivos móveis e adicione-as ao seu projeto:
+3. Gere bibliotecas para dispositivos móveis e adicione-as ao seu projeto:
 
 ### Android
 
@@ -73,18 +65,14 @@ Abra o app e inicie o proxy local `MobileProxy` dentro do tempo de execução do
 Você pode usar uma configuração de transporte estática ou o Proxy Inteligente para a
 seleção dinâmica de estratégias.
 
-- 
-
-**Configuração de transporte estática**: use a função `RunProxy` com uma configuração
+- **Configuração de transporte estática**: use a função `RunProxy` com uma configuração
 de transporte e endereço local.
 
 ### Android
 
 ### iOS
 
-- 
-
-**Proxy Inteligente**: o Proxy Inteligente seleciona dinamicamente estratégias de DNS e TLS
+- **Proxy Inteligente**: o Proxy Inteligente seleciona dinamicamente estratégias de DNS e TLS
 com base em domínios de teste especificados. Você precisa especificar a estratégia
 de configuração no formato YAML
 ([exemplo](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml), em inglês).

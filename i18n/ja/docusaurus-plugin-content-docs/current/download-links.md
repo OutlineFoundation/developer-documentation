@@ -7,51 +7,33 @@ Outline マネージャーと Outline クライアントは以下のリンクか
 
 ## Outline マネージャー
 
-- 
-
-**Windows:**
+- **Windows:**
 <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
 
-- 
-
-**MacOS:**
+- **MacOS:**
 <https://s3.amazonaws.com/outline-releases/manager/macos/stable/Outline-Manager.dmg>
 
-- 
-
-**Linux:**
+- **Linux:**
 <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
 ## Outline クライアント
 
-- 
-
-**Windows:**
+- **Windows:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
 
-- 
+- **MacOS:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
 
-**MacOS:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
-
-- 
-
-**Linux:** <https://support.google.com/outline/answer/15331527>
+- **Linux:** <https://support.google.com/outline/answer/15331527>
 
     - **Alternative:**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
 
-- 
-
-**ChromeOS:**
+- **ChromeOS:**
 <https://play.google.com/store/apps/details?id=org.outline.android.client>
 
-- 
+- **iOS:** <https://itunes.apple.com/us/app/outline-app/id1356177741>
 
-**iOS:** <https://itunes.apple.com/us/app/outline-app/id1356177741>
-
-- 
-
-**Android:**
+- **Android:**
 <https://play.google.com/store/apps/details?id=org.outline.android.client>
 
     - **Alternative1:**

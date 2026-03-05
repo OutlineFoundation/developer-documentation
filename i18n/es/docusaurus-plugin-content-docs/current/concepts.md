@@ -17,12 +17,8 @@ El sistema de Outline incluye dos roles principales: **proveedores de servicios*
 
 Las claves de acceso son las credenciales que permiten a los usuarios conectarse a un servidor de Outline. Contienen la información necesaria para que el cliente de Outline establezca una conexión segura. Hay dos tipos de claves de acceso:
 
-- 
-
-Las **claves de acceso estáticas** permiten codificar toda la información del servidor necesaria para establecer la conexión (dirección del servidor, puerto, contraseña y método de cifrado), de forma que la información de acceso no se modifique. Los usuarios copian esta clave en el cliente de Outline.
+- Las **claves de acceso estáticas** permiten codificar toda la información del servidor necesaria para establecer la conexión (dirección del servidor, puerto, contraseña y método de cifrado), de forma que la información de acceso no se modifique. Los usuarios copian esta clave en el cliente de Outline.
 
 Ejemplo:
 
-- 
-
-Las **claves de acceso dinámicas** permiten que un proveedor de servicios aloje la información de acceso al servidor de forma remota. Esto hace posible que los proveedores actualicen la configuración de su servidor (dirección del servidor, puerto, contraseñas y método de cifrado) sin necesidad de volver a emitir nuevas claves de acceso para los usuarios finales. Para acceder a documentación más detallada, consulta el artículo [Claves de acceso dinámicas](vpn/management/dynamic-access-keys).
+- Las **claves de acceso dinámicas** permiten que un proveedor de servicios aloje la información de acceso al servidor de forma remota. Esto hace posible que los proveedores actualicen la configuración de su servidor (dirección del servidor, puerto, contraseñas y método de cifrado) sin necesidad de volver a emitir nuevas claves de acceso para los usuarios finales. Para acceder a documentación más detallada, consulta el artículo [Claves de acceso dinámicas](vpn/management/dynamic-access-keys).

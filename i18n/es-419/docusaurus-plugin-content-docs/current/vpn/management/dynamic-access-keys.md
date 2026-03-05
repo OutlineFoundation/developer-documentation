@@ -84,9 +84,7 @@ Ejemplo:
 
 - **Puerto del servidor:** `8388`
 
-- 
-
-**Información del usuario:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`; se decodifica como
+- **Información del usuario:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`; se decodifica como
 [base64](https://en.wikipedia.org/wiki/Base64) con soluciones como [Codificar/Decodificar de la Caja de herramientas para administradores de Google](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **Método**: `chacha20-ietf-poly1305`

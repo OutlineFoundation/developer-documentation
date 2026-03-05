@@ -25,9 +25,7 @@ Zorg voordat je aan de slag gaat met Caddy dat je domeinnaam zo is ingesteld dat
 
 - **Stel A/AAAA-records in:** Log in bij je DNS-provider en stel de A- en AAAA-records van je domein zo in dat ze wijzen naar respectievelijk het IPv4- en IPv6-adres van je server.
 
-- 
-
-**Controleer DNS-records:** Controleer of je DNS-records juist zijn ingesteld met een autoritatieve lookup:
+- **Controleer DNS-records:** Controleer of je DNS-records juist zijn ingesteld met een autoritatieve lookup:
 
 ## Stap 3: Maak een aangepaste Caddy-build en voer deze uit
 

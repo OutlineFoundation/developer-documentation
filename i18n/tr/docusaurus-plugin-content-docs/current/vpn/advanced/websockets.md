@@ -22,13 +22,9 @@ Bu işlem için birkaç seçeneğiniz vardır. [Caddy](https://caddyserver.com/)
 
 Bu örnekte, hızlıca bir tünel oluşturmak için [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) kullanacağız. Bu sayede, gelen bağlantı noktalarını açmadan yerel web sunucunuzu internete açmak için uygun ve güvenli bir yöntemden yararlanabilirsiniz.
 
-1. 
+1. [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)'i indirip yükleyin.
 
-[`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)'i indirip yükleyin.
-
-2. 
-
-Yerel web sunucusu bağlantı noktanıza yönlendiren bir tünel oluşturun:
+2. Yerel web sunucusu bağlantı noktanıza yönlendiren bir tünel oluşturun:
 
 Cloudflare, WebSocket uç noktanıza erişmek ve TLS'yi otomatik olarak işlemek için bir alt alan adı
 `acids-iceland-davidson-lb.trycloudflare.com`) sağlar. Daha sonra ihtiyaç duyacağınız için bu alt alan adını not edin.

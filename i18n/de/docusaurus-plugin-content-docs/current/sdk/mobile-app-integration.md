@@ -19,13 +19,9 @@ In diesem Dokument wird beschrieben, wie Sie das Outline SDK in Ihre mobilen App
 
 Sie können [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) verwenden, um den Go-Code in Programmbibliotheken für Android und iOS zu kompilieren.
 
-1. 
+1. Klonen Sie das Outline SDK Repository:
 
-Klonen Sie das Outline SDK Repository:
-
-2. 
-
-Erstellen Sie die Go Mobile-Binärprogramme mit [`go
+2. Erstellen Sie die Go Mobile-Binärprogramme mit [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 
 #### Psiphon-Support hinzufügen
@@ -36,15 +32,11 @@ Sie können Support zur Nutzung des [Psiphon](https://psiphon.ca/)-Netzwerks hin
 
     - Fügen Sie die erhaltene Psiphon-Konfiguration in den `fallback`-Abschnitt Ihrer `SmartDialer`-Konfiguration ein.
 
-    - 
-
-Erstellen Sie den MobileProxy und verwenden Sie dazu das `-tags psiphon`-Flag:
+    - Erstellen Sie den MobileProxy und verwenden Sie dazu das `-tags psiphon`-Flag:
 
 Das `-tags psiphon`-Flag ist erforderlich, weil die Psiphon-Codebasis unter der GPL lizenziert ist, was zu Einschränkungen der Lizenz für Ihren eigenen Code führen kann. Sie sollten erwägen, eine spezielle Lizenz zu kaufen.
 
-3. 
-
-Erstellen Sie Bibliotheken für mobile Apps und fügen Sie diese zu Ihrem Projekt hinzu:
+3. Erstellen Sie Bibliotheken für mobile Apps und fügen Sie diese zu Ihrem Projekt hinzu:
 
 ### Android
 
@@ -59,17 +51,13 @@ Ziehen Sie das `out/mobileproxy.xcframework`-Bundle in das Xcode-Projekt. Weiter
 Initialisieren und starten Sie den lokalen Proxy `MobileProxy` während der Laufzeit Ihrer App.
 Sie können entweder eine statische Transportkonfiguration oder den Smart Proxy für eine dynamische Strategieauswahl verwenden.
 
-- 
-
-**Statische Transportkonfiguration**: Verwenden Sie die `RunProxy`-Funktion mit einer lokalen Adresse und Transportkonfiguration.
+- **Statische Transportkonfiguration**: Verwenden Sie die `RunProxy`-Funktion mit einer lokalen Adresse und Transportkonfiguration.
 
 ### Android
 
 ### iOS
 
-- 
-
-**Smart Proxy**: Der Smart Proxy wählt dynamisch DNS- und TLS-Strategien anhand der angegebenen Testdomains aus. Sie müssen die Konfigurationsstrategie im YAMLFormat festlegen ([Beispiel](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+- **Smart Proxy**: Der Smart Proxy wählt dynamisch DNS- und TLS-Strategien anhand der angegebenen Testdomains aus. Sie müssen die Konfigurationsstrategie im YAMLFormat festlegen ([Beispiel](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android
 

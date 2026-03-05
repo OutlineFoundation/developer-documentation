@@ -27,66 +27,42 @@ e qualsiasi registrar di domini (ad esempio
 
 ## Istruzioni
 
-1. 
+1. L'elenco seguente riassume i passaggi per ruotare l'indirizzo IP di un server:
 
-L'elenco seguente riassume i passaggi per ruotare l'indirizzo IP di un server:
+2. Acquista un nome di dominio.
 
-2. 
+3. Indirizza il nome di dominio all'indirizzo IP del nostro server.
 
-Acquista un nome di dominio.
+4. Emetti delle chiavi di accesso utilizzando il nome di dominio.
 
-3. 
+5. Assegna un IP mobile alla droplet del server.
 
-Indirizza il nome di dominio all'indirizzo IP del nostro server.
-
-4. 
-
-Emetti delle chiavi di accesso utilizzando il nome di dominio.
-
-5. 
-
-Assegna un IP mobile alla droplet del server.
-
-6. 
-
-Cambia il nome di dominio in modo che rimandi al nuovo indirizzo IP.
+6. Cambia il nome di dominio in modo che rimandi al nuovo indirizzo IP.
 
 ## Crea un server Outline su DigitalOcean
 
 Se disponi di un server DigitalOcean in esecuzione, vai al passaggio successivo.
 
-1. 
-
-Apri Outline Manager e fai clic su "+" in basso a sinistra per entrare nella schermata
+1. Apri Outline Manager e fai clic su "+" in basso a sinistra per entrare nella schermata
 di creazione del server.
 
-2. 
-
-Fai clic su "Crea server" sul pulsante "DigitalOcean" e segui le istruzioni
+2. Fai clic su "Crea server" sul pulsante "DigitalOcean" e segui le istruzioni
 nell'app.
 
 ![Crea server](/images/create-DO-server.png)
 
 ## Crea un nome host per il tuo server
 
-1. 
-
-Vai su [Google Domains](https://domains.google.com/m/registrar/) e
+1. Vai su [Google Domains](https://domains.google.com/m/registrar/) e
 fai clic su "Trova il dominio perfetto".
 
-2. 
-
-Inserisci un nome di dominio nella barra di ricerca e scegli un nome. Abbiamo usato
+2. Inserisci un nome di dominio nella barra di ricerca e scegli un nome. Abbiamo usato
 `outlinedemo.info` come esempio.
 
-3. 
-
-Vai alla scheda DNS su Google Domains. In "Record di risorse personalizzati",
+3. Vai alla scheda DNS su Google Domains. In "Record di risorse personalizzati",
 digita l'indirizzo IP del tuo server nel campo contrassegnato "Indirizzo IPV4".
 
-4. 
-
-Vai alla scheda "Impostazioni" del tuo server in Outline Manager. In "Nome host",
+4. Vai alla scheda "Impostazioni" del tuo server in Outline Manager. In "Nome host",
 digita il nome host che hai acquistato e fai clic su "SALVA". Ciò farà sì che
 tutte le future chiavi di accesso utilizzino questo nome host anziché l'indirizzo IP del server.
 
@@ -94,13 +70,9 @@ tutte le future chiavi di accesso utilizzino questo nome host anziché l'indiriz
 
 ## Cambia l'indirizzo IP del server
 
-1. 
+1. Accedi al tuo server nella pagina "Droplets" di DigitalOcean.
 
-Accedi al tuo server nella pagina "Droplets" di DigitalOcean.
-
-2. 
-
-Fai clic su "Enable Now" (Abilita ora) in alto a destra nella finestra accanto a "Floating IP" (IP mobile).
+2. Fai clic su "Enable Now" (Abilita ora) in alto a destra nella finestra accanto a "Floating IP" (IP mobile).
 
 ![Abilita IP mobile](/images/floating-ip-DO.png)
 
@@ -108,19 +80,13 @@ Fai clic su "Enable Now" (Abilita ora) in alto a destra nella finestra accanto a
 
 ![Assegna IP mobile](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Torna alla scheda DNS su Google Domains.
 
-Torna alla scheda DNS su Google Domains.
-
-2. 
-
-Cambia l'indirizzo IP come prima, ma questa volta con il nuovo indirizzo IP
+2. Cambia l'indirizzo IP come prima, ma questa volta con il nuovo indirizzo IP
 mobile. L'operazione potrebbe richiedere fino a 48 ore, ma spesso bastano
 solo pochi minuti.
 
-3. 
-
-Vai allo [strumento DNS online di Google](https://toolbox.googleapps.com/apps/dig/#A/)
+3. Vai allo [strumento DNS online di Google](https://toolbox.googleapps.com/apps/dig/#A/)
 e inserisci il tuo nome di dominio per vedere quando è avvenuta la modifica nell'ultimo
 passaggio.
 

@@ -24,18 +24,14 @@ Las claves de acceso son las credenciales que les permiten a los usuarios conect
 Outline. Contienen la información necesaria para que el cliente de Outline
 establezca una conexión segura. Existen dos tipos de claves de acceso:
 
-- 
-
-Las **claves de acceso estáticas**, que codifican toda la información del servidor necesaria para conectarse
+- Las **claves de acceso estáticas**, que codifican toda la información del servidor necesaria para conectarse
 (dirección del servidor, puerto, contraseña y método de encriptación), lo que impide
 que la información se modifique. Los usuarios pegan esta clave en el cliente de
 Outline.
 
 Ejemplo:
 
-- 
-
-Las **claves de acceso dinámicas**, que permiten que un proveedor de servicios aloje la información de acceso
+- Las **claves de acceso dinámicas**, que permiten que un proveedor de servicios aloje la información de acceso
 del servidor de forma remota. Esto permite que los proveedores actualicen su configuración del servidor
 (dirección del servidor, puerto, contraseña y método de encriptación) sin
 emitir nuevas claves de acceso para los usuarios finales. Para ver una documentación más detallada, consulta

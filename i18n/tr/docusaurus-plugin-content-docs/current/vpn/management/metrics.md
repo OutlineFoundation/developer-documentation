@@ -9,58 +9,40 @@ Outline, [Prometheus](https://prometheus.io/) aracılığıyla ayrıntılı perf
 
 ## Ön hazırlık
 
-- 
+- **Prometheus'un etkinleştirildiği Outline sunucusu**: Outline sunucunuzda Prometheus metriklerinin etkinleştirildiğinden emin olun. (Genellikle varsayılan yapılandırma bu şekildedir.)
 
-**Prometheus'un etkinleştirildiği Outline sunucusu**: Outline sunucunuzda Prometheus metriklerinin etkinleştirildiğinden emin olun. (Genellikle varsayılan yapılandırma bu şekildedir.)
-
-- 
-
-**Sunucunuza SSH erişimi**: Prometheus bağlantı noktasını yönlendirmek için SSH erişimi gerekir.
+- **Sunucunuza SSH erişimi**: Prometheus bağlantı noktasını yönlendirmek için SSH erişimi gerekir.
 
 ## Talimatlar
 
-1. 
-
-**Prometheus bağlantı noktasını yönlendirme**
+1. **Prometheus bağlantı noktasını yönlendirme**
 
 SSH aracılığıyla sunucunuza bağlanın ve 9090 bağlantı noktasını yönlendirin:
 
-2. 
-
-**Prometheus web arayüzüne erişme**
+2. **Prometheus web arayüzüne erişme**
 
 Web tarayıcınızı açıp şu adrese gidin: <http://localhost:9090/graph>
 Prometheus metriklerini sorgulama
 
-3. 
-
-**İlgilendiğiniz metrikleri almak için PromQL sorgularını kullanın.**
+3. **İlgilendiğiniz metrikleri almak için PromQL sorgularını kullanın.**
 
 ### Örnek PromQL sorguları
 
 #### Kullanım
 
-- 
-
-**Veri baytları (erişim anahtarı, protokol ve yöne göre):**
+- **Veri baytları (erişim anahtarı, protokol ve yöne göre):**
 
 `increase(shadowsocks_data_bytes[1d])`
 
-- 
-
-**Veri baytları (Erişim anahtarına göre toplanır):**
+- **Veri baytları (Erişim anahtarına göre toplanır):**
 
 `sum(increase(shadowsocks_data_bytes[1d])) by (access_key)`
 
-- 
-
-**Veri baytları (veri sınırı hesaplaması için):**
+- **Veri baytları (veri sınırı hesaplaması için):**
 
 `sum(increase(shadowsocks_data_bytes{dir=~"c<p|p>t"}[30d])) by (access_key)`
 
-- 
-
-**Veri baytları (konum, protokol ve yöne göre):**
+- **Veri baytları (konum, protokol ve yöne göre):**
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
@@ -70,63 +52,45 @@ Prometheus metriklerini sorgulama
 
 #### TCP bağlantıları
 
-- 
-
-**TCP bağlantıları (erişim anahtarı, konum ve duruma göre):**
+- **TCP bağlantıları (erişim anahtarı, konum ve duruma göre):**
 
 `increase(shadowsocks_tcp_connections_closed[1d])`
 
-- 
-
-**TCP bağlantıları (konuma göre):**
+- **TCP bağlantıları (konuma göre):**
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
 #### UDP
 
-- 
-
-**UDP paketleri (konum ve duruma göre):**
+- **UDP paketleri (konum ve duruma göre):**
 
 `increase(shadowsocks_udp_packets_from_client_per_location[1d])`
 
-- 
-
-**UDP ilişkilendirmeleri (Kategoriye göre ayırma yok):**
+- **UDP ilişkilendirmeleri (Kategoriye göre ayırma yok):**
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
 #### Performans
 
-- 
-
-**CPU kullanımı (işleme göre):**
+- **CPU kullanımı (işleme göre):**
 
 `rate(process_cpu_seconds_total[10m])`
 
-- 
-
-**Hafıza (işleme göre):**
+- **Hafıza (işleme göre):**
 
 `process_virtual_memory_bytes`
 
 #### Derleme bilgileri
 
-- 
-
-**Prometheus:**
+- **Prometheus:**
 
 `prometheus_build_info`
 
-- 
-
-**outline-ss-server:**
+- **outline-ss-server:**
 
 `shadowsocks_build_info`
 
-- 
-
-**Node.js:**
+- **Node.js:**
 
 `nodejs_version_info`
 

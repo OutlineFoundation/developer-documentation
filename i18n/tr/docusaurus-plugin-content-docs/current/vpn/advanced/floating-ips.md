@@ -15,73 +15,45 @@ Somut örnekler verebilmek için DigitalOcean ve Google Domains'i kullanacağız
 
 ## Talimatlar
 
-1. 
+1. Aşağıdaki listede, bir sunucunun IP adresini değiştirme adımları özetlenmiştir:
 
-Aşağıdaki listede, bir sunucunun IP adresini değiştirme adımları özetlenmiştir:
+2. Alan adı satın alın.
 
-2. 
+3. Alan adını sunucumuzun IP adresine yönlendirin.
 
-Alan adı satın alın.
+4. Alan adını kullanarak erişim anahtarları oluşturun.
 
-3. 
+5. Sunucunun Droplet'ine bir kayan IP atayın.
 
-Alan adını sunucumuzun IP adresine yönlendirin.
-
-4. 
-
-Alan adını kullanarak erişim anahtarları oluşturun.
-
-5. 
-
-Sunucunun Droplet'ine bir kayan IP atayın.
-
-6. 
-
-Alan adını yeni IP adresine yönlendirin.
+6. Alan adını yeni IP adresine yönlendirin.
 
 ## DigitalOcean'da Outline sunucusu oluşturma
 
 Çalışan bir DigitalOcean sunucunuz varsa sonraki adıma geçin.
 
-1. 
+1. Outline Manager'ı açın ve sol alttaki "+" simgesini tıklayarak sunucu oluşturma ekranını açın.
 
-Outline Manager'ı açın ve sol alttaki "+" simgesini tıklayarak sunucu oluşturma ekranını açın.
-
-2. 
-
-"DigitalOcean" bölümündeki "Sunucu oluştur" düğmesini tıklayın ve uygulamadaki talimatları izleyin.
+2. "DigitalOcean" bölümündeki "Sunucu oluştur" düğmesini tıklayın ve uygulamadaki talimatları izleyin.
 
 ![Sunucu oluştur](/images/create-DO-server.png)
 
 ## Sunucunuz için ana makine adı oluşturma
 
-1. 
+1. [Google Domains](https://domains.google.com/m/registrar/)'e gidin ve "Mükemmel alanı bul"u tıklayın.
 
-[Google Domains](https://domains.google.com/m/registrar/)'e gidin ve "Mükemmel alanı bul"u tıklayın.
+2. Arama çubuğuna bir alan adı yazın ve bir adı seçin. Örnek olarak `outlinedemo.info` adını kullandık.
 
-2. 
+3. Google Domains'de DNS sekmesine gidin. "Özel kaynak kayıtları" bölümünde, "IPV4 adresi" adlı alana sunucunuzun IP adresini yazın.
 
-Arama çubuğuna bir alan adı yazın ve bir adı seçin. Örnek olarak `outlinedemo.info` adını kullandık.
-
-3. 
-
-Google Domains'de DNS sekmesine gidin. "Özel kaynak kayıtları" bölümünde, "IPV4 adresi" adlı alana sunucunuzun IP adresini yazın.
-
-4. 
-
-Outline Manager'da sunucunuzun "Ayarlar" sekmesine gidin. "Ana makine adı" bölümünde, satın aldığınız ana makine adını yazın ve "KAYDET"i tıklayın. Bu sayede, gelecekteki tüm erişim anahtarları, sunucunun IP adresi yerine bu ana makine adını kullanacak.
+4. Outline Manager'da sunucunuzun "Ayarlar" sekmesine gidin. "Ana makine adı" bölümünde, satın aldığınız ana makine adını yazın ve "KAYDET"i tıklayın. Bu sayede, gelecekteki tüm erişim anahtarları, sunucunun IP adresi yerine bu ana makine adını kullanacak.
 
 ![Ana makine adını belirleme](/images/set-hostname.png)
 
 ## Sunucunun IP adresini değiştirme
 
-1. 
+1. DigitalOcean'ın "Droplets" (Droplet'ler) sayfasında sunucunuza gidin.
 
-DigitalOcean'ın "Droplets" (Droplet'ler) sayfasında sunucunuza gidin.
-
-2. 
-
-Pencerenin sağ üst köşesinde, "Floating IP"nin (Kayan IP) yanındaki "Enable Now"ı (Şimdi etkinleştir) tıklayın.
+2. Pencerenin sağ üst köşesinde, "Floating IP"nin (Kayan IP) yanındaki "Enable Now"ı (Şimdi etkinleştir) tıklayın.
 
 ![Kayan IP&#39;yi etkinleştirme](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ Pencerenin sağ üst köşesinde, "Floating IP"nin (Kayan IP) yanındaki "Enable
 
 ![Kayan IP atama](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Google Domains'deki DNS sekmesine dönün.
 
-Google Domains'deki DNS sekmesine dönün.
+2. Önceden olduğu gibi IP adresini değiştirin ama bu sefer yeni kayan IP adresini kullanın. Etkinleşmesi 48 saati bulabilir ama genellikle yalnızca birkaç dakika sürer.
 
-2. 
-
-Önceden olduğu gibi IP adresini değiştirin ama bu sefer yeni kayan IP adresini kullanın. Etkinleşmesi 48 saati bulabilir ama genellikle yalnızca birkaç dakika sürer.
-
-3. 
-
-[Google'ın online DNS aracına](https://toolbox.googleapps.com/apps/dig/#A/) gidin ve son adımdaki değişikliğin ne zaman yapıldığını görmek için alan adınızı girin.
+3. [Google'ın online DNS aracına](https://toolbox.googleapps.com/apps/dig/#A/) gidin ve son adımdaki değişikliğin ne zaman yapıldığını görmek için alan adınızı girin.
 
 ![Google DNS aracında alanınızı arama](/images/google-dns.png)
 

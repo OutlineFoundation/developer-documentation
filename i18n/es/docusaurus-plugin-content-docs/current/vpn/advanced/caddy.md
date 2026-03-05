@@ -25,9 +25,7 @@ Antes de empezar a usar Caddy, comprueba que el nombre de tu dominio se haya con
 
 - **Configura registros A o AAAA:** inicia sesión en tu proveedor de DNS y configura registros A y AAAA para que tu dominio dirija a las direcciones IPv4 e IPv6 de tu servidor, respectivamente.
 
-- 
-
-**Verifica los registros DNS:** verifica que tus registros DNS estén correctamente configurados mediante una búsqueda autorizada:
+- **Verifica los registros DNS:** verifica que tus registros DNS estén correctamente configurados mediante una búsqueda autorizada:
 
 ## Paso 3: Desarrollo y ejecución de una compilación personalizada de Caddy
 

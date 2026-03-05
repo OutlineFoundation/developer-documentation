@@ -38,13 +38,9 @@ Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-net
 في إنشاء اتصال نفَقي سريع. ويوفِّر هذا طريقة سهلة وآمنة للسماح بالوصول إلى
 خادم الويب المحلي بدون فتح منافذ على الشبكة للاتصالات الواردة.
 
-1. 
+1. يجب تنزيل وتثبيت [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-يجب تنزيل وتثبيت [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-عليك إنشاء اتصال نفَقي يشير إلى منفذ خادم الويب المحلي:
+2. عليك إنشاء اتصال نفَقي يشير إلى منفذ خادم الويب المحلي:
 
 سيقدّم Cloudflare نطاقًا فرعيًا (مثل:
 `acids-iceland-davidson-lb.trycloudflare.com`) للوصول إلى نقطة نهاية بروتوكول WebSocket

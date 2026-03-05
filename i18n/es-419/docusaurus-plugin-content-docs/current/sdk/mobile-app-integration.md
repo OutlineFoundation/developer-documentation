@@ -26,13 +26,9 @@ local.
 Usa [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) para compilar
 el código de Go en bibliotecas para iOS y Android.
 
-1. 
+1. Clona el repositorio del SDK de Outline:
 
-Clona el repositorio del SDK de Outline:
-
-2. 
-
-Compila los objetos binarios de Go para dispositivos móviles con [`go
+2. Compila los objetos binarios de Go para dispositivos móviles con [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 
 #### Cómo agregar compatibilidad con Psiphon
@@ -46,17 +42,13 @@ su red (lo que puede requerir la celebración de un contrato).
     - Agrega el archivo de configuración de Psiphon a la sección `fallback` de tu
 archivo de configuración `SmartDialer`.
 
-    - 
-
-Crea el MobileProxy con la marca `-tags psiphon`:
+    - Crea el MobileProxy con la marca `-tags psiphon`:
 
 La marca `-tags psiphon` es obligatoria porque la base de código de Psiphon tiene
 una licencia de GPL, que puede imponer restricciones de licencia en tu propio
 código. Te recomendamos que obtengas una licencia especial de Psiphon.
 
-3. 
-
-Genera bibliotecas para dispositivos móviles y agrégalas a tu proyecto:
+3. Genera bibliotecas para dispositivos móviles y agrégalas a tu proyecto:
 
 ### Android
 
@@ -74,18 +66,14 @@ Inicializa e inicia el proxy local `MobileProxy` en el entorno de ejecución de 
 Puedes usar una configuración de transporte estático o el proxy inteligente para
 la selección de una estrategia dinámica.
 
-- 
-
-**Configuración de transporte estático**: Usa la función `RunProxy` con una dirección
+- **Configuración de transporte estático**: Usa la función `RunProxy` con una dirección
 local y una configuración de transporte.
 
 ### Android
 
 ### iOS
 
-- 
-
-**Smart Proxy**: Smart Proxy selecciona de forma dinámica estrategias de DNS y TLS
+- **Smart Proxy**: Smart Proxy selecciona de forma dinámica estrategias de DNS y TLS
 en función de dominios de prueba especificados. Debes especificar la estrategia de
 configuración en formato YAML
 ([ejemplo](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).

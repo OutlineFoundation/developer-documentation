@@ -31,13 +31,9 @@ Dans cet exemple, nous allons utiliser
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)
 pour créer un tunnel rapide. C'est un moyen pratique et sécurisé de révéler votre serveur Web local sans ouvrir de ports d'entrée.
 
-1. 
+1. Téléchargez et installez [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-Téléchargez et installez [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-Créez un tunnel pointant vers le port de votre serveur Web local :
+2. Créez un tunnel pointant vers le port de votre serveur Web local :
 
 Cloudflare fournira un sous-domaine (exemple :
 `acids-iceland-davidson-lb.trycloudflare.com`) pour accéder à votre point de terminaison WebSocket et gérer automatiquement le protocole TLS. Notez le nom de ce sous-domaine, car vous en aurez besoin ultérieurement.

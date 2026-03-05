@@ -63,9 +63,7 @@ Outline ให้บริการคีย์การเข้าถึง 2 
 
 - **พอร์ตของเซิร์ฟเวอร์:** `8388`
 
-- 
-
-**ข้อมูลผู้ใช้:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` ถอดรหัสเป็น [base64](https://en.wikipedia.org/wiki/Base64) โดยใช้เครื่องมืออย่าง [กล่องเครื่องมือของ Google Admin สำหรับเข้ารหัส/ถอดรหัส](https://toolbox.googleapps.com/apps/encode_decode/)
+- **ข้อมูลผู้ใช้:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` ถอดรหัสเป็น [base64](https://en.wikipedia.org/wiki/Base64) โดยใช้เครื่องมืออย่าง [กล่องเครื่องมือของ Google Admin สำหรับเข้ารหัส/ถอดรหัส](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **เมธอด**: `chacha20-ietf-poly1305`
 

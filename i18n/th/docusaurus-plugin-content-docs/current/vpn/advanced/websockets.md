@@ -23,13 +23,9 @@ sidebar_label: "WebSockets"
 
 ในตัวอย่างนี้ เราจะสาธิตการใช้ [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) เพื่อสร้างอุโมงค์ข้อมูลอย่างรวดเร็ว ซึ่งเป็นวิธีที่สะดวกและปลอดภัยในการเปิดใช้งานเว็บเซิร์ฟเวอร์ในเครื่องโดยไม่ต้องเปิดพอร์ตขาเข้า
 
-1. 
+1. ดาวน์โหลดและติดตั้ง [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)
 
-ดาวน์โหลดและติดตั้ง [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)
-
-2. 
-
-สร้างอุโมงค์ข้อมูลที่ชี้ไปยังพอร์ตเว็บเซิร์ฟเวอร์ในเครื่อง โดยทำดังนี้
+2. สร้างอุโมงค์ข้อมูลที่ชี้ไปยังพอร์ตเว็บเซิร์ฟเวอร์ในเครื่อง โดยทำดังนี้
 
 Cloudflare จะจัดหาโดเมนย่อย (เช่น
 `acids-iceland-davidson-lb.trycloudflare.com`) เพื่อเข้าถึงปลายทาง WebSocket และจัดการ TLS โดยอัตโนมัติ โปรดจดโดเมนย่อยนี้ไว้เนื่องจากคุณจะต้องใช้ในภายหลัง

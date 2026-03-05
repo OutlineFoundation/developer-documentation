@@ -63,9 +63,7 @@ Outline 用戶端 1.15.0 以上版本。**
 
 - **Server Port：**`8388`
 
-- 
-
-**User Info：**`Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`；可用 [Google Admin Toolbox 編碼/解碼](https://toolbox.googleapps.com/apps/encode_decode/)之類工具進行 [base64](https://en.wikipedia.org/wiki/Base64) 解碼
+- **User Info：**`Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`；可用 [Google Admin Toolbox 編碼/解碼](https://toolbox.googleapps.com/apps/encode_decode/)之類工具進行 [base64](https://en.wikipedia.org/wiki/Base64) 解碼
 
     - **Method**：`chacha20-ietf-poly1305`
 

@@ -15,73 +15,45 @@ We gebruiken DigitalOcean en Google Domains om een concreet voorbeeld te geven, 
 
 ## Instructies
 
-1. 
+1. Dit zijn de stappen om het IP-adres van een server te roteren:
 
-Dit zijn de stappen om het IP-adres van een server te roteren:
+2. Koop een domeinnaam.
 
-2. 
+3. Stel in dat de domeinnaam naar het IP-adres van onze server verwijst.
 
-Koop een domeinnaam.
+4. Geef toegangssleutels uit met de domeinnaam.
 
-3. 
+5. Wijs een zwevend IP-adres toe aan de Droplet van de server.
 
-Stel in dat de domeinnaam naar het IP-adres van onze server verwijst.
-
-4. 
-
-Geef toegangssleutels uit met de domeinnaam.
-
-5. 
-
-Wijs een zwevend IP-adres toe aan de Droplet van de server.
-
-6. 
-
-Wijzig de domeinnaam zodat deze verwijst naar het nieuwe IP-adres.
+6. Wijzig de domeinnaam zodat deze verwijst naar het nieuwe IP-adres.
 
 ## Een Outline-server maken via DigitalOcean
 
 Als je een bestaande DigitalOcean-server hebt, sla je deze stap over.
 
-1. 
+1. Open Outline Manager en klik linksonder op het plusje (+) om het scherm te openen waarin je servers maakt.
 
-Open Outline Manager en klik linksonder op het plusje (+) om het scherm te openen waarin je servers maakt.
-
-2. 
-
-Klik bij de knop DigitalOcean op Server maken en volg de aanwijzingen in de app.
+2. Klik bij de knop DigitalOcean op Server maken en volg de aanwijzingen in de app.
 
 ![Server maken](/images/create-DO-server.png)
 
 ## Een hostnaam maken voor je server
 
-1. 
+1. Ga naar [Google Domains](https://domains.google.com/m/registrar/) en klik op Perfecte zoeken.
 
-Ga naar [Google Domains](https://domains.google.com/m/registrar/) en klik op Perfecte zoeken.
+2. Voer in de zoekbalk een domeinnaam in en kies een naam. We gebruiken `outlinedemo.info` als voorbeeld.
 
-2. 
+3. Ga in Google Domains naar het tabblad DNS. Typ onder Aangepaste resourcerecords het IP-adres van je server in het veld IPv4-adres.
 
-Voer in de zoekbalk een domeinnaam in en kies een naam. We gebruiken `outlinedemo.info` als voorbeeld.
-
-3. 
-
-Ga in Google Domains naar het tabblad DNS. Typ onder Aangepaste resourcerecords het IP-adres van je server in het veld IPv4-adres.
-
-4. 
-
-Ga in Outline Manager naar het tabblad Instellingen voor je server. Typ onder Hostnaam de hostnaam die je hebt gekocht en klik op OPSLAAN. Alle toekomstige toegangssleutels gebruiken dan deze hostnaam in plaats van het IP-adres van de server.
+4. Ga in Outline Manager naar het tabblad Instellingen voor je server. Typ onder Hostnaam de hostnaam die je hebt gekocht en klik op OPSLAAN. Alle toekomstige toegangssleutels gebruiken dan deze hostnaam in plaats van het IP-adres van de server.
 
 ![De hostnaam instellen](/images/set-hostname.png)
 
 ## Het IP-adres van de server wijzigen
 
-1. 
+1. Ga op de pagina Droplets van DigitalOcean naar je server.
 
-Ga op de pagina Droplets van DigitalOcean naar je server.
-
-2. 
-
-Klik rechtsboven, naast Floating IP (Zwevend IP-adres), op Enable Now (Nu aanzetten).
+2. Klik rechtsboven, naast Floating IP (Zwevend IP-adres), op Enable Now (Nu aanzetten).
 
 ![Zwevend IP-adres aanzetten](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ Klik rechtsboven, naast Floating IP (Zwevend IP-adres), op Enable Now (Nu aanzet
 
 ![Zwevend IP-adres toewijzen](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Ga terug naar het tabblad DNS in Google Domains.
 
-Ga terug naar het tabblad DNS in Google Domains.
+2. Wijzig het IP-adres op dezelfde manier als eerst, maar voeg dit keer het nieuwe zwevende IP-adres toe. Het kan 48 uur duren voordat dit is doorgevoerd, maar meestal duurt het maar een paar minuten.
 
-2. 
-
-Wijzig het IP-adres op dezelfde manier als eerst, maar voeg dit keer het nieuwe zwevende IP-adres toe. Het kan 48 uur duren voordat dit is doorgevoerd, maar meestal duurt het maar een paar minuten.
-
-3. 
-
-Ga naar de [online DNS-tool van Google](https://toolbox.googleapps.com/apps/dig/#A/) en voer je domeinnaam in om te controleren of de wijziging in de laatste stap is doorgevoerd.
+3. Ga naar de [online DNS-tool van Google](https://toolbox.googleapps.com/apps/dig/#A/) en voer je domeinnaam in om te controleren of de wijziging in de laatste stap is doorgevoerd.
 
 ![Je domein zoeken in de DNS-tool van Google](/images/google-dns.png)
 

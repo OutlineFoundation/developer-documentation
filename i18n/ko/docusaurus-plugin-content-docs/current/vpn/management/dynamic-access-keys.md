@@ -63,9 +63,7 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 
 - **서버 포트:** `8388`
 
-- 
-
-**사용자 정보:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` [Google 관리 콘솔 도구 상자 인코딩/디코딩](https://toolbox.googleapps.com/apps/encode_decode/)과 같은 도구를 사용하여 [base64](https://en.wikipedia.org/wiki/Base64)로 디코딩됨
+- **사용자 정보:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` [Google 관리 콘솔 도구 상자 인코딩/디코딩](https://toolbox.googleapps.com/apps/encode_decode/)과 같은 도구를 사용하여 [base64](https://en.wikipedia.org/wiki/Base64)로 디코딩됨
 
     - **방법**: `chacha20-ietf-poly1305`
 

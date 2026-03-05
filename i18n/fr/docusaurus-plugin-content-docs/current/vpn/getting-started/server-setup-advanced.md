@@ -13,10 +13,6 @@ Ce guide vous explique comment configurer un serveur Outline pour fournir un acc
 
 ## Instructions
 
-1. 
+1. Téléchargez et exécutez le script d'installation d'Outline.
 
-Téléchargez et exécutez le script d'installation d'Outline.
-
-2. 
-
-Suivez les instructions à l'écran.
+2. Suivez les instructions à l'écran.

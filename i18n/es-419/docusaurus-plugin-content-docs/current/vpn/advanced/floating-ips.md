@@ -28,66 +28,42 @@ y cualquier registrador de nombres (p. ej.,
 
 ## Instrucciones
 
-1. 
+1. En la siguiente lista, se resumen los pasos para rotar las direcciones IP de un servidor:
 
-En la siguiente lista, se resumen los pasos para rotar las direcciones IP de un servidor:
+2. Compra un nombre de dominio.
 
-2. 
+3. Dirige el nombre del dominio a la dirección IP de nuestro servidor.
 
-Compra un nombre de dominio.
+4. Proporciona claves de acceso usando ese nombre.
 
-3. 
+5. Asigna una IP flotante al Droplet del servidor.
 
-Dirige el nombre del dominio a la dirección IP de nuestro servidor.
-
-4. 
-
-Proporciona claves de acceso usando ese nombre.
-
-5. 
-
-Asigna una IP flotante al Droplet del servidor.
-
-6. 
-
-Cambia el nombre de dominio para que dirija a la nueva dirección IP.
+6. Cambia el nombre de dominio para que dirija a la nueva dirección IP.
 
 ## Crea un servidor de Outline en DigitalOcean
 
 Si tienes un servidor de DigitalOcean en ejecución, avanza al próximo paso.
 
-1. 
-
-Abre Outline Manager y haz clic en "+" en la parte inferior izquierda para ingresar a la pantalla
+1. Abre Outline Manager y haz clic en "+" en la parte inferior izquierda para ingresar a la pantalla
 de creación del servidor.
 
-2. 
-
-Haz clic en "Crear servidor" en el botón "DigitalOcean" y sigue las instrucciones
+2. Haz clic en "Crear servidor" en el botón "DigitalOcean" y sigue las instrucciones
 de la app.
 
 ![Crear servidor](/images/create-DO-server.png)
 
 ## Crea un nombre de host para tu servidor
 
-1. 
-
-Navega a [Google Domains](https://domains.google.com/m/registrar/) y
+1. Navega a [Google Domains](https://domains.google.com/m/registrar/) y
 haz clic en "Buscar el dominio perfecto".
 
-2. 
-
-Ingresa un nombre de dominio en la barra de búsqueda y elige un nombre. Usamos
+2. Ingresa un nombre de dominio en la barra de búsqueda y elige un nombre. Usamos
 `outlinedemo.info` como ejemplo.
 
-3. 
-
-Navega a la pestaña DNS en Google Domains. En "Registros de recursos personalizados",
+3. Navega a la pestaña DNS en Google Domains. En "Registros de recursos personalizados",
 escribe la dirección IP de tu servidor en el campo marcado "Dirección IPV4".
 
-4. 
-
-Navega a la pestaña "Configuración" de tu servidor en Outline Manager. En
+4. Navega a la pestaña "Configuración" de tu servidor en Outline Manager. En
 "Nombre de host", escribe el nombre que compraste y haz clic en "GUARDAR". Esto hará
 que todas las claves de acceso futuras usen este nombre de host en lugar de la dirección IP del servidor.
 
@@ -95,13 +71,9 @@ que todas las claves de acceso futuras usen este nombre de host en lugar de la d
 
 ## Cambia la dirección IP del servidor
 
-1. 
+1. Navega a tu servidor en la página "Droplets" de DigitalOcean.
 
-Navega a tu servidor en la página "Droplets" de DigitalOcean.
-
-2. 
-
-Haz clic en "Enable Now" en la esquina superior derecha de la ventana junto a "Floating IP".
+2. Haz clic en "Enable Now" en la esquina superior derecha de la ventana junto a "Floating IP".
 
 ![Habilita la IP flotante](/images/floating-ip-DO.png)
 
@@ -109,18 +81,12 @@ Haz clic en "Enable Now" en la esquina superior derecha de la ventana junto a "F
 
 ![Asigna una IP flotante](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Regresa a la pestaña DNS en Google Domains.
 
-Regresa a la pestaña DNS en Google Domains.
-
-2. 
-
-Cambia la dirección IP como antes, pero esta vez con la nueva dirección IP
+2. Cambia la dirección IP como antes, pero esta vez con la nueva dirección IP
 flotante. Este proceso puede tardar hasta 48 horas en realizarse, pero, a menudo, solo toma unos minutos.
 
-3. 
-
-Navega a la [herramienta del DNS en línea de Google](https://toolbox.googleapps.com/apps/dig/#A/)
+3. Navega a la [herramienta del DNS en línea de Google](https://toolbox.googleapps.com/apps/dig/#A/)
 y, allí, ingresa tu nombre de dominio para ver cuándo se realizó el cambio en el último
 paso.
 

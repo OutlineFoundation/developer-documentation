@@ -21,13 +21,9 @@ Outline 客户端 1.15.0 及以上版本。**
 
 在本示例中，我们将演示如何使用 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) 创建快速隧道。这样，您就可以安全便捷地公开本地 Web 服务器，而无需打开入站端口。
 
-1. 
+1. 下载并安装 [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)。
 
-下载并安装 [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)。
-
-2. 
-
-创建指向本地 Web 服务器端口的隧道：
+2. 创建指向本地 Web 服务器端口的隧道：
 
 Cloudflare 将提供一个子网域（例如 `acids-iceland-davidson-lb.trycloudflare.com`）来访问您的 WebSocket 端点并自动处理 TLS。记下此子网域，您稍后需要用到它。
 

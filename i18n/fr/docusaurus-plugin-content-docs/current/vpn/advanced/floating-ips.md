@@ -15,73 +15,45 @@ Nous allons vous présenter un exemple concret en utilisant DigitalOcean et Goog
 
 ## Instructions
 
-1. 
+1. Voici la liste des étapes à suivre pour effectuer une rotation de l'adresse IP d'un serveur :
 
-Voici la liste des étapes à suivre pour effectuer une rotation de l'adresse IP d'un serveur :
+2. Achetez un nom de domaine.
 
-2. 
+3. Pointez le nom de domaine vers l'adresse IP de notre serveur.
 
-Achetez un nom de domaine.
+4. Générez des clés d'accès en utilisant le nom de domaine.
 
-3. 
+5. Attribuez une adresse IP flottante au Droplet du serveur.
 
-Pointez le nom de domaine vers l'adresse IP de notre serveur.
-
-4. 
-
-Générez des clés d'accès en utilisant le nom de domaine.
-
-5. 
-
-Attribuez une adresse IP flottante au Droplet du serveur.
-
-6. 
-
-Modifiez le nom de domaine pour qu'il pointe vers la nouvelle adresse IP.
+6. Modifiez le nom de domaine pour qu'il pointe vers la nouvelle adresse IP.
 
 ## Créer un serveur Outline sur DigitalOcean
 
 Si vous disposez déjà d'un serveur DigitalOcean opérationnel, passez à l'étape suivante.
 
-1. 
+1. Ouvrez Outline Manager et cliquez sur + en bas à gauche pour accéder à l'écran de création de serveurs.
 
-Ouvrez Outline Manager et cliquez sur + en bas à gauche pour accéder à l'écran de création de serveurs.
-
-2. 
-
-Cliquez sur le bouton "Créer un serveur" dans la section "DigitalOcean" et suivez les instructions affichées dans l'application.
+2. Cliquez sur le bouton "Créer un serveur" dans la section "DigitalOcean" et suivez les instructions affichées dans l'application.
 
 ![Créer un serveur](/images/create-DO-server.png)
 
 ## Créer un nom d'hôte pour votre serveur
 
-1. 
+1. Accédez à [Google Domains](https://domains.google.com/m/registrar/) et cliquez sur "Trouver le domaine idéal".
 
-Accédez à [Google Domains](https://domains.google.com/m/registrar/) et cliquez sur "Trouver le domaine idéal".
+2. Saisissez un nom de domaine dans la barre de recherche et sélectionnez celui de votre choix dans la liste. Nous utilisons ici `outlinedemo.info` comme exemple.
 
-2. 
+3. Dans Google Domains, accédez à l'onglet "DNS". Sous "Enregistrements de ressources personnalisés", saisissez l'adresse IP de votre serveur dans le champ "Adresse IPv4".
 
-Saisissez un nom de domaine dans la barre de recherche et sélectionnez celui de votre choix dans la liste. Nous utilisons ici `outlinedemo.info` comme exemple.
-
-3. 
-
-Dans Google Domains, accédez à l'onglet "DNS". Sous "Enregistrements de ressources personnalisés", saisissez l'adresse IP de votre serveur dans le champ "Adresse IPv4".
-
-4. 
-
-Dans Outline Manager, accédez à l'onglet "Paramètres" de votre serveur. Dans le champ "Nom d'hôte", saisissez le nom d'hôte que vous avez acheté, puis cliquez sur ENREGISTRER. Toutes les clés d'accès qui seront générées utiliseront maintenant ce nom d'hôte au lieu de l'adresse IP du serveur.
+4. Dans Outline Manager, accédez à l'onglet "Paramètres" de votre serveur. Dans le champ "Nom d'hôte", saisissez le nom d'hôte que vous avez acheté, puis cliquez sur ENREGISTRER. Toutes les clés d'accès qui seront générées utiliseront maintenant ce nom d'hôte au lieu de l'adresse IP du serveur.
 
 ![Définir le nom d&#39;hôte](/images/set-hostname.png)
 
 ## Modifier l'adresse IP du serveur
 
-1. 
+1. Accédez à votre serveur sur la page "Droplets" de DigitalOcean.
 
-Accédez à votre serveur sur la page "Droplets" de DigitalOcean.
-
-2. 
-
-En haut à droite de la fenêtre, cliquez sur "Enable Now" (Activer maintenant) à côté de "Floating IP" (Adresse IP flottante).
+2. En haut à droite de la fenêtre, cliquez sur "Enable Now" (Activer maintenant) à côté de "Floating IP" (Adresse IP flottante).
 
 ![Activer l&#39;adresse IP flottante](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ En haut à droite de la fenêtre, cliquez sur "Enable Now" (Activer maintenant) 
 
 ![Attribuer une adresse IP flottante](/images/assign-floating-ip-DO.png)
 
-1. 
+1. Revenez à l'onglet "DNS" dans Google Domains.
 
-Revenez à l'onglet "DNS" dans Google Domains.
+2. Modifiez l'adresse IP comme précédemment, mais en utilisant cette fois la nouvelle adresse IP flottante. L'application de la modification prend quelques minutes, mais parfois jusqu'à 48 heures.
 
-2. 
-
-Modifiez l'adresse IP comme précédemment, mais en utilisant cette fois la nouvelle adresse IP flottante. L'application de la modification prend quelques minutes, mais parfois jusqu'à 48 heures.
-
-3. 
-
-Accédez à l'[outil DNS en ligne de Google](https://toolbox.googleapps.com/apps/dig/#A/) et saisissez votre nom de domaine pour afficher la date à laquelle cette dernière modification a été appliquée.
+3. Accédez à l'[outil DNS en ligne de Google](https://toolbox.googleapps.com/apps/dig/#A/) et saisissez votre nom de domaine pour afficher la date à laquelle cette dernière modification a été appliquée.
 
 ![Rechercher votre domaine dans l&#39;outil DNS de Google](/images/google-dns.png)
 

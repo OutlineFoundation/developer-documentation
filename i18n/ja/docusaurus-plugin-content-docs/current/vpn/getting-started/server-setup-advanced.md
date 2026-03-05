@@ -14,10 +14,6 @@ sidebar_label: "Using Installation Script"
 
 ## 手順
 
-1. 
+1. Outline インストール スクリプトをダウンロードして実行します。
 
-Outline インストール スクリプトをダウンロードして実行します。
-
-2. 
-
-画面の指示に従います。
+2. 画面の指示に従います。

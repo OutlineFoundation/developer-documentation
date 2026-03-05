@@ -19,13 +19,9 @@ W tym dokumencie opisujemy sposób integracji pakietu Outline SDK z aplikacjami 
 
 Użyj polecenia [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile), aby skompilować kod Go z bibliotekami na Androida oraz iOS.
 
-1. 
+1. Sklonuj repozytorium Outline SDK:
 
-Sklonuj repozytorium Outline SDK:
-
-2. 
-
-Utwórz pliki binarne Go Mobile za pomocą polecenia [`go
+2. Utwórz pliki binarne Go Mobile za pomocą polecenia [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 
 #### Dodawanie obsługi aplikacji Psiphon
@@ -36,15 +32,11 @@ Aby dodać obsługę sieci [Psiphon](https://psiphon.ca/), wykonaj te dodatkowe 
 
     - Dodaj otrzymaną konfigurację Psiphon do sekcji `fallback` konfiguracji `SmartDialer`.
 
-    - 
-
-Skompiluj bibliotekę MobileProxy przy użyciu flagi `-tags psiphon`:
+    - Skompiluj bibliotekę MobileProxy przy użyciu flagi `-tags psiphon`:
 
 Flaga `-tags psiphon` jest wymagana, ponieważ baza kodu Psiphon jest objęta licencją GPL, która może nakładać ograniczenia licencyjne na Twój własny kod. W związku z tym być może warto uzyskać specjalną licencję od firmy Psiphon.
 
-3. 
-
-Wygeneruj biblioteki mobilne i dodaj je do projektu:
+3. Wygeneruj biblioteki mobilne i dodaj je do projektu:
 
 ### Android
 
@@ -59,17 +51,13 @@ Przeciągnij pakiet `out/mobileproxy.xcframework` do projektu w Xcode. Więcej i
 Zainicjuj i uruchom lokalny serwer proxy `MobileProxy` w środowisku wykonawczym aplikacji.
 Możesz użyć statycznej konfiguracji transportu lub inteligentnego serwera proxy, który dynamicznie wybiera strategię.
 
-- 
-
-**Statyczna konfiguracja transportu:** użyj funkcji `RunProxy` z lokalnym adresem i konfiguracją transportu.
+- **Statyczna konfiguracja transportu:** użyj funkcji `RunProxy` z lokalnym adresem i konfiguracją transportu.
 
 ### Android
 
 ### iOS
 
-- 
-
-**Inteligentny serwer proxy:** ten serwer dynamicznie wybiera strategie DNS i TLS na podstawie określonych domen testowych. Strategię dotyczącą konfiguracji należy określić w formacie YAML ([przykład](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+- **Inteligentny serwer proxy:** ten serwer dynamicznie wybiera strategie DNS i TLS na podstawie określonych domen testowych. Strategię dotyczącą konfiguracji należy określić w formacie YAML ([przykład](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android
 

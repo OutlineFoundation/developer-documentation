@@ -15,10 +15,6 @@ você ter um acesso seguro e irrestrito à internet.
 
 ## Instruções
 
-1. 
+1. Faça o download e execute o script de instalação do Outline.
 
-Faça o download e execute o script de instalação do Outline.
-
-2. 
-
-Siga as instruções na tela.
+2. Siga as instruções na tela.

@@ -13,10 +13,6 @@ Esta guía explica el proceso de configurar un servidor de Outline para ofrecer 
 
 ## Instrucciones
 
-1. 
+1. Descarga y ejecuta la secuencia de comandos de instalación de Outline.
 
-Descarga y ejecuta la secuencia de comandos de instalación de Outline.
-
-2. 
-
-Sigue las indicaciones que aparecen en pantalla.
+2. Sigue las indicaciones que aparecen en pantalla.

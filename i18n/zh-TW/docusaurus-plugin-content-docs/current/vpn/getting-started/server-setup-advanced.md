@@ -13,10 +13,6 @@ sidebar_label: "Using Installation Script"
 
 ## 操作說明
 
-1. 
+1. 下載並執行 Outline 安裝指令碼。
 
-下載並執行 Outline 安裝指令碼。
-
-2. 
-
-按照畫面上的提示操作。
+2. 按照畫面上的提示操作。

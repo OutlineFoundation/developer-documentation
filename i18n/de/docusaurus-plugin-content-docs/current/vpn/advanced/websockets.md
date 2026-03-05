@@ -23,13 +23,9 @@ Hierfür gibt es mehrere Optionen. Sie können einen lokalen Webserver wie [Cadd
 
 In diesem Beispiel erstellen wir mit [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) schnell einen Tunnel. So können Sie Ihren lokalen Webserver einfach und sicher freigeben, ohne Eingangs-Ports zu öffnen.
 
-1. 
+1. Laden Sie [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) herunter und führen Sie die Installation durch.
 
-Laden Sie [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) herunter und führen Sie die Installation durch.
-
-2. 
-
-Erstellen Sie einen Tunnel, der auf den Port Ihres lokalen Webservers zeigt:
+2. Erstellen Sie einen Tunnel, der auf den Port Ihres lokalen Webservers zeigt:
 
 Cloudflare stellt eine Subdomain (z. B. `acids-iceland-davidson-lb.trycloudflare.com`) für den Zugriff auf Ihren WebSocket-Endpunkt und die automatische Handhabung von TLS bereit. Notieren Sie sich die Subdomain. Sie benötigen sie später.
 

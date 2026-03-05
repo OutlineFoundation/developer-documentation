@@ -13,60 +13,42 @@ documentazione e i suoi tutorial prima di immergerti nelle metriche di Outline.
 
 ## Prerequisiti
 
-- 
-
-**Server Outline con Prometheus abilitato**: assicurati che il tuo server Outline
+- **Server Outline con Prometheus abilitato**: assicurati che il tuo server Outline
 abbia le metriche Prometheus abilitate (di solito questa è la configurazione predefinita).
 
-- 
-
-**Accesso SSH al tuo server**: avrai bisogno dell'accesso SSH per inoltrare la porta
+- **Accesso SSH al tuo server**: avrai bisogno dell'accesso SSH per inoltrare la porta
 di Prometheus.
 
 ## Istruzioni
 
-1. 
-
-**Inoltra la porta Prometheus**
+1. **Inoltra la porta Prometheus**
 
 Connettiti al tuo server tramite SSH e inoltra la porta 9090:
 
-2. 
-
-**Accedi all'interfaccia web di Prometheus**
+2. **Accedi all'interfaccia web di Prometheus**
 
 Apri il tuo browser web e vai su: <http://localhost:9090/graph>
 Interroga le metriche di Prometheus
 
-3. 
-
-**Utilizza le query PromQL per recuperare le metriche specifiche che ti interessano.**
+3. **Utilizza le query PromQL per recuperare le metriche specifiche che ti interessano.**
 
 ### Esempio di query PromQL
 
 #### Utilizzo
 
-- 
-
-**Byte di dati (tramite chiave di accesso, protocollo e direzione):**
+- **Byte di dati (tramite chiave di accesso, protocollo e direzione):**
 
 `increase(shadowsocks_data_bytes[1d])`
 
-- 
-
-**Byte di dati (aggregati in base alla chiave di accesso):**
+- **Byte di dati (aggregati in base alla chiave di accesso):**
 
 `sum(increase(shadowsocks_data_bytes[1d])) by (access_key)`
 
-- 
-
-**Byte di dati (per il calcolo dei limiti dei dati):**
+- **Byte di dati (per il calcolo dei limiti dei dati):**
 
 `sum(increase(shadowsocks_data_bytes{dir=~"c<p|p>t"}[30d])) by (access_key)`
 
-- 
-
-**Byte di dati (in base a località, protocollo e direzione):**
+- **Byte di dati (in base a località, protocollo e direzione):**
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
@@ -76,63 +58,45 @@ Interroga le metriche di Prometheus
 
 #### Connessioni TCP
 
-- 
-
-**Connessioni TCP (in base a chiave di accesso, località e stato):**
+- **Connessioni TCP (in base a chiave di accesso, località e stato):**
 
 `increase(shadowsocks_tcp_connections_closed[1d])`
 
-- 
-
-**Connessioni TCP (in base alla località):**
+- **Connessioni TCP (in base alla località):**
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
 #### UDP
 
-- 
-
-**Pacchetti UDP (in base a località e stato):**
+- **Pacchetti UDP (in base a località e stato):**
 
 `increase(shadowsocks_udp_packets_from_client_per_location[1d])`
 
-- 
-
-**Associazioni UDP (nessuna suddivisione):**
+- **Associazioni UDP (nessuna suddivisione):**
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
 #### Prestazioni
 
-- 
-
-**Utilizzo CPU (in base al processo):**
+- **Utilizzo CPU (in base al processo):**
 
 `rate(process_cpu_seconds_total[10m])`
 
-- 
-
-**Memoria (in base al processo):**
+- **Memoria (in base al processo):**
 
 `process_virtual_memory_bytes`
 
 #### Informazioni sulla build
 
-- 
-
-**Prometheus:**
+- **Prometheus:**
 
 `prometheus_build_info`
 
-- 
-
-**outline-ss-server:**
+- **outline-ss-server:**
 
 `shadowsocks_build_info`
 
-- 
-
-**Node.js:**
+- **Node.js:**
 
 `nodejs_version_info`
 

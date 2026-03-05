@@ -19,13 +19,9 @@ sidebar_label: "Mobile App Integration"
 
 Используйте [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile), чтобы скомпилировать код Go в библиотеки для Android и iOS.
 
-1. 
+1. Клонируйте хранилище Outline SDK:
 
-Клонируйте хранилище Outline SDK:
-
-2. 
-
-Соберите исполняемые файлы Go Mobile с помощью команды [`go
+2. Соберите исполняемые файлы Go Mobile с помощью команды [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 
 #### Как добавить поддержку Psiphon
@@ -36,15 +32,11 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 
     - Добавьте полученную конфигурацию Psiphon в раздел `fallback` конфигурации `SmartDialer`.
 
-    - 
-
-Соберите Mobile Proxy с пометкой `-tags psiphon`:
+    - Соберите Mobile Proxy с пометкой `-tags psiphon`:
 
 Пометка `-tags psiphon` обязательна, поскольку код Psiphon доступен по лицензии GPL, которая может накладывать лицензионные ограничения на ваш код. Рассмотрите возможность получения специальной лицензии у команды Psiphon.
 
-3. 
-
-Как создать мобильные библиотеки и добавить их в проект
+3. Как создать мобильные библиотеки и добавить их в проект
 
 ### Android
 
@@ -59,17 +51,13 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 Инициализируйте и запустите локальный прокси-сервер `MobileProxy` в среде выполнения вашего приложения.
 Вы можете использовать статическую конфигурацию протокола или SmartProxy для динамического выбора стратегии.
 
-- 
-
-**Статическая конфигурация протокола:** используйте функцию `RunProxy`, указав локальный адрес и параметры конфигурации протокола.
+- **Статическая конфигурация протокола:** используйте функцию `RunProxy`, указав локальный адрес и параметры конфигурации протокола.
 
 ### Android
 
 ### iOS
 
-- 
-
-**SmartProxy:** эта технология динамически выбирает стратегии DNS и TLS на основе заданных тестовых доменов. Стратегию конфигурации необходимо указать в формате YAML ([пример](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+- **SmartProxy:** эта технология динамически выбирает стратегии DNS и TLS на основе заданных тестовых доменов. Стратегию конфигурации необходимо указать в формате YAML ([пример](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android
 

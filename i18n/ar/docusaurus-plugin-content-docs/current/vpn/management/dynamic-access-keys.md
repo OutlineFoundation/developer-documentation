@@ -84,9 +84,7 @@ Outline الخاص بالمستخدمين. ويمكنك تعديل الخادم 
 
 - **منفذ الخادم (Server Port):** `8388`
 
-- 
-
-**معلومات المستخدم (User Info):** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` هي معلومات تم فك ترميزها بتنسيق
+- **معلومات المستخدم (User Info):** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` هي معلومات تم فك ترميزها بتنسيق
 [base64](https://en.wikipedia.org/wiki/Base64) باستخدام أداة مثل [مجموعة أدوات وحدة تحكُّم
 المشرف في Google
 للترميز أو فكّه](https://toolbox.googleapps.com/apps/encode_decode/)

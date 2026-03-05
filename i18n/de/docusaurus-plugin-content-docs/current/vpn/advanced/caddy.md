@@ -25,9 +25,7 @@ Bevor Sie Caddy starten, vergewissern Sie sich, dass Ihr Domainname richtig konf
 
 - **A‑/AAAA-Einträge festlegen:** Melden Sie sich bei Ihrem DNS-Anbieter an und legen Sie die A‑ und AAAA-Einträge für Ihre Domain so fest, dass sie jeweils auf die IPv4- bzw. auf die IPv6-Adressen Ihres Servers verweisen.
 
-- 
-
-**DNS-Einträge prüfen:** Prüfen Sie, ob die DNS-Einträge für die maßgebliche Domain festgelegt sind:
+- **DNS-Einträge prüfen:** Prüfen Sie, ob die DNS-Einträge für die maßgebliche Domain festgelegt sind:
 
 ## Schritt 3: Benutzerdefinierten Caddy-Build erstellen und ausführen
 

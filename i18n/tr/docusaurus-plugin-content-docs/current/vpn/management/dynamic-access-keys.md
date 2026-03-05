@@ -63,9 +63,7 @@ Mevcut bir statik erişim anahtarınız varsa JSON veya YAML tabanlı bir dinami
 
 - **Sunucu bağlantı noktası:** `8388`
 
-- 
-
-**Kullanıcı bilgisi:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` [Google Yönetici Araç Kutusu Kodlama/Kod Çözme](https://toolbox.googleapps.com/apps/encode_decode/) gibi bir araç kullanılarak [base64](https://en.wikipedia.org/wiki/Base64) şeklinde kodu çözülür.
+- **Kullanıcı bilgisi:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` [Google Yönetici Araç Kutusu Kodlama/Kod Çözme](https://toolbox.googleapps.com/apps/encode_decode/) gibi bir araç kullanılarak [base64](https://en.wikipedia.org/wiki/Base64) şeklinde kodu çözülür.
 
     - **Yöntem**: `chacha20-ietf-poly1305`
 

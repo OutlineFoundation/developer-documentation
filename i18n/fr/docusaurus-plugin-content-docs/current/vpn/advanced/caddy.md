@@ -25,9 +25,7 @@ Avant de lancer Caddy, vérifiez que votre nom de domaine est correctement confi
 
 - **Configurez les enregistrements A/AAAA** : connectez-vous à votre fournisseur DNS et configurez les enregistrements A et AAAA afin que votre domaine pointe respectivement vers les adresses IPv4 et IPv6 de votre serveur.
 
-- 
-
-**Vérifiez les enregistrements DNS** : vérifiez que vos enregistrements DNS sont configurés correctement avec une recherche faisant autorité :
+- **Vérifiez les enregistrements DNS** : vérifiez que vos enregistrements DNS sont configurés correctement avec une recherche faisant autorité :
 
 ## Étape 3 : Compilez et exécutez un build Caddy personnalisé
 

@@ -63,9 +63,7 @@ Voorbeeld:
 
 - **Serverpoort:** `8388`
 
-- 
-
-**Gebruikersgegevens:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` Gedecodeerd als [base64](https://en.wikipedia.org/wiki/Base64) via een tool als [Encode/Decode in de Google Admin Toolbox](https://toolbox.googleapps.com/apps/encode_decode/)
+- **Gebruikersgegevens:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` Gedecodeerd als [base64](https://en.wikipedia.org/wiki/Base64) via een tool als [Encode/Decode in de Google Admin Toolbox](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **Methode**: `chacha20-ietf-poly1305`
 

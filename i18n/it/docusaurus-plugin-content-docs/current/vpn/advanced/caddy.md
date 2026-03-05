@@ -25,9 +25,7 @@ Prima di avviare Caddy, assicurati che il tuo nome di dominio sia configurato co
 
 - **Imposta i record A/AAAA:** accedi al tuo provider DNS e imposta i record A e AAAA per il tuo dominio in modo che puntino rispettivamente agli indirizzi IPv4 e IPv6 del tuo server.
 
-- 
-
-**Verifica i record DNS:** verifica che i tuoi record DNS siano impostati correttamente con una ricerca autorevole:
+- **Verifica i record DNS:** verifica che i tuoi record DNS siano impostati correttamente con una ricerca autorevole:
 
 ## Passaggio 3: crea ed esegui una build Caddy personalizzata
 

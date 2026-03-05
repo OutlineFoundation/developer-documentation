@@ -15,73 +15,45 @@ sidebar_label: "Domain with Floating IPs"
 
 ## 操作說明
 
-1. 
+1. 以下是輪換伺服器 IP 位址的大致步驟：
 
-以下是輪換伺服器 IP 位址的大致步驟：
+2. 購買網域名稱。
 
-2. 
+3. 將網域名稱指向我們伺服器的 IP 位址。
 
-購買網域名稱。
+4. 使用網域名稱核發存取金鑰。
 
-3. 
+5. 將浮動 IP 指派給伺服器的 Droplet。
 
-將網域名稱指向我們伺服器的 IP 位址。
-
-4. 
-
-使用網域名稱核發存取金鑰。
-
-5. 
-
-將浮動 IP 指派給伺服器的 Droplet。
-
-6. 
-
-將網域名稱改成指向新的 IP 位址。
+6. 將網域名稱改成指向新的 IP 位址。
 
 ## 在 DigitalOcean 上建立 Outline 伺服器
 
 如果已有運作中的 DigitalOcean 伺服器，請略過此步驟。
 
-1. 
+1. 開啟 Outline Manager，點選左下方的「+」，進入伺服器建立畫面。
 
-開啟 Outline Manager，點選左下方的「+」，進入伺服器建立畫面。
-
-2. 
-
-點選「DigitalOcean」按鈕上的「建立伺服器」，按照應用程式中的指示操作。
+2. 點選「DigitalOcean」按鈕上的「建立伺服器」，按照應用程式中的指示操作。
 
 ![建立伺服器](/images/create-DO-server.png)
 
 ## 設定伺服器的主機名稱
 
-1. 
+1. 前往 [Google Domains](https://domains.google.com/m/registrar/)，點選「尋找合適的網域」。
 
-前往 [Google Domains](https://domains.google.com/m/registrar/)，點選「尋找合適的網域」。
+2. 在搜尋列輸入網域名稱，然後選取名稱。我們以 `outlinedemo.info` 為例說明。
 
-2. 
+3. 前往 Google Domains 的「DNS」分頁。在「自訂資源記錄」底下的「IPV4 位址」的欄位中，輸入您的伺服器 IP 位址。
 
-在搜尋列輸入網域名稱，然後選取名稱。我們以 `outlinedemo.info` 為例說明。
-
-3. 
-
-前往 Google Domains 的「DNS」分頁。在「自訂資源記錄」底下的「IPV4 位址」的欄位中，輸入您的伺服器 IP 位址。
-
-4. 
-
-在 Outline Manager 中前往伺服器的「設定」分頁。在「主機名稱」欄位輸入您購買的主機名稱，點選「儲存」。如此一來，日後建立的存取金鑰就一律會使用這個主機名稱，而非伺服器的 IP 位址。
+4. 在 Outline Manager 中前往伺服器的「設定」分頁。在「主機名稱」欄位輸入您購買的主機名稱，點選「儲存」。如此一來，日後建立的存取金鑰就一律會使用這個主機名稱，而非伺服器的 IP 位址。
 
 ![設定主機名稱](/images/set-hostname.png)
 
 ## 變更伺服器 IP 位址
 
-1. 
+1. 前往 DigitalOcean 的「Droplets」頁面，找出您的伺服器。
 
-前往 DigitalOcean 的「Droplets」頁面，找出您的伺服器。
-
-2. 
-
-在視窗右上方，點選「Floating IP」旁的「Enable Now」。
+2. 在視窗右上方，點選「Floating IP」旁的「Enable Now」。
 
 ![啟用浮動 IP](/images/floating-ip-DO.png)
 
@@ -89,17 +61,11 @@ sidebar_label: "Domain with Floating IPs"
 
 ![指派浮動 IP](/images/assign-floating-ip-DO.png)
 
-1. 
+1. 返回 Google Domains 的「DNS」分頁。
 
-返回 Google Domains 的「DNS」分頁。
+2. 像先前一樣變更 IP 位址，但這次改用新的浮動 IP 位址。這最多要 48 小時才會生效，但通常只需要幾分鐘。
 
-2. 
-
-像先前一樣變更 IP 位址，但這次改用新的浮動 IP 位址。這最多要 48 小時才會生效，但通常只需要幾分鐘。
-
-3. 
-
-開啟 [Google 的線上 DNS 工具](https://toolbox.googleapps.com/apps/dig/#A/)，輸入您的網域名稱，查看上一步的變更是否生效。
+3. 開啟 [Google 的線上 DNS 工具](https://toolbox.googleapps.com/apps/dig/#A/)，輸入您的網域名稱，查看上一步的變更是否生效。
 
 ![在 Google DNS 工具中搜尋您的網域](/images/google-dns.png)
 

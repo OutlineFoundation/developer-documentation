@@ -17,12 +17,8 @@ Le système Outline implique deux rôles principaux : des **fournisseurs de ser
 
 Les clés d'accès sont des identifiants grâce auxquels les utilisateurs peuvent se connecter à un serveur Outline. Elles contiennent les informations permettant au client Outline d'établir une connexion sécurisée. Il existe deux types de clés d'accès :
 
-- 
-
-Les **clés d'accès statiques** qui encodent les informations concernant le serveur nécessaires pour se connecter (adresse du serveur, port, mot de passe, méthode de chiffrement), ce qui empêche la modification des informations d'accès. Les utilisateurs collent cette clé dans le client Outline.
+- Les **clés d'accès statiques** qui encodent les informations concernant le serveur nécessaires pour se connecter (adresse du serveur, port, mot de passe, méthode de chiffrement), ce qui empêche la modification des informations d'accès. Les utilisateurs collent cette clé dans le client Outline.
 
 Exemple :
 
-- 
-
-Les **clés d'accès dynamiques** qui permettent à un fournisseur de services d'héberger à distance les informations d'accès au serveur. Les fournisseurs peuvent ainsi modifier la configuration de leur serveur (adresse du serveur, port, mots de passe, méthode de chiffrement) sans avoir à distribuer de nouvelles clés d'accès aux utilisateurs finaux. Pour accéder à une documentation plus détaillée, consultez [Clés d'accès dynamiques](vpn/management/dynamic-access-keys).
+- Les **clés d'accès dynamiques** qui permettent à un fournisseur de services d'héberger à distance les informations d'accès au serveur. Les fournisseurs peuvent ainsi modifier la configuration de leur serveur (adresse du serveur, port, mots de passe, méthode de chiffrement) sans avoir à distribuer de nouvelles clés d'accès aux utilisateurs finaux. Pour accéder à une documentation plus détaillée, consultez [Clés d'accès dynamiques](vpn/management/dynamic-access-keys).

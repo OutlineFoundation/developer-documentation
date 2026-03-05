@@ -22,13 +22,9 @@ WebSocket 웹 서버를 공개적으로 액세스할 수 있도록 하려면 인
 
 이 예에서는 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)를 사용하여 빠른 터널을 만드는 방법을 보여줍니다. 이를 통해 인바운드 포트를 열지 않고도 로컬 웹 서버를 편리하고 안전하게 노출할 수 있습니다.
 
-1. 
+1. [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)를 다운로드하고 설치합니다.
 
-[`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/)를 다운로드하고 설치합니다.
-
-2. 
-
-로컬 웹 서버 포트를 가리키는 터널을 만듭니다.
+2. 로컬 웹 서버 포트를 가리키는 터널을 만듭니다.
 
 Cloudflare는 WebSocket 엔드포인트에 액세스하고
 TLS를 자동으로 처리할 하위 도메인(예:`acids-iceland-davidson-lb.trycloudflare.com`)을 제공합니다. 이 하위 도메인은 나중에 필요하므로 적어 두세요.

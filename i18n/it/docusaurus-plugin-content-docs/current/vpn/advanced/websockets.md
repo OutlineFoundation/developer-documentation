@@ -22,13 +22,9 @@ Puoi farlo in vari modi. Puoi utilizzare un server web locale come [Caddy](https
 
 Per questo esempio, mostreremo come utilizzare [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) per creare un tunnel rapido. Ciò fornisce un modo pratico e sicuro di esporre il tuo server web locale senza aprire porte in entrata.
 
-1. 
+1. Scarica e installa [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
 
-Scarica e installa [`cloudflared`](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/).
-
-2. 
-
-Crea un tunnel che punti alla porta del tuo server web locale:
+2. Crea un tunnel che punti alla porta del tuo server web locale:
 
 Cloudflare fornirà un sottodominio (ad es. `acids-iceland-davidson-lb.trycloudflare.com`) per accedere al tuo endpoint WebSocket e gestire automaticamente TLS. Prendi nota di questo sottodominio, perché ti servirà in seguito.
 

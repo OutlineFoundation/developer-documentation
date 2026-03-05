@@ -8,51 +8,33 @@ sidebar_label: "Download Links"
 
 ## مدير Outline
 
-- 
-
-**نظام التشغيل Windows‏:**
+- **نظام التشغيل Windows‏:**
 <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
 
-- 
-
-**نظام التشغيل MacOS‏:**
+- **نظام التشغيل MacOS‏:**
 <https://s3.amazonaws.com/outline-releases/manager/macos/stable/Outline-Manager.dmg>
 
-- 
-
-**نظام التشغيل Linux‏:**
+- **نظام التشغيل Linux‏:**
 <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
 ## عميل Outline
 
-- 
-
-**نظام التشغيل Windows‏:**
+- **نظام التشغيل Windows‏:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
 
-- 
+- **نظام التشغيل MacOS‏:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
 
-**نظام التشغيل MacOS‏:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
-
-- 
-
-**نظام التشغيل Linux:‏** <https://support.google.com/outline/answer/15331527>
+- **نظام التشغيل Linux:‏** <https://support.google.com/outline/answer/15331527>
 
     - **رابط بديل:**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
 
-- 
-
-**نظام التشغيل ChromeOS‏:**
+- **نظام التشغيل ChromeOS‏:**
 <https://play.google.com/store/apps/details?id=org.outline.android.client>
 
-- 
+- **نظام التشغيل iOS‏:** <https://itunes.apple.com/us/app/outline-app/id1356177741>
 
-**نظام التشغيل iOS‏:** <https://itunes.apple.com/us/app/outline-app/id1356177741>
-
-- 
-
-**نظام التشغيل Android‏:**
+- **نظام التشغيل Android‏:**
 <https://play.google.com/store/apps/details?id=org.outline.android.client>
 
     - **رابط بديل1:**

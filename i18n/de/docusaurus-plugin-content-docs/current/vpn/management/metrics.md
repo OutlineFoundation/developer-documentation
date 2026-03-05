@@ -9,57 +9,39 @@ Outline bietet detaillierte Leistungsmesswerte mit [Prometheus](https://promethe
 
 ## Voraussetzungen
 
-- 
+- **Outline-Server mit aktiviertem Prometheus**: Prüfen Sie, ob die Prometheus-Metriken auf Ihrem Outline-Server aktiviert sind. (Das ist für gewöhnlich die Standardeinstellung.)
 
-**Outline-Server mit aktiviertem Prometheus**: Prüfen Sie, ob die Prometheus-Metriken auf Ihrem Outline-Server aktiviert sind. (Das ist für gewöhnlich die Standardeinstellung.)
-
-- 
-
-**SSH-Zugriff auf Ihren Server**: Sie benötigen den SSH-Zugriff, um den Prometheus-Port weiterzuleiten.
+- **SSH-Zugriff auf Ihren Server**: Sie benötigen den SSH-Zugriff, um den Prometheus-Port weiterzuleiten.
 
 ## Anleitung
 
-1. 
-
-**Prometheus-Port weiterleiten**
+1. **Prometheus-Port weiterleiten**
 
 Verbinden Sie sich über SSH mit Ihrem Server und leiten Sie den Port 9090 weiter:
 
-2. 
-
-**Auf Prometheus-Weboberfläche zugreifen**
+2. **Auf Prometheus-Weboberfläche zugreifen**
 
 Öffnen Sie Ihren Browser und gehen Sie zu: <http://localhost:9090/graph> Prometheus-Messwerte abfragen
 
-3. 
-
-**Nutzen Sie PromQL-Abfragen, um genau die Messwerte zu erhalten, die Sie interessieren.**
+3. **Nutzen Sie PromQL-Abfragen, um genau die Messwerte zu erhalten, die Sie interessieren.**
 
 ### Beispiel für PromQL-Abfragen
 
 #### Nutzung
 
-- 
-
-**Datenbytes (über Zugriffsschlüssel, protokoll und Route):**
+- **Datenbytes (über Zugriffsschlüssel, protokoll und Route):**
 
 `increase(shadowsocks_data_bytes[1d])`
 
-- 
-
-**Datenbytes (über Zugriffsschlüssel aggregiert):**
+- **Datenbytes (über Zugriffsschlüssel aggregiert):**
 
 `sum(increase(shadowsocks_data_bytes[1d])) by (access_key)`
 
-- 
-
-**Datenbytes (für die Berechnung von Datenlimits):**
+- **Datenbytes (für die Berechnung von Datenlimits):**
 
 `sum(increase(shadowsocks_data_bytes{dir=~"c<p|p>t"}[30d])) by (access_key)`
 
-- 
-
-**Datenbytes (by Standort, Protokoll und Route):**
+- **Datenbytes (by Standort, Protokoll und Route):**
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
@@ -69,63 +51,45 @@ Verbinden Sie sich über SSH mit Ihrem Server und leiten Sie den Port 9090 weite
 
 #### TCP-Verbindungen
 
-- 
-
-**TC-Verbindungen (über Zugriffsschlüssel, Standort und Status):**
+- **TC-Verbindungen (über Zugriffsschlüssel, Standort und Status):**
 
 `increase(shadowsocks_tcp_connections_closed[1d])`
 
-- 
-
-**TCP-Verbindungen (über Standort):**
+- **TCP-Verbindungen (über Standort):**
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
 #### UDP
 
-- 
-
-**UDP-Pakete (über Standort und Status):**
+- **UDP-Pakete (über Standort und Status):**
 
 `increase(shadowsocks_udp_packets_from_client_per_location[1d])`
 
-- 
-
-**UDP-Verknüpfungen (keine Aufschlüsselung):**
+- **UDP-Verknüpfungen (keine Aufschlüsselung):**
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
 #### Performance
 
-- 
-
-**CPU-Nutzung (nach Verarbeitung):**
+- **CPU-Nutzung (nach Verarbeitung):**
 
 `rate(process_cpu_seconds_total[10m])`
 
-- 
-
-**Arbeitsspeicher (nach Verarbeitung):**
+- **Arbeitsspeicher (nach Verarbeitung):**
 
 `process_virtual_memory_bytes`
 
 #### Build-Informationen
 
-- 
-
-**Prometheus:**
+- **Prometheus:**
 
 `prometheus_build_info`
 
-- 
-
-**Outline-ss-Server:**
+- **Outline-ss-Server:**
 
 `shadowsocks_build_info`
 
-- 
-
-**Node.js:**
+- **Node.js:**
 
 `nodejs_version_info`
 

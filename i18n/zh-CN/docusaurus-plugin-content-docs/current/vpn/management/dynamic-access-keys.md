@@ -63,9 +63,7 @@ Outline 客户端 1.15.0 及以上版本。**
 
 - **服务器端口**：`8388`
 
-- 
-
-**用户信息**：`Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` 使用 [Google 管理员工具箱编码/解码](https://toolbox.googleapps.com/apps/encode_decode/)等工具以 [base64](https://en.wikipedia.org/wiki/Base64) 进行解码
+- **用户信息**：`Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl` 使用 [Google 管理员工具箱编码/解码](https://toolbox.googleapps.com/apps/encode_decode/)等工具以 [base64](https://en.wikipedia.org/wiki/Base64) 进行解码
 
     - **方法**：`chacha20-ietf-poly1305`
 

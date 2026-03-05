@@ -19,13 +19,9 @@ In dit document leggen we uit hoe je de Outline SDK integreert in je mobiele app
 
 Gebruik [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) om de Go-code te compileren in bibliotheken voor Android en iOS.
 
-1. 
+1. Kloon de Outline SDK-repository:
 
-Kloon de Outline SDK-repository:
-
-2. 
-
-Ontwerp de binaire bestanden voor Go Mobile met [`go
+2. Ontwerp de binaire bestanden voor Go Mobile met [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 
 #### Psiphon-ondersteuning toevoegen
@@ -36,15 +32,11 @@ Je kunt ondersteuning voor het [Psiphon](https://psiphon.ca/)-netwerk toevoegen 
 
     - Voeg de Psiphon-configuratie die je hebt gekregen toe aan het gedeelte `fallback` van je `SmartDialer`-configuratie.
 
-    - 
-
-Ontwerp de MobileProxy met de markering `-tags psiphon`:
+    - Ontwerp de MobileProxy met de markering `-tags psiphon`:
 
 De markering `-tags psiphon` is vereist omdat de Psiphon-codebase is gelicentieerd onder de GPL, waardoor er licentiebeperkingen kunnen gelden voor je eigen code. Je kunt overwegen een speciale licentie bij ze aan te vragen.
 
-3. 
-
-Genereer mobiele bibliotheken en voeg ze toe aan je project:
+3. Genereer mobiele bibliotheken en voeg ze toe aan je project:
 
 ### Android
 
@@ -59,17 +51,13 @@ Sleep het `out/mobileproxy.xcframework`-pakket naar het Xcode-project. Ga voor m
 Initialiseer en start de lokale `MobileProxy`-proxy binnen de runtime van je app.
 Je kunt een statische transportconfiguratie gebruiken of de Smart Proxy gebruiken voor dynamische strategieselectie.
 
-- 
-
-**Statische transportconfiguratie**: Gebruik de functie `RunProxy` met een lokaal adres en lokale transportconfiguratie.
+- **Statische transportconfiguratie**: Gebruik de functie `RunProxy` met een lokaal adres en lokale transportconfiguratie.
 
 ### Android
 
 ### iOS
 
-- 
-
-**Smart Proxy**: De Smart Proxy selecteert dynamisch DNS- en TLS-strategieën gebaseerd op specifieke testdomeinen. Je moet de configuratiestrategie opgeven in YAML-indeling ([voorbeeld](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+- **Smart Proxy**: De Smart Proxy selecteert dynamisch DNS- en TLS-strategieën gebaseerd op specifieke testdomeinen. Je moet de configuratiestrategie opgeven in YAML-indeling ([voorbeeld](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android
 

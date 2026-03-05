@@ -63,9 +63,7 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 
 - **サーバー ポート:** `8388`
 
-- 
-
-**ユーザー情報:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`（[Google 管理者ツールボックスの Encode/Decode](https://toolbox.googleapps.com/apps/encode_decode/) などのツールを使用して [base64](https://en.wikipedia.org/wiki/Base64) としてデコードします）
+- **ユーザー情報:** `Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl`（[Google 管理者ツールボックスの Encode/Decode](https://toolbox.googleapps.com/apps/encode_decode/) などのツールを使用して [base64](https://en.wikipedia.org/wiki/Base64) としてデコードします）
 
     - **方式:** `chacha20-ietf-poly1305`
 

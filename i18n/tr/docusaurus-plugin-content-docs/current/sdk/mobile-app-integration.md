@@ -19,13 +19,9 @@ Go temelli bir kitaplık olan `MobileProxy`, proxy işlevlerini mobil uygulamala
 
 Go kodunu Android ve iOS'e yönelik kitaplıklar hâlinde derlemek için [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile)'ı kullanın.
 
-1. 
+1. Outline SDK deposunu klonlayın:
 
-Outline SDK deposunu klonlayın:
-
-2. 
-
-[`go
+2. [`go
 build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) ile Go Mobile ikili programlarını derleyin:
 
 #### Psiphon desteği ekleme
@@ -36,15 +32,11 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) ile Go 
 
     - Aldığınız Psiphon yapılandırmasını, `SmartDialer` yapılandırmanızın `fallback` bölümüne ekleyin.
 
-    - 
-
-`-tags psiphon` işaretini kullanarak MobileProxy'yi derleyin:
+    - `-tags psiphon` işaretini kullanarak MobileProxy'yi derleyin:
 
 Psiphon kod tabanı GPL kapsamında lisanslandığından kodunuza lisans kısıtlamaları uygulanabilir. Bu nedenle `-tags psiphon` işareti zorunludur. Psiphon ekibinden özel bir lisans almanız önerilir.
 
-3. 
-
-Mobil uygulama kitaplıklarını oluşturun ve projenize ekleyin:
+3. Mobil uygulama kitaplıklarını oluşturun ve projenize ekleyin:
 
 ### Android
 
@@ -59,17 +51,13 @@ Oluşturulan `out/mobileproxy.aar` paketini içe aktarmak için Android Studio'd
 `MobileProxy` yerel proxy'sini uygulamanızın çalışma zamanında başlatın.
 Dinamik strateji seçimi için statik bir araç yapısı ya da akıllı proxy kullanabilirsiniz.
 
-- 
-
-**Statik araç yapılandırması**: Yerel bir adres ve araç yapılandırmasıyla `RunProxy` işlevini kullanın.
+- **Statik araç yapılandırması**: Yerel bir adres ve araç yapılandırmasıyla `RunProxy` işlevini kullanın.
 
 ### Android
 
 ### iOS
 
-- 
-
-**Akıllı proxy**: Akıllı proxy, DNS ve TLS stratejilerini belirtilen test alan adlarına göre dinamik olarak seçer. Yapılandırma stratejisini YAML biçiminde ([örnek](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)) belirtmeniz gerekir.
+- **Akıllı proxy**: Akıllı proxy, DNS ve TLS stratejilerini belirtilen test alan adlarına göre dinamik olarak seçer. Yapılandırma stratejisini YAML biçiminde ([örnek](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)) belirtmeniz gerekir.
 
 ### Android
 

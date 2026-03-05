@@ -9,57 +9,39 @@ Outline zapewnia dostęp do szczegółowych danych dotyczących wydajności, uż
 
 ## Wymagania wstępne
 
-- 
+- **Serwer Outline z włączonym pakietem Prometheus:** sprawdź, czy na serwerze Outline włączone są dane pakietu Prometheus (zazwyczaj są włączone domyślnie).
 
-**Serwer Outline z włączonym pakietem Prometheus:** sprawdź, czy na serwerze Outline włączone są dane pakietu Prometheus (zazwyczaj są włączone domyślnie).
-
-- 
-
-**Dostęp SSH do serwera:** będziesz potrzebować dostępu SSH, żeby przekierować port pakietu Prometheus.
+- **Dostęp SSH do serwera:** będziesz potrzebować dostępu SSH, żeby przekierować port pakietu Prometheus.
 
 ## Instrukcje
 
-1. 
-
-**Przekierowanie portu pakietu Prometheus**
+1. **Przekierowanie portu pakietu Prometheus**
 
 Połącz się z serwerem przy użyciu SSH i przekieruj port 9090:
 
-2. 
-
-**Uzyskiwanie dostępu do interfejsu internetowego pakietu Prometheus**
+2. **Uzyskiwanie dostępu do interfejsu internetowego pakietu Prometheus**
 
 Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytania dotyczącego danych z pakietu Prometheus
 
-3. 
-
-**Użyj zapytań PromQL, żeby uzyskać interesujące Cię dane.**
+3. **Użyj zapytań PromQL, żeby uzyskać interesujące Cię dane.**
 
 ### Przykładowe zapytania PromQL
 
 #### Wykorzystanie
 
-- 
-
-**Bajty danych (według klucza dostępu, protokołu i kierunku):**
+- **Bajty danych (według klucza dostępu, protokołu i kierunku):**
 
 `increase(shadowsocks_data_bytes[1d])`
 
-- 
-
-**Bajty danych (zagregowane według klucza dostępu):**
+- **Bajty danych (zagregowane według klucza dostępu):**
 
 `sum(increase(shadowsocks_data_bytes[1d])) by (access_key)`
 
-- 
-
-**Bajty danych (na potrzeby obliczania limitów danych):**
+- **Bajty danych (na potrzeby obliczania limitów danych):**
 
 `sum(increase(shadowsocks_data_bytes{dir=~"c<p|p>t"}[30d])) by (access_key)`
 
-- 
-
-**Bajty danych (według lokalizacji, protokołu i kierunku):**
+- **Bajty danych (według lokalizacji, protokołu i kierunku):**
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
@@ -69,63 +51,45 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 #### Połączenia TCP
 
-- 
-
-**Połączenia TCP (według klucza dostępu, lokalizacji i stanu):**
+- **Połączenia TCP (według klucza dostępu, lokalizacji i stanu):**
 
 `increase(shadowsocks_tcp_connections_closed[1d])`
 
-- 
-
-**Połączenia TCP (według lokalizacji):**
+- **Połączenia TCP (według lokalizacji):**
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
 #### UDP
 
-- 
-
-**Pakiety UDP (według lokalizacji i stanu):**
+- **Pakiety UDP (według lokalizacji i stanu):**
 
 `increase(shadowsocks_udp_packets_from_client_per_location[1d])`
 
-- 
-
-**Powiązania UDP (bez podziału):**
+- **Powiązania UDP (bez podziału):**
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
 #### Działanie aplikacji
 
-- 
-
-**Wykorzystanie procesora (według procesu):**
+- **Wykorzystanie procesora (według procesu):**
 
 `rate(process_cpu_seconds_total[10m])`
 
-- 
-
-**Pamięć (według procesu):**
+- **Pamięć (według procesu):**
 
 `process_virtual_memory_bytes`
 
 #### Informacje o kompilacji
 
-- 
-
-**Prometheus:**
+- **Prometheus:**
 
 `prometheus_build_info`
 
-- 
-
-**outline-ss-server:**
+- **outline-ss-server:**
 
 `shadowsocks_build_info`
 
-- 
-
-**Node.js:**
+- **Node.js:**
 
 `nodejs_version_info`
 

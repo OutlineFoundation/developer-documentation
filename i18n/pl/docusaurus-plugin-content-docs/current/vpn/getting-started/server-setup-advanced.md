@@ -13,10 +13,6 @@ Ten przewodnik przeprowadzi Cię przez proces konfigurowania serwera Outline w c
 
 ## Instrukcje
 
-1. 
+1. Pobierz i uruchom skrypt instalacyjny Outline.
 
-Pobierz i uruchom skrypt instalacyjny Outline.
-
-2. 
-
-Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+2. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.

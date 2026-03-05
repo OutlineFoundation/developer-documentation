@@ -13,10 +13,6 @@ Deze handleiding leidt je door het proces om een Outline-server in te stellen zo
 
 ## Instructies
 
-1. 
+1. Download het Outline-installatiescript en voer het uit.
 
-Download het Outline-installatiescript en voer het uit.
-
-2. 
-
-Volg de aanwijzingen op het scherm.
+2. Volg de aanwijzingen op het scherm.

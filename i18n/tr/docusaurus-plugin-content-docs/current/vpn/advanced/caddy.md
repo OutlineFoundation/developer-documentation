@@ -25,9 +25,7 @@ Caddy'yi başlatmadan önce alan adınızın, sunucunuzun IP adresini gösterece
 
 - **A/AAAA kayıtlarını ayarlayın:** DNS sağlayıcınızda oturum açın ve alan adınızın A ile AAAA kayıtlarını sırasıyla sunucunuzun IPv4 ve IPv6 adreslerini gösterecek şekilde ayarlayın.
 
-- 
-
-**DNS kayıtlarını doğrulayın:** Yetkili bir aramayla DNS kayıtlarınızın doğru ayarlandığını onaylayın:
+- **DNS kayıtlarını doğrulayın:** Yetkili bir aramayla DNS kayıtlarınızın doğru ayarlandığını onaylayın:
 
 ## 3. adım: Özel Caddy derlemesi oluşturup çalıştırın
 
