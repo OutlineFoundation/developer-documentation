@@ -1,8 +1,3 @@
----
-title: "Concepts"
-sidebar_label: "Concepts"
----
-
 # Concepts
 
 Outline helps users bypass restrictions to access the open internet. Here's are
@@ -41,4 +36,4 @@ establish a secure connection. There are two types of access keys:
     (server address, port, passwords, encryption method) without needing to
     reissue new access keys to end users. For more detailed documentation, see
     [Dynamic Access
-    Keys](vpn/management/dynamic-access-keys.md).
+    Keys](guides/service-providers/dynamic-access-keys.md).

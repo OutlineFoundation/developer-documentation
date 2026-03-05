@@ -1,0 +1,27 @@
+/**
+ * Outline Developer Documentation - Custom CSS
+ * Uses Outline's green color scheme with Infima framework defaults.
+ */
+
+:root {
+  --ifm-color-primary: #3f8353;
+  --ifm-color-primary-dark: #396f4a;
+  --ifm-color-primary-darker: #356846;
+  --ifm-color-primary-darkest: #2b5639;
+  --ifm-color-primary-light: #49975c;
+  --ifm-color-primary-lighter: #4d9e61;
+  --ifm-color-primary-lightest: #5fb574;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #5fb574;
+  --ifm-color-primary-dark: #4dab65;
+  --ifm-color-primary-darker: #44a45d;
+  --ifm-color-primary-darkest: #38874d;
+  --ifm-color-primary-light: #71bf83;
+  --ifm-color-primary-lighter: #7ac48b;
+  --ifm-color-primary-lightest: #96d2a3;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

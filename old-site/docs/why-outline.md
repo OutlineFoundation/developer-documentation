@@ -1,9 +1,3 @@
----
-title: "Why Outline?"
-sidebar_label: "Why Outline?"
-slug: /
----
-
 # Why Outline?
 
 Are you passionate about digital freedom and helping users bypass censorship?

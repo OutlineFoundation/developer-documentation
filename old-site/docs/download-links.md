@@ -1,8 +1,3 @@
----
-title: "Download Links"
-sidebar_label: "Download Links"
----
-
 # Alternative Download Links
 
 The Outline Manager and Outline Client can be downloaded from the following
