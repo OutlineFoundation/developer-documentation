@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Disfarces de prefixo de conexão"
+sidebar_label: "Disfarces de prefixo de conexão"
 ---
 
 A partir da versão 1.9.0 do app cliente do Outline, é possível usar prefixos com as chaves de acesso. Os

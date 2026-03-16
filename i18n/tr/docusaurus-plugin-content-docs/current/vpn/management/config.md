@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "Erişim anahtarı yapılandırması"
+sidebar_label: "Erişim anahtarı yapılandırması"
 ---
 
 Outline, VPN parametrelerini tanımlamak ve TCP/UDP trafiğini işlemek için YAML tabanlı bir yapılandırma kullanır. Yapılandırma, birden fazla düzeyde birleştirilebilirliği destekler. Böylece esnek ve genişletilebilir kurumlara olanak tanır.

@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Déployer avec Outline Manager"
+sidebar_label: "Déployer avec Outline Manager"
 ---
 
 Ce guide vous explique comment configurer un serveur Outline pour fournir un accès sécurisé et sans restriction à Internet.

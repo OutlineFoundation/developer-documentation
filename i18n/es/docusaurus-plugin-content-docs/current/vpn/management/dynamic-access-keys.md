@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Claves de acceso dinámicas"
+sidebar_label: "Claves de acceso dinámicas"
 ---
 
 Outline ofrece dos tipos de claves de acceso: estáticas y dinámicas. Con las claves estáticas, toda la información de conexión se codifica en la misma clave. Con las claves dinámicas, se codifica la ubicación de la información de conexión, lo que te permite almacenar esa información de forma remota y modificarla si es necesario. Esto significa que puedes actualizar la configuración de tu servidor sin tener que generar ni distribuir claves nuevas a tus usuarios. En este documento se explica cómo puedes usar las claves de acceso dinámicas para gestionar tu servidor de Outline de una forma más flexible y eficiente.

@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "コンセプト"
+sidebar_label: "コンセプト"
 ---
 
 Outline SDK は基本的なコンセプトに基づいて構築されています。それらのコンセプトは、コンポジションや簡単な再利用を可能にするための相互運用可能なインターフェースとして定義されます。

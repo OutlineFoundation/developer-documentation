@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "پیکربندی کلید دسترسی"
+sidebar_label: "پیکربندی کلید دسترسی"
 ---
 
 ‫Outline از پیکربندی برپایه YAML استفاده می‌کند تا پارامترهای وی‌پی‌ان را تعیین کند و

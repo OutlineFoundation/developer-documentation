@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Dissimulation des préfixes de connexion"
+sidebar_label: "Dissimulation des préfixes de connexion"
 ---
 
 Les clés d'accès sont compatibles avec l'option "prefix" à partir de la version 1.9.0 du client Outline. L'option "prefix" correspond aux premiers octets utilisés pour le [salage](https://shadowsocks.org/guide/aead.html) d'une connexion TCP Shadowsocks.

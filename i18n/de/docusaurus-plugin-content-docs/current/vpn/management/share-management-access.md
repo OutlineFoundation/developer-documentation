@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Verwaltungszugriff für andere freigeben"
+sidebar_label: "Verwaltungszugriff für andere freigeben"
 ---
 
 Wenn Ihr Outline-Dienst wächst, kann es erforderlich werden, anderen vertrauenswürdigen Personen Verwaltungsaufgaben zu übertragen. In diesem Dokument werden die verschiedenen Methoden beschrieben, die für die gemeinsame Nutzung des Verwaltungszugangs mit anderen Managern zur Verfügung stehen.

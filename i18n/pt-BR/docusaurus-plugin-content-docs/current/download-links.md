@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Links de download alternativos"
+sidebar_label: "Links de download alternativos"
 ---
 
 Faça o download do Outline Manager e do app cliente do Outline nos links

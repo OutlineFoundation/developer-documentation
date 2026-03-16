@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "他人と管理アクセス権を共有する"
+sidebar_label: "他人と管理アクセス権を共有する"
 ---
 
 Outline サービスの規模が拡大するにつれ、他の信頼できる担当者に管理を委任する必要が生じることがあります。このドキュメントでは、他の管理者と管理アクセス権を共有するためのさまざまな方法について説明します。

@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Outline SDK ile Ağ Müdahalelerini Uzaktan Karakterize Etme ve Atlatma"
+sidebar_label: "Outline SDK ile Ağ Müdahalelerini Uzaktan Karakterize Etme ve Atlatma"
 ---
 
 Bu kılavuzda, Outline SDK'nın komut satırı araçlarını kullanarak ağdaki uzaktan müdahaleleri nasıl anlayıp engelleyeceğiniz gösterilmektedir. Ağ müdahalesini ölçmek, atlatma stratejilerini test etmek ve sonuçları analiz etmek için SDK'nın araçlarını nasıl kullanacağınızı öğreneceksiniz. Bu rehberde `resolve`, `fetch` ve `http2transport` araçlarına odaklanılacaktır.

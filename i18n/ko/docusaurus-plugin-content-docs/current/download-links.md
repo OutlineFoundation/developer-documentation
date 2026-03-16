@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "대체 다운로드 링크"
+sidebar_label: "대체 다운로드 링크"
 ---
 
 Outline Manager와 Outline 클라이언트는 다음 링크에서 다운로드할 수 있습니다. Outline 설정에 관한 자세한 내용은 <https://getoutline.org/>에서 확인하세요.

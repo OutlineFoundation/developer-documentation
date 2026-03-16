@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Caracterización y omisión remota de interferencias de red con el SDK de Outline"
+sidebar_label: "Caracterización y omisión remota de interferencias de red con el SDK de Outline"
 ---
 
 En esta guía, se muestra cómo usar las herramientas de línea de comandos del SDK de Outline para comprender y evitar la interferencia de red desde una perspectiva remota. Aprenderás a usar las herramientas del SDK para medir la interferencia de la red, probar estrategias de elusión y analizar los resultados. En esta guía, nos centraremos en las herramientas `resolve`, `fetch` y `http2transport`.

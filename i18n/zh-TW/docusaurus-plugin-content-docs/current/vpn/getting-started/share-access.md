@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "分享伺服器存取權"
+sidebar_label: "分享伺服器存取權"
 ---
 
 Outline 伺服器安裝成功後，系統會將您導向 Outline Manager 的伺服器詳細資料頁面。您可以在這個頁面，建立及管理用於存取伺服器的[存取金鑰](../../concepts#access-keys)。

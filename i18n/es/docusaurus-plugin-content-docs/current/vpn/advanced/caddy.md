@@ -1,6 +1,6 @@
 ---
-title: "Deploy with Automatic HTTPS Using Caddy"
-sidebar_label: "HTTPS with Caddy"
+title: "HTTPS automático con Caddy"
+sidebar_label: "HTTPS automático con Caddy"
 ---
 
 En esta guía se explica cómo utilizar [Caddy](https://caddyserver.com/), un servidor web potente y fácil de usar, para mejorar la configuración de tu servidor de Outline. Las funciones [HTTPS automáticas](https://caddyserver.com/docs/automatic-https) y la configuración flexible de Caddy la convierten en una opción excelente para ofrecer tu servidor de Outline, especialmente cuando se usa un transporte de WebSocket.

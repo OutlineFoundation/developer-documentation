@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "کلیدهای دسترسی پویا"
+sidebar_label: "کلیدهای دسترسی پویا"
 ---
 
 ‫Outline دو نوع کلید دسترسی ارائه می‌دهد: ثابت و پویا. در کدبندی کلیدهای ثابت

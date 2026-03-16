@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Concepten"
+sidebar_label: "Concepten"
 ---
 
 De Outline SDK is gemaakt aan de hand van enkele basisconcepten, beschreven als interoperabele interfaces die makkelijk kunnen worden aangepast en hergebruikt.

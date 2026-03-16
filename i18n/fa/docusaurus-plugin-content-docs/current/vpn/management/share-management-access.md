@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "هم‌رسانی کردن دسترسی مدیریتی با دیگران"
+sidebar_label: "هم‌رسانی کردن دسترسی مدیریتی با دیگران"
 ---
 
 سرویس Outline شما گسترش یافته است، ممکن است لازم باشد

@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Zdalne wykrywanie i omijanie zakłóceń w sieci za pomocą pakietu Outline SDK"
+sidebar_label: "Zdalne wykrywanie i omijanie zakłóceń w sieci za pomocą pakietu Outline SDK"
 ---
 
 Ten przewodnik pokazuje, jak za pomocą narzędzi wiersza poleceń pakietu SDK Outline zrozumieć i obejść zakłócenia sieciowe z perspektywy zdalnej. Dowiesz się, jak używać narzędzi pakietu SDK do pomiaru zakłóceń w sieci, testowania strategii obchodzenia ograniczeń i analizowania wyników. W tym przewodniku skupimy się na narzędziach `resolve`, `fetch` i `http2transport`.

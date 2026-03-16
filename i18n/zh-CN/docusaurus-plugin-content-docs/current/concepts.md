@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "概念"
+sidebar_label: "概念"
 ---
 
 Outline 可帮助用户绕过限制，顺畅访问开放互联网。了解以下主要概念，有助于理解其运作方式：

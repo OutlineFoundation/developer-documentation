@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "연결 접두사 위장"
+sidebar_label: "연결 접두사 위장"
 ---
 
 Outline 클라이언트 버전 1.9.0부터 액세스 키에서 'prefix' 옵션을 지원합니다. 'prefix'는 Shadowsocks TCP 연결 [솔트](https://shadowsocks.org/guide/aead.html)의 첫 번째 바이트로 사용된 바이트 목록입니다.

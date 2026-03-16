@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Enlaces de descarga alternativos"
+sidebar_label: "Enlaces de descarga alternativos"
 ---
 
 Puedes descargar Administrador de Outline y el cliente de Outline en los enlaces de abajo. Consulta más información sobre cómo configurar Outline en <https://getoutline.org/>.

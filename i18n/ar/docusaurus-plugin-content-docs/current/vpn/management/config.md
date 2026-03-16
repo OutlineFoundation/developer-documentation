@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "إعدادات مفاتيح الوصول"
+sidebar_label: "إعدادات مفاتيح الوصول"
 ---
 
 يستخدم Outline إعدادات مستنِدة إلى YAML لتحديد مَعلمات شبكة VPN والتعامل مع

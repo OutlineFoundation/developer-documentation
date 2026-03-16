@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Distribuisci con uno script di installazione"
+sidebar_label: "Distribuisci con uno script di installazione"
 ---
 
 Questa guida ti illustra il processo di configurazione di un server Outline per

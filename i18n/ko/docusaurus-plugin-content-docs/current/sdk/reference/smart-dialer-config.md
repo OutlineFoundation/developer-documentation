@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "스마트 다이얼러 구성"
+sidebar_label: "스마트 다이얼러 구성"
 ---
 
 **스마트 다이얼러**는 주어진 테스트 도메인 목록에 대해 DNS 및 TLS 차단을 해제할 전략을 검색하며, 여러 전략을 기술하는 구성에서 전략을 선택합니다.

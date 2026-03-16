@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "서버에 대한 액세스 권한 공유하기"
+sidebar_label: "서버에 대한 액세스 권한 공유하기"
 ---
 
 Outline 서버 설치를 완료하면 Outline Manager 내의 서버 세부정보 페이지로 이동하게 됩니다. 이 페이지는 [액세스 키](../../concepts#access-keys)를 사용하여 서버에 대한 액세스 권한을 생성하고 관리하는 중앙 허브입니다.

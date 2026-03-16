@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "المفاهيم"
+sidebar_label: "المفاهيم"
 ---
 
 يتّبع تصميم حزمة Outline SDK بعض المفاهيم الأساسية، فهو مبني على واجهات

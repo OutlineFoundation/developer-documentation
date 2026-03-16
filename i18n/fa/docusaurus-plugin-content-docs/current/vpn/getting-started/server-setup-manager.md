@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "پیاده‌سازی کردن بااستفاده از «مدیر Outline»"
+sidebar_label: "پیاده‌سازی کردن بااستفاده از «مدیر Outline»"
 ---
 
 این راهنما شما را در فرایند راه‌اندازی کردن «سرور Outline» همراهی می‌کند تا

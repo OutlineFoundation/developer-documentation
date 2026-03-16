@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "接続プレフィックスの偽装"
+sidebar_label: "接続プレフィックスの偽装"
 ---
 
 Outline クライアント バージョン 1.9.0 以降では、アクセスキーで「プレフィックス」オプションがサポートされています。「プレフィックス」とは、Shadowsocks TCP 接続の[ソルト](https://shadowsocks.org/guide/aead.html)の最初のバイトとして使用されるバイトのリストです。これにより、接続を、ネットワークで許可されているプロトコルのように見せることができるため、認識されないプロトコルを拒否するファイアウォールを回避できます。

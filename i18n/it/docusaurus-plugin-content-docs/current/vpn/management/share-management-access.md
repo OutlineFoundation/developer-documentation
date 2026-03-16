@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Condividi l&apos;accesso in gestione con altre persone"
+sidebar_label: "Condividi l&apos;accesso in gestione con altre persone"
 ---
 
 Man mano che il tuo servizio Outline si espande, può essere necessario delegare le responsabilità di gestione ad altre persone fidate. Questo documento illustra i vari metodi disponibili per condividere l'accesso in gestione con altre persone.

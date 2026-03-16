@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "설치 스크립트를 사용하여 배포하기"
+sidebar_label: "설치 스크립트를 사용하여 배포하기"
 ---
 
 이 가이드에서는 안전하고 제한 없는 인터넷 액세스를 제공하기 위해 Outline 서버를 설정하는 과정을 안내합니다.

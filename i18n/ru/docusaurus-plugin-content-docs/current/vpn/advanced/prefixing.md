@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Маскировка префикса подключения"
+sidebar_label: "Маскировка префикса подключения"
 ---
 
 В клиенте Outline версии 1.9.0 ключи доступа поддерживают префикс. Это список байтов, используемых в качестве первых байтов [соли](https://shadowsocks.org/guide/aead.html) TCP-подключения Shadowsocks.

@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Concepten"
+sidebar_label: "Concepten"
 ---
 
 Met Outline kunnen gebruikers toegangsbeperkingen tot het open internet omzeilen. Hieronder vind je informatie over hoe het werkt:

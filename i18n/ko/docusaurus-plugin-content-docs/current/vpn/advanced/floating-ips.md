@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "Floating IP를 사용하여 차단 방지 서버 설정"
+sidebar_label: "Floating IP를 사용하여 차단 방지 서버 설정"
 ---
 
 ## 소개 {#introduction}

@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "การกำหนดค่า Smart Dialer"
+sidebar_label: "การกำหนดค่า Smart Dialer"
 ---
 
 **Smart Dialer** จะค้นหากลยุทธ์ที่เลิกบล็อก DNS และ TLS สำหรับรายการโดเมนทดสอบที่ระบุ ซึ่งจะใช้การกำหนดค่าที่อธิบายรายละเอียดกลยุทธ์ต่างๆ เพื่อให้เลือกใช้งานได้

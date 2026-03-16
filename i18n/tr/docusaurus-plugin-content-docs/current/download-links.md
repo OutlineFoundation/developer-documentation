@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Alternatif indirme bağlantıları"
+sidebar_label: "Alternatif indirme bağlantıları"
 ---
 
 Outline Manager ve Outline istemcisi aşağıdaki bağlantılardan indirilebilir. Outline kurulumuyla ilgili daha fazla bilgi için [https://getoutline.org/tr/](https://getoutline.org/) adresine gidin.

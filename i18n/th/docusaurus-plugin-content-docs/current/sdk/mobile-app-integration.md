@@ -1,6 +1,6 @@
 ---
-title: "Add Outline SDK to Your Mobile App"
-sidebar_label: "Mobile App Integration"
+title: "เพิ่ม Outline SDK ลงในแอปบนมือถือ"
+sidebar_label: "เพิ่ม Outline SDK ลงในแอปบนมือถือ"
 ---
 
 เอกสารฉบับนี้สรุปวิธีผสานรวม Outline SDK เข้ากับแอปพลิเคชันบนมือถือ โดยจะมุ่งเน้นที่ไลบรารี `MobileProxy` สำหรับการจัดการพร็อกซีในระบบแบบง่าย

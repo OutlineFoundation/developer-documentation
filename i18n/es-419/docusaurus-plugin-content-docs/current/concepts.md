@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Conceptos"
+sidebar_label: "Conceptos"
 ---
 
 Outline ayuda a los usuarios a evitar las restricciones para que accedan al Internet abierto. Estos son

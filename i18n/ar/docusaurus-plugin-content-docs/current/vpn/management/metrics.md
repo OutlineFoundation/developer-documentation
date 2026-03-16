@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "الوصول إلى مقاييس أداء خادم Outline"
+sidebar_label: "الوصول إلى مقاييس أداء خادم Outline"
 ---
 
 يوفّر Outline مقاييس أداء مفصّلة من خلال

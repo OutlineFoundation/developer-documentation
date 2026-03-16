@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "پیوندهای بارگیری جایگزین"
+sidebar_label: "پیوندهای بارگیری جایگزین"
 ---
 
 «مدیر Outline» و «کارخواه Outline» می‌توانند از

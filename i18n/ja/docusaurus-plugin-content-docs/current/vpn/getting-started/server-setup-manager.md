@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Outline マネージャーを使用してデプロイする"
+sidebar_label: "Outline マネージャーを使用してデプロイする"
 ---
 
 このガイドでは、制限のない安全なインターネット アクセスを提供するように Outline サーバーを設定するプロセスについて説明します。

@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "مفاهیم"
+sidebar_label: "مفاهیم"
 ---
 
 ‫Outline SDK براساس برخی مفاهیم پایه ساخته شده است که به‌عنوان میاناهای

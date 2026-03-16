@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Enmascaramientos del prefijo de conexión"
+sidebar_label: "Enmascaramientos del prefijo de conexión"
 ---
 
 A partir de la versión 1.9.0 del cliente de Outline, las claves de acceso admiten la opción "prefijo". El

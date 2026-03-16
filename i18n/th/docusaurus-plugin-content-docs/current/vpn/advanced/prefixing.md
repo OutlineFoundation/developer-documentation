@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "การซ่อนคำนำหน้าการเชื่อมต่อ"
+sidebar_label: "การซ่อนคำนำหน้าการเชื่อมต่อ"
 ---
 
 ตั้งแต่ไคลเอ็นต์ Outline เวอร์ชัน 1.9.0 เป็นต้นไป คีย์การเข้าถึงจะรองรับตัวเลือก "คำนำหน้า" ซึ่ง "คำนำหน้า" คือรายการไบต์ที่ใช้เป็นไบต์แรกของ [Salt](https://shadowsocks.org/guide/aead.html) ในการเชื่อมต่อ TCP ของ Shadowsocks

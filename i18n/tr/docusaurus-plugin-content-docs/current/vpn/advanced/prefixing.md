@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Bağlantı öneki gizleme yöntemleri"
+sidebar_label: "Bağlantı öneki gizleme yöntemleri"
 ---
 
 Outline istemcisinin 1.9.0 sürümü itibarıyla erişim anahtarlarında "önek" seçeneği desteklenmektedir. "Önek", Shadowsocks TCP bağlantısındaki [takviye değerin](https://shadowsocks.org/guide/aead.html) ilk baytları olarak kullanılan baytların listesidir.

@@ -1,6 +1,6 @@
 ---
-title: "Why Outline?"
-sidebar_label: "Why Outline?"
+title: "Pourquoi choisir Outline ?"
+sidebar_label: "Pourquoi choisir Outline ?"
 slug: /
 ---
 

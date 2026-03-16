@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "Kayan IP&apos;ler ile engellemeye dirençli sunucular oluşturma"
+sidebar_label: "Kayan IP&apos;ler ile engellemeye dirençli sunucular oluşturma"
 ---
 
 ## Giriş {#introduction}

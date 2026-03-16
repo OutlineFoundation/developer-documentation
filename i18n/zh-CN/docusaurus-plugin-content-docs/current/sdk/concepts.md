@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "概念"
+sidebar_label: "概念"
 ---
 
 Outline SDK 基于一些基本概念构建，这些概念被定义为可互操作的接口，可搭配组合，且便于重复使用。

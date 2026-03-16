@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "مشاركة إذن الإدارة مع المستخدمين الآخرين"
+sidebar_label: "مشاركة إذن الإدارة مع المستخدمين الآخرين"
 ---
 
 مع ازدياد عدد مستخدمي خدمة Outline في مؤسستك، قد يكون من الضروري أن تفوّض

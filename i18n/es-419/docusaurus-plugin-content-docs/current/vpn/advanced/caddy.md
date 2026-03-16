@@ -1,6 +1,6 @@
 ---
-title: "Deploy with Automatic HTTPS Using Caddy"
-sidebar_label: "HTTPS with Caddy"
+title: "HTTPS automático con Caddy"
+sidebar_label: "HTTPS automático con Caddy"
 ---
 
 En esta guía, se explica cómo usar [Caddy](https://caddyserver.com/), un servidor web

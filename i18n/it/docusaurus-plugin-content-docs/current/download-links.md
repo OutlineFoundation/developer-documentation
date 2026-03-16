@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Link di download alternativi"
+sidebar_label: "Link di download alternativi"
 ---
 
 Outline Manager e client Outline possono essere scaricati dai seguenti

@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "フローティング IP を使用してブロック機能回避サーバーを設定する"
+sidebar_label: "フローティング IP を使用してブロック機能回避サーバーを設定する"
 ---
 
 ## はじめに {#introduction}

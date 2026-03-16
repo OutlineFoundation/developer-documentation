@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "النشر باستخدام تطبيق "مدير Outline""
+sidebar_label: "النشر باستخدام تطبيق "مدير Outline""
 ---
 
 سنتعرف في هذا الدليل على عملية إعداد خادم Outline

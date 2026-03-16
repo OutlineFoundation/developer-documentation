@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Dynamische Zugriffsschlüssel"
+sidebar_label: "Dynamische Zugriffsschlüssel"
 ---
 
 Outline bietet zwei Arten von Zugriffsschlüsseln: statische und dynamische. Statische Schlüssel enthalten alle Verbindungsinformationen in codierter Form im Schlüssel selbst. Dynamische Schlüssel hingegen enthalten lediglich den Speicherort der Verbindungsinformationen, sodass Sie diese Informationen unabhängig vom Schlüssel speichern und bei Bedarf ändern können. Das heißt, Sie haben die Möglichkeit, Ihre Serverkonfiguration zu aktualisieren, ohne dass Sie neue Schlüssel generieren und an Ihre Nutzer verteilen müssen. In diesem Dokument wird erläutert, wie Sie Ihren Outline-Server mit dynamischen Zugriffsschlüsseln flexibler und effizienter verwalten können.

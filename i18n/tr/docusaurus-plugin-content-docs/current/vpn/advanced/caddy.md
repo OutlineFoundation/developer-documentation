@@ -1,6 +1,6 @@
 ---
-title: "Deploy with Automatic HTTPS Using Caddy"
-sidebar_label: "HTTPS with Caddy"
+title: "Caddy ile otomatik HTTPS"
+sidebar_label: "Caddy ile otomatik HTTPS"
 ---
 
 Bu rehberde, güçlü ve kullanıcı dostu [Caddy](https://caddyserver.com/) web sunucusunu kullanarak Outline sunucu kurulumunuzu nasıl optimize edeceğiniz gösterilmektedir. [Otomatik HTTPS](https://caddyserver.com/docs/automatic-https) özellikleri ve esnek yapılandırması sayesinde Caddy, özellikle WebSocket taşıyıcısı kullanılırken Outline sunucunuzu desteklemek için ideal bir seçenektir.

@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "ทำให้ใช้งานได้ด้วยการใช้สคริปต์การติดตั้ง"
+sidebar_label: "ทำให้ใช้งานได้ด้วยการใช้สคริปต์การติดตั้ง"
 ---
 
 คู่มือนี้จะอธิบายกระบวนการตั้งค่าเซิร์ฟเวอร์ Outline เพื่อการเข้าถึงอินเทอร์เน็ตที่ปลอดภัยและไม่จำกัด

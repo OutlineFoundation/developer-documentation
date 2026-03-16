@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "مفاهیم"
+sidebar_label: "مفاهیم"
 ---
 
 ‫Outline به کاربران کمک می‌کند تا محدودیت‌های دسترسی به اینترنت باز را دور بزنند. این‌ها برخی‌از

@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Compartir el acceso de gestión con otros usuarios"
+sidebar_label: "Compartir el acceso de gestión con otros usuarios"
 ---
 
 A medida que amplíes tu servicio de Outline, quizá tengas que delegar tareas de gestión en otras personas de confianza. En esta página se describen los diversos métodos que hay para compartir el acceso de gestión con otros administradores.

@@ -1,6 +1,6 @@
 ---
-title: "Add Outline SDK to Your Mobile App"
-sidebar_label: "Mobile App Integration"
+title: "Dodawanie pakietu Outline SDK do aplikacji mobilnej"
+sidebar_label: "Dodawanie pakietu Outline SDK do aplikacji mobilnej"
 ---
 
 W tym dokumencie opisujemy sposób integracji pakietu Outline SDK z aplikacjami mobilnymi, skupiając się na bibliotece `MobileProxy` umożliwiającej uproszczone zarządzanie lokalnym serwerem proxy.

@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Claves de acceso dinámicas"
+sidebar_label: "Claves de acceso dinámicas"
 ---
 
 Outline ofrece dos tipos de claves de acceso: estáticas y dinámicas. Las estáticas codifican

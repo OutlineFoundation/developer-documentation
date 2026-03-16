@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "مشاركة إذن الوصول إلى الخادم"
+sidebar_label: "مشاركة إذن الوصول إلى الخادم"
 ---
 
 بعد اكتمال تثبيت خادم Outline، سيتم توجيهك إلى

@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Toegang geven tot je server"
+sidebar_label: "Toegang geven tot je server"
 ---
 
 Nadat je je Outline-server hebt geïnstalleerd, word je doorgestuurd naar de pagina met serverdetails in Outline Manager. Dit is je centrale plek om toegang tot je server met [toegangssleutels](../../concepts#access-keys) te genereren en te beheren.

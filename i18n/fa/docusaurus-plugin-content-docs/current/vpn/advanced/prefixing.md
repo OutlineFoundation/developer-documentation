@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "پیشوند اتصال مخفی می‌شود"
+sidebar_label: "پیشوند اتصال مخفی می‌شود"
 ---
 
 از «کارخواه Outline» نسخه ۱.۹.۰، کلیدهای دسترسی از گزینه «prefix» (پیشوند) پشتیبانی می‌کنند. «پیشوند»

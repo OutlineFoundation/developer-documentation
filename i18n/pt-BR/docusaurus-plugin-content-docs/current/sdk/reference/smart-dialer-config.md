@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Configurar o Discador Inteligente"
+sidebar_label: "Configurar o Discador Inteligente"
 ---
 
 O **Discador Inteligente** procura uma estratégia de desbloqueio de DNS e TLS para uma

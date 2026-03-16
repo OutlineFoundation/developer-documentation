@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Yönetim erişimini başka kullanıcılarla paylaşma"
+sidebar_label: "Yönetim erişimini başka kullanıcılarla paylaşma"
 ---
 
 Outline hizmetiniz büyüdükçe, yönetim sorumluluklarını diğer güvenilir kişilere devretmeniz gerekebilir. Bu belgede, yönetici erişimini diğer yöneticilerle paylaşmak için kullanılabilecek çeşitli yöntemler açıklanmaktadır.

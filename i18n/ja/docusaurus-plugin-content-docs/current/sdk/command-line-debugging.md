@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Outline SDK を使用してネットワーク干渉をリモートで特定し、バイパスする"
+sidebar_label: "Outline SDK を使用してネットワーク干渉をリモートで特定し、バイパスする"
 ---
 
 このガイドでは、Outline SDK のコマンドライン ツールを使用して、リモートの視点からネットワーク干渉を把握し、回避する方法について説明します。このコースでは、SDK のツールを使用してネットワーク干渉を測定し、回避策をテストして、結果を分析する方法を学びます。このガイドでは、`resolve`、`fetch`、`http2transport` ツールに焦点を当てます。

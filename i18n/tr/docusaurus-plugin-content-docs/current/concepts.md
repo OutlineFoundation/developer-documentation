@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Kavramlar"
+sidebar_label: "Kavramlar"
 ---
 
 Outline, kullanıcıların açık internete erişmelerinin önündeki kısıtlamaları aşmalarına yardımcı olur. Outline'ın işleyiş şeklini gösteren bazı temel konseptleri aşağıda bulabilirsiniz:

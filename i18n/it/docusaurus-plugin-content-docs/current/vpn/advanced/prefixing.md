@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Mascheramenti dei prefissi di connessione"
+sidebar_label: "Mascheramenti dei prefissi di connessione"
 ---
 
 A partire dalla versione 1.9.0 del client Outline, i tasti di accesso supportano l'opzione "prefisso". Il

@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Konzepte"
+sidebar_label: "Konzepte"
 ---
 
 Mit Outline erhalten Nutzer ungehinderten Zugang zum offenen Internet. Hier sind einige Schlüsselkonzepte zur Erklärung:

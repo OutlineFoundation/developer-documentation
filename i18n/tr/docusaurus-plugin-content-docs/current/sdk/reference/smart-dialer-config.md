@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Smart Dialer Yapılandırması"
+sidebar_label: "Smart Dialer Yapılandırması"
 ---
 
 **Smart Dialer** belirli bir test alan adı listesi için DNS ve TLS engellemesini kaldıran bir strateji arar. Aralarından seçim yapılacak birden fazla stratejiyi tanımlayan bir yapılandırma seçer.

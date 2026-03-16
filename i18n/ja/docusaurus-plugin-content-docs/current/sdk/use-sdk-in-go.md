@@ -1,6 +1,6 @@
 ---
-title: "Add Outline SDK to Your Go Code"
-sidebar_label: "Go Integration"
+title: "Outline SDK を Go コードに追加する"
+sidebar_label: "Outline SDK を Go コードに追加する"
 ---
 
 このガイドでは、Go 環境をセットアップして、Go コード内で Outline SDK を使用するプロセスについて説明します。

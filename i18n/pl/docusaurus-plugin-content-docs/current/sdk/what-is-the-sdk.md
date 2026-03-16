@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "Czym jest pakiet SDK"
+sidebar_label: "Czym jest pakiet SDK"
 ---
 
 Outline SDK to biblioteka i zestaw narzędzi, które pomagają programistom tworzyć aplikacje chroniące przed zakłóceniami na poziomie sieci i cenzurą.

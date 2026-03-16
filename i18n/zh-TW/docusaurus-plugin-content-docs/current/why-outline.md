@@ -1,6 +1,6 @@
 ---
-title: "Why Outline?"
-sidebar_label: "Why Outline?"
+title: "選用 Outline 的好處"
+sidebar_label: "選用 Outline 的好處"
 slug: /
 ---
 

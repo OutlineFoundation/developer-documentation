@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Configura lo Smart Dialer"
+sidebar_label: "Configura lo Smart Dialer"
 ---
 
 Lo **Smart Dialer** cerca una strategia per sbloccare il DNS e il TLS per un elenco specificato di domini di test. Richiede una configurazione che descriva più strategie tra cui scegliere.

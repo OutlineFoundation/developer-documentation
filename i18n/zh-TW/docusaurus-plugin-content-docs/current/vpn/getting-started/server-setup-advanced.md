@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "使用安裝指令碼部署"
+sidebar_label: "使用安裝指令碼部署"
 ---
 
 本指南將逐步引導您設定 Outline 伺服器，讓您可以安全且不受限制地存取網際網路。

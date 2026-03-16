@@ -1,6 +1,6 @@
 ---
-title: "Deploy with Automatic HTTPS Using Caddy"
-sidebar_label: "HTTPS with Caddy"
+title: "بروتوكول HTTPS التلقائي لخادم Caddy"
+sidebar_label: "بروتوكول HTTPS التلقائي لخادم Caddy"
 ---
 
 يوضِّح هذا الدليل كيفية استخدام [Caddy](https://caddyserver.com/)، وهو خادم ويب فعّال

@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Yükleme komut dosyası kullanarak dağıtma"
+sidebar_label: "Yükleme komut dosyası kullanarak dağıtma"
 ---
 
 Bu kılavuzda, internet erişimini güvenli ve sınırsız hale getirmek için Outline sunucusu kurma işlemi anlatılmaktadır.

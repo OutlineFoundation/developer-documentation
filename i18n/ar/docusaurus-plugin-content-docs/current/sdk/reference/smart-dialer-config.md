@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "إعدادات برنامج الاتصال الذكي"
+sidebar_label: "إعدادات برنامج الاتصال الذكي"
 ---
 
 يبحث **برنامج الاتصال الذكي** عن استراتيجية لإزالة حظر نظام أسماء النطاقات وبروتوكول أمان طبقة النقل (TLS) في

@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Wdrażanie za pomocą skryptu instalacyjnego"
+sidebar_label: "Wdrażanie za pomocą skryptu instalacyjnego"
 ---
 
 Ten przewodnik przeprowadzi Cię przez proces konfigurowania serwera Outline w celu zapewnienia bezpiecznego i nieograniczonego dostępu do internetu.

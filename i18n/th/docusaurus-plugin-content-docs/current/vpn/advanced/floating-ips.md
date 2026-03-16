@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "ตั้งค่าเซิร์ฟเวอร์ป้องกันบล็อกด้วย IP แบบลอย"
+sidebar_label: "ตั้งค่าเซิร์ฟเวอร์ป้องกันบล็อกด้วย IP แบบลอย"
 ---
 
 ## บทนำ {#introduction}

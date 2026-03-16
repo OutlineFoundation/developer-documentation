@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "设置采用浮动 IP 的防封锁服务器"
+sidebar_label: "设置采用浮动 IP 的防封锁服务器"
 ---
 
 ## 简介 {#introduction}

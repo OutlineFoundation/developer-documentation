@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Caracterização e bypass remotos de interferências na rede com o SDK Outline"
+sidebar_label: "Caracterização e bypass remotos de interferências na rede com o SDK Outline"
 ---
 
 Este guia demonstra como usar as ferramentas de linha de comando do SDK do Outline para

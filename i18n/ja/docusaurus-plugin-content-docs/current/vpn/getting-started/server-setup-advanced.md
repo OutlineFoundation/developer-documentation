@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "インストール スクリプトを使用してデプロイする"
+sidebar_label: "インストール スクリプトを使用してデプロイする"
 ---
 
 このガイドでは、無制限の安全なインターネット アクセスを提供するように Outline サーバーを設定するプロセスについて説明します。

@@ -1,6 +1,6 @@
 ---
-title: "Add Outline SDK to Your Mobile App"
-sidebar_label: "Mobile App Integration"
+title: "Adicionar o SDK Outline ao seu app para dispositivos móveis"
+sidebar_label: "Adicionar o SDK Outline ao seu app para dispositivos móveis"
 ---
 
 Este documento resume como integrar o SDK Outline aos seus aplicativos

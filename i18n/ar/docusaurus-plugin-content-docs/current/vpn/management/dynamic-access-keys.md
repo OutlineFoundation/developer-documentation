@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "مفاتيح الوصول الديناميكية"
+sidebar_label: "مفاتيح الوصول الديناميكية"
 ---
 
 يوفّر Outline نوعَين من مفاتيح الوصول: الثابتة والديناميكية. يتم ترميز كل

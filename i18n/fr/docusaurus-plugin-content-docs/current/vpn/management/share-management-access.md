@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Partager l&apos;accès aux fonctionnalités de gestion"
+sidebar_label: "Partager l&apos;accès aux fonctionnalités de gestion"
 ---
 
 À mesure que votre service Outline se développe, vous pouvez être amené à déléguer certaines tâches de gestion à des personnes de confiance. Ce document présente les diverses méthodes disponibles pour partager l'accès aux fonctionnalités de gestion avec d'autres administrateurs.

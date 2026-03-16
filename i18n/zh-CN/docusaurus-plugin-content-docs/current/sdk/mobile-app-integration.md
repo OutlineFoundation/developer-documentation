@@ -1,6 +1,6 @@
 ---
-title: "Add Outline SDK to Your Mobile App"
-sidebar_label: "Mobile App Integration"
+title: "将 Outline SDK 添加到移动应用"
+sidebar_label: "将 Outline SDK 添加到移动应用"
 ---
 
 本文档概述了如何将 Outline SDK 集成到移动应用中，并重点讲解如何使用 `MobileProxy` 库简化本地代理管理。

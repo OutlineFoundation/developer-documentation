@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Implementeren via Outline Manager"
+sidebar_label: "Implementeren via Outline Manager"
 ---
 
 Deze handleiding leidt je door het proces om een Outline-server in te stellen zodat je mensen beveiligde, onbeperkte internettoegang kunt geven.

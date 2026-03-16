@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Acesso a métricas de performance do servidor do Outline"
+sidebar_label: "Acesso a métricas de performance do servidor do Outline"
 ---
 
 Com o [Prometheus](https://prometheus.io/), o Outline mostra métricas de performance

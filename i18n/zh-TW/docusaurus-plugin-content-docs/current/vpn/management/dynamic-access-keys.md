@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "動態存取金鑰"
+sidebar_label: "動態存取金鑰"
 ---
 
 Outline 提供兩種存取金鑰：靜態金鑰與動態金鑰。靜態金鑰將所有連線資訊編碼在金鑰本身，而動態金鑰則編碼連線資訊的位置，讓您能遠端儲存資訊並視需要修改。這表示您可以輕鬆更新伺服器設定，不需要產生新的金鑰來重新分發給使用者。本文件將說明如何使用動態存取金鑰，更靈活有效率地管理 Outline 伺服器。

@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Implementa el servidor con una secuencia de comandos de instalación"
+sidebar_label: "Implementa el servidor con una secuencia de comandos de instalación"
 ---
 
 En esta guía, se explica el proceso para configurar un servidor de Outline para

@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "المفاهيم"
+sidebar_label: "المفاهيم"
 ---
 
 يساعد Outline المستخدمين على تفادي قيود الوصول إلى الإنترنت المفتوح. إليك

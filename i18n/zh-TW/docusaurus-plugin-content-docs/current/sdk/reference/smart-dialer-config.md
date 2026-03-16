@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Smart Dialer 設定"
+sidebar_label: "Smart Dialer 設定"
 ---
 
 **Smart Dialer** 會針對指定測試網域，搜尋能解除 DNS 和 TLS 封鎖的策略。這個元件會讀取包含多種策略的設定，並從中選擇一種策略。

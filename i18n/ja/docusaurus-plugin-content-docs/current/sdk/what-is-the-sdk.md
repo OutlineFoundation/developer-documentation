@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "この SDK について"
+sidebar_label: "この SDK について"
 ---
 
 Outline SDK は、ネットワークレベルの介入や検閲に対する保護を行うアプリケーションを開発するためのライブラリとツールのコレクションです。

@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Partager l&apos;accès à votre serveur"
+sidebar_label: "Partager l&apos;accès à votre serveur"
 ---
 
 Une fois votre serveur Outline installé, vous êtes redirigé vers sa page d'informations dans Outline Manager. Cette page vous permet d'accorder des accès à votre serveur et de les gérer à l'aide de [clés d'accès](../../concepts#access-keys).

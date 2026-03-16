@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Implantar usando o Outline Manager"
+sidebar_label: "Implantar usando o Outline Manager"
 ---
 
 Este guia orienta todo o processo de configuração do servidor do Outline para

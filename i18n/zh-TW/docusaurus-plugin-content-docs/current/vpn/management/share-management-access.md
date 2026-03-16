@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "與他人分享管理權限"
+sidebar_label: "與他人分享管理權限"
 ---
 
 Outline 服務規模擴大後，您可能需要將管理職責委派給其他信任的人員。本文介紹了與其他管理員分享管理權限的各種方法。

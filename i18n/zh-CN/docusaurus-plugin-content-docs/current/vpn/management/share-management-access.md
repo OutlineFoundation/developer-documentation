@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "和他人分享管理权限"
+sidebar_label: "和他人分享管理权限"
 ---
 
 随着 Outline 服务规模的扩大，您可能会发现有必要将管理职责委托给其他值得信赖的人员。本文档概述了与其他管理员分享管理权限的各种方法。

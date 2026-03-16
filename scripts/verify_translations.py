@@ -100,6 +100,19 @@ def extract_frontmatter(text: str) -> str | None:
     return m.group(1) if m else None
 
 
+def extract_frontmatter_keys(text: str) -> set[str]:
+    """Extract the set of frontmatter key names from markdown."""
+    fm = extract_frontmatter(text)
+    if not fm:
+        return set()
+    keys = set()
+    for line in fm.split('\n'):
+        m = re.match(r'^(\w[\w_-]*):', line)
+        if m:
+            keys.add(m.group(1))
+    return keys
+
+
 def extract_code_blocks(md_text: str) -> list[str]:
     """Extract all fenced code blocks from markdown."""
     blocks = []
@@ -241,14 +254,35 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
         en_text = read_doc(ENGLISH_DOCS_DIR, doc_path)
         tr_text = read_doc(locale_dir, doc_path)
 
-        # Frontmatter
+        # Frontmatter: check that translated file has the same keys
+        # (title and sidebar_label values are expected to be translated)
         en_fm = extract_frontmatter(en_text)
         tr_fm = extract_frontmatter(tr_text)
-        if en_fm != tr_fm:
+        if en_fm and not tr_fm:
             issues.append(Issue(
                 locale, doc_path, "FRONTMATTER",
-                f"Frontmatter differs from English"
+                "Missing frontmatter (English has frontmatter)"
             ))
+        elif not en_fm and tr_fm:
+            issues.append(Issue(
+                locale, doc_path, "FRONTMATTER",
+                "Unexpected frontmatter (English has none)"
+            ))
+        elif en_fm and tr_fm:
+            en_keys = extract_frontmatter_keys(en_text)
+            tr_keys = extract_frontmatter_keys(tr_text)
+            if en_keys != tr_keys:
+                missing = en_keys - tr_keys
+                extra = tr_keys - en_keys
+                detail = []
+                if missing:
+                    detail.append(f"missing keys: {missing}")
+                if extra:
+                    detail.append(f"extra keys: {extra}")
+                issues.append(Issue(
+                    locale, doc_path, "FRONTMATTER",
+                    f"Frontmatter keys differ: {'; '.join(detail)}"
+                ))
 
         # Code blocks
         en_blocks = extract_code_blocks(en_text)

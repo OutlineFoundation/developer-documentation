@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Anderen beheertoegang geven"
+sidebar_label: "Anderen beheertoegang geven"
 ---
 
 Als je Outline-service groeit, wil je andere mensen die je vertrouwt misschien beheerverantwoordelijkheden geven. In dit document vind je uitleg over de verschillende methoden waarmee je andere mensen beheertoegang kunt geven.

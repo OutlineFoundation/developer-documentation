@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Dinamik erişim anahtarları"
+sidebar_label: "Dinamik erişim anahtarları"
 ---
 
 Outline'da iki tür erişim anahtarı vardır: statik ve dinamik. Statik anahtarlar, tüm bağlantı bilgilerini anahtarın içinde kodlar. Dinamik anahtarlar ise bağlantı bilgilerinin konumunu kodlayarak bu bilgileri uzakta depolamanıza ve gerektiğinde değiştirmenize olanak tanır. Bu sayede, kullanıcılarınıza yeni anahtarlar oluşturmak ve dağıtmak zorunda kalmadan sunucu yapılandırmanızı güncelleyebilirsiniz. Bu belgede, Outline sunucunuzun daha esnek ve verimli yönetimi için dinamik erişim anahtarlarının nasıl kullanılacağı açıklanmaktadır.

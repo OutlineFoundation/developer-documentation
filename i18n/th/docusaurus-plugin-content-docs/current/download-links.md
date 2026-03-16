@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "ลิงก์ดาวน์โหลดสำรอง"
+sidebar_label: "ลิงก์ดาวน์โหลดสำรอง"
 ---
 
 Outline Manager และไคลเอ็นต์ Outline สามารถดาวน์โหลดได้จากลิงก์ด้านล่างนี้ โปรดดูข้อมูลเพิ่มเติมเกี่ยวกับการตั้งค่า Outline ที่ <https://getoutline.org/>

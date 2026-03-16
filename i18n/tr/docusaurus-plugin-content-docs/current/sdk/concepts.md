@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Kavramlar"
+sidebar_label: "Kavramlar"
 ---
 
 Outline SDK’nın temelinde, birleştirmeye ve kolay yeniden kullanıma olanak sağlayan, birlikte çalışabilir arayüzler şeklinde tanımlanan bazı temel kavramlar yer alır.

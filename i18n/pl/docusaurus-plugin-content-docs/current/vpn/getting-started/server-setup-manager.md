@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Wdrażanie za pomocą Menedżera Outline"
+sidebar_label: "Wdrażanie za pomocą Menedżera Outline"
 ---
 
 Ten przewodnik przeprowadzi Cię przez proces konfigurowania serwera Outline w celu zapewnienia bezpiecznego i nieograniczonego dostępu do internetu.

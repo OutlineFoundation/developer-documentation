@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Conceitos"
+sidebar_label: "Conceitos"
 ---
 
 O SDK Outline foi desenvolvido com base em conceitos simples, definidos como interfaces

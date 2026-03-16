@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "SDK의 정의"
+sidebar_label: "SDK의 정의"
 ---
 
 Outline SDK는 개발자가 네트워크 수준의 간섭과 검열로부터 보호하는 애플리케이션을 개발하는 데 도움이 될 수 있도록 설계된 라이브러리 및 도구 모음입니다.

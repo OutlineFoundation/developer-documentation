@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "存取 Outline 伺服器成效指標"
+sidebar_label: "存取 Outline 伺服器成效指標"
 ---
 
 Outline 會透過 [Prometheus](https://prometheus.io/) 提供詳細效能指標，讓您可以深入瞭解伺服器的使用情形和健康狀態。本指南將逐步引導您檢索與查看這些指標。

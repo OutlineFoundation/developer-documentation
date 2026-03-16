@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "Configurazione delle chiavi di accesso"
+sidebar_label: "Configurazione delle chiavi di accesso"
 ---
 
 Outline utilizza una configurazione basata su YAML per definire i parametri VPN e gestire il traffico TCP/UDP. La configurazione supporta la componibilità a più livelli, consentendo configurazioni flessibili ed estensibili.

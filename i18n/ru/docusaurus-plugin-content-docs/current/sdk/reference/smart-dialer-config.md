@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Конфигурация Smart Dialer"
+sidebar_label: "Конфигурация Smart Dialer"
 ---
 
 **Smart Dialer** подбирает стратегию, которая позволяет обойти блокировки DNS и TLS для заданного списка тестовых доменов. Резолвер использует конфигурацию, описывающую несколько доступных стратегий.

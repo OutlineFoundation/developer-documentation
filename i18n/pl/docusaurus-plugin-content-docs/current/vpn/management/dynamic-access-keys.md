@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Dynamiczne klucze dostępu"
+sidebar_label: "Dynamiczne klucze dostępu"
 ---
 
 W Outline dostępne są 2 rodzaje kluczy dostępu: statyczne i dynamiczne. Klucze statyczne kodują wszystkie informacje dotyczące połączania wewnątrz samego klucza, natomiast klucze dynamiczne kodują lokalizację informacji dotyczących połączenia, dzięki czemu możesz przechowywać je zdalnie i zmieniać, gdy zajdzie taka potrzeba. Oznacza to, że możesz aktualizować konfigurację swojego serwera bez konieczności generowania nowych kluczy i przekazywania ich użytkownikom. Z tego dokumentu dowiesz się, jak korzystać z dynamicznych kluczy dostępu, aby zwiększyć elastyczność i wydajność zarządzania serwerem Outline.

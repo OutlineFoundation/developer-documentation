@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Autres liens de téléchargement"
+sidebar_label: "Autres liens de téléchargement"
 ---
 
 Vous pouvez télécharger Outline Manager et le client Outline à partir des liens ci-dessous. Pour en savoir plus sur la configuration d'Outline, consultez la page <https://getoutline.org/>.

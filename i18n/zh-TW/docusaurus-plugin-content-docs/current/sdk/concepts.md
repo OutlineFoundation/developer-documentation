@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "概念"
+sidebar_label: "概念"
 ---
 
 Outline SDK 的設計基於幾項基本概念，這些概念以可互通的介面為核心，介面能靈活組合，並方便重複使用。

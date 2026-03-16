@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "إعداد خادم مقاوم للحظر باستخدام عنوان IP عائم"
+sidebar_label: "إعداد خادم مقاوم للحظر باستخدام عنوان IP عائم"
 ---
 
 ## مقدمة {#introduction}

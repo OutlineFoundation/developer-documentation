@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Przyznawanie dostępu administracyjnego innym użytkownikom"
+sidebar_label: "Przyznawanie dostępu administracyjnego innym użytkownikom"
 ---
 
 Wraz rozwojem usługi Outline konieczne może być przekazanie zadań związanych z zarządzaniem innym zaufanym osobom. W tym dokumencie opisano różne dostępne metody przyznawania dostępu administracyjnego innym menedżerom.

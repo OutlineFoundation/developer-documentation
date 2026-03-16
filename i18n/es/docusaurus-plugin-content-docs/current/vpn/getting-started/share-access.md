@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Compartir el acceso a tu servidor"
+sidebar_label: "Compartir el acceso a tu servidor"
 ---
 
 Después de instalar el servidor de Outline, se te dirigirá a su página de detalles en Administrador de Outline. En esta página, puedes especificar y gestionar de forma centralizada cómo se accede a tu servidor mediante [claves de acceso](../../concepts#access-keys).

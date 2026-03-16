@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "ทำให้ใช้งานได้ด้วยการใช้ Outline Manager"
+sidebar_label: "ทำให้ใช้งานได้ด้วยการใช้ Outline Manager"
 ---
 
 คู่มือนี้จะอธิบายกระบวนการตั้งค่าเซิร์ฟเวอร์ Outline เพื่อการเข้าถึงอินเทอร์เน็ตที่ปลอดภัยและไม่จำกัด

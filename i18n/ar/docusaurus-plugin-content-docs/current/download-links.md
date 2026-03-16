@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "روابط التنزيل البديلة"
+sidebar_label: "روابط التنزيل البديلة"
 ---
 
 يمكن تحميل تطبيقَي "مدير Outline" و"عميل Outline" من

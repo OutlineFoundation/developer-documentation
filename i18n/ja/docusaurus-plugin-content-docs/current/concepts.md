@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "コンセプト"
+sidebar_label: "コンセプト"
 ---
 
 Outline は、ユーザーが制限を回避してオープンなインターネットにアクセスできるようにします。その仕組みを理解できるよう、主なコンセプトを以下で説明していきます。

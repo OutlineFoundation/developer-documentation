@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "النشر باستخدام نص تثبيت برمجي"
+sidebar_label: "النشر باستخدام نص تثبيت برمجي"
 ---
 
 سنتعرف في هذا الدليل على عملية إعداد خادم Outline

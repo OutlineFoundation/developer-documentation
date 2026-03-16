@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "备用下载链接"
+sidebar_label: "备用下载链接"
 ---
 
 Outline 管理器和 Outline 客户端可以通过以下链接下载。如需详细了解如何设置 Outline，请访问 <https://getoutline.org/>。

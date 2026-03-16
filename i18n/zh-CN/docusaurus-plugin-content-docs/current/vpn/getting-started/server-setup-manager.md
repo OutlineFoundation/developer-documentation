@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "使用 Outline 管理器进行部署"
+sidebar_label: "使用 Outline 管理器进行部署"
 ---
 
 本指南详细介绍了如何设置 Outline 服务器，以便安全而不受限地访问互联网。

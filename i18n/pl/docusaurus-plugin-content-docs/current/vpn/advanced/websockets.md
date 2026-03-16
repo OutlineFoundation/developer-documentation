@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections as Web Traffic with Shadowsocks-over-WebSockets"
-sidebar_label: "WebSockets"
+title: "Shadowsocks-over-WebSockets"
+sidebar_label: "Shadowsocks-over-WebSockets"
 ---
 
 *Klient Outline – wersja 1.15.0+*

@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "使用 Outline SDK 远程表征和绕过网络干扰"
+sidebar_label: "使用 Outline SDK 远程表征和绕过网络干扰"
 ---
 
 本指南演示了如何使用 Outline SDK 的命令行工具从远程角度了解并规避网络干扰。您将学习如何使用 SDK 的工具来衡量网络干扰、测试规避策略并分析结果。本指南将重点介绍 `resolve`、`fetch` 和 `http2transport` 工具。

@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "액세스 키 구성"
+sidebar_label: "액세스 키 구성"
 ---
 
 Outline은 YAML 기반 구성을 사용하여 VPN 매개변수를 정의하고 TCP/UDP 트래픽을 처리합니다. 구성은 여러 수준에서 구성 가능성을 지원하므로 유연하고 확장 가능한 설정이 가능해집니다.

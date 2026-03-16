@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "개념"
+sidebar_label: "개념"
 ---
 
 Outline을 사용하면 제한사항을 우회하여 개방형 인터넷에 액세스할 수 있습니다. 다음 주요 개념을 통해 작동 방식을 이해할 수 있습니다.

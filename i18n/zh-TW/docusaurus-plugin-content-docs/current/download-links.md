@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "備用下載連結"
+sidebar_label: "備用下載連結"
 ---
 
 以下提供 Outline Manager 和 Outline 用戶端的下載連結。如要進一步瞭解 Outline 的設定方式，請前往 <https://getoutline.org/>。

@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Implementar con una secuencia de comandos de instalación"
+sidebar_label: "Implementar con una secuencia de comandos de instalación"
 ---
 
 Esta guía explica el proceso de configurar un servidor de Outline para ofrecer acceso a Internet seguro y sin restricciones.

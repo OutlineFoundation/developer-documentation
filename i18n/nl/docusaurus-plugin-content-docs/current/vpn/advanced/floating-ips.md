@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "Een server maken die niet kan worden geblokkeerd met zwevende IP-adressen"
+sidebar_label: "Een server maken die niet kan worden geblokkeerd met zwevende IP-adressen"
 ---
 
 ## Introductie {#introduction}

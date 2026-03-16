@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "Wat is de SDK"
+sidebar_label: "Wat is de SDK"
 ---
 
 De Outline SDK is een bibliotheek en verzameling tools waarmee ontwikkelaars apps kunnen maken die gebruikers beschermen tegen verstoringen en censuur op netwerkniveau.

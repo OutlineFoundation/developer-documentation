@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Sunucunuza erişimi paylaşma"
+sidebar_label: "Sunucunuza erişimi paylaşma"
 ---
 
 Outline sunucunuzu başarıyla yükledikten sonra, Outline Manager'daki sunucu ayrıntıları sayfasına yönlendirilirsiniz. Bir merkez görevi gören bu sayfada, [erişim anahtarlarınızı](../../concepts#access-keys) kullanarak sunucunuza yönelik erişimi ayarlayıp yönetebilirsiniz.

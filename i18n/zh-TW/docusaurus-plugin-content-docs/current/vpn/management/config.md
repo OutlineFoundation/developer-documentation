@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "存取金鑰設定"
+sidebar_label: "存取金鑰設定"
 ---
 
 Outline 運用基於 YAML 的設定來定義 VPN 參數及處理 TCP/UDP 流量。這種設定支援多層次組合，讓配置更靈活且易於擴充。

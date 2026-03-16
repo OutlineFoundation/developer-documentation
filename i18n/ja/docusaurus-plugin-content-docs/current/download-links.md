@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "代替ダウンロード リンク"
+sidebar_label: "代替ダウンロード リンク"
 ---
 
 Outline マネージャーと Outline クライアントは以下のリンクからダウンロードできます。Outline の設定の詳細については、<https://getoutline.org/> をご覧ください。

@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Outline SDK를 사용하여 원격으로 네트워크 간섭 특성화 및 우회"
+sidebar_label: "Outline SDK를 사용하여 원격으로 네트워크 간섭 특성화 및 우회"
 ---
 
 이 가이드에서는 Outline SDK의 명령줄 도구를 사용하여 원격 관점에서 네트워크 간섭을 이해하고 우회하는 방법을 보여줍니다. SDK의 도구를 사용하여 네트워크 간섭을 측정하고, 우회 전략을 테스트하고, 결과를 분석하는 방법을 알아봅니다. 이 가이드에서는 `resolve`, `fetch`, `http2transport` 도구에 중점을 둡니다.

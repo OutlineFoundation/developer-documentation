@@ -1,6 +1,6 @@
 ---
-title: "Why Outline?"
-sidebar_label: "Why Outline?"
+title: "Neden Outline?"
+sidebar_label: "Neden Outline?"
 slug: /
 ---
 

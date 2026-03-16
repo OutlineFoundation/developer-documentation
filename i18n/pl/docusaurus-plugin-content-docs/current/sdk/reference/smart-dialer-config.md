@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Konfiguracja inteligentnego dialera"
+sidebar_label: "Konfiguracja inteligentnego dialera"
 ---
 
 **Inteligentny dialer** wyszukuje strategię, która odblokowuje protokoły DNS i TLS dla podanej listy domen testowych. Wyboru dokonuje na podstawie konfiguracji opisującej wiele strategii.

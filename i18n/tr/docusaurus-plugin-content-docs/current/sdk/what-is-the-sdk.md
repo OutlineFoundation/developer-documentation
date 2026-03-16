@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "SDK nedir?"
+sidebar_label: "SDK nedir?"
 ---
 
 Outline SDK, geliştiricilerin ağ düzeyinde müdahale ve sansüre karşı koruma sağlayan uygulamalar oluşturmalarına yardımcı olmak amacıyla tasarlanmış bir kitaplık ve araç koleksiyonudur.

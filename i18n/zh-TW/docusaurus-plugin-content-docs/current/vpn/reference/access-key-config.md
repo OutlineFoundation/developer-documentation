@@ -1,6 +1,6 @@
 ---
-title: "Access Key Configuration Reference"
-sidebar_label: "Access Key Config"
+title: "設定"
+sidebar_label: "設定"
 ---
 
 ## 通道 {#tunnels}

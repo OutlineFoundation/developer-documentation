@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "다른 사용자와 관리 액세스 권한 공유하기"
+sidebar_label: "다른 사용자와 관리 액세스 권한 공유하기"
 ---
 
 Outline 서비스가 확장됨에 따라 신뢰할 수 있는 다른 사용자에게 관리 책임을 위임해야 수도 있습니다. 이 문서에서는 다른 관리자와 관리 액세스 권한을 공유하는 데 사용할 수 있는 다양한 방법을 설명합니다.

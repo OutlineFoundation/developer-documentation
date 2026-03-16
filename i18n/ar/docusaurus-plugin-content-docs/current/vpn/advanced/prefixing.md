@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "إخفاء بادئة الاتصال"
+sidebar_label: "إخفاء بادئة الاتصال"
 ---
 
 تتوافق مفاتيح الوصول مع خيار "البادئة" (prefix) وذلك في الإصدار 1.9.0 من تطبيق "عميل Outline". و

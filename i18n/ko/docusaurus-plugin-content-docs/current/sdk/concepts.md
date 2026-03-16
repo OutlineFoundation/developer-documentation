@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "개념"
+sidebar_label: "개념"
 ---
 
 Outline SDK는 구성과 재사용이 가능하도록 상호 운용 가능한 인터페이스로 정의된 몇 가지 기본 개념을 기반으로 빌드되었습니다.

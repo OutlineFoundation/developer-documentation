@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Przyznawanie dostępu do serwera"
+sidebar_label: "Przyznawanie dostępu do serwera"
 ---
 
 Po zakończeniu instalacji serwera Outline nastąpi przekierowanie na stronę z informacjami o nim w aplikacji Menedżer Outline. Na tej stronie możesz generować [klucze dostępu](../../concepts#access-keys), a także zarządzać dostępem do serwera.

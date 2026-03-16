@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "پیاده‌سازی کردن بااستفاده از دستورگان نصب"
+sidebar_label: "پیاده‌سازی کردن بااستفاده از دستورگان نصب"
 ---
 
 این راهنما شما را در فرایند راه‌اندازی «سرور Outline» همراهی می‌کند تا

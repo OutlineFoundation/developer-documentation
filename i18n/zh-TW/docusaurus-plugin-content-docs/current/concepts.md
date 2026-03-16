@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "概念"
+sidebar_label: "概念"
 ---
 
 Outline 可協助使用者繞過限制，順利存取開放網際網路。想瞭解這項服務的運作方式，請先掌握以下重要概念：

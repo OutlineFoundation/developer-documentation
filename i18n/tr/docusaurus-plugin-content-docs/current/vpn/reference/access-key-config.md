@@ -1,6 +1,6 @@
 ---
-title: "Access Key Configuration Reference"
-sidebar_label: "Access Key Config"
+title: "Yapılandırma (Config)"
+sidebar_label: "Yapılandırma (Config)"
 ---
 
 ## Tüneller (Tunnel) {#tunnels}

@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Concetti"
+sidebar_label: "Concetti"
 ---
 
 Outline SDK si basa su concetti fondamentali rappresentati da interfacce interoperabili, progettate per la componibilità e per essere facilmente riutilizzabili.

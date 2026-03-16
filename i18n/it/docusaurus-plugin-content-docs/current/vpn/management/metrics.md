@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Accesso alle metriche sulle prestazioni del server Outline"
+sidebar_label: "Accesso alle metriche sulle prestazioni del server Outline"
 ---
 
 Outline fornisce metriche dettagliate sulle prestazioni tramite

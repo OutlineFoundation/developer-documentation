@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "پیکربندی شماره‌گیر هوشمند"
+sidebar_label: "پیکربندی شماره‌گیر هوشمند"
 ---
 
 **شماره‌گیر هوشمند** راهبردی را جستجو می‌کند که ساناد و «امنیت لایه انتقال» را برای

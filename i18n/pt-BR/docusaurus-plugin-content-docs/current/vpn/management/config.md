@@ -1,6 +1,6 @@
 ---
-title: "Configure Access Keys"
-sidebar_label: "Configure Access Keys"
+title: "Configuração da chave de acesso"
+sidebar_label: "Configuração da chave de acesso"
 ---
 
 O Outline usa uma configuração baseada em YAML para definir parâmetros de VPN e gerenciar

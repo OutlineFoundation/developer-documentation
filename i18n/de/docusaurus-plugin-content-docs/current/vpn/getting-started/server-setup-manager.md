@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Über Outline-Manager bereitstellen"
+sidebar_label: "Über Outline-Manager bereitstellen"
 ---
 
 In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung eines Outline-Servers geführt, um einen sicheren und uneingeschränkten Internetzugriff bereitzustellen.

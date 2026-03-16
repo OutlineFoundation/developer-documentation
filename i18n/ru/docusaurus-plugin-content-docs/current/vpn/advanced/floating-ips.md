@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "Настройка сервера, защищенного от блокировок, с помощью плавающих IP-адресов"
+sidebar_label: "Настройка сервера, защищенного от блокировок, с помощью плавающих IP-адресов"
 ---
 
 ## Введение {#introduction}

@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Smart Dialer 配置"
+sidebar_label: "Smart Dialer 配置"
 ---
 
 **Smart Dialer** 可针对特定的测试网域列表，搜索可绕过 DNS 和 TLS 封锁的策略。它需要用到包含多种策略的配置，以便从中选择一种策略。

@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "サーバーへのアクセスを共有する"
+sidebar_label: "サーバーへのアクセスを共有する"
 ---
 
 Outline サーバーを正常にインストールすると、Outline マネージャー内でサーバー詳細ページが開きます。このページでは、[アクセスキー](../../concepts#access-keys)を使用してサーバーへのアクセスを生成したり、アクセスを管理したりできます。

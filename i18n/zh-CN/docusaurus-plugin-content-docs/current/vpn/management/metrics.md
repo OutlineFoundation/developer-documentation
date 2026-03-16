@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "访问 Outline 服务器性能指标"
+sidebar_label: "访问 Outline 服务器性能指标"
 ---
 
 Outline 通过 [Prometheus](https://prometheus.io/) 提供详细的性能指标，可助您深入了解有关服务器的使用情况和健康状况。本指南为您详细介绍了检索和查看这些指标的相关流程。

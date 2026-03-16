@@ -1,6 +1,6 @@
 ---
-title: "Why Outline?"
-sidebar_label: "Why Outline?"
+title: "Outline が選ばれる理由"
+sidebar_label: "Outline が選ばれる理由"
 slug: /
 ---
 

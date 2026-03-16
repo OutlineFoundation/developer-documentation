@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "การระบุลักษณะและการข้ามการรบกวนเครือข่ายจากระยะไกลด้วย Outline SDK"
+sidebar_label: "การระบุลักษณะและการข้ามการรบกวนเครือข่ายจากระยะไกลด้วย Outline SDK"
 ---
 
 คู่มือนี้แสดงวิธีใช้เครื่องมือบรรทัดคำสั่งของ Outline SDK เพื่อ

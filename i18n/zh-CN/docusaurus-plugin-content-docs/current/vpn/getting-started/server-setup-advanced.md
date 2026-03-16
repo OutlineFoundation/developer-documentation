@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "使用安装脚本进行部署"
+sidebar_label: "使用安装脚本进行部署"
 ---
 
 本指南详细介绍了设置 Outline 服务器以提供安全无限制的互联网访问服务的完整流程。

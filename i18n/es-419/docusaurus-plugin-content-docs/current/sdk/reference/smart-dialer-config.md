@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Configuración de Smart Dialer"
+sidebar_label: "Configuración de Smart Dialer"
 ---
 
 **Smart Dialer** busca una estrategia que desbloquee los protocolos DNS y TLS para una

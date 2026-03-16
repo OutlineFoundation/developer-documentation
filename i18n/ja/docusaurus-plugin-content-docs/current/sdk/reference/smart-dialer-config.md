@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Smart Dialer の構成"
+sidebar_label: "Smart Dialer の構成"
 ---
 
 **Smart Dialer** は、指定されたテストドメインのリストに対して、DSN と TLS のブロックを回避する戦略を探索します。選択対象となる複数の戦略を記述した構成が必要です。

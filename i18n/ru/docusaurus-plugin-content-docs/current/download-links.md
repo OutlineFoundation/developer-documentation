@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Альтернативные ссылки для скачивания"
+sidebar_label: "Альтернативные ссылки для скачивания"
 ---
 
 Чтобы скачать Менеджер Outline и клиент Outline, перейдите по указанным ниже ссылкам. Дополнительную информацию о настройке Outline можно найти на сайте <https://getoutline.org/>.

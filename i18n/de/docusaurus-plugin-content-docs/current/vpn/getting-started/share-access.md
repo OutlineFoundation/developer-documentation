@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Zugriff auf Ihren Server freigeben"
+sidebar_label: "Zugriff auf Ihren Server freigeben"
 ---
 
 Nachdem Sie Ihren Outline-Server erfolgreich installiert haben, werden Sie in Outline-Manager auf die Detailseite weitergeleitet. Diese Seite ist Ihr zentraler Hub für die Erstellung und Verwaltung Ihres Servers mit [Zugriffschlüsseln](../../concepts#access-keys).

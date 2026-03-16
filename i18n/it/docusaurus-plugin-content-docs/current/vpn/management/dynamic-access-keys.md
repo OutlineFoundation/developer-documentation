@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Chiavi di accesso dinamiche"
+sidebar_label: "Chiavi di accesso dinamiche"
 ---
 
 Outline offre due tipi di chiavi di accesso: statiche e dinamiche. Le chiavi statiche codificano tutte le informazioni di connessione all'interno della chiave stessa, mentre le chiavi dinamiche codificano la posizione delle informazioni di connessione, consentendoti di archiviare queste informazioni in remoto e modificarle in base alle tue necessità. Ciò significa che puoi aggiornare la configurazione del server senza dover generare e distribuire nuove chiavi ai tuoi utenti. Questo documento spiega come utilizzare le chiavi di accesso dinamiche per una gestione più flessibile ed efficiente del server Outline.

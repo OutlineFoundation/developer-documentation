@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Concetti"
+sidebar_label: "Concetti"
 ---
 
 Outline aiuta gli utenti a bypassare le restrizioni per accedere alla rete internet aperta. Ecco alcuni concetti chiave per capire come funziona:

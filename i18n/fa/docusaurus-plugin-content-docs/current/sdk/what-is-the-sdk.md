@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "«کیت توسعه نرم‌افزار» چیست"
+sidebar_label: "«کیت توسعه نرم‌افزار» چیست"
 ---
 
 ‫Outline SDK کتابخانه و مجموعه ابزاری است که برای کمک کردن به توسعه‌دهندگان طراحی شده است

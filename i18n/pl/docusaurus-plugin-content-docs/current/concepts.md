@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Pojęcia"
+sidebar_label: "Pojęcia"
 ---
 
 Outline pomaga użytkownikom ominąć ograniczenia w otwartym dostępie do internetu. Oto kilka najważniejszych pojęć, które pomogą zrozumieć, jak to działa:

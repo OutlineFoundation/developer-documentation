@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Outline サーバーのパフォーマンス指標にアクセスする"
+sidebar_label: "Outline サーバーのパフォーマンス指標にアクセスする"
 ---
 
 Outline は [Prometheus](https://prometheus.io/) を通じて詳細なパフォーマンス指標を提供するため、ユーザーはサーバーの使用状況や健全性に関する詳しい分析情報を得ることができます。このガイドでは、これらの指標の取得および表示のプロセスについて説明します。

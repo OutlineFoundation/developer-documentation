@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Acceder a las métricas de rendimiento del servidor de Outline"
+sidebar_label: "Acceder a las métricas de rendimiento del servidor de Outline"
 ---
 
 Outline ofrece métricas de rendimiento detalladas a través de [Prometheus](https://prometheus.io/), lo que te permite acceder a estadísticas más exhaustivas sobre el uso y el estado de tu servidor. Esta guía explica el proceso de obtener y consultar esas métricas.

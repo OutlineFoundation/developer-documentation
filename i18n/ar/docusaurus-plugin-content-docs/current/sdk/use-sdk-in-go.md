@@ -1,6 +1,6 @@
 ---
-title: "Add Outline SDK to Your Go Code"
-sidebar_label: "Go Integration"
+title: "إضافة Outline SDK إلى رمز Go"
+sidebar_label: "إضافة Outline SDK إلى رمز Go"
 ---
 
 سنتعرّف في هذا الدليل على عملية إعداد لغة Go البرمجية

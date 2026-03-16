@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Alternatieve downloadlinks"
+sidebar_label: "Alternatieve downloadlinks"
 ---
 
 Je kunt Outline Manager en de Outline-client downloaden via de volgende links. Je vindt meer informatie over hoe je Outline instelt via <https://getoutline.org/>.

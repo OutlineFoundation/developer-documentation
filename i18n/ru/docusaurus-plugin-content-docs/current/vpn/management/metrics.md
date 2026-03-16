@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Доступ к показателям эффективности сервера Outline"
+sidebar_label: "Доступ к показателям эффективности сервера Outline"
 ---
 
 Outline позволяет получить подробную статистику использования сервера, предоставляя показатели эффективности через сервис [Prometheus](https://prometheus.io/). Из этого руководства вы узнаете, как получать и просматривать эти данные.

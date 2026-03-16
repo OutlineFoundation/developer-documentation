@@ -1,6 +1,6 @@
 ---
-title: "Concepts"
-sidebar_label: "Concepts"
+title: "Pojęcia"
+sidebar_label: "Pojęcia"
 ---
 
 Pakiet Outline SDK jest oparty na podstawowych koncepcjach zdefiniowanych jako interfejsy interoperacyjne, które zapewniają kompozycyjność i możliwość łatwego ponownego wykorzystania.

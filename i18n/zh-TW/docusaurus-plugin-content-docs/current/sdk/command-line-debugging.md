@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "使用 Outline SDK 遠端分析及規避網路干擾"
+sidebar_label: "使用 Outline SDK 遠端分析及規避網路干擾"
 ---
 
 本指南說明如何使用 Outline SDK 的指令列工具，從遠端瞭解並規避網路干擾。您將瞭解如何使用 SDK 的工具評估網路干擾、測試規避策略，以及分析結果。本指南將著重於 `resolve`、`fetch` 和 `http2transport` 工具。

@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Remotely Characterizing and Bypassing Network Interference with the Outline SDK"
+sidebar_label: "Remotely Characterizing and Bypassing Network Interference with the Outline SDK"
 ---
 
 This guide demonstrates how to use the Outline SDK's command line tools to

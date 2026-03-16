@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "Configurar um servidor resistente a bloqueio com IPs flutuantes"
+sidebar_label: "Configurar um servidor resistente a bloqueio com IPs flutuantes"
 ---
 
 ## Introdução {#introduction}

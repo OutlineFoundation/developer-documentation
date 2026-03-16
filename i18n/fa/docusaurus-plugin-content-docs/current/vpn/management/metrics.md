@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "دستیابی به سنجه‌های عملکرد سرور Outline"
+sidebar_label: "دستیابی به سنجه‌های عملکرد سرور Outline"
 ---
 
 ‫Outline سنجه‌های عملکرد مشروحی را ازطریق

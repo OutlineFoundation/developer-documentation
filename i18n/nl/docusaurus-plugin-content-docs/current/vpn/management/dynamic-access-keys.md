@@ -1,6 +1,6 @@
 ---
-title: "Dynamic Access Keys"
-sidebar_label: "Dynamic Access Keys"
+title: "Dynamische toegangssleutels"
+sidebar_label: "Dynamische toegangssleutels"
 ---
 
 Outline biedt 2 typen toegangssleutels: statische en dynamische. Statische sleutels coderen alle verbindingsinformatie in de sleutel zelf. Dynamische sleutels coderen de locatie van de verbindingsinformatie, zodat je die op afstand kunt opslaan en indien nodig kunt wijzigen. Je kunt dan je serverconfiguratie updaten zonder nieuwe sleutels te hoeven maken en naar je gebruikers te sturen. In dit document staat uitgelegd hoe je dynamische toegangssleutels kunt gebruiken om je Outline-server flexibeler en efficiënter te beheren.

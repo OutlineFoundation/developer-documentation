@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "هم‌رسانی کردن دسترسی به سرور"
+sidebar_label: "هم‌رسانی کردن دسترسی به سرور"
 ---
 
 بعداز تکمیل کردن نصب سرور Outline،

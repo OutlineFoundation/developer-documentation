@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "分享对服务器的访问权限"
+sidebar_label: "分享对服务器的访问权限"
 ---
 
 成功安装 Outline 服务器后，您会被定向到 Outline 管理器中的服务器详细信息页面。您可以在此页面生成和管理用于访问服务器的[访问密钥](../../concepts#access-keys)。

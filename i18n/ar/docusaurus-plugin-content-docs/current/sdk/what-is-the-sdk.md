@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "لمحة عن حزمة تطوير البرامج (SDK)"
+sidebar_label: "لمحة عن حزمة تطوير البرامج (SDK)"
 ---
 
 ‫Outline SDK هي مكتبة ومجموعة من الأدوات المصمّمة لمساعدة المطوّرين

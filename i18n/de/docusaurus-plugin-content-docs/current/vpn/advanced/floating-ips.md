@@ -1,6 +1,6 @@
 ---
-title: "Use a Domain Name with Floating IPs"
-sidebar_label: "Domain with Floating IPs"
+title: "Einen Server mit Floating-IP‑Adressen einrichten, der Internetsperren umgehen kann"
+sidebar_label: "Einen Server mit Floating-IP‑Adressen einrichten, der Internetsperren umgehen kann"
 ---
 
 ## Einführung {#introduction}

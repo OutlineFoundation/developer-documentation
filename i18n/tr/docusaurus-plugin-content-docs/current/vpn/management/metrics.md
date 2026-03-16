@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Outline sunucusunun performans metriklerine erişme"
+sidebar_label: "Outline sunucusunun performans metriklerine erişme"
 ---
 
 Outline, [Prometheus](https://prometheus.io/) aracılığıyla ayrıntılı performans metrikleri sunar. Bu sayede sunucunuzun kullanımı ve sağlık durumuyla ilgili daha ayrıntılı bilgiye erişebilirsiniz. Bu kılavuzda, söz konusu metrikleri toplayıp görüntüleme işlemi anlatılmaktadır.

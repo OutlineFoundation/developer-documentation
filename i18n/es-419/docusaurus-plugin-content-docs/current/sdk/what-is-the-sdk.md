@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "¿Qué es el SDK?"
+sidebar_label: "¿Qué es el SDK?"
 ---
 
 El SDK de Outline es una biblioteca y colección de herramientas diseñadas para ayudar a los desarrolladores

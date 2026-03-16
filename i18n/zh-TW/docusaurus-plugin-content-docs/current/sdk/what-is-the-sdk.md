@@ -1,6 +1,6 @@
 ---
-title: "What is the SDK?"
-sidebar_label: "What is the SDK?"
+title: "什麼是 SDK"
+sidebar_label: "什麼是 SDK"
 ---
 
 Outline SDK 是一套程式庫與工具集，可協助開發人員打造能對抗網路干擾與審查的應用程式。

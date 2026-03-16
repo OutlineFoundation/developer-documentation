@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Outline 서버 성능 측정항목에 액세스"
+sidebar_label: "Outline 서버 성능 측정항목에 액세스"
 ---
 
 Outline에서는 [Prometheus](https://prometheus.io/)를 통해 자세한 성능 측정항목을 제공하므로 서버의 사용과 상태에 관한 상세하고 유용한 정보를 확인할 수 있습니다. 이 가이드에서는 이러한 측정항목을 검색해 확인하는 과정을 안내합니다.

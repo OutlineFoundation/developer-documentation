@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Netzwerkstörungen mit dem Outline SDK aus der Ferne charakterisieren und umgehen"
+sidebar_label: "Netzwerkstörungen mit dem Outline SDK aus der Ferne charakterisieren und umgehen"
 ---
 
 In dieser Anleitung wird gezeigt, wie Sie mit den Befehlszeilentools des Outline SDK Netzwerkstörungen aus der Ferne erkennen und umgehen können. Sie erfahren, wie Sie mit den Tools des SDK Netzwerkstörungen messen, Umgehungsstrategien testen und die Ergebnisse analysieren. In diesem Leitfaden geht es hauptsächlich um die Tools `resolve`, `fetch` und `http2transport`.

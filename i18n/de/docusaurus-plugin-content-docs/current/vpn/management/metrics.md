@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Leistungsmesswerte für den Zugriff auf Outline-Server"
+sidebar_label: "Leistungsmesswerte für den Zugriff auf Outline-Server"
 ---
 
 Outline bietet detaillierte Leistungsmesswerte mit [Prometheus](https://prometheus.io/). So sind Sie immer auf dem Laufenden über die Leistung und Nutzung Ihres Servers. In dieser Anleitung erfahren Sie, wie Sie diese Messwerte erhalten und aufrufen können.

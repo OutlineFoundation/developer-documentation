@@ -1,6 +1,6 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Caractériser et contourner à distance les interférences réseau avec le SDK Outline"
+sidebar_label: "Caractériser et contourner à distance les interférences réseau avec le SDK Outline"
 ---
 
 Ce guide explique comment utiliser les outils de ligne de commande du SDK Outline pour comprendre et contourner les interférences réseau à distance. Vous apprendrez à utiliser les outils du SDK pour mesurer les interférences réseau, tester les stratégies de contournement et analyser les résultats. Ce guide se concentre sur les outils `resolve`, `fetch` et `http2transport`.

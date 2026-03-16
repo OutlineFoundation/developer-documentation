@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Cómo compartir el acceso al servidor"
+sidebar_label: "Cómo compartir el acceso al servidor"
 ---
 
 Cuando hayas instalado correctamente el servidor de Outline, se te dirigirá a la

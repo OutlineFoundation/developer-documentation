@@ -1,6 +1,6 @@
 ---
-title: "Share Access to Your Server"
-sidebar_label: "Share Access"
+title: "Compartilhar o acesso ao seu servidor"
+sidebar_label: "Compartilhar o acesso ao seu servidor"
 ---
 
 Depois de instalar seu servidor do Outline, a página de detalhes

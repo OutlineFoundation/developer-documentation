@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Alternative Download-Links"
+sidebar_label: "Alternative Download-Links"
 ---
 
 Outline-Manager und Outline-Client können unter den folgenden Links heruntergeladen werden. Weitere Informationen zur Einrichtung von Outline finden Sie unter <https://getoutline.org/>.

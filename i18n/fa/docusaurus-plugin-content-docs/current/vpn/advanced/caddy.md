@@ -1,6 +1,6 @@
 ---
-title: "Deploy with Automatic HTTPS Using Caddy"
-sidebar_label: "HTTPS with Caddy"
+title: "‫HTTPS خودکار با Caddy"
+sidebar_label: "‫HTTPS خودکار با Caddy"
 ---
 
 این راهنما توضیح می‌دهد چطور از [Caddy](https://caddyserver.com/)، سرور وب قدرتمند

@@ -1,6 +1,6 @@
 ---
-title: "Deploy with Automatic HTTPS Using Caddy"
-sidebar_label: "HTTPS with Caddy"
+title: "使用 Caddy 实现自动 HTTPS"
+sidebar_label: "使用 Caddy 实现自动 HTTPS"
 ---
 
 本指南介绍了如何使用强大易用的 Web 服务器 [Caddy](https://caddyserver.com/) 来增强 Outline 服务器设置。Caddy 具有[自动 HTTPS](https://caddyserver.com/docs/automatic-https) 功能和灵活的配置，是为 Outline 服务器提供支持的理想选择，尤其适合使用 WebSocket 传输的应用场景。

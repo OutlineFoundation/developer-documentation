@@ -1,6 +1,6 @@
 ---
-title: "Share Management Access"
-sidebar_label: "Share Management Access"
+title: "Compartilhar acesso de gerenciamento com outros"
+sidebar_label: "Compartilhar acesso de gerenciamento com outros"
 ---
 
 Conforme seu serviço do Outline cresce, você pode achar necessário delegar

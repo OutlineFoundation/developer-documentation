@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using the Outline Manager"
-sidebar_label: "Using Outline Manager"
+title: "Как выполнить развертывание с помощью Менеджера Outline"
+sidebar_label: "Как выполнить развертывание с помощью Менеджера Outline"
 ---
 
 Это руководство поможет вам настроить сервер Outline для защищенного и неограниченного доступа к интернету.

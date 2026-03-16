@@ -1,6 +1,6 @@
 ---
-title: "Disguise Connections with Prefixes"
-sidebar_label: "Connection Prefixes"
+title: "Verborgene Verbindungspräfixe"
+sidebar_label: "Verborgene Verbindungspräfixe"
 ---
 
 Bei Version 1.9.0 des Outline-Clients unterstützen Zugriffsschlüssel die Option „Präfixe“. Ein

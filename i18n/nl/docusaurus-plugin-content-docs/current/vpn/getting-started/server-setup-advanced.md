@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Implementeren via een installatiescript"
+sidebar_label: "Implementeren via een installatiescript"
 ---
 
 Deze handleiding leidt je door het proces om een Outline-server in te stellen zodat je mensen beveiligde, onbeperkte internettoegang kunt geven.

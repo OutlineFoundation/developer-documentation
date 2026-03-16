@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Configuración del marcador inteligente"
+sidebar_label: "Configuración del marcador inteligente"
 ---
 
 El **marcador inteligente** busca una estrategia que desbloquee DNS y TLS en la lista proporcionada de dominios de prueba. Necesita una configuración que describa varias estrategias entre las que elegir.

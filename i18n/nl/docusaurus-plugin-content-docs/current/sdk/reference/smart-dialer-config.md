@@ -1,6 +1,6 @@
 ---
-title: "Smart Dialer Configuration"
-sidebar_label: "Smart Dialer Config"
+title: "Smart Dialer-configuratie"
+sidebar_label: "Smart Dialer-configuratie"
 ---
 
 De **Smart Dialer** zoekt naar een strategie waarmee DNS en TLS voor een bepaalde lijst testdomeinen wordt gedeblokkeerd. Je hebt hiervoor een configuratie nodig waarin meerdere strategieën worden beschreven om uit te kiezen.

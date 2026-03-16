@@ -1,6 +1,6 @@
 ---
-title: "Deploy Using an Installation Script"
-sidebar_label: "Using Installation Script"
+title: "Über ein Installationsskript bereitstellen"
+sidebar_label: "Über ein Installationsskript bereitstellen"
 ---
 
 In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung eines Outline-Servers geführt, um einen sicheren und uneingeschränkten Internetzugriff bereitzustellen.

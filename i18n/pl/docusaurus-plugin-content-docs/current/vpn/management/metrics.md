@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Uzyskiwanie dostępu do danych o wydajności serwera Outline"
+sidebar_label: "Uzyskiwanie dostępu do danych o wydajności serwera Outline"
 ---
 
 Outline zapewnia dostęp do szczegółowych danych dotyczących wydajności, używając pakietu narzędzi [Prometheus](https://prometheus.io/), dzięki czemu możesz dokładnie zapoznać się ze stanem i wykorzystaniem serwera. Ten przewodnik przeprowadzi Cię przez proces pobierania i wyświetlania tych danych.

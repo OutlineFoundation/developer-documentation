@@ -1,6 +1,6 @@
 ---
-title: "Download Links"
-sidebar_label: "Download Links"
+title: "Alternatywne linki do pobierania"
+sidebar_label: "Alternatywne linki do pobierania"
 ---
 
 Menedżera i klienta Outline można pobrać z linków poniżej. Więcej informacji o konfigurowaniu Outline znajdziesz pod adresem <https://getoutline.org/>.

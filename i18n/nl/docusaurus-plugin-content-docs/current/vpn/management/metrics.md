@@ -1,6 +1,6 @@
 ---
-title: "Access Performance Metrics"
-sidebar_label: "Performance Metrics"
+title: "Prestatiestatistieken van Outline-server openen"
+sidebar_label: "Prestatiestatistieken van Outline-server openen"
 ---
 
 Outline biedt uitgebreide prestatiestatistieken via [Prometheus](https://prometheus.io/), waarmee je meer inzicht krijgt in het gebruik en de status van je server. Deze handleiding leidt je door het proces om deze statistieken op te halen en te checken.
