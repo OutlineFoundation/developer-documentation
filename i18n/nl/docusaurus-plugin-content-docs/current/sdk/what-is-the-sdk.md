@@ -5,7 +5,7 @@ sidebar_label: "What is the SDK?"
 
 De Outline SDK is een bibliotheek en verzameling tools waarmee ontwikkelaars apps kunnen maken die gebruikers beschermen tegen verstoringen en censuur op netwerkniveau.
 
-## Wat je kunt doen met de Outline SDK
+## Wat je kunt doen met de Outline SDK {#what_can_you_do_with_the_outline_sdk}
 
 - **Tools maken om netwerkverstoringen te voorkomen**\
 
@@ -19,7 +19,7 @@ Integreer bescherming tegen verstoringen op netwerkniveau rechtstreeks in bestaa
 
 Gebruik de bijgevoegde opdrachtregeltools om connectiviteitsproblemen te diagnosticeren, netwerkverstoringen te meten en verschillende omzeilingsstrategieën te testen.
 
-## Belangrijkste voordelen
+## Belangrijkste voordelen {#key_advantages}
 
 - **Meerdere platforms**\
 

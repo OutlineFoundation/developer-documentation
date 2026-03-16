@@ -7,7 +7,7 @@ Outline gebruikt een op YAML gebaseerde configuratie om VPN-parameters te defini
 
 De configuratie op het hoogste niveau geeft een [TunnelConfig](../reference/access-key-config#tunnelconfig) op.
 
-## Voorbeelden
+## Voorbeelden {#examples}
 
 Zo ziet een typische Schadowsocks-configuratie eruit:
 

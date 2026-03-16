@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## はじめに
+## はじめに {#introduction}
 
 Outline サーバーが検閲の厳しいネットワークで検出され、ブロックされるという問題に遭遇することは多々ありますが、サーバーが正しく設定されていれば、ブロックされても解除は可能であり、それほど難しくもありません。これを行うために、DNS とフローティング IP を使用します。DNS は、ドメイン名（`getoutline.org` など）を物理 IP アドレス（`216.239.36.21` など）に変換するインターネット テクノロジーであり、フローティング IP は、1 つの Outline サーバーに複数の IP アドレスを割り当てることができるクラウド機能です。
 
-## 要件
+## 要件 {#requirements}
 
 このガイドに従うには、低いレベルの技術スキルが必要です。DNS の基本事項を理解していることは役立ちますが、必須ではありません。概要については、ドメイン名の [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) ガイドをご覧ください。
 
 具体的な例を示すために、DigitalOcean と Google Domains を使用しますが、IP アドレスを割り当てることができるどのクラウド プロバイダ（Google Cloud や [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip) など）でも、またどのドメイン登録事業者（[AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance) など）でも使用できます。
 
-## 手順
+## 手順 {#instructions}
 
 1. 次のリストは、サーバーの IP アドレスをローテーションする手順を要約したものです。
 
@@ -27,7 +27,7 @@ Outline サーバーが検閲の厳しいネットワークで検出され、ブ
 
 6. 新しい IP アドレスを指すようにドメイン名を変更します。
 
-## DigitalOcean 上で Outline サーバーを作成する
+## DigitalOcean 上で Outline サーバーを作成する {#create_an_outline_server_on_digitalocean}
 
 実行中の DigitalOcean サーバーがある場合は、次のステップに進みます。
 
@@ -37,7 +37,7 @@ Outline サーバーが検閲の厳しいネットワークで検出され、ブ
 
 ![サーバーを作成](/images/create-DO-server.png)
 
-## サーバーのホスト名を指定する
+## サーバーのホスト名を指定する {#make_a_hostname_for_your_server}
 
 1. [Google Domains](https://domains.google.com/m/registrar/) に移動し、[最適なドメインを検索] をクリックします。
 
@@ -49,7 +49,7 @@ Outline サーバーが検閲の厳しいネットワークで検出され、ブ
 
 ![ホスト名を設定](/images/set-hostname.png)
 
-## サーバーの IP アドレスを変更する
+## サーバーの IP アドレスを変更する {#change_the_servers_ip_address}
 
 1. DigitalOcean の [Droplets] ページでサーバーに移動します。
 

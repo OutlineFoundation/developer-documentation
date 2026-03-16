@@ -7,7 +7,7 @@ sidebar_label: "Smart Dialer Config"
 lista determinada de dominios de prueba. Para ello, admite un archivo de configuración en el que se describen múltiples estrategias entre las que
 se puede elegir.
 
-## Configuración en YAML para Smart Dialer
+## Configuración en YAML para Smart Dialer {#yaml_config_for_the_smart_dialer}
 
 El archivo de configuración que admite Smart Dialer está en formato YAML. Este es un ejemplo:
 
@@ -27,7 +27,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### Configuración de DNS
+### Configuración de DNS {#dns_configuration}
 
 - El campo `dns` especifica una lista de agentes de resolución de DNS que se deben probar.
 
@@ -43,7 +43,7 @@ fallback:
 
     - `tcp`: Usa un agente de resolución de TCP.
 
-#### Agente de resolución de DNS-over-HTTPS (DoH)
+#### Agente de resolución de DNS-over-HTTPS (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -55,7 +55,7 @@ https:
 
 - `address`: Es la dirección host:puerto del servidor de DoH. El valor predeterminado es `name`:443.
 
-#### Agente de resolución de DNS-over-TLS (DoT)
+#### Agente de resolución de DNS-over-TLS (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -67,7 +67,7 @@ tls:
 
 - `address`: Es la dirección host:puerto del servidor de DoT. El valor predeterminado es `name`:853.
 
-#### Agente de resolución de UDP
+#### Agente de resolución de UDP {#udp_resolver}
 
 ```yaml
 udp:
@@ -76,7 +76,7 @@ udp:
 
 - `address`: Es la dirección host:puerto del agente de resolución de UDP.
 
-#### Agente de resolución de TCP
+#### Agente de resolución de TCP {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -85,7 +85,7 @@ tcp:
 
 - `address`: Es la dirección host:puerto del agente de resolución de TCP.
 
-### Configuración de TLS
+### Configuración de TLS {#tls_configuration}
 
 - El campo `tls` especifica una lista de transportes de TLS que se deben probar.
 
@@ -96,7 +96,7 @@ que utiliza el fronting del dominio con Cloudflare y fragmentación de TLS. Cons
 [documentación de configuración](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
 para conocer más detalles.
 
-### Configuración de resguardo
+### Configuración de resguardo {#fallback_configuration}
 
 Se usa una configuración de resguardo si ninguna de las estrategias sin proxy permite
 conectarse. Por ejemplo, esta configuración puede especificar un servidor proxy de respaldo que intente realizar la conexión
@@ -109,21 +109,21 @@ Cada cadena de resguardo debe cumplir con estas características:
 
 - Ser un objeto de configuración de Psiphon como elemento secundario de un campo `psiphon`
 
-#### Ejemplo de servidor de Shadowsocks
+#### Ejemplo de servidor de Shadowsocks {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### Ejemplo de servidor de SOCKS5
+#### Ejemplo de servidor de SOCKS5 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Ejemplo de configuración de Psiphon
+#### Ejemplo de configuración de Psiphon {#psiphon_config_example}
 
 Para usar la red de [Psiphon](https://psiphon.ca/), deberás hacer lo siguiente:
 
@@ -145,7 +145,7 @@ fallback:
     }
 ```
 
-### Cómo usar Smart Dialer
+### Cómo usar Smart Dialer {#how_to_use_the_smart_dialer}
 
 Para usar Smart Dialer, crea un objeto `StrategyFinder`, llama al
 método `NewDialer` y pasa la lista de dominios de prueba y el archivo de configuración YAML.

@@ -6,11 +6,11 @@ sidebar_label: "Connection Prefixes"
 Od wersji 1.9.0 klienta Outline klucze dostępu obsługują opcję „prefiks”. „Prefiks” to lista bajtów wykorzystywanych jako pierwsze bajty [ciągu zaburzającego](https://shadowsocks.org/guide/aead.html) połączenia Shadowsocks TCP.
 Może on sprawić, że połączenie będzie wyglądać jak protokół, który jest dozwolony w sieci, co pozwoli obejść zapory sieciowe odrzucające nierozpoznane protokoły.
 
-## Kiedy warto tego spróbować?
+## Kiedy warto tego spróbować? {#when_should_i_try_this}
 
 Jeśli podejrzewasz, że użytkownicy Twojego wdrożenia Outline są wciąż blokowani, rozważ wypróbowanie kilku różnych prefiksów.
 
-## Instrukcje
+## Instrukcje {#instructions}
 
 Długość prefiksu nie powinna przekraczać 16 bajtów. Dłuższe prefiksy mogą powodować konflikty ciągów zaburzających, co może zmniejszyć bezpieczeństwo szyfrowania i doprowadzić do wykrycia połączeń. Do ominięcia blokad należy użyć możliwie najkrótszego prefiksu.
 
@@ -58,7 +58,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Dynamiczne klucze dostępu
+### Dynamiczne klucze dostępu {#dynamic_access_keys}
 
 Żeby używać funkcji prefiksu z [dynamicznymi kluczami dostępu](../management/dynamic-access-keys) (`ssconf://`), dodaj klucz „prefiksu” do obiektu JSON z wartością **zakodowaną w formacie JSON**, która reprezentuje wybrany prefiks (zobacz przykłady w tabeli powyżej). Możesz użyć kodów modyfikacji (takich jak \u00FF), żeby reprezentować niedrukowalne punkty kodowe Unicode w przedziale od `U+0` do `U+FF`, na przykład:
 
@@ -72,7 +72,7 @@ SSH
 }
 ```
 
-### Statyczne klucze dostępu
+### Statyczne klucze dostępu {#static_access_keys}
 
 Żeby użyć prefiksów ze **statycznymi kluczami dostępu** (ss://), musisz zmodyfikować istniejący klucz przed jego rozpowszechnieniem. Jeśli masz statyczny klucz dostępu wygenerowany przez Menedżera Outline, uzyskaj wersję prefiksu **zakodowaną w formacie adresu URL** (zobacz przykłady w tabeli powyżej) i dodaj ją na końcu klucza dostępu w ten sposób:
 

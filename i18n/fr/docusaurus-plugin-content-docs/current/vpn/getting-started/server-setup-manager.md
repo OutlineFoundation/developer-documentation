@@ -15,6 +15,6 @@ Ce guide vous explique comment configurer un serveur Outline pour fournir un acc
 
 5. Outline Manager vous indiquera comment créer un serveur.
 
-## Étape suivante
+## Étape suivante {#next_steps}
 
 Maintenant que votre serveur Outline est configuré, vous pouvez partager l'accès avec vos utilisateurs.

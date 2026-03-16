@@ -15,6 +15,6 @@ Ten przewodnik przeprowadzi Cię przez proces konfigurowania serwera Outline w c
 
 5. Menedżer Outline przeprowadzi Cię przez proces tworzenia serwera.
 
-## Dalsze kroki
+## Dalsze kroki {#next_steps}
 
 Serwer Outline jest skonfigurowany i możesz przyznać dostęp do niego użytkownikom.

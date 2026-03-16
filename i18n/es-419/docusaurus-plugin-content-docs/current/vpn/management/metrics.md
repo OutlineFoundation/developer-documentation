@@ -12,7 +12,7 @@ obtener y consultar estas métricas.
 Prometheus y PromQL. Si no conoces Prometheus, sugerimos que leas su
 documentación y sus instructivos antes de adentrarte en las métricas de Outline.
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 - **Servidor de Outline con Prometheus habilitado**: Asegúrate de que tu servidor de Outline
 tenga habilitadas las métricas de Prometheus (por lo general, esta es la configuración predeterminada).
@@ -20,7 +20,7 @@ tenga habilitadas las métricas de Prometheus (por lo general, esta es la config
 - **Acceso SSH a tu servidor**: Deberás contar con acceso SSH para reenviar el
 puerto de Prometheus.
 
-## Instrucciones
+## Instrucciones {#instructions}
 
 1. **Reenvía el puerto de Prometheus**
 
@@ -37,9 +37,9 @@ Consulta las métricas de Prometheus
 
 3. **Usa las consultas de PromQL para recuperar las métricas específicas que te interesan.**
 
-### Consultas PromQL de ejemplo
+### Consultas PromQL de ejemplo {#example_promql_queries}
 
-#### Uso
+#### Uso {#usage}
 
 - **Bytes de datos (por clave de acceso, protocolo y dirección):**
 
@@ -57,11 +57,11 @@ Consulta las métricas de Prometheus
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Claves de acceso activas
+#### Claves de acceso activas {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### Conexiones de TCP
+#### Conexiones de TCP {#tcp_connections}
 
 - **Conexiones de TCP (por clave de acceso, ubicación y estado):**
 
@@ -71,7 +71,7 @@ Consulta las métricas de Prometheus
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **Paquetes de UDP (por ubicación y estado):**
 
@@ -81,7 +81,7 @@ Consulta las métricas de Prometheus
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Rendimiento
+#### Rendimiento {#performance}
 
 - **Uso de CPU (por proceso):**
 
@@ -91,7 +91,7 @@ Consulta las métricas de Prometheus
 
 `process_virtual_memory_bytes`
 
-#### Información de compilación
+#### Información de compilación {#build_information}
 
 - **Prometheus:**
 

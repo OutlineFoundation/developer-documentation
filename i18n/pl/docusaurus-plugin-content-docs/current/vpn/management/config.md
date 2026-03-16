@@ -7,7 +7,7 @@ Outline korzysta z konfiguracji w formacie YAML do definiowania parametrów VP
 
 Konfiguracja najwyższego poziomu określa [TunnelConfig](../reference/access-key-config#tunnelconfig).
 
-## Przykłady
+## Przykłady {#examples}
 
 Standardowa konfiguracja Shadowsocks będzie wyglądała w następujący sposób:
 

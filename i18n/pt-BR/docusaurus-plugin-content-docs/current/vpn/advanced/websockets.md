@@ -11,7 +11,7 @@ ambientes onde as conexões normais do Shadowsocks são bloqueadas. Ao encapsula
 o tráfego do Shadowsocks dentro de WebSockets, você pode disfarçá-lo como tráfego padrão da Web,
 aumentando a resiliência e a acessibilidade.
 
-## Etapa 1: configure e execute um servidor do Outline
+## Etapa 1: configure e execute um servidor do Outline {#step_1_configure_and_run_an_outline_server}
 
 Crie um novo arquivo `config.yaml` com a seguinte configuração:
 
@@ -43,7 +43,7 @@ e execute-a usando a configuração criada:
 outline-ss-server -config=config.yaml
 ```
 
-## Etapa 2: exponha o servidor da Web
+## Etapa 2: exponha o servidor da Web {#step_2_expose_the_web_server}
 
 Para tornar seu servidor da Web WebSocket acessível publicamente, é necessário que ele seja exposto à Internet. Também é preciso
 configurar o [TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security) (em inglês).
@@ -54,7 +54,7 @@ empregar um serviço de encapsulamento como o [Cloudflare
 Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 ou o [ngrok](https://ngrok.com/) (todos os links em inglês).
 
-### Exemplo usando o TryCloudflare
+### Exemplo usando o TryCloudflare {#example_using_trycloudflare}
 
 Neste exemplo, vamos demonstrar o uso do
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) (em inglês)
@@ -75,7 +75,7 @@ O Cloudflare vai fornecer um subdomínio (por exemplo,
 e gerenciar automaticamente o TLS. Anote esse subdomínio, porque ele será necessário
 mais tarde.
 
-## Etapa 3: crie uma chave de acesso dinâmica
+## Etapa 3: crie uma chave de acesso dinâmica {#step_3_create_a_dynamic_access_key}
 
 Gere um arquivo YAML de chaves de acesso do cliente para seus usuários com o formato de [configuração de chave de acesso](../management/config)
 e inclua os endpoints do WebSocket que foram configurados
@@ -108,7 +108,7 @@ Depois de gerar o arquivo YAML de chaves de acesso dinâmicas, você terá que e
 usuários. É possível armazenar o arquivo em um serviço estático de hospedagem na Web ou gerá-lo dinamicamente. Saiba mais sobre como usar as [chaves de acesso
 dinâmicas](../management/dynamic-access-keys).
 
-## Etapa 4: conecte-se com o app cliente do Outline
+## Etapa 4: conecte-se com o app cliente do Outline {#step_4_connect_with_the_outline_client}
 
 Use um dos aplicativos oficiais do [app cliente do Outline](../../download-links)
 (versões 1.15.0+) e adicione a chave de acesso dinâmica que você criou como

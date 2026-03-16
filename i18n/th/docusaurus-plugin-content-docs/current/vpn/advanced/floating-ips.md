@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## บทนำ
+## บทนำ {#introduction}
 
 ในบางครั้งเซิร์ฟเวอร์ Outline อาจเผชิญกับปัญหาการถูกค้นพบและถูกบล็อกจากเครือข่ายที่มีการเซ็นเซอร์อย่างเข้มงวด ซึ่งการกู้คืนเซิร์ฟเวอร์ที่ถูกบล็อกนั้นสามารถทำได้และไม่ยากเกินไปหากตั้งค่าไว้อย่างถูกต้อง โดยเราจะดำเนินการนี้โดยใช้ DNS ซึ่งเป็นเทคโนโลยีอินเทอร์เน็ตที่จะแปลชื่อโดเมน (เช่น `getoutline.org`) เป็นที่อยู่ IP ทางกายภาพ (เช่น `216.239.36.21`) และ IP แบบลอย ซึ่งเป็นฟีเจอร์ระบบคลาวด์ที่ช่วยให้คุณกำหนดที่อยู่ IP มากกว่า 1 ที่อยู่ให้กับเซิร์ฟเวอร์ Outline ได้
 
-## ข้อกำหนด
+## ข้อกำหนด {#requirements}
 
 คุณไม่จำเป็นต้องมีทักษะด้านเทคนิคขั้นสูงในการทำตามคู่มือฉบับนี้ ทั้งนี้ความเข้าใจพื้นฐานเกี่ยวกับ DNS อาจเป็นประโยชน์ แต่หากไม่มีความรู้ด้านนี้ก็ไม่เป็นไร โปรดดูบทนำในคู่มือ [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) เกี่ยวกับชื่อโดเมน
 
 สำหรับการยกตัวอย่างเพื่อให้เห็นภาพได้ชัดเจน เราจะใช้ DigitalOcean และ Google Domains แต่คุณก็สามารถใช้ผู้ให้บริการคลาวด์รายใดก็ตามที่อนุญาตให้กำหนดที่อยู่ IP (เช่น Google Cloud หรือ [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip)) และผู้รับจดทะเบียนโดเมนรายใดก็ได้ (เช่น [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)) เช่นกัน
 
-## วิธีการ
+## วิธีการ {#instructions}
 
 1. รายการด้านล่างนี้จะสรุปขั้นตอนในการหมุนเวียนที่อยู่ IP ของเซิร์ฟเวอร์
 
@@ -27,7 +27,7 @@ sidebar_label: "Domain with Floating IPs"
 
 6. เปลี่ยนชื่อโดเมนให้ชี้ไปที่ที่อยู่ IP ใหม่
 
-## สร้างเซิร์ฟเวอร์ Outline บน DigitalOcean
+## สร้างเซิร์ฟเวอร์ Outline บน DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 หากคุณใช้งานเซิร์ฟเวอร์ DigitalOcean อยู่ ให้ข้ามไปขั้นตอนต่อไป
 
@@ -37,7 +37,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![สร้างเซิร์ฟเวอร์](/images/create-DO-server.png)
 
-## สร้างชื่อโฮสต์ให้เซิร์ฟเวอร์ของคุณ
+## สร้างชื่อโฮสต์ให้เซิร์ฟเวอร์ของคุณ {#make_a_hostname_for_your_server}
 
 1. ไปที่ [Google Domains](https://domains.google.com/m/registrar/) แล้วคลิก "ค้นหาโดเมนที่สมบูรณ์แบบ"
 
@@ -49,7 +49,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![ตั้งชื่อโฮสต์](/images/set-hostname.png)
 
-## เปลี่ยนที่อยู่ IP ของเซิร์ฟเวอร์
+## เปลี่ยนที่อยู่ IP ของเซิร์ฟเวอร์ {#change_the_servers_ip_address}
 
 1. ไปที่เซิร์ฟเวอร์ของคุณในหน้า "Droplet" ของ DigitalOcean
 

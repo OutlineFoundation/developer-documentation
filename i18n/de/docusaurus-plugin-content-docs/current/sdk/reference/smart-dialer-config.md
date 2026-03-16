@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 Der **Smart Dialer** sucht nach einer Strategie, die DNS und TLS für eine bestimmte Liste von Test-Domains freigibt. Es wird eine Konfiguration benötigt, die mehrere Strategien beschreibt, aus denen ausgewählt werden kann.
 
-## YAML config für den Smart Dialer
+## YAML config für den Smart Dialer {#yaml_config_for_the_smart_dialer}
 
 Die config, die der Smart Dialer auswählt, hat das YAML-Format. Hier ein Beispiel:
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### DNS-Konfiguration
+### DNS-Konfiguration {#dns_configuration}
 
 - Das `dns`-Feld führt eine Liste mit zu testenden DNS-Resolvern auf.
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`: Verwenden Sie einen TCP-Resolver.
 
-#### DNS-over-HTTPS-Resolver (DoH)
+#### DNS-over-HTTPS-Resolver (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`: Der host:port des DoH-Servers. Die Standardeinstellung von `name` ist 443.
 
-#### DNS-over-TLS Resolver (DoT)
+#### DNS-over-TLS Resolver (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`: Der host:port des DoT-Servers. Die Standardeinstellung von `name` ist 853.
 
-#### UDP-Resolver
+#### UDP-Resolver {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`: Der host:port des UDP-Resolvers.
 
-#### TCP-Resolver
+#### TCP-Resolver {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`: Der host:port des TCP-Resolvers.
 
-### TLS-Konfiguration
+### TLS-Konfiguration {#tls_configuration}
 
 - Das `tls`-Feld führt eine Liste mit zu testenden TLS-Transports auf.
 
@@ -91,7 +91,7 @@ tcp:
 
 - Beispielsweise spezifiziert `override:host=cloudflare.net|tlsfrag:1` einen Transport, der Domain Fronting mit Cloudflare und TLS-Fragmentierung verwendet. In der [config-Dokumentation](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) finden Sie weitere Details dazu.
 
-### Fallback-Konfiguration
+### Fallback-Konfiguration {#fallback_configuration}
 
 Eine Fallback-Konfiguration wird verwendet, wenn keine der proxylosen Strategien eine Verbindung herstellen kann. Sie kann beispielsweise einen Backup-Proxyserver angeben, der versucht, die Verbindung des Nutzers herzustellen. Die Verwendung einer Fallback-Konfiguration verlangsamt den Start, da zuerst die anderen DNS/TLS-Strategien fehlschlagen/eine Zeitüberschreitung verursachen müssen.
 
@@ -101,21 +101,21 @@ Die Fallback-Strings sollten Folgendes sein:
 
 - Ein gültiges Psiphon-Konfigurationsobjekt als untergeordnetes Objekt eines `psiphon`-Feldes.
 
-#### Shadowsocks-Server-Beispiel
+#### Shadowsocks-Server-Beispiel {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### SOCKS5-Server-Beispiel
+#### SOCKS5-Server-Beispiel {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Psiphon config-Beispiel
+#### Psiphon config-Beispiel {#psiphon_config_example}
 
 Um das [Psiphon](https://psiphon.ca/)-Netzwerk zu nutzen, ist Folgendes nötig:
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### Verwendung des Smart Dialers
+### Verwendung des Smart Dialers {#how_to_use_the_smart_dialer}
 
 Um den Smart Dialer zu verwenden, erstellen Sie ein `StrategyFinder`-Objekt. Rufen Sie die `NewDialer`-Methode auf und übergeben Sie die Liste der Testdomains und die YAML-Konfiguration.
 Die `NewDialer`-Methode wird einen `transport.StreamDialer` zurückgeben, der zur Erstellung von Verbindungen mit der gefundenen Strategie verwendet werden kann. Beispiel:

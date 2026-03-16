@@ -15,6 +15,6 @@ Esta guía explica el proceso de configurar un servidor de Outline para ofrecer 
 
 5. Administrador de Outline te guiará por el proceso de crear un servidor.
 
-## Pasos siguientes
+## Pasos siguientes {#next_steps}
 
 Una vez configurado el servidor de Outline, ya puedes compartir el acceso con tus usuarios.

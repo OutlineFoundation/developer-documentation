@@ -9,12 +9,12 @@ A partir de la versión 1.9.0 del cliente de Outline, las claves de acceso admit
 Esto puede hacer que la conexión parezca un protocolo que se permite en la
 red y, así, eludir firewalls que rechazan protocolos que no reconocen.
 
-## ¿Cuándo debo probar esta opción?
+## ¿Cuándo debo probar esta opción? {#when_should_i_try_this}
 
 Si sospechas que aún se bloquea a los usuarios de tu implementación de Outline, recomendamos
 que pruebes algunos prefijos diferentes.
 
-## Instrucciones
+## Instrucciones {#instructions}
 
 El prefijo no debe exceder los 16 bytes. Los prefijos más largos pueden causar colisiones
 de sal, que pueden comprometer la seguridad de la encriptación y provocar que se detecten
@@ -66,7 +66,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Claves de acceso dinámicas
+### Claves de acceso dinámicas {#dynamic_access_keys}
 
 Para usar la función de prefijo con [claves de acceso dinámicas](../management/dynamic-access-keys) (`ssconf://`),
 agrega una clave de "prefijo" al objeto JSON, con un valor **codificado con JSON** que represente el prefijo que quieres (revisa los ejemplos en la tabla de arriba). Puedes
@@ -83,7 +83,7 @@ el rango de `U+0` a `U+FF`. Por ejemplo:
 }
 ```
 
-### Claves de acceso estáticas
+### Claves de acceso estáticas {#static_access_keys}
 
 Para usar prefijos con **claves de acceso estáticas** (ss://), deberás modificar tu
 clave existente antes de distribuirla. Si tienes una clave de acceso estática generada

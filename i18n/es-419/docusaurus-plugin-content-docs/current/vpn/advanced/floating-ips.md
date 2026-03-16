@@ -3,7 +3,7 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Introducción
+## Introducción {#introduction}
 
 A veces, los servidores de Outline, pueden enfrentar el problema de que se descubran en redes altamente
 censuradas y se bloqueen de ellas. Es posible (y sencillo) recuperar un
@@ -12,7 +12,7 @@ tecnología de Internet que traduce los nombres de dominios (como `getoutline.or
 direcciones IP físicas (como `216.239.36.21`), y también IPs flotantes, una función de la nube
 que te permite asignar más de una dirección IP como un servidor de Outline.
 
-## Requisitos
+## Requisitos {#requirements}
 
 Se requiere un nivel mínimo de habilidades técnicas para seguir los pasos en esta guía. También es recomendable (aunque no necesario)
 tener conocimientos básicos sobre DNS. Revisa la guía de
@@ -26,7 +26,7 @@ asignación de direcciones IP (p. ej., Google Cloud o
 y cualquier registrador de nombres (p. ej.,
 [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)).
 
-## Instrucciones
+## Instrucciones {#instructions}
 
 1. En la siguiente lista, se resumen los pasos para rotar las direcciones IP de un servidor:
 
@@ -40,7 +40,7 @@ y cualquier registrador de nombres (p. ej.,
 
 6. Cambia el nombre de dominio para que dirija a la nueva dirección IP.
 
-## Crea un servidor de Outline en DigitalOcean
+## Crea un servidor de Outline en DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 Si tienes un servidor de DigitalOcean en ejecución, avanza al próximo paso.
 
@@ -52,7 +52,7 @@ de la app.
 
 ![Crear servidor](/images/create-DO-server.png)
 
-## Crea un nombre de host para tu servidor
+## Crea un nombre de host para tu servidor {#make_a_hostname_for_your_server}
 
 1. Navega a [Google Domains](https://domains.google.com/m/registrar/) y
 haz clic en "Buscar el dominio perfecto".
@@ -69,7 +69,7 @@ que todas las claves de acceso futuras usen este nombre de host en lugar de la d
 
 ![Configura el nombre de host](/images/set-hostname.png)
 
-## Cambia la dirección IP del servidor
+## Cambia la dirección IP del servidor {#change_the_servers_ip_address}
 
 1. Navega a tu servidor en la página "Droplets" de DigitalOcean.
 

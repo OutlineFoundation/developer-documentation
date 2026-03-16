@@ -7,13 +7,13 @@ Outline zapewnia dostęp do szczegółowych danych dotyczących wydajności, uż
 
 **Ważna informacja:** przewodnik jest przeznaczony dla osób, które znają podstawy pakietu Prometheus oraz PromQL. Jeśli dopiero zaczynasz pracę z pakietem Prometheus, warto zapoznać się z jego dokumentacją oraz samouczkami na jego temat, zanim zagłębisz się w dane dotyczące Outline.
 
-## Wymagania wstępne
+## Wymagania wstępne {#prerequisites}
 
 - **Serwer Outline z włączonym pakietem Prometheus:** sprawdź, czy na serwerze Outline włączone są dane pakietu Prometheus (zazwyczaj są włączone domyślnie).
 
 - **Dostęp SSH do serwera:** będziesz potrzebować dostępu SSH, żeby przekierować port pakietu Prometheus.
 
-## Instrukcje
+## Instrukcje {#instructions}
 
 1. **Przekierowanie portu pakietu Prometheus**
 
@@ -29,9 +29,9 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 3. **Użyj zapytań PromQL, żeby uzyskać interesujące Cię dane.**
 
-### Przykładowe zapytania PromQL
+### Przykładowe zapytania PromQL {#example_promql_queries}
 
-#### Wykorzystanie
+#### Wykorzystanie {#usage}
 
 - **Bajty danych (według klucza dostępu, protokołu i kierunku):**
 
@@ -49,11 +49,11 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Aktywne klucze dostępu
+#### Aktywne klucze dostępu {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### Połączenia TCP
+#### Połączenia TCP {#tcp_connections}
 
 - **Połączenia TCP (według klucza dostępu, lokalizacji i stanu):**
 
@@ -63,7 +63,7 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **Pakiety UDP (według lokalizacji i stanu):**
 
@@ -73,7 +73,7 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Działanie aplikacji
+#### Działanie aplikacji {#performance}
 
 - **Wykorzystanie procesora (według procesu):**
 
@@ -83,7 +83,7 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 `process_virtual_memory_bytes`
 
-#### Informacje o kompilacji
+#### Informacje o kompilacji {#build_information}
 
 - **Prometheus:**
 

@@ -9,11 +9,11 @@ A partire dalla versione 1.9.0 del client Outline, i tasti di accesso supportano
 Ciò può far apparire la connessione come un protocollo consentito nella
 rete, aggirando i firewall che rifiutano i protocolli che non riconoscono.
 
-## Quando dovrei verificarlo?
+## Quando dovrei verificarlo? {#when_should_i_try_this}
 
 Se sospetti che gli utenti del tuo deployment Outline siano ancora bloccati, potresti provare alcuni prefissi diversi.
 
-## Istruzioni
+## Istruzioni {#instructions}
 
 Il prefisso non deve essere più lungo di 16 byte. Prefissi più lunghi possono causare conflitti
 di salt, che possono compromettere la sicurezza della crittografia e causare il rilevamento
@@ -65,7 +65,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Chiavi di accesso dinamiche
+### Chiavi di accesso dinamiche {#dynamic_access_keys}
 
 Per utilizzare la funzionalità prefisso con [chiavi di accesso dinamiche](../management/dynamic-access-keys) (`ssconf://`),
 aggiungi una chiave "prefisso" all'oggetto JSON, con un valore **JSON-encoded**
@@ -82,7 +82,7 @@ utilizzare codici di escape (come \u00FF) per rappresentare codepoint Unicode no
 }
 ```
 
-### Chiavi di accesso statiche
+### Chiavi di accesso statiche {#static_access_keys}
 
 Per utilizzare i prefissi con **chiavi di accesso statiche** (ss://), dovrai modificare la
 chiave esistente prima di distribuirla. Se hai una chiave di accesso statica generata

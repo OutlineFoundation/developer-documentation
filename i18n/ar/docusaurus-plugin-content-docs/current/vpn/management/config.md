@@ -10,7 +10,7 @@ sidebar_label: "Configure Access Keys"
 ويُحدِّد الإعداد من المستوى الأعلى إعدادات
 [TunnelConfig](../reference/access-key-config#tunnelconfig).
 
-## أمثلة
+## أمثلة {#examples}
 
 ستظهر إعدادات Shadowsocks بالشكل التالي:
 

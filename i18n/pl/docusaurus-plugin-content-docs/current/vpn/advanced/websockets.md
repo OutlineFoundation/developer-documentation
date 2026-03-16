@@ -7,7 +7,7 @@ sidebar_label: "WebSockets"
 
 W tym przewodniku znajdziesz szczegółowe instrukcje, które pomogą Ci wdrożyć Shadowsocks-over-WebSockets, silną metodę omijania cenzury w środowiskach, w których blokowane są standardowe połączenia Shadowsocks. Hermetyzując ruch Shadowsocks wewnątrz WebSockets, możesz upozorować, że jest to standardowy ruch internetowy, zwiększając dzięki temu odporność i dostępność.
 
-## Krok 1. Skonfiguruj i uruchom serwer Outline
+## Krok 1. Skonfiguruj i uruchom serwer Outline {#step_1_configure_and_run_an_outline_server}
 
 Utwórz nowy plik `config.yaml` o następującej konfiguracji:
 
@@ -37,12 +37,12 @@ Pobierz najnowszy [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-s
 outline-ss-server -config=config.yaml
 ```
 
-## Krok 2. Udostępnij serwer WWW
+## Krok 2. Udostępnij serwer WWW {#step_2_expose_the_web_server}
 
 Aby Twój serwer WWW WebSocket stał się dostępny publicznie, musisz udostępnić go w internecie i skonfigurować [protokół TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security).
 Możesz to zrobić na kilka sposobów. Możesz wykorzystać lokalny serwer WWW, taki jak [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) lub [Apache](https://httpd.apache.org/), pod warunkiem, że ma odpowiedni certyfikat TLS, lub skorzystać z usługi tunelowania, takiej jak [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) lub [ngrok](https://ngrok.com/).
 
-### Przykład z wykorzystaniem TryCloudflare
+### Przykład z wykorzystaniem TryCloudflare {#example_using_trycloudflare}
 
 W tym przykładzie pokażemy, jak za pomocą [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) utworzyć szybki tunel. To wygodny i bezpieczny sposób na udostępnienie lokalnego serwera WWW bez konieczności otwierania portów przychodzących.
 
@@ -57,7 +57,7 @@ cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
 Cloudflare stworzy subdomenę (np.
 `acids-iceland-davidson-lb.trycloudflare.com`) zapewniającą dostęp do punktu końcowego WebSocket i automatycznie zajmie się protokołem TLS. Pamiętaj o tej subdomenie, ponieważ będzie Ci ona potrzebna później.
 
-## Krok 3. Utwórz dynamiczny klucz dostępu
+## Krok 3. Utwórz dynamiczny klucz dostępu {#step_3_create_a_dynamic_access_key}
 
 Wygeneruj plik YAML z kluczem dostępu klienta dla użytkowników korzystających z formatu [konfiguracji klucza dostępu](../management/config) i uwzględnij punkty końcowe WebSocket skonfigurowane wcześniej po stronie serwera:
 
@@ -86,7 +86,7 @@ transport:
 
 Po wygenerowaniu pliku YAML z dynamicznym kluczem dostępu musisz dostarczyć go swoim użytkownikom. Możesz hostować plik na statycznym hostingu WWW lub generować go dynamicznie. Dowiedz się więcej o [dynamicznych kluczach dostępu](../management/dynamic-access-keys).
 
-## Krok 4. Połącz się z klientem Outline
+## Krok 4. Połącz się z klientem Outline {#step_4_connect_with_the_outline_client}
 
 Skorzystaj z jednej z oficjalnych aplikacji [klienta Outline](../../download-links) (wersja 1.15.0 i nowsze) i dodaj swój nowo utworzony klucz dostępu jako wpis serwera. Kliknij **Połącz**, aby rozpocząć tunelowanie do swojego serwera za pomocą konfiguracji Shadowsocks-over-Websocket.
 

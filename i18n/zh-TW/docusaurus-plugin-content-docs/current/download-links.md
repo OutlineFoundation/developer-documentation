@@ -5,7 +5,7 @@ sidebar_label: "Download Links"
 
 以下提供 Outline Manager 和 Outline 用戶端的下載連結。如要進一步瞭解 Outline 的設定方式，請前往 <https://getoutline.org/>。
 
-## Outline Manager
+## Outline Manager {#outline_manager}
 
 - **Windows：**<https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
 
@@ -13,7 +13,7 @@ sidebar_label: "Download Links"
 
 - **Linux：**<https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
-## Outline 用戶端
+## Outline 用戶端 {#outline_client}
 
 - **Windows：**<https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
 

@@ -7,7 +7,7 @@ Outline은 YAML 기반 구성을 사용하여 VPN 매개변수를 정의하고 T
 
 최상위 구성은 [TunnelConfig](../reference/access-key-config#tunnelconfig)를 지정합니다.
 
-## 예
+## 예 {#examples}
 
 일반적인 Shadowsocks 구성은 다음과 같습니다.
 

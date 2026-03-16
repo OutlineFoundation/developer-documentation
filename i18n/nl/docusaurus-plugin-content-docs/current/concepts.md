@@ -5,7 +5,7 @@ sidebar_label: "Concepts"
 
 Met Outline kunnen gebruikers toegangsbeperkingen tot het open internet omzeilen. Hieronder vind je informatie over hoe het werkt:
 
-## Serviceproviders en eindgebruikers
+## Serviceproviders en eindgebruikers {#service_providers_and_end_users}
 
 Het Outline-systeem bestaat uit 2 partijen: **serviceproviders** die de servers beheren en **eindgebruikers** die via die servers toegang krijgen tot het internet.
 
@@ -14,7 +14,7 @@ Het Outline-systeem bestaat uit 2 partijen: **serviceproviders** die de servers 
 
 - **Eindgebruikers** installeren de **Outline-client**, voeren de ontvangen **toegangssleutel** in en **maken verbinding** met een beveiligde tunnel.
 
-## Toegangssleutels
+## Toegangssleutels {#access-keys}
 
 Toegangssleutels zijn de inloggegevens waarmee gebruikers verbinding kunnen maken met een Outline-server. Ze bevatten de nodige informatie voor de Outline-client om een beveiligde verbinding te maken. Er zijn 2 typen toegangssleutels:
 

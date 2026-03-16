@@ -7,7 +7,7 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 
 동적 액세스 키에서 사용할 액세스 정보는 세 가지 형식으로 지정할 수 있습니다.
 
-### `ss://` 링크 사용
+### `ss://` 링크 사용 {#use_an_ss_link}
 
 *Outline 클라이언트 v1.8.1+*
 
@@ -19,7 +19,7 @@ Outline에서는 두 가지 유형의 액세스 키, 즉 정적 액세스 키와
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### JSON 객체 사용
+### JSON 객체 사용 {#use_a_json_object}
 
 *Outline 클라이언트 v1.8.0+*
 
@@ -44,7 +44,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
 - **method:** VPN에서 사용하는 암호화 방법입니다. Shadowsocks 지원 [AEAD 암호화](https://shadowsocks.org/doc/aead.html)를 참고하세요.
 
-### YAML 객체 사용
+### YAML 객체 사용 {#use_a_yaml_object}
 
 *Outline 클라이언트 v1.15.0+*
 
@@ -81,7 +81,7 @@ transport:
 
 전송, 엔드포인트, 다이얼러, 패킷 리스너 등 Outline 서버에 대한 액세스를 구성할 수 있는 모든 방법에 관한 자세한 내용은 [액세스 키 구성](config)을 참고하세요.
 
-## 정적 키에서 액세스 정보 추출
+## 정적 키에서 액세스 정보 추출 {#extract_access_information_from_a_static_key}
 
 기존의 정적 액세스 키가 있다면 정보를 추출하여 JSON 또는 YAML 기반 동적 액세스 키를 만들 수 있습니다. 정적 액세스 키는 다음 패턴을 따릅니다.
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **비밀번호**: `example`
 
-## 호스팅 플랫폼 선택
+## 호스팅 플랫폼 선택 {#choose_a_hosting_platform}
 
 이제 동적 액세스 키를 만드는 방법을 알아봤으므로 액세스 키 구성에 적합한 호스팅 플랫폼을 선택하는 것이 중요합니다. 선택할 때는 플랫폼의 안정성, 보안, 사용 용이성, 검열 방지와 같은 요소를 고려하세요. 플랫폼에서 다운타임 없이 액세스 키 정보를 지속적으로 제공하는지, 구성을 보호하기 위해 적절한 보안 조치를 제공하는지, 플랫폼에서 액세스 키 정보를 얼마나 쉽게 관리할 수 있는지, 인터넷 검열이 있는 지역에서 플랫폼에 액세스할 수 있는지 고려해야 합니다.
 

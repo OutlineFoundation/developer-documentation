@@ -5,7 +5,7 @@ sidebar_label: "What is the SDK?"
 
 El SDK de Outline es una biblioteca y una colección de herramientas diseñadas para ayudar a los desarrolladores a crear aplicaciones que protejan frente a las interferencias y la censura a nivel de red.
 
-## Qué puedes hacer con el SDK de Outline
+## Qué puedes hacer con el SDK de Outline {#what_can_you_do_with_the_outline_sdk}
 
 - **Desarrollar herramientas para mitigar las interferencias en la red**\
 Crea herramientas que protejan a los usuarios frente a las interferencias a nivel de red y faciliten el acceso fiable al Internet abierto.
@@ -16,7 +16,7 @@ Integra medidas de protección frente a las interferencias a nivel de red direct
 - **Solucionar problemas y medir las interferencias**\
 Usa las herramientas de línea de comandos incluidas para diagnosticar los problemas de conectividad, medir las interferencias en la red y probar distintas estrategias de elusión.
 
-## Principales ventajas
+## Principales ventajas {#key_advantages}
 
 - **Multiplataforma**\
 Funciona con los sistemas operativos más importantes, como Android, iOS, Windows, macOS y Linux.

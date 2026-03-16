@@ -7,7 +7,7 @@ sidebar_label: "Smart Dialer Config"
 فهرست آزمایش دامنه‌های ارائه‌شده رفع انسداد می‌کند. از پیکربندی‌ای استفاده می‌کند که چندین راهبرد را شرح می‌دهد
 تا از میان آن‌ها انتخاب شود.
 
-## پیکربندی YAML برای «شماره‌گیر هوشمند»
+## پیکربندی YAML برای «شماره‌گیر هوشمند» {#yaml_config_for_the_smart_dialer}
 
 پیکربندی‌ای که «شماره‌گیر هوشمند» استفاده می‌کند در قالب YAML است. برای مثال:
 
@@ -27,7 +27,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### پیکربندی ساناد
+### پیکربندی ساناد {#dns_configuration}
 
 - فیلد `dns` فهرستی از رافع‌های ساناد را برای آزمایش معین می‌کند.
 
@@ -43,7 +43,7 @@ fallback:
 
     - ‫`tcp`: استفاده کردن از رافع TCP.
 
-#### رافع DNS-over-HTTP (DoH)
+#### رافع DNS-over-HTTP (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -55,7 +55,7 @@ https:
 
 - ‫`address`: میزبان:درگاه سرور DoH. پیش‌فرض‌ها به `name`‏:۴۴۳.
 
-#### رافع DNS-over-TLS (DoT)
+#### رافع DNS-over-TLS (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -67,7 +67,7 @@ tls:
 
 - ‫`address`: میزبان:درگاه سرور DoT. پیش‌فرض‌ها به `name`‏:۸۵۳.
 
-#### رافع UDP
+#### رافع UDP {#udp_resolver}
 
 ```yaml
 udp:
@@ -76,7 +76,7 @@ udp:
 
 - ‫`address`: میزبان:درگاه رافع UDP.
 
-#### رافع TCP
+#### رافع TCP {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -85,7 +85,7 @@ tcp:
 
 - ‫`address`: میزبان:درگاه رافع TCP.
 
-### پیکربندی «امنیت لایه انتقال»
+### پیکربندی «امنیت لایه انتقال» {#tls_configuration}
 
 - فیلد `tls` فهرستی از رافع‌های «امنیت لایه انتقال» را برای آزمایش معین می‌کند.
 
@@ -96,7 +96,7 @@ tcp:
 [مستندسازی پیکربندی](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
 را ببینید.
 
-### پیکربندی جایگزین
+### پیکربندی جایگزین {#fallback_configuration}
 
 پیکربندی جایگزین وقتی استفاده می‌شود که هیچ‌یک از راهبردهای بدون پراکسی نتوانند
 ارتباط را برقرار کنند. برای نمونه، می‌توان پراکسی سرور پشتیبان را معین کرد تا برای
@@ -109,21 +109,21 @@ tcp:
 
 - شیء پیکربندی Psiphon معتبری به‌عنوان فرزند فیلد `psiphon` باشد.
 
-#### نمونه سرور Shadowsocks
+#### نمونه سرور Shadowsocks {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### نمونه سرور SOCKS5
+#### نمونه سرور SOCKS5 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### نمونه پیکربندی Psiphon
+#### نمونه پیکربندی Psiphon {#psiphon_config_example}
 
 برای استفاده کردن از شبکه [Psiphon](https://psiphon.ca/)، شما باید:
 
@@ -145,7 +145,7 @@ fallback:
     }
 ```
 
-### چگونگی استفاده کردن از «شماره‌گیر هوشمند»
+### چگونگی استفاده کردن از «شماره‌گیر هوشمند» {#how_to_use_the_smart_dialer}
 
 برای استفاده کردن از «شماره‌گیر هوشمند»، شیء `StrategyFinder` را بسازید و با
 گذر از فهرست دامنه‌های آزمایشی و پیکربندی YAML، به‌روش `NewDialer` تماس بگیرید.

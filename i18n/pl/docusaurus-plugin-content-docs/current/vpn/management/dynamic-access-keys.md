@@ -7,7 +7,7 @@ W Outline dostępne są 2 rodzaje kluczy dostępu: statyczne i dynamiczne. Kluc
 
 Istnieją 3 sposoby na określenie informacji dostępowych, które będą wykorzystywane przez Twoje dynamiczne klucze dostępu:
 
-### Korzystanie z linku `ss://`
+### Korzystanie z linku `ss://` {#use_an_ss_link}
 
 *Klient Outline – wersja 1.8.1+.*
 
@@ -19,7 +19,7 @@ Możesz skorzystać bezpośrednio z istniejącego linku `ss://`. Ta metoda jest 
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Korzystanie z obiektu JSON
+### Korzystanie z obiektu JSON {#use_a_json_object}
 
 *Klient Outline – wersja 1.8.0+.*
 
@@ -44,7 +44,7 @@ Ta metoda zapewnia większą elastyczność w zakresie zarządzania wszystkimi a
 
 - **method**: metoda szyfrowania używana przez usługę VPN. Zapoznaj się z [algorytmami AEAD](https://shadowsocks.org/doc/aead.html) obsługiwanymi przez Shadowsocks.
 
-### Korzystanie z obiektu YAML
+### Korzystanie z obiektu YAML {#use_a_yaml_object}
 
 *Klient Outline – wersja 1.15.0+.*
 
@@ -81,7 +81,7 @@ transport:
 
 W [Konfiguracji klucza dostępu](config) znajdziesz szczegółowe informacje dotyczące wszystkich sposobów konfigurowania dostępu do serwera Outline, w tym o transportach, punktach końcowych, dialerach i odbiorcach pakietów.
 
-## Pobieranie informacji dostępowych z klucza statycznego
+## Pobieranie informacji dostępowych z klucza statycznego {#extract_access_information_from_a_static_key}
 
 Jeśli masz istniejący statyczny klucz dostępu, możesz pobrać informacje, aby utworzyć dynamiczny klucz dostępu w formacie JSON lub YAML. Statyczne klucze dostępu mają następujący wzór:
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Hasło**: `example`
 
-## Wybór platformy hostingowej
+## Wybór platformy hostingowej {#choose_a_hosting_platform}
 
 Gdy wiesz już, jak tworzyć dynamiczne klucze dostępu, ważne, aby wybrać odpowiednią platformę hostingową dla swojej konfiguracji klucza dostępu. Przy podejmowaniu decyzji weź pod uwagę czynniki, takie jak niezawodność, bezpieczeństwo, łatwość użycia i odporność na cenzurę platformy. Czy platforma będzie stabilnie wyświetlać informacje o kluczu dostępu bez przestojów? Czy zapewnia odpowiednie środki bezpieczeństwa, aby chronić Twoją konfigurację? Jak łatwe jest zarządzanie informacjami o kluczu dostępu na platformie? Czy platforma jest dostępna w regionach z cenzurą internetu?
 

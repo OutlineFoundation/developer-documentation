@@ -5,7 +5,7 @@ sidebar_label: "What is the SDK?"
 
 Das Outline SDK ist eine Bibliothek und eine Sammlung von Tools, die Entwicklern helfen sollen, Anwendungen zu erstellen, die vor Eingriffen auf Netzwerkebene und Zensur schützen.
 
-## Wofür kann das Outline SDK verwendet werden?
+## Wofür kann das Outline SDK verwendet werden? {#what_can_you_do_with_the_outline_sdk}
 
 - **Entwicklung von Tools zur Abwehr von Eingriffen in Netzwerke**\
 
@@ -19,7 +19,7 @@ Binden Sie den Schutz vor Eingriffen auf Netzwerkebene direkt in bestehende Anwe
 
 Mit den enthaltenen Befehlszeilentools können Sie Verbindungsprobleme diagnostizieren, Eingriffe in Netzwerke messen und verschiedene Umgehungsstrategien testen.
 
-## Wichtigste Vorteile
+## Wichtigste Vorteile {#key_advantages}
 
 - **Plattformübergreifende Nutzung**\
 

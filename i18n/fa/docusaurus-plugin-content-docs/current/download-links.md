@@ -6,7 +6,7 @@ sidebar_label: "Download Links"
 «مدیر Outline» و «کارخواه Outline» می‌توانند از
 پیوندهای زیر بارگیری شوند. اطلاعات بیشتر درباره راه‌اندازی Outline را در <https://getoutline.org/> ببینید.
 
-## مدیر Outline
+## مدیر Outline {#outline_manager}
 
 - ‫**Windows‏:**
 <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
@@ -17,7 +17,7 @@ sidebar_label: "Download Links"
 - ‫**Linux‏:**
 <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
-## کارخواه Outline
+## کارخواه Outline {#outline_client}
 
 - ‫**Windows‏:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>

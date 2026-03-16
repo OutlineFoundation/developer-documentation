@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Introduction
+## Introduction {#introduction}
 
 Les serveurs Outline peuvent parfois être détectés et bloqués sur des réseaux très censurés. Cependant, s'ils ont été correctement configurés, ils peuvent être récupérés assez facilement. Pour cela, nous utilisons un DNS, une technologie Internet qui traduit les noms de domaine (comme `getoutline.org`) en adresses IP physiques (comme `216.239.36.21`), et des adresses IP flottantes, une fonctionnalité cloud qui vous permet d'attribuer plusieurs adresses IP à un serveur Outline.
 
-## Conditions requises
+## Conditions requises {#requirements}
 
 Seules de simples compétences techniques sont nécessaires pour suivre ce guide. Avoir des connaissances de base sur les DNS est utile, mais n'est pas obligatoire. Consultez le guide [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) sur les noms de domaine pour en savoir plus.
 
 Nous allons vous présenter un exemple concret en utilisant DigitalOcean et Google Domains. Cependant, vous pouvez tout aussi bien utiliser d'autres fournisseurs de services cloud qui permettent d'attribuer des adresses IP (Google Cloud ou [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip), par exemple) et bureaux d'enregistrement de noms de domaine ([AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance), par exemple).
 
-## Instructions
+## Instructions {#instructions}
 
 1. Voici la liste des étapes à suivre pour effectuer une rotation de l'adresse IP d'un serveur :
 
@@ -27,7 +27,7 @@ Nous allons vous présenter un exemple concret en utilisant DigitalOcean et Goog
 
 6. Modifiez le nom de domaine pour qu'il pointe vers la nouvelle adresse IP.
 
-## Créer un serveur Outline sur DigitalOcean
+## Créer un serveur Outline sur DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 Si vous disposez déjà d'un serveur DigitalOcean opérationnel, passez à l'étape suivante.
 
@@ -37,7 +37,7 @@ Si vous disposez déjà d'un serveur DigitalOcean opérationnel, passez à l'ét
 
 ![Créer un serveur](/images/create-DO-server.png)
 
-## Créer un nom d'hôte pour votre serveur
+## Créer un nom d'hôte pour votre serveur {#make_a_hostname_for_your_server}
 
 1. Accédez à [Google Domains](https://domains.google.com/m/registrar/) et cliquez sur "Trouver le domaine idéal".
 
@@ -49,7 +49,7 @@ Si vous disposez déjà d'un serveur DigitalOcean opérationnel, passez à l'ét
 
 ![Définir le nom d&#39;hôte](/images/set-hostname.png)
 
-## Modifier l'adresse IP du serveur
+## Modifier l'adresse IP du serveur {#change_the_servers_ip_address}
 
 1. Accédez à votre serveur sur la page "Droplets" de DigitalOcean.
 

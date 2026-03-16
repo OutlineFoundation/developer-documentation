@@ -3,9 +3,9 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## Tunnels
+## Tunnels {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 Tunnel is het object op het hoogste niveau in een Outline-configuratie. Hiermee bepaal je hoe de VPN wordt ingesteld.
 
@@ -13,7 +13,7 @@ Tunnel is het object op het hoogste niveau in een Outline-configuratie. Hiermee 
 [LegacyShadowsocksConfig](#legacyshadowsocksconfig) |
 [LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **Indeling:** *struct*
 
@@ -48,9 +48,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## Transporten
+## Transporten {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 Hiermee bepaal je hoe pakketten moeten worden uitgewisseld met de doelbestemming.
 
@@ -60,7 +60,7 @@ Ondersteunde Interface-typen:
 
 - `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 Met TCPUDPConfig kun je aparte TCP- en UDP-strategieën instellen.
 
@@ -89,11 +89,11 @@ udp:
   <<: *cipher
 ```
 
-## Endpoints
+## Endpoints {#endpoints}
 
 Met Endpoints maak je verbinding met een vast eindpunt. Dit heeft de voorkeur over Dialers omdat je hiermee eindpuntspecifieke optimalisaties kunt doorvoeren. Er zijn Stream en Packet Endpoints.
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **Indeling:** *string* | [Interface](#interface)
 
@@ -109,7 +109,7 @@ Ondersteunde Interface-typen voor Stream en Packet Endpoints:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 Hiermee maak je verbinding door een vast adres aan te roepen. Je kunt hier een dialer aan toevoegen, zodat je verschillende strategieën samen kunt gebruiken.
 
@@ -121,7 +121,7 @@ Hiermee maak je verbinding door een vast adres aan te roepen. Je kunt hier een d
 
 - `dialer` ([DialerConfig](#dialerconfig)): De dialer om het adres mee aan te roepen.
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 Hiermee worden stream- en pakketverbindingen getunneld naar een eindpunt via WebSockets.
 
@@ -135,11 +135,11 @@ Voor streamverbindingen wordt elke write veranderd in een WebSocket-bericht. Voo
 
 - `endpoint` ([EndpointConfig](#endpointconfig)): Het eindpunt van de webserver waarmee verbinding moet worden gemaakt. Als je hier niets invoert, wordt er verbinding gemaakt met het adres dat je opgeeft in de URL.
 
-## Dialers
+## Dialers {#dialers}
 
 Dialers maken verbinding met een eindpuntadres. Er zijn Stream en Packet Dialers.
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **Indeling:** *null* | [Interface](#interface)
 
@@ -151,11 +151,11 @@ Ondersteunde Interface-typen voor Stream en Packet Dialers:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-## Packet Listeners
+## Packet Listeners {#packet_listeners}
 
 Een Packet Listener maakt een ongebonden pakketverbinding waarmee je pakketten kunt sturen naar meerdere bestemmingen.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **Indeling:** *null* | [Interface](#interface)
 
@@ -167,11 +167,11 @@ Ondersteunde Interface-typen:
 
 - `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
 
-## Strategieën
+## Strategieën {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 LegacyShadowsocksConfig vertegenwoordigt een tunnel die Shadowsocks gebruikt voor het transport. Hiermee implementeer je de verouderde indeling voor compatibiliteit met eerdere versies.
 
@@ -200,7 +200,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 LegacyShadowsocksURI vertegenwoordigt een tunnel die Shadowsocks gebruikt voor het transport.
 Hiermee implementeer je de verouderde URL-indeling voor compatibiliteit met eerdere versies.
@@ -215,7 +215,7 @@ Voorbeeld:
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 ShadowsocksConfig kan een Stream en Packet Dialer vertegenwoordigen, of een Packet Listener die Shadowsocks gebruikt.
 
@@ -241,9 +241,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## Metadefinities
+## Metadefinities {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 Gebruikt de eerste configuratie die wordt ondersteund door de app. Dit is een manier om nieuwe configuraties te gebruiken en compatibiliteit te behouden met eerdere configuraties.
 
@@ -264,7 +264,7 @@ options:
   - ss.example.com:4321
 ```
 
-### Interface
+### Interface {#interface}
 
 Met Interfaces kun je een van meerdere implementaties kiezen. In het veld `$type` voer je het type in dat die configuratie vertegenwoordigt.
 

@@ -15,6 +15,6 @@ Bu kılavuzda, internet erişimini güvenli ve sınırsız hale getirmek için O
 
 5. Outline Manager, sunucu oluşturma konusunda sizi yönlendirir.
 
-## Sonraki adımlar
+## Sonraki adımlar {#next_steps}
 
 Outline sunucunuz ayarlandıktan sonra, erişimi kullanıcılarınızla paylaşabilirsiniz.

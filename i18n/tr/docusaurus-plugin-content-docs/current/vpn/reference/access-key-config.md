@@ -3,9 +3,9 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## Tüneller (Tunnel)
+## Tüneller (Tunnel) {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 Tünel, bir Outline yapılandırmasındaki en üst düzey nesnedir. VPN'in nasıl yapılandırılması gerektiğini belirtir.
 
@@ -13,7 +13,7 @@ Tünel, bir Outline yapılandırmasındaki en üst düzey nesnedir. VPN'in nası
 [LegacyShadowsocksConfig](#legacyshadowsocksconfig) |
 [LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **Biçim:** *struct*
 
@@ -48,9 +48,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## Araçlar (Transport)
+## Araçlar (Transport) {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 Paketlerin hedef varış noktasıyla nasıl değiştirilmesi gerektiğini belirtir.
 
@@ -60,7 +60,7 @@ Desteklenen Interface türleri:
 
 - `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 TCPUDPConfig, ayrı TCP ve UDP stratejilerinin ayarlanmasına izin verir.
 
@@ -89,11 +89,11 @@ udp:
   <<: *cipher
 ```
 
-## Uç noktalar (Endpoint)
+## Uç noktalar (Endpoint) {#endpoints}
 
 Uç noktalar, sabit bir uç nokta ile bağlantı kurar. Uç noktaya özgü optimizasyonlara izin verdiği için çeviricilerden daha çok tercih edilir. Akış ve paket uç noktaları vardır.
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **Biçim:** *string* | [Interface](#interface)
 
@@ -109,7 +109,7 @@ Akış ve paket uç noktaları için desteklenen Interface türleri:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 Sabit bir adresi çevirerek bağlantı kurar. Çevirici kullanarak stratejilerin birleştirilmesine imkan tanıyabilir.
 
@@ -121,7 +121,7 @@ Sabit bir adresi çevirerek bağlantı kurar. Çevirici kullanarak stratejilerin
 
 - `dialer` ([DialerConfig](#dialerconfig)): adresi çevirmek için kullanılacak çevirici
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 Akış ve paket bağlantıları ile bir uç nokta arasında Websockets üzerinden tünel açar.
 
@@ -135,11 +135,11 @@ Akış bağlantıları için her yazma işlemi bir Websocket mesajına dönüşt
 
 - `endpoint` ([EndpointConfig](#endpointconfig)): Bağlanılacak web sunucusu uç noktası. Bu alan yoksa URL'de belirtilen adrese bağlanır.
 
-## Çeviriciler
+## Çeviriciler {#dialers}
 
 Çeviriciler, belirli bir uç nokta adresiyle bağlantı kurar. Akış ve paket çeviricileri kullanılır.
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **Biçim:** *null* | [Interface](#interface)
 
@@ -151,11 +151,11 @@ Akış ve paket çeviricileri için desteklenen Interface türleri:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-## Paket işleyiciler (PacketListener)
+## Paket işleyiciler (PacketListener) {#packet_listeners}
 
 Paket işleyiciler, birden fazla hedefe paket göndermek için kullanılabilecek sınırsız bir paket bağlantısı kurar.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **Biçim:** *null* | [Interface](#interface)
 
@@ -167,11 +167,11 @@ Desteklenen Interface türleri:
 
 - `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
 
-## Stratejiler
+## Stratejiler {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 LegacyShadowsocksConfig, araç olarak Shadowsocks kullanan bir tüneli temsil eder. Geriye dönük uyumluluk için eski biçimi uygular.
 
@@ -200,7 +200,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 LegacyShadowsocksURI, araç olarak Shadowsocks kullanan bir tüneli temsil eder.
 Geriye dönük uyumluluk için eski URL biçimini uygular.
@@ -215,7 +215,7 @@ Geriye dönük uyumluluk için eski URL biçimini uygular.
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 ShadowsocksConfig, akış veya paket çeviricilerinin yanı sıra Shadowsocks kullanan bir paket işleyici de temsil edebilir.
 
@@ -241,9 +241,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## Meta tanımlar
+## Meta tanımlar {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 Uygulama tarafından desteklenen ilk yapılandırmayı kullanır. Bu yöntem, eski yapılandırmalarla geriye dönük uyumludur ve yeni yapılandırmaları dahil eder.
 
@@ -264,7 +264,7 @@ options:
   - ss.example.com:4321
 ```
 
-### Interface
+### Interface {#interface}
 
 Arayüzler birden fazla uygulamadan birinin seçilmesine izin verir. Yapılandırmanın temsil ettiği türü belirtmek için `$type` alanını kullanır.
 

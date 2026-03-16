@@ -5,13 +5,13 @@ sidebar_label: "Using Installation Script"
 
 In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung eines Outline-Servers geführt, um einen sicheren und uneingeschränkten Internetzugriff bereitzustellen.
 
-## Sie benötigen:
+## Sie benötigen: {#prerequisites}
 
 - Einen Server (physisch oder virtuell) mit einem unterstützten Betriebssystem (Ubuntu 20.04 LTS oder Debian 10)
 
 - Einen Root- oder sudo-Zugriff auf den Server
 
-## Anleitung
+## Anleitung {#instructions}
 
 1. Laden Sie das Installationsskript für Outline herunter und führen sie es aus.
 

@@ -13,7 +13,7 @@ mais flexível e eficiente do seu servidor Outline.
 Existem três formatos para especificar as informações de acesso que serão usadas por
 suas chaves de acesso dinâmicas:
 
-### Usar um link `ss://`
+### Usar um link `ss://` {#use_an_ss_link}
 
 *App cliente do Outline v1.8.1+.*
 
@@ -27,7 +27,7 @@ ter flexibilidade para atualizar o endereço do servidor.
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Usar um objeto JSON
+### Usar um objeto JSON {#use_a_json_object}
 
 *App cliente do Outline v1.8.0+.*
 
@@ -54,7 +54,7 @@ de criptografia.
 
 - **method**: método de criptografia usado pela VPN. Consulte a [criptografia AEAD](https://shadowsocks.org/doc/aead.html) (em inglês) oferecida pelo Shadowsocks.
 
-### Usar um objeto YAML
+### Usar um objeto YAML {#use_a_yaml_object}
 
 *App cliente do Outline v1.15.0+.*
 
@@ -98,7 +98,7 @@ Consulte [Configuração de chave de acesso](config) para obter detalhes sobre a
 de configurar o acesso ao seu servidor Outline, incluindo transportes, endpoints,
 discadores e listeners de pacotes.
 
-## Extrair informações de acesso de uma chave estática
+## Extrair informações de acesso de uma chave estática {#extract_access_information_from_a_static_key}
 
 Se você tiver uma chave de acesso estática, poderá extrair as informações para
 criar uma chave de acesso dinâmica baseada em JSON ou YAML. As chaves de acesso estáticas obedecem ao
@@ -129,7 +129,7 @@ Admin Toolbox](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **Senha**: `example`
 
-## Escolher uma plataforma de hospedagem
+## Escolher uma plataforma de hospedagem {#choose_a_hosting_platform}
 
 Agora que você sabe criar chaves de acesso dinâmicas, é importante
 escolher uma plataforma de hospedagem adequada para sua configuração de chaves de acesso. Ao decidir,

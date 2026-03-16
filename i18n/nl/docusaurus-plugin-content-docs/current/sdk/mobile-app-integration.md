@@ -15,7 +15,7 @@ In dit document leggen we uit hoe je de Outline SDK integreert in je mobiele app
 
 ![Content van app met MobileProxy](/images/mobileproxy-after.png)
 
-## Stap 1: Mobiele MobileProxy-bibliotheken ontwerpen
+## Stap 1: Mobiele MobileProxy-bibliotheken ontwerpen {#step_1_building_mobileproxy_mobile_libraries}
 
 Gebruik [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) om de Go-code te compileren in bibliotheken voor Android en iOS.
 
@@ -33,7 +33,7 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies):
 go build -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.org/x/mobile/cmd/gobind
 ```
 
-#### Psiphon-ondersteuning toevoegen
+#### Psiphon-ondersteuning toevoegen {#adding_psiphon_support}
 
 Je kunt ondersteuning voor het [Psiphon](https://psiphon.ca/)-netwerk toevoegen door deze extra stappen te volgen:
 
@@ -51,7 +51,7 @@ De markering `-tags psiphon` is vereist omdat de Psiphon-codebase is gelicentiee
 
 3. Genereer mobiele bibliotheken en voeg ze toe aan je project:
 
-### Android
+### Android {#android}
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
@@ -59,7 +59,7 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 Selecteer in Android Studio de optie **Bestand > Project importeren…** om het gegenereerde `out/mobileproxy.aar`-pakket te importeren. Ga voor meer hulp naar [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) van Go Mobile.
 
-### iOS
+### iOS {#ios}
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
@@ -67,14 +67,14 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 Sleep het `out/mobileproxy.xcframework`-pakket naar het Xcode-project. Ga voor meer hulp naar [Building and deploying to iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) van Go Mobile.
 
-## Stap 2: Voer de MobileProxy uit
+## Stap 2: Voer de MobileProxy uit {#step_2_run_the_mobileproxy}
 
 Initialiseer en start de lokale `MobileProxy`-proxy binnen de runtime van je app.
 Je kunt een statische transportconfiguratie gebruiken of de Smart Proxy gebruiken voor dynamische strategieselectie.
 
 - **Statische transportconfiguratie**: Gebruik de functie `RunProxy` met een lokaal adres en lokale transportconfiguratie.
 
-### Android
+### Android {#android_1}
 
 ```kotlin
 import mobileproxy.*
@@ -89,7 +89,7 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS
+### iOS {#ios_1}
 
 ```swift
 import Mobileproxy
@@ -106,7 +106,7 @@ proxy.stop()
 
 - **Smart Proxy**: De Smart Proxy selecteert dynamisch DNS- en TLS-strategieën gebaseerd op specifieke testdomeinen. Je moet de configuratiestrategie opgeven in YAML-indeling ([voorbeeld](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
-### Android
+### Android {#android_2}
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -121,7 +121,7 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS
+### iOS {#ios_2}
 
 ```swift
 import Mobileproxy
@@ -145,11 +145,11 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
-## Stap 3: Stel HTTP-clients en netwerkbibliotheken in
+## Stap 3: Stel HTTP-clients en netwerkbibliotheken in {#step_3_configure_http_clients_and_networking_libraries}
 
 Stel in dat je netwerkbibliotheken het lokale proxyadres en -poort gebruiken.
 
-### Dart/Flutter HttpClient
+### Dart/Flutter HttpClient {#dartflutter-httpclient}
 
 Stel de proxy in met [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html).
 
@@ -160,7 +160,7 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp (Android)
+### OkHttp (Android) {#okhttp-android}
 
 Stel de proxy in met [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/).
 
@@ -169,7 +169,7 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM (Java, Kotlin)
+### JVM (Java, Kotlin) {#jvm-java,-kotlin}
 
 Stel via de [systeemeigenschappen](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html) in welke proxy moet worden gebruikt:
 
@@ -180,7 +180,7 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### Android WebView
+### Android WebView {#android-web-view}
 
 Pas een proxyconfiguratie toe op alle webweergaven in je app met de [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController)-bibliotheek:
 
@@ -195,7 +195,7 @@ ProxyController.getInstance()
     )
 ```
 
-### iOS WebView
+### iOS WebView {#ios-web-view}
 
 Vanaf iOS 17 kun je een proxyconfiguratie toevoegen aan een `WKWebView` met het [kenmerk `WKWebsiteDataStore`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration):
 
@@ -208,7 +208,7 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
-## Geavanceerd: Een aangepaste mobiele bibliotheek maken
+## Geavanceerd: Een aangepaste mobiele bibliotheek maken {#advanced_generate_a_custom_mobile_library}
 
 Voor geavanceerde use cases kun je je eigen mobiele bibliotheken maken:
 

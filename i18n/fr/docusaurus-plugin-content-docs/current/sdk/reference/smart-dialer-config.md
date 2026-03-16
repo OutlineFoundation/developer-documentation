@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 **Smart Dialer** recherche une stratégie qui débloque les protocoles DNS et TLS pour une liste spécifique de domaines de test. Il part d'une configuration décrivant plusieurs stratégies pour faire son choix.
 
-## Configuration YAML pour Smart Dialer
+## Configuration YAML pour Smart Dialer {#yaml_config_for_the_smart_dialer}
 
 La configuration que Smart Dialer utilise est au format YAML. Voici un exemple :
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### Configuration DNS
+### Configuration DNS {#dns_configuration}
 
 - Le champ `dns` spécifie une liste de résolveurs DNS à tester.
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp` : utilisation d'un résolveur TCP.
 
-#### Résolveur DNS-over-HTTPS (DoH)
+#### Résolveur DNS-over-HTTPS (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address` : adresse hôte:port du serveur DoH. La valeur par défaut est `name`:443.
 
-#### Résolveur DNS-over-TLS (DoT)
+#### Résolveur DNS-over-TLS (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address` : adresse hôte:port du serveur DoT. La valeur par défaut est `name`:853.
 
-#### Résolveur UDP
+#### Résolveur UDP {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address` : adresse hôte:port du résolveur UDP.
 
-#### Résolveur TCP
+#### Résolveur TCP {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address` : adresse hôte:port du résolveur TCP.
 
-### Configuration TLS
+### Configuration TLS {#tls_configuration}
 
 - Le champ `tls` spécifie une liste de transports TLS à tester.
 
@@ -91,7 +91,7 @@ tcp:
 
 - Par exemple, `override:host=cloudflare.net|tlsfrag:1` spécifie un transport qui utilise le domain fronting avec Cloudflare et la fragmentation TLS. Consultez la [documentation sur la configuration](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) pour en savoir plus.
 
-### Configuration de remplacement
+### Configuration de remplacement {#fallback_configuration}
 
 Une configuration de remplacement est utilisée si aucune des stratégies sans proxy ne parvient à établir une connexion. Par exemple, elle peut spécifier un serveur proxy de secours pour tenter de connecter l'utilisateur. Le lancement de la stratégie de remplacement prend plus de temps, puisque les autres stratégies DNS ou TLS doivent avoir échoué ou expiré d'abord.
 
@@ -101,21 +101,21 @@ Les chaînes de la configuration de remplacement doivent respecter ces caractér
 
 - Être des objets de configuration Psiphon valides, en tant qu'éléments enfants d'un champ `psiphon`
 
-#### Exemple de serveur Shadowsocks
+#### Exemple de serveur Shadowsocks {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### Exemple de serveur SOCKS5
+#### Exemple de serveur SOCKS5 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Exemple de configuration Psiphon
+#### Exemple de configuration Psiphon {#psiphon_config_example}
 
 Pour utiliser le réseau [Psiphon](https://psiphon.ca/) :
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### Comment utiliser Smart Dialer
+### Comment utiliser Smart Dialer {#how_to_use_the_smart_dialer}
 
 Pour utiliser Smart Dialer, créez un objet `StrategyFinder` et appelez la méthode `NewDialer`, en donnant la liste de domaines de test et la configuration YAML.
 La méthode `NewDialer` renvoie un `transport.StreamDialer`, qui peut être utilisé pour établir des connexions à l'aide de la stratégie trouvée. Par exemple :

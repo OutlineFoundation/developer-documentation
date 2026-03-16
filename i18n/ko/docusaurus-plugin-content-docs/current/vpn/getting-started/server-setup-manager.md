@@ -15,6 +15,6 @@ sidebar_label: "Using Outline Manager"
 
 5. Outline Manager는 서버를 만드는 방법을 안내합니다.
 
-## 다음 단계
+## 다음 단계 {#next_steps}
 
 이제 Outline 서버가 설정되었으므로 사용자와 액세스 권한을 공유할 수 있습니다.

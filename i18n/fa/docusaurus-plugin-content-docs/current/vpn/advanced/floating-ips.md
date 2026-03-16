@@ -3,7 +3,7 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## مقدمه
+## مقدمه {#introduction}
 
 سرورهای Outline گاهی در شبکه‌های بسیار سانسورشده
 با مشکل کشف شدن و مسدود شدن مواجه می‌شوند. این امر ممکن است اتفاق بیفتد ولی اگر سرور مسدودشده به‌درستی راه‌اندازی شده باشد، بازیابی کردن
@@ -12,7 +12,7 @@ sidebar_label: "Domain with Floating IPs"
 نشانی IP فیزیکی (مثل `216.239.36.21`) ترجمه می‌کند، و «پروتکل‌های اینترنتی شناور»، ویژگی فضای ابری‌ای
 که به شما اجازه می‌دهد بیش‌از یک نشانی IP را به سرور Outline اختصاص دهید، سرور را بازیابی می‌کنیم.
 
-## الزامات
+## الزامات {#requirements}
 
 برای دنبال کردن این راهنما به مهارت فنی کمی نیاز دارید. درک پایه‌ای از
 «ساناد» مفید است ولی الزامی نیست. برای مقدمه، راهنمای
@@ -26,7 +26,7 @@ sidebar_label: "Domain with Floating IPs"
 [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance))
 هم به‌کار می‌آید.
 
-## دستورالعمل‌ها
+## دستورالعمل‌ها {#instructions}
 
 1. فهرست زیر مراحل چرخاندن نشانی IP سرور را خلاصه می‌کند:
 
@@ -40,7 +40,7 @@ sidebar_label: "Domain with Floating IPs"
 
 6. تغییر دادن نام دامنه برای هدایت به نشانی IP جدید.
 
-## ساختن «سرور Outline» در DigitalOcean
+## ساختن «سرور Outline» در DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 اگر از سرور DigitalOcean استفاده می‌کتید، به مرحله بعدی بروید.
 
@@ -52,7 +52,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![ساختن سرور](/images/create-DO-server.png)
 
-## ساختن نام میزبان برای سرور خودتان
+## ساختن نام میزبان برای سرور خودتان {#make_a_hostname_for_your_server}
 
 1. به [Google Domains](https://domains.google.com/m/registrar/) پیمایش کنید و
 روی «یافتن بهترین مورد» کلیک کنید.
@@ -69,7 +69,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![تنظیم نام میزبان](/images/set-hostname.png)
 
-## تغییر دادن نشانی IP مربوط به سرور
+## تغییر دادن نشانی IP مربوط به سرور {#change_the_servers_ip_address}
 
 1. به سرور خود در صفحه «دراپلت‌های» DigitalOcean پیمایش کنید.
 

@@ -14,7 +14,7 @@ sidebar_label: "Dynamic Access Keys"
 برای معین کردن اطلاعات دسترسی که توسط
 کلیدهای دسترسی پویای شما استفاده می‌شود، سه قالب وجود دارد:
 
-### استفاده از پیوند `ss://`
+### استفاده از پیوند `ss://` {#use_an_ss_link}
 
 *کارخواه Outline نسخه ۱.۸.۱ به بالا.*
 
@@ -28,7 +28,7 @@ sidebar_label: "Dynamic Access Keys"
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### استفاده از شیء JSON
+### استفاده از شیء JSON {#use_a_json_object}
 
 *کارخواه Outline نسخه ۱.۸.۰ به بالا.*
 
@@ -56,7 +56,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 - **روش:** روش رمزگذاری استفاده‌شده توسط وی‌پی‌ان. به Shadowsocks
 که [رمزهای AEAD](https://shadowsocks.org/doc/aead.html) را پشتیبانی می‌کند ارجاع دهید.
 
-### استفاده از شیء YAML
+### استفاده از شیء YAML {#use_a_yaml_object}
 
 *کارخواه Outline نسخه ۱.۱۵.۰ به بالا.*
 
@@ -99,7 +99,7 @@ TCP و UDP).
 دسترسی به سرور Outline خود را پیکربندی کنید، ازجمله حمل‌ونقل، نقطه‌های پایانی،
 شماره‌گیرها، و شنوندگان بسته اطلاعاتی کسب کنید.
 
-## استخراج اطلاعات دسترسی از «کلید ثابت»
+## استخراج اطلاعات دسترسی از «کلید ثابت» {#extract_access_information_from_a_static_key}
 
 اگر فعلاً کلید دسترسی ثابت دارید، می‌توانید اطلاعات آن را استخراج کنید تا
 کلید دسترسی پویایی برپایه JSON یا YAML بسازید. کلیدهای دسترسی ثابت از
@@ -129,7 +129,7 @@ Admin](https://toolbox.googleapps.com/apps/encode_decode/)
 
     - **گذرواژه**: `example`
 
-## انتخاب پلاتفرم میزبانی
+## انتخاب پلاتفرم میزبانی {#choose_a_hosting_platform}
 
 اکنون که با چگونگی ساختن کلیدهای دسترسی پویا آشنا شدید، مهم است که
 پلاتفرم میزبانی مناسبی را برای پیکربندی کلید دسترسی‌تان انتخاب کنید. وقتی

@@ -7,7 +7,7 @@ Outline ofrece dos tipos de claves de acceso: estáticas y dinámicas. Con las c
 
 Hay tres formatos para especificar la información de acceso que utilizarán tus claves de acceso dinámicas:
 
-### Usar un enlace `ss://`
+### Usar un enlace `ss://` {#use_an_ss_link}
 
 *Versiones 1.8.1 o posteriores del cliente de Outline.*
 
@@ -19,7 +19,7 @@ Puedes usar un enlace `ss://` que ya tengas directamente. Este método es ideal 
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Usar un objeto JSON
+### Usar un objeto JSON {#use_a_json_object}
 
 *Versiones 1.8.0 o posteriores del cliente de Outline.*
 
@@ -44,7 +44,7 @@ Este método ofrece más flexibilidad para gestionar todos los aspectos de la co
 
 - **method:** el método de cifrado que usa la VPN. Consulta los [algoritmos de cifrado de AEAD](https://shadowsocks.org/doc/aead.html) compatibles con Shadowsocks.
 
-### Usar un objeto YAML
+### Usar un objeto YAML {#use_a_yaml_object}
 
 *Versiones 1.15.0 o posteriores del cliente de Outline.*
 
@@ -81,7 +81,7 @@ transport:
 
 Consulta el artículo [Configuración de claves de acceso](config) para obtener información sobre todos los métodos de configuración del acceso a tu servidor de Outline, incluidos los transportes, los endpoints, los marcadores y los procesadores de paquetes.
 
-## Obtener información de acceso a partir de una clave estática
+## Obtener información de acceso a partir de una clave estática {#extract_access_information_from_a_static_key}
 
 Si tienes una clave de acceso estática, puedes obtener la información necesaria para crear una clave de acceso dinámica basada en JSON o YAML. Las claves de acceso estáticas siguen el siguiente patrón:
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Contraseña:** `example`
 
-## Elegir una plataforma de alojamiento
+## Elegir una plataforma de alojamiento {#choose_a_hosting_platform}
 
 Ahora que sabes cómo crear claves de acceso dinámicas, es importante que elijas una plataforma de alojamiento adecuada para la configuración de tus claves de acceso. Al tomar esta decisión, ten en cuenta factores como la fiabilidad, la seguridad, la facilidad de uso y la resistencia a la censura de la plataforma. Pregúntate lo siguiente: ¿la plataforma proporcionará de manera uniforme tu información de claves de acceso sin periodos de inactividad? ¿Ofrece medidas de seguridad adecuadas para proteger tu configuración? ¿Te resulta fácil gestionar tu información de claves de acceso en ella? ¿Es accesible en regiones que censuran Internet?
 

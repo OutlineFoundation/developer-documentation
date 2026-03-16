@@ -5,7 +5,7 @@ sidebar_label: "Concepts"
 
 Outline, kullanıcıların açık internete erişmelerinin önündeki kısıtlamaları aşmalarına yardımcı olur. Outline'ın işleyiş şeklini gösteren bazı temel konseptleri aşağıda bulabilirsiniz:
 
-## Servis sağlayıcılar ve son kullanıcılar
+## Servis sağlayıcılar ve son kullanıcılar {#service_providers_and_end_users}
 
 Outline sisteminde iki ana rol vardır: sunucuları yöneten **servis sağlayıcılar** ve bu sunucular üzerinden internete erişen **son kullanıcılar**.
 
@@ -13,7 +13,7 @@ Outline sisteminde iki ana rol vardır: sunucuları yöneten **servis sağlayıc
 
 - **Son kullanıcılar**; **Outline istemcisi** uygulamasını yükler, aldıkları **erişim anahtarını** yapıştırır ve güvenli bir tünele **bağlanır**.
 
-## Erişim anahtarları
+## Erişim anahtarları {#access-keys}
 
 Erişim anahtarları, kullanıcıların Outline sunucusuna bağlanmasına olanak tanıyan kimlik bilgileridir. Outline istemcisinin güvenli bağlantı kurması için gerekli bilgileri içerir. İki tür erişim anahtarı vardır:
 

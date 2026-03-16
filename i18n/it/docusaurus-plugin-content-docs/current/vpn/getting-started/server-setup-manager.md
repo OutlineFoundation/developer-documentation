@@ -16,6 +16,6 @@ Cloud) o "Configura Outline ovunque" se hai un tuo server.
 
 5. Outline Manager ti guiderà nella creazione di un server.
 
-## Passaggi successivi
+## Passaggi successivi {#next_steps}
 
 Ora che hai configurato il server Outline, puoi condividere l'accesso con i tuoi utenti.

@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 **Smart Dialer** belirli bir test alan adı listesi için DNS ve TLS engellemesini kaldıran bir strateji arar. Aralarından seçim yapılacak birden fazla stratejiyi tanımlayan bir yapılandırma seçer.
 
-## Smart Dialer için YAML yapılandırması
+## Smart Dialer için YAML yapılandırması {#yaml_config_for_the_smart_dialer}
 
 Smart Dialer'ın aldığı yapılandırma YAML biçimindedir. Örnek:
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### DNS Yapılandırması
+### DNS Yapılandırması {#dns_configuration}
 
 - `dns` alanı, test edilecek DNS çözümleyicilerin listesini belirtir.
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`: TCP çözümleyici kullanın.
 
-#### DNS-over-HTTPS (DoH) Çözümleyici
+#### DNS-over-HTTPS (DoH) Çözümleyici {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`: DoH sunucusunun ana makine:bağlantı noktası bilgisi. Varsayılan değer `name`:443'tür.
 
-#### DNS-over-TLS (DoT) Çözümleyici
+#### DNS-over-TLS (DoT) Çözümleyici {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`: DoT sunucusunun ana makine:bağlantı noktası bilgisi. Varsayılan değer `name`:853'tür.
 
-#### UDP Çözümleyici
+#### UDP Çözümleyici {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`: UDP çözümleyicinin ana makine:bağlantı noktası bilgisi.
 
-#### TCP Çözümleyici
+#### TCP Çözümleyici {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`: TCP çözümleyicinin ana makine:bağlantı noktası bilgisi.
 
-### TLS Yapılandırması
+### TLS Yapılandırması {#tls_configuration}
 
 - `tls` alanı, test edilecek TLS araçlarının listesini belirtir.
 
@@ -91,7 +91,7 @@ tcp:
 
 - Örneğin `override:host=cloudflare.net|tlsfrag:1`, Cloudflare ve TLS parçasıyla alan adı ön yüzünü değiştirme işlemini kullanan bir araç belirtir. Ayrıntılar için [yapılandırma belgelerine](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) bakın.
 
-### Yedek Yapılandırma
+### Yedek Yapılandırma {#fallback_configuration}
 
 Yedek yapılandırma, proxy'siz stratejilerin hiçbiri bağlantı kuramadığında kullanılır. Örneğin, kullanıcının bağlantısını denemek için bir yedek proxy sunucusu belirtebilir. Önce diğer DNS/TLS stratejilerinin başarısız olması/zaman aşımına uğraması gerektiğinden, yedek yapılandırma kullanımının başlatılması yavaş olur.
 
@@ -101,21 +101,21 @@ Yedek dizeler şu özellikleri taşımalıdır:
 
 - `psiphon` alanının bir alt öğesi olarak geçerli bir Psiphon yapılandırması
 
-#### Shadowsocks sunucusu ile ilgili örnek
+#### Shadowsocks sunucusu ile ilgili örnek {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### SOCKS5 sunucusu ile ilgili örnek
+#### SOCKS5 sunucusu ile ilgili örnek {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Psiphon yapılandırması ile ilgili örnek
+#### Psiphon yapılandırması ile ilgili örnek {#psiphon_config_example}
 
 [Psiphon](https://psiphon.ca/) ağını kullanmak için:
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### Smart Dialer'ı Kullanma
+### Smart Dialer'ı Kullanma {#how_to_use_the_smart_dialer}
 
 Smart Dialer'ı kullanmak için bir `StrategyFinder` nesnesi oluşturun ve `NewDialer` yöntemini çağırın. Bunun için test alan adları listesini ve YAML yapılandırmasını sağlamanız gerekir.
 `NewDialer` yöntemi bir `transport.StreamDialer` değeri döndürür. Bu değer, bulunan stratejiyle bağlantı oluşturmak için kullanılabilir. Örneğin:

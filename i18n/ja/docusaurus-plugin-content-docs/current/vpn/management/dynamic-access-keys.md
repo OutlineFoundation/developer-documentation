@@ -7,7 +7,7 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 
 動的アクセスキーで使用されるアクセス情報は、次の 3 つの形式で指定できます。
 
-### `ss://` リンクを使用する
+### `ss://` リンクを使用する {#use_an_ss_link}
 
 **Outline クライアント v1.8.1 以降。
 
@@ -19,7 +19,7 @@ Outline には、静的と動的の 2 種類のアクセスキーが用意され
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### JSON オブジェクトを使用する
+### JSON オブジェクトを使用する {#use_a_json_object}
 
 **Outline クライアント v1.8.0 以降。
 
@@ -44,7 +44,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
 - **method:** VPN で使用される暗号化方式。Shadowsocks でサポートされる [AEAD 暗号方式](https://shadowsocks.org/doc/aead.html)をご覧ください。
 
-### YAML オブジェクトを使用する
+### YAML オブジェクトを使用する {#use_a_yaml_object}
 
 **Outline クライアント v1.15.0 以降。
 
@@ -81,7 +81,7 @@ transport:
 
 トランスポート、エンドポイント、ダイヤラー、パケット リスナーなど、Outline サーバーへのアクセスを構成できるすべての方法の詳細については、[アクセスキーの構成](config)をご覧ください。
 
-## 静的キーからアクセス情報を抽出する
+## 静的キーからアクセス情報を抽出する {#extract_access_information_from_a_static_key}
 
 既存の静的アクセスキーがある場合は、JSON または YAML ベースの動的アクセスキーを作成するのに必要な情報を抽出できます。静的アクセスキーは、次のパターンに従います。
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **パスワード:** `example`
 
-## ホスティング プラットフォームを選択する
+## ホスティング プラットフォームを選択する {#choose_a_hosting_platform}
 
 動的アクセスキーの作成方法について理解できたら、アクセスキーの構成に適したホスティング プラットフォームを選択することが重要になります。この決定を行う場合は、プラットフォームの信頼性、セキュリティ、使いやすさ、検閲耐性などの要因を考慮してください。プラットフォームでは、ダウンタイムなしでアクセスキー情報を安定した方法で処理できますか？構成を保護するのに適したセキュリティ対策は用意されていますか？プラットフォームでアクセスキーの情報を管理するのはどれくらい簡単ですか？インターネットの検閲が行われている地域からプラットフォームにアクセスできますか？
 

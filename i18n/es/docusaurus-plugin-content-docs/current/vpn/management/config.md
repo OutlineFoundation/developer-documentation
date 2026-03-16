@@ -7,7 +7,7 @@ Outline usa una configuración basada en YAML para definir los parámetros de la
 
 La configuración de nivel superior especifica [TunnelConfig](../reference/access-key-config#tunnelconfig).
 
-## Ejemplos
+## Ejemplos {#examples}
 
 Este es el aspecto de una configuración típica de Shadowsocks:
 

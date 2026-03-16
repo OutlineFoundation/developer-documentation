@@ -6,11 +6,11 @@ sidebar_label: "Connection Prefixes"
 Outline istemcisinin 1.9.0 sürümü itibarıyla erişim anahtarlarında "önek" seçeneği desteklenmektedir. "Önek", Shadowsocks TCP bağlantısındaki [takviye değerin](https://shadowsocks.org/guide/aead.html) ilk baytları olarak kullanılan baytların listesidir.
 Bu seçenek, bağlantının ağda desteklenen bir protokol gibi görünmesini sağlayarak, tanımadığı protokolleri reddeden güvenlik duvarlarını atlatır.
 
-## Bu seçeneği ne zaman denemeliyim?
+## Bu seçeneği ne zaman denemeliyim? {#when_should_i_try_this}
 
 Outline dağıtımınızdaki kullanıcıların hâlâ engellendiğinden şüpheleniyorsanız birkaç farklı öneki deneyebilirsiniz.
 
-## Talimatlar
+## Talimatlar {#instructions}
 
 Önek 16 bayttan uzun olamaz. Daha uzun önekler, takviye değer çakışmasına neden olabilir. Bu durum, şifreleme güvenliğini tehlikeye atıp bağlantıların tespit edilmesine yol açabilir. Karşılaştığınız engelleri aşmak için olabilecek en kısa öneki kullanın.
 
@@ -58,7 +58,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Dinamik erişim anahtarları
+### Dinamik erişim anahtarları {#dynamic_access_keys}
 
 [Dinamik erişim anahtarları](../management/dynamic-access-keys) (`ssconf://`) ile önek özelliğini kullanmak için JSON nesnesine "önek" anahtarı ekleyin ve istediğiniz öneki temsil eden değeri **JSON biçiminde** belirtin (Örnekleri yukarıdaki tabloda bulabilirsiniz). `U+0` - `U+FF` aralığındaki yazdırılamayan Unicode karakterlerini temsil edecek çıkış kodları (ör. \u00FF) kullanabilirsiniz. Örneğin:
 
@@ -72,7 +72,7 @@ SSH
 }
 ```
 
-### Statik erişim anahtarları
+### Statik erişim anahtarları {#static_access_keys}
 
 **Statik erişim anahtarları** (ss://) ile önekleri kullanmak için mevcut anahtarınızı dağıtmadan önce değiştirmeniz gerekir. Outline Manager'ın oluşturduğu bir statik erişim anahtarınız varsa önekinizin **URL biçiminde kodlanmış** sürümünü alın (Yukarıdaki tabloda örneklerini görebilirsiniz.) ve aşağıdaki şekilde erişim anahtarınızın sonuna ekleyin:
 

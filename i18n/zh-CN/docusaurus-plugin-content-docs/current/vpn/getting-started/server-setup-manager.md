@@ -15,6 +15,6 @@ sidebar_label: "Using Outline Manager"
 
 5. Outline 管理器将全程引导您创建服务器。
 
-## 后续步骤
+## 后续步骤 {#next_steps}
 
 您的 Outline 服务器已设置完毕，现已可以和用户分享访问权限。

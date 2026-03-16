@@ -5,7 +5,7 @@ sidebar_label: "What is the SDK?"
 
 Outline SDK to biblioteka i zestaw narzędzi, które pomagają programistom tworzyć aplikacje chroniące przed zakłóceniami na poziomie sieci i cenzurą.
 
-## Jakie możliwości daje pakiet Outline SDK
+## Jakie możliwości daje pakiet Outline SDK {#what_can_you_do_with_the_outline_sdk}
 
 - **Tworzenie narzędzi do ograniczania zakłóceń na poziomie sieci**\
 
@@ -19,7 +19,7 @@ Zintegruj ochronę przed zakłóceniami na poziomie sieci bezpośrednio z dotych
 
 Korzystaj z dołączonych narzędzi wiersza poleceń, aby diagnozować problemy z połączeniem, mierzyć zakłócenia w sieci i testować różne strategie obchodzenia blokad.
 
-## Najważniejsze zalety
+## Najważniejsze zalety {#key_advantages}
 
 - **Obsługa wielu platform**\
 

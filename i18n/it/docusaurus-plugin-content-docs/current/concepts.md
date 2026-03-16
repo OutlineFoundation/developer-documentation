@@ -5,7 +5,7 @@ sidebar_label: "Concepts"
 
 Outline aiuta gli utenti a bypassare le restrizioni per accedere alla rete internet aperta. Ecco alcuni concetti chiave per capire come funziona:
 
-## Fornitori di servizi e utenti finali
+## Fornitori di servizi e utenti finali {#service_providers_and_end_users}
 
 Il sistema Outline coinvolge due ruoli principali: i **fornitori di servizi**, che gestiscono i server, e gli **utenti finali**, che accedono a internet tramite questi server.
 
@@ -13,7 +13,7 @@ Il sistema Outline coinvolge due ruoli principali: i **fornitori di servizi**, c
 
 - Gli **utenti finali** installano l'applicazione **client Outline**, incollano la **chiave di accesso** ricevuta e **si connettono** a un tunnel sicuro.
 
-## Chiavi di accesso
+## Chiavi di accesso {#access-keys}
 
 Le chiavi di accesso sono le credenziali che consentono agli utenti di connettersi a un server Outline. Contengono le informazioni necessarie affinché il client Outline stabilisca una connessione sicura. Esistono due tipi di chiavi di accesso:
 

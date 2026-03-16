@@ -6,11 +6,11 @@ sidebar_label: "Connection Prefixes"
 Sinds Outline-client versie 1.9.0 ondersteunen toegangssleutels de optie om een 'prefix' (voorvoegsel) toe te voegen. De 'prefix' is een lijst met bytes die wordt gebruikt als de eerste bytes van de [salt](https://shadowsocks.org/guide/aead.html) van een Shadowsocks TCP-verbinding.
 De verbinding lijkt dan op een protocol dat is toegestaan in het netwerk, waardoor firewalls worden omzeild die protocollen weigeren die ze niet herkennen.
 
-## Wanneer moet ik dit proberen?
+## Wanneer moet ik dit proberen? {#when_should_i_try_this}
 
 Als je denkt dat de gebruikers van je Outline-implementatie nog steeds worden geblokkeerd, kun je verschillende prefixes proberen.
 
-## Instructies
+## Instructies {#instructions}
 
 De prefix mag niet langer zijn dan 16 bytes. Langere prefixes kunnen leiden tot salt-botsingen, wat de veiligheid van de versleuteling in gevaar kan brengen en ertoe kan leiden dat verbindingen worden gedetecteerd. Gebruik de kortst mogelijke prefix om de specifieke blokkade te omzeilen.
 
@@ -58,7 +58,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Dynamische toegangssleutels
+### Dynamische toegangssleutels {#dynamic_access_keys}
 
 Als je een prefix wilt gebruiken met [dynamische toegangssleutels](../management/dynamic-access-keys) (`ssconf://`), voeg je een 'prefix'-sleutel toe aan het json-object, met een **json-gecodeerde** waarde die de gewenste prefix aangeeft (ga naar de tabel hierboven voor voorbeelden). Je kunt escapecodes (zoals \u00FF) gebruiken om niet-afdrukbare Unicode-codepunten in het bereik `U+0` tot `U+FF` te vertegenwoordigen. Bijvoorbeeld:
 
@@ -72,7 +72,7 @@ Als je een prefix wilt gebruiken met [dynamische toegangssleutels](../management
 }
 ```
 
-### Statische toegangssleutels
+### Statische toegangssleutels {#static_access_keys}
 
 Als je prefixes wilt gebruiken met **statische toegangssleutels** (ss://) moet je je bestaande sleutel aanpassen voordat je deze aan anderen geeft. Als je een statische toegangssleutel hebt die is gegenereerd door Outline Manager, neem je een **URL-gecodeerde** versie van de prefix (ga naar de tabel hierboven voor voorbeelden) en voeg je die op deze manier toe aan het einde van de toegangssleutel:
 

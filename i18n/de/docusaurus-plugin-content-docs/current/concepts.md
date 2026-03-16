@@ -5,7 +5,7 @@ sidebar_label: "Concepts"
 
 Mit Outline erhalten Nutzer ungehinderten Zugang zum offenen Internet. Hier sind einige Schlüsselkonzepte zur Erklärung:
 
-## Serviceprovider und Endnutzer
+## Serviceprovider und Endnutzer {#service_providers_and_end_users}
 
 Im Outline-System gibt es zwei Hauptrollen: **Serviceprovider**, die die Server verwalten, und **Endnutzer**, die über das Internet auf diese Server zugreifen.
 
@@ -14,7 +14,7 @@ und **verteilen die Schlüssel** an die Endnutzer, zum Beispiel über die App **
 
 - **Endnutzer** installieren die App **Outline-Client**, fügen den erhaltenen **Zugriffsschlüssel** ein und **verbinden** sich über einen sicheren Tunnel.
 
-## Zugriffsschlüssel
+## Zugriffsschlüssel {#access-keys}
 
 Die Zugriffsschlüssel sind die Anmeldedaten, mit denen Nutzer eine Verbindung zu einem Outline-Server herstellen können. Sie enthalten alle Informationen, die der Online-Client benötigt, um eine verschlüsselte Verbindung aufzubauen. Es gibt zwei Arten von Zugriffsschlüsseln:
 

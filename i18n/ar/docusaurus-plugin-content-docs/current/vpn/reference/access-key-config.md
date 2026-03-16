@@ -3,9 +3,9 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## الاتصالات النفَقية
+## الاتصالات النفَقية {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 الاتصال النفَقي هو العنصر الأعلى مستوى في إعدادات Outline؛ وذلك لأنه يحدِّد كيفية
 ضبط شبكة VPN.
@@ -14,7 +14,7 @@ sidebar_label: "Access Key Config"
 ‫[LegacyShadowsocksConfig](#legacyshadowsocksconfig) |
 ‫[LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **التنسيق:** *struct*
 
@@ -52,9 +52,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## بروتوكولات نقل البيانات
+## بروتوكولات نقل البيانات {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 تحدِّد كيفية تبادُل الحِزم مع الوجهة النهائية.
 
@@ -64,7 +64,7 @@ error:
 
 - `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 يمكن استخدام TCPUDPConfig لضبط استراتيجيات منفصلة لمنفذَي TCP وUDP.
 
@@ -95,13 +95,13 @@ udp:
   <<: *cipher
 ```
 
-## نقاط النهاية
+## نقاط النهاية {#endpoints}
 
 تنشئ نقاط النهاية اتصالات تؤدي إلى نقطة نهاية ثابتة. وهذا الخيار مفضَّل على
 "برامج الاتصال"؛ لأنّه يتيح إجراء تحسينات خاصة بنقاط النهاية. وتنقسم نقاط النهاية إلى "نقاط نهاية للبث"
 و"نقاط نهاية للحِزم".
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **التنسيق:** *string* | ‏[Interface](#interface)
 
@@ -118,7 +118,7 @@ udp:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 يستخدم برنامج اتصال يتيح إنشاء الاستراتيجيات للاتصال
 بعنوان ثابت.
@@ -132,7 +132,7 @@ udp:
 - ‫`dialer` ([DialerConfig](#dialerconfig)): برنامج الاتصال المستخدَم للاتصال
 بالعنوان
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 تعمل الاتصالات النفَقية على بثّ وتجميع الاتصالات في حِزم وإرسالها إلى نقطة نهاية عبر بروتوكولات Websocket.
 
@@ -150,12 +150,12 @@ udp:
 - ‫`endpoint` ([EndpointConfig](#endpointconfig)): نقطة نهاية خادم الويب التي يتم
 الاتصال بها. وفي حال غيابها، تتصل نقطة النهاية بالعنوان المرتبط بعنوان URL.
 
-## برامج الاتصال
+## برامج الاتصال {#dialers}
 
 تنشئ برامج الاتصال اتصالات بعنوان نقطة نهاية معيّنة. وتنقسم برامج الاتصال إلى نوعَين: "برامج اتصال البثّ"
 و"برامج اتصال الحِزم".
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **التنسيق:** *null* | ‏[Interface](#interface)
 
@@ -168,12 +168,12 @@ udp:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-## متتبِّعات الحِزم
+## متتبِّعات الحِزم {#packet_listeners}
 
 يُنشئ "متتبِّع الحِزم" اتصالاً من خلال الحِزم غير المحدودة والذي يمكن أن يُستخدم
 لإرسال حِزم إلى وجهات متعددة.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **التنسيق:** *null* | ‏[Interface](#interface)
 
@@ -186,11 +186,11 @@ udp:
 
 - `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
 
-## الاستراتيجيات
+## الاستراتيجيات {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 يمثِّل الإعداد LegacyShadowsocksConfig "اتصالاً نفَقيًا" يستخدم Shadowsocks
 على أنّه بروتوكول نقل البيانات. ويُطبِّق هذا الإعداد التنسيق القديم للتوافق مع الأنظمة القديمة.
@@ -221,7 +221,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 يُمثّل الإعداد LegacyShadowsocksURI "اتصالاً نفَقيًا" يستخدم بروتوكول Shadowsocks
 كنقطة اتصال.
@@ -239,7 +239,7 @@ SIP002](https://shadowsocks.org/doc/sip002.html)، مع العِلم أنّنا 
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 يُمثِّل الإعداد ShadowsocksConfig "برامج اتصال البثّ" أو "برامج اتصال الحِزم" وأيضًا "متتبِّع
 الحِزم" الذي يستخدِم Shadowsocks.
@@ -268,9 +268,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## أنواع الكائن الوصفي
+## أنواع الكائن الوصفي {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 يستخدم هذا الإعداد أول إعداد متوافق مع التطبيق. وهو طريقة
 تُستخدم لتضمين الإعدادات الجديدة مع مواصلة التوافق مع الإعدادات القديمة.
@@ -293,7 +293,7 @@ options:
   - ss.example.com:4321
 ```
 
-### الواجهة (Interface)
+### الواجهة (Interface) {#interface}
 
 تُتيح الواجهات اختيار أحد عمليات الاستخدام المتعددة. وتستخدم هذه الواجهات الحقل
 `$type` لتحديد نوع الإعدادات التي تُمثّلها.

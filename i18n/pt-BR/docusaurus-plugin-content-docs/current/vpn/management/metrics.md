@@ -12,7 +12,7 @@ recuperação e visualização dessas métricas.
 Prometheus e o PromQL. Se você não tiver familiaridade com o Prometheus,
 leia a documentação e assista aos tutoriais antes de se aprofundar nas métricas do Outline.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 - **Servidor do Outline com o Prometheus ativado**: verifique se as métricas do Prometheus
 estão ativadas no servidor do Outline. Essa geralmente é a configuração padrão.
@@ -20,7 +20,7 @@ estão ativadas no servidor do Outline. Essa geralmente é a configuração padr
 - **Acesso SSH ao servidor**: você precisará de acesso SSH para encaminhar a
 porta do Prometheus.
 
-## Instruções
+## Instruções {#instructions}
 
 1. **Encaminhar a porta do Prometheus**
 
@@ -37,9 +37,9 @@ Consultar as métricas do Prometheus
 
 3. **Use as consultas PromQL para ver as métricas que você quiser.**
 
-### Exemplo de consultas PromQL
+### Exemplo de consultas PromQL {#example_promql_queries}
 
-#### Uso
+#### Uso {#usage}
 
 - **Bytes de dados (por chave de acesso, protocolo e rotas)**:
 
@@ -57,11 +57,11 @@ Consultar as métricas do Prometheus
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Chaves de acesso ativas
+#### Chaves de acesso ativas {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### Conexões TCP
+#### Conexões TCP {#tcp_connections}
 
 - **Conexões TCP (por chave de acesso, local e status)**:
 
@@ -71,7 +71,7 @@ Consultar as métricas do Prometheus
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **Pacotes UDP (por local e status)**:
 
@@ -81,7 +81,7 @@ Consultar as métricas do Prometheus
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Performance
+#### Performance {#performance}
 
 - **Uso da CPU (por processo)**:
 
@@ -91,7 +91,7 @@ Consultar as métricas do Prometheus
 
 `process_virtual_memory_bytes`
 
-#### Informações sobre a versão
+#### Informações sobre a versão {#build_information}
 
 - **Prometheus**:
 

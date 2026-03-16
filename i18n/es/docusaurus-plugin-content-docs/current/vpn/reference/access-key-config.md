@@ -3,9 +3,9 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## Túneles
+## Túneles {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 Los túneles son los objetos de nivel superior en una configuración de Outline e indican cómo debe configurarse la VPN.
 
@@ -13,7 +13,7 @@ Los túneles son los objetos de nivel superior en una configuración de Outline 
 [LegacyShadowsocksConfig](#legacyshadowsocksconfig) |
 [LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **Formato:** *struct*
 
@@ -48,9 +48,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## Transportes
+## Transportes {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 Objeto que especifica cómo deben intercambiarse los paquetes con el destino.
 
@@ -60,7 +60,7 @@ Tipos de Interface admitidos:
 
 - `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 TCPUDPConfig permite configurar estrategias de TCP y UDP por separado.
 
@@ -89,11 +89,11 @@ udp:
   <<: *cipher
 ```
 
-## Endpoints
+## Endpoints {#endpoints}
 
 Los endpoints establecen conexiones con un endpoint fijo. Son preferibles a los marcadores porque permiten hacer optimizaciones específicas del endpoint. Hay dos tipos: endpoints de flujos y de paquetes.
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **Formato:** *cadena* | [Interface](#interface)
 
@@ -109,7 +109,7 @@ Tipos de Interface admitidos para endpoints de flujos y de paquetes:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 Establece las conexiones marcando una dirección fija. Puede usarse un marcador, lo que permite componer estrategias.
 
@@ -121,7 +121,7 @@ Establece las conexiones marcando una dirección fija. Puede usarse un marcador,
 
 - `dialer` ([DialerConfig](#dialerconfig)): el marcador que debe usarse para marcar la dirección.
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 Tuneliza las conexiones de flujos y de paquetes dirigidos a un endpoint a través de Websockets.
 
@@ -135,11 +135,11 @@ En el caso de las conexiones de flujos, cada escritura se convierte en un mensaj
 
 - `endpoint` ([EndpointConfig](#endpointconfig)): endpoint del servidor web con el que se va a establecer la conexión. Si no se encuentra, se conecta a la dirección especificada de la URL.
 
-## Marcadores
+## Marcadores {#dialers}
 
 Los marcadores establecen conexiones cuando se indica la dirección de un endpoint. Hay dos tipos: marcadores de flujos y de paquetes.
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **Formato:** *nulo* | [Interface](#interface)
 
@@ -151,11 +151,11 @@ Tipos de Interface admitidos para marcadores de flujos y de paquetes:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-## Agentes de escucha de paquetes
+## Agentes de escucha de paquetes {#packet_listeners}
 
 Los agentes de escucha de paquetes establecen conexiones de paquetes no delimitadas que pueden usarse para enviar paquetes a varios destinos.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **Formato:** *nulo* | [Interface](#interface)
 
@@ -167,11 +167,11 @@ Tipos de Interface admitidos:
 
 - `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
 
-## Estrategias
+## Estrategias {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 LegacyShadowsocksConfig representa un túnel que usa Shadowsocks como transporte. Implementa el formato antiguo para la retrocompatibilidad.
 
@@ -200,7 +200,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 LegacyShadowsocksURI representa un túnel que usa Shadowsocks como transporte.
 Implementa el formato antiguo de la URL para la retrocompatibilidad.
@@ -215,7 +215,7 @@ Ejemplo:
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 ShadowsocksConfig puede representar marcadores de flujos o de paquetes, además de un agente de escucha de paquetes que usa Shadowsocks.
 
@@ -241,9 +241,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## Metadefiniciones
+## Metadefiniciones {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 Usa la primera configuración admitida por la aplicación. De esta forma, se incorporan configuraciones nuevas y, a la vez, se mantiene la retrocompatibilidad con las antiguas.
 
@@ -264,7 +264,7 @@ options:
   - ss.example.com:4321
 ```
 
-### Interface
+### Interface {#interface}
 
 Los objetos Interface permiten elegir una implementación de entre muchas. Utiliza el campo `$type` para especificar el tipo que esa configuración representa.
 

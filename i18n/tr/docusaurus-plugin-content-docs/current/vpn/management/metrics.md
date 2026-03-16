@@ -7,13 +7,13 @@ Outline, [Prometheus](https://prometheus.io/) aracılığıyla ayrıntılı perf
 
 **Önemli not:** Bu kılavuzdan yararlanmak için temel düzeyde Prometheus ve PromQL bilginiz olmalıdır. Prometheus hakkında çok tecrübeniz yoksa Outline'daki metriklerden önce Prometheus belgeleri ve eğitimlerini incelemeniz önerilir.
 
-## Ön hazırlık
+## Ön hazırlık {#prerequisites}
 
 - **Prometheus'un etkinleştirildiği Outline sunucusu**: Outline sunucunuzda Prometheus metriklerinin etkinleştirildiğinden emin olun. (Genellikle varsayılan yapılandırma bu şekildedir.)
 
 - **Sunucunuza SSH erişimi**: Prometheus bağlantı noktasını yönlendirmek için SSH erişimi gerekir.
 
-## Talimatlar
+## Talimatlar {#instructions}
 
 1. **Prometheus bağlantı noktasını yönlendirme**
 
@@ -30,9 +30,9 @@ Prometheus metriklerini sorgulama
 
 3. **İlgilendiğiniz metrikleri almak için PromQL sorgularını kullanın.**
 
-### Örnek PromQL sorguları
+### Örnek PromQL sorguları {#example_promql_queries}
 
-#### Kullanım
+#### Kullanım {#usage}
 
 - **Veri baytları (erişim anahtarı, protokol ve yöne göre):**
 
@@ -50,11 +50,11 @@ Prometheus metriklerini sorgulama
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Etkin erişim anahtarları
+#### Etkin erişim anahtarları {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### TCP bağlantıları
+#### TCP bağlantıları {#tcp_connections}
 
 - **TCP bağlantıları (erişim anahtarı, konum ve duruma göre):**
 
@@ -64,7 +64,7 @@ Prometheus metriklerini sorgulama
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **UDP paketleri (konum ve duruma göre):**
 
@@ -74,7 +74,7 @@ Prometheus metriklerini sorgulama
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Performans
+#### Performans {#performance}
 
 - **CPU kullanımı (işleme göre):**
 
@@ -84,7 +84,7 @@ Prometheus metriklerini sorgulama
 
 `process_virtual_memory_bytes`
 
-#### Derleme bilgileri
+#### Derleme bilgileri {#build_information}
 
 - **Prometheus:**
 

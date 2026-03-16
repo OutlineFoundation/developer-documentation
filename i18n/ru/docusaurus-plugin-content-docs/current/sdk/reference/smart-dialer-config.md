@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 **Smart Dialer** подбирает стратегию, которая позволяет обойти блокировки DNS и TLS для заданного списка тестовых доменов. Резолвер использует конфигурацию, описывающую несколько доступных стратегий.
 
-## Конфигурация YAML для Smart Dialer
+## Конфигурация YAML для Smart Dialer {#yaml_config_for_the_smart_dialer}
 
 Конфигурация, которую использует Smart Dialer, задается в формате YAML. Пример:
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### Конфигурация DNS
+### Конфигурация DNS {#dns_configuration}
 
 - Поле `dns` указывает список DNS-резолверов, которые необходимо протестировать.
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`: используется TCP-резолвер.
 
-#### Резолвер DNS-over-HTTPS (DoH)
+#### Резолвер DNS-over-HTTPS (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`: адрес сервера в формате host:port. Значение по умолчанию – `name`:443.
 
-#### Резолвер DNS-over-TLS (DoT)
+#### Резолвер DNS-over-TLS (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`: адрес сервера в формате host:port. Значение по умолчанию – `name`:853.
 
-#### UDP-резолвер
+#### UDP-резолвер {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`: адрес резолвера в формате host:port.
 
-#### TCP-резолвер
+#### TCP-резолвер {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`: адрес резолвера в формате host:port.
 
-### Конфигурация TLS
+### Конфигурация TLS {#tls_configuration}
 
 - Поле `tls` указывает список протоколов TLS, которые необходимо протестировать.
 
@@ -91,7 +91,7 @@ tcp:
 
 - Например, `override:host=cloudflare.net|tlsfrag:1` обозначает протокол, использующий доменное прикрытие с Cloudflare и фрагментацию TLS. Подробная информация приведена в [документации по конфигурации](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format).
 
-### Резервная конфигурация
+### Резервная конфигурация {#fallback_configuration}
 
 Резервная конфигурация используется, если ни одна из стратегий без прокси-сервера не сработала. Например, можно указать резервный прокси-сервер, через который будет предпринята попытка подключения. Использование резервной конфигурации приведет к более медленному запуску, поскольку сначала должны завершиться неудачей или по таймауту все попытки по DNS- и TLS-стратегиям.
 
@@ -101,21 +101,21 @@ tcp:
 
 - Допустимый объект конфигурации Psiphon, вложенный в поле `psiphon`.
 
-#### Пример сервера Shadowsocks
+#### Пример сервера Shadowsocks {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### Пример сервера SOCKS5
+#### Пример сервера SOCKS5 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Пример конфигурации Psiphon
+#### Пример конфигурации Psiphon {#psiphon_config_example}
 
 Чтобы использовать сеть [Psiphon](https://psiphon.ca/), необходимо:
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### Как использовать Smart Dialer
+### Как использовать Smart Dialer {#how_to_use_the_smart_dialer}
 
 Чтобы использовать Smart Dialer, создайте объект `StrategyFinder` и вызовите метод `NewDialer`, передав список тестовых доменов и YAML-конфигурацию.
 Метод `NewDialer` вернет `transport.StreamDialer`, с помощью которого можно будет создавать подключения с использованием подобранной стратегии. Например:

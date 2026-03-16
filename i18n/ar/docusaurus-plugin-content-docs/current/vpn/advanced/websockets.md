@@ -11,7 +11,7 @@ sidebar_label: "WebSockets"
 زيارات بروتوكولات Shadowsocks ببروتوكولات WebSocket، يمكنك إخفاء هذه الزيارات كأنّها زيارات عادية لمواقع ويب
 ، ما يعزِّز المرونة وتسهيل الاستخدام.
 
-## الخطوة 1: ضبط خادم Outline وتشغيله
+## الخطوة 1: ضبط خادم Outline وتشغيله {#step_1_configure_and_run_an_outline_server}
 
 عليك إنشاء ملف `config.yaml` جديد بالإعدادات التالية:
 
@@ -43,7 +43,7 @@ services:
 outline-ss-server -config=config.yaml
 ```
 
-## الخطوة 2: السماح بالوصول إلى خادم الويب
+## الخطوة 2: السماح بالوصول إلى خادم الويب {#step_2_expose_the_web_server}
 
 لجعل خادم ويب WebSocket متاحًا للجميع، يجب السماح بالوصول إليه
 على الإنترنت وضبط
@@ -55,7 +55,7 @@ outline-ss-server -config=config.yaml
 Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 أو [ngrok](https://ngrok.com/).
 
-### مثال على استخدام خدمة TryCloudflare
+### مثال على استخدام خدمة TryCloudflare {#example_using_trycloudflare}
 
 في هذا المثال، سنستخدم خدمة
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)
@@ -75,7 +75,7 @@ cloudflared tunnel --url http://127.0.0.1:<WEB_SERVER_PORT>
 والتعامل تلقائيًا مع بروتوكول TLS. يُرجى الاحتفاظ بهذا النطاق الفرعي؛ لأنّك ستحتاجه
 بعد ذلك.
 
-## الخطوة 3: إنشاء مفتاح وصول ديناميكي
+## الخطوة 3: إنشاء مفتاح وصول ديناميكي {#step_3_create_a_dynamic_access_key}
 
 عليك إنشاء ملف YAML يتضمّن مفتاح وصول يمكن استخدامه في تطبيق "عميل Outline" للمستخدمين باستخدام تنسيق [إعدادات
 مفاتيح الوصول](../management/config)، ثمّ تضمين نقاط نهاية WebSocket التي تم ضبطها
@@ -109,7 +109,7 @@ transport:
 بشكل ديناميكي. مزيد من المعلومات حول كيفية استخدام [مفاتيح الوصول
 الديناميكية](../management/dynamic-access-keys)
 
-## الخطوة 4: الربط بتطبيق "عميل Outline"
+## الخطوة 4: الربط بتطبيق "عميل Outline" {#step_4_connect_with_the_outline_client}
 
 يجب استخدام أحد تطبيقات [عميل Outline](../../download-links)
 الرسمية (الإصدار 1.15.0 والإصدارات الأحدث) ثم إضافة مفتاح الوصول الديناميكي المُنشأ حديثًا

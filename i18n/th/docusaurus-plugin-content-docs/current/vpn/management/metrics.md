@@ -7,13 +7,13 @@ Outline ให้ข้อมูลเมตริกประสิทธิภ
 
 **หมายเหตุสำคัญ:** คุณควรมีความรู้พื้นฐานเกี่ยวกับ Prometheus และ PromQL มาก่อนใช้คู่มือนี้ ในกรณีที่คุณยังไม่คุ้นเคยกับ Prometheus โปรดดูเอกสารประกอบและบทแนะนำต่างๆ ก่อนจะมาเจาะลึกเรื่องเมตริกของ Outline
 
-## สิ่งที่ต้องดำเนินการก่อน
+## สิ่งที่ต้องดำเนินการก่อน {#prerequisites}
 
 - **เปิดใช้ Prometheus ในเซิร์ฟเวอร์ Outline**: ตรวจสอบว่าเซิร์ฟเวอร์ Outline ของคุณได้เปิดใช้เมตริกของ Prometheus แล้ว (ส่วนใหญ่จะเป็นการกำหนดค่าเริ่มต้นไว้แล้ว)
 
 - **การเข้าถึง SSH ในเซิร์ฟเวอร์ของคุณ**: คุณต้องมีสิทธิ์เข้าถึง SSH เพื่อส่งต่อพอร์ต Prometheus
 
-## วิธีการ
+## วิธีการ {#instructions}
 
 1. **ส่งต่อพอร์ต Prometheus**
 
@@ -30,9 +30,9 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 3. **ใช้การค้นหา PromQL เพื่อดึงข้อมูลเมตริกที่คุณสนใจ**
 
-### ตัวอย่างการค้นหา PromQL
+### ตัวอย่างการค้นหา PromQL {#example_promql_queries}
 
-#### การใช้งาน
+#### การใช้งาน {#usage}
 
 - **ไบต์ (จำแนกตามคีย์การเข้าถึง โปรโตคอล และทิศทาง)**
 
@@ -50,11 +50,11 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### คีย์การเข้าถึงที่ใช้งานอยู่
+#### คีย์การเข้าถึงที่ใช้งานอยู่ {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### การเชื่อมต่อ TCP
+#### การเชื่อมต่อ TCP {#tcp_connections}
 
 - **การเชื่อมต่อ TCP (จำแนกตามคีย์การเข้าถึง ตำแหน่ง และสถานะ)**
 
@@ -64,7 +64,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **แพ็กเก็ต UDP (จำแนกตามตำแหน่งและสถานะ)**
 
@@ -74,7 +74,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### ประสิทธิภาพ
+#### ประสิทธิภาพ {#performance}
 
 - **การใช้ CPU (จำแนกตามกระบวนการ)**
 
@@ -84,7 +84,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `process_virtual_memory_bytes`
 
-#### ข้อมูลบิลด์
+#### ข้อมูลบิลด์ {#build_information}
 
 - **Prometheus**
 

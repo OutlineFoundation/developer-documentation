@@ -8,11 +8,11 @@ Bei Version 1.9.0 des Outline-Clients unterstützen Zugriffsschlüssel die Optio
 [Salt](https://shadowsocks.org/guide/aead.html) einer Shadowsocks TCP-Verbindung verwendet werden.
 Dadurch wirkt die Verbindung möglicherweise wie ein Protokoll, das im Netzwerk zugelassen ist, und umgeht Firewalls, die eigentlich unbekannte Protokolle abwehren.
 
-## Wann sollte ich das anwenden?
+## Wann sollte ich das anwenden? {#when_should_i_try_this}
 
 Wenn Sie annehmen, dass die Nutzer Ihrer Outline-Bereitstellung noch immer blockiert werden, können Sie weitere Präfixe anwenden.
 
-## Anleitung
+## Anleitung {#instructions}
 
 Das Präfix sollte nicht länger sein als 16 Bytes. Längere Präfixe könnten Salt-Kollisionen verursachen. Dadurch könnte die Sicherheit der Verschlüsselung beeinträchtigt und Verbindungen entdeckt werden. Nutzen Sie das kürzeste Präfix, das Sie kennen, um die Blockierung zu umgehen.
 
@@ -60,7 +60,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Dynamische Zugriffsschlüssel
+### Dynamische Zugriffsschlüssel {#dynamic_access_keys}
 
 Um die Präfix-Funktion mit [dynamischen Zugriffsschlüsseln](../management/dynamic-access-keys) (`ssconf://`) zu nutzen,
 fügen Sie dem JSON-Objekt einen „Präfix“ hinzu. Dabei sollte ein **im JSON-Format verschlüsselter** Wert
@@ -76,7 +76,7 @@ den Präfix repräsentieren, den Sie möchten (Siehe Beispiele in der Tabelle ob
 }
 ```
 
-### Statische Zugriffsschlüssel
+### Statische Zugriffsschlüssel {#static_access_keys}
 
 Um Präfixe mit **statischen Zugriffsschlüsseln** (ss://) zu verwenden, müssen Sie Ihren bestehenden Schlüssel ändern, bevor Sie ihn bereitstellen. Wenn Sie einen vom Outline-Manager erstellten Zugriffsschlüssel haben, verwenden Sie eine **URL-codierte** Version Ihres Präfixes (siehe Beispiele in der Tabelle oben) und fügen Sie sie wie im Folgenden beschrieben am Ende des Zugriffsschlüssels ein:
 

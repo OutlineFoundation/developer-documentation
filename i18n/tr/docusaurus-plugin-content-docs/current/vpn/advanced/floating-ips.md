@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Giriş
+## Giriş {#introduction}
 
 Outline sunucuları, yüksek seviyede sansürlenen ağlar tarafından keşfedilip engellenme sorunuyla karşılaşabilir. Düzgün şekilde kurulmuşsa engellenmiş bir sunucuyu çok zorlanmadan kurtarabilirsiniz. Bunun için DNS'i (`getoutline.org` gibi alan adlarını `216.239.36.21` gibi fiziksel IP adreslerine çeviren internet teknolojisi) ve kayan IP'leri (bir Outline sunucusuna birden fazla IP adresi atamanıza olanak tanıyan bulut özelliği) kullanacağız.
 
-## Şartlar
+## Şartlar {#requirements}
 
 Bu kılavuzdaki talimatlara uymak için düşük seviyede teknik becerinizin olması gerekmektedir. Temel seviyede DNS bilgisi önerilir ama zorunlu değildir. Alan adlarıyla ilgili temel bilgileri edinmek için [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) kılavuzunu inceleyin.
 
 Somut örnekler verebilmek için DigitalOcean ve Google Domains'i kullanacağız. Ancak IP adreslerinin atanabildiği herhangi bir bulut sağlayıcı (ör. Google Cloud veya [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip)) ve herhangi bir alan kayıt operatörü (ör. [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)) de işe yarayacaktır.
 
-## Talimatlar
+## Talimatlar {#instructions}
 
 1. Aşağıdaki listede, bir sunucunun IP adresini değiştirme adımları özetlenmiştir:
 
@@ -27,7 +27,7 @@ Somut örnekler verebilmek için DigitalOcean ve Google Domains'i kullanacağız
 
 6. Alan adını yeni IP adresine yönlendirin.
 
-## DigitalOcean'da Outline sunucusu oluşturma
+## DigitalOcean'da Outline sunucusu oluşturma {#create_an_outline_server_on_digitalocean}
 
 Çalışan bir DigitalOcean sunucunuz varsa sonraki adıma geçin.
 
@@ -37,7 +37,7 @@ Somut örnekler verebilmek için DigitalOcean ve Google Domains'i kullanacağız
 
 ![Sunucu oluştur](/images/create-DO-server.png)
 
-## Sunucunuz için ana makine adı oluşturma
+## Sunucunuz için ana makine adı oluşturma {#make_a_hostname_for_your_server}
 
 1. [Google Domains](https://domains.google.com/m/registrar/)'e gidin ve "Mükemmel alanı bul"u tıklayın.
 
@@ -49,7 +49,7 @@ Somut örnekler verebilmek için DigitalOcean ve Google Domains'i kullanacağız
 
 ![Ana makine adını belirleme](/images/set-hostname.png)
 
-## Sunucunun IP adresini değiştirme
+## Sunucunun IP adresini değiştirme {#change_the_servers_ip_address}
 
 1. DigitalOcean'ın "Droplets" (Droplet'ler) sayfasında sunucunuza gidin.
 

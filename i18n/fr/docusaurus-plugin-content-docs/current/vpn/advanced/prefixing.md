@@ -6,11 +6,11 @@ sidebar_label: "Connection Prefixes"
 Les clés d'accès sont compatibles avec l'option "prefix" à partir de la version 1.9.0 du client Outline. L'option "prefix" correspond aux premiers octets utilisés pour le [salage](https://shadowsocks.org/guide/aead.html) d'une connexion TCP Shadowsocks.
 La connexion peut ainsi ressembler à un protocole autorisé sur le réseau et ainsi contourner les pare-feu rejetant les protocoles non reconnus.
 
-## Quand dois-je utiliser un préfixe ?
+## Quand dois-je utiliser un préfixe ? {#when_should_i_try_this}
 
 Si vous pensez que l'accès des utilisateurs de votre serveur Outline est toujours bloqué, vous pouvez essayer d'utiliser différents préfixes.
 
-## Instructions
+## Instructions {#instructions}
 
 Les préfixes ne doivent pas dépasser 16 octets. Des préfixes plus longs peuvent générer des collisions de salage, ce qui peut compromettre la sécurité du chiffrement et entraîner la détection des connexions. Utilisez le préfixe le plus court possible pour contourner le blocage rencontré.
 
@@ -58,7 +58,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Clés d'accès dynamiques
+### Clés d'accès dynamiques {#dynamic_access_keys}
 
 Pour utiliser des préfixes avec les [clés d'accès dynamiques](../management/dynamic-access-keys) (`ssconf://`),
 ajoutez une clé "prefix" à l'objet JSON et définissez la valeur **encodée au format JSON** de votre choix (voir les exemples dans le tableau ci-dessus). Vous pouvez utiliser des codes d'échappement (\u00FF, par exemple) pour représenter les points de code Unicode non imprimables dans la plage `U+0` à `U+FF`. Par exemple :
@@ -73,7 +73,7 @@ ajoutez une clé "prefix" à l'objet JSON et définissez la valeur **encodée au
 }
 ```
 
-### Clés d'accès statiques
+### Clés d'accès statiques {#static_access_keys}
 
 Pour utiliser des préfixes avec les **clés d'accès statiques** (ss://), vous devrez modifier votre clé existante avant de la distribuer. Si vous possédez une clé d'accès statique générée par Outline Manager, ajoutez une version **encodée au format URL** de votre préfixe (voir les exemples dans le tableau ci-dessus) à la fin de votre clé d'accès comme suit :
 

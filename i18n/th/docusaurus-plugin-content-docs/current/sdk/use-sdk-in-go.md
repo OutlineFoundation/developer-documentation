@@ -10,24 +10,24 @@ sidebar_label: "Go Integration"
 คุณจะเรียกใช้แอปพลิเคชันใน **Linux, Mac, และ Windows** ได้
 ดูข้อมูลเกี่ยวกับการผสานรวมกับแอปบนมือถือได้ที่หัวข้อ[เพิ่ม Outline SDK ลงในแอปบนมือถือ](mobile-app-integration)
 
-## ขั้นตอนที่ 1: ตั้งค่า Go
+## ขั้นตอนที่ 1: ตั้งค่า Go {#step_1_set_up_go}
 
 อันดับแรก คุณจะต้องใช้ [Go Programming Language](https://go.dev/)
 หากคุณได้ติดตั้ง Go (เวอร์ชัน 1.21 หรือใหม่กว่า) ไว้แล้ว คุณก็ข้ามไปยังขั้นตอนถัดไปได้เลย
 
 คุณสามารถติดตั้งได้โดยทำตาม[คู่มืออย่างเป็นทางการ](https://go.dev/doc/install) หรือหากคุณใช้เครื่องมือจัดการแพ็กเกจ ให้ทำดังนี้
 
-### Linux
+### Linux {#linux}
 
 ทำตามขั้นตอนใน [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu)
 
-### Mac
+### Mac {#mac}
 
 ```sh
 brew install go
 ```
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 winget install --id=GoLang.Go  -e
@@ -39,7 +39,7 @@ winget install --id=GoLang.Go  -e
 go version
 ```
 
-## ขั้นตอนที่ 2: สร้างแอปพลิเคชัน `splitfetch`
+## ขั้นตอนที่ 2: สร้างแอปพลิเคชัน `splitfetch` {#step_2_create_the_splitfetch_application}
 
 ทำการตั้งค่าโปรเจ็กต์ `splitfetch` ให้เสร็จสิ้น ก่อนอื่นให้สร้างไดเรกทอรีโปรเจ็กต์และเริ่มต้นโมดูล Go
 
@@ -56,7 +56,7 @@ go get github.com/Jigsaw-Code/outline-sdk@latest
 touch main.go
 ```
 
-## ขั้นตอนที่ 3: ใช้ Outline SDK ในแอปพลิเคชัน
+## ขั้นตอนที่ 3: ใช้ Outline SDK ในแอปพลิเคชัน {#step_3_use_outline_sdk_in_the_application}
 
 เปิดไฟล์ `main.go` ในตัวแก้ไขโค้ดที่คุณชื่นชอบแล้ววางโค้ดต่อไปนี้ลงไป ซึ่งโค้ดนี้มีตรรกะทั้งหมดสำหรับแอปพลิเคชัน `splitfetch`
 
@@ -123,7 +123,7 @@ func main() {
 go mod tidy
 ```
 
-## ขั้นตอนที่ 4: เรียกใช้แอปพลิเคชัน
+## ขั้นตอนที่ 4: เรียกใช้แอปพลิเคชัน {#step_4_run_the_application}
 
 เมื่อมีโค้ดแล้ว คุณก็จะเรียกใช้แอปพลิเคชัน `splitfetch` ได้
 
@@ -137,13 +137,13 @@ go run . https://getoutline.org
 
 หากต้องการสร้างและแจกจ่ายโปรแกรมแบบสแตนด์อโลนที่คุณเรียกใช้ได้โดยไม่ต้องมี `go` ให้ใช้คำสั่ง `go build`
 
-### Linux และ Mac
+### Linux และ Mac {#linux-mac}
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows
+### Windows {#windows_1}
 
 ```sh
 go build -o splitfetch.exe .

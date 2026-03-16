@@ -14,7 +14,7 @@ el servidor de Outline con mayor flexibilidad y eficiencia.
 Existen tres formatos para especificar la información de acceso que utilizarán
 tus claves de acceso dinámicas:
 
-### Usa un vínculo `ss://`
+### Usa un vínculo `ss://` {#use_an_ss_link}
 
 *Cliente de Outline 1.8.1 y versiones posteriores*
 
@@ -28,7 +28,7 @@ disponer de flexibilidad para actualizar la dirección del servidor.
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Usa un objeto JSON
+### Usa un objeto JSON {#use_a_json_object}
 
 *Cliente de Outline 1.8.0 y versiones posteriores.*
 
@@ -56,7 +56,7 @@ de esta manera.
 - **method:** Es el método de encriptación que usa la VPN. Consulta los
 [algoritmos de cifrado de AEAD](https://shadowsocks.org/doc/aead.html) que admite Shadowsocks.
 
-### Usa un objeto YAML
+### Usa un objeto YAML {#use_a_yaml_object}
 
 *Cliente de Outline 1.15.0 y versiones posteriores.*
 
@@ -100,7 +100,7 @@ Consulta [Configuración de las claves de acceso](config) y conoce todas maneras
 configurar el acceso a tu servidor de Outline, incluidos transportes, extremos,
 marcadores y objetos de escucha de paquetes.
 
-## Extrae información de acceso de una clave estática
+## Extrae información de acceso de una clave estática {#extract_access_information_from_a_static_key}
 
 Si ya tienes una clave de acceso estática, puedes extraer su información para
 crear una clave de acceso dinámica basada en JSON o YAML. Las claves de acceso estáticas siguen
@@ -129,7 +129,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Contraseña**: `example`
 
-## Elige una plataforma de hosting
+## Elige una plataforma de hosting {#choose_a_hosting_platform}
 
 Ahora que sabes crear claves de acceso dinámicas, es importante
 elegir una plataforma de hosting adecuada para la configuración de las claves de acceso. Cuando

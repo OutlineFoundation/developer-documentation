@@ -7,7 +7,7 @@ O **Discador Inteligente** procura uma estratégia de desbloqueio de DNS e TLS p
 lista de domínios de teste. Ele aceita configurações que descrevem várias estratégias
 opcionais.
 
-## Configuração do YAML para o Discador Inteligente
+## Configuração do YAML para o Discador Inteligente {#yaml_config_for_the_smart_dialer}
 
 As configurações que o Discador Inteligente aceita devem estar no formato YAML. Veja um exemplo:
 
@@ -27,7 +27,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### Configuração do DNS
+### Configuração do DNS {#dns_configuration}
 
 - O campo `dns` especifica uma lista de resolvedores de DNS para testar.
 
@@ -43,7 +43,7 @@ fallback:
 
     - `tcp`: use um resolvedor de TCP.
 
-#### Resolvedor de DNS sobre HTTPS (DoH)
+#### Resolvedor de DNS sobre HTTPS (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -55,7 +55,7 @@ https:
 
 - `address`: o host:porta do servidor de DoH. O padrão é `name`:443.
 
-#### Resolvedor de DNS sobre TLS (DoT)
+#### Resolvedor de DNS sobre TLS (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -67,7 +67,7 @@ tls:
 
 - `address`: o host:porta do servidor de DoT. O padrão é `name`:853.
 
-#### Resolvedor de UDP
+#### Resolvedor de UDP {#udp_resolver}
 
 ```yaml
 udp:
@@ -76,7 +76,7 @@ udp:
 
 - `address`: o host:porta do resolvedor de UDP.
 
-#### Resolvedor de TCP
+#### Resolvedor de TCP {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -85,7 +85,7 @@ tcp:
 
 - `address`: o host:porta do resolvedor de TCP.
 
-### Configuração de TLS
+### Configuração de TLS {#tls_configuration}
 
 - O campo `tls` especifica uma lista de transportes de TLS para testar.
 
@@ -96,7 +96,7 @@ que usa domain fronting com Cloudflare e fragmentação de TLS. Confira a
 [documentação de configuração](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
 (em inglês) para mais detalhes.
 
-### Configuração alternativa
+### Configuração alternativa {#fallback_configuration}
 
 Uma configuração alternativa é usada se a conexão não for possível com nenhuma das estratégias
 sem proxy. Por exemplo, ela pode especificar um servidor proxy de backup para tentar conectar
@@ -109,21 +109,21 @@ As strings alternativas devem ser:
 
 - Um objeto de configuração Psiphon como filho de um campo `psiphon`.
 
-#### Exemplo de servidor do Shadowsocks
+#### Exemplo de servidor do Shadowsocks {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### Exemplo de servidor do SOCKS5
+#### Exemplo de servidor do SOCKS5 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Exemplo de configuração do Psiphon
+#### Exemplo de configuração do Psiphon {#psiphon_config_example}
 
 Para usar a rede [Psiphon](https://psiphon.ca/), você vai precisar:
 
@@ -145,7 +145,7 @@ fallback:
     }
 ```
 
-### Como usar o Discador Inteligente
+### Como usar o Discador Inteligente {#how_to_use_the_smart_dialer}
 
 Para usar o Discador Inteligente, crie um objeto `StrategyFinder` e chame o
 método `NewDialer`, transmitindo a lista de domínios de teste e a configuração do YAML.

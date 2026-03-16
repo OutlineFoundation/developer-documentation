@@ -15,6 +15,6 @@ sidebar_label: "Using Outline Manager"
 
 5. Outline Manager 會逐步引導您建立伺服器。
 
-## 後續步驟
+## 後續步驟 {#next_steps}
 
 設定好 Outline 伺服器後，即可將存取權分享給其他使用者。

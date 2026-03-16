@@ -9,7 +9,7 @@ potente y fácil de usar, para mejorar la configuración del servidor de Outline
 su configuración flexible lo convierten en una excelente opción para entregar servidores de Outline,
 sobre todo cuando se utiliza el transporte con WebSocket.
 
-## ¿Qué es Caddy?
+## ¿Qué es Caddy? {#what_is_caddy}
 
 Caddy es un servidor web de código abierto conocido por su facilidad de uso, HTTPS automático
 y compatibilidad con diversos protocolos. Simplifica la configuración de servidores web y
@@ -24,11 +24,11 @@ tráfico web más rápido y eficiente.
 - **Complementos:** Caddy puede extenderse con complementos para
 ofrecer diversas funciones, como proxy inverso y balanceo de cargas.
 
-## Paso 1: Requisitos
+## Paso 1: Requisitos {#step_1_prerequisites}
 
 - Descarga e instala [`xcaddy`](https://github.com/caddyserver/xcaddy).
 
-## Paso 2: Configura el dominio
+## Paso 2: Configura el dominio {#step_2_configure_your_domain}
 
 Antes de iniciar Caddy, asegúrate de que tu nombre de dominio esté correctamente configurado para que apunte
 a la dirección IP de tu servidor.
@@ -45,7 +45,7 @@ curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
   -H "accept: application/dns-json"
 ```
 
-## Paso 3: Crea y ejecuta una compilación personalizada de Caddy
+## Paso 3: Crea y ejecuta una compilación personalizada de Caddy {#build-and-run}
 
 Con `xcaddy`, puedes compilar un objeto binario personalizado de `caddy` que incluya el módulo principal
 del servidor de Outline y otros módulos de extensión del servidor necesarios.
@@ -58,7 +58,7 @@ xcaddy build \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
 ```
 
-## Paso 4: Configura y ejecuta el servidor de Caddy con Outline
+## Paso 4: Configura y ejecuta el servidor de Caddy con Outline {#step_4_configure_and_run_the_caddy_server_with_outline}
 
 Crea un archivo `config.yaml` con la siguiente configuración:
 
@@ -115,7 +115,7 @@ caddy run --config config.yaml --adapter yaml --watch
 Puedes encontrar más ejemplos de configuración en nuestro [repo de GitHub,
 outline-ss-server/outlinecaddy](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples).
 
-## Paso 5: Crea una clave de acceso dinámica
+## Paso 5: Crea una clave de acceso dinámica {#step_5_create_a_dynamic_access_key}
 
 Genera un archivo YAML de clave de acceso de cliente para tus usuarios utilizando el formato de [configuración
 avanzada](../management/config) y, luego, incluye los extremos de WebSocket
@@ -149,7 +149,7 @@ usuarios. Puedes alojar el archivo en un servicio de hosting web estático o gen
 dinámicamente. Obtén más información para usar [claves de acceso
 dinámicas](../management/dynamic-access-keys).
 
-## Paso 6: Conecta el servidor con el cliente de Outline
+## Paso 6: Conecta el servidor con el cliente de Outline {#step_6_connect_with_the_outline_client}
 
 Usa una de las aplicaciones oficiales del [cliente de Outline](../../download-links)
 (versión 1.15.0 como mínimo) y agrega la clave de acceso dinámica que acabas de crear como

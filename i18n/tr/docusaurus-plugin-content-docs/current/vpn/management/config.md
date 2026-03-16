@@ -7,7 +7,7 @@ Outline, VPN parametrelerini tanımlamak ve TCP/UDP trafiğini işlemek için YA
 
 Üst düzey yapılandırmada [TunnelConfig](../reference/access-key-config#tunnelconfig) kullanılır.
 
-## Örnekler
+## Örnekler {#examples}
 
 Standart bir Shadowsocks yapılandırması şöyle olur:
 

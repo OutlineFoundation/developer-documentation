@@ -6,11 +6,11 @@ sidebar_label: "Connection Prefixes"
 从 Outline 客户端 1.9.0 版开始，访问密钥支持“prefix”选项。“prefix”是一个字节列表，用作 Shadowsocks TCP 连接的[盐](https://shadowsocks.org/guide/aead.html)的第一个字节。
 这可以让连接看起来像是网络允许的协议，从而绕过会拒绝陌生协议的防火墙。
 
-## 何时尝试此选项？
+## 何时尝试此选项？ {#when_should_i_try_this}
 
 如果您怀疑自己的 Outline 部署的用户仍然处于被封锁状态，不妨考虑尝试一些不同的 prefix。
 
-## 操作说明
+## 操作说明 {#instructions}
 
 prefix 不应超过 16 个字节。prefix 太长可能会导致盐冲突，进而影响到加密安全性，造成连接被检测到。请使用尽可能短的 prefix，这有助于绕过您当前面临的封锁。
 
@@ -57,7 +57,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### 动态访问密钥
+### 动态访问密钥 {#dynamic_access_keys}
 
 如需将 prefix 功能与[动态访问密钥](../management/dynamic-access-keys) (`ssconf://`) 搭配使用，请为 JSON 对象添加一个“prefix”键，并采用 **JSON 编码**值来表示所需的 prefix（请参见上方表格中的示例）。您可以使用转义代码（例如 \u00FF）来表示 `U+0` 至 `U+FF` 范围内不可打印的 Unicode 代码点。例如：
 
@@ -71,7 +71,7 @@ SSH
 }
 ```
 
-### 静态访问密钥
+### 静态访问密钥 {#static_access_keys}
 
 如需将 prefix 与**静态访问密钥** (ss://) 搭配使用，您需要修改现有的密钥，然后再进行分发。如果您拥有 Outline 管理器生成的静态访问密钥，请提取**网址编码**格式的 prefix（请参见上方表格中的示例），然后将其添加到访问密钥的末尾，例如：
 

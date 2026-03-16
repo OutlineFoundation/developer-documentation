@@ -7,13 +7,13 @@ Outline fournit des métriques de performance détaillées dans [Prometheus](htt
 
 **Remarque importante** : Dans ce guide, nous partons du principe que vous maîtrisez les bases de Prometheus et de PromQL. Si vous ne connaissez pas Prometheus, n'hésitez pas à consulter sa documentation et suivre ses tutoriels avant d'explorer les métriques d'Outline.
 
-## Prérequis
+## Prérequis {#prerequisites}
 
 - **Serveur Outline avec Prometheus activé** : vérifiez que les métriques Prometheus sont activées sur votre serveur Outline (il s'agit en général de la configuration par défaut).
 
 - **Accès SSH à votre serveur** : vous avez besoin d'un accès SSH pour transférer le port Prometheus.
 
-## Instructions
+## Instructions {#instructions}
 
 1. **Transférer le port Prometheus**
 
@@ -30,9 +30,9 @@ Ouvrez votre navigateur Web et accédez à la page <http://localhost:9090/graph>
 3. **Interroger les métriques Prometheus**
 Utilisez des requêtes PromQL pour retrouver les métriques qui vous intéressent.
 
-### Exemples de requêtes PromQL
+### Exemples de requêtes PromQL {#example_promql_queries}
 
-#### Utilisation
+#### Utilisation {#usage}
 
 - **Octets de données (par clé d'accès, protocole et direction) :**
 
@@ -50,11 +50,11 @@ Utilisez des requêtes PromQL pour retrouver les métriques qui vous intéressen
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Clés d'accès actives
+#### Clés d'accès actives {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### Connexions TCP
+#### Connexions TCP {#tcp_connections}
 
 - **Connexions TCP (par clé d'accès, emplacement et état) :**
 
@@ -64,7 +64,7 @@ Utilisez des requêtes PromQL pour retrouver les métriques qui vous intéressen
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **Paquets UDP (par emplacement et état) :**
 
@@ -74,7 +74,7 @@ Utilisez des requêtes PromQL pour retrouver les métriques qui vous intéressen
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Performances
+#### Performances {#performance}
 
 - **Utilisation du processeur (par processus) :**
 
@@ -84,7 +84,7 @@ Utilisez des requêtes PromQL pour retrouver les métriques qui vous intéressen
 
 `process_virtual_memory_bytes`
 
-#### Informations sur les builds
+#### Informations sur les builds {#build_information}
 
 - **Prometheus :**
 

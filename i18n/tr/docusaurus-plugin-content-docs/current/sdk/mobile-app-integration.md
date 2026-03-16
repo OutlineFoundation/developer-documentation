@@ -15,7 +15,7 @@ Go temelli bir kitaplık olan `MobileProxy`, proxy işlevlerini mobil uygulamala
 
 ![MobileProxy kullanılan içerik uygulaması](/images/mobileproxy-after.png)
 
-## 1. adım: MobileProxy mobil uygulama kitaplıklarını oluşturun
+## 1. adım: MobileProxy mobil uygulama kitaplıklarını oluşturun {#step_1_building_mobileproxy_mobile_libraries}
 
 Go kodunu Android ve iOS'e yönelik kitaplıklar hâlinde derlemek için [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile)'ı kullanın.
 
@@ -33,7 +33,7 @@ build`](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies) ile Go 
 go build -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.org/x/mobile/cmd/gobind
 ```
 
-#### Psiphon desteği ekleme
+#### Psiphon desteği ekleme {#adding_psiphon_support}
 
 Şu ek adımları izleyerek [Psiphon](https://psiphon.ca/) ağını kullanma desteği ekleyebilirsiniz:
 
@@ -51,7 +51,7 @@ Psiphon kod tabanı GPL kapsamında lisanslandığından kodunuza lisans kısıt
 
 3. Mobil uygulama kitaplıklarını oluşturun ve projenize ekleyin:
 
-### Android
+### Android {#android}
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
@@ -59,7 +59,7 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 Oluşturulan `out/mobileproxy.aar` paketini içe aktarmak için Android Studio'da **Dosya > Projeyi İçe Aktar…** seçeneğini belirleyin. Daha fazla yardım için Go Mobile'ın [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) (Uygulama derleme ve Android'e dağıtma) başlıklı bölümünü inceleyin.
 
-### iOS
+### iOS {#ios}
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
@@ -67,14 +67,14 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 `out/mobileproxy.xcframework` paketini Xcode projesine sürükleyin. Daha fazla yardım için Go Mobile'ın [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) (Uygulama derleme ve iOS'e dağıtma) başlıklı bölümünü inceleyin.
 
-## 2. adım: MobileProxy'yi çalıştırın
+## 2. adım: MobileProxy'yi çalıştırın {#step_2_run_the_mobileproxy}
 
 `MobileProxy` yerel proxy'sini uygulamanızın çalışma zamanında başlatın.
 Dinamik strateji seçimi için statik bir araç yapısı ya da akıllı proxy kullanabilirsiniz.
 
 - **Statik araç yapılandırması**: Yerel bir adres ve araç yapılandırmasıyla `RunProxy` işlevini kullanın.
 
-### Android
+### Android {#android_1}
 
 ```kotlin
 import mobileproxy.*
@@ -89,7 +89,7 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS
+### iOS {#ios_1}
 
 ```swift
 import Mobileproxy
@@ -106,7 +106,7 @@ proxy.stop()
 
 - **Akıllı proxy**: Akıllı proxy, DNS ve TLS stratejilerini belirtilen test alan adlarına göre dinamik olarak seçer. Yapılandırma stratejisini YAML biçiminde ([örnek](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)) belirtmeniz gerekir.
 
-### Android
+### Android {#android_2}
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -121,7 +121,7 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS
+### iOS {#ios_2}
 
 ```swift
 import Mobileproxy
@@ -145,11 +145,11 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
-## 3. adım: HTTP istemcilerini ve ağ kitaplıklarını yapılandırın
+## 3. adım: HTTP istemcilerini ve ağ kitaplıklarını yapılandırın {#step_3_configure_http_clients_and_networking_libraries}
 
 Ağ kitaplıklarınızı yerel proxy adresini ve bağlantı noktasını kullanacak şekilde yapılandırın.
 
-### Dart/Flutter HttpClient
+### Dart/Flutter HttpClient {#dartflutter-httpclient}
 
 Proxy'yi [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html) ile ayarlayın.
 
@@ -160,7 +160,7 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp (Android)
+### OkHttp (Android) {#okhttp-android}
 
 Proxy'yi [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/) ile ayarlayın.
 
@@ -169,7 +169,7 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM (Java, Kotlin)
+### JVM (Java, Kotlin) {#jvm-java,-kotlin}
 
 Proxy'yi [sistem özellikleriyle](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html) kullanılacak şekilde yapılandırın:
 
@@ -180,7 +180,7 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### Android Web Görünümü
+### Android Web Görünümü {#android-web-view}
 
 [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController) kitaplığını kullanarak uygulamanızdaki tüm web görünümlerine bir proxy yapılandırması uygulayın:
 
@@ -195,7 +195,7 @@ ProxyController.getInstance()
     )
 ```
 
-### iOS Web Görünümü
+### iOS Web Görünümü {#ios-web-view}
 
 iOS 17 sürümünden itibaren, [`WKWebsiteDataStore` özelliğini](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration) kullanarak `WKWebView` görünümüne proxy yapılandırması uygulayabilirsiniz:
 
@@ -208,7 +208,7 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
-## İleri düzey: Özel mobil uygulama kitaplığı oluşturma
+## İleri düzey: Özel mobil uygulama kitaplığı oluşturma {#advanced_generate_a_custom_mobile_library}
 
 İleri düzey kullanım alanları için kendi mobil uygulama kitaplıklarınızı oluşturabilirsiniz:
 

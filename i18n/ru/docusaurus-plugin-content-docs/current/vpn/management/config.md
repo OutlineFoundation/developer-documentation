@@ -7,7 +7,7 @@ sidebar_label: "Configure Access Keys"
 
 Объект верхнего уровня конфигурации – [TunnelConfig](../reference/access-key-config#tunnelconfig).
 
-## Примеры
+## Примеры {#examples}
 
 Типичная конфигурация Shadowsocks выглядит следующим образом:
 

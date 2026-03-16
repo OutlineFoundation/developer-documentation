@@ -5,7 +5,7 @@ sidebar_label: "What is the SDK?"
 
 Le SDK Outline est une bibliothèque et un ensemble d'outils conçus pour aider les développeurs à créer des applications qui protègent contre la censure et les interférences au niveau du réseau.
 
-## Que pouvez-vous faire avec le SDK Outline ?
+## Que pouvez-vous faire avec le SDK Outline ? {#what_can_you_do_with_the_outline_sdk}
 
 - **Créer des outils pour limiter les interférences réseau**\
 
@@ -19,7 +19,7 @@ Intégrez une protection contre les interférences réseau directement aux appli
 
 Utilisez les outils de ligne de commande inclus pour détecter les problèmes de connectivité, évaluer les interférences réseau et tester différentes stratégies de contournement.
 
-## Principaux avantages
+## Principaux avantages {#key_advantages}
 
 - **Multiplate-forme**\
 

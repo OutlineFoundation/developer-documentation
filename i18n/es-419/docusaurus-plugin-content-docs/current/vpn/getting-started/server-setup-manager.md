@@ -19,7 +19,7 @@ modo de autoconfiguración.
 
 5. Outline Manager te guiará a través de la creación de un servidor.
 
-## Próximos pasos
+## Próximos pasos {#next_steps}
 
 Ahora que tu servidor de Outline está configurado, ya puedes compartir el acceso con tus
 usuarios.

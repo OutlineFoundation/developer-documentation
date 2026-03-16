@@ -5,7 +5,7 @@ sidebar_label: "Concepts"
 
 Outline pomaga użytkownikom ominąć ograniczenia w otwartym dostępie do internetu. Oto kilka najważniejszych pojęć, które pomogą zrozumieć, jak to działa:
 
-## Usługodawcy i użytkownicy
+## Usługodawcy i użytkownicy {#service_providers_and_end_users}
 
 System Outline obejmuje 2 główne role: **usługodawców**, którzy zarządzają serwerami, i **użytkowników**, którzy za pomocą tych serwerów uzyskują dostęp do internetu.
 
@@ -13,7 +13,7 @@ System Outline obejmuje 2 główne role: **usługodawców**, którzy zarządzaj
 
 - **Użytkownicy** instalują aplikację **klient Outline**, wklejają otrzymany **klucz dostępu** i **łączą się** z bezpiecznym tunelem
 
-## Klucze dostępu
+## Klucze dostępu {#access-keys}
 
 Klucze dostępu to dane uwierzytelniające, które umożliwiają użytkownikom łączenie się z serwerem Outline. Zawierają informacje potrzebne klientowi Outline do utworzenia bezpiecznego połączenia. Istnieją 2 rodzaje kluczy dostępu:
 

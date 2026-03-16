@@ -3,9 +3,9 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## تونل‌ها
+## تونل‌ها {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 تونل بالاترین سطح شیء در پیکربندی Outline است. نشان می‌دهد چطور
 باید وی‌پی‌ان پیکربندی شود.
@@ -14,7 +14,7 @@ sidebar_label: "Access Key Config"
 [‫LegacyShadowsocksConfig](#legacyshadowsocksconfig)‏ |
 [‫LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **قالب:** *ساختار*
 
@@ -52,9 +52,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## حمل‌ونقل‌ها
+## حمل‌ونقل‌ها {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 مشخص می‌کند چطور بسته‌ها باید با مقصد هدف‌یابی‌شده تبادل شوند.
 
@@ -64,7 +64,7 @@ error:
 
 - ‫`tcpudp`:‏ [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 ‫TCPUDPConfig اجازه می‌دهد تا راهبردهای TCP و UDP به‌طور جداگانه تنظیم شوند.
 
@@ -95,13 +95,13 @@ udp:
   <<: *cipher
 ```
 
-## نقطه‌های پایانی
+## نقطه‌های پایانی {#endpoints}
 
 نقطه‌های پایانی اتصالات به نقطه پایانی ثابتی را تبیین می‌کنند. «شماره‌گیرها»
 در اولویت هستند زیرا به بهینه‌سازی‌های نقطه پایانی خاص اجازه می‌دهند. نقطه‌های پایانی «جاری‌سازی»
 و «بسته» وجود دارند.
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **قالب:** *رشته* | [میانا](#interface)
 
@@ -118,7 +118,7 @@ udp:
 
 - ‫`shadowsocks`‏: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 اتصالات را با شماره‌گیری یک نشانی ثابت تبیین می‌کند. می‌تواند شماره‌گیری را بگیرد که
 اجازه می‌دهد راهبردها نوشته شود.
@@ -132,7 +132,7 @@ udp:
 - ‫`dialer`‏ ([DialerConfig](#dialerconfig)): شماره‌گیر برای استفاده در شماره‌گیری
 نشانی
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 تونل‌ها ازطریق Websockets اتصالات را برای نقطه پایانی جاری‌سازی و بسته‌بندی می‌کنند.
 
@@ -150,12 +150,12 @@ Websocket باشد.
 - ‫`endpoint`‏ ([EndpointConfig](#endpointconfig)): سرور وب نقطه پایانی به
 اتصال به. اگر وجود نداشته باشد، به نشانی مشخص‌شده در این نشانی وب متصل می‌شود.
 
-## شماره‌گیرها
+## شماره‌گیرها {#dialers}
 
 شماره‌گیرها اتصالاتی را که به نشانی نقطه پایان داده شده است تبیین می‌کنند. شماره‌گیرهای جاری‌سازی و
 بسته وجود دارد.
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **قالب:** *تهی* | [میانا](#interface)
 
@@ -168,12 +168,12 @@ Websocket باشد.
 
 - ‫`shadowsocks`‏: [ShadowsocksConfig](#shadowsocksconfig)
 
-## شنوندگان بسته
+## شنوندگان بسته {#packet_listeners}
 
 «شنونده بسته» اتصال بسته نامحدودی را تبیین می‌کند که می‌تواند برای
 ارسال بسته‌ها به چندین مقصد استفاده شود.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **قالب:** *تهی* | [میانا](#interface)
 
@@ -186,11 +186,11 @@ Websocket باشد.
 
 - ‫`shadowsocks`‏: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
 
-## راهبردها
+## راهبردها {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 ‫LegacyShadowsocksConfig معرف تونلی است که از Shadowsocks به‌عنوان
 حمل‌ونقل استفاده می‌کند. و قالب قدیمی را برای سازگاری با نسخه قدیمی اجرا می‌کند.
@@ -222,7 +222,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 ‫LegacyShadowsocksURI معرف تونلی است که از Shadowsocks به‌عنوان حمل‌ونقل استفاده می‌کند.
 و قالب قدیمی نشانی وب را برای سازگاری با نسخه قدیمی اجرا می‌کند.
@@ -239,7 +239,7 @@ SIP002](https://shadowsocks.org/doc/sip002.html) را ببینید. افزایه
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 ‫ShadowsocksConfig می‌تواند نماینده «شماره‌گیرهای جاری‌سازی یا بسته» باشد و همچنین
 شنونده بسته‌ای که از Shadowsocks استفاده می‌کند.
@@ -269,9 +269,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## تعریف‌های متا
+## تعریف‌های متا {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 از اولین پیکربندی‌ای که این برنامه پشتیبانی می‌کند استفاده می‌کند. این کار راهی است برای
 ترکیب کردن پیکربندی‌های جدید وقتی نسخه قدیمی دارد با پیکربندی‌های قدیمی سازگار می‌شود.
@@ -294,7 +294,7 @@ options:
   - ss.example.com:4321
 ```
 
-### میانا
+### میانا {#interface}
 
 میاناها اجازه می‌دهند تا یکی از چندین اجراها انتخاب شوند. میانا برای مشخص کردن نوعی که پیکربندی ارائه می‌کند، از فیلد
 ‫`$type` استفاده می‌کند.

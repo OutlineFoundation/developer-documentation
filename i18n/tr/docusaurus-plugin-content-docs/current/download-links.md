@@ -5,7 +5,7 @@ sidebar_label: "Download Links"
 
 Outline Manager ve Outline istemcisi aşağıdaki bağlantılardan indirilebilir. Outline kurulumuyla ilgili daha fazla bilgi için [https://getoutline.org/tr/](https://getoutline.org/) adresine gidin.
 
-## Outline Manager
+## Outline Manager {#outline_manager}
 
 - **Windows:**
 <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
@@ -16,7 +16,7 @@ Outline Manager ve Outline istemcisi aşağıdaki bağlantılardan indirilebilir
 - **Linux:**
 <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
-## Outline istemcisi
+## Outline istemcisi {#outline_client}
 
 - **Windows:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>

@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Введение
+## Введение {#introduction}
 
 Иногда серверы Outline могут быть обнаружены и заблокированы сетями с высоким уровнем цензуры. Если заблокированный сервер был настроен правильно, его не сложно восстановить. Для этого используются плавающие IP-адреса – облачная функция, которая позволяет назначить серверу Outline несколько IP-адресов, а также DNS – интернет-технология, которая переводит доменные имена (например, `getoutline.org`) в физические IP-адреса (например, `216.239.36.21`).
 
-## Требования
+## Требования {#requirements}
 
 Для следования этому руководству необходимы минимальные технические знания. Базовое понимание технологии DNS пригодится, но не обязательно. Вводную информацию можно найти в руководстве [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) по доменным именам.
 
 Для примера мы будем использовать DigitalOcean и Google Domains, но подойдет любой поставщик облачных сервисов, поддерживающий назначение IP-адресов (например, Google Cloud или [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip)) и любой регистратор доменов (например, [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)).
 
-## Инструкции
+## Инструкции {#instructions}
 
 1. Ниже перечислены шаги, которые нужно выполнить для ротации IP-адреса сервера.
 
@@ -27,7 +27,7 @@ sidebar_label: "Domain with Floating IPs"
 
 6. Измените доменное имя, чтобы оно указывало на новый IP-адрес.
 
-## Создание сервера Outline в DigitalOcean
+## Создание сервера Outline в DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 Если вы используете сервер DigitalOcean, перейдите к следующему шагу.
 
@@ -37,7 +37,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![Создание сервера](/images/create-DO-server.png)
 
-## Создание имени хоста для сервера
+## Создание имени хоста для сервера {#make_a_hostname_for_your_server}
 
 1. Откройте [Google Domains](https://domains.google.com/m/registrar/) и нажмите "Найти подходящий".
 
@@ -49,7 +49,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![Настройка имени хоста](/images/set-hostname.png)
 
-## Смена IP-адреса сервера
+## Смена IP-адреса сервера {#change_the_servers_ip_address}
 
 1. На странице Droplets (Дроплеты) сервиса DigitalOcean найдите свой сервер.
 

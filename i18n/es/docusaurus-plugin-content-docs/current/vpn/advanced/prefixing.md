@@ -6,11 +6,11 @@ sidebar_label: "Connection Prefixes"
 Desde la versión 1.9.0 del cliente de Outline, las claves de acceso admiten la opción "prefix". Esta opción es una lista de bytes que sirven como los primeros bytes de la [salt](https://shadowsocks.org/guide/aead.html) de una conexión TCP de Shadowsocks.
 De esta forma, la conexión puede parecer un protocolo permitido en la red, lo que le permite eludir los cortafuegos que rechazan los protocolos desconocidos.
 
-## ¿Cuándo debería optar por esta opción?
+## ¿Cuándo debería optar por esta opción? {#when_should_i_try_this}
 
 Si sospechas que se sigue bloqueando a los usuarios de tu despliegue de Outline, te recomendamos probar distintos prefijos.
 
-## Instrucciones
+## Instrucciones {#instructions}
 
 El prefijo no debe tener más de 16 bytes. Los prefijos más largos pueden provocar colisiones en la salt, lo que puede poner en riesgo la seguridad del cifrado y hacer que las conexiones se detecten. Usa el prefijo más corto posible para sortear el bloqueo que te hayas encontrado.
 
@@ -58,7 +58,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Claves de acceso dinámicas
+### Claves de acceso dinámicas {#dynamic_access_keys}
 
 Para usar la opción de prefijo con las [claves de acceso dinámicas](../management/dynamic-access-keys) (`ssconf://`), añade una clave "prefix" al objeto JSON, con un valor **codificado como JSON** que represente el prefijo que quieras (consulta algunos ejemplos en la tabla de arriba). Puedes usar códigos de escape (como \u00FF) para representar puntos de código Unicode no imprimibles en el intervalo de `U+0` a `U+FF`. Por ejemplo:
 
@@ -72,7 +72,7 @@ Para usar la opción de prefijo con las [claves de acceso dinámicas](../managem
 }
 ```
 
-### Claves de acceso estáticas
+### Claves de acceso estáticas {#static_access_keys}
 
 Para usar prefijos con las **claves de acceso estáticas** (ss://), debes modificar tu clave antes de distribuirla. Si tienes una clave de acceso estática generada por Administrador de Outline, consigue una versión de tu prefijo **codificada como URL** (consulta algunos ejemplos en la tabla de arriba) y añádela al final de la clave de acceso de esta forma:
 

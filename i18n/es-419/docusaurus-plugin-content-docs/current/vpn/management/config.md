@@ -10,7 +10,7 @@ lo que permite establecer parámetros de configuración flexibles y extensibles.
 La configuración de nivel superior especifica una
 [TunnelConfig](../reference/access-key-config#tunnelconfig).
 
-## Ejemplos
+## Ejemplos {#examples}
 
 Una configuración habitual de Shadowsocks se vería de la siguiente manera:
 

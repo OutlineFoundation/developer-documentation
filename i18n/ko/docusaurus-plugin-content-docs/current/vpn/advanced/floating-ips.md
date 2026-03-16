@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## 소개
+## 소개 {#introduction}
 
 Outline 서버는 때때로 고도로 검열된 네트워크에서 검색되어 차단되는 문제가 발생할 수 있습니다. 올바로 설정된 경우 차단된 서버를 복구할 수 있으며 어렵지도 않습니다. 도메인 이름(예: `getoutline.org`)을 실제 IP 주소(예: `216.239.36.21`)로 변환하는 인터넷 기술인 DNS와 Outline 서버에 IP 주소를 두 개 이상 할당할 수 있는 클라우드 기능인 Floating IP를 사용하면 됩니다.
 
-## 요구사항
+## 요구사항 {#requirements}
 
 이 가이드를 따르는 데는 높은 수준의 기술 지식이 필요하지 않습니다. DNS를 기본적으로 알고 있으면 도움이 되나 필수는 아닙니다. 소개를 보려면 도메인 이름에 관한 [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) 가이드를 참고하세요.
 
 구체적인 예를 제공하기 위해 여기서는 DigitalOcean과 Google Domains를 사용하지만 IP 주소 할당을 허용하는 클라우드 제공업체(예: Google Cloud 또는 [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip))와 도메인 등록기관(예: [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance))을 사용해도 됩니다.
 
-## 안내
+## 안내 {#instructions}
 
 1. 다음 목록에서는 서버의 IP 주소를 순환하는 단계를 요약합니다.
 
@@ -27,7 +27,7 @@ Outline 서버는 때때로 고도로 검열된 네트워크에서 검색되어 
 
 6. 새 IP 주소를 가리키도록 도메인 이름을 변경합니다.
 
-## DigitalOcean에서 Outline 서버 만들기
+## DigitalOcean에서 Outline 서버 만들기 {#create_an_outline_server_on_digitalocean}
 
 실행 중인 DigitalOcean 서버가 있는 경우 다음 단계로 건너뜁니다.
 
@@ -37,7 +37,7 @@ Outline 서버는 때때로 고도로 검열된 네트워크에서 검색되어 
 
 ![서버 만들기](/images/create-DO-server.png)
 
-## 서버의 호스트 이름 만들기
+## 서버의 호스트 이름 만들기 {#make_a_hostname_for_your_server}
 
 1. [Google Domains](https://domains.google.com/m/registrar/)로 이동하여 '완벽한 도메인 찾기'를 클릭합니다.
 
@@ -49,7 +49,7 @@ Outline 서버는 때때로 고도로 검열된 네트워크에서 검색되어 
 
 ![호스트 이름을 설정합니다.](/images/set-hostname.png)
 
-## 서버의 IP 주소 변경
+## 서버의 IP 주소 변경 {#change_the_servers_ip_address}
 
 1. DigitalOcean의 'Droplets' 페이지에서 서버로 이동합니다.
 

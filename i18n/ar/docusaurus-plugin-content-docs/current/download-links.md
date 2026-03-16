@@ -6,7 +6,7 @@ sidebar_label: "Download Links"
 يمكن تحميل تطبيقَي "مدير Outline" و"عميل Outline" من
 الروابط التالية. ويمكنك التعرّف على المزيد من المعلومات حول عملية إعداد Outline على الرابط [https://getoutline.org/‎](https://getoutline.org/).
 
-## مدير Outline
+## مدير Outline {#outline_manager}
 
 - **نظام التشغيل Windows‏:**
 <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
@@ -17,7 +17,7 @@ sidebar_label: "Download Links"
 - **نظام التشغيل Linux‏:**
 <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
-## عميل Outline
+## عميل Outline {#outline_client}
 
 - **نظام التشغيل Windows‏:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>

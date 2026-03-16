@@ -5,7 +5,7 @@ sidebar_label: "Concepts"
 
 Outline ayuda a los usuarios a evitar restricciones para acceder al Internet abierto. A continuación encontrarás algunos conceptos clave para entender cómo funciona:
 
-## Proveedores de servicios y usuarios finales
+## Proveedores de servicios y usuarios finales {#service_providers_and_end_users}
 
 El sistema de Outline incluye dos roles principales: **proveedores de servicios**, que gestionan los servidores, y **usuarios finales**, que acceden a Internet mediante esos servidores.
 
@@ -13,7 +13,7 @@ El sistema de Outline incluye dos roles principales: **proveedores de servicios*
 
 - Los **usuarios finales** instalan la aplicación de **cliente de Outline**, copian la **clave de acceso** que han recibido y **se conectan** a un túnel seguro.
 
-## Claves de acceso
+## Claves de acceso {#access-keys}
 
 Las claves de acceso son las credenciales que permiten a los usuarios conectarse a un servidor de Outline. Contienen la información necesaria para que el cliente de Outline establezca una conexión segura. Hay dos tipos de claves de acceso:
 

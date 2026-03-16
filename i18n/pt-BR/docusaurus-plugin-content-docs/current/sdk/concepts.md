@@ -6,7 +6,7 @@ sidebar_label: "Concepts"
 O SDK Outline foi desenvolvido com base em conceitos simples, definidos como interfaces
 interoperáveis que permitem combinações variadas e uma fácil reutilização.
 
-## Conexões
+## Conexões {#connections}
 
 As conexões permitem a comunicação entre dois endpoints sobre um transporte
 abstrato. Existem dois tipos de conexões:
@@ -23,7 +23,7 @@ As conexões podem ser unidas para criar conexões aninhadas sobre um novo trans
 Por exemplo, um `StreamConn` pode ser sobre TCP, sobre TLS sobre TCP, sobre HTTP sobre
 TLS sobre TCP, sobre QUIC, entre outras opções.
 
-## Discadores
+## Discadores {#dialers}
 
 Os discadores permitem a criação de conexões para certo endereço de host:porta e, ao mesmo tempo,
 encapsulam os protocolos de proxy ou transporte.
@@ -34,7 +34,7 @@ que tenha o apoio de uma conexão TCP. Depois pode criar uma `StreamConn` TLS qu
 `StreamConn` TCP. Um discador de SOCKS5 sobre TLS poderia usar um discador de TLS para criar a
 `StreamConn` TLS para o proxy antes de fazer a conexão de SOCKS5 com o endereço-alvo.
 
-## Resolvedores
+## Resolvedores {#resolvers}
 
 Os resolvedores (`dns.Resolver`) permitem responder a perguntas de DNS e, ao mesmo tempo,
 encapsulam o protocolo ou algoritmo.

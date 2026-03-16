@@ -10,24 +10,24 @@ We maken een voorbeeld-app met de naam `splitfetch` waarin een functie van de SD
 Je kunt de app gebruiken op **Linux, Mac en Windows**.
 Ga voor integratie met mobiele apps naar [Outline SDK toevoegen aan een mobiele app](mobile-app-integration).
 
-## Stap 1: Stel Go in
+## Stap 1: Stel Go in {#step_1_set_up_go}
 
 Hiervoor heb je de [Programmeertaal Go](https://go.dev/) nodig.
 Als je Go (versie 1.21 of hoger) al hebt geïnstalleerd, kun je doorgaan met de volgende stap.
 
 Volg voor de installatie de [officiële handleiding](https://go.dev/doc/install) of doe het volgende als je een pakketmanager gebruikt:
 
-### Linux
+### Linux {#linux}
 
 Volg de stappen in [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### Mac
+### Mac {#mac}
 
 ```sh
 brew install go
 ```
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 winget install --id=GoLang.Go  -e
@@ -39,7 +39,7 @@ Nadat Go is geïnstalleerd, kun je controleren of dit goed is gegaan door de vol
 go version
 ```
 
-## Stap 2: Maak de `splitfetch`-app
+## Stap 2: Maak de `splitfetch`-app {#step_2_create_the_splitfetch_application}
 
 Nu gaan we het `splitfetch`-project instellen. Maak eerst de projectdirectory en initialiseer een Go-module:
 
@@ -56,7 +56,7 @@ go get github.com/Jigsaw-Code/outline-sdk@latest
 touch main.go
 ```
 
-## Stap 3: Gebruik Outline SDK in de app
+## Stap 3: Gebruik Outline SDK in de app {#step_3_use_outline_sdk_in_the_application}
 
 Open het `main.go`-bestand in je favoriete code-editor en plak er de volgende code in. Deze code bevat alle logica voor onze `splitfetch`-app.
 
@@ -123,7 +123,7 @@ Voer nadat je de code hebt opgeslagen de volgende opdracht uit in je terminal om
 go mod tidy
 ```
 
-## Stap 4: Voer de app uit
+## Stap 4: Voer de app uit {#step_4_run_the_application}
 
 Nu de code is toegevoegd, kun je de `splitfetch`-app uitvoeren.
 
@@ -137,13 +137,13 @@ Hierdoor wordt de app samengesteld en uitgevoerd en wordt de HTML-content van de
 
 Als je een los programma wilt maken en distribueren dat je kunt uitvoeren zonder `go`, gebruik je de opdracht `go build`:
 
-### Linux en Mac
+### Linux en Mac {#linux-mac}
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows
+### Windows {#windows_1}
 
 ```sh
 go build -o splitfetch.exe .

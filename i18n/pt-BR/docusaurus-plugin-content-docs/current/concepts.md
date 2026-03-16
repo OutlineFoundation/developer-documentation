@@ -6,7 +6,7 @@ sidebar_label: "Concepts"
 O Outline ajuda os usuários a ignorar restrições para acessar a Internet aberta. Aqui estão
 alguns conceitos-chave para entender como isso funciona:
 
-## Provedores de serviços e usuários finais
+## Provedores de serviços e usuários finais {#service_providers_and_end_users}
 
 O sistema Outline envolve duas funções principais: **provedores de serviços**, que gerenciam os servidores, e **usuários finais**, que acessam a Internet por esses servidores.
 
@@ -17,7 +17,7 @@ aplicativo **Outline Manager**.
 - Os **usuários finais** instalam o **app cliente do Outline**, colam a
 **chave de acesso** recebida e se **conectam** a um túnel seguro.
 
-## Chaves de acesso
+## Chaves de acesso {#access-keys}
 
 Chaves de acesso são credenciais que permitem aos usuários se conectar a um servidor
 do Outline. Elas têm as informações necessárias para que o app cliente do Outline

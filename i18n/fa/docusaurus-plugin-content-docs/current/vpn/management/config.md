@@ -10,7 +10,7 @@ sidebar_label: "Configure Access Keys"
 پیکربندی سطح بالا
 [TunnelConfig](../reference/access-key-config#tunnelconfig) را مشخص می‌کند.
 
-## مثال‌ها
+## مثال‌ها {#examples}
 
 پیکربندی معمول Shadowsocks به این شکل است:
 

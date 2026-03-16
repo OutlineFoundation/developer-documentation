@@ -7,7 +7,7 @@ Outline nutzt eine YAML-basierte Konfiguration, um VPN-Parameter zu definieren u
 
 [TunnelConfig](../reference/access-key-config#tunnelconfig) ist das Element auf oberster Ebene der Konfiguration.
 
-## Beispiele
+## Beispiele {#examples}
 
 Eine typische Shadowsocks-Konfiguration sieht so aus:
 

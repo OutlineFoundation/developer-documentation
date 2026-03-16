@@ -10,24 +10,24 @@ Utworzymy przykładową aplikację o nazwie `splitfetch`, aby zaprezentować cec
 Aplikacja będzie działać na platformach **Linux, Mac i Windows**.
 Informacje na temat integracji z aplikacjami mobilnymi znajdziesz w temacie [Dodawanie pakietu Outline SDK do aplikacji mobilnej](mobile-app-integration).
 
-## Krok 1. Skonfiguruj Go
+## Krok 1. Skonfiguruj Go {#step_1_set_up_go}
 
 Przede wszystkim potrzebujesz [języka programowania Go](https://go.dev/).
 Jeśli masz już zainstalowane środowisko Go w wersji 1.21 lub nowszej, możesz przejść do następnego kroku.
 
 Instrukcje instalacji znajdziesz w [oficjalnym przewodniku](https://go.dev/doc/install), a jeśli korzystasz z systemu zarządzania pakietami:
 
-### Linux
+### Linux {#linux}
 
 Postępuj zgodnie z instrukcjami podanymi na stronie [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### Mac
+### Mac {#mac}
 
 ```sh
 brew install go
 ```
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 winget install --id=GoLang.Go  -e
@@ -39,7 +39,7 @@ Po zainstalowaniu środowiska Go możesz sprawdzić, czy wszystko działa prawid
 go version
 ```
 
-## Krok 2. Utwórz aplikację `splitfetch`
+## Krok 2. Utwórz aplikację `splitfetch` {#step_2_create_the_splitfetch_application}
 
 Teraz skonfigurujemy projekt `splitfetch`. Najpierw utwórz katalog projektu i zainicjuj moduł Go:
 
@@ -56,7 +56,7 @@ go get github.com/Jigsaw-Code/outline-sdk@latest
 touch main.go
 ```
 
-## Krok 3. Użyj pakietu Outline SDK w aplikacji
+## Krok 3. Użyj pakietu Outline SDK w aplikacji {#step_3_use_outline_sdk_in_the_application}
 
 Otwórz plik `main.go` w ulubionym edytorze kodu i wklej do niego podany niżej kod. Ten kod zawiera całą logikę działania aplikacji `splitfetch`.
 
@@ -123,7 +123,7 @@ Po zapisaniu kodu uruchom w terminalu podane niżej polecenie, aby się upewnić
 go mod tidy
 ```
 
-## Krok 4. Uruchom aplikację
+## Krok 4. Uruchom aplikację {#step_4_run_the_application}
 
 Po dodaniu kodu możesz uruchomić aplikację `splitfetch`.
 
@@ -137,13 +137,13 @@ Aplikacja zostanie skompilowana i uruchomiona, a następnie wyświetli zawartoś
 
 Jeśli chcesz utworzyć i rozpowszechnić samodzielny program, który można uruchomić bez środowiska `go`, użyj polecenia `go build`:
 
-### Linux i Mac
+### Linux i Mac {#linux-mac}
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows
+### Windows {#windows_1}
 
 ```sh
 go build -o splitfetch.exe .

@@ -7,13 +7,13 @@ Outline biedt uitgebreide prestatiestatistieken via [Prometheus](https://prometh
 
 **Belangrijke opmerking:** In deze handleiding gaan we ervan uit dat je de basis van Prometheus en PromQL onder de knie hebt. Als je Prometheus nog niet eerder hebt gebruikt, raden we je aan de documentatie en tutorials van Prometheus door te nemen voordat je aan de slag gaat met de statistieken van Outline.
 
-## Vereisten
+## Vereisten {#prerequisites}
 
 - **Outline-server met Prometheus aangezet**: Zorg dat Prometheus aanstaat voor je Outline-server. (Dit is meestal de standaardconfiguratie.)
 
 - **SSH-toegang tot je server**: Je moet SSH-toegang hebben om de Prometheus-poort door te sturen.
 
-## Instructies
+## Instructies {#instructions}
 
 1. **Prometheus-poort doorsturen**
 
@@ -30,9 +30,9 @@ Query maken voor Prometheus-statistieken
 
 3. **Gebruik PromQL-query's om de specifieke statistieken op te halen die je wilt doornemen.**
 
-### Voorbeeld van PromQL-query's
+### Voorbeeld van PromQL-query's {#example_promql_queries}
 
-#### Gebruik
+#### Gebruik {#usage}
 
 - **Gegevensbytes (per toegangssleutel, protocol en richting):**
 
@@ -50,11 +50,11 @@ Query maken voor Prometheus-statistieken
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Actieve toegangssleutels
+#### Actieve toegangssleutels {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### TCP-verbindingen
+#### TCP-verbindingen {#tcp_connections}
 
 - **TCP-verbindingen (per toegangssleutel, locatie en status):**
 
@@ -64,7 +64,7 @@ Query maken voor Prometheus-statistieken
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **UDP-pakketten (per locatie en status):**
 
@@ -74,7 +74,7 @@ Query maken voor Prometheus-statistieken
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Prestaties
+#### Prestaties {#performance}
 
 - **CPU-gebruik (per process):**
 
@@ -84,7 +84,7 @@ Query maken voor Prometheus-statistieken
 
 `process_virtual_memory_bytes`
 
-#### Informatie over build
+#### Informatie over build {#build_information}
 
 - **Prometheus:**
 

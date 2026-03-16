@@ -19,7 +19,7 @@ para o seu próprio servidor.
 
 5. O Outline Manager vai guiar você durante a criação do servidor.
 
-## Próximas etapas
+## Próximas etapas {#next_steps}
 
 Agora que seu servidor do Outline está pronto, você já pode compartilhar o acesso com seus
 usuários.

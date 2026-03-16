@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## 簡介
+## 簡介 {#introduction}
 
 在網路審查嚴格的環境下，Outline 伺服器有時會被發現與封鎖，但只要伺服器設定正確，恢復運作並不困難。為了實現這一點，我們將結合使用 DNS 和浮動 IP。DNS 是一項網際網路技術，可將 `getoutline.org` 這樣的網域名稱轉換為 `216.239.36.21` 之類的實體 IP 位址；浮動 IP 則是一項雲端功能，能向 Outline 伺服器指派多個 IP 位址。
 
-## 需求條件
+## 需求條件 {#requirements}
 
 依本指南操作的技術門檻較低。瞭解 DNS 的基本概念會有幫助，但並非必要。您可以參考 [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name) 指南對網域名稱的介紹。
 
 為了提供具體示例，我們將使用 DigitalOcean 和 Google Domains 示範。不過，其他支援指派 IP 位址的雲端服務供應商 (例如 Google Cloud 或 [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip)) 和網域註冊商 (例如 [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)) 也同樣適用。
 
-## 操作說明
+## 操作說明 {#instructions}
 
 1. 以下是輪換伺服器 IP 位址的大致步驟：
 
@@ -27,7 +27,7 @@ sidebar_label: "Domain with Floating IPs"
 
 6. 將網域名稱改成指向新的 IP 位址。
 
-## 在 DigitalOcean 上建立 Outline 伺服器
+## 在 DigitalOcean 上建立 Outline 伺服器 {#create_an_outline_server_on_digitalocean}
 
 如果已有運作中的 DigitalOcean 伺服器，請略過此步驟。
 
@@ -37,7 +37,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![建立伺服器](/images/create-DO-server.png)
 
-## 設定伺服器的主機名稱
+## 設定伺服器的主機名稱 {#make_a_hostname_for_your_server}
 
 1. 前往 [Google Domains](https://domains.google.com/m/registrar/)，點選「尋找合適的網域」。
 
@@ -49,7 +49,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![設定主機名稱](/images/set-hostname.png)
 
-## 變更伺服器 IP 位址
+## 變更伺服器 IP 位址 {#change_the_servers_ip_address}
 
 1. 前往 DigitalOcean 的「Droplets」頁面，找出您的伺服器。
 

@@ -15,6 +15,6 @@ Deze handleiding leidt je door het proces om een Outline-server in te stellen zo
 
 5. Outline Manager leidt je door het proces om een server te maken.
 
-## Volgende stappen
+## Volgende stappen {#next_steps}
 
 Nu je Outline-server is ingesteld, kun je je gebruikers toegang geven.

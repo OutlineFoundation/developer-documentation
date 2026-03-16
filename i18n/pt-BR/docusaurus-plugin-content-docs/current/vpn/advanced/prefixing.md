@@ -9,12 +9,12 @@ prefixos são uma lista de bytes usados no início do
 Isso pode fazer com que a conexão funcione como um protocolo permitido na
 rede, contornando firewalls que rejeitam protocolos não reconhecidos.
 
-## Quando devo usar?
+## Quando devo usar? {#when_should_i_try_this}
 
 Se suspeitar que os usuários da implantação do Outline ainda estão sendo bloqueados, você
 tente usar outros prefixos.
 
-## Instruções
+## Instruções {#instructions}
 
 O prefixo só pode ter até 16 bytes. É possível que prefixos mais longos causem colisões de
 sal, o que pode comprometer a segurança da criptografia e fazer com que as conexões sejam
@@ -66,7 +66,7 @@ SSH
 `"SSH-2.0\r\n"`
 `SSH-2.0%0D%0A`
 
-### Chaves de acesso dinâmicas
+### Chaves de acesso dinâmicas {#dynamic_access_keys}
 
 Para usar o recurso de prefixo com [chaves de acesso dinâmicas](../management/dynamic-access-keys) (`ssconf://`),
 adicione uma chave como prefixo ao objeto JSON, com um valor **codificado para JSON**
@@ -84,7 +84,7 @@ intervalo entre `U+0` e `U+FF`. Por exemplo:
 }
 ```
 
-### Chaves de acesso estáticas
+### Chaves de acesso estáticas {#static_access_keys}
 
 Para usar prefixos com **chaves de acesso estáticas** (ss://), você precisa modificar sua
 chave antes de distribuí-la. Se você tiver uma chave de acesso estática gerada

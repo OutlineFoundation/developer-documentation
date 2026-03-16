@@ -7,13 +7,13 @@ Outline bietet detaillierte Leistungsmesswerte mit [Prometheus](https://promethe
 
 **Wichtiger Hinweis:** Diese Anleitung geht davon aus, dass Sie bereits Grundkenntnisse zu Prometheus und PromQL haben. Wenn Sie Prometheus noch nicht so gut kennen, empfehlen wir Ihnen, sich damit in seiner Dokumentation und in Tutorials zu beschäftigen, bevor Sie sich den Messwerten von Outline widmen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 - **Outline-Server mit aktiviertem Prometheus**: Prüfen Sie, ob die Prometheus-Metriken auf Ihrem Outline-Server aktiviert sind. (Das ist für gewöhnlich die Standardeinstellung.)
 
 - **SSH-Zugriff auf Ihren Server**: Sie benötigen den SSH-Zugriff, um den Prometheus-Port weiterzuleiten.
 
-## Anleitung
+## Anleitung {#instructions}
 
 1. **Prometheus-Port weiterleiten**
 
@@ -29,9 +29,9 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 3. **Nutzen Sie PromQL-Abfragen, um genau die Messwerte zu erhalten, die Sie interessieren.**
 
-### Beispiel für PromQL-Abfragen
+### Beispiel für PromQL-Abfragen {#example_promql_queries}
 
-#### Nutzung
+#### Nutzung {#usage}
 
 - **Datenbytes (über Zugriffsschlüssel, protokoll und Route):**
 
@@ -49,11 +49,11 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Aktive Zugriffsschlüssel
+#### Aktive Zugriffsschlüssel {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### TCP-Verbindungen
+#### TCP-Verbindungen {#tcp_connections}
 
 - **TC-Verbindungen (über Zugriffsschlüssel, Standort und Status):**
 
@@ -63,7 +63,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **UDP-Pakete (über Standort und Status):**
 
@@ -73,7 +73,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Performance
+#### Performance {#performance}
 
 - **CPU-Nutzung (nach Verarbeitung):**
 
@@ -83,7 +83,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `process_virtual_memory_bytes`
 
-#### Build-Informationen
+#### Build-Informationen {#build_information}
 
 - **Prometheus:**
 

@@ -7,7 +7,7 @@ Outline 提供兩種存取金鑰：靜態金鑰與動態金鑰。靜態金鑰將
 
 您可以用三種格式指定動態存取金鑰所用的存取資訊：
 
-### 使用 `ss://` 連結
+### 使用 `ss://` 連結 {#use_an_ss_link}
 
 Outline 用戶端 1.8.1 以上版本。**
 
@@ -19,7 +19,7 @@ Outline 用戶端 1.8.1 以上版本。**
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### 使用 JSON 物件
+### 使用 JSON 物件 {#use_a_json_object}
 
 Outline 用戶端 1.8.0 以上版本。**
 
@@ -44,7 +44,7 @@ Outline 用戶端 1.8.0 以上版本。**
 
 - **method：**VPN 使用的加密方法。請參考 Shadowsocks 支援的 [AEAD 編碼器](https://shadowsocks.org/doc/aead.html)。
 
-### 使用 YAML 物件
+### 使用 YAML 物件 {#use_a_yaml_object}
 
 Outline 用戶端 1.15.0 以上版本。**
 
@@ -81,7 +81,7 @@ transport:
 
 關於如何設定 Outline 伺服器存取權，包括傳輸、端點、撥號程式和封包監聽器，詳見「[存取金鑰設定](config)」。
 
-## 從靜態金鑰擷取存取資訊
+## 從靜態金鑰擷取存取資訊 {#extract_access_information_from_a_static_key}
 
 如果您已經有靜態存取金鑰，可以擷取其中的資訊來建立 JSON 或 YAML 格式的動態存取金鑰。靜態存取金鑰的形式如下：
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Password**：`example`
 
-## 選擇託管平台
+## 選擇託管平台 {#choose_a_hosting_platform}
 
 瞭解如何建立動態存取金鑰後，選擇合適的託管平台來存放您的存取金鑰設定至關重要。在選擇平台時，請考慮其穩定性、安全性、易用性及抗審查能力，包括：能否穩定提供存取金鑰資訊而不停機？是否有適當的安全措施保護您的設定？管理存取金鑰資訊是否方便？在實施網路審查的地區能否正常存取？
 

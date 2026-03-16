@@ -5,7 +5,7 @@ sidebar_label: "Download Links"
 
 Vous pouvez télécharger Outline Manager et le client Outline à partir des liens ci-dessous. Pour en savoir plus sur la configuration d'Outline, consultez la page <https://getoutline.org/>.
 
-## Outline Manager
+## Outline Manager {#outline_manager}
 
 - **Windows** : <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
 
@@ -13,7 +13,7 @@ Vous pouvez télécharger Outline Manager et le client Outline à partir des li
 
 - **Linux** : <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
-## Client Outline
+## Client Outline {#outline_client}
 
 - **Windows** : <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
 

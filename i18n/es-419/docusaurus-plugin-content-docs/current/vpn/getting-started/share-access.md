@@ -8,7 +8,7 @@ página de detalles en Outline Manager, en donde podrás
 generar y administrar el acceso a tu servidor con [claves
 de acceso](../../concepts#access-keys) de forma centralizada.
 
-## Cómo crear y compartir claves de acceso
+## Cómo crear y compartir claves de acceso {#create_and_share_access_keys}
 
 - **Para crear una clave nueva,** haz clic en el pequeño ícono **+**
 que se encuentra en la parte inferior de la página.
@@ -17,7 +17,7 @@ que se encuentra en la parte inferior de la página.
 que aparece a la derecha de la clave, y obtendrás una invitación. Cópiala y envíala
 al usuario deseado a través de la plataforma de mensajería que prefieras.
 
-### Proceso para invitar a usuarios
+### Proceso para invitar a usuarios {#user_invitation_process}
 
 Una vez que el usuario reciba la invitación, deberá seguir estos pasos para conectarse a
 tu servidor de Outline:
@@ -34,7 +34,7 @@ clave de acceso única incorporada en el vínculo de invitación.
 app de Outline para controlar su acceso a Internet por medio de tu servidor
 de Outline.
 
-## Cómo revocar el acceso al servidor
+## Cómo revocar el acceso al servidor {#revoke_access_to_your_server}
 
 Administrar el acceso de los usuarios es fundamental. Outline Manager ofrece un método
 sencillo para revocar el acceso cuando sea necesario.

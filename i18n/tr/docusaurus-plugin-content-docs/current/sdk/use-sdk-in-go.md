@@ -10,24 +10,24 @@ SDK'nın bir özelliğini gösteren `splitfetch` adında bir örnek uygulama olu
 Uygulamayı **Linux, Mac ve Windows** üzerinde çalıştırabilirsiniz.
 Mobil uygulamalarla entegrasyon için [Outline SDK'yı mobil uygulamanıza ekleme](mobile-app-integration) başlıklı bölüme bakın.
 
-## 1. adım: Go'yu ayarlayın
+## 1. adım: Go'yu ayarlayın {#step_1_set_up_go}
 
 Öncelikle [Go programlama dili](https://go.dev/) gerekir.
 Go (sürüm 1.21 veya sonraki bir sürümü) zaten yüklüyse sonraki adıma geçebilirsiniz.
 
 Yükleme için [resmi kılavuzdaki](https://go.dev/doc/install) yönergeleri izleyebilirsiniz. Paket yöneticisi kullanıyorsanız:
 
-### Linux
+### Linux {#linux}
 
 [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu) sayfasındaki adımları izleyin.
 
-### Mac
+### Mac {#mac}
 
 ```sh
 brew install go
 ```
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 winget install --id=GoLang.Go  -e
@@ -39,7 +39,7 @@ Go yüklendikten sonra, aşağıdaki komutu terminalde çalıştırarak yükleme
 go version
 ```
 
-## 2. adım: `splitfetch` uygulamasını oluşturun
+## 2. adım: `splitfetch` uygulamasını oluşturun {#step_2_create_the_splitfetch_application}
 
 Şimdi `splitfetch` projesini ayarlayalım. Öncelikle proje dizinini oluşturun ve bir Go modülü başlatın:
 
@@ -56,7 +56,7 @@ go get github.com/Jigsaw-Code/outline-sdk@latest
 touch main.go
 ```
 
-## 3. adım: Uygulamada Outline SDK'yı kullanın
+## 3. adım: Uygulamada Outline SDK'yı kullanın {#step_3_use_outline_sdk_in_the_application}
 
 `main.go` dosyasını en sevdiğiniz kod düzenleyicide açın ve aşağıdaki kodu dosyaya yapıştırın. Bu kodda, `splitfetch` uygulamanıza dair mantık yer alır.
 
@@ -123,7 +123,7 @@ Kodu kaydettikten sonra, aşağıdaki komutu terminalde çalıştırarak `go.mod
 go mod tidy
 ```
 
-## 4. adım: Uygulamayı çalıştırın
+## 4. adım: Uygulamayı çalıştırın {#step_4_run_the_application}
 
 Kod hazırlandığına göre artık `splitfetch` uygulamasını çalıştırabilirsiniz.
 
@@ -137,13 +137,13 @@ Böylece uygulama derlenip çalıştırılır ve web sayfasının HTML içeriği
 
 `go` olmadan çalıştırabileceğiniz bağımsız bir program oluşturup dağıtmak istiyorsanız `go build` komutunu kullanın:
 
-### Linux ve Mac
+### Linux ve Mac {#linux-mac}
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows
+### Windows {#windows_1}
 
 ```sh
 go build -o splitfetch.exe .

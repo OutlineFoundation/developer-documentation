@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 **Smart Dialer** 會針對指定測試網域，搜尋能解除 DNS 和 TLS 封鎖的策略。這個元件會讀取包含多種策略的設定，並從中選擇一種策略。
 
-## Smart Dialer 的 YAML 設定
+## Smart Dialer 的 YAML 設定 {#yaml_config_for_the_smart_dialer}
 
 Smart Dialer 使用的設定為 YAML 格式，範例如下：
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### DNS 設定
+### DNS 設定 {#dns_configuration}
 
 - `dns` 欄位用於指定要測試的一組 DNS 解析器。
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`：使用 TCP 解析器。
 
-#### DNS-over-HTTPS 解析器 (DoH)
+#### DNS-over-HTTPS 解析器 (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`：DoH 伺服器的主機和通訊埠，格式為 <主機>:<通訊埠>。預設為 `name`:443。
 
-#### DNS-over-TLS 解析器 (DoT)
+#### DNS-over-TLS 解析器 (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`：DoT 伺服器的主機和通訊埠，格式為 <主機>:<通訊埠>。預設為 `name`:853。
 
-#### UDP 解析器
+#### UDP 解析器 {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`：UDP 解析器的主機和通訊埠，格式為 <主機>:<通訊埠>。
 
-#### TCP 解析器
+#### TCP 解析器 {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`：TCP 解析器的主機和通訊埠，格式為 <主機>:<通訊埠>。
 
-### TLS 設定
+### TLS 設定 {#tls_configuration}
 
 - `tls` 欄位用於指定一組要測試的 TLS 傳輸方式。
 
@@ -91,7 +91,7 @@ tcp:
 
 - 例如，`override:host=cloudflare.net|tlsfrag:1` 表示使用 Cloudflare 的網域前置技術和 TLS 分割進行傳輸，詳見[設定說明文件](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)。
 
-### 備援設定
+### 備援設定 {#fallback_configuration}
 
 當所有無 Proxy 策略都無法建立連線時，系統會使用備援設定。例如，備援設定可指定備用的 Proxy 伺服器，嘗試與使用者建立連線。只有在其他 DNS/TLS 策略失敗或逾時時，系統才會使用備援設定，因此連線啟動時間會較長。
 
@@ -101,21 +101,21 @@ tcp:
 
 - 有效的 Psiphon 設定物件，做為 `psiphon` 欄位的子項。
 
-#### Shadowsocks 伺服器範例
+#### Shadowsocks 伺服器範例 {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### SOCKS5 伺服器範例
+#### SOCKS5 伺服器範例 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Psiphon 設定範例
+#### Psiphon 設定範例 {#psiphon_config_example}
 
 如要使用 [Psiphon](https://psiphon.ca/) 網路，請採取以下行動：
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### 如何使用 Smart Dialer
+### 如何使用 Smart Dialer {#how_to_use_the_smart_dialer}
 
 如要使用 Smart Dialer，請建立 `StrategyFinder` 物件並呼叫 `NewDialer` 方法，傳入測試網域清單和 YAML 設定。
 `NewDialer` 方法會傳回 `transport.StreamDialer`，可用來依據選出的策略建立連線。例如：

@@ -15,7 +15,7 @@ sidebar_label: "Go Integration"
 سيصبح بإمكانك تشغيل هذا التطبيق على أنظمة **Linux وMac وWindows**.
 ولضمان تكامله مع تطبيقات أخرى على الأجهزة الجوّالة، يمكنك الاطّلاع على المقالة [إضافة Outline SDK إلى التطبيقات على الأجهزة الجوّالة](mobile-app-integration).
 
-## الخطوة 1: إعداد لغة Go
+## الخطوة 1: إعداد لغة Go {#step_1_set_up_go}
 
 أولاً، يجب إعداد [لغة Go البرمجية](https://go.dev/).
 وفي حال تثبيتها (الإصدار 1.21 أو الأحدث)، يمكنك الانتقال
@@ -24,17 +24,17 @@ sidebar_label: "Go Integration"
 لتثبيت اللغة، يمكنك اتّباع الخطوات المقدَّمة في [الدليل الرسمي](https://go.dev/doc/install)
 أو استخدام أي أداة لإدارة الحِزم:
 
-### Linux
+### Linux {#linux}
 
 اتّبِع الخطوات الموجودة في الموقع [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### Mac
+### Mac {#mac}
 
 ```sh
 brew install go
 ```
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 winget install --id=GoLang.Go  -e
@@ -47,7 +47,7 @@ winget install --id=GoLang.Go  -e
 go version
 ```
 
-## الخطوة 2: إنشاء التطبيق `splitfetch`
+## الخطوة 2: إنشاء التطبيق `splitfetch` {#step_2_create_the_splitfetch_application}
 
 لإعداد المشروع `splitfetch`، عليك أولاً إنشاء دليل المشروع
 وبدء تهيئة وحدة Go على النحو التالي:
@@ -65,7 +65,7 @@ go get github.com/Jigsaw-Code/outline-sdk@latest
 touch main.go
 ```
 
-## الخطوة 3: استخدام Outline SDK في التطبيق
+## الخطوة 3: استخدام Outline SDK في التطبيق {#step_3_use_outline_sdk_in_the_application}
 
 افتح ملف `main.go` في أداة تعديل الرموز المفضّلة لديك والصِق الرمز
 التالي، والذي يحتوي على طريقة عمل تطبيق `splitfetch`.
@@ -134,7 +134,7 @@ func main() {
 go mod tidy
 ```
 
-## الخطوة 4: تشغيل التطبيق
+## الخطوة 4: تشغيل التطبيق {#step_4_run_the_application}
 
 بعد الانتهاء من إعداد الرمز البرمجي وحفظه، يمكنك الآن تشغيل تطبيق `splitfetch`.
 
@@ -150,13 +150,13 @@ go run . https://getoutline.org
 في حال أردت إنشاء برنامج مستقل ونشره، بحيث تتمكّن من تشغيله
 بدون `go`، عليك استخدام أمر `go build` على النحو الآتي:
 
-### ‫Linux وMac
+### ‫Linux وMac {#linux-mac}
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows
+### Windows {#windows_1}
 
 ```sh
 go build -o splitfetch.exe .

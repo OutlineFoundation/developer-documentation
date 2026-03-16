@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 De **Smart Dialer** zoekt naar een strategie waarmee DNS en TLS voor een bepaalde lijst testdomeinen wordt gedeblokkeerd. Je hebt hiervoor een configuratie nodig waarin meerdere strategieën worden beschreven om uit te kiezen.
 
-## YAML-configuratie voor de Smart Dialer
+## YAML-configuratie voor de Smart Dialer {#yaml_config_for_the_smart_dialer}
 
 De configuratie die de Smart Dialer gebruikt, staat in de YAML-indeling. Een voorbeeld:
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### DNS-configuratie
+### DNS-configuratie {#dns_configuration}
 
 - In het veld `dns` staat een lijst met DNS-resolvers om te testen.
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`: Gebruik een TCP-resolver.
 
-#### DNS-over-HTTPS-resolver (DoH)
+#### DNS-over-HTTPS-resolver (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`: De host:port van de DoH-server. De standaardwaarde is `name`:443.
 
-#### DNS-over-TLS-resolver (DoT)
+#### DNS-over-TLS-resolver (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`: De host:port van de DoT-server. De standaardwaarde is `name`:853.
 
-#### UDP-resolver
+#### UDP-resolver {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`: De host:port van de UDP-resolver.
 
-#### TCP-resolver
+#### TCP-resolver {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`: De host:port van de TCP-resolver.
 
-### TLS-configuratie
+### TLS-configuratie {#tls_configuration}
 
 - In het veld `tls` staat een lijst met TLS-transporten om te testen.
 
@@ -91,7 +91,7 @@ tcp:
 
 - `override:host=cloudflare.net|tlsfrag:1` geeft bijvoorbeeld een transport aan dat domain fronting gebruikt met Cloudflare en TLS-fragmentatie. In de [configuratiedocumentatie](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) vind je meer informatie.
 
-### Reserveconfiguratie
+### Reserveconfiguratie {#fallback_configuration}
 
 Een reserveconfiguratie wordt gebruikt als via geen van de proxyloze strategieën verbinding kan worden gemaakt. Je kunt er bijvoorbeeld een back-upproxyserver in opgeven om de verbinding van de gebruiker mee te proberen. Als je een reserveconfiguratie gebruikt, start deze langzamer, omdat de andere DNS-/TLS-strategieën eerst moeten mislukken of er een time-out voor moet optreden.
 
@@ -101,21 +101,21 @@ De reservetekenreeksen moeten de volgende zijn:
 
 - Een geldig Psiphon-configuratieobject als onderliggend object van een `psiphon`-veld.
 
-#### Voorbeeld voor Shadowsocks-server
+#### Voorbeeld voor Shadowsocks-server {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### Voorbeeld voor SOCKS5-server
+#### Voorbeeld voor SOCKS5-server {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Voorbeeld van Psiphon-configuratie
+#### Voorbeeld van Psiphon-configuratie {#psiphon_config_example}
 
 Als je het [Psiphon](https://psiphon.ca/)-netwerk wilt gebruiken, moet je het volgende doen:
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### De Smart Dialer gebruiken
+### De Smart Dialer gebruiken {#how_to_use_the_smart_dialer}
 
 Als je de Smart Dialer wilt gebruiken, maak je een `StrategyFinder`-object en roep je de methode `NewDialer` aan. Geef hierbij de lijst met testdomeinen en de YAML-configuratie mee.
 Via de methode `NewDialer` krijg je een `transport.StreamDialer` waarmee je verbinding kunt maken via de gevonden strategie. Bijvoorbeeld:

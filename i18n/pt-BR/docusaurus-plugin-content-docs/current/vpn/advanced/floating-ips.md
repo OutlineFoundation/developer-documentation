@@ -3,7 +3,7 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Introdução
+## Introdução {#introduction}
 
 Às vezes, servidores do Outline são descobertos e bloqueados
 por redes altamente censuradas. É possível e relativamente fácil recuperar
@@ -12,7 +12,7 @@ tecnologia de Internet que converte nomes de domínios (como `getoutline.org`) e
 endereços IP físicos (como `216.239.36.21`). Também vamos usar IPs flutuantes, um recurso na nuvem,
 para a atribuição de mais de um endereço IP a um servidor do Outline.
 
-## Requisitos
+## Requisitos {#requirements}
 
 Para seguir as instruções deste guia, é necessário ter um nível mínimo de habilidades técnicas. Noções
 básicas sobre DNS podem ser úteis, mas não são obrigatórias. Confira a
@@ -26,7 +26,7 @@ e qualquer registrador de domínio (como
 [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance))
 vai funcionar também.
 
-## Instruções
+## Instruções {#instructions}
 
 1. A lista a seguir resume as etapas para fazer a rotação do endereço IP de um servidor:
 
@@ -40,7 +40,7 @@ vai funcionar também.
 
 6. Altere o nome de domínio para apontar para o novo endereço IP.
 
-## Criar um servidor do Outline na plataforma DigitalOcean
+## Criar um servidor do Outline na plataforma DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 Se você já tiver um servidor da DigitalOcean, pule para a próxima etapa.
 
@@ -52,7 +52,7 @@ no app.
 
 ![Criar servidor](/images/create-DO-server.png)
 
-## Definir o nome do host para o servidor
+## Definir o nome do host para o servidor {#make_a_hostname_for_your_server}
 
 1. Vá para [Google Domains](https://domains.google.com/m/registrar/) e
 clique em "Encontre o domínio perfeito".
@@ -67,7 +67,7 @@ digite o endereço IP do seu servidor no campo indicado como "Endereço IPV4".
 
 ![Definir o nome do host](/images/set-hostname.png)
 
-## Mudar o endereço IP do servidor
+## Mudar o endereço IP do servidor {#change_the_servers_ip_address}
 
 1. Vá para seu servidor na página "Droplets" da DigitalOcean.
 

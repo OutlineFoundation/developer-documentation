@@ -8,7 +8,7 @@ Outline ใช้การกำหนดค่าแบบอิงตาม YA
 โดยการกำหนดค่าระดับสูงจะระบุ
 [TunnelConfig](../reference/access-key-config#tunnelconfig)
 
-## ตัวอย่าง
+## ตัวอย่าง {#examples}
 
 การกำหนดค่า Shadowsocks แบบทั่วไปจะมีลักษณะดังนี้
 

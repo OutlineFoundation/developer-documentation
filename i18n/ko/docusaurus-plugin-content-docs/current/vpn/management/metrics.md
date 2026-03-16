@@ -7,13 +7,13 @@ Outline에서는 [Prometheus](https://prometheus.io/)를 통해 자세한 성능
 
 **중요 참고사항:** 이 가이드에서는 Prometheus와 PromQL을 기본적으로 알고 있다고 가정합니다. Prometheus를 모른다면 문서와 튜토리얼을 살펴본 후 Outline의 측정항목을 살펴보는 것이 좋습니다.
 
-## 기본 요건
+## 기본 요건 {#prerequisites}
 
 - **Prometheus가 사용 설정된 Outline 서버**: Outline 서버에 Prometheus 측정항목이 사용 설정되어 있어야 합니다. 이는 일반적으로 기본 구성입니다.
 
 - **서버에 대한 SSH 액세스**: Prometheus 포트를 전달하려면 SSH 액세스가 필요합니다.
 
-## 안내
+## 안내 {#instructions}
 
 1. **Prometheus 포트 전달**
 
@@ -29,9 +29,9 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 3. **PromQL 쿼리를 사용하여 관심 있는 특정 측정항목 검색**
 
-### PromQL 쿼리 예
+### PromQL 쿼리 예 {#example_promql_queries}
 
-#### 사용
+#### 사용 {#usage}
 
 - **데이터 바이트(액세스 키, 프로토콜, 방향별):**
 
@@ -49,11 +49,11 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### 활성 액세스 키
+#### 활성 액세스 키 {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### TCP 연결
+#### TCP 연결 {#tcp_connections}
 
 - **TCP 연결(액세스 키, 위치, 상태별):**
 
@@ -63,7 +63,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **UDP 패킷(위치, 상태별):**
 
@@ -73,7 +73,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### 성능
+#### 성능 {#performance}
 
 - **CPU 사용량(프로세스별):**
 
@@ -83,7 +83,7 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `process_virtual_memory_bytes`
 
-#### 빌드 정보
+#### 빌드 정보 {#build_information}
 
 - **Prometheus:**
 

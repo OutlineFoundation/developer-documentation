@@ -10,24 +10,24 @@ Creeremo un'applicazione di esempio denominata `splitfetch` che illustra una fun
 Potrai eseguire l'applicazione in **Linux, Mac e Windows**.
 Per l'integrazione con le app mobile, vedi [Aggiungere Outline SDK alla tua app mobile](mobile-app-integration).
 
-## Passaggio 1: configura Go
+## Passaggio 1: configura Go {#step_1_set_up_go}
 
 Per prima cosa avrai bisogno del [linguaggio di programmazione Go](https://go.dev/).
 Se hai già installato Go (versione 1.21 o successiva), puoi andare al passaggio successivo.
 
 Per l'installazione puoi seguire la [guida ufficiale](https://go.dev/doc/install) oppure, se usi un gestore di pacchetti:
 
-### Linux
+### Linux {#linux}
 
 Segui la procedura nella pagina del [Wiki di Go per Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### Mac
+### Mac {#mac}
 
 ```sh
 brew install go
 ```
 
-### Windows
+### Windows {#windows}
 
 ```powershell
 winget install --id=GoLang.Go  -e
@@ -39,7 +39,7 @@ Al termine, puoi verificare che Go sia stato installato correttamente eseguendo 
 go version
 ```
 
-## Passaggio 2: crea l'applicazione `splitfetch`
+## Passaggio 2: crea l'applicazione `splitfetch` {#step_2_create_the_splitfetch_application}
 
 È il momento di preparare il progetto `splitfetch`. Per prima cosa, crea la directory di progetto e inizializza un modulo Go:
 
@@ -56,7 +56,7 @@ go get github.com/Jigsaw-Code/outline-sdk@latest
 touch main.go
 ```
 
-## Passaggio 3: usa Outline SDK nell'applicazione
+## Passaggio 3: usa Outline SDK nell'applicazione {#step_3_use_outline_sdk_in_the_application}
 
 Apri il file `main.go` nel tuo editor di codice preferito e incolla il codice seguente nel file. Questo codice contiene tutta la logica per l'applicazione `splitfetch`.
 
@@ -123,7 +123,7 @@ Dopo aver salvato il codice, esegui il comando seguente nel terminale per assicu
 go mod tidy
 ```
 
-## Passaggio 4: esegui l'applicazione
+## Passaggio 4: esegui l'applicazione {#step_4_run_the_application}
 
 Ora che il codice è pronto, puoi eseguire l'applicazione `splitfetch`.
 
@@ -137,13 +137,13 @@ L'applicazione viene compilata ed eseguita, visualizzando il contenuto HTML dell
 
 Se vuoi creare e distribuire un programma autonomo eseguibile senza `go`, usa il comando `go build`:
 
-### Linux e Mac
+### Linux e Mac {#linux-mac}
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows
+### Windows {#windows_1}
 
 ```sh
 go build -o splitfetch.exe .

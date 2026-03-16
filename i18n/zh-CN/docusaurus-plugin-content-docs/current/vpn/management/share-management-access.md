@@ -7,15 +7,15 @@ sidebar_label: "Share Management Access"
 
 分享管理权限的方法因 Outline 服务器的初始部署方式而异。
 
-## 云服务提供商部署
+## 云服务提供商部署 {#cloud_provider_deployments}
 
 对于部署在 DigitalOcean、AWS 或 Google Cloud 等云平台上的 Outline 服务器，通常通过提供商的集成式身份和访问权限管理 (IAM) 功能来管控管理权限，与手动分享配置相比，这种方式更加安全可控。
 
-### DigitalOcean
+### DigitalOcean {#digitalocean}
 
 DigitalOcean 提供强大的**团队**功能，让您可以邀请其他 DigitalOcean 用户协同处理项目。对于托管在该平台上的 Outline 服务器，建议使用此功能来授予管理权限。
 
-#### 1. 向团队授予访问权限
+#### 1. 向团队授予访问权限 {#1_grant_team_access}
 
 要分享 DigitalOcean 上托管的 Outline 服务器的管理权限，最有效的方式是使用 DigitalOcean 的**团队**功能。
 
@@ -27,7 +27,7 @@ DigitalOcean 提供强大的**团队**功能，让您可以邀请其他 DigitalO
 
 - 邀请成员时，您可分配特定角色并授予特定资源（包括运行 Outline 的 Droplet）的访问权限。
 
-#### 2. 控制权限
+#### 2. 控制权限 {#2_control_permissions}
 
 谨慎考虑应授予团队成员哪种权限。如需对方管理 Outline 服务器，可授予特定 Droplet 的读写权限。这样他们便可以：
 
@@ -39,13 +39,13 @@ DigitalOcean 提供强大的**团队**功能，让您可以邀请其他 DigitalO
 
 现在，如果用户将 Outline 管理器关联到 DigitalOcean 账号，则可查看和管理该账号下的所有 Outline 服务器。
 
-## 手动安装
+## 手动安装 {#manual_installations}
 
 如果用户使用[安装脚本](../getting-started/server-setup-advanced)在自己的服务器上手动安装 Outline，那么授予管理权限的主要方法是分享**访问权限配置**。
 
 Outline 管理器应用需要使用特定的配置字符串来连接和管理 Outline 服务器。此配置字符串包含所有必要信息，包括服务器地址、端口和用于身份验证的密钥。
 
-### 1. 查找 `access.txt` 文件
+### 1. 查找 `access.txt` 文件 {#1_locate_the_accesstxt_file}
 
 在安装 Outline 的服务器上，前往 Outline 目录。具体位置可能因安装方法而略有不同，不过，常见的位置包括：
 
@@ -55,7 +55,7 @@ Outline 管理器应用需要使用特定的配置字符串来连接和管理 Ou
 
 - Outline 服务器容器使用的 Docker 卷内。
 
-### 2. 检索访问权限配置
+### 2. 检索访问权限配置 {#2_retrieve_the_access_config}
 
 找到 `access.txt` 文件后，将其转换为 JSON 格式，以便接下来在 Outline 管理器中使用。
 
@@ -69,7 +69,7 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
 
-### 3. 安全地分享访问权限配置
+### 3. 安全地分享访问权限配置 {#3_share_the_access_config_securely}
 
 复制输出内容并以安全的方式分享给新 Outline 管理员。避免通过未加密的渠道（例如纯文本邮件或即时消息）发送。建议使用密码管理工具的安全分享功能或其他加密通信方式。
 

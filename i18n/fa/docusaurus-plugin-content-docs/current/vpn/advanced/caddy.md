@@ -9,7 +9,7 @@ sidebar_label: "HTTPS with Caddy"
 پیکربندی انعطاف‌پذیر آن، Caddy را به انتخابی عالی برای ارائه سرور Outline شما
 بدل می‌کند، به‌ویژه وقتی از حمل‌ونقل WebSocket استفاده می‌کنید.
 
-## ‫Caddy چیست؟
+## ‫Caddy چیست؟ {#what_is_caddy}
 
 ‫Caddy سرور وب متن‌بازی است که به‌خاطر استفاده آسان، اچ‌تی‌تی‌پی‌اس،
 و پشتیبانی پروتکل‌های مختلف معروف است. پیکربندی‌های سرور وب را ساده می‌کند و
@@ -24,11 +24,11 @@ sidebar_label: "HTTPS with Caddy"
 - **توسعه‌پذیر با افزایه‌ها:** Caddy می‌تواند با افزونه‌ها توسعه یابد تا
 عملکردهای مختلفی را، ازجمله پراکسی معکوس و متوازن کردن بارگیری، پشتیبانی کند.
 
-## مرحله ۱: پیش‌نیازها
+## مرحله ۱: پیش‌نیازها {#step_1_prerequisites}
 
 - بارگیری و نصب کردن [`xcaddy`](https://github.com/caddyserver/xcaddy)
 
-## مرحله ۲: پیکربندی دامنه
+## مرحله ۲: پیکربندی دامنه {#step_2_configure_your_domain}
 
 پیش‌از راه‌اندازی کردن Caddy، مطمئن شوید نام دامنه‌تان به‌درستی پیکربندی شده است تا
 به نشانی IP سرورتان هدایت کند.
@@ -45,7 +45,7 @@ curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
   -H "accept: application/dns-json"
 ```
 
-## مرحله ۳: ساختن و اجرای ساختار سفارشی Caddy
+## مرحله ۳: ساختن و اجرای ساختار سفارشی Caddy {#build-and-run}
 
 بااستفاده از`xcaddy` می‌توانید دودویی سفارشی `caddy` بسازید که شامل واحد اصلی سرور Outline
 و واحدهای دیگر افزونه سرور که به آن‌ها نیاز دارید باشد.
@@ -58,7 +58,7 @@ xcaddy build \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
 ```
 
-## مرحله ۴: پیکربندی و اجرای سرور Caddy با Outline
+## مرحله ۴: پیکربندی و اجرای سرور Caddy با Outline {#step_4_configure_and_run_the_caddy_server_with_outline}
 
 فایل `config.yaml` جدیدی را با پیکربندی‌های زیر بسازید:
 
@@ -115,7 +115,7 @@ caddy run --config config.yaml --adapter yaml --watch
 نمونه‌های بیشتر برای پیکربندی را می‌توانید در [outline-ss-server/outlinecaddy GitHub
 repo](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples) ببینید.
 
-## مرحله ۵: ساختن کلید دسترسی پویا
+## مرحله ۵: ساختن کلید دسترسی پویا {#step_5_create_a_dynamic_access_key}
 
 بااستفاده از قالب [پیکربندی پیشرفته](../management/config)، فایل YAML مربوط به کلید دسترسی کارخواه را برای کاربرانتان تولید کنید
 و نقطه‌های پایانی WebSocket را
@@ -149,7 +149,7 @@ transport:
 تولید کنید. درباره چگونگی استفاده از [کلیدهای دسترسی
 پویا](../management/dynamic-access-keys) بیشتر بدانید.
 
-## مرحله ۶: اتصال با کارخواه Outline
+## مرحله ۶: اتصال با کارخواه Outline {#step_6_connect_with_the_outline_client}
 
 از یکی از برنامه‌های [کارخواه Outline](../../download-links) (نسخه ۱.۱۵.۰ یا بالاتر) رسمی استفاده کنید
 و کلید دسترسی پویایی را که به‌تازگی ساخته‌اید به‌عنوان

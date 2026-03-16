@@ -5,7 +5,7 @@ sidebar_label: "Download Links"
 
 Outline Manager와 Outline 클라이언트는 다음 링크에서 다운로드할 수 있습니다. Outline 설정에 관한 자세한 내용은 <https://getoutline.org/>에서 확인하세요.
 
-## Outline Manager
+## Outline Manager {#outline_manager}
 
 - **Windows:**
 <https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>
@@ -16,7 +16,7 @@ Outline Manager와 Outline 클라이언트는 다음 링크에서 다운로드�
 - **Linux:**
 <https://s3.amazonaws.com/outline-releases/manager/linux/stable/Outline-Manager.AppImage>
 
-## Outline 클라이언트
+## Outline 클라이언트 {#outline_client}
 
 - **Windows:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>

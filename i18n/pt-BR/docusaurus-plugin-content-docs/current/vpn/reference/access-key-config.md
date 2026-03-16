@@ -3,9 +3,9 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## Túneis
+## Túneis {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 O túnel é o objeto de mais alto nível em uma configuração do Outline. Ele especifica como a
 VPN deve ser configurada.
@@ -14,7 +14,7 @@ VPN deve ser configurada.
 [LegacyShadowsocksConfig](#legacyshadowsocksconfig) |
 [LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **Formato:** *struct*
 
@@ -52,9 +52,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## Transportes
+## Transportes {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 Especifica como os pacotes devem ser trocados com o destino pretendido.
 
@@ -64,7 +64,7 @@ Tipos de interface aceitos:
 
 - `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 O TCPUDPConfig permite definir estratégias TCP e UDP separadas.
 
@@ -95,13 +95,13 @@ udp:
   <<: *cipher
 ```
 
-## Endpoints
+## Endpoints {#endpoints}
 
 Os endpoints estabelecem conexões com um endpoint fixo. São preferíveis aos discadores,
 porque permitem otimizações específicas. Existem endpoints
 de fluxo e de pacote.
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **Formato:** *string* | [Interface](#interface)
 
@@ -118,7 +118,7 @@ Tipos de interface aceitos para endpoints de fluxo e pacote:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 Estabelece conexões discando um endereço fixo. Pode usar um discador, o que
 permite a composição de estratégias.
@@ -132,7 +132,7 @@ permite a composição de estratégias.
 - `dialer` ([DialerConfig](#dialerconfig)): discador a ser usado para discar o
 endereço
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 Conexões de fluxo e pacotes de túneis para um endpoint sobre Websockets.
 
@@ -149,12 +149,12 @@ em texto simples.
 
 - `endpoint` ([EndpointConfig](#endpointconfig)): endpoint (do servidor da Web) para conexão. Se não houver um, ele se conectará ao endereço especificado no URL.
 
-## Discadores
+## Discadores {#dialers}
 
 Os discadores estabelecem conexões de acordo com o endereço de um endpoint. Existem discadores de fluxo e
 de pacotes.
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **Formato:** *null* | [Interface](#interface)
 
@@ -167,12 +167,12 @@ Tipos de interface aceitos para discadores de fluxo e de pacotes:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-## Listeners de pacotes
+## Listeners de pacotes {#packet_listeners}
 
 Um listener de pacotes estabelece uma conexão de pacotes ilimitada que pode ser usada para
 enviar pacotes a vários destinos.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **Formato:** *null* | [Interface](#interface)
 
@@ -185,11 +185,11 @@ Tipos de interface aceitos:
 
 - `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)
 
-## Estratégias
+## Estratégias {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 O LegacyShadowsocksConfig representa um túnel que usa o Shadowsocks como
 transporte. Ele implementa o formato legado para compatibilidade com versões anteriores.
@@ -221,7 +221,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 O LegacyShadowsocksURI representa um túnel que usa o Shadowsocks como transporte.
 Ele implementa o formato legado de URL para compatibilidade com versões anteriores.
@@ -238,7 +238,7 @@ Exemplo:
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 O ShadowsocksConfig pode representar discadores de fluxo ou de pacotes, bem como um listener de pacotes que usa o Shadowsocks.
 
@@ -267,9 +267,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## Metadefinições
+## Metadefinições {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 Usa a primeira configuração aceita no aplicativo. Esta é uma maneira
 de incorporar novas configurações e, ao mesmo tempo, manter compatibilidade com outras antigas.
@@ -292,7 +292,7 @@ options:
   - ss.example.com:4321
 ```
 
-### Interface
+### Interface {#interface}
 
 As interfaces permitem escolher uma entre diversas implementações. Elas usam o campo
 `$type` para especificar o tipo que a configuração representa.

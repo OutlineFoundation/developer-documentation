@@ -3,15 +3,15 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-## Tunele
+## Tunele {#tunnels}
 
-### TunnelConfig
+### TunnelConfig {#tunnelconfig}
 
 Tunel to obiekt najwyższego poziomu w konfiguracji Outline. Określa, w jaki sposób należy skonfigurować usługę VPN.
 
 **Format:** [ExplicitTunnelConfig](#explicittunnelconfig) | [LegacyShadowsocksConfig](#legacyshadowsocksconfig) | [LegacyShadowsocksURI](#legacyshadowsocksuri)
 
-### ExplicitTunnelConfig
+### ExplicitTunnelConfig {#explicittunnelconfig}
 
 **Format:** *struct*
 
@@ -46,9 +46,9 @@ error:
   details: Used 100GB out of 100GB
 ```
 
-## Transporty
+## Transporty {#transports}
 
-### TransportConfig
+### TransportConfig {#transportconfig}
 
 Określa, w jaki sposób pakiet powinien zostać wymieniony z punktem docelowym.
 
@@ -58,7 +58,7 @@ Obsługiwane rodzaje interfejsów:
 
 - `tcpudp`: [TCPUDPConfig](#tcpudpconfig)
 
-### TCPUDPConfig
+### TCPUDPConfig {#tcpudpconfig}
 
 TCPUDPConfig umożliwia stosowanie oddzielnych strategii TCP i UDP.
 
@@ -87,11 +87,11 @@ udp:
   <<: *cipher
 ```
 
-## Punkty końcowe
+## Punkty końcowe {#endpoints}
 
 Punkty końcowe nawiązują połączenia ze stałym punktem końcowym. Jest to lepsze rozwiązanie niż dialery, ponieważ umożliwia optymalizację pod kątem określonych punktów końcowych. Istnieją strumieniowe i pakietowe punkty końcowe.
 
-### EndpointConfig
+### EndpointConfig {#endpointconfig}
 
 **Format:** *ciąg znaków* | [Interfejs](#interface)
 
@@ -107,7 +107,7 @@ Obsługiwane rodzaje interfejsów dla strumieniowych i pakietowych punktów ko�
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-### DialEndpointConfig
+### DialEndpointConfig {#dialendpointconfig}
 
 Nawiązuje połączenia poprzez wybieranie stałego adresu. Może potrzebować dialera umożliwiającego tworzenie strategii.
 
@@ -119,7 +119,7 @@ Nawiązuje połączenia poprzez wybieranie stałego adresu. Może potrzebować d
 
 - `dialer` ([DialerConfig](#dialerconfig)): dialer obsługujący wybieranie adresu
 
-### WebsocketEndpointConfig
+### WebsocketEndpointConfig {#websocketendpointconfig}
 
 Tunele obsługują strumieniowe i pakietowe połączenia do punktów końcowych przez protokoły Websocket.
 
@@ -133,11 +133,11 @@ W przypadku połączeń strumieniowych każdy zapis jest zamieniany w wiadomo�
 
 - `endpoint` ([EndpointConfig](#endpointconfig)): punkt końcowy serwera WWW, z którym ma być nawiązane połączenie. Jeśli go nie ma, nawiązywane jest połączenie z adresem określonym w URL.
 
-## Dialery
+## Dialery {#dialers}
 
 Dialery nawiązują połączenia z podanym adresem punktu końcowego. Istnieją dialery strumieniowe i pakietowe.
 
-### DialerConfig
+### DialerConfig {#dialerconfig}
 
 **Format:** *null* | [Interfejs](#interface)
 
@@ -149,11 +149,11 @@ Obsługiwane rodzaje interfejsów dla dialerów strumieniowych i pakietowych:
 
 - `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
 
-## Detektory pakietów
+## Detektory pakietów {#packet_listeners}
 
 Detektor pakietów nawiązuje nieograniczone połączenia pakietowe, które można wykorzystać do wysyłania pakietów do wielu punktów docelowych.
 
-### PacketListenerConfig
+### PacketListenerConfig {#packetlistenerconfig}
 
 **Format:** *null* | [Interfejs](#interface)
 
@@ -165,11 +165,11 @@ Obsługiwane rodzaje interfejsów:
 
 - `shadowsocks`: [ShadowsocksPacketListenerConfig](#shadowsocksconfig)S
 
-## Strategie
+## Strategie {#strategies}
 
-### Shadowsocks
+### Shadowsocks {#shadowsocks}
 
-#### LegacyShadowsocksConfig
+#### LegacyShadowsocksConfig {#legacyshadowsocksconfig}
 
 LegacyShadowsocksConfig reprezentuje tunel, który wykorzystuje Shadowsocks jako transport. Używa starszego formatu, aby uzyskać zgodność wsteczną.
 
@@ -198,7 +198,7 @@ password: SECRET
 prefix: "POST "
 ```
 
-#### LegacyShadowsocksURI
+#### LegacyShadowsocksURI {#legacyshadowsocksuri}
 
 LegacyShadowsocksURI reprezentuje tunel, który wykorzystuje Shadowsocks jako transport.
 Używa starszego formatu URL, aby uzyskać zgodność wsteczną.
@@ -213,7 +213,7 @@ Przykład:
 ss://chacha20-ietf-poly1305:SECRET@example.com:443?prefix=POST%20
 ```
 
-#### ShadowsocksConfig
+#### ShadowsocksConfig {#shadowsocksconfig}
 
 ShadowsocksConfig może reprezentować dialery strumieniowe i pakietowe oraz detektor pakietów, który korzysta z Shadowsocks.
 
@@ -239,9 +239,9 @@ secret: SECRET
 prefix: "POST "
 ```
 
-## Metadefinicje
+## Metadefinicje {#meta_definitions}
 
-### FirstSupportedConfig
+### FirstSupportedConfig {#firstsupportedconfig}
 
 Korzysta z pierwszej konfiguracji obsługiwanej przez aplikację. To sposób na wdrażanie nowych konfiguracji przy zachowaniu zgodności wstecznej ze starymi.
 
@@ -260,7 +260,7 @@ options:
   - ss.example.com:4321
 ```
 
-### Interfejs
+### Interfejs {#interface}
 
 Interfejs umożliwia wybranie jednej z wielu implementacji. Wykorzystuje pole `$type` do określenia rodzaju, który reprezentuje konfiguracja.
 

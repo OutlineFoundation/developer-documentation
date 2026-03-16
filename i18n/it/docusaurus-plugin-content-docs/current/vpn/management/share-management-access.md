@@ -7,15 +7,15 @@ Man mano che il tuo servizio Outline si espande, può essere necessario delegare
 
 Il metodo da usare per condividere l'accesso in gestione varia in base al modo in cui è stato eseguito il deployment iniziale del server Outline.
 
-## Distribuzioni in provider cloud
+## Distribuzioni in provider cloud {#cloud_provider_deployments}
 
 Per i server Outline distribuiti su piattaforme cloud, come DigitalOcean, AWS o Google Cloud, l'accesso in gestione viene in genere amministrato attraverso le funzionalità integrate di gestione di identità e accessi (IAM) del provider, che offrono un approccio più sicuro e controllato rispetto alla condivisione manuale della configurazione.
 
-### DigitalOcean
+### DigitalOcean {#digitalocean}
 
 DigitalOcean offre una valida funzionalità per i **team ** che consente di invitare altri utenti di DigitalOcean a collaborare ai tuoi progetti. Questo è il modo consigliato per concedere l'accesso in gestione al tuo server Outline ospitato sulla piattaforma DigitalOcean.
 
-#### 1. Concedi l'accesso al team
+#### 1. Concedi l'accesso al team {#1_grant_team_access}
 
 Il modo più efficiente per condividere la gestione del tuo server Outline ospitato su DigitalOcean è utilizzare la funzionalità **Teams** della piattaforma.
 
@@ -27,7 +27,7 @@ Il modo più efficiente per condividere la gestione del tuo server Outline ospit
 
 - Puoi assegnare ai membri che inviti nel team ruoli precisi e concedergli l'accesso a risorse specifiche, comprese le droplet che eseguono Outline.
 
-#### 2. Controlla le autorizzazioni
+#### 2. Controlla le autorizzazioni {#2_control_permissions}
 
 Valuta con attenzione le autorizzazioni da concedere ai membri del team. Per gestire il server Outline puoi concedere l'accesso in lettura e scrittura alla specifica droplet. Questo consentirà ai membri di:
 
@@ -39,13 +39,13 @@ Valuta con attenzione le autorizzazioni da concedere ai membri del team. Per ges
 
 A questo punto gli utenti che collegano Outline Manager al proprio account DigitalOcean saranno in grado di visualizzare e gestire tutti i server Outline collegati a quell'account.
 
-## Installazioni manuali
+## Installazioni manuali {#manual_installations}
 
 Per chi ha installato manualmente Outline sul proprio server utilizzando lo [script di installazione](../getting-started/server-setup-advanced), il metodo principale per concedere l'accesso in gestione consiste nel condividere la **configurazione di accesso**.
 
 L'applicazione Outline Manager ha bisogno di una specifica stringa di configurazione per eseguire la connessione a un server Outline e gestirlo. Questa stringa di configurazione contiene tutte le informazioni necessarie, tra cui l'indirizzo del server, la porta e una chiave segreta per l'autenticazione.
 
-### 1. Individua il file `access.txt`
+### 1. Individua il file `access.txt` {#1_locate_the_accesstxt_file}
 
 Sul server in cui è installato Outline, vai alla directory di Outline. La posizione esatta può variare leggermente in base al metodo di installazione, ma le posizioni comuni sono:
 
@@ -55,7 +55,7 @@ Sul server in cui è installato Outline, vai alla directory di Outline. La posiz
 
 - Nel volume Docker usato dal contenitore del server Outline
 
-### 2. Recupera la configurazione di accesso
+### 2. Recupera la configurazione di accesso {#2_retrieve_the_access_config}
 
 Dopo aver trovato il file `access.txt`, convertilo in JSON, il formato previsto da Outline Manager nel passaggio successivo.
 
@@ -69,7 +69,7 @@ L'output conterrà il fingerprint del certificato autofirmato (`certSha256`) e l
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
 
-### 3. Condividi la configurazione di accesso in modo sicuro
+### 3. Condividi la configurazione di accesso in modo sicuro {#3_share_the_access_config_securely}
 
 Copia l'output e condividilo in modo sicuro con il nuovo gestore di Outline. Evita di inviarlo tramite canali non crittografati, ad esempio email in testo normale o messaggistica immediata.
 Valuta la possibilità di utilizzare la funzionalità di condivisione sicura di un gestore delle password o un altro metodo di comunicazione crittografato.

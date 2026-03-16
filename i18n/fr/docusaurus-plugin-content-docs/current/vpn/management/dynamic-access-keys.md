@@ -7,7 +7,7 @@ Outline propose deux types de clés d'accès : des clés statiques et des clés
 
 Pour indiquer quelles informations d'accès vos clés d'accès dynamiques doivent utiliser, vous disposez de trois possibilités :
 
-### Utiliser un lien `ss://`
+### Utiliser un lien `ss://` {#use_an_ss_link}
 
 *Client Outline v1.8.1 et versions ultérieures*
 
@@ -19,7 +19,7 @@ Vous pouvez utiliser directement un lien `ss://` existant. Cette méthode est id
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Utiliser un objet JSON
+### Utiliser un objet JSON {#use_a_json_object}
 
 *Client Outline v1.8.0 et versions ultérieures*
 
@@ -44,7 +44,7 @@ Cette méthode vous permet de gérer tous les aspects de la connexion Outline de
 
 - **method** : méthode de chiffrement utilisée par le VPN (consultez les [algorithmes de chiffrement AEAD](https://shadowsocks.org/doc/aead.html) acceptés par Shadowsocks)
 
-### Utiliser un objet YAML
+### Utiliser un objet YAML {#use_a_yaml_object}
 
 *Client Outline v1.15.0 et versions ultérieures*
 
@@ -81,7 +81,7 @@ transport:
 
 Consultez [Configuration de la clé d'accès](config) pour découvrir plus en détail les différentes méthodes permettant de configurer l'accès à votre serveur Outline (transports, points de terminaison, composeurs, écouteurs de paquets, etc.).
 
-## Extraire les informations d'accès d'une clé statique
+## Extraire les informations d'accès d'une clé statique {#extract_access_information_from_a_static_key}
 
 Si vous avez déjà une clé d'accès statique, vous pouvez en extraire les informations pour créer une clé d'accès dynamique au format JSON ou YAML. Les clés d'accès statiques sont configurées comme ceci :
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Mot de passe** : `example`
 
-## Choisir une plate-forme d'hébergement
+## Choisir une plate-forme d'hébergement {#choose_a_hosting_platform}
 
 Maintenant que vous savez comment créer des clés d'accès dynamiques, vous devez choisir une plate-forme d'hébergement adaptée à la configuration de votre clé d'accès. Pour sélectionner la bonne plate-forme, il faut prendre en compte sa fiabilité, le degré de sécurité qu'elle fournit, sa facilité d'utilisation et sa résistance à la censure. Livrera-t-elle systématiquement vos informations de clé d'accès sans temps d'arrêt ? A-t-elle mis en place les mesures de sécurité adéquates pour protéger votre configuration ? Permet-elle de gérer vos informations de clé d'accès facilement ? Est-elle accessible dans les régions appliquant des politiques de censure sur Internet ?
 

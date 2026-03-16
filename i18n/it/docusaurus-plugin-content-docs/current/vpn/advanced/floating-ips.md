@@ -3,7 +3,7 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Introduzione
+## Introduzione {#introduction}
 
 A volte i server Outline possono trovarsi ad affrontare il problema di essere scoperti e bloccati
 da reti altamente censurate. È possibile e non troppo difficile recuperare
@@ -12,7 +12,7 @@ tecnologia internet che traduce i nomi di dominio (come `getoutline.org`) in
 indirizzi IP fisici (come `216.239.36.21`), e gli IP mobile, una funzionalità cloud
 che consente di assegnare più indirizzi IP a un server Outline.
 
-## Requisiti
+## Requisiti {#requirements}
 
 Per seguire questa guida è richiesta una bassa competenza tecnica. Una conoscenza
 di base del DNS è utile, ma non obbligatoria. Per un'introduzione, consulta la guida
@@ -25,7 +25,7 @@ provider cloud che consenta l'assegnazione di indirizzi IP (ad esempio Google Cl
 e qualsiasi registrar di domini (ad esempio
 [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)).
 
-## Istruzioni
+## Istruzioni {#instructions}
 
 1. L'elenco seguente riassume i passaggi per ruotare l'indirizzo IP di un server:
 
@@ -39,7 +39,7 @@ e qualsiasi registrar di domini (ad esempio
 
 6. Cambia il nome di dominio in modo che rimandi al nuovo indirizzo IP.
 
-## Crea un server Outline su DigitalOcean
+## Crea un server Outline su DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 Se disponi di un server DigitalOcean in esecuzione, vai al passaggio successivo.
 
@@ -51,7 +51,7 @@ nell'app.
 
 ![Crea server](/images/create-DO-server.png)
 
-## Crea un nome host per il tuo server
+## Crea un nome host per il tuo server {#make_a_hostname_for_your_server}
 
 1. Vai su [Google Domains](https://domains.google.com/m/registrar/) e
 fai clic su "Trova il dominio perfetto".
@@ -68,7 +68,7 @@ tutte le future chiavi di accesso utilizzino questo nome host anziché l'indiriz
 
 ![Imposta il nome host](/images/set-hostname.png)
 
-## Cambia l'indirizzo IP del server
+## Cambia l'indirizzo IP del server {#change_the_servers_ip_address}
 
 1. Accedi al tuo server nella pagina "Droplets" di DigitalOcean.
 

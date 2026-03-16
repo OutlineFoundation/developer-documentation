@@ -7,7 +7,7 @@ Outline biedt 2 typen toegangssleutels: statische en dynamische. Statische sleut
 
 Er zijn 3 indelingen om de toegangsinformatie op te geven die de dynamische toegangssleutels gebruiken:
 
-### Een `ss://`-link gebruiken
+### Een `ss://`-link gebruiken {#use_an_ss_link}
 
 *Outline-client v1.8.1+.*
 
@@ -19,7 +19,7 @@ Je kunt een bestaande `ss://`-link rechtstreeks gebruiken. Deze methode is ideaa
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Een json-object gebruiken
+### Een json-object gebruiken {#use_a_json_object}
 
 *Outline-client v1.8.0+.*
 
@@ -44,7 +44,7 @@ Met deze methode heb je de flexibiliteit om alle aspecten van de Outline-verbind
 
 - **method:** De versleutelingsmethode die de VPN gebruikt. Controleer de door Shadowsocks ondersteunde [AEAD-coderingen](https://shadowsocks.org/doc/aead.html).
 
-### Een YAML-object gebruiken
+### Een YAML-object gebruiken {#use_a_yaml_object}
 
 *Outline-client v1.15.0+.*
 
@@ -81,7 +81,7 @@ transport:
 
 Ga naar [Configuratie van toegangssleutel](config) voor informatie over alle manieren waarop je de toegang tot je Outline-server kunt instellen, inclusief transporten, eindpunten, dialers en pakketlisteners.
 
-## Toegangsinformatie ophalen uit een statische sleutel
+## Toegangsinformatie ophalen uit een statische sleutel {#extract_access_information_from_a_static_key}
 
 Als je een bestaande statische sleutel hebt, kun je de informatie daaruit ophalen om een op json of YAML gebaseerde dynamische toegangssleutel te maken. Statische toegangssleutels volgen dit patroon:
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Wachtwoord**: `example`
 
-## Een hostingplatform kiezen
+## Een hostingplatform kiezen {#choose_a_hosting_platform}
 
 Nu je weet hoe je dynamische toegangssleutels maakt, is het belangrijk dat je een geschikt hostingplatform kiest voor de configuratie van je toegangssleutel. Neem hierbij de betrouwbaarheid, de beveiliging, het gebruiksgemak en de weerbaarheid tegen censuur in overweging. Geeft het platform je toegangssleutel continu weer zonder downtime? Biedt het platform de juiste beveiligingsmaatregelen om je configuratie te beschermen? Hoe makkelijk is het om de gegevens van je toegangssleutel te beheren via het platform? Is het platform toegankelijk in regio's waar het internet wordt gecensureerd?
 

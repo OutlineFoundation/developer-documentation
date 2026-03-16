@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 **Smart Dialer** จะค้นหากลยุทธ์ที่เลิกบล็อก DNS และ TLS สำหรับรายการโดเมนทดสอบที่ระบุ ซึ่งจะใช้การกำหนดค่าที่อธิบายรายละเอียดกลยุทธ์ต่างๆ เพื่อให้เลือกใช้งานได้
 
-## การกำหนดค่า YAML สำหรับ Smart Dialer
+## การกำหนดค่า YAML สำหรับ Smart Dialer {#yaml_config_for_the_smart_dialer}
 
 การกำหนดค่าที่ Smart Dialer ใช้จะอยู่ในรูปแบบ YAML ดังตัวอย่างต่อไปนี้
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### การกำหนดค่า DNS
+### การกำหนดค่า DNS {#dns_configuration}
 
 - ฟิลด์ `dns` จะระบุรายการรีโซลเวอร์ DNS ที่จะทดสอบ
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`: ใช้รีโซลเวอร์ TCP
 
-#### รีโซลเวอร์ DNS-over-HTTPS (DoH)
+#### รีโซลเวอร์ DNS-over-HTTPS (DoH) {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`: host:port ของเซิร์ฟเวอร์ DoH ค่าเริ่มต้นคือ `name`:443
 
-#### รีโซลเวอร์ DNS-over-TLS (DoT)
+#### รีโซลเวอร์ DNS-over-TLS (DoT) {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`: host:port ของเซิร์ฟเวอร์ DoT ค่าเริ่มต้นคือ `name`:853
 
-#### รีโซลเวอร์ UDP
+#### รีโซลเวอร์ UDP {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`: host:port ของรีโซลเวอร์ UDP
 
-#### รีโซลเวอร์ TCP
+#### รีโซลเวอร์ TCP {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`: host:port ของรีโซลเวอร์ TCP
 
-### การกำหนดค่า TLS
+### การกำหนดค่า TLS {#tls_configuration}
 
 - ฟิลด์ `tls` จะระบุรายการการรับส่งข้อมูล TLS ที่จะทดสอบ
 
@@ -92,7 +92,7 @@ tcp:
 - เช่น `override:host=cloudflare.net|tlsfrag:1` จะระบุการรับส่งข้อมูลที่ใช้การทำ Domain Fronting ด้วย Cloudflare และการกระจาย Fragment ของ TLS ดูรายละเอียดได้จาก
 [เอกสารประกอบการกำหนดค่า](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
 
-### การกำหนดค่าสำรอง
+### การกำหนดค่าสำรอง {#fallback_configuration}
 
 การกำหนดค่าสำรองจะใช้ในกรณีที่ไม่มีกลยุทธ์ปลอดพร็อกซีที่สามารถเชื่อมต่อได้ เช่น การกำหนดค่านี้ระบุพร็อกซีเซิร์ฟเวอร์สำรองเพื่อพยายามทำการเชื่อมต่อของผู้ใช้ การใช้การกำหนดค่าสำรองจะเริ่มต้นได้ช้ากว่า เนื่องจากต้องให้กลยุทธ์ DNS/TLS อื่นๆ ต้องล้มเหลว/หมดเวลาก่อน
 
@@ -102,21 +102,21 @@ tcp:
 
 - ออบเจ็กต์การกำหนดค่า Psiphon ที่ถูกต้องเป็นรายการย่อยของฟิลด์ `psiphon`
 
-#### ตัวอย่างเซิร์ฟเวอร์ Shadowsocks
+#### ตัวอย่างเซิร์ฟเวอร์ Shadowsocks {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### ตัวอย่างเซิร์ฟเวอร์ SOCKS5
+#### ตัวอย่างเซิร์ฟเวอร์ SOCKS5 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### ตัวอย่างการกำหนดค่า Psiphon
+#### ตัวอย่างการกำหนดค่า Psiphon {#psiphon_config_example}
 
 หากต้องการใช้เครือข่าย [Psiphon](https://psiphon.ca/) คุณจะต้องทำดังนี้
 
@@ -135,7 +135,7 @@ fallback:
     }
 ```
 
-### วิธีใช้ Smart Dialer
+### วิธีใช้ Smart Dialer {#how_to_use_the_smart_dialer}
 
 หากต้องการใช้ Smart Dialer ให้สร้างออบเจ็กต์ `StrategyFinder` และเรียกใช้เมธอด
 `NewDialer` ซึ่งส่งผ่านในรายการโดเมนทดสอบและการกำหนดค่า YAML

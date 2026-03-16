@@ -11,7 +11,7 @@ entornos donde se bloquean las conexiones comunes de Shadowsocks. Encapsular
 el tráfico de Shadowsocks en WebSockets puede disfrazarlo como tráfico web,
 lo que mejora la resiliencia y la accesibilidad.
 
-## Paso 1: Configura y ejecuta un servidor de Outline
+## Paso 1: Configura y ejecuta un servidor de Outline {#step_1_configure_and_run_an_outline_server}
 
 Crea un archivo `config.yaml` con la siguiente configuración:
 
@@ -43,7 +43,7 @@ y ejecútala con la configuración que creaste:
 outline-ss-server -config=config.yaml
 ```
 
-## Paso 2: Expón el servidor web
+## Paso 2: Expón el servidor web {#step_2_expose_the_web_server}
 
 Para que tu servidor web WebSocket sea de acceso público, deberás exponerlo
 a Internet y configurar
@@ -55,7 +55,7 @@ utilizar un servicio de tunelización como [Cloudflare
 Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 o [ngrok](https://ngrok.com/).
 
-### Ejemplo de uso de TryCloudflare
+### Ejemplo de uso de TryCloudflare {#example_using_trycloudflare}
 
 En este ejemplo, usaremos
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)
@@ -75,7 +75,7 @@ Cloudflare proporcionará un subdominio (p. ej.,
 y controlar TLS automáticamente. Anota este subdominio, ya que lo necesitarás más
 adelante.
 
-## Paso 3: Crea una clave de acceso dinámica
+## Paso 3: Crea una clave de acceso dinámica {#step_3_create_a_dynamic_access_key}
 
 Genera un archivo YAML de clave de acceso de cliente para tus usuarios usando el formato de [configuración de claves de
 acceso](../management/config) y, luego, incluye los extremos de WebSocket previamente
@@ -109,7 +109,7 @@ usuarios. Puedes alojar el archivo en un servicio de hosting web estático o gen
 dinámicamente. Obtén más información para usar [claves de acceso
 dinámicas](../management/dynamic-access-keys).
 
-## Paso 4: Conecta el servidor con el cliente de Outline
+## Paso 4: Conecta el servidor con el cliente de Outline {#step_4_connect_with_the_outline_client}
 
 Usa una de las apps oficiales del [cliente de Outline](../../download-links)
 (versión 1.15.0 como mínimo) y agrega la clave de acceso dinámica que acabas de crear como

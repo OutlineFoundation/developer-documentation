@@ -5,7 +5,7 @@ sidebar_label: "What is the SDK?"
 
 Outline SDK, geliştiricilerin ağ düzeyinde müdahale ve sansüre karşı koruma sağlayan uygulamalar oluşturmalarına yardımcı olmak amacıyla tasarlanmış bir kitaplık ve araç koleksiyonudur.
 
-## Outline SDK ile yapabilecekleriniz
+## Outline SDK ile yapabilecekleriniz {#what_can_you_do_with_the_outline_sdk}
 
 - **Ağ müdahaleleriyle başa çıkacak araçlar geliştirme**\
 
@@ -19,7 +19,7 @@ Kullanıcıları ağ düzeyinde müdahalelere karşı korumak ve açık internet
 
 Bağlantı sorunlarını teşhis etmek, ağ müdahalelerinin boyutunu ölçmek ve farklı açıklardan yararlanma stratejilerini test etmek için birlikte gelen komut satırı araçlarını kullanabilirsiniz.
 
-## Temel Avantajları
+## Temel Avantajları {#key_advantages}
 
 - **Çoklu platform**\
 

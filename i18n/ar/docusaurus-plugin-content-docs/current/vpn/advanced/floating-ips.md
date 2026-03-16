@@ -3,7 +3,7 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## مقدمة
+## مقدمة {#introduction}
 
 يمكن أن تواجه خوادم Outline أحيانًا مشكلة أن تُكشف هويتها وتُحظر
 من الوصول إلى الشبكات الخاضعة للرقابة العالية. ولن يكون من الصعب استرداد
@@ -12,7 +12,7 @@ sidebar_label: "Domain with Floating IPs"
 عناوين IP واقعية (مثل `216.239.36.21`) و"عناوين IP عائمة"، وهي إحدى ميزات السحابة الإلكترونية
 والتي تسمح بتعيين أكثر من عنوان IP إلى خادم Outline واحد.
 
-## المتطلبات
+## المتطلبات {#requirements}
 
 لا بد من أن يكون لديك الحد الأدنى من المهارة الفنية لفهم هذا الدليل. وسيكون الإلمام
 بأساسيات نظام أسماء النطاقات مفيدًا، ولكنّه ليس ضروريًا. يُرجى الاطّلاع على دليل
@@ -25,7 +25,7 @@ sidebar_label: "Domain with Floating IPs"
 وأي جهة تسجيل نطاقات (مثل
 [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)).
 
-## التعليمات
+## التعليمات {#instructions}
 
 1. تُلخص القائمة التالية خطوات تغيير عنوان IP الخاصّ بخادم:
 
@@ -39,7 +39,7 @@ sidebar_label: "Domain with Floating IPs"
 
 6. غيِّر اسم النطاق ليشير إلى عنوان IP الجديد.
 
-## كيف أنشئ خادم Outline على DigitalOcean؟
+## كيف أنشئ خادم Outline على DigitalOcean؟ {#create_an_outline_server_on_digitalocean}
 
 إذا كان لديك خادم DigitalOcean مُشغَّلاً، تخطَّ هذه الخطوة.
 
@@ -51,7 +51,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![إنشاء خادم](/images/create-DO-server.png)
 
-## إنشاء اسم مضيف للخادم
+## إنشاء اسم مضيف للخادم {#make_a_hostname_for_your_server}
 
 1. انتقِل إلى [Google Domains](https://domains.google.com/m/registrar/) ثمّ
 انقر على "البحث عن النطاق المناسب".
@@ -68,7 +68,7 @@ sidebar_label: "Domain with Floating IPs"
 
 ![ضبط اسم المضيف](/images/set-hostname.png)
 
-## كيف أغير عنوان IP الخاصّ بالخادم؟
+## كيف أغير عنوان IP الخاصّ بالخادم؟ {#change_the_servers_ip_address}
 
 1. انتقِل إلى الخادم في صفحة Droplets على DigitalOcean.
 

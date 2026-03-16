@@ -11,7 +11,7 @@ recupero e visualizzazione di queste metriche.
 Prometheus e PromQL. Se sei nuovo di Prometheus, prendi in considerazione di esplorare la sua
 documentazione e i suoi tutorial prima di immergerti nelle metriche di Outline.
 
-## Prerequisiti
+## Prerequisiti {#prerequisites}
 
 - **Server Outline con Prometheus abilitato**: assicurati che il tuo server Outline
 abbia le metriche Prometheus abilitate (di solito questa è la configurazione predefinita).
@@ -19,7 +19,7 @@ abbia le metriche Prometheus abilitate (di solito questa è la configurazione pr
 - **Accesso SSH al tuo server**: avrai bisogno dell'accesso SSH per inoltrare la porta
 di Prometheus.
 
-## Istruzioni
+## Istruzioni {#instructions}
 
 1. **Inoltra la porta Prometheus**
 
@@ -36,9 +36,9 @@ Interroga le metriche di Prometheus
 
 3. **Utilizza le query PromQL per recuperare le metriche specifiche che ti interessano.**
 
-### Esempio di query PromQL
+### Esempio di query PromQL {#example_promql_queries}
 
-#### Utilizzo
+#### Utilizzo {#usage}
 
 - **Byte di dati (tramite chiave di accesso, protocollo e direzione):**
 
@@ -56,11 +56,11 @@ Interroga le metriche di Prometheus
 
 `increase(shadowsocks_data_bytes_per_location[1d])`
 
-#### Chiavi di accesso attive
+#### Chiavi di accesso attive {#active_access_keys}
 
 `sum(max(max_over_time(shadowsocks_data_bytes{access_key!=""} [1h])) by (access_key) > bool 0)`
 
-#### Connessioni TCP
+#### Connessioni TCP {#tcp_connections}
 
 - **Connessioni TCP (in base a chiave di accesso, località e stato):**
 
@@ -70,7 +70,7 @@ Interroga le metriche di Prometheus
 
 `increase(shadowsocks_tcp_connections_opened[1d])`
 
-#### UDP
+#### UDP {#udp}
 
 - **Pacchetti UDP (in base a località e stato):**
 
@@ -80,7 +80,7 @@ Interroga le metriche di Prometheus
 
 `increase(shadowsocks_udp_nat_entries_added[1d])`
 
-#### Prestazioni
+#### Prestazioni {#performance}
 
 - **Utilizzo CPU (in base al processo):**
 
@@ -90,7 +90,7 @@ Interroga le metriche di Prometheus
 
 `process_virtual_memory_bytes`
 
-#### Informazioni sulla build
+#### Informazioni sulla build {#build_information}
 
 - **Prometheus:**
 

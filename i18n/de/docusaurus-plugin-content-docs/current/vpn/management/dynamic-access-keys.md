@@ -7,7 +7,7 @@ Outline bietet zwei Arten von Zugriffsschlüsseln: statische und dynamische. Sta
 
 Die Zugangsinformationen für die dynamischen Zugangsschlüssel lassen sich in drei verschiedenen Formaten angeben:
 
-### `ss://`-Link
+### `ss://`-Link {#use_an_ss_link}
 
 *Outline-Client v1.8.1+*
 
@@ -19,7 +19,7 @@ Sie können einen vorhandenen `ss://`-Link direkt verwenden. Diese Methode ist i
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### JSON-Objekt
+### JSON-Objekt {#use_a_json_object}
 
 *Outline-Client v1.8.0+*
 
@@ -44,7 +44,7 @@ Diese Methode bietet flexiblere Möglichkeiten, alle Aspekte der Outline-Verbind
 
 - **method:** die vom VPN genutzte Verschlüsselungsmethode. Von Shadowsocks unterstützte [AEAD-Chiffren](https://shadowsocks.org/doc/aead.html)
 
-### YAML-Objekt
+### YAML-Objekt {#use_a_yaml_object}
 
 *Outline-Client v1.15.0+*
 
@@ -81,7 +81,7 @@ transport:
 
 Detaillierte Informationen zu allen Möglichkeiten zur Konfiguration des Zugriffs auf Ihren Online-Server, einschließlich Transport, Endpunkte, Dialer und Packet-Listener, finden Sie unter [Access Key Configuration](config).
 
-## Zugriffsinformationen aus einem statischen Schlüssel extrahieren
+## Zugriffsinformationen aus einem statischen Schlüssel extrahieren {#extract_access_information_from_a_static_key}
 
 Wenn Sie einen vorhandenen statischen Zugriffsschlüssel haben, können Sie die Informationen extrahieren, um einen JSON- oder YAML-basierten dynamischen Zugriffsschlüssel zu erstellen. Statische Zugriffsschlüssel haben das folgende Muster:
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Passwort**: `example`
 
-## Hostingplattform auswählen
+## Hostingplattform auswählen {#choose_a_hosting_platform}
 
 Jetzt wissen Sie, wie dynamische Zugriffsschlüssel erstellt werden. Als Nächstes müssen Sie eine geeignete Hostingplattform für die Konfiguration des Zugriffsschlüssels auswählen. Bei dieser Entscheidung sollten Sie Faktoren wie Zuverlässigkeit, Sicherheit, Nutzerfreundlichkeit und Zensurresistenz berücksichtigen. Sind Ihre Zugriffsschlüssel-Informationen auf der Plattform ohne Unterbrechung verfügbar? Bietet sie geeignete Sicherheitsmechanismen zum Schutz Ihrer Konfiguration? Wie einfach ist es, die Zugriffsschlüssel-Informationen auf der Plattform zu verwalten? Ist die Plattform in Regionen mit Internetzensur verfügbar?
 

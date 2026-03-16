@@ -9,7 +9,7 @@ sidebar_label: "HTTPS with Caddy"
 إعداداته السهلة تجعل منه الخيار الأمثل لتشغيل خادم
 Outline، خصوصًا في حال استخدام نقطة اتصال WebSocket.
 
-## ما هو خادم Caddy؟
+## ما هو خادم Caddy؟ {#what_is_caddy}
 
 ‫Caddy هو خادم ويب مفتوح المصدر معروف بسهولة استخدامه وتوافقه مع بروتوكول HTTPS التلقائي
 وغيره من البروتوكولات الأخرى، إلى جانب تسهيل عملية ضبط خادم الويب و
@@ -24,11 +24,11 @@ Outline، خصوصًا في حال استخدام نقطة اتصال WebSocket.
 - **قابلية التوسّع من خلال المكوّنات الإضافية:** يمكن توسيع نطاق خادم Caddy باستخدام المكوّنات الإضافية لإتاحة
 وظائف متعدّدة، بما في ذلك خدمة الخادم الوكيل العكسي وموازنة الحمل.
 
-## الخطوة 1: المتطلبات الأساسية
+## الخطوة 1: المتطلبات الأساسية {#step_1_prerequisites}
 
 - يجب تنزيل وتثبيت [`xcaddy`](https://github.com/caddyserver/xcaddy)
 
-## الخطوة 2: ضبط النطاق
+## الخطوة 2: ضبط النطاق {#step_2_configure_your_domain}
 
 قبل بدء استخدام Caddy، يُرجى التأكُّد من أنّ اسم النطاق تم ضبطه بشكل صحيح ليشير
 إلى عنوان IP الخاص بالخادم.
@@ -45,7 +45,7 @@ curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
   -H "accept: application/dns-json"
 ```
 
-## الخطوة 3: إنشاء إصدار Caddy مخصّص وتشغيله
+## الخطوة 3: إنشاء إصدار Caddy مخصّص وتشغيله {#build-and-run}
 
 باستخدام `xcaddy`، يمكنك إنشاء برنامج `caddy` ثنائي مخصّص يتضمّن الوحدة
 الأساسية لخادم Outline ووحدات إضافات الخادم الأخرى التي سنحتاج إليها.
@@ -58,7 +58,7 @@ xcaddy build \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
 ```
 
-## الخطوة 4: ضبط خادم Caddy وتشغيله مع Outline
+## الخطوة 4: ضبط خادم Caddy وتشغيله مع Outline {#step_4_configure_and_run_the_caddy_server_with_outline}
 
 عليك إنشاء ملف `config.yaml` جديد بالإعدادات التالية:
 
@@ -113,7 +113,7 @@ caddy run --config config.yaml --adapter yaml --watch
 
 ويمكنك الاطّلاع على المزيد من الأمثلة عن الإعدادات في مستودع GitHub على [outline-ss-server/outlinecaddy](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples).
 
-## الخطوة 5: إنشاء مفتاح وصول ديناميكي
+## الخطوة 5: إنشاء مفتاح وصول ديناميكي {#step_5_create_a_dynamic_access_key}
 
 يجب إنشاء ملف YAML يتضمّن مفتاح وصول يمكن استخدامه في تطبيق &quot;عميل Outline&quot; للمستخدمين باستخدام تنسيق [الإعدادات
 المتقدّمة](../management/config)، ثم تضمين نقاط نهاية WebSocket التي تم
@@ -147,7 +147,7 @@ transport:
 بشكل ديناميكي. مزيد من المعلومات حول كيفية استخدام [مفاتيح الوصول
 الديناميكية](../management/dynamic-access-keys)
 
-## الخطوة 6: الربط بتطبيق &quot;عميل Outline&quot;
+## الخطوة 6: الربط بتطبيق &quot;عميل Outline&quot; {#step_6_connect_with_the_outline_client}
 
 يجب استخدام أحد تطبيقات [عميل Outline](../../download-links)
 الرسمية (الإصدار 1.15.0 والإصدارات الأحدث) ثم إضافة مفتاح الوصول الديناميكي المُنشأ حديثًا

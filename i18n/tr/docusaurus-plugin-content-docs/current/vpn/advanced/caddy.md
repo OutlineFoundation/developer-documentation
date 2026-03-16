@@ -5,7 +5,7 @@ sidebar_label: "HTTPS with Caddy"
 
 Bu rehberde, güçlü ve kullanıcı dostu [Caddy](https://caddyserver.com/) web sunucusunu kullanarak Outline sunucu kurulumunuzu nasıl optimize edeceğiniz gösterilmektedir. [Otomatik HTTPS](https://caddyserver.com/docs/automatic-https) özellikleri ve esnek yapılandırması sayesinde Caddy, özellikle WebSocket taşıyıcısı kullanılırken Outline sunucunuzu desteklemek için ideal bir seçenektir.
 
-## Caddy nedir?
+## Caddy nedir? {#what_is_caddy}
 
 Caddy; kullanım kolaylığı, otomatik HTTPS ve çeşitli protokolleri desteklemesiyle bilinen açık kaynaklı bir web sunucusudur. Web sunucusu yapılandırmasını basitleştirir ve şu gibi özelliklere sahiptir:
 
@@ -15,11 +15,11 @@ Caddy; kullanım kolaylığı, otomatik HTTPS ve çeşitli protokolleri destekle
 
 - **Eklentilerle genişletilebilirlik:** Caddy, ters proxy ve yük dengeleme gibi çeşitli işlevleri desteklemek için eklentilerle genişletilebilir.
 
-## 1. adım: Ön koşullar
+## 1. adım: Ön koşullar {#step_1_prerequisites}
 
 - [`xcaddy`](https://github.com/caddyserver/xcaddy)'yi indirip yükleyin.
 
-## 2. adım: Alan adınızı yapılandırın
+## 2. adım: Alan adınızı yapılandırın {#step_2_configure_your_domain}
 
 Caddy'yi başlatmadan önce alan adınızın, sunucunuzun IP adresini gösterecek şekilde doğru yapılandırıldığından emin olun.
 
@@ -32,7 +32,7 @@ curl "https://cloudflare-dns.com/dns-query?name=<DOMAIN_NAME>&type=A" \
   -H "accept: application/dns-json"
 ```
 
-## 3. adım: Özel Caddy derlemesi oluşturup çalıştırın
+## 3. adım: Özel Caddy derlemesi oluşturup çalıştırın {#build-and-run}
 
 `xcaddy` kullanarak, Outline temel sunucu modülünü ve diğer gerekli sunucu uzantısı modüllerini içeren özel bir `caddy` ikili programı oluşturabilirsiniz.
 
@@ -44,7 +44,7 @@ xcaddy build \
   --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
 ```
 
-## 4. adım: Outline ile Caddy sunucusunu yapılandırıp çalıştırın
+## 4. adım: Outline ile Caddy sunucusunu yapılandırıp çalıştırın {#step_4_configure_and_run_the_caddy_server_with_outline}
 
 Aşağıdaki yapılandırmayı kullanarak yeni bir `config.yaml` dosyası oluşturun:
 
@@ -97,7 +97,7 @@ caddy run --config config.yaml --adapter yaml --watch
 
 [outline-ss-server/outlinecaddy GitHub depomuzda](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples) daha fazla sayıda örnek yapılandırma bulabilirsiniz.
 
-## 5. adım: Dinamik erişim anahtarı oluşturun
+## 5. adım: Dinamik erişim anahtarı oluşturun {#step_5_create_a_dynamic_access_key}
 
 [Gelişmiş yapılandırma](../management/config) biçimini kullanarak kullanıcılarınız için istemci erişim anahtarlarını içeren bir YAML dosyası oluşturun ve sunucu tarafında önceden yapılandırılmış WebSocket uç noktalarını ekleyin:
 
@@ -126,7 +126,7 @@ transport:
 
 Dinamik erişim anahtarlarını içeren YAML dosyasını oluşturduktan sonra bu dosyayı kullanıcılarınıza iletmeniz gerekir. Dosyayı statik bir web barındırma hizmetinde barındırabilir veya dinamik olarak oluşturabilirsiniz. [Dinamik erişim anahtarlarını](../management/dynamic-access-keys) kullanma hakkında daha fazla bilgi edinin.
 
-## 6. adım: Outline istemcisine bağlanın
+## 6. adım: Outline istemcisine bağlanın {#step_6_connect_with_the_outline_client}
 
 Resmi [Outline istemcisi](../../download-links) uygulamalarından birini kullanın (1.15.0 ve sonraki sürümler) ve yeni oluşturduğunuz dinamik erişim anahtarını sunucu girişi olarak ekleyin. "Shadowsocks-over-Websocket" yapılandırmasını kullanarak sunucunuza tünel oluşturmak için **Bağlan**'ı tıklayın.
 

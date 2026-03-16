@@ -15,6 +15,6 @@ In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung eines 
 
 5. Der Outline-Manager zeigt Ihnen Schritt für Schritt, wie Sie einen Server erstellen.
 
-## Nächste Schritte
+## Nächste Schritte {#next_steps}
 
 Jetzt ist Ihr Outline-Server eingerichtet und Sie können den Zugriff für Ihre Nutzer freigeben.

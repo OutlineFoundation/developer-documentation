@@ -7,7 +7,7 @@ Outline 提供两种类型的访问密钥：静态访问密钥和动态访问密
 
 您可以通过以下三种格式指定动态访问密钥所用的访问信息：
 
-### 使用 `ss://` 链接
+### 使用 `ss://` 链接 {#use_an_ss_link}
 
 Outline 客户端 1.8.1 及以上版本。**
 
@@ -19,7 +19,7 @@ Outline 客户端 1.8.1 及以上版本。**
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### 使用 JSON 对象
+### 使用 JSON 对象 {#use_a_json_object}
 
 Outline 客户端 1.8.0 及以上版本。**
 
@@ -44,7 +44,7 @@ Outline 客户端 1.8.0 及以上版本。**
 
 - **method**：VPN 使用的加密方法。请参阅 Shadowsocks 支持的 [AEAD 加密](https://shadowsocks.org/doc/aead.html)。
 
-### 使用 YAML 对象
+### 使用 YAML 对象 {#use_a_yaml_object}
 
 Outline 客户端 1.15.0 及以上版本。**
 
@@ -81,7 +81,7 @@ transport:
 
 如需详细了解配置 Outline 服务器访问权限的所有方式（包括传输、端点、拨号器和数据包监听器），请参阅[访问密钥配置](config)。
 
-## 从静态密钥中提取访问信息
+## 从静态密钥中提取访问信息 {#extract_access_information_from_a_static_key}
 
 如果您已有静态访问密钥，则可以从中提取信息来创建基于 JSON 或 YAML 的动态访问密钥。静态访问密钥遵循以下模式：
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **密码**：`example`
 
-## 选择托管平台
+## 选择托管平台 {#choose_a_hosting_platform}
 
 您已了解了如何创建动态访问密钥，而为访问密钥配置选择一个合适的托管平台也非常重要。进行选择时，请综合考虑平台的可靠性、安全性、易用性和抗审查能力等因素。平台能否始终如一地提供访问密钥信息而不中断？平台能否提供适当的安全措施来保护您的配置？在平台上管理访问密钥信息的难易程度如何？平台能否在实行互联网审查制度的地区顺畅访问？
 

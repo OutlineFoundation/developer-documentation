@@ -5,13 +5,13 @@ sidebar_label: "Share Access"
 
 Outline sunucunuzu başarıyla yükledikten sonra, Outline Manager'daki sunucu ayrıntıları sayfasına yönlendirilirsiniz. Bir merkez görevi gören bu sayfada, [erişim anahtarlarınızı](../../concepts#access-keys) kullanarak sunucunuza yönelik erişimi ayarlayıp yönetebilirsiniz.
 
-## Erişim anahtarı oluşturma ve paylaşma
+## Erişim anahtarı oluşturma ve paylaşma {#create_and_share_access_keys}
 
 - **Yeni anahtar oluşturma:** Yeni anahtar oluşturmak için sayfanın alt kısmındaki küçük **+** simgesini tıklayın.
 
 - **Yeni anahtarı paylaşma:** Her anahtarın sağ tarafındaki paylaş simgesini tıklayarak bir davetiyeye ulaşabilirsiniz. Bu davetiyeyi kopyalayıp tercih ettiğiniz mesajlaşma platformu üzerinden ilgili kullanıcıya iletebilirsiniz.
 
-### Kullanıcıları davet etme süreci
+### Kullanıcıları davet etme süreci {#user_invitation_process}
 
 Davetiyeyi aldıktan sonra, kullanıcı Outline sunucunuza bağlanmak için şu adımları izler:
 
@@ -23,7 +23,7 @@ Davetiyeyi aldıktan sonra, kullanıcı Outline sunucunuza bağlanmak için şu 
 
 4. Artık kullanıcı Outline uygulamasındaki **Bağlan** ve **Bağlantıyı kes** düğmelerini kullanarak Outline sunucunuz üzerinden internete erişimini kontrol edebilir.
 
-## Sunucunuza erişimi iptal etme
+## Sunucunuza erişimi iptal etme {#revoke_access_to_your_server}
 
 Kullanıcı erişimi yönetimi son derece önemlidir. Outline Manager, gerektiğinde erişimi iptal edebilmek için basit bir yöntem sunar.
 

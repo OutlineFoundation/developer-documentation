@@ -3,17 +3,17 @@ title: "Use a Domain Name with Floating IPs"
 sidebar_label: "Domain with Floating IPs"
 ---
 
-## Introductie
+## Introductie {#introduction}
 
 Outline-servers worden soms ontdekt en geblokkeerd voor sterk gecensureerde netwerken. Het is mogelijk en niet al te moeilijk om een geblokkeerde server te herstellen als die juist was ingesteld. Je doet dit met DNS, de internettechnologie die domeinnamen (zoals `getoutline.org`) vertaalt in fysieke IP-adressen (zoals `216.239.36.21`), en zwevende IP's, een cloudfunctie waarmee je meerdere IP-adressen kunt toewijzen aan één Outline-server.
 
-## Vereisten
+## Vereisten {#requirements}
 
 Je hebt niet veel technische kennis nodig om deze handleiding te kunnen volgen. Wat basiskennis van DNS is nuttig, maar niet vereist. Ga naar de [MDN](https://developer.mozilla.org/docs/Learn/Common_questions/What_is_a_domain_name)-handleiding over domeinnamen voor een introductie.
 
 We gebruiken DigitalOcean en Google Domains om een concreet voorbeeld te geven, maar elke cloudprovider waarbij je IP-adressen kunt toewijzen (zoals Google Cloud of [AWS Lightsail](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip)) en elke domeinregistreerder (zoals [AWS Route 53](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-using-route-53-to-point-a-domain-to-an-instance)) werken ook gewoon.
 
-## Instructies
+## Instructies {#instructions}
 
 1. Dit zijn de stappen om het IP-adres van een server te roteren:
 
@@ -27,7 +27,7 @@ We gebruiken DigitalOcean en Google Domains om een concreet voorbeeld te geven, 
 
 6. Wijzig de domeinnaam zodat deze verwijst naar het nieuwe IP-adres.
 
-## Een Outline-server maken via DigitalOcean
+## Een Outline-server maken via DigitalOcean {#create_an_outline_server_on_digitalocean}
 
 Als je een bestaande DigitalOcean-server hebt, sla je deze stap over.
 
@@ -37,7 +37,7 @@ Als je een bestaande DigitalOcean-server hebt, sla je deze stap over.
 
 ![Server maken](/images/create-DO-server.png)
 
-## Een hostnaam maken voor je server
+## Een hostnaam maken voor je server {#make_a_hostname_for_your_server}
 
 1. Ga naar [Google Domains](https://domains.google.com/m/registrar/) en klik op Perfecte zoeken.
 
@@ -49,7 +49,7 @@ Als je een bestaande DigitalOcean-server hebt, sla je deze stap over.
 
 ![De hostnaam instellen](/images/set-hostname.png)
 
-## Het IP-adres van de server wijzigen
+## Het IP-adres van de server wijzigen {#change_the_servers_ip_address}
 
 1. Ga op de pagina Droplets van DigitalOcean naar je server.
 

@@ -5,7 +5,7 @@ sidebar_label: "Smart Dialer Config"
 
 **Smart Dialer** は、指定されたテストドメインのリストに対して、DSN と TLS のブロックを回避する戦略を探索します。選択対象となる複数の戦略を記述した構成が必要です。
 
-## Smart Dialer 用の YAML 構成
+## Smart Dialer 用の YAML 構成 {#yaml_config_for_the_smart_dialer}
 
 Smart Dialer が使用する構成は YAML 形式です。次に例を示します。
 
@@ -25,7 +25,7 @@ fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-### DNS の構成
+### DNS の構成 {#dns_configuration}
 
 - `dns` フィールドでは、テストする DNS リゾルバのリストを指定します。
 
@@ -41,7 +41,7 @@ fallback:
 
     - `tcp`: TCP リゾルバを使用します。
 
-#### DNS-over-HTTPS リゾルバ（DoH）
+#### DNS-over-HTTPS リゾルバ（DoH） {#dns-over-https_resolver_doh}
 
 ```yaml
 https:
@@ -53,7 +53,7 @@ https:
 
 - `address`: DoH サーバーの host:port。デフォルトは `name`:443 です。
 
-#### DNS-over-TLS リゾルバ（DoT）
+#### DNS-over-TLS リゾルバ（DoT） {#dns-over-tls_resolver_dot}
 
 ```yaml
 tls:
@@ -65,7 +65,7 @@ tls:
 
 - `address`: DoT サーバーの host:port。デフォルトは `name`:853 です。
 
-#### UDP リゾルバ
+#### UDP リゾルバ {#udp_resolver}
 
 ```yaml
 udp:
@@ -74,7 +74,7 @@ udp:
 
 - `address`: UDP リゾルバの host:port。
 
-#### TCP リゾルバ
+#### TCP リゾルバ {#tcp_resolver}
 
 ```yaml
 tcp:
@@ -83,7 +83,7 @@ tcp:
 
 - `address`: TCP リゾルバの host:port。
 
-### TLS の構成
+### TLS の構成 {#tls_configuration}
 
 - `tls` フィールドでは、テストする TLS トランスポートのリストを指定します。
 
@@ -91,7 +91,7 @@ tcp:
 
 - たとえば、`override:host=cloudflare.net|tlsfrag:1` は、Cloudflare のドメイン フロンティングと TLS フラグメンテーションを使用するトランスポートを指定します。詳しくは、[構成に関するドキュメント](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)をご覧ください。
 
-### フォールバックの構成
+### フォールバックの構成 {#fallback_configuration}
 
 フォールバックの構成は、どのプロキシレス戦略でも接続できない場合に使用されます。たとえば、バックアップ プロキシ サーバーを指定してユーザーの接続を試みます。フォールバックは他の DNS/TLS 戦略が失敗またはタイムアウトした場合のみ使用されるため、その開始は後回しになります。
 
@@ -101,21 +101,21 @@ tcp:
 
 - `psiphon` フィールドの子としての有効な Psiphon 構成オブジェクト。
 
-#### Shadowsocks サーバーの例
+#### Shadowsocks サーバーの例 {#shadowsocks_server_example}
 
 ```yaml
 fallback:
   - ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprSzdEdHQ0MkJLOE9hRjBKYjdpWGFK@1.2.3.4:9999/?outline=1
 ```
 
-#### SOCKS5 サーバーの例
+#### SOCKS5 サーバーの例 {#socks5_server_example}
 
 ```yaml
 fallback:
   - socks5://[USERINFO]@[HOST]:[PORT]
 ```
 
-#### Psiphon の構成の例
+#### Psiphon の構成の例 {#psiphon_config_example}
 
 [Psiphon](https://psiphon.ca/) ネットワークを使用するには、以下を行う必要があります。
 
@@ -134,7 +134,7 @@ fallback:
     }
 ```
 
-### Smart Dialer の使用方法
+### Smart Dialer の使用方法 {#how_to_use_the_smart_dialer}
 
 Smart Dialer を使用するには、`StrategyFinder` オブジェクトを作成し、`NewDialer` メソッドを呼び出してテストドメインのリストと YAML の構成を引数として渡します。`NewDialer` メソッドは、見つけた戦略を使用して接続を作成するための `transport.StreamDialer` を返します。次に例を示します。
 

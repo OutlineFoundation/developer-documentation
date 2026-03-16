@@ -10,20 +10,20 @@ os vários métodos disponíveis para fazer isso.
 O método escolhido varia dependendo de como seu servidor
 do Outline foi implantado inicialmente.
 
-## Implantações do provedor de nuvem
+## Implantações do provedor de nuvem {#cloud_provider_deployments}
 
 Para servidores do Outline implantados em plataformas de nuvem, como DigitalOcean, AWS ou
 Google Cloud, o acesso de gerenciamento normalmente acontece por meio dos recursos de
 gerenciamento de identidade e acesso (IAM) integrados do provedor. Essa abordagem é mais
 segura e controlada em comparação com o compartilhamento manual de configurações.
 
-### DigitalOcean
+### DigitalOcean {#digitalocean}
 
 O DigitalOcean oferece um recurso **Teams** robusto, que permite convidar outros
 usuários do DigitalOcean para colaborar nos seus projetos. Essa é a maneira recomendada
 de conceder acesso de gerenciamento ao seu servidor do Outline hospedado na plataforma.
 
-#### 1. Conceder acesso à equipe
+#### 1. Conceder acesso à equipe {#1_grant_team_access}
 
 A maneira mais eficaz de compartilhar o gerenciamento do seu servidor do Outline hospedado no
 DigitalOcean é com o recurso **Teams**.
@@ -37,7 +37,7 @@ DigitalOcean é com o recurso **Teams**.
 - Ao convidar membros, você pode atribuir papéis específicos a eles ou conceder
 acesso a recursos específicos, incluindo seus droplets que executam o Outline.
 
-#### 2. Controlar permissões
+#### 2. Controlar permissões {#2_control_permissions}
 
 Pense com cuidado nas permissões que você concederá aos membros da equipe. Para gerenciar o
 servidor do Outline, você pode conceder a eles acesso de "Leitura" e "Gravação" a um droplet
@@ -53,7 +53,7 @@ permissões concedidas).
 Os usuários com o Outline Manager conectado à conta do DigitalOcean agora podem
 ver e gerenciar todos os servidores do Outline vinculados a essa conta.
 
-## Instalações manuais
+## Instalações manuais {#manual_installations}
 
 Para quem instalou o Outline manualmente nos servidores usando o
 [script de instalação](../getting-started/server-setup-advanced), a principal maneira de conceder
@@ -64,7 +64,7 @@ e gerenciar um servidor do Outline. Essa string de configuração contém todas 
 informações necessárias, incluindo o endereço do servidor, porta e chave secreta para
 autenticação.
 
-### 1. Localizar o arquivo `access.txt`
+### 1. Localizar o arquivo `access.txt` {#1_locate_the_accesstxt_file}
 
 No servidor em que o Outline foi instalado, vá até o diretório do Outline. A
 localização exata pode variar um pouco dependendo do método de instalação, mas
@@ -76,7 +76,7 @@ alguns locais comuns são:
 
 - Dentro do volume do Docker usado pelo contêiner do servidor do Outline
 
-### 2. Recuperar a configuração de acesso
+### 2. Recuperar a configuração de acesso {#2_retrieve_the_access_config}
 
 Depois de encontrar o arquivo `access.txt`, converta-o para JSON, que é o formato
 esperado pelo Outline Manager na próxima etapa.
@@ -92,7 +92,7 @@ e o endpoint da API Management no servidor (`apiUrl`):
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
 
-### 3. Compartilhar a configuração de acesso de forma segura
+### 3. Compartilhar a configuração de acesso de forma segura {#3_share_the_access_config_securely}
 
 Copie o arquivo resultante e o compartilhe de forma segura com o novo gerente do Outline. Evite
 enviá-lo usando canais não criptografados, como e-mail comum ou mensagens instantâneas.

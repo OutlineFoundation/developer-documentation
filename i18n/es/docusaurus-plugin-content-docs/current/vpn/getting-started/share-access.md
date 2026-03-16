@@ -5,13 +5,13 @@ sidebar_label: "Share Access"
 
 Después de instalar el servidor de Outline, se te dirigirá a su página de detalles en Administrador de Outline. En esta página, puedes especificar y gestionar de forma centralizada cómo se accede a tu servidor mediante [claves de acceso](../../concepts#access-keys).
 
-## Crear y compartir claves de acceso
+## Crear y compartir claves de acceso {#create_and_share_access_keys}
 
 - **Crea una clave:** haz clic en el icono **+** pequeño que aparece al final de la página para crear claves.
 
 - **Comparte la clave nueva:** a la derecha de cada clave, hay un icono para compartir. Haz clic en él para generar una invitación. Copia esta invitación y envíala al usuario que te interese por la plataforma de mensajería que prefieras.
 
-### Proceso de invitación a usuarios
+### Proceso de invitación a usuarios {#user_invitation_process}
 
 Cuando el usuario recibe la invitación, debe seguir estos pasos para conectarse a tu servidor de Outline:
 
@@ -23,7 +23,7 @@ Cuando el usuario recibe la invitación, debe seguir estos pasos para conectarse
 
 4. El usuario ya puede utilizar los botones **Conectar** y **Desconectar** de la aplicación Outline para controlar su acceso a Internet a través de tu servidor de Outline.
 
-## Revocar el acceso a tu servidor
+## Revocar el acceso a tu servidor {#revoke_access_to_your_server}
 
 Es fundamental gestionar el acceso de los usuarios. Administrador de Outline ofrece un método directo para revocar el acceso cuando es necesario.
 

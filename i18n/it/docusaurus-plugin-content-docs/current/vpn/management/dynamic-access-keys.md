@@ -7,7 +7,7 @@ Outline offre due tipi di chiavi di accesso: statiche e dinamiche. Le chiavi sta
 
 Sono disponibili tre formati per specificare le informazioni di accesso che verranno utilizzate dalle chiavi di accesso dinamiche:
 
-### Utilizza un link `ss://`
+### Utilizza un link `ss://` {#use_an_ss_link}
 
 *Client Outline 1.8.1 e versioni successive.*
 
@@ -19,7 +19,7 @@ Puoi utilizzare direttamente un link `ss://` esistente. Questo metodo è ideale 
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1
 ```
 
-### Utilizza un oggetto JSON
+### Utilizza un oggetto JSON {#use_a_json_object}
 
 *Client Outline 1.8.0 e versioni successive.*
 
@@ -44,7 +44,7 @@ Questo metodo offre maggiore flessibilità nella gestione di tutti gli aspetti d
 
 - **method:** il metodo di crittografia utilizzato dalla VPN. Consulta i [cifrari di crittografia autenticata con dati associati](https://shadowsocks.org/doc/aead.html) supportati da Shadowsocks.
 
-### Utilizza un oggetto YAML
+### Utilizza un oggetto YAML {#use_a_yaml_object}
 
 *Client Outline 1.15.0 e versioni successive.*
 
@@ -81,7 +81,7 @@ transport:
 
 Consulta [Configurazione delle chiavi di accesso](config) per informazioni dettagliate su tutti i modi in cui puoi configurare l'accesso al server Outline, inclusi trasporti, endpoint, dialer e listener di pacchetti.
 
-## Estrai le informazioni di accesso da una chiave statica
+## Estrai le informazioni di accesso da una chiave statica {#extract_access_information_from_a_static_key}
 
 Se hai una chiave di accesso statica esistente, puoi estrarre le informazioni per creare una chiave di accesso dinamica basata su JSON o YAML. Le chiavi di accesso statiche seguono questo pattern:
 
@@ -107,7 +107,7 @@ ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?o
 
     - **Password:** `example`
 
-## Scegli una piattaforma di hosting
+## Scegli una piattaforma di hosting {#choose_a_hosting_platform}
 
 Ora che hai capito come creare le chiavi di accesso dinamiche, è importante scegliere una piattaforma di hosting adatta per la configurazione delle tue chiavi di accesso. Per prendere questa decisione, valuta fattori come l'affidabilità, la sicurezza, la facilità d'uso e la resistenza alla censura della piattaforma. La piattaforma fornirà costantemente le informazioni relative alle tue chiavi di accesso senza tempi di inattività? Offre misure di sicurezza appropriate per proteggere la tua configurazione? Quanto è facile gestire le informazioni relative alle tue chiavi di accesso sulla piattaforma? La piattaforma è accessibile in regioni con censura di internet?
 
