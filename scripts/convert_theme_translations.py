@@ -29,7 +29,68 @@ LOCALES = [
 ]
 
 # ---------------------------------------------------------------------------
-# String ID → Docusaurus key mappings
+# Manual translations for strings NOT in ARB exports but present on the old
+# live site (scraped from developers.google.com/outline?hl={locale}).
+# ---------------------------------------------------------------------------
+MANUAL_FOOTER_TRANSLATIONS: dict[str, dict[str, str]] = {
+    "ar": {"Product Info": "معلومات المنتج", "Terms of Service": "بنود الخدمة"},
+    "de": {"Product Info": "Produktinfo", "Terms of Service": "Nutzungsbedingungen"},
+    "es": {"Product Info": "Información del producto", "Terms of Service": "Términos del Servicio"},
+    "es-419": {"Product Info": "Información sobre el producto", "Terms of Service": "Condiciones del Servicio"},
+    "fa": {"Product Info": "اطلاعات محصول", "Terms of Service": "شرایط خدمات"},
+    "fr": {"Product Info": "Infos produits", "Terms of Service": "Conditions d'utilisation"},
+    "it": {"Product Info": "Informazioni sul prodotto", "Terms of Service": "Termini di servizio"},
+    "ja": {"Product Info": "サービス情報", "Terms of Service": "利用規約",
+           "Get Help": "ヘルプとサポート", "Help Center": "ヘルプセンター",
+           "Branding Guidelines": "ブランド設定のガイドライン", "Contact Us": "お問い合わせ",
+           "Download Outline": "Outline をダウンロード", "Data Collection Policy": "データ収集ポリシー"},
+    "ko": {"Product Info": "제품 정보", "Terms of Service": "서비스 약관",
+           "Get Help": "도움 받기", "Help Center": "고객센터",
+           "Branding Guidelines": "브랜드 가이드라인", "Contact Us": "문의하기",
+           "Download Outline": "Outline 다운로드", "Data Collection Policy": "데이터 수집 정책"},
+    "nl": {"Product Info": "Productgegevens", "Terms of Service": "Servicevoorwaarden"},
+    "pl": {"Product Info": "Informacje o produkcie", "Terms of Service": "Warunki usługi",
+           "Help Center": "Centrum pomocy"},
+    "pt-BR": {"Product Info": "Informações do produto", "Terms of Service": "Termos de Serviço"},
+    "ru": {"Product Info": "Информация о продукте", "Terms of Service": "Условия использования"},
+    "th": {"Product Info": "ข้อมูลผลิตภัณฑ์", "Terms of Service": "ข้อกำหนดในการให้บริการ"},
+    "tr": {"Product Info": "Ürün Bilgileri", "Terms of Service": "Hizmet Şartları"},
+    "zh-CN": {"Product Info": "商品信息", "Terms of Service": "服务条款",
+              "Help Center": "帮助中心", "Branding Guidelines": "品牌推广指南",
+              "Contact Us": "联系我们", "Download Outline": "下载 Outline",
+              "Data Collection Policy": "数据收集政策"},
+    "zh-TW": {"Product Info": "產品資訊", "Terms of Service": "服務條款",
+              "Help Center": "說明中心", "Contact Us": "聯絡我們",
+              "Download Outline": "下載 Outline", "Data Collection Policy": "資料收集政策",
+              "Branding Guidelines": "品牌宣傳指南"},
+}
+
+# Mapping from manual translation English labels to Docusaurus footer.json keys.
+MANUAL_KEY_MAP = {
+    "Product Info": ("link.title.Product Info",
+                     "The title of the footer links column with title=Product Info in the footer"),
+    "Terms of Service": ("link.item.label.Terms of Service",
+                         "The label of footer link with label=Terms of Service linking to "
+                         "https://s3.amazonaws.com/outline-vpn/static_downloads/Outline-Terms-of-Service.html"),
+    "Get Help": ("link.title.Get Help",
+                 "The title of the footer links column with title=Get Help in the footer"),
+    "Help Center": ("link.item.label.Help Center",
+                    "The label of footer link with label=Help Center linking to https://support.getoutline.org/"),
+    "Branding Guidelines": ("link.item.label.Branding Guidelines",
+                            "The label of footer link with label=Branding Guidelines linking to "
+                            "https://support.google.com/outline/answer/15331625"),
+    "Contact Us": ("link.item.label.Contact Us",
+                   "The label of footer link with label=Contact Us linking to "
+                   "https://support.getoutline.org/s/contactsupport"),
+    "Download Outline": ("link.item.label.Download Outline",
+                         "The label of footer link with label=Download Outline linking to https://getoutline.org/"),
+    "Data Collection Policy": ("link.item.label.Data Collection Policy",
+                               "The label of footer link with label=Data Collection Policy linking to "
+                               "https://support.google.com/outline/answer/14915905"),
+}
+
+# ---------------------------------------------------------------------------
+# String ID → Docusaurus key mappings (from ARB export files)
 # ---------------------------------------------------------------------------
 
 # Footer: string_id → Docusaurus footer.json key
@@ -171,6 +232,7 @@ def generate_footer_json(locale: str, translations: dict[str, str]) -> dict | No
     """Generate the Docusaurus footer.json content for a locale."""
     result = {}
 
+    # From ARB exports
     for string_id, mapping in FOOTER_STRING_MAP.items():
         if string_id in translations:
             value = translations[string_id]
@@ -178,6 +240,19 @@ def generate_footer_json(locale: str, translations: dict[str, str]) -> dict | No
                 "message": value,
                 "description": mapping["description"],
             }
+
+    # From manual translations (scraped from old site, fills gaps in ARB exports)
+    manual = MANUAL_FOOTER_TRANSLATIONS.get(locale, {})
+    for en_label, translated in manual.items():
+        key_info = MANUAL_KEY_MAP.get(en_label)
+        if key_info:
+            docusaurus_key, description = key_info
+            # Only add if not already set by ARB data
+            if docusaurus_key not in result:
+                result[docusaurus_key] = {
+                    "message": translated,
+                    "description": description,
+                }
 
     return result if result else None
 

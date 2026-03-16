@@ -139,7 +139,6 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Jigsaw.`,
     },
     prism: {
       theme: prismThemes.github,
