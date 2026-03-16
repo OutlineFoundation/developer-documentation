@@ -1,0 +1,26 @@
+{
+  "sidebar.docs.category.Outline SDK": {
+    "message": "SDK de Outline",
+    "description": "The label for category 'Outline SDK' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-discover": {
+    "message": "Descubrir",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-discover": {
+    "message": "Descubrir",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Integrate": {
+    "message": "Integrar",
+    "description": "The label for category 'Integrate' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Advanced Deployments": {
+    "message": "Implementaciones avanzadas",
+    "description": "The label for category 'Advanced Deployments' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Resilience Against Blocking": {
+    "message": "Aumentar la resiliencia a bloqueos",
+    "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  }
+}

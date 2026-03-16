@@ -71,18 +71,12 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'Outline Developer Docs',
+      title: 'Outline',
       logo: {
         alt: 'Outline Logo',
         src: 'images/outline-logo.png',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'docs',
-          position: 'left',
-          label: 'Documentation',
-        },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -103,7 +97,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Product',
+          title: 'Product Info',
           items: [
             {
               label: 'Download Outline',
@@ -117,10 +111,14 @@ const config: Config = {
               label: 'Data Collection Policy',
               href: 'https://support.google.com/outline/answer/14915905',
             },
+            {
+              label: 'Branding Guidelines',
+              href: 'https://support.google.com/outline/answer/15331625',
+            },
           ],
         },
         {
-          title: 'Community',
+          title: 'Get Help',
           items: [
             {
               label: 'GitHub',
@@ -134,23 +132,14 @@ const config: Config = {
               label: 'Help Center',
               href: 'https://support.getoutline.org/',
             },
-          ],
-        },
-        {
-          title: 'Jigsaw',
-          items: [
             {
-              label: 'About Jigsaw',
-              href: 'https://jigsaw.google.com/',
-            },
-            {
-              label: 'Jigsaw Blog',
-              href: 'https://medium.com/jigsaw',
+              label: 'Contact Us',
+              href: 'https://support.getoutline.org/s/contactsupport',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Jigsaw. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Jigsaw.`,
     },
     prism: {
       theme: prismThemes.github,

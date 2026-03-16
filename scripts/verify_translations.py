@@ -8,6 +8,7 @@ Checks:
 3. Frontmatter matches the English source exactly.
 4. Code blocks in translations are identical to the English source.
 5. Link URLs in translations are identical to the English source.
+6. Theme translation files (footer.json, current.json) exist and have valid keys.
 
 Known acceptable differences are documented and excluded:
 - Code block counts may differ where English MD was updated after translation
@@ -18,6 +19,7 @@ Known acceptable differences are documented and excluded:
 - Some locales have link order swapped by the translator.
 """
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -309,6 +311,58 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
     return issues
 
 
+# Theme translation files to verify against their English references.
+# Each entry: (subdir, filename)
+THEME_TRANSLATION_FILES = [
+    ("docusaurus-theme-classic", "footer.json"),
+    ("docusaurus-plugin-content-docs", "current.json"),
+]
+
+
+def verify_theme_translations(locale: str) -> list[Issue]:
+    """Verify theme translation files (footer, sidebar) for a locale."""
+    issues = []
+
+    for subdir, filename in THEME_TRANSLATION_FILES:
+        en_path = I18N_BASE / "en" / subdir / filename
+        locale_path = I18N_BASE / locale / subdir / filename
+
+        if not en_path.exists():
+            continue
+
+        with open(en_path, "r", encoding="utf-8") as f:
+            en_data = json.load(f)
+
+        if not locale_path.exists():
+            issues.append(Issue(
+                locale, f"{subdir}/{filename}", "THEME_MISSING",
+                "Translation file missing"
+            ))
+            continue
+
+        try:
+            with open(locale_path, "r", encoding="utf-8") as f:
+                locale_data = json.load(f)
+        except json.JSONDecodeError as e:
+            issues.append(Issue(
+                locale, f"{subdir}/{filename}", "THEME_INVALID",
+                f"Invalid JSON: {e}"
+            ))
+            continue
+
+        # Check for extra keys not in English reference
+        en_keys = set(en_data.keys())
+        locale_keys = set(locale_data.keys())
+        extra_keys = locale_keys - en_keys
+        for key in sorted(extra_keys):
+            issues.append(Issue(
+                locale, f"{subdir}/{filename}", "THEME_EXTRA_KEY",
+                f"Key not in English reference: {key!r}"
+            ))
+
+    return issues
+
+
 def main():
     english_paths = get_english_doc_paths()
 
@@ -319,9 +373,26 @@ def main():
 
     total_issues = 0
     issues_by_category: dict[str, int] = {}
+    missing_theme_keys: dict[str, set[str]] = {}
 
     for locale in LOCALES:
         issues = verify_locale(locale, english_paths)
+        issues += verify_theme_translations(locale)
+
+        # Track missing theme translation keys for summary
+        for subdir, filename in THEME_TRANSLATION_FILES:
+            en_path = I18N_BASE / "en" / subdir / filename
+            locale_path = I18N_BASE / locale / subdir / filename
+            if en_path.exists() and locale_path.exists():
+                try:
+                    en_data = json.load(open(en_path, encoding="utf-8"))
+                    locale_data = json.load(open(locale_path, encoding="utf-8"))
+                    missing = set(en_data.keys()) - set(locale_data.keys())
+                    for key in missing:
+                        missing_theme_keys.setdefault(key, set()).add(locale)
+                except json.JSONDecodeError:
+                    pass
+
         if issues:
             print(f"FAIL {locale}: {len(issues)} issue(s)")
             for issue in issues:
@@ -332,6 +403,18 @@ def main():
             total_issues += len(issues)
         else:
             print(f"OK   {locale}")
+
+    # Print theme translation coverage summary
+    if missing_theme_keys:
+        print()
+        print("Theme translation coverage (missing keys):")
+        for key in sorted(missing_theme_keys):
+            locales = sorted(missing_theme_keys[key])
+            if len(locales) == len(LOCALES):
+                print(f"  {key}: missing in ALL locales")
+            else:
+                print(f"  {key}: missing in {len(locales)} locale(s): "
+                      f"{', '.join(locales)}")
 
     print()
     if total_issues:

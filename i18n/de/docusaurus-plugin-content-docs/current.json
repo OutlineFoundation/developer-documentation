@@ -1,0 +1,30 @@
+{
+  "sidebar.docs.category.Outline SDK": {
+    "message": "Outline SDK",
+    "description": "The label for category 'Outline SDK' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-discover": {
+    "message": "Erste Schritte",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-discover": {
+    "message": "Erste Schritte",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Integrate": {
+    "message": "Einbinden",
+    "description": "The label for category 'Integrate' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Advanced Deployments": {
+    "message": "Erweiterte Bereitstellungen",
+    "description": "The label for category 'Advanced Deployments' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Resilience Against Blocking": {
+    "message": "Robustheit gegen Blockierungen erhöhen",
+    "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  },
+  "sidebar.docs.link.Management API": {
+    "message": "Management API",
+    "description": "The label for link 'Management API' in sidebar 'docs', linking to 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/shadowbox/server/api.yml'"
+  }
+}

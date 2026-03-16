@@ -1,0 +1,14 @@
+{
+  "sidebar.docs.category.Outline SDK": {
+    "message": "Outline SDK",
+    "description": "The label for category 'Outline SDK' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Advanced Deployments": {
+    "message": "고급 배포",
+    "description": "The label for category 'Advanced Deployments' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Resilience Against Blocking": {
+    "message": "차단에 대한 복원력 강화하기",
+    "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  }
+}
