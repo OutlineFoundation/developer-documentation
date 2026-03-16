@@ -15,11 +15,11 @@ local.
 
 **App sin MobileProxy**
 
-![Contenido de &quot;App sin MobileProxy&quot;](/images/mobileproxy-before.png)
+![Contenido de "App sin MobileProxy"](/images/mobileproxy-before.png)
 
 **App con MobileProxy**
 
-![Contenido de &quot;App con MobileProxy&quot;](/images/mobileproxy-after.png)
+![Contenido de "App con MobileProxy"](/images/mobileproxy-after.png)
 
 ## Paso 1: Compila las bibliotecas MobileProxy para dispositivos móviles {#step_1_building_mobileproxy_mobile_libraries}
 

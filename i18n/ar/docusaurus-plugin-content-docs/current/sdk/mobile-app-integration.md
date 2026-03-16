@@ -70,7 +70,7 @@ go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
-ضِمن &quot;استوديو Android&quot;، انقر على **File >‏ Import Project…** لاستيراد حزمة `out/mobileproxy.aar` التي تم إنشاؤها. ولمزيد من المساعدة، يمكنك الاطّلاع على المقالة [الإنشاء والنشر على Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) في Go Mobile.
+ضِمن "استوديو Android"، انقر على **File >‏ Import Project…** لاستيراد حزمة `out/mobileproxy.aar` التي تم إنشاؤها. ولمزيد من المساعدة، يمكنك الاطّلاع على المقالة [الإنشاء والنشر على Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) في Go Mobile.
 
 ### iOS {#ios}
 
@@ -85,7 +85,7 @@ Go Mobile.
 ## الخطوة 2: تشغيل MobileProxy {#step_2_run_the_mobileproxy}
 
 عليك إعداد الخادم الوكيل `MobileProxy` على الجهاز وبدء تشغيله خلال وقت تشغيل تطبيقك.
-ويمكنك إمّا استخدام إعدادات بروتوكول نقل ثابت أو &quot;الخادم الوكيل الذكي&quot; لاختيار
+ويمكنك إمّا استخدام إعدادات بروتوكول نقل ثابت أو "الخادم الوكيل الذكي" لاختيار
 استراتيجية ديناميكية.
 
 - **إعدادات بروتوكول النقل الثابت**: يمكنك استخدام دالة `RunProxy` مع عنوان

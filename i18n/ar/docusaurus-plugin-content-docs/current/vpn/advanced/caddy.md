@@ -115,7 +115,7 @@ caddy run --config config.yaml --adapter yaml --watch
 
 ## الخطوة 5: إنشاء مفتاح وصول ديناميكي {#step_5_create_a_dynamic_access_key}
 
-يجب إنشاء ملف YAML يتضمّن مفتاح وصول يمكن استخدامه في تطبيق &quot;عميل Outline&quot; للمستخدمين باستخدام تنسيق [الإعدادات
+يجب إنشاء ملف YAML يتضمّن مفتاح وصول يمكن استخدامه في تطبيق "عميل Outline" للمستخدمين باستخدام تنسيق [الإعدادات
 المتقدّمة](../management/config)، ثم تضمين نقاط نهاية WebSocket التي تم
 ضبطها سابقًا في جهة الخادم:
 
@@ -147,7 +147,7 @@ transport:
 بشكل ديناميكي. مزيد من المعلومات حول كيفية استخدام [مفاتيح الوصول
 الديناميكية](../management/dynamic-access-keys)
 
-## الخطوة 6: الربط بتطبيق &quot;عميل Outline&quot; {#step_6_connect_with_the_outline_client}
+## الخطوة 6: الربط بتطبيق "عميل Outline" {#step_6_connect_with_the_outline_client}
 
 يجب استخدام أحد تطبيقات [عميل Outline](../../download-links)
 الرسمية (الإصدار 1.15.0 والإصدارات الأحدث) ثم إضافة مفتاح الوصول الديناميكي المُنشأ حديثًا
