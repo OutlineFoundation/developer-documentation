@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'aed27cd2-fc42-4601-a2f1-5413bf680d96', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f3169a78-4def-4dde-ad18-6c46cc605140'}, 'string_id': '5820574533520724211', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Con Outline è facile creare un server VPN e consentire a chiunque l'accesso a internet aperto e senza limitazioni.\n"
-}

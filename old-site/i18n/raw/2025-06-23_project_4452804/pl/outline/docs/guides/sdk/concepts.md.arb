@@ -1,5 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c3b018ec-a924-4f6f-afc4-090dc30e8b0f'}, 'string_id': '11276258459484183404', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Połączenia",
-  "{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '921cc76b-e698-4076-85ba-1c402444c3d5'}, 'string_id': '5859494196940423962', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Resolvery"
-}

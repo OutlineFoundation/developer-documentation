@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fa76e514-c630-48f4-ac03-4ffad00b7021'}, 'string_id': '14615896034829982249', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Как создать ключ доступа и поделиться им",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'befae3eb-996d-419d-94c6-0cadb44fd58e'}, 'string_id': '1795121274651331179', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Как пользователь подключается к серверу через приглашение",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7514bdf7-3c19-4906-8ebc-3a675a04a5a3'}, 'string_id': '11189047250517590731', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Как закрыть доступ к серверу",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd9b162cf-6802-477c-a1ae-8c18f694babe'}, 'string_id': '12420990759181242084', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Как предоставить доступ к серверу"
-}

@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'cb95e55e-1599-4ea3-a709-954b6fbe3cc7'}, 'string_id': '4925008635219124492', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Configuratie van toegangssleutel"
-}

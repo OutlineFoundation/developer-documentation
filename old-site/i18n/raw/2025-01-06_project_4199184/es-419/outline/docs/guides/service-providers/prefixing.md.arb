@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9b60e8fd-18f5-4bfe-a338-70c18c091e1b'}, 'string_id': '17610956299883319320', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "¿Cuándo debo probar esta opción?",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd21f4d87-d8b6-471e-8177-e7fe0d078cb1'}, 'string_id': '12628245661512439499', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instrucciones",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2d320d75-c9cd-47e3-9e65-389f7b4ea439'}, 'string_id': '13867626750959801949', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Claves de acceso dinámicas",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'dcff647f-9ab5-4008-ae07-1674d53a3b45'}, 'string_id': '1939603936418792745', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Claves de acceso estáticas",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '285f6767-8cf9-43a9-b19d-6f16b6d82d4a'}, 'string_id': '14564037127126080661', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Enmascaramientos del prefijo de conexión"
-}

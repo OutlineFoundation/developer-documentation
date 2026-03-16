@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c3fc41a3-0f3b-425b-8161-1e3e1e5e6408'}, 'string_id': '17610956299883319320', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Wann sollte ich das ausprobieren?",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0d728af4-092f-4621-932e-bc39258cade0'}, 'string_id': '12628245661512439499', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Anleitung",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'df203edd-e416-427b-9581-03f3bf13b100'}, 'string_id': '13867626750959801949', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Dynamische Zugriffsschlüssel",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e35dd209-f049-4c58-b0e1-de7bfb1705ee'}, 'string_id': '1939603936418792745', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Statische Zugriffsschlüssel",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '237d65e0-1e7a-489b-a672-639b24d56217'}, 'string_id': '14564037127126080661', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Verborgene Verbindungspräfixe"
-}

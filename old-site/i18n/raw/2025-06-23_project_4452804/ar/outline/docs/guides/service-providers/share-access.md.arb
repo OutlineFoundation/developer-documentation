@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b03ec8ba-4a44-4679-bd7a-86ad926004fa'}, 'string_id': '14615896034829982249', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "إنشاء مفاتيح الوصول ومشاركتها",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9397881c-c033-4235-a440-f25075197787'}, 'string_id': '1795121274651331179', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "عملية دعوة المستخدمين",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fa713052-9f7d-4542-864c-7c0e1bd4a526'}, 'string_id': '11189047250517590731', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "إبطال إذن الوصول إلى الخادم",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c119fcd8-f4a3-414b-8db4-908543e17047'}, 'string_id': '12420990759181242084', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مشاركة إذن الوصول إلى الخادم"
-}

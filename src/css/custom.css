@@ -18,14 +18,3 @@
 .footer__links {
   justify-content: space-between;
 }
-
-[data-theme='dark'] {
-  --ifm-color-primary: #5fb574;
-  --ifm-color-primary-dark: #4dab65;
-  --ifm-color-primary-darker: #44a45d;
-  --ifm-color-primary-darkest: #38874d;
-  --ifm-color-primary-light: #71bf83;
-  --ifm-color-primary-lighter: #7ac48b;
-  --ifm-color-primary-lightest: #96d2a3;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}

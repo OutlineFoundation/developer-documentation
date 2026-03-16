@@ -1,6 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6ed9d544-1861-4eeb-abfc-0d1b0d134bb2'}, 'string_id': '6825331562406542929', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Hizmet Şartları",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0ab01f37-85aa-4734-a119-674a02d350ed'}, 'string_id': '431604438871611837', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "GitHub",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '88807fa4-4085-4d73-8901-a365b99bee65'}, 'string_id': '15008440364347205577', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Reddit"
-}

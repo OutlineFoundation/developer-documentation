@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b2b6068c-7df3-4783-9424-6f34208d97d1'}, 'string_id': '6825331562406542929', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "بنود الخدمة",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '45096cb3-a064-4ceb-8930-9c346108c686'}, 'string_id': '12990728899913647929', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "معلومات المنتج",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '882100b5-c9a4-444d-87bd-b6ede4916201'}, 'string_id': '431604438871611837', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "GitHub",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '27c074ef-e949-4f71-b14f-ed9da9154ba8'}, 'string_id': '15008440364347205577', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Reddit"
-}

@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3b970069-29e6-4e61-8034-3ca6ad6deee7'}, 'string_id': '17610956299883319320', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ทำไมจึงควรลองใช้สิ่งนี้",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ce249645-38b3-4c72-ac88-e7350b66ea9f'}, 'string_id': '12628245661512439499', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "วิธีการ",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd79883b3-5c63-4b6d-ae7b-3fe790f32302'}, 'string_id': '13867626750959801949', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "คีย์การเข้าถึงแบบไดนามิก",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '43a6fa8a-1465-4b06-a4cb-c1d6f4b5fd5f'}, 'string_id': '1939603936418792745', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "คีย์การเข้าถึงแบบคงที่",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'db1f1c22-3218-458b-8ac8-46415d55d542'}, 'string_id': '14564037127126080661', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "การซ่อนคำนำหน้าการเชื่อมต่อ"
-}

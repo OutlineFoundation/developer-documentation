@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '19859f80-a21f-47b8-891f-e7282df27346'}, 'string_id': '14615896034829982249', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Erişim anahtarı oluşturma ve paylaşma",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9e6b0cbd-8ea5-4549-96f5-15e64da7afd3'}, 'string_id': '1795121274651331179', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Kullanıcıları davet etme süreci",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ecd3fde9-b9e1-49c7-a928-c4ce31d89cd6'}, 'string_id': '11189047250517590731', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Sunucunuza erişimi iptal etme",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5bb05410-de32-4323-922d-96b75ec53de6'}, 'string_id': '12420990759181242084', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Sunucunuza erişimi paylaşma"
-}

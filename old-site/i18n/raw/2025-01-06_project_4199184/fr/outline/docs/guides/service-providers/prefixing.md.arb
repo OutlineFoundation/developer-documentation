@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8dcec6f3-717d-439e-acf8-88fa2f887af5'}, 'string_id': '17610956299883319320', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Quand dois-je utiliser ceci ?",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8b2913a9-22c1-455b-bd44-136793c6898b'}, 'string_id': '12628245661512439499', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instructions",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '86f189ea-41d3-44d4-b85c-c0a05e9b8a06'}, 'string_id': '13867626750959801949', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Clés d'accès dynamiques",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4ae3b02c-bc72-486a-bef5-27de42167c96'}, 'string_id': '1939603936418792745', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Clés d'accès statiques",
-  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'afa49dc0-b264-4362-814d-68517f5a29e5'}, 'string_id': '14564037127126080661', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Dissimulation des préfixes de connexion"
-}

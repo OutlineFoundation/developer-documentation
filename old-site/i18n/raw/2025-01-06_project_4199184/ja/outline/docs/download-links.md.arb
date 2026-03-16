@@ -1,6 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e0abd25b-769f-4238-920b-4a7a2e02e678'}, 'string_id': '16077083388317342628', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline マネージャー",
-  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '14bef51c-92bf-4a78-873a-d78d9fe1319e'}, 'string_id': '15844218680809619184', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline クライアント",
-  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '62be4111-f0ef-451c-be34-2655106f95e4'}, 'string_id': '5821125520337137333', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "代替ダウンロード リンク"
-}

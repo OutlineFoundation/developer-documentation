@@ -1,6 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a9b3f863-8268-4fa7-91f2-6ed23dd1d48a'}, 'string_id': '17850610955705022423', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Que pouvez-vous faire avec le SDK Outline ?",
-  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c7d5a609-d804-4204-8873-bcc0f56e3364'}, 'string_id': '14026997848341032675', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Principaux avantages",
-  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c2721079-09ce-4a71-a1eb-4fe953829b46'}, 'string_id': '3492466098233101230', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Qu'est-ce que le SDK Outline ?"
-}

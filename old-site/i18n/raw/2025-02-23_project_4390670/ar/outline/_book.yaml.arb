@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6263a3aa-fb36-4673-bf54-cd59055cf704'}, 'string_id': '197316243681793442', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "إعدادات مفاتيح الوصول",
-  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '556db24a-02de-489c-b0d7-fcd9df7dc10c'}, 'string_id': '11548199827800752885', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "إعدادات Shadowsocks-over-WebSocket",
-  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3dbaa305-eadb-4c86-99a9-bb10fc70a224'}, 'string_id': '3577165526612221809', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "بروتوكول HTTPS التلقائي لخادم Caddy",
-  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '13566856-b182-43fd-818b-4e32c0cc2553'}, 'string_id': '184448021681782904', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "الإعداد",
-  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0ece8eab-080e-4c01-8e65-69be89042ffe'}, 'string_id': '11572796752844984969', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "المرجع"
-}

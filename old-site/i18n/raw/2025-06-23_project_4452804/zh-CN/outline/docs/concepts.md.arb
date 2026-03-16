@@ -1,5 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e5e0f819-12dc-49cb-8af2-878c4e7a6993', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8497d1f9-3e02-4433-9eda-7b8ec80209f7'}, 'string_id': '5764561982385948460', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "服务提供商和最终用户",
-  "{'source_id': 'e5e0f819-12dc-49cb-8af2-878c4e7a6993', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '631dd539-c7e3-472c-89d9-01b5bb59666e'}, 'string_id': '5213716419800865354', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "访问密钥"
-}

@@ -1,5 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ee617006-c897-47fb-bcc2-a96c39576790'}, 'string_id': '431604438871611837', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "GitHub",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '432a383f-52c0-450e-9c84-d67b1a207811'}, 'string_id': '15008440364347205577', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Reddit"
-}

@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4bb9d0f1-428e-4d53-aa8b-3b50674695f1'}, 'string_id': '12628245661512439499', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instrucciones",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4ec97ec8-72fa-426a-a8c4-3491e5efcc6e'}, 'string_id': '11461176644196079266', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Crea un servidor de Outline en DigitalOcean",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1964799c-4ce5-47ae-a3d7-9856f9de64e4'}, 'string_id': '4069928074011065574', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Asigna un nombre de host a tu servidor",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '717a3703-412b-46bc-887b-3778744cfecd'}, 'string_id': '607812462890340981', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Cambia la dirección IP del servidor",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0fc478ed-b4d5-4744-a46a-168c3c763d11'}, 'string_id': '3798279135713745', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Configura un servidor resistente a los bloqueos con IPs flotantes"
-}

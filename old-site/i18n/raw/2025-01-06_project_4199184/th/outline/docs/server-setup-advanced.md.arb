@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fb1c2b42-2a45-44cb-8464-e8b2db18f0c6'}, 'string_id': '4807615820961821477', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "สิ่งที่ต้องดำเนินการก่อน",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f6179842-7a22-4e88-9828-67bd8a0d6984'}, 'string_id': '5016549043304130312', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "วิธีการทีละขั้นตอน",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5c8d88dc-6dc9-4d64-b863-52116e5188b6'}, 'string_id': '521136309318789897', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "แหล่งข้อมูลเพิ่มเติม",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '08ea579d-ef67-48f2-bcc3-cf6241a1fa58'}, 'string_id': '16509802911453266336', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "การตั้งค่าเซิร์ฟเวอร์ Outline"
-}

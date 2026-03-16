@@ -34,7 +34,9 @@ LOCALES = [
     "nl", "pl", "pt-BR", "ru", "th", "tr", "zh-CN", "zh-TW",
 ]
 
-# Docs that only exist in English (no translation source yet available)
+# Docs that only exist in English. If you add new documentation that does
+# not yet have translations, add the doc path here so the verifier won't
+# flag it as missing.
 ENGLISH_ONLY: set[str] = set()
 
 # Known code block count differences: English MD has blocks added after
@@ -65,6 +67,29 @@ KNOWN_LINK_COUNT_DIFFS = {
 KNOWN_LINK_SWAPS = {
     # Wikipedia Base64 link and Google encode/decode toolbox link swapped
     "vpn/management/dynamic-access-keys": {3, 4},
+}
+
+# Theme translation files to verify against their English references.
+# Each entry: (subdir, filename)
+THEME_TRANSLATION_FILES = [
+    ("docusaurus-theme-classic", "footer.json"),
+    ("docusaurus-plugin-content-docs", "current.json"),
+]
+
+# Theme translation keys that are OK to leave untranslated (brand names,
+# technical terms, or internal labels that are the same in all languages).
+KNOWN_UNTRANSLATABLE_KEYS = {
+    # Brand names / technical terms (same in all languages)
+    "link.item.label.GitHub",
+    "link.item.label.Reddit",
+    "sidebar.docs.category.Outline VPN",
+    "sidebar.docs.category.Outline SDK",
+    "sidebar.docs.link.Management API",
+    "sidebar.docs.link.Go API Reference",
+    # New category with no old-site equivalent; falls back to English
+    "sidebar.docs.category.Tools",
+    # Internal label not shown to users
+    "version.label",
 }
 
 
@@ -342,29 +367,6 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
 
     return issues
 
-
-# Theme translation files to verify against their English references.
-# Each entry: (subdir, filename)
-THEME_TRANSLATION_FILES = [
-    ("docusaurus-theme-classic", "footer.json"),
-    ("docusaurus-plugin-content-docs", "current.json"),
-]
-
-# Theme translation keys that are OK to leave untranslated (brand names,
-# technical terms, or internal labels that are the same in all languages).
-KNOWN_UNTRANSLATABLE_KEYS = {
-    # Brand names / technical terms (same in all languages)
-    "link.item.label.GitHub",
-    "link.item.label.Reddit",
-    "sidebar.docs.category.Outline VPN",
-    "sidebar.docs.category.Outline SDK",
-    "sidebar.docs.link.Management API",
-    "sidebar.docs.link.Go API Reference",
-    # New category with no old-site equivalent; falls back to English
-    "sidebar.docs.category.Tools",
-    # Internal label not shown to users
-    "version.label",
-}
 
 def verify_theme_translations(locale: str) -> list[Issue]:
     """Verify theme translation files (footer, sidebar) for a locale."""

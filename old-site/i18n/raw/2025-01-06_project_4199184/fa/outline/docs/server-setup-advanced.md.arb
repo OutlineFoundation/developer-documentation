@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1d2ea967-b77f-433d-8ad3-61c5de339b21'}, 'string_id': '4807615820961821477', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "پیش‌نیازها",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8e487491-097e-46ee-b870-a9b9b9cca06f'}, 'string_id': '5016549043304130312', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "دستورالعمل‌های گام‌به‌گام",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '26631291-cfc3-407f-a7e3-15d656d49c2f'}, 'string_id': '521136309318789897', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "منابع تکمیلی",
-  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9bd4dd4d-2695-478d-8c6d-8ee6227aec96'}, 'string_id': '16509802911453266336', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "راه‌اندازی سرور Outline"
-}

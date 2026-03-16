@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'b296de75-88af-46ba-abb1-30d5fd45a19a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd6f3534f-17a6-444f-ba7f-e836daf11693'}, 'string_id': '6695886048768864588', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "النشر باستخدام نص تثبيت برمجي"
-}

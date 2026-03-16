@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'aed27cd2-fc42-4601-a2f1-5413bf680d96', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e305c633-a7ee-47a6-a6ee-a1183c99af76'}, 'string_id': '5820574533520724211', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "‫Outline با ارائه دسترسی به اینترنت آزاد و باز به همه افراد، ایجاد سرور وی‌پی‌ان را آسان می‌کند.\n"
-}

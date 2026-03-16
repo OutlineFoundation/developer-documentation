@@ -1,6 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '92f6d368-ac98-47a2-95bd-81cd04665cbc'}, 'string_id': '17850610955705022423', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline SDK では何ができますか？",
-  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ff142373-2361-4a9b-9fa0-22b88f96a6fe'}, 'string_id': '14026997848341032675', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "主な特長",
-  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a6a9f0d5-644e-4c35-af7b-03fa90b73a77'}, 'string_id': '3492466098233101230', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "この SDK について"
-}

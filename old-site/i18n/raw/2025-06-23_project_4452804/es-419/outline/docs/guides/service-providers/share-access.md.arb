@@ -1,7 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'aeea1f6f-d4d7-47df-85f0-291a06e46967'}, 'string_id': '14615896034829982249', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Cómo crear y compartir claves de acceso",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8783e236-ddaa-4fdb-8d8d-7ab409696654'}, 'string_id': '1795121274651331179', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Proceso para invitar a usuarios",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b24c0f5d-3349-4d9a-9b58-486c2c062e95'}, 'string_id': '11189047250517590731', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Cómo revocar el acceso al servidor",
-  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7b14ae52-5550-452d-848a-1633aaf2b619'}, 'string_id': '12420990759181242084', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Cómo compartir el acceso al servidor"
-}

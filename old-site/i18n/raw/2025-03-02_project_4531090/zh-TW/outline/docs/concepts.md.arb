@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '647eefc2-c044-4eb3-8baf-78942423d02a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b7d39530-00f0-44dc-9ce9-666c151ba2da'}, 'string_id': '9482496117195899923', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "服務供應商與使用者"
-}
