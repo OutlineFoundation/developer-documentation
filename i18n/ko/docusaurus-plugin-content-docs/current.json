@@ -10,5 +10,33 @@
   "sidebar.docs.category.Resilience Against Blocking": {
     "message": "차단에 대한 복원력 강화하기",
     "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-discover": {
+    "message": "발견",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Integrate": {
+    "message": "통합",
+    "description": "The label for category 'Integrate' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "시작하기",
+    "description": "The label for category 'Get Started' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage & Scale": {
+    "message": "서버 관리 및 확장하기",
+    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-reference": {
+    "message": "참조",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-reference": {
+    "message": "참조",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-discover": {
+    "message": "발견",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
   }
 }

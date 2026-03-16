@@ -66,6 +66,138 @@ MANUAL_FOOTER_TRANSLATIONS: dict[str, dict[str, str]] = {
 }
 
 # Mapping from manual translation English labels to Docusaurus footer.json keys.
+# ---------------------------------------------------------------------------
+# Manual sidebar translations (scraped from developers.google.com/outline).
+# Keyed by Docusaurus current.json key → {locale: translated_value}.
+# ---------------------------------------------------------------------------
+MANUAL_SIDEBAR_TRANSLATIONS: dict[str, dict[str, str]] = {
+    # "Discover" — VPN section. Most locales from VPN sidebar scrape;
+    # ko/zh-CN/zh-TW from SDK sidebar (VPN sidebar left them in English).
+    # ja kept English "Discover" on both VPN and SDK sections of old site.
+    "sidebar.docs.category.vpn-discover": {
+        "es-419": "Descubrimiento",
+        "fr": "Découvrir",
+        "ja": "Discover",
+        "ko": "발견",
+        "pl": "Dowiedz się więcej",
+        "pt-BR": "Descoberta",
+        "ru": "Обзор",
+        "zh-CN": "发现",
+        "zh-TW": "發現",
+    },
+    # "Discover" — SDK section
+    "sidebar.docs.category.sdk-discover": {
+        "es-419": "Descubrimiento",
+        "fr": "Découvrir",
+        "ja": "Discover",
+        "ko": "발견",
+        "pl": "Dowiedz się więcej",
+        "pt-BR": "Descoberta",
+        "ru": "Обзор",
+        "zh-CN": "发现",
+        "zh-TW": "發現",
+    },
+    # "Integrate" — SDK section
+    "sidebar.docs.category.Integrate": {
+        "es-419": "Integración",
+        "fr": "Intégrer",
+        "ja": "統合",
+        "ko": "통합",
+        "zh-CN": "集成",
+        "zh-TW": "整合",
+    },
+    # "Get Started" — from VPN sidebar ("Get started")
+    "sidebar.docs.category.Get Started": {
+        "ar": "البدء",
+        "de": "Los gehts",
+        "es": "Empezar",
+        "es-419": "Comenzar",
+        "fa": "شروع به کار",
+        "fr": "Premiers pas",
+        "it": "Per iniziare",
+        "ja": "使ってみる",
+        "ko": "시작하기",
+        "nl": "Aan de slag",
+        "pl": "Rozpocznij",
+        "pt-BR": "Começar",
+        "ru": "Начать",
+        "th": "เริ่มใช้งาน",
+        "tr": "Başlama",
+        "zh-CN": "开始使用",
+        "zh-TW": "開始使用",
+    },
+    # "Manage & Scale" — from VPN sidebar ("Manage and scale your server")
+    "sidebar.docs.category.Manage & Scale": {
+        "ar": "إدارة الخادم وتوسيع نطاقه",
+        "de": "Ihren Server verwalten und skalieren",
+        "es": "Gestionar y escalar tu servidor",
+        "es-419": "Administra y escala tu servidor",
+        "fa": "مدیریت و اندازه‌گیری کردن سرور",
+        "fr": "Gérer et adapter votre serveur",
+        "it": "Gestisci e fai crescere il tuo server",
+        "ja": "サーバーの管理とスケーリング",
+        "ko": "서버 관리 및 확장하기",
+        "nl": "Je server beheren en opschalen",
+        "pl": "Skalowanie serwera i zarządzanie nim",
+        "pt-BR": "Gerenciar e escalonar seu servidor",
+        "ru": "Управление сервером и его масштабирование",
+        "th": "จัดการและปรับขนาดเซิร์ฟเวอร์",
+        "tr": "Sunucunuzu yönetme ve ölçeklendirme",
+        "zh-CN": "管理和扩展服务器",
+        "zh-TW": "管理及擴充伺服器",
+    },
+    # "Reference" — from tab translations on old site (used for both VPN and SDK)
+    "sidebar.docs.category.vpn-reference": {
+        "ar": "المرجع",
+        "de": "Referenzen",
+        "es": "Referencia",
+        "es-419": "Referencia",
+        "fa": "مرجع",
+        "fr": "Référence",
+        "it": "Riferimento",
+        "ja": "リファレンス",
+        "ko": "참조",
+        "nl": "Referentie",
+        "pl": "Materiały referencyjne",
+        "pt-BR": "Referência",
+        "ru": "Справочные материалы",
+        "th": "ข้อมูลอ้างอิง",
+        "tr": "Başvuru Kaynakları",
+        "zh-CN": "参考文档",
+        "zh-TW": "參考資料",
+    },
+    "sidebar.docs.category.sdk-reference": {
+        "ar": "المرجع",
+        "de": "Referenzen",
+        "es": "Referencia",
+        "es-419": "Referencia",
+        "fa": "مرجع",
+        "fr": "Référence",
+        "it": "Riferimento",
+        "ja": "リファレンス",
+        "ko": "참조",
+        "nl": "Referentie",
+        "pl": "Materiały referencyjne",
+        "pt-BR": "Referência",
+        "ru": "Справочные материалы",
+        "th": "ข้อมูลอ้างอิง",
+        "tr": "Başvuru Kaynakları",
+        "zh-CN": "参考文档",
+        "zh-TW": "參考資料",
+    },
+}
+
+# Descriptions for manual sidebar keys (from English current.json).
+MANUAL_SIDEBAR_DESCRIPTIONS: dict[str, str] = {
+    "sidebar.docs.category.vpn-discover": "The label for category 'Discover' in sidebar 'docs'",
+    "sidebar.docs.category.sdk-discover": "The label for category 'Discover' in sidebar 'docs'",
+    "sidebar.docs.category.Integrate": "The label for category 'Integrate' in sidebar 'docs'",
+    "sidebar.docs.category.Get Started": "The label for category 'Get Started' in sidebar 'docs'",
+    "sidebar.docs.category.Manage & Scale": "The label for category 'Manage & Scale' in sidebar 'docs'",
+    "sidebar.docs.category.vpn-reference": "The label for category 'Reference' in sidebar 'docs'",
+    "sidebar.docs.category.sdk-reference": "The label for category 'Reference' in sidebar 'docs'",
+}
+
 MANUAL_KEY_MAP = {
     "Product Info": ("link.title.Product Info",
                      "The title of the footer links column with title=Product Info in the footer"),
@@ -261,6 +393,7 @@ def generate_current_json(locale: str, translations: dict[str, str]) -> dict | N
     """Generate sidebar category translations for current.json."""
     result = {}
 
+    # From ARB exports
     for string_id, mapping in SIDEBAR_STRING_MAP.items():
         if string_id in translations:
             value = translations[string_id]
@@ -269,6 +402,14 @@ def generate_current_json(locale: str, translations: dict[str, str]) -> dict | N
                     "message": value,
                     "description": key_info["description"],
                 }
+
+    # From manual translations (scraped from old site, fills gaps in ARB exports)
+    for key, locale_map in MANUAL_SIDEBAR_TRANSLATIONS.items():
+        if locale in locale_map and key not in result:
+            result[key] = {
+                "message": locale_map[locale],
+                "description": MANUAL_SIDEBAR_DESCRIPTIONS.get(key, ""),
+            }
 
     return result if result else None
 
@@ -323,17 +464,11 @@ def main():
     print(f"\nDone! Generated footer.json for {footer_count} locales, "
           f"current.json for {sidebar_count} locales.")
 
-    # Report what's NOT translated
-    print("\nFooter strings without old translations (will show in English):")
-    print("  - 'Product Info' (section title) — not in translation exports")
-    print("  - 'Terms of Service' — not in translation exports")
-    print("\nSidebar categories without old translations:")
-    print("  - 'Outline VPN' — old site used 'Outline'")
-    print("  - 'Get Started' — new category, not in old site")
-    print("  - 'Manage & Scale' — old site used 'Manage and scale your server'")
-    print("  - 'Reference' — not in translation exports")
-    print("  - 'Tools' — not in translation exports")
-    print("  - 'Go API Reference' — not in translation exports")
+    # Report what's NOT translated (brand names / technical terms)
+    print("\nKeys left untranslated (brand names / not on old site):")
+    print("  - 'Outline VPN', 'Outline SDK' — brand names")
+    print("  - 'Management API', 'Go API Reference' — technical terms")
+    print("  - 'Tools' — new category, no old-site equivalent")
 
 
 if __name__ == "__main__":

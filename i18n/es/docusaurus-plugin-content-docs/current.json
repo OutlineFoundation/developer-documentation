@@ -22,5 +22,21 @@
   "sidebar.docs.category.Resilience Against Blocking": {
     "message": "Aumentar la resiliencia a bloqueos",
     "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "Empezar",
+    "description": "The label for category 'Get Started' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage & Scale": {
+    "message": "Gestionar y escalar tu servidor",
+    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-reference": {
+    "message": "Referencia",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-reference": {
+    "message": "Referencia",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
   }
 }

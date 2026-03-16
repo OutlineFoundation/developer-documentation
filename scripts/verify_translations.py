@@ -328,6 +328,8 @@ KNOWN_UNTRANSLATABLE_KEYS = {
     "sidebar.docs.category.Outline SDK",
     "sidebar.docs.link.Management API",
     "sidebar.docs.link.Go API Reference",
+    # New category with no old-site equivalent; falls back to English
+    "sidebar.docs.category.Tools",
     # Internal label not shown to users
     "version.label",
 }

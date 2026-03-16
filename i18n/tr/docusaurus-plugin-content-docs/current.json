@@ -26,5 +26,21 @@
   "sidebar.docs.link.Management API": {
     "message": "Management API",
     "description": "The label for link 'Management API' in sidebar 'docs', linking to 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/shadowbox/server/api.yml'"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "Başlama",
+    "description": "The label for category 'Get Started' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage & Scale": {
+    "message": "Sunucunuzu yönetme ve ölçeklendirme",
+    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-reference": {
+    "message": "Başvuru Kaynakları",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-reference": {
+    "message": "Başvuru Kaynakları",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
   }
 }

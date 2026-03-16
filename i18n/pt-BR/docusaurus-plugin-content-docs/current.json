@@ -14,5 +14,29 @@
   "sidebar.docs.category.Resilience Against Blocking": {
     "message": "Aumentar resiliência contra bloqueio",
     "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-discover": {
+    "message": "Descoberta",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-discover": {
+    "message": "Descoberta",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "Começar",
+    "description": "The label for category 'Get Started' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage & Scale": {
+    "message": "Gerenciar e escalonar seu servidor",
+    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-reference": {
+    "message": "Referência",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-reference": {
+    "message": "Referência",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
   }
 }

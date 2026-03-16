@@ -10,5 +10,33 @@
   "sidebar.docs.category.Resilience Against Blocking": {
     "message": "增強抗封鎖能力",
     "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-discover": {
+    "message": "發現",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Integrate": {
+    "message": "整合",
+    "description": "The label for category 'Integrate' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "開始使用",
+    "description": "The label for category 'Get Started' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage & Scale": {
+    "message": "管理及擴充伺服器",
+    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-reference": {
+    "message": "參考資料",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.sdk-reference": {
+    "message": "參考資料",
+    "description": "The label for category 'Reference' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.vpn-discover": {
+    "message": "發現",
+    "description": "The label for category 'Discover' in sidebar 'docs'"
   }
 }
