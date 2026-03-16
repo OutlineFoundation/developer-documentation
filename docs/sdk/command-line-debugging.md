@@ -22,13 +22,13 @@ The `resolve` tool lets you perform DNS lookups with a specified resolver.
 To resolve a domain's A record:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
 ```
 
 To resolve a CNAME record:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
 ```
 
 ### Fetch a Webpage
@@ -36,13 +36,13 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8
 The `fetch` tool can be used to retrieve the content of a webpage.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest https://example.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest https://example.com
 ```
 
 It can also force the connection to use QUIC.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
 ```
 
 ### Use a Local Proxy
@@ -51,7 +51,7 @@ The `http2transport` tool creates a local proxy to route your traffic through.
 To start a local proxy with a Shadowsocks transport:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
+go run github.com/OutlineFoundation/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
 ```
 
 You can then use this proxy with other tools like curl:
@@ -64,7 +64,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 The Outline SDK allows for the specification of various circumvention strategies
 that can be combined to bypass different forms of network interference. The
-specification for these strategies is in the [go documentation](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x@v0.0.3/configurl).
+specification for these strategies is in the [go documentation](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
 
 ### Composable Strategies
 
@@ -88,7 +88,7 @@ Using the `fetch` tool you can test connections remotely in various ways.
 Connect remotely to a standard Outline server with a Shadowsocks transport.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
 ```
 
 #### SOCKS5 over SSH
@@ -102,7 +102,7 @@ ssh -D 127.0.0.1:1080 -C -N $USER@$HOST:$PORT
 Connect to that tunnel using fetch
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
 ```
 
 ## Case Study: Bypassing YouTube Blocking in Iran
@@ -116,7 +116,7 @@ times out, indicating a block.
 
 ```sh
 export TRANSPORT="ss://{remote_shadowsocks_credentials}"
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
 ```
 
 This command fails with a timeout.
@@ -126,7 +126,7 @@ This command fails with a timeout.
 By adding TLS fragmentation to the transport, we can bypass this block.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 This command successfully retrieves the title of the YouTube homepage, which is
@@ -135,7 +135,7 @@ This command successfully retrieves the title of the YouTube homepage, which is
 ### Bypass with TLS Fragmentation and DNS-over-HTTPS
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 This also successfully returns `<title>YouTube</title>`.
@@ -143,11 +143,11 @@ This also successfully returns `<title>YouTube</title>`.
 ### Bypass with an Outline Server
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 This too returns `<title>YouTube</title>`.
 
 ## Further Analysis and Resources
 
-For discussions and questions, visit the [Outline SDK Discussion Group](https://github.com/Jigsaw-Code/outline-sdk/discussions).
+For discussions and questions, visit the [Outline SDK Discussion Group](https://github.com/OutlineFoundation/outline-sdk/discussions).

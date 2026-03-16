@@ -16,7 +16,7 @@ Deze handleiding leidt je door het proces om een Outline-server in te stellen zo
 1. Download het Outline-installatiescript en voer het uit.
 
 ```sh
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/OutlineFoundation/outline-apps/master/server_manager/install_scripts/install_server.sh)"
 ```
 
 2. Volg de aanwijzingen op het scherm.

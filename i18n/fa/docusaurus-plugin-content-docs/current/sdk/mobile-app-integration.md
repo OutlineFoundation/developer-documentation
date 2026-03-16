@@ -28,7 +28,7 @@ Mobile](https://go.dev/wiki/Mobile) استفاده می‌کند تا کتابخ
 1. همسانه‌سازی کردن مخزن Outline SDK:
 
 ```sh
-git clone https://github.com/Jigsaw-Code/outline-sdk.git
+git clone https://github.com/OutlineFoundation/outline-sdk.git
 cd outline-sdk/x
 ```
 
@@ -65,7 +65,7 @@ go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.
 ### Android {#android}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 در «استودیو Android»، **فایل > وارد کردن پروژه…** را انتخاب کنید تا بسته `out/mobileproxy.aar` تولیدشده را وارد کنید. برای راهنمایی بیشتر، [ساختن و پیاده‌سازی در Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) مربوط به Go Mobile را ببینید.
@@ -73,7 +73,7 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 ### iOS {#ios}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 بسته `out/mobileproxy.xcframework` را به پروژه Xcode بکشید. برای
@@ -123,7 +123,7 @@ proxy.stop()
 - **پراکسی هوشمند**: «پراکسی هوشمند» رهنمودهای ساناد و «امنیت لایه انتقال» را
 براساس دامنه‌های آزمایشی معین‌شده‌ای به‌طور پویا انتخاب می‌کند. باید رهنمود پیکربندی را
 در قالب YAML معین کنید
-([نمونه](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+([نمونه](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android {#android_2}
 
@@ -242,9 +242,9 @@ let webview = WKWebView(configuration: configuration)
 2. **تولید کردن کتابخانه‌های تلفن همراه**: از `gomobile bind` استفاده کنید تا Android
 Archives (AAR) و چارچوب‌های Apple تولید کنید. مثال‌ها:
 
-    - [بایگانی Outline Android](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+    - [بایگانی Outline Android](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
 
-    - [چارچوب Outline Apple](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+    - [چارچوب Outline Apple](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **ادغام کردن در برنامه‌تان**: کتابخانه تولیدشده را به برنامه
 تلفن همراهتان اضافه کنید.

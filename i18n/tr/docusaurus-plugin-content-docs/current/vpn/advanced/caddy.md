@@ -41,7 +41,7 @@ xcaddy build \
   # The example uses a YAML config, so include a YAML config adapter module.
   --with github.com/iamd3vil/caddy_yaml_adapter \
   # The Outline core server module.
-  --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
+  --with github.com/OutlineFoundation/outline-ss-server/outlinecaddy
 ```
 
 ## 4. adım: Outline ile Caddy sunucusunu yapılandırıp çalıştırın {#step_4_configure_and_run_the_caddy_server_with_outline}
@@ -95,7 +95,7 @@ Oluşturulan yapılandırma kullanılarak Outline ile genişletilmiş Caddy sunu
 caddy run --config config.yaml --adapter yaml --watch
 ```
 
-[outline-ss-server/outlinecaddy GitHub depomuzda](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples) daha fazla sayıda örnek yapılandırma bulabilirsiniz.
+[outline-ss-server/outlinecaddy GitHub depomuzda](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples) daha fazla sayıda örnek yapılandırma bulabilirsiniz.
 
 ## 5. adım: Dinamik erişim anahtarı oluşturun {#step_5_create_a_dynamic_access_key}
 

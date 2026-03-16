@@ -98,4 +98,4 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `nodejs_version_info`
 
-Полный список доступных показателей можно найти в [исходном коде](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`.
+Полный список доступных показателей можно найти в [исходном коде](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`.

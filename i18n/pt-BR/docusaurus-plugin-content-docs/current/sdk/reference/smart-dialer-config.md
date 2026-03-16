@@ -93,7 +93,7 @@ tcp:
 
 - Por exemplo, `override:host=cloudflare.net|tlsfrag:1` especifica um transporte
 que usa domain fronting com Cloudflare e fragmentação de TLS. Confira a
-[documentação de configuração](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
+[documentação de configuração](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)
 (em inglês) para mais detalhes.
 
 ### Configuração alternativa {#fallback_configuration}
@@ -105,7 +105,7 @@ estratégias de DNS/TLS precisam falhar ou exceder o tempo limite.
 
 As strings alternativas devem ser:
 
-- Uma string de configuração `StreamDialer` válida conforme definido em [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols) (em inglês).
+- Uma string de configuração `StreamDialer` válida conforme definido em [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) (em inglês).
 
 - Um objeto de configuração Psiphon como filho de um campo `psiphon`.
 

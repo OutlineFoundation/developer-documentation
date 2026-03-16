@@ -16,13 +16,13 @@ sidebar_label: "Command Line Debugging"
 لحلّ سجلّ A الخاص بنطاق:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
 ```
 
 لحلّ سجلّ CNAME، اتّبِع الخطوات التالية:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
 ```
 
 ### جلب صفحة ويب
@@ -30,13 +30,13 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8
 يمكن استخدام أداة `fetch` لاسترداد محتوى صفحة ويب.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest https://example.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest https://example.com
 ```
 
 يمكنه أيضًا فرض استخدام QUIC في الاتصال.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
 ```
 
 ### استخدام خادم وكيل محلي
@@ -45,7 +45,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -proto=h3 https:/
 لبدء وكيل محلي باستخدام نقل Shadowsocks، اتّبِع الخطوات التالية:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
+go run github.com/OutlineFoundation/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
 ```
 
 يمكنك بعد ذلك استخدام هذا الخادم الوكيل مع أدوات أخرى، مثل curl:
@@ -57,7 +57,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 ## تحديد استراتيجيات التحايل
 
 تتيح حزمة تطوير البرامج (SDK) الخاصة بـ Outline تحديد استراتيجيات مختلفة للتحايل
-يمكن دمجها لتجاوز أشكال مختلفة من التشويش على الشبكة. يمكنك الاطّلاع على مواصفات هذه الاستراتيجيات في [مستندات Go](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x@v0.0.3/configurl).
+يمكن دمجها لتجاوز أشكال مختلفة من التشويش على الشبكة. يمكنك الاطّلاع على مواصفات هذه الاستراتيجيات في [مستندات Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
 
 ### استراتيجيات قابلة للتعديل
 
@@ -82,7 +82,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 الاتصال عن بُعد بخادم Outline عادي باستخدام نقل Shadowsocks
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
 ```
 
 #### SOCKS5 عبر SSH
@@ -96,7 +96,7 @@ ssh -D 127.0.0.1:1080 -C -N $USER@$HOST:$PORT
 الاتصال بهذا النفق باستخدام fetch
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
 ```
 
 ## دراسة حالة: تجاوز الحظر المفروض على YouTube في إيران
@@ -109,7 +109,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 
 ```sh
 export TRANSPORT="ss://{remote_shadowsocks_credentials}"
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
 ```
 
 يتعذّر تنفيذ هذا الأمر بسبب انتهاء المهلة.
@@ -119,7 +119,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 من خلال إضافة تجزئة TLS إلى النقل، يمكننا تجاوز هذا الحظر.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 يستردّ هذا الأمر بنجاح عنوان صفحة YouTube الرئيسية، وهو
@@ -128,7 +128,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 ### التجاوز باستخدام تجزئة TLS وDNS-over-HTTPS
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 يؤدي ذلك أيضًا إلى عرض القيمة `<title>YouTube</title>` بنجاح.
@@ -136,11 +136,11 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 ### تجاوز القيود باستخدام خادم Outline
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 ويعرض هذا الإجراء أيضًا القيمة `<title>YouTube</title>`.
 
 ## المزيد من التحليلات والمراجع
 
-للمناقشات والأسئلة، يُرجى الانتقال إلى [مجموعة مناقشة حزمة تطوير البرامج (SDK) الخاصة بخدمة Outline](https://github.com/Jigsaw-Code/outline-sdk/discussions).
+للمناقشات والأسئلة، يُرجى الانتقال إلى [مجموعة مناقشة حزمة تطوير البرامج (SDK) الخاصة بخدمة Outline](https://github.com/OutlineFoundation/outline-sdk/discussions).

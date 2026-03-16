@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-Shadowsocks와 같은 '아무것도 아닌 것처럼 보이는' 프로토콜을 차단하는 경우 Shadowsocks-over-Websockets를 사용하면 됩니다. 배포 방법은 [서버 구성 예](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)를 참고하세요. 클라이언트 구성은 다음과 같습니다.
+Shadowsocks와 같은 '아무것도 아닌 것처럼 보이는' 프로토콜을 차단하는 경우 Shadowsocks-over-Websockets를 사용하면 됩니다. 배포 방법은 [서버 구성 예](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)를 참고하세요. 클라이언트 구성은 다음과 같습니다.
 
 ```yaml
 transport:

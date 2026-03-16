@@ -93,7 +93,7 @@ tcp:
 
 - على سبيل المثال، يحدّد `override:host=cloudflare.net|tlsfrag:1` أسلوب النقل
 الذي يستخدِم التخفي عبر النطاقات مع Cloudflare وتقسيم بروتوكول TLS. ولمزيد من التفاصيل، يمكنك الاطّلاع على
-[مستند الإعدادات](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format).
+[مستند الإعدادات](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format).
 
 ### الإعدادات الاحتياطية {#fallback_configuration}
 
@@ -104,7 +104,7 @@ tcp:
 
 يجب أن تكون سلاسل الإعدادات الاحتياطية:
 
-- سلسلة إعدادات `StreamDialer` صالحة مثل تلك المحدّدة في [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+- سلسلة إعدادات `StreamDialer` صالحة مثل تلك المحدّدة في [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols).
 
 - عنصر إعدادات Psiphon صالحًا مثل العنصر الثانوي للحقل `psiphon`.
 

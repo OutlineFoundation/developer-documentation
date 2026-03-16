@@ -89,7 +89,7 @@ tcp:
 
 - Cada transporte TLS es una cadena que especifica qué transporte se debe usar.
 
-- Por ejemplo, `override:host=cloudflare.net|tlsfrag:1` especifica un transporte que usa ocultación de dominios con Cloudflare y fragmentación de TLS. Para obtener más información, consulta la [documentación sobre la configuración](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format).
+- Por ejemplo, `override:host=cloudflare.net|tlsfrag:1` especifica un transporte que usa ocultación de dominios con Cloudflare y fragmentación de TLS. Para obtener más información, consulta la [documentación sobre la configuración](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format).
 
 ### Configuración de respaldo {#fallback_configuration}
 
@@ -97,7 +97,7 @@ Si ninguna de las estrategias sin proxy logra conectar, se usa una configuració
 
 Las cadenas de respaldo deben ser lo siguiente:
 
-- Una cadena de configuración `StreamDialer` válida, tal como se defina en [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+- Una cadena de configuración `StreamDialer` válida, tal como se defina en [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols).
 
 - Un objeto de configuración de Psiphon válido que sea un elemento secundario de un campo `psiphon`.
 

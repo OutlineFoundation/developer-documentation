@@ -16,13 +16,13 @@ sidebar_label: "Command Line Debugging"
  برای حل کردن رکورد A دامنه:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
 ```
 
  برای حل یک رکورد CNAME:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
 ```
 
 ###  واکشی یک صفحه وب
@@ -30,13 +30,13 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8
  ابزار `fetch` می تواند برای بازیابی محتوای یک صفحه وب استفاده شود.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest https://example.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest https://example.com
 ```
 
  همچنین می تواند اتصال را مجبور به استفاده از QUIC کند.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
 ```
 
 ###  از یک پروکسی محلی استفاده کنید
@@ -44,7 +44,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -proto=h3 https:/
  ابزار `http2transport` یک پروکسی محلی برای هدایت ترافیک شما ایجاد می کند. برای شروع یک پروکسی محلی با انتقال Shadowsocks:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
+go run github.com/OutlineFoundation/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
 ```
 
  سپس می توانید از این پروکسی با ابزارهای دیگری مانند curl استفاده کنید:
@@ -55,7 +55,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ##  استراتژی های دور زدن را مشخص کنید
 
- Outline SDK اجازه می دهد تا استراتژی های دور زدن مختلفی را مشخص کند که می توانند برای دور زدن اشکال مختلف تداخل شبکه با هم ترکیب شوند. مشخصات این استراتژی ها در [مستندات پیش رو](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x@v0.0.3/configurl) آمده است.
+ Outline SDK اجازه می دهد تا استراتژی های دور زدن مختلفی را مشخص کند که می توانند برای دور زدن اشکال مختلف تداخل شبکه با هم ترکیب شوند. مشخصات این استراتژی ها در [مستندات پیش رو](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl) آمده است.
 
 ###  استراتژی های قابل ترکیب
 
@@ -76,7 +76,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
  از راه دور به یک سرور Outline استاندارد با انتقال Shadowsocks متصل شوید.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
 ```
 
 ####  SOCKS5 بیش از SSH
@@ -90,7 +90,7 @@ ssh -D 127.0.0.1:1080 -C -N $USER@$HOST:$PORT
  با استفاده از fetch به آن تونل وصل شوید
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
 ```
 
 ##  مطالعه موردی: دور زدن مسدودسازی یوتیوب در ایران
@@ -103,7 +103,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 
 ```sh
 export TRANSPORT="ss://{remote_shadowsocks_credentials}"
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
 ```
 
 این دستور با مهلت زمانی ناموفق است.
@@ -113,7 +113,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
  با افزودن تکه تکه شدن TLS به انتقال، می توانیم این بلوک را دور بزنیم. 
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 این دستور با موفقیت عنوان صفحه اصلی YouTube را که `<title>YouTube</title>` است بازیابی می کند. 
@@ -121,7 +121,7 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 ###  دور زدن با TLS Fragmentation و DNS-over-HTTPS 
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 این نیز با موفقیت `<title>YouTube</title>` را برمی گرداند.
@@ -129,11 +129,11 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -tran
 ###  دور زدن با سرور Outline 
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 این نیز `<title>YouTube</title>` را برمی گرداند.
 
 ##  تجزیه و تحلیل بیشتر و منابع
 
- برای بحث و پرسش، از [گروه گفتگوی Outline SDK](https://github.com/Jigsaw-Code/outline-sdk/discussions) بازدید کنید.
+ برای بحث و پرسش، از [گروه گفتگوی Outline SDK](https://github.com/OutlineFoundation/outline-sdk/discussions) بازدید کنید.

@@ -60,7 +60,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'link',
               label: 'Management API',
-              href: 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/shadowbox/server/api.yml',
+              href: 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/OutlineFoundation/outline-server/master/src/shadowbox/server/api.yml',
             },
           ],
         },
@@ -104,7 +104,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'link',
               label: 'Go API Reference',
-              href: 'https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk',
+              href: 'https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk',
             },
           ],
         },

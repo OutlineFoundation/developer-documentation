@@ -79,7 +79,7 @@ transport:
 
 درصورت مسدود شدن پروتکل‌های «شبیه هیچ‌چیز» مثل Shadowsocks، می‌توانید
 از Shadowsocks-over-Websockets استفاده کنید. برای نحوه استفاده از آن، [پیکربندی
-نمونه سرور](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)
+نمونه سرور](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)
 را ببینید. پیکربندی کارخواه به این شکل است:
 
 ```yaml

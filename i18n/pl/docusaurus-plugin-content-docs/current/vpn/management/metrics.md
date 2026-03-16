@@ -97,4 +97,4 @@ Otwórz przeglądarkę i adres <http://localhost:9090/graph>. Wysyłanie zapytan
 
 `nodejs_version_info`
 
-Pełną listę dostępnych danych znajdziesz w [kodzie źródłowym](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`.
+Pełną listę dostępnych danych znajdziesz w [kodzie źródłowym](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`.

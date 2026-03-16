@@ -32,7 +32,7 @@ services:
 ```
 
 Téléchargez le dernier
-[`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)
+[`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
 et exécutez-le avec la configuration créée :
 
 ```sh

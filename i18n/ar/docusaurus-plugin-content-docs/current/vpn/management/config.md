@@ -79,7 +79,7 @@ transport:
 
 في حال حظر بروتوكولات "التمويه" مثل بروتوكول Shadowsocks، يمكنك
 استخدام إعدادات Shadowsocks-over-Websocket. ويمكنك الاطّلاع على [مثال على إعدادات
-الخادم](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)
+الخادم](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)
 لمعرفة كيفية نشره. وستظهر الإعدادات المرتبطة بالعميل كالتالي:
 
 ```yaml

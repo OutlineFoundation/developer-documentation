@@ -22,7 +22,7 @@ sidebar_label: "Mobile App Integration"
 1. Outline SDK のリポジトリのクローンを作成します:
 
 ```sh
-git clone https://github.com/Jigsaw-Code/outline-sdk.git
+git clone https://github.com/OutlineFoundation/outline-sdk.git
 cd outline-sdk/x
 ```
 
@@ -54,7 +54,7 @@ go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.
 ### Android {#android}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 Android Studio で **[File] > [Import Project…]** を選択し、生成した `out/mobileproxy.aar` バンドルをインポートします。詳しくは、Go Mobile の[ビルドと Android へのデプロイ](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1)をご覧ください。
@@ -62,7 +62,7 @@ Android Studio で **[File] > [Import Project…]** を選択し、生成した 
 ### iOS {#ios}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 `out/mobileproxy.xcframework` バンドルを Xcode プロジェクトにドラッグします。詳しくは、Go Mobile の[ビルドと iOS へのデプロイ](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1)をご覧ください。
@@ -103,7 +103,7 @@ let proxy = MobileproxyRunProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-- **Smart Proxy**: Smart Proxy は、指定したテストドメインに応じて DSN と TLS の戦略を動的に選択します。構成の戦略は YAML 形式で指定します（[例](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)）。
+- **Smart Proxy**: Smart Proxy は、指定したテストドメインに応じて DSN と TLS の戦略を動的に選択します。構成の戦略は YAML 形式で指定します（[例](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)）。
 
 ### Android {#android_2}
 
@@ -215,8 +215,8 @@ let webview = WKWebView(configuration: configuration)
 
 2. **モバイル ライブラリを生成する**: `gomobile bind` を使用して Android ARchive（AAR）と Apple フレームワークを作成します。例:
 
-    - [Outline Android ARchive](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+    - [Outline Android ARchive](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
 
-    - [Outline Apple フレームワーク](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+    - [Outline Apple フレームワーク](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **アプリに統合する**: 生成したライブラリをモバイル アプリケーションに追加します。

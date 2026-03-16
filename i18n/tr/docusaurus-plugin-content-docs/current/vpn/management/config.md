@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-Shadowsocks gibi trafiği değiştiren protokollerin engellenmesi durumunda, Shadowsocks-over-Websockets kullanabilirsiniz. Nasıl dağıtılacağına ilişkin [sunucu örneği](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) yapılandırmasına bakın. Bir istemci yapılandırması şöyle olur:
+Shadowsocks gibi trafiği değiştiren protokollerin engellenmesi durumunda, Shadowsocks-over-Websockets kullanabilirsiniz. Nasıl dağıtılacağına ilişkin [sunucu örneği](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) yapılandırmasına bakın. Bir istemci yapılandırması şöyle olur:
 
 ```yaml
 transport:

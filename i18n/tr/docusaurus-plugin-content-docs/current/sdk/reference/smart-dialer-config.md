@@ -89,7 +89,7 @@ tcp:
 
 - Her bir TLS aracı, kullanılacak aracı belirten bir dizedir.
 
-- Örneğin `override:host=cloudflare.net|tlsfrag:1`, Cloudflare ve TLS parçasıyla alan adı ön yüzünü değiştirme işlemini kullanan bir araç belirtir. Ayrıntılar için [yapılandırma belgelerine](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) bakın.
+- Örneğin `override:host=cloudflare.net|tlsfrag:1`, Cloudflare ve TLS parçasıyla alan adı ön yüzünü değiştirme işlemini kullanan bir araç belirtir. Ayrıntılar için [yapılandırma belgelerine](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format) bakın.
 
 ### Yedek Yapılandırma {#fallback_configuration}
 
@@ -97,7 +97,7 @@ Yedek yapılandırma, proxy'siz stratejilerin hiçbiri bağlantı kuramadığın
 
 Yedek dizeler şu özellikleri taşımalıdır:
 
-- [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols) içinde tanımlandığı gibi geçerli bir `StreamDialer` yapılandırması
+- [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) içinde tanımlandığı gibi geçerli bir `StreamDialer` yapılandırması
 
 - `psiphon` alanının bir alt öğesi olarak geçerli bir Psiphon yapılandırması
 

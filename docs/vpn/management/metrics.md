@@ -108,4 +108,4 @@ Prometheus port.
   `nodejs_version_info`
 
 The complete list of available metrics can be found in the `outline-ss-server`
-[source code](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go).
+[source code](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go).

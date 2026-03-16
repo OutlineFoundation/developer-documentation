@@ -93,7 +93,7 @@ tcp:
 
 - Por ejemplo, `override:host=cloudflare.net|tlsfrag:1` especifica un transporte
 que utiliza el fronting del dominio con Cloudflare y fragmentación de TLS. Consulta la
-[documentación de configuración](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
+[documentación de configuración](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)
 para conocer más detalles.
 
 ### Configuración de resguardo {#fallback_configuration}
@@ -105,7 +105,7 @@ estrategias de DNS o TLS primero deben fallar o debe agotarse su tiempo de esper
 
 Cada cadena de resguardo debe cumplir con estas características:
 
-- Ser una cadena de configuración `StreamDialer` válida, como se define en [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols)
+- Ser una cadena de configuración `StreamDialer` válida, como se define en [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols)
 
 - Ser un objeto de configuración de Psiphon como elemento secundario de un campo `psiphon`
 

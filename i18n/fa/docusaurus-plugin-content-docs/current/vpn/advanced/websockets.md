@@ -36,7 +36,7 @@ services:
 ```
 
 جدیدترین
-[`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)
+[`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
 را بارگیری کنید و آن را بااستفاده از پیکربندی ساخته‌شده اجرا کنید:
 
 ```sh

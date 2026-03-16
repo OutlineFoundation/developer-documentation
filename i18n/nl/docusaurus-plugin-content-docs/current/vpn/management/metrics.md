@@ -99,4 +99,4 @@ Query maken voor Prometheus-statistieken
 `nodejs_version_info`
 
 De complete lijst met beschikbare statistieken staat in de `outline-ss-server`
-[broncode](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go).
+[broncode](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go).

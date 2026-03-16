@@ -36,7 +36,7 @@ services:
 ```
 
 يجب تنزيل وتشغيل
-[`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) الأحدث
+[`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) الأحدث
 باستخدام الإعدادات التي تم إنشاؤها:
 
 ```sh

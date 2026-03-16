@@ -36,7 +36,7 @@ services:
 ```
 
 Descarga la versión más reciente de
-[`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)
+[`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
 y ejecútala con la configuración que creaste:
 
 ```sh

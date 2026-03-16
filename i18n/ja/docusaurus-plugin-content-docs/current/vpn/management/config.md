@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-Shadowsocks などの「独自性の高い」プロトコルをブロックしている場合は、Shadowsocks-over-Websockets を使用できます。これのデプロイ方法については、[サーバーの構成例](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)をご覧ください。クライアントの構成は次のようになります。
+Shadowsocks などの「独自性の高い」プロトコルをブロックしている場合は、Shadowsocks-over-Websockets を使用できます。これのデプロイ方法については、[サーバーの構成例](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)をご覧ください。クライアントの構成は次のようになります。
 
 ```yaml
 transport:

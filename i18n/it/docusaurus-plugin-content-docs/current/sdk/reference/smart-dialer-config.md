@@ -89,7 +89,7 @@ tcp:
 
 - Ogni trasporto TLS è una stringa che specifica il trasporto da utilizzare.
 
-- Ad esempio, `override:host=cloudflare.net|tlsfrag:1` specifica un trasporto che usa il domain fronting con Cloudflare e la frammentazione TLS. Vedi la [documentazione sulla configurazione](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) per maggiori dettagli.
+- Ad esempio, `override:host=cloudflare.net|tlsfrag:1` specifica un trasporto che usa il domain fronting con Cloudflare e la frammentazione TLS. Vedi la [documentazione sulla configurazione](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format) per maggiori dettagli.
 
 ### Configurazione di fallback {#fallback_configuration}
 
@@ -97,7 +97,7 @@ La configurazione di fallback viene utilizzata se nessuna delle strategie senza 
 
 Le stringhe della configurazione di fallback devono essere:
 
-- Una stringa di configurazione `StreamDialer` valida come definito in [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+- Una stringa di configurazione `StreamDialer` valida come definito in [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols).
 
 - Un oggetto di configurazione Psiphon valido come elemento secondario di un campo `psiphon`.
 

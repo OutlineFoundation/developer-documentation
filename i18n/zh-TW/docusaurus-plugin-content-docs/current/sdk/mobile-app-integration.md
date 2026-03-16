@@ -22,7 +22,7 @@ sidebar_label: "Mobile App Integration"
 1. 複製 Outline SDK 存放區：
 
 ```sh
-git clone https://github.com/Jigsaw-Code/outline-sdk.git
+git clone https://github.com/OutlineFoundation/outline-sdk.git
 cd outline-sdk/x
 ```
 
@@ -54,7 +54,7 @@ go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.
 ### Android {#android}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 在 Android Studio 中依序選取「檔案」>「匯入專案…」****，即可匯入生成的 `out/mobileproxy.aar` 套件。如需其他協助，請參閱 Go Mobile 的「[建構並部署至 Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1)」。
@@ -62,7 +62,7 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 ### iOS {#ios}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 將 `out/mobileproxy.xcframework` 套件拖曳至 Xcode 專案中。如需其他協助，請參閱 Go Mobile 的「[建構並部署至 iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1)」。
@@ -103,7 +103,7 @@ let proxy = MobileproxyRunProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-- **Smart Proxy**：Smart Proxy 會根據指定的測試網域，動態選擇 DNS 和 TLS 策略。您需要以 YAML 格式指定設定策略 ([範例](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml))。
+- **Smart Proxy**：Smart Proxy 會根據指定的測試網域，動態選擇 DNS 和 TLS 策略。您需要以 YAML 格式指定設定策略 ([範例](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml))。
 
 ### Android {#android_2}
 
@@ -215,8 +215,8 @@ let webview = WKWebView(configuration: configuration)
 
 2. **產生行動程式庫**：使用 `gomobile bind` 產生 Android ARchive (AAR) 和 Apple 框架。範例：
 
-    - [Outline Android ARchive](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+    - [Outline Android ARchive](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
 
-    - [Outline Apple 框架](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+    - [Outline Apple 框架](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **整合進應用程式**：將產生的程式庫加入行動應用程式。

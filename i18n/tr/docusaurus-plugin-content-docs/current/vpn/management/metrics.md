@@ -98,4 +98,4 @@ Prometheus metriklerini sorgulama
 
 `nodejs_version_info`
 
-Mevcut tüm metriklerin listesi `outline-ss-server` [kaynak kodunda](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) bulunabilir.
+Mevcut tüm metriklerin listesi `outline-ss-server` [kaynak kodunda](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) bulunabilir.

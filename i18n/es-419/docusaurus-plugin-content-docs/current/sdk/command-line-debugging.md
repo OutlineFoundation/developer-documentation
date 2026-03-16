@@ -16,13 +16,13 @@ La herramienta `resolve` te permite realizar búsquedas de DNS con un agente de 
 Para resolver el registro A de un dominio, haz lo siguiente:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
 ```
 
 Para resolver un registro CNAME, sigue estos pasos:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
 ```
 
 ### Cómo recuperar una página web
@@ -30,13 +30,13 @@ go run github.com/Jigsaw-Code/outline-sdk/x/tools/resolve@latest -resolver 8.8.8
 La herramienta `fetch` se puede usar para recuperar el contenido de una página web.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest https://example.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest https://example.com
 ```
 
 También puede forzar la conexión para que use QUIC.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
 ```
 
 ### Usa un proxy local
@@ -45,7 +45,7 @@ La herramienta `http2transport` crea un proxy local para enrutar tu tráfico.
 Para iniciar un proxy local con un transporte de Shadowsocks, haz lo siguiente:
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
+go run github.com/OutlineFoundation/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
 ```
 
 Luego, puedes usar este proxy con otras herramientas, como curl:
@@ -56,7 +56,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## Especifica estrategias de elusión
 
-El SDK de Outline permite especificar varias estrategias de elusión que se pueden combinar para evitar diferentes formas de interferencia de red. La especificación de estas estrategias se encuentra en la [documentación de Go](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x@v0.0.3/configurl).
+El SDK de Outline permite especificar varias estrategias de elusión que se pueden combinar para evitar diferentes formas de interferencia de red. La especificación de estas estrategias se encuentra en la [documentación de Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
 
 ### Estrategias componibles
 
@@ -81,7 +81,7 @@ Con la herramienta `fetch`, puedes probar las conexiones de forma remota de vari
 Conéctate de forma remota a un servidor de Outline estándar con un transporte de Shadowsocks.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
 ```
 
 #### SOCKS5 a través de SSH
@@ -95,7 +95,7 @@ ssh -D 127.0.0.1:1080 -C -N $USER@$HOST:$PORT
 Conéctate a ese túnel con fetch
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
 ```
 
 ## Caso de éxito: Cómo eludir el bloqueo de YouTube en Irán
@@ -108,7 +108,7 @@ Cuando se intenta recuperar la página principal de YouTube a través de un prox
 
 ```sh
 export TRANSPORT="ss://{remote_shadowsocks_credentials}"
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
 ```
 
 Este comando falla con un tiempo de espera agotado.
@@ -118,7 +118,7 @@ Este comando falla con un tiempo de espera agotado.
 Si agregamos la fragmentación de TLS al transporte, podemos omitir este bloqueo.
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 Este comando recupera correctamente el título de la página principal de YouTube, que es `<title>YouTube</title>`.
@@ -126,7 +126,7 @@ Este comando recupera correctamente el título de la página principal de YouTub
 ### Bypass con fragmentación de TLS y DNS-over-HTTPS
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 Esto también devuelve `<title>YouTube</title>` correctamente.
@@ -134,11 +134,11 @@ Esto también devuelve `<title>YouTube</title>` correctamente.
 ### Cómo omitir la censura con un servidor de Outline
 
 ```sh
-go run github.com/Jigsaw-Code/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
 ```
 
 Esto también devuelve `<title>YouTube</title>`.
 
 ## Análisis y recursos adicionales
 
-Para ver debates y preguntas, visita el [grupo de debate del SDK de Outline](https://github.com/Jigsaw-Code/outline-sdk/discussions).
+Para ver debates y preguntas, visita el [grupo de debate del SDK de Outline](https://github.com/OutlineFoundation/outline-sdk/discussions).

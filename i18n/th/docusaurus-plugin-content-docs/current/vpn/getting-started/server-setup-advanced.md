@@ -16,7 +16,7 @@ sidebar_label: "Using Installation Script"
 1. ดาวน์โหลดและเรียกใช้สคริปต์การติดตั้ง Outline
 
 ```sh
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/OutlineFoundation/outline-apps/master/server_manager/install_scripts/install_server.sh)"
 ```
 
 2. ทำตามคำแนะนำบนหน้าจอ

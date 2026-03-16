@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-Als je 'look-like-nothing'-protocollen zoals Shadowsocks wilt blokkeren, kun je Shadowsocks-over-WebSockets gebruiken. Ga naar de [voorbeeldconfiguratie voor een server](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) voor meer informatie over hoe je dit implementeert. Zo ziet een clientconfiguratie eruit:
+Als je 'look-like-nothing'-protocollen zoals Shadowsocks wilt blokkeren, kun je Shadowsocks-over-WebSockets gebruiken. Ga naar de [voorbeeldconfiguratie voor een server](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) voor meer informatie over hoe je dit implementeert. Zo ziet een clientconfiguratie eruit:
 
 ```yaml
 transport:

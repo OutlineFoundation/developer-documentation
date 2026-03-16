@@ -89,7 +89,7 @@ tcp:
 
 - Chaque transport TLS est une chaîne qui spécifie le transport à utiliser.
 
-- Par exemple, `override:host=cloudflare.net|tlsfrag:1` spécifie un transport qui utilise le domain fronting avec Cloudflare et la fragmentation TLS. Consultez la [documentation sur la configuration](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) pour en savoir plus.
+- Par exemple, `override:host=cloudflare.net|tlsfrag:1` spécifie un transport qui utilise le domain fronting avec Cloudflare et la fragmentation TLS. Consultez la [documentation sur la configuration](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format) pour en savoir plus.
 
 ### Configuration de remplacement {#fallback_configuration}
 
@@ -97,7 +97,7 @@ Une configuration de remplacement est utilisée si aucune des stratégies sans p
 
 Les chaînes de la configuration de remplacement doivent respecter ces caractéristiques :
 
-- Être des chaînes de configuration `StreamDialer` valides, telles que définies dans [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols)
+- Être des chaînes de configuration `StreamDialer` valides, telles que définies dans [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols)
 
 - Être des objets de configuration Psiphon valides, en tant qu'éléments enfants d'un champ `psiphon`
 

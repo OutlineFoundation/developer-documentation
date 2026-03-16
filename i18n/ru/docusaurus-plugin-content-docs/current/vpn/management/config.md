@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-В случае блокировки "маскирующихся" протоколов (например, Shadowsocks), вы можете использовать Shadowsocks-over-Websockets. Ознакомьтесь с [примером конфигурации сервера](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml), чтобы развернуть этот вариант. Конфигурация клиента выглядит следующим образом:
+В случае блокировки "маскирующихся" протоколов (например, Shadowsocks), вы можете использовать Shadowsocks-over-Websockets. Ознакомьтесь с [примером конфигурации сервера](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml), чтобы развернуть этот вариант. Конфигурация клиента выглядит следующим образом:
 
 ```yaml
 transport:

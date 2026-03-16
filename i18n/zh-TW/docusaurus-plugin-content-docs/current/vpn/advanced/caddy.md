@@ -41,7 +41,7 @@ xcaddy build \
   # The example uses a YAML config, so include a YAML config adapter module.
   --with github.com/iamd3vil/caddy_yaml_adapter \
   # The Outline core server module.
-  --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
+  --with github.com/OutlineFoundation/outline-ss-server/outlinecaddy
 ```
 
 ## 步驟 4：設定並執行搭配 Outline 的 Caddy 伺服器 {#step_4_configure_and_run_the_caddy_server_with_outline}
@@ -95,7 +95,7 @@ apps:
 caddy run --config config.yaml --adapter yaml --watch
 ```
 
-如需更多設定示例，請前往 [outline-ss-server/outlinecaddy GitHub 存放區](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples)。
+如需更多設定示例，請前往 [outline-ss-server/outlinecaddy GitHub 存放區](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples)。
 
 ## 步驟 5：建立動態存取金鑰 {#step_5_create_a_dynamic_access_key}
 

@@ -16,7 +16,7 @@ Ten przewodnik przeprowadzi Cię przez proces konfigurowania serwera Outline w c
 1. Pobierz i uruchom skrypt instalacyjny Outline.
 
 ```sh
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/OutlineFoundation/outline-apps/master/server_manager/install_scripts/install_server.sh)"
 ```
 
 2. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.

@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-In caso di blocco dei protocolli "look-like-nothing" come Shadowsocks, puoi utilizzare Shadowsocks-over-Websockets. Fai riferimento alla [configurazione di esempio del server](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) per sapere come eseguirne il deployment. Una configurazione client apparirà così:
+In caso di blocco dei protocolli "look-like-nothing" come Shadowsocks, puoi utilizzare Shadowsocks-over-Websockets. Fai riferimento alla [configurazione di esempio del server](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) per sapere come eseguirne il deployment. Una configurazione client apparirà così:
 
 ```yaml
 transport:

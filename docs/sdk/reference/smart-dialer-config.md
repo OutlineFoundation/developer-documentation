@@ -85,7 +85,7 @@ tcp:
 *   Each TLS transport is a string that specifies the transport to use.
 *   For example, `override:host=cloudflare.net|tlsfrag:1` specifies a transport
     that uses domain fronting with Cloudflare and TLS fragmentation. See the
-    [config documentation](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)
+    [config documentation](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)
     for details.
 
 ### Fallback Configuration
@@ -97,7 +97,7 @@ DNS/TLS strategies must fail/timeout.
 
 The fallback strings should be:
 
-* A valid `StreamDialer` config string as defined in [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+* A valid `StreamDialer` config string as defined in [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols).
 * A valid Psiphon configuration object as a child of a `psiphon` field.
 
 #### Shadowsocks server example

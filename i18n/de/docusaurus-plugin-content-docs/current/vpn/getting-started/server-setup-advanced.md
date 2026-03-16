@@ -16,7 +16,7 @@ In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung eines 
 1. Laden Sie das Installationsskript für Outline herunter und führen sie es aus.
 
 ```sh
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/OutlineFoundation/outline-apps/master/server_manager/install_scripts/install_server.sh)"
 ```
 
 2. Folgen Sie anschließend der Anleitung auf dem Bildschirm.

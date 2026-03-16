@@ -241,7 +241,7 @@ FOOTER_STRING_MAP = {
     },
     "431604438871611837": {
         "key": "link.item.label.GitHub",
-        "description": "The label of footer link with label=GitHub linking to https://github.com/Jigsaw-Code/?q=outline",
+        "description": "The label of footer link with label=GitHub linking to https://github.com/OutlineFoundation/?q=outline",
     },
     "15008440364347205577": {
         "key": "link.item.label.Reddit",
@@ -317,7 +317,7 @@ SIDEBAR_STRING_MAP = {
         "keys": [
             {
                 "key": "sidebar.docs.link.Management API",
-                "description": "The label for link 'Management API' in sidebar 'docs', linking to 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/shadowbox/server/api.yml'",
+                "description": "The label for link 'Management API' in sidebar 'docs', linking to 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/OutlineFoundation/outline-server/master/src/shadowbox/server/api.yml'",
             },
         ],
         "english": "Management API",

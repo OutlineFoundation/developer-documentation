@@ -36,7 +36,7 @@ FOOTER_STRING_MAP = {
     },
     "431604438871611837": {
         "key": "link.item.label.GitHub",
-        "description": "The label of footer link with label=GitHub linking to https://github.com/Jigsaw-Code/?q=outline",
+        "description": "The label of footer link with label=GitHub linking to https://github.com/OutlineFoundation/?q=outline",
     },
     "15008440364347205577": {
         "key": "link.item.label.Reddit",

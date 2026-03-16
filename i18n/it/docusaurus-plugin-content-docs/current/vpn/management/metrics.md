@@ -105,4 +105,4 @@ Interroga le metriche di Prometheus
 `nodejs_version_info`
 
 L'elenco completo delle metriche disponibili è disponibile
-nel [codice sorgente](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`.
+nel [codice sorgente](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`.

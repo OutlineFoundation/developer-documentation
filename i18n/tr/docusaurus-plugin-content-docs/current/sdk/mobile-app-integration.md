@@ -22,7 +22,7 @@ Go kodunu Android ve iOS'e yönelik kitaplıklar hâlinde derlemek için [gomobi
 1. Outline SDK deposunu klonlayın:
 
 ```sh
-git clone https://github.com/Jigsaw-Code/outline-sdk.git
+git clone https://github.com/OutlineFoundation/outline-sdk.git
 cd outline-sdk/x
 ```
 
@@ -54,7 +54,7 @@ Psiphon kod tabanı GPL kapsamında lisanslandığından kodunuza lisans kısıt
 ### Android {#android}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 Oluşturulan `out/mobileproxy.aar` paketini içe aktarmak için Android Studio'da **Dosya > Projeyi İçe Aktar…** seçeneğini belirleyin. Daha fazla yardım için Go Mobile'ın [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) (Uygulama derleme ve Android'e dağıtma) başlıklı bölümünü inceleyin.
@@ -62,7 +62,7 @@ Oluşturulan `out/mobileproxy.aar` paketini içe aktarmak için Android Studio'd
 ### iOS {#ios}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 `out/mobileproxy.xcframework` paketini Xcode projesine sürükleyin. Daha fazla yardım için Go Mobile'ın [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) (Uygulama derleme ve iOS'e dağıtma) başlıklı bölümünü inceleyin.
@@ -104,7 +104,7 @@ let proxy = MobileproxyRunProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-- **Akıllı proxy**: Akıllı proxy, DNS ve TLS stratejilerini belirtilen test alan adlarına göre dinamik olarak seçer. Yapılandırma stratejisini YAML biçiminde ([örnek](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)) belirtmeniz gerekir.
+- **Akıllı proxy**: Akıllı proxy, DNS ve TLS stratejilerini belirtilen test alan adlarına göre dinamik olarak seçer. Yapılandırma stratejisini YAML biçiminde ([örnek](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)) belirtmeniz gerekir.
 
 ### Android {#android_2}
 
@@ -216,8 +216,8 @@ let webview = WKWebView(configuration: configuration)
 
 2. **Mobil uygulama kitaplıkları oluşturma**: Android Archive (AAR) ve Apple çerçeveleri oluşturmak için `gomobile bind` komutunu kullanın. Örnekler:
 
-    - [Outline Android Archive](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+    - [Outline Android Archive](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
 
-    - [Outline Apple Çerçevesi](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+    - [Outline Apple Çerçevesi](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **Uygulamanıza entegre etme**: Oluşturulan kitaplığı mobil uygulamanıza ekleyin.

@@ -98,4 +98,4 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `nodejs_version_info`
 
-โปรดดูรายการเมตริกที่มีทั้งหมดใน[ซอร์สโค้ด](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`
+โปรดดูรายการเมตริกที่มีทั้งหมดใน[ซอร์สโค้ด](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) `outline-ss-server`

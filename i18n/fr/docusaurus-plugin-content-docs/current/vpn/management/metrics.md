@@ -98,4 +98,4 @@ Utilisez des requêtes PromQL pour retrouver les métriques qui vous intéressen
 
 `nodejs_version_info`
 
-Vous trouverez la liste complète des métriques disponibles dans le [code source](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) d'`outline-ss-server`.
+Vous trouverez la liste complète des métriques disponibles dans le [code source](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go) d'`outline-ss-server`.

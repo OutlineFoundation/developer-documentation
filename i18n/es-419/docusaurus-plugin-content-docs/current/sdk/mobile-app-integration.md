@@ -29,7 +29,7 @@ el código de Go en bibliotecas para iOS y Android.
 1. Clona el repositorio del SDK de Outline:
 
 ```sh
-git clone https://github.com/Jigsaw-Code/outline-sdk.git
+git clone https://github.com/OutlineFoundation/outline-sdk.git
 cd outline-sdk/x
 ```
 
@@ -66,7 +66,7 @@ código. Te recomendamos que obtengas una licencia especial de Psiphon.
 ### Android {#android}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 En Android Studio, selecciona **File > Import Project…** para importar el paquete `out/mobileproxy.aar` generado. Para obtener más ayuda, consulta la sección [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) del artículo sobre Go para dispositivos móviles.
@@ -74,7 +74,7 @@ En Android Studio, selecciona **File > Import Project…** para importar el paqu
 ### iOS {#ios}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 Arrastra el paquete `out/mobileproxy.xcframework` al proyecto de Xcode. Para
@@ -123,7 +123,7 @@ proxy.stop()
 - **Smart Proxy**: Smart Proxy selecciona de forma dinámica estrategias de DNS y TLS
 en función de dominios de prueba especificados. Debes especificar la estrategia de
 configuración en formato YAML
-([ejemplo](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+([ejemplo](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android {#android_2}
 
@@ -245,9 +245,9 @@ SDK.
 2. **Genera bibliotecas para dispositivos móviles**: Usa `gomobile bind` para producir Android
 ARchives (AAR) y frameworks de Apple. Ejemplos:
 
-    - [Esquema de Android ARchive](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+    - [Esquema de Android ARchive](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
 
-    - [Esquema de framework de Apple](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+    - [Esquema de framework de Apple](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **Integra la biblioteca en tu app**: Agrega la biblioteca generada a tu aplicación para dispositivos
 móviles.

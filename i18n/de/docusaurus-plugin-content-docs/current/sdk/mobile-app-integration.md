@@ -22,7 +22,7 @@ Sie können [gomobile](https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile) verw
 1. Klonen Sie das Outline SDK Repository:
 
 ```sh
-git clone https://github.com/Jigsaw-Code/outline-sdk.git
+git clone https://github.com/OutlineFoundation/outline-sdk.git
 cd outline-sdk/x
 ```
 
@@ -54,7 +54,7 @@ Das `-tags psiphon`-Flag ist erforderlich, weil die Psiphon-Codebasis unter der 
 ### Android {#android}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 Wählen Sie in Android Studio **Datei > Projekt importieren…**, um das erstellte `out/mobileproxy.aar`-Bundle zu importieren. Weitere Hilfe finden Sie im Bereich zu [Entwicklung und Bereitstellung für Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) von Go Mobile.
@@ -62,7 +62,7 @@ Wählen Sie in Android Studio **Datei > Projekt importieren…**, um das erstel
 ### iOS {#ios}
 
 ```sh
-PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/Jigsaw-Code/outline-sdk/x/mobileproxy
+PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
 ```
 
 Ziehen Sie das `out/mobileproxy.xcframework`-Bundle in das Xcode-Projekt. Weitere Hilfe finden Sie im Bereich zu [Entwicklung und Bereitstellung für iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1).
@@ -104,7 +104,7 @@ let proxy = MobileproxyRunProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-- **Smart Proxy**: Der Smart Proxy wählt dynamisch DNS- und TLS-Strategien anhand der angegebenen Testdomains aus. Sie müssen die Konfigurationsstrategie im YAMLFormat festlegen ([Beispiel](https://github.com/Jigsaw-Code/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
+- **Smart Proxy**: Der Smart Proxy wählt dynamisch DNS- und TLS-Strategien anhand der angegebenen Testdomains aus. Sie müssen die Konfigurationsstrategie im YAMLFormat festlegen ([Beispiel](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
 ### Android {#android_2}
 
@@ -218,8 +218,8 @@ Für erweiterte Anwendungsfälle können Sie eigene Bibliotheken für mobile App
 
 2. **Bibliotheken für mobile Apps erstellen**: Verwenden Sie `gomobile bind`, um Android-Archive (AAR) und Apple Frameworks zu erstellen. Beispiele:
 
-    - [Outline Android-Archiv](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
+    - [Outline Android-Archiv](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L67-L81)
 
-    - [Outline Apple-Framework](https://github.com/Jigsaw-Code/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
+    - [Outline Apple-Framework](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **In Ihre App einbinden**: Fügen Sie die erstellte Bibliothek zu Ihrer App hinzu.

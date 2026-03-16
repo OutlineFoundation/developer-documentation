@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-W przypadku nietypowych protokołów, takich jak Shadowsocks, możesz skorzystać z Shadowsocks-over-Websockets. Zapoznaj się z [przykładową konfiguracją serwera](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml), aby dowiedzieć, się jak przeprowadzić wdrożenie. Konfiguracja klienta będzie wyglądała w następujący sposób:
+W przypadku nietypowych protokołów, takich jak Shadowsocks, możesz skorzystać z Shadowsocks-over-Websockets. Zapoznaj się z [przykładową konfiguracją serwera](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml), aby dowiedzieć, się jak przeprowadzić wdrożenie. Konfiguracja klienta będzie wyglądała w następujący sposób:
 
 ```yaml
 transport:

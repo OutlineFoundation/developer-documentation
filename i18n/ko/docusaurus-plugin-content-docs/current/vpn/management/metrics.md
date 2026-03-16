@@ -97,4 +97,4 @@ ssh root@your_server_ip -L 9090:localhost:9090
 
 `nodejs_version_info`
 
-사용 가능한 측정항목 전체 목록은 `outline-ss-server` [소스 코드](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go)에서 확인할 수 있습니다.
+사용 가능한 측정항목 전체 목록은 `outline-ss-server` [소스 코드](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go)에서 확인할 수 있습니다.

@@ -16,7 +16,7 @@ Bu kılavuzda, internet erişimini güvenli ve sınırsız hale getirmek için O
 1. Outline yükleme komut dosyasını indirip çalıştırın.
 
 ```sh
-sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/OutlineFoundation/outline-apps/master/server_manager/install_scripts/install_server.sh)"
 ```
 
 2. Ekranda gösterilen adımları izleyin.

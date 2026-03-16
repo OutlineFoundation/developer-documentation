@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-如果 Shadowsocks 等“隐形”协议被屏蔽，您可以使用 Shadowsocks-over-WebSocket。如需了解如何部署，请参阅[服务器示例配置](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)。客户端配置如下所示：
+如果 Shadowsocks 等“隐形”协议被屏蔽，您可以使用 Shadowsocks-over-WebSocket。如需了解如何部署，请参阅[服务器示例配置](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)。客户端配置如下所示：
 
 ```yaml
 transport:

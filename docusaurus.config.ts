@@ -91,7 +91,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/Jigsaw-Code/?q=outline',
+          href: 'https://github.com/OutlineFoundation/?q=outline',
           label: 'GitHub',
           position: 'right',
         },
@@ -126,7 +126,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/Jigsaw-Code/?q=outline',
+              href: 'https://github.com/OutlineFoundation/?q=outline',
             },
             {
               label: 'Reddit',

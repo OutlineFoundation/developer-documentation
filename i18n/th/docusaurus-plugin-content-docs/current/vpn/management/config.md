@@ -74,7 +74,7 @@ transport:
   udp: *shared
 ```
 
-ในกรณีที่มีการบล็อกโปรโตคอลที่ยากต่อการตรวจจับอย่าง Shadowsocks คุณสามารถใช้ Shadowsocks-over-Websockets ได้ ดูวิธีการติดตั้งใช้งานได้ในหัวข้อ[การกำหนดค่าตัวอย่างเซิร์ฟเวอร์](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) การกำหนดค่าไคลเอ็นต์จะมีลักษณะดังนี้
+ในกรณีที่มีการบล็อกโปรโตคอลที่ยากต่อการตรวจจับอย่าง Shadowsocks คุณสามารถใช้ Shadowsocks-over-Websockets ได้ ดูวิธีการติดตั้งใช้งานได้ในหัวข้อ[การกำหนดค่าตัวอย่างเซิร์ฟเวอร์](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) การกำหนดค่าไคลเอ็นต์จะมีลักษณะดังนี้
 
 ```yaml
 transport:

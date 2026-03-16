@@ -31,7 +31,7 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
-Pobierz najnowszy [`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases) i uruchom go za pomocą utworzonej konfiguracji.
+Pobierz najnowszy [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) i uruchom go za pomocą utworzonej konfiguracji.
 
 ```sh
 outline-ss-server -config=config.yaml

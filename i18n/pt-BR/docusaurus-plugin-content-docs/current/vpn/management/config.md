@@ -79,7 +79,7 @@ transport:
 
 Em caso de bloqueio de protocolos look-like-nothing como o Shadowsocks, você pode
 usar o Shadowsocks sobre Websockets. Confira o [exemplo de
-configuração do servidor](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) (em inglês)
+configuração do servidor](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml) (em inglês)
 para saber como implantá-lo. Uma configuração de cliente será semelhante a:
 
 ```yaml

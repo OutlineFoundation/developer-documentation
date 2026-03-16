@@ -50,7 +50,7 @@ go mod init example/splitfetch
 接下来，添加 Outline SDK 并创建 `main.go` 文件：
 
 ```sh
-go get github.com/Jigsaw-Code/outline-sdk@latest
+go get github.com/OutlineFoundation/outline-sdk@latest
 touch main.go
 ```
 
@@ -70,8 +70,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Jigsaw-Code/outline-sdk/transport"
-	"github.com/Jigsaw-Code/outline-sdk/transport/split"
+	"github.com/OutlineFoundation/outline-sdk/transport"
+	"github.com/OutlineFoundation/outline-sdk/transport/split"
 )
 
 // The number of bytes to send in the first packet.

@@ -66,7 +66,7 @@ Tip: For public projects, use your repository path like
 Next, pull in the Outline SDK and create your `main.go` file:
 
 ```sh
-go get github.com/Jigsaw-Code/outline-sdk@latest
+go get github.com/OutlineFoundation/outline-sdk@latest
 touch main.go
 ```
 
@@ -87,8 +87,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Jigsaw-Code/outline-sdk/transport"
-	"github.com/Jigsaw-Code/outline-sdk/transport/split"
+	"github.com/OutlineFoundation/outline-sdk/transport"
+	"github.com/OutlineFoundation/outline-sdk/transport/split"
 )
 
 // The number of bytes to send in the first packet.

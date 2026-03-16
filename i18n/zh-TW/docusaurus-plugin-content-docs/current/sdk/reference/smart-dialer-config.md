@@ -89,7 +89,7 @@ tcp:
 
 - 每個 TLS 傳輸方式皆以一組字串表示，指定所用傳輸機制。
 
-- 例如，`override:host=cloudflare.net|tlsfrag:1` 表示使用 Cloudflare 的網域前置技術和 TLS 分割進行傳輸，詳見[設定說明文件](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format)。
+- 例如，`override:host=cloudflare.net|tlsfrag:1` 表示使用 Cloudflare 的網域前置技術和 TLS 分割進行傳輸，詳見[設定說明文件](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)。
 
 ### 備援設定 {#fallback_configuration}
 
@@ -97,7 +97,7 @@ tcp:
 
 備援設定字串應符合以下格式：
 
-- 有效的 `StreamDialer` 設定字串，定義於 [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols) 中。
+- 有效的 `StreamDialer` 設定字串，定義於 [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) 中。
 
 - 有效的 Psiphon 設定物件，做為 `psiphon` 欄位的子項。
 

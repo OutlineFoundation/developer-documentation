@@ -73,7 +73,7 @@ transport:
   udp: *shared
 ```
 
-如果 Shadowsocks 等「看似普通」的通訊協定遭到封鎖，您可以使用 Shadowsocks-over-Websockets。關於部署方式，請參考[伺服器範例設定](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)。用戶端設定如下：
+如果 Shadowsocks 等「看似普通」的通訊協定遭到封鎖，您可以使用 Shadowsocks-over-Websockets。關於部署方式，請參考[伺服器範例設定](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)。用戶端設定如下：
 
 ```yaml
 transport:

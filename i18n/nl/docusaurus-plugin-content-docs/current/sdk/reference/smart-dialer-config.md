@@ -89,7 +89,7 @@ tcp:
 
 - Elk TLS-transport is een tekenreeks die aangeeft welk transport moet worden gebruikt.
 
-- `override:host=cloudflare.net|tlsfrag:1` geeft bijvoorbeeld een transport aan dat domain fronting gebruikt met Cloudflare en TLS-fragmentatie. In de [configuratiedocumentatie](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Config_Format) vind je meer informatie.
+- `override:host=cloudflare.net|tlsfrag:1` geeft bijvoorbeeld een transport aan dat domain fronting gebruikt met Cloudflare en TLS-fragmentatie. In de [configuratiedocumentatie](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format) vind je meer informatie.
 
 ### Reserveconfiguratie {#fallback_configuration}
 
@@ -97,7 +97,7 @@ Een reserveconfiguratie wordt gebruikt als via geen van de proxyloze strategieë
 
 De reservetekenreeksen moeten de volgende zijn:
 
-- Een geldige `StreamDialer`-configuratietekenreeks zoals beschreven in [`configurl`](https://pkg.go.dev/github.com/Jigsaw-Code/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+- Een geldige `StreamDialer`-configuratietekenreeks zoals beschreven in [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols).
 
 - Een geldig Psiphon-configuratieobject als onderliggend object van een `psiphon`-veld.
 

@@ -45,7 +45,7 @@ Tip: Keep the `path` secret to avoid probing. It acts as a secret endpoint. A
 long, randomly generated path is recommended.
 
 Download the latest
-[`outline-ss-server`](https://github.com/Jigsaw-Code/outline-ss-server/releases)
+[`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
 and run it using the created configuration:
 
 ```sh

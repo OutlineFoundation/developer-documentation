@@ -19,7 +19,7 @@ provide secure and unrestricted internet access.
 1. Download and run the Outline installation script.
 
     ```sh
-    sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-apps/master/server_manager/install_scripts/install_server.sh)"
+    sudo bash -c "$(wget -qO- https://raw.githubusercontent.com/OutlineFoundation/outline-apps/master/server_manager/install_scripts/install_server.sh)"
     ```
 
 1. Follow the on-screen prompts.

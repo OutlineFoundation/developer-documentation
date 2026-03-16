@@ -55,7 +55,7 @@ xcaddy build \
   # The example uses a YAML config, so include a YAML config adapter module.
   --with github.com/iamd3vil/caddy_yaml_adapter \
   # The Outline core server module.
-  --with github.com/Jigsaw-Code/outline-ss-server/outlinecaddy
+  --with github.com/OutlineFoundation/outline-ss-server/outlinecaddy
 ```
 
 ## Paso 4: Configura y ejecuta el servidor de Caddy con Outline {#step_4_configure_and_run_the_caddy_server_with_outline}
@@ -113,7 +113,7 @@ caddy run --config config.yaml --adapter yaml --watch
 ```
 
 Puedes encontrar más ejemplos de configuración en nuestro [repo de GitHub,
-outline-ss-server/outlinecaddy](https://github.com/Jigsaw-Code/outline-ss-server/tree/master/outlinecaddy/examples).
+outline-ss-server/outlinecaddy](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples).
 
 ## Paso 5: Crea una clave de acceso dinámica {#step_5_create_a_dynamic_access_key}
 

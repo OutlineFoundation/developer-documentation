@@ -99,4 +99,4 @@ Prometheus 指標に対するクエリを実行する
 `nodejs_version_info`
 
 使用可能な指標の完全なリストは、`outline-ss-server`
-[ソースコード](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go)で確認できます。
+[ソースコード](https://github.com/OutlineFoundation/outline-ss-server/blob/master/cmd/outline-ss-server/metrics.go)で確認できます。
