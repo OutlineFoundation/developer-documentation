@@ -133,24 +133,33 @@ def fetch_title(old_url_path: str, locale: str) -> str | None:
         return None
 
 
+def escape_yaml_value(value: str) -> str:
+    """Escape a string for use as a double-quoted YAML value."""
+    # Escape backslashes first, then double quotes
+    return value.replace('\\', '\\\\').replace('"', '\\"')
+
+
 def update_frontmatter(file_path: Path, new_title: str, new_sidebar_label: str) -> bool:
     """Update title and sidebar_label in markdown frontmatter. Returns True if changed."""
     content = file_path.read_text(encoding="utf-8")
     original = content
 
-    # Update title
+    escaped_title = escape_yaml_value(new_title)
+    escaped_label = escape_yaml_value(new_sidebar_label)
+
+    # Update title — match from key to end of line to handle broken quotes
     content = re.sub(
-        r'^(title:\s*)"[^"]*"',
-        f'\\1"{new_title}"',
+        r'^(title:\s*).*$',
+        f'\\1"{escaped_title}"',
         content,
         count=1,
         flags=re.MULTILINE,
     )
 
-    # Update sidebar_label
+    # Update sidebar_label — match from key to end of line
     content = re.sub(
-        r'^(sidebar_label:\s*)"[^"]*"',
-        f'\\1"{new_sidebar_label}"',
+        r'^(sidebar_label:\s*).*$',
+        f'\\1"{escaped_label}"',
         content,
         count=1,
         flags=re.MULTILINE,
