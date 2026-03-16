@@ -5,6 +5,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Outline VPN',
+      collapsed: false,
       items: [
         {
           type: 'category',
@@ -68,6 +69,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Outline SDK',
+      collapsed: false,
       items: [
         {
           type: 'category',
