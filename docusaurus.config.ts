@@ -20,7 +20,7 @@ function buildLocaleConfigs(): Record<string, {label: string; direction: 'ltr' |
 const config: Config = {
   title: 'Outline Developer Documentation',
   tagline: 'Build tools for internet freedom',
-  favicon: 'images/outline-logo.png',
+  favicon: 'images/outline-favicon.png',
 
   future: {
     v4: true,
