@@ -35,9 +35,7 @@ LOCALES = [
 ]
 
 # Docs that only exist in English (no translation source yet available)
-ENGLISH_ONLY = {
-    "sdk/command-line-debugging",
-}
+ENGLISH_ONLY: set[str] = set()
 
 # Known code block count differences: English MD has blocks added after
 # translation export. The converter uses h2-section matching to select
