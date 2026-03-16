@@ -66,7 +66,9 @@ const config: Config = {
   themeConfig: {
     image: 'images/outline-logo.png',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'Outline Developer Docs',
