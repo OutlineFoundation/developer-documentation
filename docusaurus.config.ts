@@ -151,9 +151,10 @@ const config: Config = {
       ],
     },
     algolia: {
-      appId: 'UWP9VCT3H0',
-      apiKey: 'd8416813be003a20fce5bf61a05e99a5',
+      appId: 'LT68QAY9IB',
+      apiKey: '8f414420aeb178cb867805ab948159fe',
       indexName: 'Dev Documentation',
+      contextualSearch: true,
     },
     prism: {
       theme: prismThemes.github,
