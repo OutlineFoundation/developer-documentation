@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+Psiphon 代码库基于 GPL 协议授予许可，可能会对您的代码施加许可限制。您可能需要考虑申请特殊许可。
+:::
+
 ### 如何使用 Smart Dialer {#how_to_use_the_smart_dialer}
 
 要使用 Smart Dialer，请创建一个 `StrategyFinder` 对象，然后调用 `NewDialer` 方法，以传入测试网域列表和 YAML 配置。`NewDialer` 方法将返回一个 `transport.StreamDialer`，可将其用于使用找到的策略创建连接。例如：

@@ -11,6 +11,11 @@ Después de instalar el servidor de Outline, se te dirigirá a su página de det
 
 - **Comparte la clave nueva:** a la derecha de cada clave, hay un icono para compartir. Haz clic en él para generar una invitación. Copia esta invitación y envíala al usuario que te interese por la plataforma de mensajería que prefieras.
 
+
+:::tip
+Cuando compartas enlaces de invitación, usa una plataforma de mensajería segura, como correo cifrado o una aplicación de chat protegida. No emplees canales sin medidas de seguridad para evitar que pueda vulnerarse la clave de acceso.
+:::
+
 ### Proceso de invitación a usuarios {#user_invitation_process}
 
 Cuando el usuario recibe la invitación, debe seguir estos pasos para conectarse a tu servidor de Outline:

@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+Psiphon 程式碼集採用 GPL 授權，可能會對您的程式碼產生授權限制。建議您考慮向 Psiphon 團隊洽談特殊授權，以免受到影響。
+:::
+
 ### 如何使用 Smart Dialer {#how_to_use_the_smart_dialer}
 
 如要使用 Smart Dialer，請建立 `StrategyFinder` 物件並呼叫 `NewDialer` 方法，傳入測試網域清單和 YAML 設定。

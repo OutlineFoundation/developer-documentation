@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+Psiphon のコードベースのライセンスは GPL の元で付与されており、あなたのコードにもライセンス制限が課される可能性があります。Psiphon から特別なライセンスを取得することも検討してください。
+:::
+
 ### Smart Dialer の使用方法 {#how_to_use_the_smart_dialer}
 
 Smart Dialer を使用するには、`StrategyFinder` オブジェクトを作成し、`NewDialer` メソッドを呼び出してテストドメインのリストと YAML の構成を引数として渡します。`NewDialer` メソッドは、見つけた戦略を使用して接続を作成するための `transport.StreamDialer` を返します。次に例を示します。

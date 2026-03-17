@@ -101,6 +101,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+يُرجى الحفاظ على سرية `path` لتجنُّب إجراء اختبارات عليه، لأنّه يعمل كنقطة نهاية سرية. ويُنصح باستخدام مسار طويل تم إنشاؤه عشوائيًا.
+:::
+
+
 يعبّر هذا الإعداد عن استراتيجية إعدادات Shadowsocks-over-WebSocket مع خادم
 ويب يشير إلى منفذ `443`، والذي يقبل الزيارات المغلّفة عبر بروتوكول Shadowsocks باستخدام منفذَي TCP وUDP على المسارَين `TCP_PATH` و`UDP_PATH`
 على التوالي.
@@ -110,6 +115,11 @@ apps:
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+استخدمنا ملف YAML في الأمثلة السابقة لأنّه أسهل في القراءة وفي إضافة تعليقات توضيحية إليه، مع ذلك يمكنك استخدام JSON (لغة إعداد Caddy الأساسية) مباشرةً. وفي حال استخدام هذه اللغة، يمكنك التشغيل بدون علامة `--adapter yaml` وإزالة الموارد التابعة لمحوِّل YAML في خطوة الإنشاء والتشغيل.
+:::
+
 
 ويمكنك الاطّلاع على المزيد من الأمثلة عن الإعدادات في مستودع GitHub على [outline-ss-server/outlinecaddy](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples).
 

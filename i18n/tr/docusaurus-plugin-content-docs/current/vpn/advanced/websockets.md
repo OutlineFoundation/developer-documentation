@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 Bu eğitimde, normal Shadowsocks bağlantılarının engellendiği ortamlarda sansürü aşmak için güçlü bir teknik olan Shadowsocks-over-WebSockets'i uygulamanıza yardımcı olacak ayrıntılı bilgiler paylaşılmıştır. Shadowsocks trafiğini WebSockets içinde kapsülleyerek standart web trafiği olarak gizleyebilir, esnekliği ve erişilebilirliği artırabilirsiniz.
 
+
+:::note
+Shadowsocks-over-WebSockets yalnızca 1.15.0+ sürümüne sahip Outline istemcilerinde desteklenmektedir. Daha eski istemci sürümlerinin desteklenmesi için mevcut yapılandırmalarınızı korumanız gerekir.
+:::
+
 ## 1. adım: Outline sunucusu yapılandırın ve çalıştırın {#step_1_configure_and_run_an_outline_server}
 
 Aşağıdaki yapılandırmayı kullanarak yeni bir `config.yaml` dosyası oluşturun:
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+Durum kontrolünden kaçınmak için `path` gizli anahtarını koruyun. Bu anahtar, gizli uç nokta görevi görür. Uzun, rastgele oluşturulmuş bir yol önerilir.
+:::
+
+
 En yeni [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)'ı indirin ve oluşturulan yapılandırmayı kullanarak çalıştırın.
 
 ```sh
@@ -43,6 +53,11 @@ WebSocket web sunucunuza herkesin erişebilmesi için internete açmanız ve [TL
 Bu işlem için birkaç seçeneğiniz vardır. [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) veya [Apache](https://httpd.apache.org/) gibi yerel bir web sunucusu kullanabilir ve geçerli bir TLS sertifikasına sahip olduğundan emin olabilirsiniz. Dilerseniz [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) ya da [ngrok](https://ngrok.com/) gibi bir tünel oluşturma hizmeti kullanabilirsiniz.
 
 ### TryCloudflare kullanılan örnek {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare yalnızca demolar ve testler için tasarlanmıştır.
+:::
 
 Bu örnekte, hızlıca bir tünel oluşturmak için [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) kullanacağız. Bu sayede, gelen bağlantı noktalarını açmadan yerel web sunucunuzu internete açmak için uygun ve güvenli bir yöntemden yararlanabilirsiniz.
 

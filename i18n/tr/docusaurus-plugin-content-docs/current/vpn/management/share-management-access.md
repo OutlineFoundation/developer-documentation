@@ -39,7 +39,17 @@ Ekip üyelerine vereceğiniz izinleri dikkatle değerlendirin. Outline sunucusun
 
 Outline Manager'ı DigitalOcean hesaplarına bağlayan kullanıcılar artık bu hesaba bağlı tüm Outline sunucularını görüntüleyip yönetebilir.
 
+
+:::tip
+Yeni yöneticilere, gelişmiş güvenlik için bulut sağlayıcı hesaplarında çok öğeli kimlik doğrulamayı (MFA) etkinleştirmelerini tavsiye edin.
+:::
+
 ## Manuel yüklemeler {#manual_installations}
+
+
+:::caution
+Manuel yüklemeler için yönetim erişimini paylaştığınızda, erişimin iptal edilmesi zor olabilir. En doğrudan yöntem, sunucuya tam yeniden yüklemedir. Bu yöntemde, yeni bir yapılandırma oluşturulur ancak tüm kullanıcı erişim anahtarları sıfırlanır.
+:::
 
 Outline'ı [yükleme komut dosyasını](../getting-started/server-setup-advanced) kullanarak kendi sunucunuza manuel olarak yüklediyseniz yönetim erişimi vermek için kullanılması gereken birincil yöntem **erişim yapılandırmasını** paylaşmaktır.
 
@@ -68,6 +78,11 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+Bu satırda hassas bilgiler yer alır. Satırı yalnızca yönetim erişimine ihtiyacı olan güvenilir kişilerle paylaşın.
+:::
 
 ### 3. Erişim yapılandırmasını güvenle paylaşma {#3_share_the_access_config_securely}
 

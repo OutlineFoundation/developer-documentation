@@ -11,6 +11,11 @@ sidebar_label: "إعدادات Shadowsocks-over-WebSocket"
 زيارات بروتوكولات Shadowsocks ببروتوكولات WebSocket، يمكنك إخفاء هذه الزيارات كأنّها زيارات عادية لمواقع ويب
 ، ما يعزِّز المرونة وتسهيل الاستخدام.
 
+
+:::note
+تُتاح إعدادات Shadowsocks-over-WebSocket في الإصدار 1.15.0 من تطبيق "عميل Outline" والإصدارات الأحدث. ويجب تعديل الإعدادات الحالية لإتاحة الإصدارات القديمة من التطبيق.
+:::
+
 ## الخطوة 1: ضبط خادم Outline وتشغيله {#step_1_configure_and_run_an_outline_server}
 
 عليك إنشاء ملف `config.yaml` جديد بالإعدادات التالية:
@@ -35,6 +40,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+يُرجى الحفاظ على سرية `path` لتجنُّب إجراء اختبارات عليه، لأنه يعمل كنقطة نهاية سرية. ويُنصح باستخدام مسار طويل تم إنشاؤه عشوائيًا.
+:::
+
+
 يجب تنزيل وتشغيل
 [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) الأحدث
 باستخدام الإعدادات التي تم إنشاؤها:
@@ -56,6 +66,11 @@ Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-net
 أو [ngrok](https://ngrok.com/).
 
 ### مثال على استخدام خدمة TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+خدمة TryCloudflare مخصّصة للإصدارات التجريبية ولأغراض الاختبارات فقط.
+:::
 
 في هذا المثال، سنستخدم خدمة
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)

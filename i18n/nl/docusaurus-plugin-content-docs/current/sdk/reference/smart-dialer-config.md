@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+De Psiphon-codebase is gelicentieerd onder de GPL, waardoor er licentiebeperkingen kunnen gelden voor je eigen code. Je kunt overwegen om een speciale licentie bij ze aan te vragen.
+:::
+
 ### De Smart Dialer gebruiken {#how_to_use_the_smart_dialer}
 
 Als je de Smart Dialer wilt gebruiken, maak je een `StrategyFinder`-object en roep je de methode `NewDialer` aan. Geef hierbij de lijst met testdomeinen en de YAML-configuratie mee.

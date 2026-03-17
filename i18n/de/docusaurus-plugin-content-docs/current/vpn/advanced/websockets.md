@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 Dieses Tutorial bietet eine Schritt-für-Schritt-Anleitung zur Implementierung von Shadowsocks-over-WebSockets, ein effektives Verfahren zur Umgehung von Zensuren in Umgebungen, in denen reguläre Shadowsocks-Verbindungen blockiert werden. Durch die Kapselung des Shadowsocks-Traffics in WebSockets können Sie ihn als Standard-Web-Traffic tarnen – für höhere Ausfallsicherheit und Zugänglichkeit.
 
+
+:::note
+Shadowsocks-over-WebSockets wird nur auf Outline-Clients mit der Version v1.15.0+ unterstützt. Zur Unterstützung älterer Client-Versionen müssen Sie Ihre vorhandenen Konfigurationen beibehalten.
+:::
+
 ## Schritt 1: Outline-Server konfigurieren und ausführen {#step_1_configure_and_run_an_outline_server}
 
 Erstellen Sie eine neue `config.yaml`-Datei mit der folgenden Konfiguration:
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+Behalten Sie das `path`-Secret bei, um Prüfungen zu vermeiden. Es fungiert als geheimer Endpunkt. Wir empfehlen einen langen, nach dem Zufallsprinzip generierten Pfad.
+:::
+
+
 Laden Sie den neuesten [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) herunter und führen Sie ihn mit der erstellten Konfiguration aus:
 
 ```sh
@@ -44,6 +54,11 @@ Hierfür gibt es mehrere Optionen. Sie können einen lokalen Webserver wie [Cadd
 [Apache](https://httpd.apache.org/) verwenden und sicherstellen, dass dieser ein gültiges TLS-Zertifikat hat. Oder Sie verwenden einen Tunneling-Dienst wie [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) oder [ngrok](https://ngrok.com/).
 
 ### Beispiel mit TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare ist ausschließlich für Demos und Tests vorgesehen.
+:::
 
 In diesem Beispiel erstellen wir mit [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) schnell einen Tunnel. So können Sie Ihren lokalen Webserver einfach und sicher freigeben, ohne Eingangs-Ports zu öffnen.
 

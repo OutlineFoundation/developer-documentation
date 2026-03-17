@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 In deze handleiding staat stapsgewijs uitgelegd hoe je Shadowsocks-over-WebSockets implementeert. Dit is een krachtige techniek om censuur te omzeilen in omgevingen waar reguliere Shadowsocks-verbindingen zijn geblokkeerd. Door Shadowsocks-verkeer in te kapselen in WebSockets kun je het vermommen als standaard webverkeer. Zo is het beter bestand tegen censuur en beter toegankelijk.
 
+
+:::note
+Shadowsocks-over-WebSockets wordt alleen ondersteund op Outline-clients v1.15.0+. Als je oudere clientversies wilt blijven gebruiken, moet je je bestaande configuratie houden.
+:::
+
 ## Stap 1: Stel een Outline-server in en voer deze uit {#step_1_configure_and_run_an_outline_server}
 
 Maak een nieuw `config.yaml`-bestand met de volgende configuratie:
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+Houd het `path` geheim om probing te voorkomen. Het doet dienst als geheim eindpunt. We raden je aan een lang, willekeurig gegenereerd pad te gebruiken.
+:::
+
+
 Download de nieuwste [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) en voer deze uit met de gemaakte configuratie:
 
 ```sh
@@ -43,6 +53,11 @@ Om je WebSocket-webserver openbaar toegankelijk te maken, moet je deze blootstel
 Je kunt dit op verschillende manieren doen. Je kunt een lokale webserver gebruiken, zoals [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) of [Apache](https://httpd.apache.org/) (zorg daarbij dat deze een geldig TLS-certificaat heeft). Je kunt ook een tunnelingservice inzetten, zoals [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) of [ngrok](https://ngrok.com/).
 
 ### Voorbeeld met TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare is alleen bedoeld voor demo's en testdoeleinden.
+:::
 
 In dit voorbeeld gebruiken we [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) om te demonstreren hoe je snel een tunnel maakt. Dit is een handige, goed beveiligde manier om je lokale webserver bloot te stellen zonder inkomende poorten te openen.
 

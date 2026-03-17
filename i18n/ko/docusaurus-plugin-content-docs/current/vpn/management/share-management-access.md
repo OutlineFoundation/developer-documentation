@@ -39,7 +39,17 @@ DigitalOcean에 호스팅된 Outline 서버 관리를 공유하는 가장 효과
 
 Outline Manager를 자신의 DigitalOcean 계정에 연결한 사용자는 이제 해당 계정에 연결된 모든 Outline 서버를 보고 관리할 수 있습니다.
 
+
+:::tip
+새 관리자가 보안 강화를 위해 클라우드 제공업체 계정에서 다중 인증(MFA)을 사용 설정하도록 권장하세요.
+:::
+
 ## 수동 설치 {#manual_installations}
+
+
+:::caution
+수동 설치에 대한 관리 액세스 권한을 공유하면 액세스 권한을 취소하는 것이 어려워집니다. 가장 직접적인 방법은 서버를 완전히 재설치하는 것이지만, 이 경우 구성이 새로 생성되는 동시에 모든 사용자 액세스 키도 재설정됩니다.
+:::
 
 [설치 스크립트](../getting-started/server-setup-advanced)를 사용하여 자체 서버에 Outline을 수동으로 설치한 사용자의 경우, 관리 액세스 권한을 부여하는 기본 방법은 **액세스 구성**을 공유하는 것입니다.
 
@@ -68,6 +78,11 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+이 줄에는 민감한 정보가 포함되어 있습니다. 관리자 액세스 권한이 필요한 신뢰할 수 있는 사용자와만 공유하세요.
+:::
 
 ### 3. 액세스 권한 구성 안전하게 공유하기 {#3_share_the_access_config_securely}
 

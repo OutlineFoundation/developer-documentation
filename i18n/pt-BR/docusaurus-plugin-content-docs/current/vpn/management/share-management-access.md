@@ -53,7 +53,17 @@ permissões concedidas).
 Os usuários com o Outline Manager conectado à conta do DigitalOcean agora podem
 ver e gerenciar todos os servidores do Outline vinculados a essa conta.
 
+
+:::tip
+incentive os novos gerentes a habilitarem a autenticação multifator (MFA) nas contas do provedor de nuvem para reforçar a segurança.
+:::
+
 ## Instalações manuais {#manual_installations}
+
+
+:::caution
+se o acesso de gerenciamento for compartilhado para instalações manuais, revogar o acesso será mais difícil. O método mais direto é uma reinstalação completa do servidor, o que gera uma nova configuração, mas também redefine todas as chaves de acesso dos usuários.
+:::
 
 Para quem instalou o Outline manualmente nos servidores usando o
 [script de instalação](../getting-started/server-setup-advanced), a principal maneira de conceder
@@ -91,6 +101,11 @@ e o endpoint da API Management no servidor (`apiUrl`):
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+essa linha contém informações sensíveis. Compartilhe apenas com indivíduos confiáveis que precisam de acesso de gerenciamento.
+:::
 
 ### 3. Compartilhar a configuração de acesso de forma segura {#3_share_the_access_config_securely}
 

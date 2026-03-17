@@ -11,6 +11,11 @@ Outline sunucunuzu başarıyla yükledikten sonra, Outline Manager'daki sunucu a
 
 - **Yeni anahtarı paylaşma:** Her anahtarın sağ tarafındaki paylaş simgesini tıklayarak bir davetiyeye ulaşabilirsiniz. Bu davetiyeyi kopyalayıp tercih ettiğiniz mesajlaşma platformu üzerinden ilgili kullanıcıya iletebilirsiniz.
 
+
+:::tip
+Davet bağlantılarını paylaşırken şifrelenmiş e-posta veya güvenli sohbet uygulaması gibi güvenli bir mesajlaşma platformu kullanın. Erişim anahtarlarını tehlikeye atabileceği için güvenli olmayan kanallar kullanmayın.
+:::
+
 ### Kullanıcıları davet etme süreci {#user_invitation_process}
 
 Davetiyeyi aldıktan sonra, kullanıcı Outline sunucunuza bağlanmak için şu adımları izler:

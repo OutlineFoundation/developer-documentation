@@ -11,6 +11,11 @@ Po zakończeniu instalacji serwera Outline nastąpi przekierowanie na stronę z 
 
 - **Udostępnianie nowego klucza:** po prawej stronie każdego klucza znajduje się ikona udostępniania, którą możesz kliknąć, aby utworzyć zaproszenie. Skopiuj je i wyślij do użytkownika przy użyciu preferowanej platformy do przesyłania wiadomości.
 
+
+:::tip
+podczas udostępniania linków z zaproszeniem korzystaj z bezpiecznej platformy, takiej jak szyfrowana poczta e-mail lub bezpieczna aplikacja do czatu. Staraj się nie używać niezabezpieczonych kanałów, ponieważ może to spowodować ujawnienie klucza dostępu.
+:::
+
 ### Proces zapraszania użytkownika {#user_invitation_process}
 
 Po otrzymaniu zaproszenia użytkownik może połączyć się z serwerem Outline, wykonując te czynności:

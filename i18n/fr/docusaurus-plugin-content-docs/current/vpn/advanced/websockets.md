@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 Ce tutoriel détaillé vous aidera à implémenter Shadowsocks-over-WebSockets, une technique puissante utilisée pour contourner la censure dans les environnements où les connexions Shadowsocks standards sont bloquées. En encapsulant le trafic Shadowsocks dans des WebSockets, vous pouvez le déguiser en trafic Web standard pour plus de résilience et d'accessibilité.
 
+
+:::note
+: Shadowsocks-over-WebSockets n'est compatible qu'avec les clients Outline v1.15.0 et versions ultérieures. Vous devez conserver vos configurations existantes pour utiliser des versions de client plus anciennes.
+:::
+
 ## Étape 1 : Configurez et exécutez un serveur Outline {#step_1_configure_and_run_an_outline_server}
 
 Créez un fichier `config.yaml` avec la configuration suivante :
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+: Gardez le champ `path` secret pour éviter la vérification. Il agit comme un point de terminaison secret. Nous vous recommandons un chemin long généré de manière aléatoire.
+:::
+
+
 Téléchargez le dernier
 [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
 et exécutez-le avec la configuration créée :
@@ -50,6 +60,11 @@ faire appel à un service de tunnelisation comme [Cloudflare Tunnel](https://de
 ou [ngrok](https://ngrok.com/).
 
 ### Exemple avec TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+: TryCloudflare n'est conçu que pour les démonstrations et les tests.
+:::
 
 Dans cet exemple, nous allons utiliser
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)

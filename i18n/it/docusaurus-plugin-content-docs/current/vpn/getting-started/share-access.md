@@ -11,6 +11,11 @@ Dopo aver completato l'installazione del server Outline, visualizzerai la pagina
 
 - **Per condividere la nuova chiave:** fai clic sull'icona di condivisione a destra di ogni chiave per generare un invito. Copia l'invito e invialo all'utente desiderato attraverso la piattaforma di messaggistica che preferisci.
 
+
+:::tip
+usa una piattaforma di messaggistica affidabile per condividere i link di invito, ad esempio email criptate o un'applicazione di chat sicura. Evita di utilizzare canali non protetti, per non rischiare di compromettere la chiave di accesso.
+:::
+
 ### Procedura di invito degli utenti {#user_invitation_process}
 
 Ecco la procedura che segue l'utente per connettersi al tuo server Outline dopo aver ricevuto l'invito.

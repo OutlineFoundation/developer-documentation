@@ -5,6 +5,11 @@ sidebar_label: "대체 다운로드 링크"
 
 Outline Manager와 Outline 클라이언트는 다음 링크에서 다운로드할 수 있습니다. Outline 설정에 관한 자세한 내용은 <https://getoutline.org/>에서 확인하세요.
 
+
+:::warning[Important]
+다음 링크는 Outline Manager와 Outline 클라이언트 애플리케이션을 다운로드할 수 있는 유일한 공식 소스입니다. 이러한 파일은 소셜 미디어나 메시지 앱(Telegram, WhatsApp 등)을 통해 직접 배포되지 않습니다.
+:::
+
 ## Outline Manager {#outline_manager}
 
 - **Windows:**

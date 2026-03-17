@@ -87,6 +87,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+Durum kontrolünden kaçınmak için `path` gizli anahtarına dokunmayın. Bu anahtar, gizli uç nokta görevi görür. Rastgele oluşturulmuş, uzun bir yol önerilir.
+:::
+
+
 Bu yapılandırma, bir web sunucusunun `443` bağlantı noktasını dinleyip sırasıyla `TCP_PATH` ve `UDP_PATH` yollarındaki TCP ve UDP ile sarmalanmış Shadowsocks trafiğini kabul ettiği bir "Shadowsocks-over-WebSockets" stratejisidir.
 
 Oluşturulan yapılandırma kullanılarak Outline ile genişletilmiş Caddy sunucusunu çalıştırın:
@@ -94,6 +99,11 @@ Oluşturulan yapılandırma kullanılarak Outline ile genişletilmiş Caddy sunu
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+Daha okunabilir ve not eklemesi kolay olduğu için örnekte YAML kullanılmıştır. Dilerseniz doğrudan JSON'u da (Caddy'nin yerel yapılandırma dili) kullanabilirsiniz. Bu yapılandırma dilini kullanırsanız `--adapter yaml` işareti olmadan çalıştırabilir ve derleme ile çalıştırma adımında YAML bağdaştırıcı bağımlısını kaldırabilirsiniz.
+:::
+
 
 [outline-ss-server/outlinecaddy GitHub depomuzda](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples) daha fazla sayıda örnek yapılandırma bulabilirsiniz.
 

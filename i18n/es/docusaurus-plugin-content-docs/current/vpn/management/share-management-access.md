@@ -39,7 +39,17 @@ Ten cuidado con los permisos que concedes a los miembros del equipo. Si quieres 
 
 Los usuarios que conecten Administrador de Outline a su cuenta de DigitalOcean podrán ver y gestionar todos los servidores de Outline vinculados con esa cuenta.
 
+
+:::tip
+Recomienda a los nuevos administradores que habiliten la autenticación multifactor (MFA) en sus cuentas del proveedor de servicios en la nube para reforzar la seguridad.
+:::
+
 ## Instalaciones manuales {#manual_installations}
+
+
+:::caution
+Si se comparte el acceso de gestión con instalaciones manuales, resulta difícil revocarlo. El método más directo es reinstalar de nuevo el servidor, lo que genera una configuración nueva, aunque también borra todas las claves de acceso.
+:::
 
 Si has instalado Outline manualmente en tu propio servidor con la [secuencia de comandos de instalación](../getting-started/server-setup-advanced), el método principal para conceder acceso de gestión es compartir la **configuración de acceso**.
 
@@ -68,6 +78,11 @@ La salida incluirá la huella digital de certificado autofirmada (`certSha256`) 
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+Esta línea incluye información sensible. Compártela únicamente con personas de confianza que necesiten acceso de gestión.
+:::
 
 ### 3. Comparte la configuración del acceso de forma segura {#3_share_the_access_config_securely}
 

@@ -11,6 +11,11 @@ Nachdem Sie Ihren Outline-Server erfolgreich installiert haben, werden Sie in Ou
 
 - **Neuen Zugriffsschlüssel freigeben:** Rechts neben jedem Schlüssel befindet sich ein Freigabesymbol, auf das Sie klicken können. Daraufhin wird eine Einladung erstellt. Kopieren Sie diese Einladung und geben Sie sie über einen sicheren Kommunikationsweg an den betreffenden Nutzer weiter.
 
+
+:::tip
+Verwenden Sie einen sicheren Kommunikationsweg wie verschlüsselte E-Mails oder eine sichere Chat-App, um Einladungslinks weiterzuleiten. Vermeiden Sie unsichere Kanäle, da diese den Zugriffsschlüssel gefährden könnten.
+:::
+
 ### Prozess zum Einladen von Nutzern {#user_invitation_process}
 
 Nachdem der Nutzer die Einladung erhalten hat, muss er die folgenden Schritte ausführen, um eine Verbindung zu Ihrem Outline-Server herzustellen:

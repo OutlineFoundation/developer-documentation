@@ -5,6 +5,11 @@ sidebar_label: "Alternatif indirme bağlantıları"
 
 Outline Manager ve Outline istemcisi aşağıdaki bağlantılardan indirilebilir. Outline kurulumuyla ilgili daha fazla bilgi için [https://getoutline.org/tr/](https://getoutline.org/) adresine gidin.
 
+
+:::warning[Important]
+Outline Manager ve Outline istemcisi uygulamalarını indirmek için kullanılan tek resmi kaynaklar aşağıdaki bağlantılardır. Bu dosyaları sosyal medya veya mesajlaşma uygulamaları (ör. Telegram ve WhatsApp) üzerinden şahsen dağıtmayız.
+:::
+
 ## Outline Manager {#outline_manager}
 
 - **Windows:**

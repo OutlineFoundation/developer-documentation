@@ -7,6 +7,11 @@ Outline 客户端 1.15.0 及以上版本。**
 
 本教程提供了详细的操作步骤，可帮助您实现 Shadowsocks-over-WebSocket，这是一种强大的技术，可在常规 Shadowsocks 连接被屏蔽的环境中绕过审查。通过将 Shadowsocks 流量封装在 WebSocket 中，您可以将其伪装成标准 Web 流量，从而提高弹性和可访问性。
 
+
+:::note
+只有 Outline 客户端 1.15.0 及以上版本支持 Shadowsocks-over-WebSocket。您必须保留现有配置，才能支持较低的客户端版本。
+:::
+
 ## 第 1 步：配置并运行 Outline 服务器 {#step_1_configure_and_run_an_outline_server}
 
 创建一个包含以下配置的新 `config.yaml` 文件：
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+确保 `path` 的机密性，以免被探测。它充当秘密端点。建议使用随机生成的长路径。
+:::
+
+
 下载最新的 [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)，并使用创建的配置来运行它：
 
 ```sh
@@ -42,6 +52,11 @@ outline-ss-server -config=config.yaml
 若要让 WebSocket Web 服务器可公开访问，您需要将其公开到互联网并配置 [TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security)。您可以通过多种方式实现此目的。您可以使用 [Caddy](https://caddyserver.com/)、[nginx](https://nginx.org/) 或 [Apache](https://httpd.apache.org/) 等本地 Web 服务器，确保它具有有效的 TLS 证书，也可以使用 [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) 或 [ngrok](https://ngrok.com/) 等隧道服务。
 
 ### 使用 TryCloudflare 的示例 {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare 仅用于演示和测试。
+:::
 
 在本示例中，我们将演示如何使用 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) 创建快速隧道。这样，您就可以安全便捷地公开本地 Web 服务器，而无需打开入站端口。
 

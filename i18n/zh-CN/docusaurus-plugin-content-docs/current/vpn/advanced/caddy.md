@@ -87,6 +87,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+请确保 `path` 的机密性，以免被探测。它将充当秘密端点。建议使用随机生成的长路径。
+:::
+
+
 此配置代表 Shadowsocks-over-WebSocket 策略，其中 Web 服务器监听端口 `443`，并分别在路径 `TCP_PATH` 和 `UDP_PATH` 接受 TCP 和 UDP Shadowsocks 封装的流量。
 
 使用创建的配置运行使用 Outline 扩展的 Caddy 服务器：
@@ -94,6 +99,11 @@ apps:
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+以上示例使用的是更易于读取和注释的 YAML，您也可以直接使用 JSON（Caddy 的原生配置语言）。如果使用 JSON，您无需 `--adapter yaml` 标志即可运行 Caddy 服务器，并可在构建和运行步骤中移除 YAML 适配器依赖项。
+:::
+
 
 如需查看更多示例配置，请访问我们的 [outline-ss-server/outlinecaddy GitHub 仓库](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples)。
 

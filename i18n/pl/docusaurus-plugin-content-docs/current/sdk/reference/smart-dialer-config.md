@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+baza kodu Psiphon jest objęta licencją GPL, która może nakładać ograniczenia licencyjne na Twój własny kod. W związku z tym być może warto uzyskać specjalną licencję od firmy Psiphon.
+:::
+
 ### Jak korzystać z inteligentnego dialera {#how_to_use_the_smart_dialer}
 
 Aby użyć inteligentnego dialera, utwórz obiekt `StrategyFinder` i wywołaj metodę `NewDialer`, przekazując listę domen testowych i konfigurację w formacie YAML.

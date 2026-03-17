@@ -5,6 +5,11 @@ sidebar_label: "Alternatywne linki do pobierania"
 
 Menedżera i klienta Outline można pobrać z linków poniżej. Więcej informacji o konfigurowaniu Outline znajdziesz pod adresem <https://getoutline.org/>.
 
+
+:::warning[Important]
+linki poniżej to jedyne oficjalne źródła, z których można pobrać Menedżera i klienta Outline. Nie rozprowadzamy tych plików bezpośrednio w mediach społecznościowych ani aplikacjach do obsługi wiadomości, w tym na Telegramie czy WhatsAppie.
+:::
+
 ## Menedżer Outline {#outline_manager}
 
 - **Windows:**

@@ -11,6 +11,11 @@ Nadat je je Outline-server hebt geïnstalleerd, word je doorgestuurd naar de pag
 
 - **De nieuwe sleutel delen:** Rechts van elke sleutel staat een deelicoon waarop je kunt klikken om een uitnodiging te maken. Kopieer deze uitnodiging en stuur deze naar de gewenste gebruiker via een berichtenplatform naar keuze.
 
+
+:::tip
+Gebruik een beveiligd berichtenplatform om uitnodigingslinks te delen, zoals versleutelde e-mail of een beveiligde chat. Gebruik geen onbeveiligde kanalen omdat dit de beveiliging van de toegangssleutel in gevaar kan brengen.
+:::
+
 ### Proces om gebruikers uit te nodigen {#user_invitation_process}
 
 Nadat een gebruiker de uitnodiging heeft gekregen, volgt deze de volgende stappen om verbinding te maken met je Outline-server:

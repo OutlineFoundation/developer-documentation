@@ -17,6 +17,11 @@ que se encuentra en la parte inferior de la página.
 que aparece a la derecha de la clave, y obtendrás una invitación. Cópiala y envíala
 al usuario deseado a través de la plataforma de mensajería que prefieras.
 
+
+:::tip
+Cuando compartas vínculos de invitación, usa una plataforma de mensajería segura, como correos electrónicos encriptados o una aplicación de chat protegida. Evita usar canales no protegidos, ya que se podría vulnerar la clave de acceso.
+:::
+
 ### Proceso para invitar a usuarios {#user_invitation_process}
 
 Una vez que el usuario reciba la invitación, deberá seguir estos pasos para conectarse a

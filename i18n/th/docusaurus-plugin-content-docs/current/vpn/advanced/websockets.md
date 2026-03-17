@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 บทแนะนำนี้จะอธิบายคำแนะนำแบบละเอียดทีละขั้นเพื่อช่วยคุณติดตั้งใช้งาน Shadowsocks-over-WebSockets ซึ่งเป็นเทคนิคที่มีประสิทธิภาพในการหลบเลี่ยงการเซ็นเซอร์ในสภาพแวดล้อมที่มีการบล็อกการเชื่อมต่อ Shadowsocks แบบปกติ การห่อหุ้มข้อมูลการเข้าชม Shadowsocks ภายใน WebSocket จะทำให้คุณปลอมแปลงการเข้าชมดังกล่าวเป็นการเข้าชมเว็บมาตรฐานได้ ซึ่งจะช่วยเพิ่มความยืดหยุ่นและการเข้าถึง
 
+
+:::note
+เฉพาะไคลเอ็นต์ Outline เวอร์ชัน 1.15.0 ขึ้นไปเท่านั้นที่รองรับ Shadowsocks-over-WebSockets โดยคุณต้องคงการกำหนดค่าที่มีอยู่ไว้เพื่อรองรับไคลเอ็นต์เวอร์ชันเก่า
+:::
+
 ## ขั้นตอนที่ 1: กำหนดค่าและเรียกใช้เซิร์ฟเวอร์ Outline {#step_1_configure_and_run_an_outline_server}
 
 สร้างไฟล์ `config.yaml` ใหม่ที่มีการกำหนดค่าต่อไปนี้
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+เก็บ `path` ไว้เป็นความลับเพื่อหลีกเลี่ยงการตรวจสอบ ซึ่งเส้นทางนี้จะเป็นปลายทางลับ เราจึงแนะนำให้ใช้เส้นทางที่สร้างแบบสุ่มและมีความยาว
+:::
+
+
 ดาวน์โหลด [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) เวอร์ชันล่าสุดและเรียกใช้โดยใช้การกำหนดค่าที่สร้างไว้ดังต่อไปนี้
 
 ```sh
@@ -44,6 +54,11 @@ outline-ss-server -config=config.yaml
 [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) หรือ [Apache](https://httpd.apache.org/) โดยตรวจสอบว่าเว็บเซิร์ฟเวอร์มีใบรับรอง TLS ที่ถูกต้อง หรือใช้บริการการสร้างอุโมงค์เสมือน เช่น [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) หรือ [ngrok](https://ngrok.com/)
 
 ### ตัวอย่างการใช้ TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare มีไว้สำหรับเดโมและการทดสอบเท่านั้น
+:::
 
 ในตัวอย่างนี้ เราจะสาธิตการใช้ [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) เพื่อสร้างอุโมงค์ข้อมูลอย่างรวดเร็ว ซึ่งเป็นวิธีที่สะดวกและปลอดภัยในการเปิดใช้งานเว็บเซิร์ฟเวอร์ในเครื่องโดยไม่ต้องเปิดพอร์ตขาเข้า
 

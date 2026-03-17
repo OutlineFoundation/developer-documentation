@@ -39,7 +39,17 @@ Bepaal zorgvuldig welke rechten je teamleden geeft. Voor het beheer van de Outli
 
 Gebruikers die Outline Manager koppelen aan hun DigitalOcean-account kunnen nu alle Outline-servers die zijn gekoppeld aan dat account bekijken en beheren.
 
+
+:::tip
+Vraag nieuwe beheerders om multifactorauthenticatie (MFA) aan te zetten voor hun account bij de cloudprovider voor meer beveiliging.
+:::
+
 ## Handmatige installaties {#manual_installations}
+
+
+:::caution
+Als je beheertoegang tot handmatige installaties geeft, is het moeilijk om die toegang weer in te trekken. De meest directe methode is de server compleet opnieuw installeren. Er wordt dan een nieuwe configuratie gegenereerd, maar alle toegangssleutels van gebruikers worden ook gereset.
+:::
 
 Als je Outline handmatig hebt geïnstalleerd op je eigen server via het [installatiescript](../getting-started/server-setup-advanced), is de primaire manier om beheertoegang te geven door de **toegangsconfiguratie** te delen.
 
@@ -68,6 +78,11 @@ De uitvoer bevat de zelfondertekende vingerafdruk van het certificaat (`certSha2
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+Deze regel bevat gevoelige informatie. Deel deze alleen met mensen die je vertrouwt en die beheertoegang moeten hebben.
+:::
 
 ### 3. Deel de toegangsconfiguratie op een beveiligde manier {#3_share_the_access_config_securely}
 

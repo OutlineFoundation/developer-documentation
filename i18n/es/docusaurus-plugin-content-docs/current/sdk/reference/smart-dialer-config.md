@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+El código base de Psiphon tiene licencia de GPL, que puede imponer restricciones a tu propio código. Plantéate pedirles una licencia especial.
+:::
+
 ### Cómo usar el marcador inteligente {#how_to_use_the_smart_dialer}
 
 Para usar el marcador inteligente, crea un objeto `StrategyFinder` y llama al método `NewDialer` pasando la lista de dominios de prueba y la configuración de YAML.

@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+Psiphon 코드베이스는 GPL 라이선스를 따르므로, 사용자의 코드에 라이선스 제한이 적용될 수 있습니다. Psiphon의 별도 라이선스 취득을 고려할 수도 있습니다.
+:::
+
 ### 스마트 다이얼러 사용 방법 {#how_to_use_the_smart_dialer}
 
 스마트 다이얼러를 사용하려면 `StrategyFinder` 객체를 만들고 `NewDialer` 메서드를 호출하여 테스트 도메인 목록과 YAML 구성을 전달합니다.

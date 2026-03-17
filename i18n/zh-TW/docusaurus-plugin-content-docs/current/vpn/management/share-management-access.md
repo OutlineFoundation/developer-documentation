@@ -39,7 +39,17 @@ DigitalOcean 提供強大的 **Teams** 功能，讓您可以邀請其他 Digital
 
 使用者將 Outline Manager 連結至 DigitalOcean 帳戶後，就能查看並管理該帳戶連結的所有 Outline 伺服器。
 
+
+:::tip
+為提升安全性，建議新管理員在雲端服務供應商帳戶中啟用多重驗證 (MFA)。
+:::
+
 ## 手動安裝 {#manual_installations}
+
+
+:::caution
+如果將管理權限分享給手動安裝 Outline 的使用者，之後會很難撤銷。最直接的方式是重新安裝整個伺服器，這會產生新的設定，但也會重設所有使用者的存取金鑰。
+:::
 
 若要授予管理權限的對象，是用[安裝指令碼](../getting-started/server-setup-advanced)在伺服器上手動安裝 Outline，主要的授權方式是分享**存取設定**。
 
@@ -68,6 +78,11 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+這一行包含機密資訊，只宜分享給需要管理權限的信任對象。
+:::
 
 ### 3. 安全分享存取設定 {#3_share_the_access_config_securely}
 

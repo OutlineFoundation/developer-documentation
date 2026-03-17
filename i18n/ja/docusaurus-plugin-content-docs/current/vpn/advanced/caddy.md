@@ -87,6 +87,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+プローブを回避するため、`path` をシークレットにしてください。これはシークレット エンドポイントとして機能します。長い、ランダムに生成されたパスの使用をおすすめします。
+:::
+
+
 この構成は Shadowsocks-over-WebSockets 方式で、ウェブサーバーが `443` ポートでリッスンし、Shadowsocks でラップした TCP および UDP トラフィックをそれぞれ `TCP_PATH` パスと `UDP_PATH` パスで受け入れることを意味します。
 
 作成した構成を使用して Outline とその拡張を含む Caddy サーバーを実行します。
@@ -94,6 +99,11 @@ apps:
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+YAML の方が読みやすく、注釈を付けるのが容易であるため、この例では YAML を使用していますが、JSON（Caddy のネイティブ構成言語）を直接使用することもできます。これを使用する場合は、`--adapter yaml` フラグを指定しないで実行し、ビルドおよび実行のステップで YAML アダプタの依存関係を解除することができます。
+:::
+
 
 他の構成例については、[outline-ss-server/outlinecaddy GitHub
 repo](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples) をご覧ください。

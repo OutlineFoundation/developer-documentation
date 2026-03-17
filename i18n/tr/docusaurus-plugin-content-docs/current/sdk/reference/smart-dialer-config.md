@@ -134,6 +134,11 @@ fallback:
     }
 ```
 
+
+:::note
+Psiphon kod tabanı GPL kapsamında lisanslandığından kodunuza lisans kısıtlamaları uygulanabilir. Psiphon ekibinden özel bir lisans almanız önerilir.
+:::
+
 ### Smart Dialer'ı Kullanma {#how_to_use_the_smart_dialer}
 
 Smart Dialer'ı kullanmak için bir `StrategyFinder` nesnesi oluşturun ve `NewDialer` yöntemini çağırın. Bunun için test alan adları listesini ve YAML yapılandırmasını sağlamanız gerekir.

@@ -101,6 +101,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+`path` را مخفی نگه دارید تا از تفحص پرهیز کنید. این فایل مثل یک نقطه پایانی رمزی است. مسیر تولیدشده طولانی و تصادفی توصیه می‌شود.
+:::
+
+
 این پیکربندی نشان‌دهنده راهبرد Shadowsocks-over-WebSockets است که با
 سرور وبی در درگاه `443` می‌شنود و ترافیک‌های شکسته‌شده Shadowsocks به‌صورت TCP و UDP را
 به‌ترتیب در مسیرهای `TCP_PATH` و `UDP_PATH`
@@ -111,6 +116,11 @@ apps:
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+در نمونه‌ها از YAML استفاده می‌شود زیرا قابل‌اعتمادتر است و برای حاشیه‌نویسی آسان‌تر است، ولی شما می‌توانید مستقیماً از JSON استفاده کنید که زبان اول پیکربندی Caddy است. اگر از آن استفاده می‌کنید، می‌توانید بدون پرچم‌گذاری `--adapter yaml` اجرا کنید و وابستگی آداپتور YAML را در مراحل ساختن و اجرا بردارید.
+:::
+
 
 نمونه‌های بیشتر برای پیکربندی را می‌توانید در [outline-ss-server/outlinecaddy GitHub
 repo](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples) ببینید.

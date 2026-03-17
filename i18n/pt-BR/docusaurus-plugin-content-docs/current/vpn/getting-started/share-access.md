@@ -17,6 +17,11 @@ para criar novas chaves.
 pode clicar para obter um convite. Copie o convite e envie-o para
 o usuário pela plataforma de mensagens que você quiser.
 
+
+:::tip
+use uma plataforma de mensagens segura, como um e-mail criptografado ou um aplicativo de chat seguro, ao compartilhar os links do convite. Evite usar canais não seguros. Isso pode comprometer a chave de acesso.
+:::
+
 ### Processo de convite de usuários {#user_invitation_process}
 
 Ao receber o convite, o usuário deverá seguir estas etapas para se conectar ao

@@ -6,6 +6,11 @@ sidebar_label: "روابط التنزيل البديلة"
 يمكن تحميل تطبيقَي "مدير Outline" و"عميل Outline" من
 الروابط التالية. ويمكنك التعرّف على المزيد من المعلومات حول عملية إعداد Outline على الرابط [https://getoutline.org/‎](https://getoutline.org/).
 
+
+:::warning[Important]
+الروابط التالية هي المصادر الرسمية الوحيدة لتنزيل تطبيقَي "مدير Outline" و"عميل Outline". ولا يتم نشر هذه الملفات على وسائل التواصل الاجتماعي أو تطبيقات المراسلة، ومنها Telegram وWhatsApp.
+:::
+
 ## مدير Outline {#outline_manager}
 
 - **نظام التشغيل Windows‏:**

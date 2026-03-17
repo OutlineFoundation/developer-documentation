@@ -5,6 +5,11 @@ sidebar_label: "備用下載連結"
 
 以下提供 Outline Manager 和 Outline 用戶端的下載連結。如要進一步瞭解 Outline 的設定方式，請前往 <https://getoutline.org/>。
 
+
+:::warning[Important]
+這些連結是唯一的官方下載來源，我們不會透過社群媒體或訊息應用程式 (包括 Telegram 和 WhatsApp) 直接發布這些檔案。
+:::
+
 ## Outline Manager {#outline_manager}
 
 - **Windows：**<https://s3.amazonaws.com/outline-releases/manager/windows/stable/Outline-Manager.exe>

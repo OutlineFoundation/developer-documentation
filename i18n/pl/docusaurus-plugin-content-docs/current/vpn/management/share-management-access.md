@@ -39,7 +39,17 @@ Starannie rozważ, jakie uprawnienia chcesz przyznać osobom w zespole. W przypa
 
 Użytkownicy, którzy połączyli aplikację Menedżer Outline ze swoim kontem DigitalOcean, będą mogli wyświetlać wszystkie powiązane z nim serwery Outline oraz nimi zarządzać.
 
+
+:::tip
+aby zwiększyć bezpieczeństwo, zachęć nowych menedżerów do włączenia uwierzytelniania wielopoziomowego (MFA) na kontach w systemie dostawcy chmury.
+:::
+
 ## Instalacja ręczna {#manual_installations}
+
+
+:::caution
+przyznanie dostępu do zarządzania instalacjami ręcznymi utrudnia późniejsze anulowanie dostępu. Najbardziej bezpośrednią metodą jest pełna ponowna instalacja serwera, co powoduje wygenerowanie nowej konfiguracji, ale także zresetowanie wszystkich kluczy dostępu użytkowników.
+:::
 
 Jeśli serwer Outline został zainstalowany ręcznie na własnym serwerze za pomocą [skryptu instalacyjnego](../getting-started/server-setup-advanced), podstawowym sposobem przyznania uprawnień do zarządzania jest udostępnienie **konfiguracji dostępu**.
 
@@ -68,6 +78,11 @@ Dane wyjściowe będą zawierać odcisk cyfrowy podpisanego samodzielnie certyfi
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+ten wiersz zawiera informacje poufne. Należy go udostępnić tylko zaufanym osobom, które potrzebują dostępu do funkcji zarządzania.
+:::
 
 ### 3. Bezpieczne udostępnianie konfiguracji dostępu {#3_share_the_access_config_securely}
 

@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 Questo tutorial fornisce una procedura dettagliata per aiutarti a implementare Shadowsocks-over-WebSockets, una potente tecnica per bypassare la censura in ambienti in cui le normali connessioni Shadowsocks sono bloccate. Incapsulando il traffico Shadowsocks all'interno di WebSockets, puoi mascherarlo come traffico web standard, migliorando la resilienza e l'accessibilità.
 
+
+:::note
+Shadowsocks-over-WebSockets è supportato solo sui client Outline 1.15.0 e versioni successive. Devi mantenere le tue configurazioni esistenti per supportare le versioni client precedenti.
+:::
+
 ## Passaggio 1: configura ed esegui un server Outline {#step_1_configure_and_run_an_outline_server}
 
 Crea un nuovo file `config.yaml` con la seguente configurazione:
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+mantieni segreto `path` per evitare di subire esplorazioni. Funge da endpoint segreto. Consigliamo un percorso lungo e generato in modo casuale.
+:::
+
+
 Scarica l'ultimo [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) ed eseguilo utilizzando la configurazione creata:
 
 ```sh
@@ -43,6 +53,11 @@ Per rendere il tuo server web WebSocket accessibile pubblicamente, dovrai esporl
 Puoi farlo in vari modi. Puoi utilizzare un server web locale come [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) o [Apache](https://httpd.apache.org/), assicurandoti che abbia un certificato TLS valido, oppure utilizzare un servizio di tunneling come [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) o [ngrok](https://ngrok.com/).
 
 ### Esempio con TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare è solo a scopo di demo e test.
+:::
 
 Per questo esempio, mostreremo come utilizzare [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) per creare un tunnel rapido. Ciò fornisce un modo pratico e sicuro di esporre il tuo server web locale senza aprire porte in entrata.
 

@@ -145,6 +145,11 @@ fallback:
     }
 ```
 
+
+:::note
+: a base de código do Psiphon é licenciada sob o GPL, o que pode impor restrições de licença ao seu próprio código. Pode ser uma boa ideia adquirir uma licença especial com eles.
+:::
+
 ### Como usar o Discador Inteligente {#how_to_use_the_smart_dialer}
 
 Para usar o Discador Inteligente, crie um objeto `StrategyFinder` e chame o

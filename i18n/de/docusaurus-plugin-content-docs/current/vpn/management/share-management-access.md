@@ -39,7 +39,17 @@ Die effektivste Möglichkeit, die Verwaltung Ihres auf DigitalOcean gehosteten O
 
 Nutzer, die den Outline-Manager mit ihrem DigitalOcean-Konto verbinden, können jetzt alle Outline-Server einsehen und verwalten, die mit diesem Konto verknüpft sind.
 
+
+:::tip
+Regen Sie neue Manager dazu an, die Multi-Faktor-Authentifizierung (MFA) auf ihren Cloud-Anbieterkonten zu aktivieren, um die Sicherheit zu erhöhen.
+:::
+
 ## Manuelle Installationen {#manual_installations}
+
+
+:::caution
+Wird der Verwaltungszugriff für manuelle Installationen freigegeben, kann der Zugriff nur schwer wieder aufgehoben werden. Die direkteste Methode ist eine vollständige Neuinstallation des Servers, bei der eine neue Konfiguration erstellt, aber auch alle Zugriffsschlüssel der Nutzer zurückgesetzt werden.
+:::
 
 Wenn Outline mithilfe des [Installationsskripts](../getting-started/server-setup-advanced) manuell auf eigenen Servern installiert wurde, besteht die primäre Möglichkeit, Verwaltungszugriff zu gewähren, darin, die **access config** freizugeben.
 
@@ -68,6 +78,11 @@ Die Ausgabe enthält den selbst signierten Zertifikat-Fingerabdruck (`certSha256
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+Diese Zeile enthält vertrauliche Daten. Geben Sie diese nur an vertrauenswürdige Personen weiter, die einen Verwaltungszugriff benötigen.
+:::
 
 ### 3. Die access config sicher weitergeben {#3_share_the_access_config_securely}
 

@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks a través de WebSockets"
 
 Este tutorial es una guía detallada para ayudarte a implementar Shadowsocks a través de WebSockets, una técnica eficaz para sortear la censura en los entornos en los que las conexiones de Shadowsocks normales estén bloqueadas. Al encapsular el tráfico de Shadowsocks en WebSockets, puedes hacerlo pasar por tráfico web estándar, lo que mejora la resiliencia y la accesibilidad.
 
+
+:::note
+Shadowsocks a través de WebSockets solo se admite en la versión 1.15.0 y posteriores del cliente de Outline. Debes conservar las configuraciones que tengas para que las versiones anteriores del cliente sean compatibles.
+:::
+
 ## Paso 1: Configura y ejecuta un servidor de Outline {#step_1_configure_and_run_an_outline_server}
 
 Crea un archivo `config.yaml` con la siguiente configuración:
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+Mantén el elemento `path` en secreto para evitar comprobaciones. Este elemento actúa como un endpoint secreto. Se recomienda usar una ruta larga generada de forma aleatoria.
+:::
+
+
 Descarga la última versión de [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) y ejecútala con la configuración que has creado:
 
 ```sh
@@ -43,6 +53,11 @@ Para que se pueda acceder a tu servidor web de WebSocket de forma pública, debe
 Tienes varias formas de hacerlo. Puedes usar un servidor web local, como [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) o [Apache](https://httpd.apache.org/) (asegurándote de que tenga un certificado TLS válido) o usar un servicio de tunelización, como [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) o [ngrok](https://ngrok.com/).
 
 ### Ejemplo con TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare se ha diseñado solo para demos y pruebas.
+:::
 
 En este ejemplo, vamos a hacer una demo con [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/) de cómo crear un túnel rápido. Este método te permite exponer tu servidor web local de una forma conveniente y segura sin abrir puertos de entrada.
 

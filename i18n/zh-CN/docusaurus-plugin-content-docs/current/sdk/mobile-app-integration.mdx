@@ -243,3 +243,8 @@ let webview = WKWebView(configuration: configuration)
     - [Outline Apple 框架](https://github.com/OutlineFoundation/outline-apps/blob/7058a89530a25a3de376a6ea2d4433a926787f50/client/go/Taskfile.yml#L83-L95)
 
 3. **集成到应用中**：将生成的库添加到移动应用中。
+
+
+:::note
+请在自定义软件包上使用 `gomobile bind`，不要直接在 SDK 软件包上使用。
+:::

@@ -99,6 +99,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+: mantenha o `path` em sigilo para evitar sondagens. Ele funciona como um endpoint secreto. Recomendamos um caminho longo e gerado aleatoriamente.
+:::
+
+
 Essa configuração representa uma estratégia do Shadowsocks sobre WebSockets com um servidor da Web
 que detecta na porta `443`, aceitando tráfego TCP e UDP encapsulado
 do Shadowsocks nos caminhos `TCP_PATH` e `UDP_PATH`,
@@ -109,6 +114,11 @@ Execute o servidor Caddy estendido com o Outline usando a configuração criada:
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+: o exemplo usa YAML porque é mais legível e fácil de anotar, mas também é possível usar o JSON (linguagem de configuração nativa do Caddy). Se você usá-lo, poderá executar sem a flag `--adapter yaml` e remover a dependência do adaptador YAML na etapa de criação e execução.
+:::
+
 
 Você pode encontrar mais exemplos de configurações em nosso [repositório do GitHub
 outline-ss-server/outlinecaddy](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples) (em inglês).

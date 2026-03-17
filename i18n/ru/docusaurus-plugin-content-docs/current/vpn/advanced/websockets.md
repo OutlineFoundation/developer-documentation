@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 Это руководство содержит подробные инструкции по реализации Shadowsocks-over-WebSockets – мощного метода обхода цензуры в ситуациях, когда стандартные подключения Shadowsocks блокируются. Инкапсулируя трафик Shadowsocks в WebSockets, вы можете замаскировать его под обычный веб-трафик, повысив устойчивость и доступность соединения.
 
+
+:::note
+Shadowsocks-over-WebSockets поддерживается только в клиенте Outline 1.15.0 и более поздних версий. Для совместимости с более ранними версиями клиентов необходимо использовать текущие конфигурации.
+:::
+
 ## Шаг 1. Настройте и запустите сервер Outline {#step_1_configure_and_run_an_outline_server}
 
 Создайте новый файл `config.yaml` со следующей конфигурацией:
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+Чтобы избежать автоматического сканирования и возможных атак, держите значение `path` в секрете. Он выполняет роль секретной конечной точки. Рекомендуется использовать длинный, случайно сгенерированный путь.
+:::
+
+
 Скачайте последнюю версию [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases) и запустите ее с созданной конфигурацией.
 
 ```sh
@@ -43,6 +53,11 @@ outline-ss-server -config=config.yaml
 Вы можете использовать для этого указанные ниже способы. Можно настроить локальный веб-сервер (например, [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) или [Apache](https://httpd.apache.org/)) с действующим TLS-сертификатом или использовать сервис туннелирования (например, [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) или [ngrok](https://ngrok.com/)).
 
 ### Пример использования TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare предназначен только для демонстраций и тестирования.
+:::
 
 В этом примере мы покажем, как быстро создать туннель с помощью [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/). Это удобный и безопасный способ настроить внешний доступ на локальном веб-сервере без необходимости открывать входящие порты.
 

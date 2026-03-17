@@ -7,6 +7,11 @@ sidebar_label: "Shadowsocks-over-WebSockets"
 
 이 튜토리얼에서는 일반 Shadowsocks 연결이 차단되는 환경에서 검열을 우회하는 강력한 기법인 Shadowsocks-over-WebSockets를 구현하는 방법을 자세히 안내합니다. WebSockets 내에 Shadowsocks 트래픽을 캡슐화하여 이를 표준 웹 트래픽으로 위장할 수 있으므로 복원력과 접근성이 향상됩니다.
 
+
+:::note
+Shadowsocks-over-WebSockets는 Outline 클라이언트 v1.15.0+에서만 지원됩니다. 이전 클라이언트 버전을 지원하려면 기존 구성을 유지해야 합니다.
+:::
+
 ## 1단계: Outline 서버 구성 및 실행 {#step_1_configure_and_run_an_outline_server}
 
 다음 구성을 사용하여 새 `config.yaml` 파일을 만듭니다.
@@ -31,6 +36,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+프로브를 방지하려면 `path`를 계속 비밀로 유지하세요. 비밀 엔드포인트 역할을 합니다. 경로는 길고 무작위로 생성하는 것이 좋습니다.
+:::
+
+
 최신 [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)를 다운로드하고 생성된 구성을 사용하여 실행합니다.
 
 ```sh
@@ -43,6 +53,11 @@ WebSocket 웹 서버를 공개적으로 액세스할 수 있도록 하려면 인
 여러 방법으로 이 작업을 할 수 있습니다. [Caddy](https://caddyserver.com/), [nginx](https://nginx.org/) 또는 [Apache](https://httpd.apache.org/)와 같은 로컬 웹 서버를 사용하여 유효한 TLS 인증서가 있는지 확인하거나 [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) 또는 [ngrok](https://ngrok.com/)와 같은 터널링 서비스를 사용할 수 있습니다.
 
 ### TryCloudflare 사용 예 {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare는 데모 및 테스트용입니다.
+:::
 
 이 예에서는 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)를 사용하여 빠른 터널을 만드는 방법을 보여줍니다. 이를 통해 인바운드 포트를 열지 않고도 로컬 웹 서버를 편리하고 안전하게 노출할 수 있습니다.
 

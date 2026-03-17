@@ -5,6 +5,11 @@ sidebar_label: "Alternatieve downloadlinks"
 
 Je kunt Outline Manager en de Outline-client downloaden via de volgende links. Je vindt meer informatie over hoe je Outline instelt via <https://getoutline.org/>.
 
+
+:::warning[Important]
+De volgende links zijn de enige officiële plekken om de Outline Manager- en Outline-client-app te downloaden. We sturen deze bestanden niet rechtstreeks via social media of berichten-apps, zoals Telegram en WhatsApp.
+:::
+
 ## Outline Manager {#outline_manager}
 
 - **Windows:**

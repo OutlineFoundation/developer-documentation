@@ -11,6 +11,11 @@ Une fois votre serveur Outline installé, vous êtes redirigé vers sa page d'in
 
 - **Pour partager la clé crée** : à droite de chaque clé se trouve une icône de partage qui vous permet de générer une invitation. Copiez cette invitation et envoyez-la à un utilisateur via la plate-forme de messagerie de votre choix.
 
+
+:::tip
+: Utilisez une plate-forme de messagerie sécurisée pour partager les liens d'invitation, par exemple des e-mails chiffrés ou une application de chat sécurisée. Évitez les canaux non sécurisés, sur lesquels les clés d'accès peuvent être compromises.
+:::
+
 ### Processus d'invitation des utilisateurs {#user_invitation_process}
 
 Lorsqu'un utilisateur reçoit l'invitation, il doit suivre ces étapes pour se connecter à votre serveur Outline :

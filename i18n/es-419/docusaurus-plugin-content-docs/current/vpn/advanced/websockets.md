@@ -11,6 +11,11 @@ entornos donde se bloquean las conexiones comunes de Shadowsocks. Encapsular
 el tráfico de Shadowsocks en WebSockets puede disfrazarlo como tráfico web,
 lo que mejora la resiliencia y la accesibilidad.
 
+
+:::note
+Shadowsocks sobre WebSockets solo es compatible con la versión 1.15.0 del cliente de Outline (y versiones posteriores). Debes mantener tus parámetros de configuración existentes para admitir las versiones anteriores del cliente.
+:::
+
 ## Paso 1: Configura y ejecuta un servidor de Outline {#step_1_configure_and_run_an_outline_server}
 
 Crea un archivo `config.yaml` con la siguiente configuración:
@@ -35,6 +40,11 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::tip
+No reveles el valor de `path` para evitar sondeos, ya que actúa como extremo secreto. Se recomienda una ruta larga y generada aleatoriamente.
+:::
+
+
 Descarga la versión más reciente de
 [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
 y ejecútala con la configuración que creaste:
@@ -56,6 +66,11 @@ Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-net
 o [ngrok](https://ngrok.com/).
 
 ### Ejemplo de uso de TryCloudflare {#example_using_trycloudflare}
+
+
+:::caution
+TryCloudflare solo se diseñó para realizar demostraciones y pruebas.
+:::
 
 En este ejemplo, usaremos
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)

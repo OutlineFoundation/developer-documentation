@@ -39,7 +39,17 @@ DigitalOcean 提供强大的**团队**功能，让您可以邀请其他 DigitalO
 
 现在，如果用户将 Outline 管理器关联到 DigitalOcean 账号，则可查看和管理该账号下的所有 Outline 服务器。
 
+
+:::tip
+建议新管理员为其云服务提供商账号启用多重身份验证 (MFA)，以增强安全性。
+:::
+
 ## 手动安装 {#manual_installations}
+
+
+:::caution
+如果将管理权限分享给手动安装 Outline 的用户，之后就会难以撤消这些权限。最直接的方法是重新安装整个服务器，从而生成新的配置并重置所有用户访问密钥。
+:::
 
 如果用户使用[安装脚本](../getting-started/server-setup-advanced)在自己的服务器上手动安装 Outline，那么授予管理权限的主要方法是分享**访问权限配置**。
 
@@ -68,6 +78,11 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 ```json
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
+
+
+:::warning[Important]
+此行包含敏感信息，请仅与需要管理权限且值得信赖的人员分享。
+:::
 
 ### 3. 安全地分享访问权限配置 {#3_share_the_access_config_securely}
 

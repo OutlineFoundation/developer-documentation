@@ -5,6 +5,11 @@ sidebar_label: "代替ダウンロード リンク"
 
 Outline マネージャーと Outline クライアントは以下のリンクからダウンロードできます。Outline の設定の詳細については、<https://getoutline.org/> をご覧ください。
 
+
+:::warning[Important]
+以下のリンク先が、Outline マネージャーおよび Outline クライアント アプリケーションをダウンロードするための唯一の公式ソースです。これらのファイルがソーシャル メディアやメッセージ アプリ（Telegram や WhatsApp など）を介して直接配布されることはありません。
+:::
+
 ## Outline マネージャー {#outline_manager}
 
 - **Windows:**

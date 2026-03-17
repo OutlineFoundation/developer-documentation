@@ -87,6 +87,11 @@ apps:
               secret: <SHADOWSOCKS_SECRET>
 ```
 
+:::warning[Important]
+프로브를 방지하려면 `path`를 계속 비밀로 유지하세요. 비밀 엔드포인트 역할을 합니다. 경로는 길고 무작위로 생성하는 것이 좋습니다.
+:::
+
+
 이 구성은 웹 서버가 포트 `443`에서 수신 대기하는 Shadowsocks-over-WebSockets 전략을 나타내며 `TCP_PATH` 및 `UDP_PATH` 경로에서 각각 TCP 및 UDP Shadowsocks 래핑 트래픽을 허용합니다.
 
 생성된 구성을 사용하여 Outline으로 확장된 Caddy 서버를 실행합니다.
@@ -94,6 +99,11 @@ apps:
 ```sh
 caddy run --config config.yaml --adapter yaml --watch
 ```
+
+:::note
+이 예에서 YAML을 사용하는 이유는 읽기 쉽고 주석을 달기도 쉽기 때문이지만 JSON(Caddy의 기본 구성 언어)을 직접 사용해도 됩니다. JSON을 사용하면 `--adapter yaml` 플래그 없이도 실행할 수 있고 빌드 및 실행 단계에서 YAML 어댑터 종속 항목을 삭제할 수 있습니다.
+:::
+
 
 더 많은 구성 예는 [outline-ss-server/outlinecaddy GitHub 저장소](https://github.com/OutlineFoundation/outline-ss-server/tree/master/outlinecaddy/examples)에서 확인할 수 있습니다.
 
