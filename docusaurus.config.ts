@@ -153,7 +153,7 @@ const config: Config = {
     algolia: {
       appId: 'LT68QAY9IB',
       apiKey: '8f414420aeb178cb867805ab948159fe',
-      indexName: 'Dev Documentation',
+      indexName: 'Developer Documentation',
       contextualSearch: true,
     },
     prism: {
