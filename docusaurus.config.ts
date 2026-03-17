@@ -94,6 +94,10 @@ const config: Config = {
           position: 'left',
         },
         {
+          type: 'search',
+          position: 'right',
+        },
+        {
           type: 'localeDropdown',
           position: 'right',
         },
@@ -145,6 +149,11 @@ const config: Config = {
           ],
         },
       ],
+    },
+    algolia: {
+      appId: 'UWP9VCT3H0',
+      apiKey: 'd8416813be003a20fce5bf61a05e99a5',
+      indexName: 'Dev Documentation',
     },
     prism: {
       theme: prismThemes.github,
