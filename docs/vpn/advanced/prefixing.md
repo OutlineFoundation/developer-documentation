@@ -7,7 +7,7 @@ sidebar_label: "Connection Prefixes"
 
 As of Outline Client version 1.9.0, access keys support the "prefix" option. The
 "prefix" is a list of bytes used as the first bytes of the
-[salt](https://shadowsocks.org/guide/aead.html) of a Shadowsocks TCP connection.
+[salt](https://shadowsocks.org/doc/aead.html) of a Shadowsocks TCP connection.
 This can make the connection look like a protocol that is allowed in the
 network, circumventing firewalls that reject protocols they don't recognize.
 
