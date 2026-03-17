@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "Befreien Sie Ihre Nutzer von Zensur im Internet, egal wo sie sich befinden."
+  },
+  "homepage.hero.title": {
+    "message": "Mit Outline können Sie Apps mit gutem Schutz vor Zensur entwickeln"
+  },
+  "homepage.sdk.button": {
+    "message": "Jetzt das SDK erkunden"
+  },
+  "homepage.sdk.description": {
+    "message": "Integrieren Sie die fortschrittlichen Strategien von Outline in Ihre Anwendungen und Dienste."
+  },
+  "homepage.sdk.title": {
+    "message": "Mit dem Outline SDK Software entwickeln"
+  },
+  "homepage.vpn.button": {
+    "message": "Jetzt starten"
+  },
+  "homepage.vpn.description": {
+    "message": "Erfahren Sie, wie Sie Ihren eigenen VPN-Server aufsetzen, konfigurieren und verwalten können."
+  },
+  "homepage.vpn.title": {
+    "message": "Outline ausprobieren"
+  }
+}

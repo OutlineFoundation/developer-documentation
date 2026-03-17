@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "帮助您的用户绕开审查，访问开放的互联网，无论他们是谁。"
+  },
+  "homepage.hero.title": {
+    "message": "利用 Outline 的功能，构建能灵活应对审查的应用"
+  },
+  "homepage.sdk.button": {
+    "message": "探索 SDK"
+  },
+  "homepage.sdk.description": {
+    "message": "将 Outline 的高级策略集成到您的应用和服务中。"
+  },
+  "homepage.sdk.title": {
+    "message": "使用 Outline SDK 构建应用"
+  },
+  "homepage.vpn.button": {
+    "message": "立即开始"
+  },
+  "homepage.vpn.description": {
+    "message": "了解如何部署、配置和管理您自己的 VPN 服务器。"
+  },
+  "homepage.vpn.title": {
+    "message": "开始使用 Outline"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "ช่วยให้ผู้ใช้ของคุณเอาชนะอุปสรรคการเซ็นเซอร์และเข้าถึงอินเทอร์เน็ตแบบเปิดได้ไม่ว่าจะอยู่ที่ใดก็ตาม"
+  },
+  "homepage.hero.title": {
+    "message": "สร้างแอปที่ทนทานต่อการเซ็นเซอร์ด้วยพลังของ Outline"
+  },
+  "homepage.sdk.button": {
+    "message": "Explore SDK"
+  },
+  "homepage.sdk.description": {
+    "message": "ผสานกลยุทธ์ขั้นสูงของ Outline เข้ากับแอปพลิเคชันและบริการของคุณ"
+  },
+  "homepage.sdk.title": {
+    "message": "สร้างด้วย Outline SDK"
+  },
+  "homepage.vpn.button": {
+    "message": "เริ่มเลย"
+  },
+  "homepage.vpn.description": {
+    "message": "ดูวิธีการติดตั้งใช้งาน กำหนดค่า และจัดการเซิร์ฟเวอร์ VPN ของคุณเอง"
+  },
+  "homepage.vpn.title": {
+    "message": "เริ่มต้นใช้งาน Outline"
+  }
+}

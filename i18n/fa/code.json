@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "به کاربرانتان کمک کنید تا از موانع سانسور بگذرند و بدون توجه به مکانی که هستند به اینترنت آزاد دست یابند."
+  },
+  "homepage.hero.title": {
+    "message": "با قدرت Outline، برنامه‌های مقاوم به سانسور بسازید"
+  },
+  "homepage.sdk.button": {
+    "message": "کاوش «کیت توسعه نرم‌افزار» (SDK)"
+  },
+  "homepage.sdk.description": {
+    "message": "استراتژی‌های پیش‌رفته Outline را با برنامه‌ها و خدماتتان ادغام کنید."
+  },
+  "homepage.sdk.title": {
+    "message": "ساختن با Outline SDK"
+  },
+  "homepage.vpn.button": {
+    "message": "اکنون شروع شود"
+  },
+  "homepage.vpn.description": {
+    "message": "با چگونگی استقرار، پیکربندی، و مدیریت سرور وی‌پی‌ان خودتان آشنا شوید."
+  },
+  "homepage.vpn.title": {
+    "message": "شروع به کار با Outline"
+  }
+}

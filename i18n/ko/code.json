@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "사용자가 검열 장벽을 극복하고 어디에 있든 개방형 인터넷에 액세스할 수 있도록 도와주세요."
+  },
+  "homepage.hero.title": {
+    "message": "Outline의 기능으로 검열에 강한 앱 빌드"
+  },
+  "homepage.sdk.button": {
+    "message": "SDK 살펴보기"
+  },
+  "homepage.sdk.description": {
+    "message": "Outline의 고급 전략을 내 플리케이션과 서비스에 통합하세요."
+  },
+  "homepage.sdk.title": {
+    "message": "Outline SDK로 빌드하기"
+  },
+  "homepage.vpn.button": {
+    "message": "지금 시작"
+  },
+  "homepage.vpn.description": {
+    "message": "자체 VPN 서버를 배포, 구성, 관리하는 방법을 알아보세요."
+  },
+  "homepage.vpn.title": {
+    "message": "Outline 시작하기"
+  }
+}

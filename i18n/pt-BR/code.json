@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "Ajude os usuários a derrubar a censura e acessar a internet aberta em qualquer lugar."
+  },
+  "homepage.hero.title": {
+    "message": "Crie apps resilientes à censura com a tecnologia do Outline"
+  },
+  "homepage.sdk.button": {
+    "message": "Conheça o SDK"
+  },
+  "homepage.sdk.description": {
+    "message": "Integre as estratégias avançadas do Outline aos seus aplicativos e serviços."
+  },
+  "homepage.sdk.title": {
+    "message": "Crie com o SDK Outline"
+  },
+  "homepage.vpn.button": {
+    "message": "Comece já"
+  },
+  "homepage.vpn.description": {
+    "message": "Saiba como implantar, configurar e gerenciar seu próprio servidor de VPN."
+  },
+  "homepage.vpn.title": {
+    "message": "Comece a usar o Outline"
+  }
+}

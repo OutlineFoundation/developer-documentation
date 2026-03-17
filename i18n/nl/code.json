@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "Zorg dat je gebruikers niet het slachtoffer worden van censuur en overal toegang hebben tot het open internet."
+  },
+  "homepage.hero.title": {
+    "message": "Maak apps die resistent zijn tegen censuur met de kracht van Outline"
+  },
+  "homepage.sdk.button": {
+    "message": "De SDK ontdekken"
+  },
+  "homepage.sdk.description": {
+    "message": "Integreer de geavanceerde strategieën van Outline in je apps en services."
+  },
+  "homepage.sdk.title": {
+    "message": "Maken met Outline SDK"
+  },
+  "homepage.vpn.button": {
+    "message": "Nu starten"
+  },
+  "homepage.vpn.description": {
+    "message": "Ontdek hoe je je eigen VPN-server implementeert, instelt en beheert."
+  },
+  "homepage.vpn.title": {
+    "message": "Aan de slag met Outline"
+  }
+}

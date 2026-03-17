@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "Помогите пользователям преодолеть цензуру и получить доступ к открытому интернету, где бы они ни находились."
+  },
+  "homepage.hero.title": {
+    "message": "Создавайте приложения, устойчивые к цензуре, с помощью Outline"
+  },
+  "homepage.sdk.button": {
+    "message": "Узнайте больше о SDK"
+  },
+  "homepage.sdk.description": {
+    "message": "Интегрируйте передовые стратегии Outline в свои приложения и сервисы."
+  },
+  "homepage.sdk.title": {
+    "message": "Создавайте приложения с Outline SDK"
+  },
+  "homepage.vpn.button": {
+    "message": "Начать"
+  },
+  "homepage.vpn.description": {
+    "message": "Узнайте, как развернуть и настроить собственный VPN-сервер, а также управлять им."
+  },
+  "homepage.vpn.title": {
+    "message": "Начните работу с Outline"
+  }
+}

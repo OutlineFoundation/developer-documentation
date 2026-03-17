@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "يمكنك مساعدة المستخدمين في التغلّب على قيود الرقابة والوصول إلى الإنترنت المفتوح، بغض النظر عن مكان إقامتهم."
+  },
+  "homepage.hero.title": {
+    "message": "إنشاء تطبيقات مقاومة للرقابة باستخدام Outline"
+  },
+  "homepage.sdk.button": {
+    "message": "التعرّف على Outline SDK"
+  },
+  "homepage.sdk.description": {
+    "message": "يمكنك دمج استراتيجيات Outline المتقدّمة في تطبيقاتك وخدماتك."
+  },
+  "homepage.sdk.title": {
+    "message": "استخدام Outline SDK في تطوير التطبيقات والخدمات"
+  },
+  "homepage.vpn.button": {
+    "message": "البدء الآن"
+  },
+  "homepage.vpn.description": {
+    "message": "يمكنك التعرّف على كيفية تفعيل خادم VPN وإعداده وإدارته."
+  },
+  "homepage.vpn.title": {
+    "message": "بدء استخدام Outline"
+  }
+}

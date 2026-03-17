@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "ユーザーがどこにいるかにかかわらず、検閲によるブロックを回避してオープンなインターネットにアクセスできるようにしましょう。"
+  },
+  "homepage.hero.title": {
+    "message": "Outline の力で検閲に対するレジリエンスのあるアプリを構築する"
+  },
+  "homepage.sdk.button": {
+    "message": "SDK を確認する"
+  },
+  "homepage.sdk.description": {
+    "message": "Outline の高度な戦略を独自のアプリケーションやサービスに統合できます。"
+  },
+  "homepage.sdk.title": {
+    "message": "Outline SDK を使用して構築する"
+  },
+  "homepage.vpn.button": {
+    "message": "今すぐ開始"
+  },
+  "homepage.vpn.description": {
+    "message": "独自の VPN サーバーをデプロイ、構成、管理する方法を学びましょう。"
+  },
+  "homepage.vpn.title": {
+    "message": "Outline を使ってみる"
+  }
+}

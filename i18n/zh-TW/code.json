@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "讓使用者無論身在何處，都能突破網路審查限制，存取開放的網際網路。"
+  },
+  "homepage.hero.title": {
+    "message": "運用 Outline 的強大功能，打造能抵禦審查的應用程式"
+  },
+  "homepage.sdk.button": {
+    "message": "探索 SDK"
+  },
+  "homepage.sdk.description": {
+    "message": "將 Outline 的先進策略整合至您的應用程式和服務。"
+  },
+  "homepage.sdk.title": {
+    "message": "使用 Outline SDK 建構內容"
+  },
+  "homepage.vpn.button": {
+    "message": "立即開始"
+  },
+  "homepage.vpn.description": {
+    "message": "瞭解如何部署、設定及管理自己的 VPN 伺服器。"
+  },
+  "homepage.vpn.title": {
+    "message": "開始使用 Outline"
+  }
+}

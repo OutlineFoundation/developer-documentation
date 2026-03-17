@@ -1,0 +1,26 @@
+{
+  "homepage.hero.subtitle": {
+    "message": "Kullanıcılarınız nerede olursa olsun, sansür engellerini aşmalarına ve açık internete erişmelerine yardımcı olun."
+  },
+  "homepage.hero.title": {
+    "message": "Outline'ın gücüyle sansüre dirençli uygulamalar geliştirin"
+  },
+  "homepage.sdk.button": {
+    "message": "SDK'yı keşfedin"
+  },
+  "homepage.sdk.description": {
+    "message": "Outline'ın gelişmiş stratejilerini, uygulama ve hizmetlerinize entegre edin."
+  },
+  "homepage.sdk.title": {
+    "message": "Outline SDK ile derleyin"
+  },
+  "homepage.vpn.button": {
+    "message": "Hemen başlayın"
+  },
+  "homepage.vpn.description": {
+    "message": "Kendi VPN sunucunuzu dağıtmayı, yapılandırmayı ve yönetmeyi öğrenin."
+  },
+  "homepage.vpn.title": {
+    "message": "Outline'ı kullanmaya başlayın"
+  }
+}

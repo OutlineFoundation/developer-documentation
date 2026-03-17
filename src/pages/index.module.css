@@ -28,19 +28,16 @@
 }
 
 .main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   padding: 2rem 3rem;
-}
-
-.cards {
-  flex: 1;
-  display: flex;
-  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex;
+  gap: 2rem;
 }
 
 .card {
@@ -48,26 +45,12 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.cardImageWrapper {
-  flex: 1;
-  position: relative;
-  width: 100%;
-  min-height: max(200px, 35vh);
-  margin-bottom: 1.5rem;
 }
 
 .cardImage {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  margin-bottom: 1.5rem;
 }
 
 .cardTitle {
