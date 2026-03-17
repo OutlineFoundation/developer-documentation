@@ -11,6 +11,9 @@
 # Claude
 .claude/
 
+# Python
+__pycache__/
+
 # Misc
 .DS_Store
 .env.local
