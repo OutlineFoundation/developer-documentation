@@ -1,9 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '07cbd9db-9c39-4b75-a62b-5e654b82dc19'}, 'string_id': '3219292919370569962', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ステップ 1: Outline サーバーを構成して実行する",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a1402a4e-2eda-454f-866e-793050a18698'}, 'string_id': '13863900454741714233', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ステップ 2: ウェブサーバーを公開する",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e794a27c-2af5-48e8-a714-47e7cfd4ed87'}, 'string_id': '3170636391706646543', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "TryCloudflare を使用する例",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '95320d94-da33-43f8-ace7-c409e2c6f05f'}, 'string_id': '9658797778242291426', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ステップ 3: 動的アクセスキーを作成する",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '376ab517-c2d7-4145-b01b-5940cd356d22'}, 'string_id': '2168107751447403705', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ステップ 4: Outline クライアントに接続する",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd2d6e00c-65b6-429d-8352-7ae649f5235d'}, 'string_id': '11548199827800752885', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSockets"
-}

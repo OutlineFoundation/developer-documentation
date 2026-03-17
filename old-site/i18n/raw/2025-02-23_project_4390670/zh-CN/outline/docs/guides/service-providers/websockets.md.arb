@@ -1,9 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'affa8344-72f1-4ffc-ba84-c8c9061af523'}, 'string_id': '3219292919370569962', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 1 步：配置并运行 Outline 服务器",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7abbc2a6-7836-40da-815f-21896b942f61'}, 'string_id': '13863900454741714233', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 2 步：公开 Web 服务器",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e0b5ce09-316e-4f96-b8ce-79e1e86b797e'}, 'string_id': '3170636391706646543', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用 TryCloudflare 的示例",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f7f6f321-770e-4366-9a7b-5657a5918b65'}, 'string_id': '9658797778242291426', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 3 步：创建动态访问密钥",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ee42bbb1-8234-43c6-9e2a-7d37cb531201'}, 'string_id': '2168107751447403705', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 4 步：连接到 Outline 客户端",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '05ce2bf0-ef6e-40b7-82b5-9167aa3c35d8'}, 'string_id': '11548199827800752885', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSocket"
-}

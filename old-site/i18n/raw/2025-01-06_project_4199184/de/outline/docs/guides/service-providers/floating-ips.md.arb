@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '516c9cbf-5186-4947-8625-34788c589940'}, 'string_id': '12628245661512439499', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Anleitung",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '293a810e-cd1e-4ae2-a2fd-9b39b7b86804'}, 'string_id': '11461176644196079266', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Einen Outline-Server bei DigitalOcean erstellen",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f43f56f1-cffa-4a60-a9ce-533cabf78213'}, 'string_id': '4069928074011065574', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Einen Hostname für Ihren Server festlegen",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b31b2135-a1c6-4622-80dc-087b6aa4933d'}, 'string_id': '607812462890340981', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Die IP-Adresse des Servers ändern",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '927b68f2-5333-4623-8301-06e5d3db754b'}, 'string_id': '3798279135713745', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Einen Server mit Floating-IP‑Adressen einrichten, der Internetsperren umgehen kann"
-}

@@ -1,9 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e7a15cce-d55d-4ec0-bd78-e5b2851a300f'}, 'string_id': '4874468153219405670', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Введение",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd2dc209b-0900-4af7-99d4-1fad3c20459d'}, 'string_id': '12628245661512439499', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Инструкции",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '10605ac9-70b4-47e6-935c-eefa4a4995a9'}, 'string_id': '11461176644196079266', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Создание сервера Outline в DigitalOcean",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '06628a17-59c5-4530-85e6-5ed94fb60691'}, 'string_id': '4069928074011065574', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Создание имени хоста для сервера",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5ec95fe9-9c47-4b0d-85d7-96ada427d244'}, 'string_id': '607812462890340981', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Смена IP-адреса сервера",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1e3fa325-95f6-4239-9c68-b5f5c6b53da1'}, 'string_id': '3798279135713745', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Настройка сервера, защищенного от блокировок, с помощью плавающих IP-адресов"
-}

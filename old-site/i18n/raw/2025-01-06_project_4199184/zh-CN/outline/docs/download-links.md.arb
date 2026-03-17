@@ -1,6 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a5314752-1b8e-4332-bc4d-7625dc3c1e40'}, 'string_id': '16077083388317342628', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline 管理器",
-  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '29b7cc3b-b389-4a7e-9fc8-24072e9334d8'}, 'string_id': '15844218680809619184', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline 客户端",
-  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ff68684f-bb52-4230-8f71-e33398d9c7e4'}, 'string_id': '5821125520337137333', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "备用下载链接"
-}

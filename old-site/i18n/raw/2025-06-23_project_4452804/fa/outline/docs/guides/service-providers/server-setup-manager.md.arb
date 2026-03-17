@@ -1,5 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ee542f42-5f3c-46a6-b2bd-cbf4e3d52762'}, 'string_id': '14713100077450840501', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مراحل بعدی",
-  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '95b42a7a-5b4b-4c53-a97c-8ef9b5b51938'}, 'string_id': '6973735686693164871', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "پیاده‌سازی کردن بااستفاده از «مدیر Outline»"
-}

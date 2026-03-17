@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0dc80593-4e11-4dad-ac74-06780dd275b3'}, 'string_id': '12628245661512439499', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instrukcje",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c86187b6-bfda-497d-8369-847364a94778'}, 'string_id': '11461176644196079266', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Tworzenie serwera Outline w DigitalOcean",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2ebe8011-a229-49f9-b996-af247e2a0b34'}, 'string_id': '4069928074011065574', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Tworzenie nazwy hosta dla serwera",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4fc4526c-f2e0-4777-9699-e12de6043430'}, 'string_id': '607812462890340981', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Zmienianie adresu IP serwera",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1e3e3450-72df-4fda-b4b2-15e8fe98f894'}, 'string_id': '3798279135713745', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Konfigurowanie odpornego na blokowanie serwera z pływającymi adresami IP"
-}

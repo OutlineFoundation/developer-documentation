@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1f32990e-d459-4595-a454-33d239423f4d'}, 'string_id': '12628245661512439499', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "안내",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4c376977-f1b1-4466-8e47-8c7795007a1d'}, 'string_id': '11461176644196079266', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "DigitalOcean에서 Outline 서버 만들기",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3f44c3f6-e706-4108-93d6-8d853dade194'}, 'string_id': '4069928074011065574', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "서버의 호스트 이름 만들기",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd18272d2-baa4-4013-ae38-49499128fba8'}, 'string_id': '607812462890340981', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "서버의 IP 주소 변경",
-  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ae371e33-45fe-4aa9-bb82-f166772422fa'}, 'string_id': '3798279135713745', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Floating IP를 사용하여 차단 방지 서버 설정"
-}

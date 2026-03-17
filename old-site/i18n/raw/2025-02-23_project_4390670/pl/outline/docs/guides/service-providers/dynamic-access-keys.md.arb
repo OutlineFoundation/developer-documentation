@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'acc25453-1f7f-44d6-aa23-7f80a8eeee8c'}, 'string_id': '14753740374766196622', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Korzystanie z linku ss://",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b2972ee3-e5ea-4da3-8772-24eb5be203f2'}, 'string_id': '11158397983543878601', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Korzystanie z obiektu JSON",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd0a31191-0cdb-4ab3-843f-04fb6ff69b4a'}, 'string_id': '13953653058714610730', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Korzystanie z obiektu YAML",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f8597f3d-2109-4e83-9f66-d318f25564f2'}, 'string_id': '8073710844695383258', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Pobieranie informacji dostępowych z klucza statycznego",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '50d97ceb-17e9-47da-9609-10112cc5ec9c'}, 'string_id': '7529702666558473090', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Wybór platformy hostingowej"
-}

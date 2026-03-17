@@ -1,5 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2eb6879d-c376-4f6c-b8ae-e1e237459a1e'}, 'string_id': '3741584843529720981', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "كيفية عمل Outline",
-  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a8a67c22-0110-4f46-887e-9c87ca652496'}, 'string_id': '11870202262232851900', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "المفاهيم"
-}

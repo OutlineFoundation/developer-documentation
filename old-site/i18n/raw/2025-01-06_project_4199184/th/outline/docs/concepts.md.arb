@@ -1,5 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fd24d619-5e9d-4f57-921f-72b7a3a74702'}, 'string_id': '3741584843529720981', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "วิธีการทำงานของ Outline",
-  "{'source_id': '171d4fd4-2203-4a51-8653-2ffc20d571b4', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '80cbc0a1-09ef-4361-be51-97cd8af60794'}, 'string_id': '11870202262232851900', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "แนวคิด"
-}

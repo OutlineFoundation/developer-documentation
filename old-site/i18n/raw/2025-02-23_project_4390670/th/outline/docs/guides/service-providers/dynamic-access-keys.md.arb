@@ -1,8 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8edaadef-390c-45bd-a826-707d8f9ab0ce'}, 'string_id': '14753740374766196622', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ใช้ลิงก์ ss://",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e3b82984-be18-42b2-a574-8ab87f6450e0'}, 'string_id': '11158397983543878601', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ใช้ออบเจ็กต์ JSON",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3f336c9a-47af-4b55-9ded-7f5447d13d19'}, 'string_id': '13953653058714610730', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ใช้ออบเจ็กต์ YAML",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4d46dfac-7053-4b47-b3e2-bf8394454dff'}, 'string_id': '8073710844695383258', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ดึงข้อมูลการเข้าถึงจากคีย์แบบคงที่",
-  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9ba5a843-e6da-493f-960e-01a955cbdebc'}, 'string_id': '7529702666558473090', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "เลือกแพลตฟอร์มโฮสติ้ง"
-}

@@ -1,9 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b7bff687-3675-48fe-bf38-be995f4a030a'}, 'string_id': '3219292919370569962', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "1단계: Outline 서버 구성 및 실행",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5d7f7f3a-ad8d-4e67-b71a-3daee55eb031'}, 'string_id': '13863900454741714233', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "2단계: 웹 서버 노출",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3be84de3-4a3e-4739-8cdc-104fa91f9969'}, 'string_id': '3170636391706646543', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "TryCloudflare 사용 예",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '71d41f07-0d4a-411a-91c4-02921b254720'}, 'string_id': '9658797778242291426', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "3단계: 동적 액세스 키 만들기",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ea4f0439-4cbd-4af8-ba94-d93a5ac3c891'}, 'string_id': '2168107751447403705', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "4단계: Outline 클라이언트에 연결",
-  "{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8f04e554-0665-402e-bcac-46f6887434b1'}, 'string_id': '11548199827800752885', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSockets"
-}

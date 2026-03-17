@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'e617e3a3-0ca3-4d53-a80e-3fb356f01efe', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '16ca0ccd-e4f3-4826-847d-b75ac0290bf3'}, 'string_id': '15008440364347205577', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Reddit"
-}

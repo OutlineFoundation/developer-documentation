@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': 'd97583a5-1935-48f8-9c0d-3617f396e649', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '22c3b13a-3b3f-4c1a-8dcf-1161217bf740'}, 'string_id': '134106478557897317', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Erişim anahtarları"
-}

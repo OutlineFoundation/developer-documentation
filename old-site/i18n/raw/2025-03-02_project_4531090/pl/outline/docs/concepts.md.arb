@@ -1,4 +1,0 @@
-{
-  "@@x-turnoff_context_match_across_text_units": "true",
-  "{'source_id': '647eefc2-c044-4eb3-8baf-78942423d02a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5d3a7a3d-c7fc-4e62-8659-c720e0ee61a2'}, 'string_id': '9482496117195899923', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Usługodawcy i użytkownicy"
-}
