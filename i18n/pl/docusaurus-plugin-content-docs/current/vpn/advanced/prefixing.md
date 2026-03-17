@@ -3,7 +3,7 @@ title: "Maskowanie przy użyciu prefiksów połączenia"
 sidebar_label: "Maskowanie przy użyciu prefiksów połączenia"
 ---
 
-Od wersji 1.9.0 klienta Outline klucze dostępu obsługują opcję „prefiks”. „Prefiks” to lista bajtów wykorzystywanych jako pierwsze bajty [ciągu zaburzającego](https://shadowsocks.org/guide/aead.html) połączenia Shadowsocks TCP.
+Od wersji 1.9.0 klienta Outline klucze dostępu obsługują opcję „prefiks”. „Prefiks” to lista bajtów wykorzystywanych jako pierwsze bajty [ciągu zaburzającego](https://shadowsocks.org/doc/aead.html) połączenia Shadowsocks TCP.
 Może on sprawić, że połączenie będzie wyglądać jak protokół, który jest dozwolony w sieci, co pozwoli obejść zapory sieciowe odrzucające nierozpoznane protokoły.
 
 ## Kiedy warto tego spróbować? {#when_should_i_try_this}

@@ -55,7 +55,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## 回避戦略を指定する
 
-Outline SDK では、さまざまな回避戦略を指定できます。これらの戦略を組み合わせて、さまざまな形式のネットワーク干渉を回避できます。これらの戦略の仕様については、[Go のドキュメント](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl)をご覧ください。
+Outline SDK では、さまざまな回避戦略を指定できます。これらの戦略を組み合わせて、さまざまな形式のネットワーク干渉を回避できます。これらの戦略の仕様については、[Go のドキュメント](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl)をご覧ください。
 
 ### コンポーザブル戦略
 

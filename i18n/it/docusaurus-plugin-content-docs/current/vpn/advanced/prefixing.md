@@ -5,7 +5,7 @@ sidebar_label: "Mascheramenti dei prefissi di connessione"
 
 A partire dalla versione 1.9.0 del client Outline, i tasti di accesso supportano l'opzione "prefisso". Il
 "prefisso" è un elenco di byte utilizzati come primi byte del
-[salt](https://shadowsocks.org/guide/aead.html) di una connessione TCP Shadowsocks.
+[salt](https://shadowsocks.org/doc/aead.html) di una connessione TCP Shadowsocks.
 Ciò può far apparire la connessione come un protocollo consentito nella
 rete, aggirando i firewall che rifiutano i protocolli che non riconoscono.
 

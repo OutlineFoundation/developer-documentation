@@ -5,7 +5,7 @@ sidebar_label: "Verborgene Verbindungspräfixe"
 
 Bei Version 1.9.0 des Outline-Clients unterstützen Zugriffsschlüssel die Option „Präfixe“. Ein
 „Präfix“ ist eine Liste mit Bytes, die als erste Bytes des
-[Salt](https://shadowsocks.org/guide/aead.html) einer Shadowsocks TCP-Verbindung verwendet werden.
+[Salt](https://shadowsocks.org/doc/aead.html) einer Shadowsocks TCP-Verbindung verwendet werden.
 Dadurch wirkt die Verbindung möglicherweise wie ein Protokoll, das im Netzwerk zugelassen ist, und umgeht Firewalls, die eigentlich unbekannte Protokolle abwehren.
 
 ## Wann sollte ich das anwenden? {#when_should_i_try_this}

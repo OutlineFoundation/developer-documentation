@@ -89,7 +89,7 @@ tcp:
 
 - Каждый протокол задается строкой, определяющей используемую технологию.
 
-- Например, `override:host=cloudflare.net|tlsfrag:1` обозначает протокол, использующий доменное прикрытие с Cloudflare и фрагментацию TLS. Подробная информация приведена в [документации по конфигурации](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format).
+- Например, `override:host=cloudflare.net|tlsfrag:1` обозначает протокол, использующий доменное прикрытие с Cloudflare и фрагментацию TLS. Подробная информация приведена в [документации по конфигурации](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format).
 
 ### Резервная конфигурация {#fallback_configuration}
 
@@ -97,7 +97,7 @@ tcp:
 
 Допустимые строки для резервной конфигурации:
 
-- Допустимая строка конфигурации `StreamDialer`, как определено в [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols).
+- Допустимая строка конфигурации `StreamDialer`, как определено в [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols).
 
 - Допустимый объект конфигурации Psiphon, вложенный в поле `psiphon`.
 

@@ -57,7 +57,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 ## Hileli Atlatma Stratejilerini Belirtme
 
 Outline SDK, farklı ağ müdahale biçimlerini atlamak için birleştirilebilen çeşitli atlatma stratejilerinin belirtilmesine olanak tanır. Bu stratejilerin
-özellikleri [Go dokümanlarında](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl) yer alır.
+özellikleri [Go dokümanlarında](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl) yer alır.
 
 ### Bileşenlere Ayrılabilir Stratejiler
 

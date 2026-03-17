@@ -89,7 +89,7 @@ tcp:
 
 - 各 TLS トランスポートは、使用するトランスポートを指定する文字列です。
 
-- たとえば、`override:host=cloudflare.net|tlsfrag:1` は、Cloudflare のドメイン フロンティングと TLS フラグメンテーションを使用するトランスポートを指定します。詳しくは、[構成に関するドキュメント](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)をご覧ください。
+- たとえば、`override:host=cloudflare.net|tlsfrag:1` は、Cloudflare のドメイン フロンティングと TLS フラグメンテーションを使用するトランスポートを指定します。詳しくは、[構成に関するドキュメント](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format)をご覧ください。
 
 ### フォールバックの構成 {#fallback_configuration}
 
@@ -97,7 +97,7 @@ tcp:
 
 フォールバック文字列は次のように指定します。
 
-- [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) で定義されている有効な `StreamDialer` 構成文字列。
+- [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols) で定義されている有効な `StreamDialer` 構成文字列。
 
 - `psiphon` フィールドの子としての有効な Psiphon 構成オブジェクト。
 

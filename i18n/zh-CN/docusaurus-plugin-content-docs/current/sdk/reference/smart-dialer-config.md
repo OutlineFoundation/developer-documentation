@@ -89,7 +89,7 @@ tcp:
 
 - 每个 TLS 传输都以一个字符串表示，用于指定要使用的传输方式。
 
-- 例如，`override:host=cloudflare.net|tlsfrag:1` 指定了使用 Cloudflare 域名前置和 TLS 分片进行传输。如需了解详情，请参阅[配置文档](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)。
+- 例如，`override:host=cloudflare.net|tlsfrag:1` 指定了使用 Cloudflare 域名前置和 TLS 分片进行传输。如需了解详情，请参阅[配置文档](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format)。
 
 ### 后备配置 {#fallback_configuration}
 
@@ -97,7 +97,7 @@ tcp:
 
 后备字符串应为：
 
-- [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) 中定义的有效 `StreamDialer` 配置字符串。
+- [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols) 中定义的有效 `StreamDialer` 配置字符串。
 
 - 作为 `psiphon` 字段的子字段的有效 Psiphon 配置对象。
 

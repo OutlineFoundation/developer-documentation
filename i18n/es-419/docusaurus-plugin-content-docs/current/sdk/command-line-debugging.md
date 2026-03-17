@@ -56,7 +56,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## Especifica estrategias de elusión
 
-El SDK de Outline permite especificar varias estrategias de elusión que se pueden combinar para evitar diferentes formas de interferencia de red. La especificación de estas estrategias se encuentra en la [documentación de Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
+El SDK de Outline permite especificar varias estrategias de elusión que se pueden combinar para evitar diferentes formas de interferencia de red. La especificación de estas estrategias se encuentra en la [documentación de Go](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 
 ### Estrategias componibles
 

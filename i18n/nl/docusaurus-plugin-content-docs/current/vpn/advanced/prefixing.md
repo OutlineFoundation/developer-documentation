@@ -3,7 +3,7 @@ title: "Vermommingen van verbindingsvoorvoegsels"
 sidebar_label: "Vermommingen van verbindingsvoorvoegsels"
 ---
 
-Sinds Outline-client versie 1.9.0 ondersteunen toegangssleutels de optie om een 'prefix' (voorvoegsel) toe te voegen. De 'prefix' is een lijst met bytes die wordt gebruikt als de eerste bytes van de [salt](https://shadowsocks.org/guide/aead.html) van een Shadowsocks TCP-verbinding.
+Sinds Outline-client versie 1.9.0 ondersteunen toegangssleutels de optie om een 'prefix' (voorvoegsel) toe te voegen. De 'prefix' is een lijst met bytes die wordt gebruikt als de eerste bytes van de [salt](https://shadowsocks.org/doc/aead.html) van een Shadowsocks TCP-verbinding.
 De verbinding lijkt dan op een protocol dat is toegestaan in het netwerk, waardoor firewalls worden omzeild die protocollen weigeren die ze niet herkennen.
 
 ## Wanneer moet ik dit proberen? {#when_should_i_try_this}

@@ -55,7 +55,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## 指定規避策略
 
-Outline SDK 可指定各種規避策略，並加以組合，藉此規避不同形式的網路干擾。這些策略的規格位於 [Go 說明文件](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl)中。
+Outline SDK 可指定各種規避策略，並加以組合，藉此規避不同形式的網路干擾。這些策略的規格位於 [Go 說明文件](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl)中。
 
 ### 可組合策略
 

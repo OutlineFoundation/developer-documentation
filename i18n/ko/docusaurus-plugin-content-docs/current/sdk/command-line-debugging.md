@@ -56,7 +56,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## 우회 전략 지정
 
-Outline SDK를 사용하면 다양한 우회 전략을 지정할 수 있으며, 이러한 전략을 결합하여 다양한 형태의 네트워크 간섭을 우회할 수 있습니다. 이러한 전략의 사양은 [Go 문서](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl)에 있습니다.
+Outline SDK를 사용하면 다양한 우회 전략을 지정할 수 있으며, 이러한 전략을 결합하여 다양한 형태의 네트워크 간섭을 우회할 수 있습니다. 이러한 전략의 사양은 [Go 문서](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl)에 있습니다.
 
 ### 구성 가능한 전략
 

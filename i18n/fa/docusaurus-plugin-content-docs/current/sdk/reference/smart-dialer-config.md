@@ -93,7 +93,7 @@ tcp:
 
 - برای نمونه، `override:host=cloudflare.net|tlsfrag:1` حمل‌ونقلی را معین می‌کند که
 از دامنه‌ای استفاده می‌کند که خط مقدم آن تکه‌تکه‌سازی «امنیت لایه انتقال» و Cloudflare است. برای جزئیات بیشتر،
-[مستندسازی پیکربندی](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)
+[مستندسازی پیکربندی](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format)
 را ببینید.
 
 ### پیکربندی جایگزین {#fallback_configuration}
@@ -105,7 +105,7 @@ tcp:
 
 رشته‌های جایگزین باید:
 
-- رشته پیکربندی `StreamDialer` همان‌گونه که در [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) تعریف شده است معتبر باشد.
+- رشته پیکربندی `StreamDialer` همان‌گونه که در [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols) تعریف شده است معتبر باشد.
 
 - شیء پیکربندی Psiphon معتبری به‌عنوان فرزند فیلد `psiphon` باشد.
 

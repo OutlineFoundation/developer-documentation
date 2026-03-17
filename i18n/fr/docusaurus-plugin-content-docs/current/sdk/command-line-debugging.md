@@ -56,7 +56,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## Spécifier des stratégies de contournement
 
-Le SDK Outline permet de spécifier différentes stratégies de contournement qui peuvent être combinées pour contourner différentes formes d'interférences réseau. La spécification de ces stratégies se trouve dans la [documentation Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
+Le SDK Outline permet de spécifier différentes stratégies de contournement qui peuvent être combinées pour contourner différentes formes d'interférences réseau. La spécification de ces stratégies se trouve dans la [documentation Go](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 
 ### Stratégies composables
 

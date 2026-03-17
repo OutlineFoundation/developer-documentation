@@ -62,7 +62,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 The Outline SDK allows for the specification of various circumvention strategies
 that can be combined to bypass different forms of network interference. The
-specification for these strategies is in the [go documentation](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
+specification for these strategies is in the [go documentation](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 
 ### Composable Strategies
 

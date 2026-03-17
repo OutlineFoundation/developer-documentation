@@ -56,7 +56,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## Strategien zur Umgehung angeben
 
-Mit dem Outline SDK können verschiedene Umgehungsstrategien angegeben werden, die kombiniert werden können, um verschiedene Formen von Netzwerkstörungen zu umgehen. Die Spezifikation für diese Strategien finden Sie in der [Go-Dokumentation](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
+Mit dem Outline SDK können verschiedene Umgehungsstrategien angegeben werden, die kombiniert werden können, um verschiedene Formen von Netzwerkstörungen zu umgehen. Die Spezifikation für diese Strategien finden Sie in der [Go-Dokumentation](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 
 ### Zusammensetzbare Strategien
 

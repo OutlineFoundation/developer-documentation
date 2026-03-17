@@ -5,7 +5,7 @@ sidebar_label: "Disfarces de prefixo de conexão"
 
 A partir da versão 1.9.0 do app cliente do Outline, é possível usar prefixos com as chaves de acesso. Os
 prefixos são uma lista de bytes usados no início do
-[sal](https://shadowsocks.org/guide/aead.html) de uma conexão TCP do Shadowsocks.
+[sal](https://shadowsocks.org/doc/aead.html) de uma conexão TCP do Shadowsocks.
 Isso pode fazer com que a conexão funcione como um protocolo permitido na
 rede, contornando firewalls que rejeitam protocolos não reconhecidos.
 

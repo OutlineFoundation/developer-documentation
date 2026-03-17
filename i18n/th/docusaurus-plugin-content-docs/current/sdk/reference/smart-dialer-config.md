@@ -90,7 +90,7 @@ tcp:
 - การรับส่งข้อมูล TLS แต่ละรายการคือสตริงที่ระบุการรับส่งข้อมูลที่จะใช้
 
 - เช่น `override:host=cloudflare.net|tlsfrag:1` จะระบุการรับส่งข้อมูลที่ใช้การทำ Domain Fronting ด้วย Cloudflare และการกระจาย Fragment ของ TLS ดูรายละเอียดได้จาก
-[เอกสารประกอบการกำหนดค่า](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format)
+[เอกสารประกอบการกำหนดค่า](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format)
 
 ### การกำหนดค่าสำรอง {#fallback_configuration}
 
@@ -98,7 +98,7 @@ tcp:
 
 สตริงสำรองควรเป็นดังนี้
 
-- สตริงการกำหนดค่า `StreamDialer` ที่ถูกต้องตามที่กำหนดไว้ใน [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols)
+- สตริงการกำหนดค่า `StreamDialer` ที่ถูกต้องตามที่กำหนดไว้ใน [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols)
 
 - ออบเจ็กต์การกำหนดค่า Psiphon ที่ถูกต้องเป็นรายการย่อยของฟิลด์ `psiphon`
 

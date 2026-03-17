@@ -3,7 +3,7 @@ title: "连接前缀伪装"
 sidebar_label: "连接前缀伪装"
 ---
 
-从 Outline 客户端 1.9.0 版开始，访问密钥支持“prefix”选项。“prefix”是一个字节列表，用作 Shadowsocks TCP 连接的[盐](https://shadowsocks.org/guide/aead.html)的第一个字节。
+从 Outline 客户端 1.9.0 版开始，访问密钥支持“prefix”选项。“prefix”是一个字节列表，用作 Shadowsocks TCP 连接的[盐](https://shadowsocks.org/doc/aead.html)的第一个字节。
 这可以让连接看起来像是网络允许的协议，从而绕过会拒绝陌生协议的防火墙。
 
 ## 何时尝试此选项？ {#when_should_i_try_this}

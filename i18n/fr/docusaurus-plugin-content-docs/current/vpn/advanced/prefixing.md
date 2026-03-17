@@ -3,7 +3,7 @@ title: "Dissimulation des préfixes de connexion"
 sidebar_label: "Dissimulation des préfixes de connexion"
 ---
 
-Les clés d'accès sont compatibles avec l'option "prefix" à partir de la version 1.9.0 du client Outline. L'option "prefix" correspond aux premiers octets utilisés pour le [salage](https://shadowsocks.org/guide/aead.html) d'une connexion TCP Shadowsocks.
+Les clés d'accès sont compatibles avec l'option "prefix" à partir de la version 1.9.0 du client Outline. L'option "prefix" correspond aux premiers octets utilisés pour le [salage](https://shadowsocks.org/doc/aead.html) d'une connexion TCP Shadowsocks.
 La connexion peut ainsi ressembler à un protocole autorisé sur le réseau et ainsi contourner les pare-feu rejetant les protocoles non reconnus.
 
 ## Quand dois-je utiliser un préfixe ? {#when_should_i_try_this}

@@ -3,7 +3,7 @@ title: "prefix 偽裝的連線"
 sidebar_label: "prefix 偽裝的連線"
 ---
 
-自 Outline 用戶端 1.9.0 版起，存取金鑰支援「prefix」選項。「prefix」是 Shadowsocks TCP 連線中做為[鹽](https://shadowsocks.org/guide/aead.html)開頭的一串位元組。這可以使連線偽裝成網路中允許的協定，從而繞過防火牆對未知通訊協定的封鎖。
+自 Outline 用戶端 1.9.0 版起，存取金鑰支援「prefix」選項。「prefix」是 Shadowsocks TCP 連線中做為[鹽](https://shadowsocks.org/doc/aead.html)開頭的一串位元組。這可以使連線偽裝成網路中允許的協定，從而繞過防火牆對未知通訊協定的封鎖。
 
 ## 何時應嘗試使用 prefix？ {#when_should_i_try_this}
 

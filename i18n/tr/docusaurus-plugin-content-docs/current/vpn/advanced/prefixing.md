@@ -3,7 +3,7 @@ title: "Bağlantı öneki gizleme yöntemleri"
 sidebar_label: "Bağlantı öneki gizleme yöntemleri"
 ---
 
-Outline istemcisinin 1.9.0 sürümü itibarıyla erişim anahtarlarında "önek" seçeneği desteklenmektedir. "Önek", Shadowsocks TCP bağlantısındaki [takviye değerin](https://shadowsocks.org/guide/aead.html) ilk baytları olarak kullanılan baytların listesidir.
+Outline istemcisinin 1.9.0 sürümü itibarıyla erişim anahtarlarında "önek" seçeneği desteklenmektedir. "Önek", Shadowsocks TCP bağlantısındaki [takviye değerin](https://shadowsocks.org/doc/aead.html) ilk baytları olarak kullanılan baytların listesidir.
 Bu seçenek, bağlantının ağda desteklenen bir protokol gibi görünmesini sağlayarak, tanımadığı protokolleri reddeden güvenlik duvarlarını atlatır.
 
 ## Bu seçeneği ne zaman denemeliyim? {#when_should_i_try_this}

@@ -89,7 +89,7 @@ tcp:
 
 - Jeder TLS-Transport ist ein String, der den zu verwendenden Transport angibt.
 
-- Beispielsweise spezifiziert `override:host=cloudflare.net|tlsfrag:1` einen Transport, der Domain Fronting mit Cloudflare und TLS-Fragmentierung verwendet. In der [config-Dokumentation](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format) finden Sie weitere Details dazu.
+- Beispielsweise spezifiziert `override:host=cloudflare.net|tlsfrag:1` einen Transport, der Domain Fronting mit Cloudflare und TLS-Fragmentierung verwendet. In der [config-Dokumentation](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format) finden Sie weitere Details dazu.
 
 ### Fallback-Konfiguration {#fallback_configuration}
 
@@ -97,7 +97,7 @@ Eine Fallback-Konfiguration wird verwendet, wenn keine der proxylosen Strategien
 
 Die Fallback-Strings sollten Folgendes sein:
 
-- Ein gültiger `StreamDialer` config-String, wie in [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols) definiert.
+- Ein gültiger `StreamDialer` config-String, wie in [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols) definiert.
 
 - Ein gültiges Psiphon-Konfigurationsobjekt als untergeordnetes Objekt eines `psiphon`-Feldes.
 

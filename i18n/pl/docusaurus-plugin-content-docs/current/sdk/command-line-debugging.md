@@ -56,7 +56,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 ## Określanie strategii omijania
 
-Pakiet SDK Outline umożliwia określanie różnych strategii obchodzenia ograniczeń, które można łączyć, aby omijać różne formy zakłóceń sieci. Specyfikację tych strategii znajdziesz w [dokumentacji Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
+Pakiet SDK Outline umożliwia określanie różnych strategii obchodzenia ograniczeń, które można łączyć, aby omijać różne formy zakłóceń sieci. Specyfikację tych strategii znajdziesz w [dokumentacji Go](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 
 ### Strategie kompozycyjne
 

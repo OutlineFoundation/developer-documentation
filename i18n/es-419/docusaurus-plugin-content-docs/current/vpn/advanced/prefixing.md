@@ -5,7 +5,7 @@ sidebar_label: "Enmascaramientos del prefijo de conexión"
 
 A partir de la versión 1.9.0 del cliente de Outline, las claves de acceso admiten la opción "prefijo". El
 "prefijo" es una lista de bytes que se usan como los primeros de la 
-[sal](https://shadowsocks.org/guide/aead.html) de una conexión TCP de Shadowsocks.
+[sal](https://shadowsocks.org/doc/aead.html) de una conexión TCP de Shadowsocks.
 Esto puede hacer que la conexión parezca un protocolo que se permite en la
 red y, así, eludir firewalls que rechazan protocolos que no reconocen.
 

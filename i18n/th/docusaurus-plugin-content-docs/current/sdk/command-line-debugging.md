@@ -61,7 +61,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 
 Outline SDK ช่วยให้ระบุกลยุทธ์การหลบเลี่ยงต่างๆ ได้
 ซึ่งสามารถนำมารวมกันเพื่อข้ามการรบกวนเครือข่ายรูปแบบต่างๆ 
-ข้อกำหนดสำหรับกลยุทธ์เหล่านี้อยู่ใน[เอกสารประกอบของ Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl)
+ข้อกำหนดสำหรับกลยุทธ์เหล่านี้อยู่ใน[เอกสารประกอบของ Go](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl)
 
 ### กลยุทธ์ที่ประกอบกันได้
 

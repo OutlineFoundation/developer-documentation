@@ -3,7 +3,7 @@ title: "연결 접두사 위장"
 sidebar_label: "연결 접두사 위장"
 ---
 
-Outline 클라이언트 버전 1.9.0부터 액세스 키에서 'prefix' 옵션을 지원합니다. 'prefix'는 Shadowsocks TCP 연결 [솔트](https://shadowsocks.org/guide/aead.html)의 첫 번째 바이트로 사용된 바이트 목록입니다.
+Outline 클라이언트 버전 1.9.0부터 액세스 키에서 'prefix' 옵션을 지원합니다. 'prefix'는 Shadowsocks TCP 연결 [솔트](https://shadowsocks.org/doc/aead.html)의 첫 번째 바이트로 사용된 바이트 목록입니다.
 이를 통해 연결이 네트워크에서 허용되는 프로토콜처럼 보여, 인식하지 못하는 프로토콜을 거부하는 방화벽을 우회할 수 있게 됩니다.
 
 ## 언제 사용하면 되나요? {#when_should_i_try_this}

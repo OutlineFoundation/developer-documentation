@@ -89,7 +89,7 @@ tcp:
 
 - Każdy transport TLS jest ciągiem tekstowym określającym transport, który ma być używany.
 
-- Na przykład `override:host=cloudflare.net|tlsfrag:1` określa transport, który używa frontowania domen razem z Cloudflare i fragmentacją TLS. Szczegóły znajdziesz w [dokumentacji konfiguracji](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format).
+- Na przykład `override:host=cloudflare.net|tlsfrag:1` określa transport, który używa frontowania domen razem z Cloudflare i fragmentacją TLS. Szczegóły znajdziesz w [dokumentacji konfiguracji](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format).
 
 ### Konfiguracja zastępcza {#fallback_configuration}
 
@@ -97,7 +97,7 @@ Konfiguracja zastępcza jest używana, jeśli żadna ze strategii bez proxy nie 
 
 Zastępczymi ciągami tekstowymi powinny być:
 
-- prawidłowy ciąg konfiguracji `StreamDialer` zgodnie z definicją w [`configurl`](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols),
+- prawidłowy ciąg konfiguracji `StreamDialer` zgodnie z definicją w [`configurl`](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols),
 
 - prawidłowy obiekt konfiguracji Psiphon jako element podrzędny pola `psiphon`.
 

@@ -59,7 +59,7 @@ curl -p -x http://127.0.0.1:8080 https://ipinfo.io
 ## Especificar estratégias de fraude
 
 O SDK do Outline permite a especificação de várias estratégias de evasão
-que podem ser combinadas para contornar diferentes formas de interferência na rede. A especificação dessas estratégias está na [documentação do Go](https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x@v0.0.3/configurl).
+que podem ser combinadas para contornar diferentes formas de interferência na rede. A especificação dessas estratégias está na [documentação do Go](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 
 ### Estratégias combináveis
 
