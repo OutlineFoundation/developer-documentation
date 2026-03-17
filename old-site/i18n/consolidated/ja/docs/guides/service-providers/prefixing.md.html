@@ -1,0 +1,93 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '17ff8146-e431-42dd-a15c-866413be7b43'}, 'string_id': '5183224559080815140', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline クライアント バージョン 1.9.0 以降では、アクセスキーで「プレフィックス」オプションがサポートされています。「プレフィックス」とは、Shadowsocks TCP 接続の<a l10n-placeholder4="4">ソルト</a>の最初のバイトとして使用されるバイトのリストです。これにより、接続を、ネットワークで許可されているプロトコルのように見せることができるため、認識されないプロトコルを拒否するファイアウォールを回避できます。</p>
+
+<h2 data-text="17610956299883319320" id="when_should_i_try_this" tabindex="-1">使用すべき状況</h2>
+
+<p>Outline デプロイメントのユーザーがまだブロックされていると思われる場合は、いくつかの異なるプレフィックスの試用を検討することをおすすめします。</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">手順</h2>
+
+<p>プレフィックスは 16 バイト以下にする必要があります。長いプレフィックスを使用すると、ソルトの競合が発生する可能性があります。その結果、暗号化の安全性が損なわれ、接続が検出される場合があります。ブロックを回避するには、できる限り短いプレフィックスを使用してください。</p>
+
+<p>使用するポートは、プレフィックスが装うプロトコルと一致する必要があります。IANA には、プロトコルとポート番号をマップする<a l10n-placeholder5="5">転送プロトコルのポート番号のレジストリ</a>があります。</p>
+
+<p>以下に、一般的なプロトコルのように見える効果的なプレフィックスの例をいくつか示します。</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>推奨されるポート</th>
+<th>JSON エンコード</th>
+<th>URL エンコード</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HTTP リクエスト</td>
+<td>80（http）</td>
+<td><code dir="ltr" translate="no">&quot;POST &quot;</code></td>
+<td><code dir="ltr" translate="no">POST%20</code></td>
+</tr>
+<tr>
+<td>HTTP レスポンス</td>
+<td>80（http）</td>
+<td><code dir="ltr" translate="no">&quot;HTTP/1.1 &quot;</code></td>
+<td><code dir="ltr" translate="no">HTTP%2F1.1%20</code></td>
+</tr>
+<tr>
+<td>DNS-over-TCP リクエスト</td>
+<td>53（dns）</td>
+<td><code dir="ltr" translate="no">&quot;\u0005\u00DC\u005F\u00E0\u0001\u0020&quot;</code></td>
+<td><code dir="ltr" translate="no">%05%C3%9C_%C3%A0%01%20</code></td>
+</tr>
+<tr>
+<td>TLS ClientHello</td>
+<td>443（https）、463（smtps）、563（nntps）、636（ldaps）、989（ftps-data）、990（ftps）、993（imaps）、995（pop3s）、5223（Apple APN）、5228（Play ストア）、5349（turns）</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0001\u0000\u00a8\u0001\u0001&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%01%00%C2%A8%01%01</code></td>
+</tr>
+<tr>
+<td>TLS Application Data</td>
+<td>443（https）、463（smtps）、563（nntps）、636（ldaps）、989（ftps-data）、990（ftps）、993（imaps）、995（pop3s）、5223（Apple APN）、5228（Play ストア）、5349（turns）</td>
+<td><code dir="ltr" translate="no">&quot;\u0013\u0003\u0003\u003F&quot;</code></td>
+<td><code dir="ltr" translate="no">%13%03%03%3F</code></td>
+</tr>
+<tr>
+<td>TLS ServerHello</td>
+<td>443（https）、463（smtps）、563（nntps）、636（ldaps）、989（ftps-data）、990（ftps）、993（imaps）、995（pop3s）、5223（Apple APN）、5228（Play ストア）、5349（turns）</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0003\u0040\u0000\u0002&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%03%40%00%02</code></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22（ssh）、830（netconf-ssh）、4334（netconf-ch-ssh）、5162（snmpssh-trap）</td>
+<td><code dir="ltr" translate="no">&quot;SSH-2.0\r\n&quot;</code></td>
+<td><code dir="ltr" translate="no">SSH-2.0%0D%0A</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 data-text="13867626750959801949" id="dynamic_access_keys" tabindex="-1">動的アクセスキー</h3>
+
+<p><a l10n-placeholder6="6">動的アクセスキー</a>（<code dir="ltr" translate="no">ssconf://</code>）でプレフィックス機能を使用するには、必要なプレフィックスを表す <strong>JSON エンコード</strong>値（上の表の例を参照）を使用して、「プレフィックス」キーを JSON オブジェクトに追加します。エスケープ コード（\u00FF など）を使用して、<code dir="ltr" translate="no">U+0</code> から <code dir="ltr" translate="no">U+FF</code> までの範囲で印刷できない Unicode コードポイントを表すことができます。次に例を示します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="1939603936418792745" id="static_access_keys" tabindex="-1">静的アクセスキー</h3>
+
+<p><strong>静的アクセスキー</strong>（ss://）でプレフィックスを使用するには、既存のキーを配布する前に変更する必要があります。Outline マネージャーによって生成された静的アクセスキーがある場合は、プレフィックスの <strong>URL エンコード</strong> バージョン（上の表の例を参照）を取得し、次のように、アクセスキーの末尾に追加します。</p>
+
+<p><code dir="ltr" translate="no">ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&amp;prefix=&lt;your url-encoded prefix goes here&gt;</code></p>
+
+<p>上級ユーザーの場合は、ブラウザの <code dir="ltr" translate="no">encodeURIComponent()</code> 関数を使用して、<strong>JSON エンコード</strong>のプレフィックスを <strong>URL エンコード</strong>のプレフィックスに変換できます。これを行うには、ウェブ インスペクタ コンソール（Chrome の [デベロッパー ツール] > [コンソール]）を開き、以下を入力します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Enter キーを押します。生成された値が、URL エンコード バージョンとなります。次に例を示します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+
+  
+</body></html>

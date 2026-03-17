@@ -1,0 +1,226 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f674f77a-35b4-4640-8f46-941fa8441ba5', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2cc81c04-f85b-4620-b8ae-8f4d963c9c25'}, 'string_id': '12154004287846702215', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="7551542352463182819" id="tunnels" tabindex="-1">Túneles</h2>
+
+<h3 data-text="5334038409748665214" id="tunnelconfig" tabindex="-1">TunnelConfig</h3>
+
+<p>Los túneles son los objetos de nivel superior en una configuración de Outline e indican cómo debe configurarse la VPN.</p>
+
+<p><strong>Formato:</strong> <a l10n-placeholder9="9">ExplicitTunnelConfig</a> |
+<a l10n-placeholder10="10">LegacyShadowsocksConfig</a> |
+<a l10n-placeholder11="11">LegacyShadowsocksURI</a></p>
+
+<h3 data-text="17567925323603000549" id="explicittunnelconfig" tabindex="-1">ExplicitTunnelConfig</h3>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport</code> (<a l10n-placeholder12="12">TransportConfig</a>): transporte que debe usarse para intercambiar paquetes con el destino.</li>
+<li><code dir="ltr" translate="no">error</code> (<em>struct</em>): información que debe comunicarse al usuario si hay un error de servicio (por ejemplo, si la clave ha caducado o la cuota se ha agotado).
+<ul>
+<li><code dir="ltr" translate="no">message</code> (<em>cadena</em>): mensaje legible que se mostrará al usuario.</li>
+<li><code dir="ltr" translate="no">details</code> (<em>cadena</em>): mensaje que se mostrará cuando el usuario despliegue los detalles del error. Sirve para solucionar problemas.</li>
+</ul></li>
+</ul>
+
+<p>Los campos <code dir="ltr" translate="no">error</code> y <code dir="ltr" translate="no">transport</code> se excluyen entre sí.</p>
+
+<p>Ejemplo de operación correcta:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Ejemplo de error:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5117449539369487677" id="transports" tabindex="-1">Transportes</h2>
+
+<h3 data-text="14190027968284396058" id="transportconfig" tabindex="-1">TransportConfig</h3>
+
+<p>Objeto que especifica cómo deben intercambiarse los paquetes con el destino.</p>
+
+<p><strong>Formato:</strong> <a l10n-placeholder13="13">Interface</a></p>
+
+<p>Tipos de Interface admitidos:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcpudp</code>: <a l10n-placeholder14="14">TCPUDPConfig</a></li>
+</ul>
+
+<h3 data-text="12455139361718416191" id="tcpudpconfig" tabindex="-1">TCPUDPConfig</h3>
+
+<p>TCPUDPConfig permite configurar estrategias de TCP y UDP por separado.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcp</code> (<a l10n-placeholder15="15">DialerConfig</a>): marcador de flujos que debe usarse para las conexiones TCP.</li>
+<li><code dir="ltr" translate="no">udp</code> (<a l10n-placeholder16="16">PacketListenerConfig</a>): agente de escucha de paquetes que debe usarse para los paquetes UDP.</li>
+</ul>
+
+<p>Ejemplo de envío de TCP y UDP a distintos endpoints:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<h2 data-text="659650101501710648" id="endpoints" tabindex="-1">Endpoints</h2>
+
+<p>Los endpoints establecen conexiones con un endpoint fijo. Son preferibles a los marcadores porque permiten hacer optimizaciones específicas del endpoint. Hay dos tipos: endpoints de flujos y de paquetes.</p>
+
+<h3 data-text="11446759888020662416" id="endpointconfig" tabindex="-1">EndpointConfig</h3>
+
+<p><strong>Formato:</strong> <em>cadena</em> | <a l10n-placeholder17="17">Interface</a></p>
+
+<p>La <em>cadena</em> del endpoint es la dirección host:puerto del endpoint seleccionado. La conexión se establece usando el valor predeterminado del marcador.</p>
+
+<p>Tipos de Interface admitidos para endpoints de flujos y de paquetes:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">dial</code>: <a l10n-placeholder18="18">DialEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder19="19">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">websocket</code>: <a l10n-placeholder20="20">WebsocketEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder21="21">ShadowsocksConfig</a></li>
+</ul>
+
+<h3 data-text="11716336102764925006" id="dialendpointconfig" tabindex="-1">DialEndpointConfig</h3>
+
+<p>Establece las conexiones marcando una dirección fija. Puede usarse un marcador, lo que permite componer estrategias.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">address</code> (<em>cadena</em>): la dirección del endpoint que se debe marcar.</li>
+<li><code dir="ltr" translate="no">dialer</code> (<a l10n-placeholder22="22">DialerConfig</a>): el marcador que debe usarse para marcar la dirección.</li>
+</ul>
+
+<h3 data-text="17640163708559704415" id="websocketendpointconfig" tabindex="-1">WebsocketEndpointConfig</h3>
+
+<p>Tuneliza las conexiones de flujos y de paquetes dirigidos a un endpoint a través de Websockets.</p>
+
+<p>En el caso de las conexiones de flujos, cada escritura se convierte en un mensaje de Websocket. En el caso de las conexiones de paquetes, cada paquete se convierte en un mensaje de Websocket.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">url</code> (<em>cadena</em>): URL del endpoint de Websocket. El esquema debe ser <code dir="ltr" translate="no">https</code> o <code dir="ltr" translate="no">wss</code> para Websocket a través de TLS, y <code dir="ltr" translate="no">http</code> o <code dir="ltr" translate="no">ws</code> para Websocket de texto sin formato.</li>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder23="23">EndpointConfig</a>): endpoint del servidor web con el que se va a establecer la conexión. Si no se encuentra, se conecta a la dirección especificada de la URL.</li>
+</ul>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Marcadores</h2>
+
+<p>Los marcadores establecen conexiones cuando se indica la dirección de un endpoint. Hay dos tipos: marcadores de flujos y de paquetes.</p>
+
+<h3 data-text="9627478273327751697" id="dialerconfig" tabindex="-1">DialerConfig</h3>
+
+<p><strong>Formato:</strong> <em>nulo</em> | <a l10n-placeholder24="24">Interface</a></p>
+
+<p>El valor <em>nulo</em> (no se encuentra) del marcador es el marcador predeterminado, que usa conexiones TCP directas para conexiones de flujos y conexiones UDP directas para paquetes.</p>
+
+<p>Tipos de Interface admitidos para marcadores de flujos y de paquetes:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder25="25">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder26="26">ShadowsocksConfig</a></li>
+</ul>
+
+<h2 data-text="2039682242780633119" id="packet_listeners" tabindex="-1">Agentes de escucha de paquetes</h2>
+
+<p>Los agentes de escucha de paquetes establecen conexiones de paquetes no delimitadas que pueden usarse para enviar paquetes a varios destinos.</p>
+
+<h3 data-text="15852079316549004264" id="packetlistenerconfig" tabindex="-1">PacketListenerConfig</h3>
+
+<p><strong>Formato:</strong> <em>nulo</em> | <a l10n-placeholder27="27">Interface</a></p>
+
+<p>El valor <em>nulo</em> (no se encuentra) del agente de escucha de paquetes es el agente predeterminado, concretamente, un agente de escucha de paquetes UDP.</p>
+
+<p>Tipos de Interface admitidos:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder28="28">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder29="29">ShadowsocksPacketListenerConfig</a></li>
+</ul>
+
+<h2 data-text="6016290251325397531" id="strategies" tabindex="-1">Estrategias</h2>
+
+<h3 data-text="16260889002875646941" id="shadowsocks" tabindex="-1">Shadowsocks</h3>
+
+<h4 data-text="13137755849223030902" id="legacyshadowsocksconfig" tabindex="-1">LegacyShadowsocksConfig</h4>
+
+<p>LegacyShadowsocksConfig representa un túnel que usa Shadowsocks como transporte. Implementa el formato antiguo para la retrocompatibilidad.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">server</code> (<em>cadena</em>): host con el que se va a establecer la conexión.</li>
+<li><code dir="ltr" translate="no">server_port</code> (<em>número</em>): número de puerto con el que se va a establecer la conexión.</li>
+<li><code dir="ltr" translate="no">method</code> (<em>cadena</em>): el <a l10n-placeholder30="30">algoritmo de cifrado de AEAD</a> que debe usarse.</li>
+<li><code dir="ltr" translate="no">password</code> (<em>cadena</em>): utilizado para generar la clave de cifrado.</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>cadena</em>): la <a l10n-placeholder31="31">ocultación de prefijo</a> que se debe usar.
+Se admite en conexiones de flujos y de paquetes.</li>
+</ul>
+
+<p>Ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<h4 data-text="4781365069853549991" id="legacyshadowsocksuri" tabindex="-1">LegacyShadowsocksURI</h4>
+
+<p>LegacyShadowsocksURI representa un túnel que usa Shadowsocks como transporte.
+Implementa el formato antiguo de la URL para la retrocompatibilidad.</p>
+
+<p><strong>Formato:</strong> <em>cadena</em></p>
+
+<p>Consulta el <a l10n-placeholder32="32">formato antiguo del URI de Shadowsocks</a> y el <a l10n-placeholder33="33">esquema del URI de SIP002</a>. No admitimos los complementos.</p>
+
+<p>Ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<h4 data-text="10756671213903401832" id="shadowsocksconfig" tabindex="-1">ShadowsocksConfig</h4>
+
+<p>ShadowsocksConfig puede representar marcadores de flujos o de paquetes, además de un agente de escucha de paquetes que usa Shadowsocks.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder34="34">EndpointConfig</a>): el endpoint de Shadowsocks con el que se va a establecer la conexión.</li>
+<li><code dir="ltr" translate="no">cipher</code> (<em>cadena</em>): el <a l10n-placeholder35="35">algoritmo de cifrado de AEAD</a> que debe usarse.</li>
+<li><code dir="ltr" translate="no">secret</code> (<em>cadena</em>): utilizado para generar la clave de cifrado.</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>cadena</em>, opcional): la <a l10n-placeholder36="36">ocultación de prefijo</a> que se debe usar.
+Se admite en conexiones de flujos y de paquetes.</li>
+</ul>
+
+<p>Ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h2 data-text="10249180210045793508" id="meta_definitions" tabindex="-1">Metadefiniciones</h2>
+
+<h3 data-text="1718163546114050573" id="firstsupportedconfig" tabindex="-1">FirstSupportedConfig</h3>
+
+<p>Usa la primera configuración admitida por la aplicación. De esta forma, se incorporan configuraciones nuevas y, a la vez, se mantiene la retrocompatibilidad con las antiguas.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">options</code> (<a l10n-placeholder37="37">EndpointConfig[]</a> |
+<a l10n-placeholder38="38">DialerConfig[]</a> |
+<a l10n-placeholder39="39">PacketListenerConfig[]</a>): lista de opciones que deben tenerse en cuenta.</li>
+</ul>
+
+<p>Ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h3 data-text="10701474329256839971" id="interface" tabindex="-1">Interface</h3>
+
+<p>Los objetos Interface permiten elegir una implementación de entre muchas. Utiliza el campo <code dir="ltr" translate="no">$type</code> para especificar el tipo que esa configuración representa.</p>
+
+<p>Ejemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code>
+
+  
+</body></html>

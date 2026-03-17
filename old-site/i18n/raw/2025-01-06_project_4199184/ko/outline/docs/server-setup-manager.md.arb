@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3b387304-60ce-41ac-bc95-a66d3500157d'}, 'string_id': '5016549043304130312', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "단계별 안내",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e808ae87-d9f5-45fe-bd48-af5a9aae3b48'}, 'string_id': '16509802911453266336', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline 서버 설정하기"
+}

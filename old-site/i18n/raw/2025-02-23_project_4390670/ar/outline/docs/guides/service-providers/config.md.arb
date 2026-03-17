@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '856493a1-da03-4b99-a62a-c7d2704bd5ff'}, 'string_id': '14665129214657206841', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "الأمثلة",
+  "{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ae331ea6-025a-47c6-9f06-ab0fd2b7e5e6'}, 'string_id': '4925008635219124492', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "إعدادات مفاتيح الوصول"
+}

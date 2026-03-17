@@ -1,0 +1,29 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b4857677-e150-40fe-b2ff-ac6b417e307e'}, 'string_id': '6201848709562429957', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline SDK は基本的なコンセプトに基づいて構築されています。それらのコンセプトは、コンポジションや簡単な再利用を可能にするための相互運用可能なインターフェースとして定義されます。</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">接続</h2>
+
+<p>接続は、抽象的なトランスポート上の 2 つのエンドポイント間の通信を可能にします。接続には次の 2 種類があります。</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: TCP や <code dir="ltr" translate="no">SOCK_STREAM</code> タイプの Posix ソケットなど、ストリーム ベースの接続。</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: UDP や <code dir="ltr" translate="no">SOCK_DGRAM</code> タイプの Posix ソケットなど、データグラム ベースの接続。Go 標準ライブラリの慣習に従い、「データグラム」ではなく「パケット」という言葉を使用します。</li>
+</ul>
+
+<p>接続をラップし、新しいトランスポート上でネストした接続を作成することもできます。たとえば、<code dir="ltr" translate="no">StreamConn</code> には、TCP 上、TCP 上の TLS 上、TCP 上の TLS 上の HTTP 上、QUIC 上など、さまざまなオプションがあります。</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">ダイヤラー</h2>
+
+<p>ダイヤラーは、基盤となるトランスポート プロトコルまたはプロキシ プロトコルをカプセル化しながら、host:port アドレスを指定した接続の作成を可能にします。指定したアドレスに対し、<code dir="ltr" translate="no">StreamDialer</code> タイプは <code dir="ltr" translate="no">StreamConn</code> 接続、<code dir="ltr" translate="no">PacketDialer</code> タイプは <code dir="ltr" translate="no">PacketConn</code> 接続を作成します。ダイヤラーもネスト化が可能です。たとえば TLS ストリーム ダイヤラーは、TCP ダイヤラーを使用して TCP 接続に基づく <code dir="ltr" translate="no">StreamConn</code> を作成した後、TCP <code dir="ltr" translate="no">StreamConn</code> に基づく TLS <code dir="ltr" translate="no">StreamConn</code> を作成できます。SOCKS5-over-TLS ダイヤラーは、TLS ダイヤラーを使用してプロキシへの TLS <code dir="ltr" translate="no">StreamConn</code> を作成した後、ターゲット アドレスへの SOCKS5 接続を実行できます。</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">リゾルバ</h2>
+
+<p>リゾルバ（<code dir="ltr" translate="no">dns.Resolver</code>）は、基盤となるアルゴリズムまたはプロトコルをカプセル化しながら、DNS クエリへの回答を可能にします。リゾルバは主に、ドメイン名から IP アドレスへのマッピングに使用されます。</p>
+
+  
+</body></html>

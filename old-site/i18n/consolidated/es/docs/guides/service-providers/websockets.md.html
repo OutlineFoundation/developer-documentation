@@ -1,0 +1,47 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2d0dd0cf-78ea-4f6c-89cb-f3c9f3e80659'}, 'string_id': '8881571525508256907', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><em>Versión 1.15.0 o posterior del cliente de Outline.</em></p>
+
+<p>Este tutorial es una guía detallada para ayudarte a implementar Shadowsocks a través de WebSockets, una técnica eficaz para sortear la censura en los entornos en los que las conexiones de Shadowsocks normales estén bloqueadas. Al encapsular el tráfico de Shadowsocks en WebSockets, puedes hacerlo pasar por tráfico web estándar, lo que mejora la resiliencia y la accesibilidad.</p>
+<aside class="note"><strong>Nota:</strong><span> Shadowsocks a través de WebSockets solo se admite en la versión 1.15.0 y posteriores del cliente de Outline. Debes conservar las configuraciones que tengas para que las versiones anteriores del cliente sean compatibles.</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">Paso 1: Configura y ejecuta un servidor de Outline</h2>
+
+<p>Crea un archivo <code dir="ltr" translate="no">config.yaml</code> con la siguiente configuración:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>Nota:</strong><span> Mantén el elemento <code dir="ltr" translate="no">path</code> en secreto para evitar comprobaciones. Este elemento actúa como un endpoint secreto. Se recomienda usar una ruta larga generada de forma aleatoria.</span></aside>
+<p>Descarga la última versión de <a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a> y ejecútala con la configuración que has creado:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">Paso 2: Expón el servidor web</h2>
+
+<p>Para que se pueda acceder a tu servidor web de WebSocket de forma pública, deberás exponerlo en Internet y configurar <a l10n-placeholder6="6">TLS</a>.
+Tienes varias formas de hacerlo. Puedes usar un servidor web local, como <a l10n-placeholder7="7">Caddy</a>, <a l10n-placeholder8="8">nginx</a> o <a l10n-placeholder9="9">Apache</a> (asegurándote de que tenga un certificado TLS válido) o usar un servicio de tunelización, como <a l10n-placeholder10="10">Cloudflare Tunnel</a> o <a l10n-placeholder11="11">ngrok</a>.</p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">Ejemplo con TryCloudflare</h3>
+<aside class="caution"><strong>Aviso:</strong><span> TryCloudflare se ha diseñado solo para demos y pruebas.</span></aside>
+<p>En este ejemplo, vamos a hacer una demo con <a l10n-placeholder12="12">TryCloudflare</a> de cómo crear un túnel rápido. Este método te permite exponer tu servidor web local de una forma conveniente y segura sin abrir puertos de entrada.</p>
+
+<ol>
+<li><p>Descarga e instala <a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a>.</p></li>
+<li><p>Crea un túnel que dirija al puerto de tu servidor web local:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>Cloudflare proporcionará un subdominio (por ejemplo, <code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code>) para acceder a tu endpoint de WebSocket y gestionar automáticamente TLS. Apunta el subdominio para consultarlo más tarde.</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">Paso 3: Crea una clave de acceso dinámica</h2>
+
+<p>Genera un archivo YAML de clave de acceso de cliente para tus usuarios utilizando el formato de la página <a l10n-placeholder14="14">Configuración de claves de acceso</a> e incluye los endpoints de WebSocket que has configurado previamente del lado del servidor:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Después de generar el archivo YAML de la clave de acceso dinámica, debes enviárselo a tus usuarios. Puedes alojar el archivo en un servicio de alojamiento web estático o generarlo de forma dinámica. <a l10n-placeholder15="15">Más información sobre cómo usar claves de acceso dinámicas</a></p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">Paso 4: Conéctate con el cliente de Outline</h2>
+
+<p>Utiliza una de las aplicaciones oficiales del <a l10n-placeholder16="16">cliente de Outline</a> (versión 1.15.0 y posteriores) y añade la clave de acceso dinámica que acabas de crear como entrada del servidor. Haz clic en <strong>Conectar</strong> para empezar la tunelización a tu servidor usando la configuración de Shadowsocks a través de Websockets.</p>
+
+<p>Utiliza una herramienta como <a l10n-placeholder17="17">IPInfo</a> para comprobar que estés navegando por Internet mediante tu servidor de Outline.</p>
+
+  
+</body></html>

@@ -1,0 +1,93 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2b500e32-2ece-4716-beac-7ced425451c8'}, 'string_id': '11452553123190334191', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>De <strong>Smart Dialer</strong> zoekt naar een strategie waarmee DNS en TLS voor een bepaalde lijst testdomeinen wordt gedeblokkeerd. Je hebt hiervoor een configuratie nodig waarin meerdere strategieën worden beschreven om uit te kiezen.</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">YAML-configuratie voor de Smart Dialer</h2>
+
+<p>De configuratie die de Smart Dialer gebruikt, staat in de YAML-indeling. Een voorbeeld:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">DNS-configuratie</h3>
+
+<ul>
+<li>In het veld <code dir="ltr" translate="no">dns</code> staat een lijst met DNS-resolvers om te testen.</li>
+<li>Elke DNS-resolver kan een van de volgende typen zijn:
+<ul>
+<li><code dir="ltr" translate="no">system</code>: Gebruik de systeemresolver. Specificeer met een leeg object.</li>
+<li><code dir="ltr" translate="no">https</code>: Gebruik een versleutelde DNS-over-HTTPS-resolver (DoH).</li>
+<li><code dir="ltr" translate="no">tls</code>: Gebruik een versleutelde DNS-over-TLS-resolver (DoT).</li>
+<li><code dir="ltr" translate="no">udp</code>: Gebruik een UDP-resolver.</li>
+<li><code dir="ltr" translate="no">tcp</code>: Gebruik een TCP-resolver.</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">DNS-over-HTTPS-resolver (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: De domeinnaam van de DoH-server.</li>
+<li><code dir="ltr" translate="no">address</code>: De host:port van de DoH-server. De standaardwaarde is <code dir="ltr" translate="no">name</code>:443.</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">DNS-over-TLS-resolver (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: De domeinnaam van de DoT-server.</li>
+<li><code dir="ltr" translate="no">address</code>: De host:port van de DoT-server. De standaardwaarde is <code dir="ltr" translate="no">name</code>:853.</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">UDP-resolver</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: De host:port van de UDP-resolver.</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">TCP-resolver</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: De host:port van de TCP-resolver.</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">TLS-configuratie</h3>
+
+<ul>
+<li>In het veld <code dir="ltr" translate="no">tls</code> staat een lijst met TLS-transporten om te testen.</li>
+<li>Elk TLS-transport is een tekenreeks die aangeeft welk transport moet worden gebruikt.</li>
+<li><code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> geeft bijvoorbeeld een transport aan dat domain fronting gebruikt met Cloudflare en TLS-fragmentatie. In de <a l10n-placeholder10="10">configuratiedocumentatie</a> vind je meer informatie.</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">Reserveconfiguratie</h3>
+
+<p>Een reserveconfiguratie wordt gebruikt als via geen van de proxyloze strategieën verbinding kan worden gemaakt. Je kunt er bijvoorbeeld een back-upproxyserver in opgeven om de verbinding van de gebruiker mee te proberen. Als je een reserveconfiguratie gebruikt, start deze langzamer, omdat de andere DNS-/TLS-strategieën eerst moeten mislukken of er een time-out voor moet optreden.</p>
+
+<p>De reservetekenreeksen moeten de volgende zijn:</p>
+
+<ul>
+<li>Een geldige <code dir="ltr" translate="no">StreamDialer</code>-configuratietekenreeks zoals beschreven in <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a>.</li>
+<li>Een geldig Psiphon-configuratieobject als onderliggend object van een <code dir="ltr" translate="no">psiphon</code>-veld.</li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">Voorbeeld voor Shadowsocks-server</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">Voorbeeld voor SOCKS5-server</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">Voorbeeld van Psiphon-configuratie</h4>
+
+<p>Als je het <a l10n-placeholder12="12">Psiphon</a>-netwerk wilt gebruiken, moet je het volgende doen:</p>
+
+<ol>
+<li>Vraag het Psiphon-team om een configuratie waarmee je toegang krijgt tot hun netwerk. Je moet hiervoor misschien een contract aangaan.</li>
+<li>Voeg de Psiphon-configuratie die je hebt gekregen toe aan het gedeelte <code dir="ltr" translate="no">fallback</code> van je Smart Dialer-configuratie. Json is compatibel met YAML, dus je kunt je Psiphon-configuratie rechtstreeks in het gedeelte <code dir="ltr" translate="no">fallback</code> kopiëren en plakken, zoals hier:</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>Opmerking:</strong><span> De Psiphon-codebase is gelicentieerd onder de GPL, waardoor er licentiebeperkingen kunnen gelden voor je eigen code. Je kunt overwegen om een speciale licentie bij ze aan te vragen.</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">De Smart Dialer gebruiken</h3>
+
+<p>Als je de Smart Dialer wilt gebruiken, maak je een <code dir="ltr" translate="no">StrategyFinder</code>-object en roep je de methode <code dir="ltr" translate="no">NewDialer</code> aan. Geef hierbij de lijst met testdomeinen en de YAML-configuratie mee.
+Via de methode <code dir="ltr" translate="no">NewDialer</code> krijg je een <code dir="ltr" translate="no">transport.StreamDialer</code> waarmee je verbinding kunt maken via de gevonden strategie. Bijvoorbeeld:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>Dit is een algemeen voorbeeld, je moet het misschien aanpassen voor jouw specifieke use case.</p>
+
+  
+</body></html>

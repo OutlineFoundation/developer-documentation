@@ -1,0 +1,120 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c2f8d3a4-4fa2-4d8d-b6db-13eb4ccfb742'}, 'string_id': '7370928615664798887', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>‫Outline دو نوع کلید دسترسی ارائه می‌دهد: ثابت و پویا. در کدبندی کلیدهای ثابت
+همه اطلاعاتِ اتصال درون خود کد است، درحالی‌که در کدبندی کلیدهای پویا
+مکان اطلاعات اتصال به شما اجازه می‌دهد تا آن
+اطلاعات را در جایی دورتر ذخیره کنید و درصورت نیاز آن را تغییر دهید. این یعنی
+می‌توانید پیکربندی سرور خود را به‌روز کنید،
+بدون اینکه مجبور باشید کلیدهای جدیدی تولید کنید و میان کاربرانتان توزیع کنید. این سند توضیح می‌دهد برای تعامل انعطاف‌پذیرتر و کارآمدتر
+با سرور Outline خودتان، چطور از کلیدهای دسترسی پویا استفاده کنید.</p>
+
+<p>برای معین کردن اطلاعات دسترسی که توسط
+کلیدهای دسترسی پویای شما استفاده می‌شود، سه قالب دارید:</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">استفاده از پیوند <code dir="ltr" translate="no">ss://</code></h3>
+
+<p><em>کارخواه Outline نسخه ۱.۸.۱ به بالا.</em></p>
+
+<p>می‌توانید مستقیماً از پیوند <code dir="ltr" translate="no">ss://</code> کنونی استفاده کنید. این روش وقتی ایده‌آل است که
+به تغییر دادن مرتب سرور، درگاه، یا روش رمزگذاری‌تان نیازی نداشته باشید ولی هنوز بخواهید
+برای به‌روز کردن نشانی سرور انعطاف‌پذیری داشته باشید.</p>
+
+<p><strong>نمونه:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">استفاده از شیء JSON</h3>
+
+<p><em>کارخواه Outline نسخه ۱.۸.۰ به بالا.</em></p>
+
+<p>این روش برای مدیریت کردن همه نمودهای
+اتصال کاربران Outline انعطاف‌پذیری بیشتری را ارائه می‌دهد. با این روش می‌توانید سرور، درگاه، گذرواژه، و روش رمزگذاری را
+به‌روز کنید.</p>
+
+<p><strong>نمونه:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>سرور:</strong> دامنه یا نشانی IP مربوط به سرور وی‌پی‌ان.</li>
+<li><strong>‫server_port:</strong> شماره درگاهی که سرور وی‌پی‌ان شما در آن اجرا می‌شود.</li>
+<li><strong>گذرواژه:</strong> گذرواژه‌ای که برای اتصال به وی‌پی‌ان لازم است.</li>
+<li><strong>روش:</strong> روش رمزگذاری استفاده‌شده توسط وی‌پی‌ان. به Shadowsocks
+که <a l10n-placeholder5="5">رمزهای AEAD</a> را پشتیبانی می‌کند ارجاع دهید.</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">استفاده از شیء YAML</h3>
+
+<p><em>کارخواه Outline نسخه ۱.۱۵.۰ به بالا.</em></p>
+
+<p>این روش شبیه روش JSON قبلی است ولی
+با قدرت نفوذ قالب پیکربندی پیشرفته Outline، انعطاف‌پذیری بیشتری به آن اضافه شده است. با این روش می‌توانید
+سرور، درگاه، گذرواژه، روش رمزگذاری، و موارد بسیار بیشتری را به‌روز کنید.</p>
+
+<p><strong>نمونه:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>حمل‌ونقل:</strong> حمل‌ونقل پروتکل‌هایی را که استفاده می‌شوند تعریف می‌کند (در این حالت،
+TCP و UDP).</li>
+<li><strong>‫tcp/udp:</strong> پیکربندی را برای هر پروتکل مشخص می‌کند.
+<ul>
+<li><strong>‫$نوع:</strong> نوع پیکربندی را مشخص می‌کند، در اینجا Shadowsocks است.</li>
+<li><strong>نقطه پایانی:</strong> دامنه یا نشانی IP و درگاه مربوط به سرور وی‌پی‌ان شما است.</li>
+<li><strong>راز:</strong> گذرواژه‌ای که برای اتصال به وی‌پی‌ان لازم است.</li>
+<li><strong>رمز:</strong> روش رمزگذاری استفاده‌شده توسط وی‌پی‌ان. به Shadowsocks
+که <a l10n-placeholder6="6">رمزهای AEAD</a> را پشتیبانی می‌کند ارجاع دهید.</li>
+</ul></li>
+</ul>
+
+<p><a l10n-placeholder7="7">پیکربندی کلید دسترسی</a> را ببینید تا درباره راه‌هایی که می‌توانید
+دسترسی به سرور Outline خود را پیکربندی کنید، ازجمله حمل‌ونقل، نقطه‌های پایانی،
+شماره‌گیرها، و شنوندگان بسته اطلاعاتی کسب کنید.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">استخراج اطلاعات دسترسی از «کلید ثابت»</h2>
+
+<p>اگر فعلاً کلید دسترسی ثابت دارید، می‌توانید اطلاعات آن را استخراج کنید تا
+کلید دسترسی پویایی برپایه JSON-‎ یا YAML-‎ بسازید. کلیدهای دسترسی ثابت از
+الگوی زیر پیروی می‌کنند:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>نمونه:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>سرور:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>درگاه سرور:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>اطلاعات کاربر:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> رمزگشایی‌شده به‌صورت
+<a l10n-placeholder8="8">پایه ۶۴تایی</a> بااستفاده از ابزاری مثل <a l10n-placeholder9="9">جعبه‌ابزار کدبندی/ رمزگشایی Google
+Admin
+</a></p>
+
+<ul>
+<li><strong>روش</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>گذرواژه</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">انتخاب پلاتفرم میزبانی</h2>
+
+<p>اکنون که با چگونگی ساختن کلیدهای دسترسی پویا آشنا شدید، مهم است که
+پلاتفرم میزبانی مناسبی را برای پیکربندی کلید دسترسی‌تان انتخاب کنید. وقتی
+این تصمیم را می‌گیرید، به عواملی مثل قابل‌اعتماد بودن،
+امنیت، سادگی استفاده، و مقاومت دربرابر سانسور پلاتفرم توجه کنید. آیا این پلاتفرم
+اطلاعات کلید دسترسی شما را همواره و بدون زمان آکار ارائه می‌دهد؟ آیا معیارهای
+امنیتی مناسبی برای محافظت از پیکربندی شما ارائه می‌دهد؟ مدیریت اطلاعاتی
+کلیدهای دسترسی‌تان در این پلاتفرم چقدر آسان است؟ آیا این پلاتفرم در مناطقی
+با اینترنت سانسورشده دسترس‌پذیر است؟</p>
+
+<p>برای موقعیت‌هایی که دسترسی به اطلاعات ممکن است محدودشده باشد، میزبانی
+در پلاتفرم‌های مقاوم به سانسور را درنظر بگیرید مثل <a l10n-placeholder10="10">Google Drive</a>،‏
+<a l10n-placeholder11="11">pad.riseup.net</a>،‏ <a l10n-placeholder12="12">Amazon
+S3</a>
+(با دسترسی سبک مسیر)،
+<a l10n-placeholder13="13">‫Netlify</a>،
+یا <a l10n-placeholder14="14">GitHub secret
+gists</a>.
+نیازهای خاص به‌کاراندازی‌تان را ارزیابی کنید و پلاتفرمی را انتخاب کنید که با
+الزامات شما برای دسترس‌پذیری و امنیت تطابق داشته باشد.</p>
+
+  
+</body></html>

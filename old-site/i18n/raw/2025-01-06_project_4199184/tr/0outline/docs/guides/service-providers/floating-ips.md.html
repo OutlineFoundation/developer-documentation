@@ -1,0 +1,81 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c8991373-8810-42ee-871f-628a232f202f'}, 'string_id': '5203438546915857294', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="4874468153219405670" id="introduction" tabindex="-1">Giriş</h2>
+
+<p>Outline sunucuları, yüksek seviyede sansürlenen ağlar tarafından keşfedilip engellenme sorunuyla karşılaşabilir. Düzgün şekilde kurulmuşsa engellenmiş bir sunucuyu çok zorlanmadan kurtarabilirsiniz. Bunun için DNS'i (<code dir="ltr" translate="no">getoutline.org</code> gibi alan adlarını <code dir="ltr" translate="no">216.239.36.21</code> gibi fiziksel IP adreslerine çeviren internet teknolojisi) ve kayan IP'leri (bir Outline sunucusuna birden fazla IP adresi atamanıza olanak tanıyan bulut özelliği) kullanacağız.</p>
+
+<h2 data-text="13686080004592407858" id="requirements" tabindex="-1">Şartlar</h2>
+
+<p>Bu kılavuzdaki talimatlara uymak için düşük seviyede teknik becerinizin olması gerekmektedir. Temel seviyede DNS bilgisi önerilir ama zorunlu değildir. Alan adlarıyla ilgili temel bilgileri edinmek için <a l10n-placeholder1="1">MDN</a> kılavuzunu inceleyin.</p>
+
+<p>Somut örnekler verebilmek için DigitalOcean ve Google Domains'i kullanacağız. Ancak IP adreslerinin atanabildiği herhangi bir bulut sağlayıcı (ör. Google Cloud veya <a l10n-placeholder2="2">AWS Lightsail</a>) ve herhangi bir alan kayıt operatörü (ör. <a l10n-placeholder3="3">AWS Route 53</a>) de işe yarayacaktır.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Talimatlar</h2>
+
+<ol>
+<li><p>Aşağıdaki listede, bir sunucunun IP adresini değiştirme adımları özetlenmiştir:</p></li>
+<li><p>Alan adı satın alın.</p></li>
+<li><p>Alan adını sunucumuzun IP adresine yönlendirin.</p></li>
+<li><p>Alan adını kullanarak erişim anahtarları oluşturun.</p></li>
+<li><p>Sunucunun Droplet'ine bir kayan IP atayın.</p></li>
+<li><p>Alan adını yeni IP adresine yönlendirin.</p></li>
+</ol>
+
+<h2 data-text="11461176644196079266" id="create_an_outline_server_on_digitalocean" tabindex="-1">DigitalOcean'da Outline sunucusu oluşturma</h2>
+
+<p>Çalışan bir DigitalOcean sunucunuz varsa sonraki adıma geçin.</p>
+
+<ol>
+<li><p>Outline Manager'ı açın ve sol alttaki "+" simgesini tıklayarak sunucu oluşturma ekranını açın.</p></li>
+<li><p>"DigitalOcean" bölümündeki "Sunucu oluştur" düğmesini tıklayın ve uygulamadaki talimatları izleyin.</p></li>
+</ol>
+
+<p><img alt="Sunucu oluştur" src="/static/outline/images/create-DO-server.png" /></p>
+
+<h2 data-text="4069928074011065574" id="make_a_hostname_for_your_server" tabindex="-1">Sunucunuz için ana makine adı oluşturma</h2>
+
+<!-- TODO: Revamp now that Google Domains is no more. -->
+
+<ol>
+<li><p><a l10n-placeholder4="4">Google Domains</a>'e gidin ve "Mükemmel alanı bul"u tıklayın.</p></li>
+<li><p>Arama çubuğuna bir alan adı yazın ve bir adı seçin. Örnek olarak <code dir="ltr" translate="no">outlinedemo.info</code> adını kullandık.</p></li>
+<li><p>Google Domains'de DNS sekmesine gidin. "Özel kaynak kayıtları" bölümünde, "IPV4 adresi" adlı alana sunucunuzun IP adresini yazın.</p></li>
+<li><p>Outline Manager'da sunucunuzun "Ayarlar" sekmesine gidin. "Ana makine adı" bölümünde, satın aldığınız ana makine adını yazın ve "KAYDET"i tıklayın. Bu sayede, gelecekteki tüm erişim anahtarları, sunucunun IP adresi yerine bu ana makine adını kullanacak.</p></li>
+</ol>
+
+<p><img alt="Ana makine adını belirleme" src="/static/outline/images/set-hostname.png" /></p>
+
+<h2 data-text="607812462890340981" id="change_the_servers_ip_address" tabindex="-1">Sunucunun IP adresini değiştirme</h2>
+
+<ol>
+<li><p>DigitalOcean'ın "Droplets" (Droplet'ler) sayfasında sunucunuza gidin.</p></li>
+<li><p>Pencerenin sağ üst köşesinde, "Floating IP"nin (Kayan IP) yanındaki "Enable Now"ı (Şimdi etkinleştir) tıklayın.</p></li>
+</ol>
+
+<p><img alt="Kayan IP&amp;#39;yi etkinleştirme" src="/static/outline/images/floating-ip-DO.png" /></p>
+
+<ol>
+<li>Droplet listesinde sunucunuzu bulun ve "Assign Floating IP"yi (Kayan IP ata) tıklayın.</li>
+</ol>
+
+<p><img alt="Kayan IP atama" src="/static/outline/images/assign-floating-ip-DO.png" /></p>
+
+<ol>
+<li><p>Google Domains'deki DNS sekmesine dönün.</p></li>
+<li><p>Önceden olduğu gibi IP adresini değiştirin ama bu sefer yeni kayan IP adresini kullanın. Etkinleşmesi 48 saati bulabilir ama genellikle yalnızca birkaç dakika sürer.</p></li>
+<li><p><a l10n-placeholder5="5">Google'ın online DNS aracına</a> gidin ve son adımdaki değişikliğin ne zaman yapıldığını görmek için alan adınızı girin.</p></li>
+</ol>
+
+<p><img alt="Google DNS aracında alanınızı arama" src="/static/outline/images/google-dns.png" /></p>
+
+<p>Bu değişiklik uygulandıktan sonra istemciler artık yeni IP adresine bağlanır. Yeni bir anahtarla sunucunuza bağlanabilir ve <a l10n-placeholder6="6">https://ipinfo.io</a> adresinde sunucunuzun yeni IP adresini doğrulayabilirsiniz.</p>
+
+<p>Sonuç
+Bir sunucunun engelini kaldırıp tekrar istemcilerin hizmetine açmak için Outline sunucusunun IP adreslerini kolayca değiştirebilirsiniz. Sorularınız varsa <a l10n-placeholder7="7">duyuru gönderisine</a> yorum yapabilir, <a l10n-placeholder8="8">Outline destek sayfasına</a> gidebilir veya <a l10n-placeholder9="9">doğrudan bizimle iletişime geçebilirsiniz</a>.</p>
+
+  
+</body></html>

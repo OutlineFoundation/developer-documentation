@@ -1,0 +1,10 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7fd022ff-9803-4ece-9fba-98d263fb26b4'}, 'string_id': '12628245661512439499', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "手順",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e9c65469-52a4-414c-9773-cc0bf4fe4792'}, 'string_id': '6683563352978147389', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "PromQL クエリの例",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fe954fb6-4b69-47ab-8bcf-b4c64ce7e221'}, 'string_id': '15614318898198878462', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "アクティブなアクセスキー",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd18b63b4-e9a7-4f1b-ae2f-543b83e7b17c'}, 'string_id': '10291694465361430901', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "TCP 接続",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c8fd684d-971e-47cc-9083-027f6ac1301e'}, 'string_id': '17994417296960730219', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "UDP",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '310e9ad8-c270-4cf5-aef1-e64f18aa7652'}, 'string_id': '14146192432541994297', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ビルド情報",
+  "{'source_id': '0fd789c5-b511-47f1-a2e1-5d453274e5f8', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a2084263-5aed-4c41-a310-5d90d6b7617b'}, 'string_id': '5916791817944793543', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline サーバーのパフォーマンス指標にアクセスする"
+}

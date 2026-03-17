@@ -1,0 +1,47 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '112aeaeb-d035-4a80-8502-31cea0f9e8d4'}, 'string_id': '8881571525508256907', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><em>Outline クライアント v1.15.0 以降。</em></p>
+
+<p>このチュートリアルでは、Shadowsocks-over-WebSockets の実装に役立つ詳細を示します。Shadowsocks-over-WebSockets とは、通常の Shadowsocks 接続がブロックされる環境で検閲を回避する強力な手法のことです。Shadowsocks トラフィックを WebSockets にカプセル化すると、このトラフィックを標準のウェブトラフィックのように偽装して、トラフィックのレジリエンスとアクセシビリティを強化できます。</p>
+<aside class="note"><strong>注:</strong><span> Shadowsocks-over-WebSockets がサポートされているのは、Outline クライアント v1.15.0 以降のみです。古いクライアント バージョンをサポートするには、既存の構成を維持する必要があります。</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">ステップ 1: Outline サーバーを構成して実行する</h2>
+
+<p>新しい <code dir="ltr" translate="no">config.yaml</code> ファイルを作成し、次の構成を含めます。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>ヒント:</strong><span> プローブを回避するため、<code dir="ltr" translate="no">path</code> をシークレットにしてください。これはシークレット エンドポイントとして機能します。長い、ランダムに生成されたパスの使用をおすすめします。</span></aside>
+<p>最新の <a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a> をダウンロードし、作成した構成を使用して実行します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">ステップ 2: ウェブサーバーを公開する</h2>
+
+<p>WebSocket ウェブサーバーを一般公開するには、インターネットに公開して、<a l10n-placeholder6="6">TLS</a> を構成する必要があります。
+このための方法はいくつかあります。<a l10n-placeholder7="7">Caddy</a>、<a l10n-placeholder8="8">nginx</a>、<a l10n-placeholder9="9">Apache</a> などのローカル ウェブサーバーを使用して有効な TLS 証明書を保存したり、<a l10n-placeholder10="10">Cloudflare Tunnel</a> や <a l10n-placeholder11="11">ngrok</a> などのトンネリング サーバーを導入したりできます。</p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">TryCloudflare を使用する例</h3>
+<aside class="caution"><strong>注意:</strong><span> TryCloudflare は、デモやテスト専用です。</span></aside>
+<p>この例では、<a l10n-placeholder12="12">TryCloudflare</a> を使用して簡易トンネルを作成する方法を示します。この方法を使用すると、インバウンド ポートを開かなくても、ローカル ウェブサーバーを簡単に、かつ安全に公開することができます。</p>
+
+<ol>
+<li><p><a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a> をダウンロードして、インストールします。</p></li>
+<li><p>ローカル ウェブサーバー ポートを指すトンネルを作成します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>Cloudflare からサブドメイン（<code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code> など）が提供され、WebSocket エンドポイントへのアクセスや、TLS の自動処理を実行できるようになります。このサブドメインは後で必要になるため、書き留めてください。</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">ステップ 3: 動的アクセスキーを作成する</h2>
+
+<p><a l10n-placeholder14="14">アクセスキーの構成</a>で示された形式を使用してユーザーのクライアント アクセスキー ファイル（YAML）を生成し、サーバー側で以前に構成した WebSocket エンドポイントを含めます。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>動的アクセスキー ファイル（YAML）を生成したら、ユーザーに提供する必要があります。このファイルは静的なウェブ ホスティング サービスでホストすることも、動的に生成することもできます。<a l10n-placeholder15="15">動的アクセスキー</a>の使用方法を確認してください。</p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">ステップ 4: Outline クライアントで接続する</h2>
+
+<p>公式の <a l10n-placeholder16="16">Outline クライアント</a> アプリケーション（バージョン 1.15.0 以降）のいずれかを使用して、新しく作成した動的アクセスキーをサーバー エントリとして追加します。[<strong>Connect</strong>] をクリックし、Shadowsocks-over-Websocket 構成を使用してサーバーへのトンネリングを開始します。</p>
+
+<p><a l10n-placeholder17="17">IPInfo</a> などのツールを使用して、Outline サーバー経由でインターネットをブラウジングしていることを確認します。</p>
+
+  
+</body></html>

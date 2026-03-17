@@ -1,0 +1,81 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '65669902-ee38-4a09-98e4-806c5404a82a'}, 'string_id': '5203438546915857294', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="4874468153219405670" id="introduction" tabindex="-1">Einführung</h2>
+
+<p>Gelegentlich können Outline-Server von stark zensierten Netzwerken erkannt und blockiert werden. Wenn ein blockierter Server korrekt eingestellt wurde, kann die Konnektivität relativ einfach wiederhergestellt werden. Wir nutzen dafür DNS, die Internettechnologie, die Domainnamen wie <code dir="ltr" translate="no">getoutline.org</code> in physische IP-Adressen wie <code dir="ltr" translate="no">216.239.36.21</code> übersetzt, und Floating-IP-Adressen, eine Cloud-Funktion, mit der man Outline-Servern mehr als eine IP-Adresse zuweisen kann.</p>
+
+<h2 data-text="13686080004592407858" id="requirements" tabindex="-1">Voraussetzungen</h2>
+
+<p>Um die folgenden Anleitungen umsetzen zu können, ist nur ein geringes Maß an technischen Fähigkeiten erforderlich. Grundlegende Kenntnisse zu DNS sind hilfreich, aber nicht notwendig. Im <a l10n-placeholder1="1">MDN</a>-Leitfaden zu Domains finden Sie eine Einführung.</p>
+
+<p>Als konkretes Beispiel nutzen wir Domains von DigitalOcean und Google. Jeder Cloud-Anbieter, der eine Zuweisung von IP-Adressen zulässt (wie Google Cloud oder <a l10n-placeholder2="2">AWS Lightsail</a>), und jeder Domainregistrar (z. B. <a l10n-placeholder3="3">AWS Route 53</a>) bietet sich aber genauso dafür an.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Anleitung</h2>
+
+<ol>
+<li><p>Mit den folgenden Schritten können Sie einen Server periodisch zwischen mehreren IP‑Adressen umschalten lassen:</p></li>
+<li><p>Erwerben Sie einen Domainnamen.</p></li>
+<li><p>Lassen Sie den Domainnamen auf die IP-Adresse unseres Servers verweisen.</p></li>
+<li><p>Verteilen Sie unter Verwendung des Domainnamens Zugriffsschlüssel.</p></li>
+<li><p>Weisen Sie dem Droplet des Servers eine Floating-IP-Adresse zu.</p></li>
+<li><p>Ändern Sie den Domainnamen, sodass er auf die neue IP-Adresse verweist.</p></li>
+</ol>
+
+<h2 data-text="11461176644196079266" id="create_an_outline_server_on_digitalocean" tabindex="-1">Einen Outline-Server bei DigitalOcean erstellen</h2>
+
+<p>Wenn Sie bereits einen laufenden DigitalOcean-Server haben, überspringen Sie den nächsten Schritt.</p>
+
+<ol>
+<li><p>Öffnen Sie den Outline-Manager und klicken Sie unten links auf die Schaltfläche „+“, um zum Bildschirm zum Erstellen eines Servers zu gelangen.</p></li>
+<li><p>Klicken Sie auf der Schaltfläche „DigitalOcean“ auf „Server erstellen“ und folgen Sie den Anweisungen in der App.</p></li>
+</ol>
+
+<p><img alt="Server erstellen" src="/static/outline/images/create-DO-server.png" /></p>
+
+<h2 data-text="4069928074011065574" id="make_a_hostname_for_your_server" tabindex="-1">Einen Hostnamen für Ihren Server festlegen</h2>
+
+<!-- TODO: Revamp now that Google Domains is no more. -->
+
+<ol>
+<li><p>Gehen Sie zu <a l10n-placeholder4="4">Google Domains</a> und klicken Sie auf „Sichern Sie sich die perfekte Domain“.</p></li>
+<li><p>Geben Sie in der Suchleiste einen Domainnamen ein und wählen Sie einen Namen aus. Für unser Beispiel nutzen wir <code dir="ltr" translate="no">outlinedemo.info</code> als Namen.</p></li>
+<li><p>Gehen Sie auf „Google Domains“ zum DNS-Tab. Tippen Sie unter „Benutzerdefinierte Ressourceneinträge“ im Feld „IPv4-Adresse“ die IP-Adresse Ihres Servers ein.</p></li>
+<li><p>Gehen Sie im Outline-Manager zum Tab „Einstellungen“ für Ihren Server. Geben Sie unter „Hostname“ den von Ihnen gekauften Hostnamen ein und klicken SIe auf „Speichern“. Dadurch nutzen alle zukünftigen Zugriffsschlüssel anstelle der IP-Adresse des Servers diesen Hostnamen.</p></li>
+</ol>
+
+<p><img alt="Den Hostnamen festlegen" src="/static/outline/images/set-hostname.png" /></p>
+
+<h2 data-text="607812462890340981" id="change_the_servers_ip_address" tabindex="-1">Die IP-Adresse des Servers ändern</h2>
+
+<ol>
+<li><p>Gehen Sie auf der Seite „Droplets“ bei DigitalOcean auf Ihren Server.</p></li>
+<li><p>Klicken Sie rechts oben neben „Floating-IP-Adressen“ auf „Jetzt aktivieren“.</p></li>
+</ol>
+
+<p><img alt="Floating-IP-Adresse aktivieren" src="/static/outline/images/floating-ip-DO.png" /></p>
+
+<ol>
+<li>Suchen Sie in der Liste mit den Droplets nach Ihrem Server und klicken Sie auf „Floating-IP-Adresse zuweisen“.</li>
+</ol>
+
+<p><img alt="Floating-IP-Adresse zuweisen" src="/static/outline/images/assign-floating-ip-DO.png" /></p>
+
+<ol>
+<li><p>Gehen Sie auf Google Domains zurück auf den DNS-Tab.</p></li>
+<li><p>Ändern Sie wie zuvor die IP-Adresse. Ersetzen Sie sie diesmal durch die neue Floating-IP-Adresse. Bis zur Änderung könnte es 48 dauern; oft vergehen aber nur ein paar Minuten.</p></li>
+<li><p>Gehen Sie auf <a l10n-placeholder5="5">Das Online-DNS-Tool von Google</a> und geben SIe Ihren Domainnamen ein. Nachfolgend wird Ihnen angezeigt, wann die Änderung im letzten Schritt stattgefunden hat.</p></li>
+</ol>
+
+<p><img alt="Suchen Sie mit dem DNS-Tool von Google nach Ihrer Domain." src="/static/outline/images/google-dns.png" /></p>
+
+<p>Sobald die Änderung übernommen wurde, werden sich Kunden mit der neuen IP-Adresse verbinden. Wenn Sie sich über einen neuen Schlüssel mit Ihrem Server verbinden und <a l10n-placeholder6="6">https://ipinfo.io</a> aufrufen, können Sie die neue IP-Adresse Ihres Servers sehen.</p>
+
+<p>Fazit
+Durch „rotieren“ der IP-Adresse eines Outline-Servers können Sie Blockierungen eines Servers umgehen und die Konnektivität für Clients wiederherstellen. Wenn Sie weitere Fragen haben, können Sie <a l10n-placeholder7="7">hier einen Kommentar hinzufügen</a>, die <a l10n-placeholder8="8">Supportseite von Outline aufrufen</a> oder <a l10n-placeholder9="9">uns direkt kontaktieren</a>.</p>
+
+  
+</body></html>

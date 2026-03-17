@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b1d8782e-57a8-443e-9d8c-10d91d7101b9'}, 'string_id': '5016549043304130312', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Adım adım talimatlar",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3ba4f562-933a-4f28-b47f-92a50955a1b6'}, 'string_id': '521136309318789897', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Ek kaynaklar",
+  "{'source_id': 'e6013ba2-aa5c-4222-99a2-1f253cc562d6', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e0f45317-2139-4a64-aca5-8bc5d42bf2a4'}, 'string_id': '16509802911453266336', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline sunucusu kurulumu"
+}

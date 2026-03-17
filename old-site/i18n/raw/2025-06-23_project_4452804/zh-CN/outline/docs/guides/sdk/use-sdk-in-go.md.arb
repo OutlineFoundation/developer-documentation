@@ -1,0 +1,9 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5775aa00-a6d4-4414-a200-e2d9b5324e99'}, 'string_id': '16661675211452763894', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 1 步：设置 Go",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8848daf1-4d07-48b4-aed1-4d24ac43b64b'}, 'string_id': '3023597709538309427', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 2 步：创建 splitfetch 应用",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3ce1808f-2408-4a1a-95a4-8d45d245be35'}, 'string_id': '17182550796958715326', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 3 步：在应用中使用 Outline SDK",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ead3592d-9589-403e-ac9c-f1c0d4748701'}, 'string_id': '7267145364279818799', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "第 4 步：运行应用",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd591c66c-41d3-4dec-b5fa-89ac85c803e8'}, 'string_id': '4853434236971195657', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Linux 和 Mac",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '081fd6fa-c11c-4894-85ea-38dcef092a18'}, 'string_id': '5930303504392201038', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "将 Outline SDK 添加到 Go 代码"
+}

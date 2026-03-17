@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd5f26abd-6969-4420-b23f-a1cd475fcb6d'}, 'string_id': '12628245661512439499', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "操作說明",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd0fbcd0d-455b-49a4-9671-47405f1b15af'}, 'string_id': '11461176644196079266', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "在 DigitalOcean 上建立 Outline 伺服器",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '30f83e0a-a085-496d-9083-c1c63f8b8638'}, 'string_id': '4069928074011065574', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "設定伺服器的主機名稱",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'af046bad-d301-4186-92be-7252d6152176'}, 'string_id': '607812462890340981', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "變更伺服器 IP 位址",
+  "{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2023cbfc-3859-47ac-a7d8-c2df6fe6f4f4'}, 'string_id': '3798279135713745', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "設定使用浮動 IP 的防封鎖伺服器"
+}

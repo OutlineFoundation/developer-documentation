@@ -1,0 +1,95 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd9df687d-9d81-4f2e-bdc9-04023bbac3a6'}, 'string_id': '5183224559080815140', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline istemcisinin 1.9.0 sürümü itibarıyla erişim anahtarlarında "önek" seçeneği desteklenmektedir. "Önek", Shadowsocks TCP bağlantısındaki <a l10n-placeholder4="4">takviye değerin</a> ilk baytları olarak kullanılan baytların listesidir.
+Bu seçenek, bağlantının ağda desteklenen bir protokol gibi görünmesini sağlayarak, tanımadığı protokolleri reddeden güvenlik duvarlarını atlatır.</p>
+
+<h2 data-text="17610956299883319320" id="when_should_i_try_this" tabindex="-1">Bu seçeneği ne zaman denemeliyim?</h2>
+
+<p>Outline dağıtımınızdaki kullanıcıların hâlâ engellendiğinden şüpheleniyorsanız birkaç farklı öneki deneyebilirsiniz.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Talimatlar</h2>
+
+<p>Önek 16 bayttan uzun olamaz. Daha uzun önekler, takviye değer çakışmasına neden olabilir. Bu durum, şifreleme güvenliğini tehlikeye atıp bağlantıların tespit edilmesine yol açabilir. Karşılaştığınız engelleri aşmak için olabilecek en kısa öneki kullanın.</p>
+
+<p>Kullandığınız bağlantı noktası, önekinizin taklit ettiği protokolle eşleşmelidir.
+IANA, protokollerle bağlantı noktası numaralarını eşleyen bir <a l10n-placeholder5="5">taşıma protokolü-bağlantı noktası numarası listesi</a> sunar.</p>
+
+<p>Bazı etkili önekler, sık kullanılan protokollere benzer:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Önerilen bağlantı noktası</th>
+<th>JSON biçiminde kodlanmış</th>
+<th>URL biçiminde kodlanmış</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HTTP isteği</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;POST &quot;</code></td>
+<td><code dir="ltr" translate="no">POST%20</code></td>
+</tr>
+<tr>
+<td>HTTP yanıtı</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;HTTP/1.1 &quot;</code></td>
+<td><code dir="ltr" translate="no">HTTP%2F1.1%20</code></td>
+</tr>
+<tr>
+<td>TCP üzerinden DNS isteği</td>
+<td>53 (dns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0005\u00DC\u005F\u00E0\u0001\u0020&quot;</code></td>
+<td><code dir="ltr" translate="no">%05%C3%9C_%C3%A0%01%20</code></td>
+</tr>
+<tr>
+<td>TLS ClientHello</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0001\u0000\u00a8\u0001\u0001&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%01%00%C2%A8%01%01</code></td>
+</tr>
+<tr>
+<td>TLS uygulama verileri</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0013\u0003\u0003\u003F&quot;</code></td>
+<td><code dir="ltr" translate="no">%13%03%03%3F</code></td>
+</tr>
+<tr>
+<td>TLS ServerHello</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0003\u0040\u0000\u0002&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%03%40%00%02</code></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22 (ssh), 830 (netconf-ssh), 4334 (netconf-ch-ssh), 5162 (snmpssh-trap)</td>
+<td><code dir="ltr" translate="no">&quot;SSH-2.0\r\n&quot;</code></td>
+<td><code dir="ltr" translate="no">SSH-2.0%0D%0A</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 data-text="13867626750959801949" id="dynamic_access_keys" tabindex="-1">Dinamik erişim anahtarları</h3>
+
+<p><a l10n-placeholder6="6">Dinamik erişim anahtarları</a> (<code dir="ltr" translate="no">ssconf://</code>) ile önek özelliğini kullanmak için JSON nesnesine "önek" anahtarı ekleyin ve istediğiniz öneki temsil eden değeri <strong>JSON biçiminde</strong> belirtin (Örnekleri yukarıdaki tabloda bulabilirsiniz). <code dir="ltr" translate="no">U+0</code> - <code dir="ltr" translate="no">U+FF</code> aralığındaki yazdırılamayan Unicode karakterlerini temsil edecek çıkış kodları (ör. \u00FF) kullanabilirsiniz. Örneğin:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="1939603936418792745" id="static_access_keys" tabindex="-1">Statik erişim anahtarları</h3>
+
+<p><strong>Statik erişim anahtarları</strong> (ss://) ile önekleri kullanmak için mevcut anahtarınızı dağıtmadan önce değiştirmeniz gerekir. Outline Manager'ın oluşturduğu bir statik erişim anahtarınız varsa önekinizin <strong>URL biçiminde kodlanmış</strong> sürümünü alın (Yukarıdaki tabloda örneklerini görebilirsiniz.) ve aşağıdaki şekilde erişim anahtarınızın sonuna ekleyin:</p>
+
+<p><code dir="ltr" translate="no">ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&amp;prefix=&lt;your url-encoded prefix goes here&gt;</code></p>
+
+<p>Kodlama bilginiz ileri seviyedeyse tarayıcınızın <code dir="ltr" translate="no">encodeURIComponent()</code> fonksiyonunu kullanarak <strong>JSON biçiminde kodlanmış</strong> önekinizi <strong>URL biçiminde kodlanmış</strong> öneke dönüştürebilirsiniz. Bunu yapmak için web denetleme konsolunuzu açın (Chrome'da "Geliştirici > JavaScript Web Konsolu") ve aşağıdaki kodu yazın:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Enter tuşuna basın. Üretilen değer, "URL biçiminde kodlanmış" sürümdür. Örneğin:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+
+  
+</body></html>

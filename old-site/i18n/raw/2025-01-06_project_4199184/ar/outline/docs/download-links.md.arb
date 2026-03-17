@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9b71ee75-a513-4e84-8653-af3c0545f7a2'}, 'string_id': '16077083388317342628', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "مدير Outline",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fadbf612-8d2d-4fe3-b715-45147c394fc2'}, 'string_id': '15844218680809619184', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "عميل Outline",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ca23f154-1942-42d5-8039-9a193881aa32'}, 'string_id': '5821125520337137333', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "روابط التنزيل البديلة"
+}

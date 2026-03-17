@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f4fc232c-2cf0-4b9e-8f5a-81fc156475d1'}, 'string_id': '14753740374766196622', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ss:// bağlantısı kullanma",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6c46c9e3-84d0-4290-bba5-c8c2bfeefe78'}, 'string_id': '11158397983543878601', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "JSON nesnesi kullanma",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c5b77fe4-f7fc-47dd-b837-0447b5c2bd79'}, 'string_id': '13953653058714610730', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "YAML nesnesi kullanma",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '85c7d58a-903b-47c2-ae35-eb0d728b7e1c'}, 'string_id': '8073710844695383258', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Statik anahtardan erişim bilgilerini ayıklama",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '207beb7a-5ff8-43c5-8928-72274e475c9f'}, 'string_id': '7529702666558473090', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Barındırma platformu seçme"
+}

@@ -1,0 +1,9 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0be56dfb-611c-497b-b204-b5a02e572e32'}, 'string_id': '16661675211452763894', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "步驟 1：設定 Go",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '85398b92-ead3-4368-90b3-d86607303cde'}, 'string_id': '3023597709538309427', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "步驟 2：建立 splitfetch 應用程式",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd0b7fbf1-163a-4425-9632-20b0916ab263'}, 'string_id': '17182550796958715326', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "步驟 3：在應用程式中使用 Outline SDK",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '10e4fdee-1f26-4183-8f62-a6fefd81983c'}, 'string_id': '7267145364279818799', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "步驟 4：執行應用程式",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '76ede481-f0e4-4de9-bd42-1de5d5440156'}, 'string_id': '4853434236971195657', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Linux 和 Mac",
+  "{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '936502fd-0f7e-4cce-9b25-9b56d5e84156'}, 'string_id': '5930303504392201038', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "在 Go 程式碼中加入 Outline SDK"
+}

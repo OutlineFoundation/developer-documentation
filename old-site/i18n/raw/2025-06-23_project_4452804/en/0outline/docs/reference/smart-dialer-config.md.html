@@ -1,0 +1,108 @@
+<html devsite=""><head>
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '05886d04-c11e-4fa2-a31b-e9914725d4b7'}, 'string_id': '11452553123190334191', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>The <strong>Smart Dialer</strong> searches for a strategy that unblocks DNS and TLS for a
+given list of test domains. It takes a config describing multiple strategies to
+pick from.</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">YAML config for the Smart Dialer</h2>
+
+<p>The config that the Smart Dialer takes is in a YAML format. Here is an example:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">DNS Configuration</h3>
+
+<ul>
+<li>The <code dir="ltr" translate="no">dns</code> field specifies a list of DNS resolvers to test.</li>
+<li>Each DNS resolver can be one of the following types:
+<ul>
+<li><code dir="ltr" translate="no">system</code>: Use the system resolver. Specify with an empty object.</li>
+<li><code dir="ltr" translate="no">https</code>: Use an encrypted DNS over HTTPS (DoH) resolver.</li>
+<li><code dir="ltr" translate="no">tls</code>: Use an encrypted DNS over TLS (DoT) resolver.</li>
+<li><code dir="ltr" translate="no">udp</code>: Use a UDP resolver.</li>
+<li><code dir="ltr" translate="no">tcp</code>: Use a TCP resolver.</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">DNS-over-HTTPS Resolver (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: The domain name of the DoH server.</li>
+<li><code dir="ltr" translate="no">address</code>: The host:port of the DoH server. Defaults to <code dir="ltr" translate="no">name</code>:443.</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">DNS-over-TLS Resolver (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: The domain name of the DoT server.</li>
+<li><code dir="ltr" translate="no">address</code>: The host:port of the DoT server. Defaults to <code dir="ltr" translate="no">name</code>:853.</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">UDP Resolver</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: The host:port of the UDP resolver.</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">TCP Resolver</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: The host:port of the TCP resolver.</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">TLS Configuration</h3>
+
+<ul>
+<li>The <code dir="ltr" translate="no">tls</code> field specifies a list of TLS transports to test.</li>
+<li>Each TLS transport is a string that specifies the transport to use.</li>
+<li>For example, <code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> specifies a transport
+that uses domain fronting with Cloudflare and TLS fragmentation. See the
+<a l10n-placeholder10="10">config documentation</a>
+for details.</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">Fallback Configuration</h3>
+
+<p>A fallback configuration is used if none of the proxyless strategies are able to
+connect. For example it can specify a backup proxy server to attempt the user&#39;s
+connection. Using a fallback will be slower to start, since first the other
+DNS/TLS strategies must fail/timeout.</p>
+
+<p>The fallback strings should be:</p>
+
+<ul>
+<li>A valid <code dir="ltr" translate="no">StreamDialer</code> config string as defined in <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a>.</li>
+<li>A valid Psiphon configuration object as a child of a <code dir="ltr" translate="no">psiphon</code> field.</li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">Shadowsocks server example</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">SOCKS5 server example</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">Psiphon config example</h4>
+
+<p>To use the <a l10n-placeholder12="12">Psiphon</a> network, you will need to:</p>
+
+<ol>
+<li>Reach out to the Psiphon team to obtain a config that gives you access to
+their network. This may require a contract.</li>
+<li>Add the received Psiphon config to the <code dir="ltr" translate="no">fallback</code> section of your Smart
+Dialer config. Since JSON is compatible with YAML, you can copy and paste
+your Psiphon config directly into the <code dir="ltr" translate="no">fallback</code> section, like this:</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>Note:</strong><span> The Psiphon codebase is licensed under the GPL, which can impose license
+restrictions on your own code. You may want to consider obtaining a special
+license from them.</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">How to Use the Smart Dialer</h3>
+
+<p>To use the Smart Dialer, create a <code dir="ltr" translate="no">StrategyFinder</code> object and call the
+<code dir="ltr" translate="no">NewDialer</code> method, passing in the list of test domains and the YAML config.
+The <code dir="ltr" translate="no">NewDialer</code> method will return a <code dir="ltr" translate="no">transport.StreamDialer</code> that can be used
+to create connections using the found strategy. For example:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>This is a basic example and may need to be adapted for your specific use case.</p>
+
+  
+</body></html>

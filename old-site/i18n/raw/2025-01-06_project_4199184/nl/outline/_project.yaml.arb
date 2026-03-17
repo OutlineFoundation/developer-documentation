@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'aed27cd2-fc42-4601-a2f1-5413bf680d96', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7a7a3d53-ce76-4549-8c8c-9f668e3d3290'}, 'string_id': '5820574533520724211', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Met Outline kun je makkelijk een VPN-server maken en iedereen toegang geven tot het vrije, open internet."
+}

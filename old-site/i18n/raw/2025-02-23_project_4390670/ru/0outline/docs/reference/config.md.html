@@ -1,0 +1,221 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'd3edbbc3-f17f-4b37-bf9d-2dfcc537c9fb', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f318adf0-494f-4be4-9a2c-be4b6215a20c'}, 'string_id': '11937512990099417919', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="7551542352463182819" id="tunnels" tabindex="-1">Туннели</h2>
+
+<h3 data-text="5334038409748665214" id="tunnelconfig" tabindex="-1">TunnelConfig</h3>
+
+<p>Tunnel – это основной объект в конфигурации Outline. Он определяет, как должен быть настроен VPN.</p>
+
+<p><strong>Формат:</strong> <a l10n-placeholder9="9">ExplicitTunnelConfig</a> | <a l10n-placeholder10="10">LegacyShadowsocksConfig</a> | <a l10n-placeholder11="11">LegacyShadowsocksURI</a></p>
+
+<h3 data-text="17567925323603000549" id="explicittunnelconfig" tabindex="-1">ExplicitTunnelConfig</h3>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport</code> (<a l10n-placeholder12="12">TransportConfig</a>): протокол для передачи пакетов к целевому узлу.</li>
+<li><code dir="ltr" translate="no">error</code> (<em>struct</em>): информация об ошибке сервиса (например, истечение срока действия ключа или превышение квоты).<ul>
+<li><code dir="ltr" translate="no">message</code> (<em>string</em>): текстовое сообщение для пользователя.</li>
+<li><code dir="ltr" translate="no">details</code> (<em>string</em>): дополнительная информация об ошибке, доступная по запросу. Может быть полезной при устранении неполадок.</li>
+</ul></li>
+</ul>
+
+<p>Поля <code dir="ltr" translate="no">error</code> и <code dir="ltr" translate="no">transport</code> являются взаимоисключающими.</p>
+
+<p>Пример эффективной конфигурации:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Пример ошибки:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5117449539369487677" id="transports" tabindex="-1">Протоколы</h2>
+
+<h3 data-text="14190027968284396058" id="transportconfig" tabindex="-1">TransportConfig</h3>
+
+<p>Определяет, каким образом пакеты передаются к целевому узлу.</p>
+
+<p><strong>Формат:</strong> <a l10n-placeholder13="13">Interface</a></p>
+
+<p>Поддерживаемые типы Interface:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcpudp</code>: <a l10n-placeholder14="14">TCPUDPConfig</a></li>
+</ul>
+
+<h3 data-text="12455139361718416191" id="tcpudpconfig" tabindex="-1">TCPUDPConfig</h3>
+
+<p>TCPUDPConfig позволяет задавать отдельные стратегии для протоколов TCP и UDP.</p>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcp</code> (<a l10n-placeholder15="15">DialerConfig</a>): конфигурация Stream Dialer для TCP-соединений.</li>
+<li><code dir="ltr" translate="no">udp</code> (<a l10n-placeholder16="16">PacketListenerConfig</a>): конфигурация Packet Listener для обработки UDP-трафика.</li>
+</ul>
+
+<p>Пример отправки TCP и UDP на разные конечные точки:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<h2 data-text="659650101501710648" id="endpoints" tabindex="-1">Конечные точки</h2>
+
+<p>Объект Endpoint устанавливает соединение с фиксированной конечной точкой. В отличие от Dialer, этот объект позволяет применять оптимизированные настройки для определенного узла. Существует два типа объектов Endpoint: Stream и Packet.</p>
+
+<h3 data-text="11446759888020662416" id="endpointconfig" tabindex="-1">EndpointConfig</h3>
+
+<p><strong>Формат:</strong> <em>string</em> | <a l10n-placeholder17="17">Interface</a></p>
+
+<p>Endpoint формата <em>string</em> – это адрес выбранной конечной точки в формате host:port. Подключение устанавливается через объект Dialer по умолчанию.</p>
+
+<p>Поддерживаемые типы Interface для Stream и Packet:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">dial</code>: <a l10n-placeholder18="18">DialEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder19="19">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">websocket</code>: <a l10n-placeholder20="20">WebsocketEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder21="21">ShadowsocksConfig</a></li>
+</ul>
+
+<h3 data-text="11716336102764925006" id="dialendpointconfig" tabindex="-1">DialEndpointConfig</h3>
+
+<p>Отвечает за установку подключений с фиксированным адресом. Может использовать Dialer, что позволяет комбинировать стратегии подключения.</p>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">address</code> (<em>string</em>): адрес конечной точки, с которой устанавливается соединение.</li>
+<li><code dir="ltr" translate="no">dialer</code> (<a l10n-placeholder22="22">DialerConfig</a>): Dialer, используемый для подключения к указанному адресу.</li>
+</ul>
+
+<h3 data-text="17640163708559704415" id="websocketendpointconfig" tabindex="-1">WebsocketEndpointConfig</h3>
+
+<p>Туннелирует Stream- и Packet-подключения к конечной точке через WebSockets.</p>
+
+<p>В Stream-подключениях каждая запись превращается в сообщение WebSocket. В Packet-подключениях каждый пакет передается как отдельное сообщение WebSocket.</p>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">url</code> (<em>string</em>): URL конечной точки WebSocket. Для WebSocket через TLS требуется использовать схему <code dir="ltr" translate="no">https</code> или <code dir="ltr" translate="no">wss</code>, а для обычного WebSocket – <code dir="ltr" translate="no">http</code> или <code dir="ltr" translate="no">ws</code>.</li>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder23="23">EndpointConfig</a>): конечная точка веб-сервера для подключения. Если параметр отсутствует, подключение устанавливается к адресу, указанному в URL.</li>
+</ul>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Dialer</h2>
+
+<p>Объект Dialer устанавливает подключение к конечной точке с заданным адресом. Существуют два типа объектов Dialer: Stream и Packet.</p>
+
+<h3 data-text="9627478273327751697" id="dialerconfig" tabindex="-1">DialerConfig</h3>
+
+<p><strong>Формат:</strong> <em>null</em>, <a l10n-placeholder24="24">Interface</a></p>
+
+<p>Значение <em>null</em> означает, что используется объект Dialer по умолчанию, который устанавливает прямые TCP-подключения для Stream и прямые UDP-подключения для Packet.</p>
+
+<p>Поддерживаемые типы Interface для Stream и Packer:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder25="25">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder26="26">ShadowsocksConfig</a></li>
+</ul>
+
+<h2 data-text="2039682242780633119" id="packet_listeners" tabindex="-1">Packet Listener</h2>
+
+<p>Объект Packet Listener устанавливает неограниченное пакетное подключение, которое можно использовать для отправки пакетов на разные конечные точки.</p>
+
+<h3 data-text="15852079316549004264" id="packetlistenerconfig" tabindex="-1">PacketListenerConfig</h3>
+
+<p><strong>Формат:</strong> <em>null</em>, <a l10n-placeholder27="27">Interface</a></p>
+
+<p>Значение <em>null</em> означает, что используется объект Packet Listener по умолчанию, который используется для прослушивания UDP-пакетов.</p>
+
+<p>Поддерживаемые типы Interface:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder28="28">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder29="29">ShadowsocksPacketListenerConfig</a></li>
+</ul>
+
+<h2 data-text="6016290251325397531" id="strategies" tabindex="-1">Стратегии</h2>
+
+<h3 data-text="16260889002875646941" id="shadowsocks" tabindex="-1">Shadowsocks</h3>
+
+<h4 data-text="13137755849223030902" id="legacyshadowsocksconfig" tabindex="-1">LegacyShadowsocksConfig</h4>
+
+<p>LegacyShadowsocksConfig представляет объект Tunnel, использующий Shadowsocks в качестве протокола. Он реализует устаревший формат для обратной совместимости.</p>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">server</code> (<em>string</em>): хост, к которому устанавливается подключение.</li>
+<li><code dir="ltr" translate="no">server_port</code> (<em>number</em>): номер порта для подключения.</li>
+<li><code dir="ltr" translate="no">method</code> (<em>string</em>): <a l10n-placeholder30="30">AEAD-шифр</a>, используемый для шифрования.</li>
+<li><code dir="ltr" translate="no">password</code> (<em>string</em>): пароль, используемый для генерации ключа шифрования.</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>string</em>): <a l10n-placeholder31="31">префикс для маскировки</a>.
+Поддерживается только для Stream-подключений.</li>
+</ul>
+
+<p>Пример:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<h4 data-text="4781365069853549991" id="legacyshadowsocksuri" tabindex="-1">LegacyShadowsocksURI</h4>
+
+<p>LegacyShadowsocksURI представляет объект Tunnel, использующий Shadowsocks в качестве протокола.
+Реализует устаревший формат URL для обратной совместимости.</p>
+
+<p><strong>Формат:</strong> <em>string</em></p>
+
+<p>Ознакомьтесь с <a l10n-placeholder32="32">устаревшим форматом Shadowsocks URI</a> и <a l10n-placeholder33="33">схемой SIP002 URI</a>. Плагины не поддерживаются.</p>
+
+<p>Пример:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<h4 data-text="10756671213903401832" id="shadowsocksconfig" tabindex="-1">ShadowsocksConfig</h4>
+
+<p>ShadowsocksConfig может представлять Stream Dialer, Packet Dialer или Packet Listener, использующие Shadowsocks.</p>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder34="34">EndpointConfig</a>): конечная точка Shadowsocks для подключения.</li>
+<li><code dir="ltr" translate="no">cipher</code> (<em>string</em>): <a l10n-placeholder35="35">AEAD-шифр</a>, используемый для шифрования.</li>
+<li><code dir="ltr" translate="no">secret</code> (<em>string</em>): пароль, используемый для генерации ключа шифрования.</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>string</em>): <a l10n-placeholder36="36">префикс для маскировки</a>.
+Поддерживается только для Stream-подключений.</li>
+</ul>
+
+<p>Пример:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h2 data-text="10249180210045793508" id="meta_definitions" tabindex="-1">Метаопределения</h2>
+
+<h3 data-text="1718163546114050573" id="firstsupportedconfig" tabindex="-1">FirstSupportedConfig</h3>
+
+<p>Использует первую конфигурацию, поддерживаемую приложением. Это позволяет добавлять новые конфигурации, сохраняя обратную совместимость со старыми.</p>
+
+<p><strong>Формат:</strong> <em>struct</em></p>
+
+<p><strong>Поля</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">options</code> (<a l10n-placeholder37="37">EndpointConfig[]</a> | <a l10n-placeholder38="38">DialerConfig[]</a> | <a l10n-placeholder39="39">PacketListenerConfig[]</a>): список возможных конфигураций.</li>
+</ul>
+
+<p>Пример:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h3 data-text="10701474329256839971" id="interface" tabindex="-1">Interface</h3>
+
+<p>Interface позволяет выбирать одну из нескольких реализаций. Для указания типа конфигурации используется поле <code dir="ltr" translate="no">$type</code>.</p>
+
+<p>Пример:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code>
+
+  
+</body></html>

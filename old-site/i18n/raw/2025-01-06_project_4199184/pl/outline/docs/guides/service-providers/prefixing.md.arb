@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a4bd9089-9970-4bc7-8702-c6985a7c7695'}, 'string_id': '17610956299883319320', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Kiedy warto tego spróbować?",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b984c120-e973-4575-84f6-16fda6ca5eca'}, 'string_id': '12628245661512439499', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Instrukcje",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b14f4278-114c-476a-ba1e-eff11a570f54'}, 'string_id': '13867626750959801949', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Dynamiczne klucze dostępu",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '508bc5e2-56ab-4e25-9115-001bc306542b'}, 'string_id': '1939603936418792745', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Statyczne klucze dostępu",
+  "{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e1441708-39b6-43f4-9032-7b12c9ed1d8d'}, 'string_id': '14564037127126080661', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Maskowanie przy użyciu prefiksów połączenia"
+}

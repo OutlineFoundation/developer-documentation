@@ -1,0 +1,46 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2f42a08b-65bc-43cc-a4b1-ac77932bb908'}, 'string_id': '6201848709562429957', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>O SDK Outline foi desenvolvido com base em conceitos simples, definidos como interfaces
+interoperáveis que permitem combinações variadas e uma fácil reutilização.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Conexões</h2>
+
+<p>As conexões permitem a comunicação entre dois endpoints sobre um transporte
+abstrato. Existem dois tipos de conexões:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: conexão com base em stream,
+como TCP e o tipo de soquete Posix <code dir="ltr" translate="no">SOCK_STREAM</code>.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: conexão com base em datagram,
+como UDP e o tipo de soquete Posix <code dir="ltr" translate="no">SOCK_DGRAM</code>.
+Usamos "Packet" em vez de "Datagram" porque essa é a convenção na
+biblioteca padrão do Go.</li>
+</ul>
+
+<p>As conexões podem ser unidas para criar conexões aninhadas sobre um novo transporte.
+Por exemplo, um <code dir="ltr" translate="no">StreamConn</code> pode ser sobre TCP, sobre TLS sobre TCP, sobre HTTP sobre
+TLS sobre TCP, sobre QUIC, entre outras opções.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Discadores</h2>
+
+<p>Os discadores permitem a criação de conexões para certo endereço de host:porta e, ao mesmo tempo,
+encapsulam os protocolos de proxy ou transporte.
+Os tipos <code dir="ltr" translate="no">StreamDialer</code> e <code dir="ltr" translate="no">PacketDialer</code> criam conexões <code dir="ltr" translate="no">StreamConn</code> e <code dir="ltr" translate="no">PacketConn</code>
+respectivamente quando um endereço é fornecido. Discadores também podem ser aninhados.
+Por exemplo, um Discador Stream de TLS pode usar um discador de TCP para criar uma <code dir="ltr" translate="no">StreamConn</code>
+que tenha o apoio de uma conexão TCP. Depois pode criar uma <code dir="ltr" translate="no">StreamConn</code> TLS que tenha o apoio de uma
+<code dir="ltr" translate="no">StreamConn</code> TCP. Um discador de SOCKS5 sobre TLS poderia usar um discador de TLS para criar a
+<code dir="ltr" translate="no">StreamConn</code> TLS para o proxy antes de fazer a conexão de SOCKS5 com o endereço-alvo.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Resolvedores</h2>
+
+<p>Os resolvedores (<code dir="ltr" translate="no">dns.Resolver</code>) permitem responder a perguntas de DNS e, ao mesmo tempo,
+encapsulam o protocolo ou algoritmo.
+Eles são usados principalmente para associar nomes de domínio a endereços IP.</p>
+
+  
+</body></html>

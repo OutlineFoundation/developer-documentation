@@ -1,0 +1,96 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'cf941af2-6bb5-45ff-bc72-e190d0caeabc', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e4818a87-6d8a-4136-a9a6-7fafb26b2042'}, 'string_id': '11452553123190334191', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><strong>Smart Dialer</strong> จะค้นหากลยุทธ์ที่เลิกบล็อก DNS และ TLS สำหรับรายการโดเมนทดสอบที่ระบุ ซึ่งจะใช้การกำหนดค่าที่อธิบายรายละเอียดกลยุทธ์ต่างๆ เพื่อให้เลือกใช้งานได้</p>
+
+<h2 data-text="14376504348151050305" id="yaml_config_for_the_smart_dialer" tabindex="-1">การกำหนดค่า YAML สำหรับ Smart Dialer</h2>
+
+<p>การกำหนดค่าที่ Smart Dialer ใช้จะอยู่ในรูปแบบ YAML ดังตัวอย่างต่อไปนี้</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="6807610378901960345" id="dns_configuration" tabindex="-1">การกำหนดค่า DNS</h3>
+
+<ul>
+<li>ฟิลด์ <code dir="ltr" translate="no">dns</code> จะระบุรายการรีโซลเวอร์ DNS ที่จะทดสอบ</li>
+<li>รีโซลเวอร์ DNS แต่ละรายการอาจเป็นประเภทใดประเภทหนึ่งต่อไปนี้
+<ul>
+<li><code dir="ltr" translate="no">system</code>: ใช้รีโซลเวอร์ระบบ ระบุด้วยออบเจ็กต์ที่ว่างเปล่า</li>
+<li><code dir="ltr" translate="no">https</code>: ใช้รีโซลเวอร์ DNS over HTTPS (DoH) ที่เข้ารหัส</li>
+<li><code dir="ltr" translate="no">tls</code>: ใช้รีโซลเวอร์ DNS over TLS (DoT) ที่เข้ารหัส</li>
+<li><code dir="ltr" translate="no">udp</code>: ใช้รีโซลเวอร์ UDP</li>
+<li><code dir="ltr" translate="no">tcp</code>: ใช้รีโซลเวอร์ TCP</li>
+</ul></li>
+</ul>
+
+<h4 data-text="12100796328113891070" id="dns-over-https_resolver_doh" tabindex="-1">รีโซลเวอร์ DNS-over-HTTPS (DoH)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: ชื่อโดเมนของเซิร์ฟเวอร์ DoH</li>
+<li><code dir="ltr" translate="no">address</code>: host:port ของเซิร์ฟเวอร์ DoH ค่าเริ่มต้นคือ <code dir="ltr" translate="no">name</code>:443</li>
+</ul>
+
+<h4 data-text="3130909995660919323" id="dns-over-tls_resolver_dot" tabindex="-1">รีโซลเวอร์ DNS-over-TLS (DoT)</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">name</code>: ชื่อโดเมนของเซิร์ฟเวอร์ DoT</li>
+<li><code dir="ltr" translate="no">address</code>: host:port ของเซิร์ฟเวอร์ DoT ค่าเริ่มต้นคือ <code dir="ltr" translate="no">name</code>:853</li>
+</ul>
+
+<h4 data-text="12317973914037337193" id="udp_resolver" tabindex="-1">รีโซลเวอร์ UDP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: host:port ของรีโซลเวอร์ UDP</li>
+</ul>
+
+<h4 data-text="16131604346441337959" id="tcp_resolver" tabindex="-1">รีโซลเวอร์ TCP</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<ul>
+<li><code dir="ltr" translate="no">address</code>: host:port ของรีโซลเวอร์ TCP</li>
+</ul>
+
+<h3 data-text="7684387254880771057" id="tls_configuration" tabindex="-1">การกำหนดค่า TLS</h3>
+
+<ul>
+<li>ฟิลด์ <code dir="ltr" translate="no">tls</code> จะระบุรายการการรับส่งข้อมูล TLS ที่จะทดสอบ</li>
+<li>การรับส่งข้อมูล TLS แต่ละรายการคือสตริงที่ระบุการรับส่งข้อมูลที่จะใช้</li>
+<li>เช่น <code dir="ltr" translate="no">override:host=cloudflare.net|tlsfrag:1</code> จะระบุการรับส่งข้อมูลที่ใช้การทำ Domain Fronting ด้วย Cloudflare และการกระจาย Fragment ของ TLS ดูรายละเอียดได้จาก
+<a l10n-placeholder10="10">เอกสารประกอบการกำหนดค่า</a>
+</li>
+</ul>
+
+<h3 data-text="589542994753072348" id="fallback_configuration" tabindex="-1">การกำหนดค่าสำรอง</h3>
+
+<p>การกำหนดค่าสำรองจะใช้ในกรณีที่ไม่มีกลยุทธ์ปลอดพร็อกซีที่สามารถเชื่อมต่อได้ เช่น การกำหนดค่านี้ระบุพร็อกซีเซิร์ฟเวอร์สำรองเพื่อพยายามทำการเชื่อมต่อของผู้ใช้ การใช้การกำหนดค่าสำรองจะเริ่มต้นได้ช้ากว่า เนื่องจากต้องให้กลยุทธ์ DNS/TLS อื่นๆ ต้องล้มเหลว/หมดเวลาก่อน</p>
+
+<p>สตริงสำรองควรเป็นดังนี้</p>
+
+<ul>
+<li>สตริงการกำหนดค่า <code dir="ltr" translate="no">StreamDialer</code> ที่ถูกต้องตามที่กำหนดไว้ใน <a l10n-placeholder11="11"><code dir="ltr" translate="no">configurl</code></a></li>
+<li>ออบเจ็กต์การกำหนดค่า Psiphon ที่ถูกต้องเป็นรายการย่อยของฟิลด์ <code dir="ltr" translate="no">psiphon</code></li>
+</ul>
+
+<h4 data-text="15713083465238145950" id="shadowsocks_server_example" tabindex="-1">ตัวอย่างเซิร์ฟเวอร์ Shadowsocks</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h4 data-text="5633969607544383949" id="socks5_server_example" tabindex="-1">ตัวอย่างเซิร์ฟเวอร์ SOCKS5</h4>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h4 data-text="2116606199593170862" id="psiphon_config_example" tabindex="-1">ตัวอย่างการกำหนดค่า Psiphon</h4>
+
+<p>หากต้องการใช้เครือข่าย <a l10n-placeholder12="12">Psiphon</a> คุณจะต้องทำดังนี้</p>
+
+<ol>
+<li>ติดต่อทีม Psiphon เพื่อรับการกำหนดค่าที่ให้สิทธิ์เข้าถึงเครือข่าย ซึ่งการดำเนินการนี้อาจต้องมีการทำสัญญา</li>
+<li>เพิ่มการกำหนดค่า Psiphon ที่ได้รับมาในส่วน <code dir="ltr" translate="no">fallback</code> ของการกำหนดค่า Smart Dialer เนื่องจาก JSON สามารถใช้งานร่วมกับ YAML คุณจึงคัดลอกและวางการกำหนดค่า Psiphon ลงในส่วน <code dir="ltr" translate="no">fallback</code> ได้โดยตรงดังนี้</li>
+</ol>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code><aside class="note"><strong>หมายเหตุ:</strong><span> ฐานของโค้ด Psiphon ได้รับใบอนุญาตภายใต้ GPL ซึ่งสามารถบังคับใช้ข้อจำกัดของใบอนุญาตกับโค้ดของคุณเองได้ คุณจึงอาจต้องพิจารณาขอรับใบอนุญาตพิเศษจากทีมดังกล่าว</span></aside>
+<h3 data-text="8899941460954859862" id="how_to_use_the_smart_dialer" tabindex="-1">วิธีใช้ Smart Dialer</h3>
+
+<p>หากต้องการใช้ Smart Dialer ให้สร้างออบเจ็กต์ <code dir="ltr" translate="no">StrategyFinder</code> และเรียกใช้เมธอด
+<code dir="ltr" translate="no">NewDialer</code> ซึ่งส่งผ่านในรายการโดเมนทดสอบและการกำหนดค่า YAML
+เมธอด <code dir="ltr" translate="no">NewDialer</code> จะส่งกลับ <code dir="ltr" translate="no">transport.StreamDialer</code> ที่สามารถใช้สร้างการเชื่อมต่อโดยใช้กลยุทธ์ที่พบ เช่น</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code>
+<p>นี่เป็นเพียงตัวอย่างพื้นฐานและอาจต้องมีการปรับเปลี่ยนให้เข้ากับ Use Case ของคุณโดยเฉพาะ</p>
+
+  
+</body></html>

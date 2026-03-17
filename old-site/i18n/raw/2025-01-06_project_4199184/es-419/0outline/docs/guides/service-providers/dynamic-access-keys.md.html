@@ -1,0 +1,200 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c8aa1d02-3e26-4184-8158-a52508987e23'}, 'string_id': '11957149958150890303', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>A partir de la versión 1.8.0, el cliente de Outline ofrece compatibilidad en versión beta con claves de acceso
+dinámicas. Anteriormente, la información necesaria para acceder a una VPN de Outline se
+almacenaba (de manera estática) en la clave de acceso. Sin embargo, con las claves de acceso dinámicas,
+puedes alojar esa información en una ubicación remota y actualizarla dinámicamente.</p>
+
+<p>Esto significa que puedes cambiar la ubicación de tu VPN, el puerto en el que se aloja,
+la contraseña para acceder a ella y el método de encriptación que se usa sobre la marcha, todo
+sin volver a emitir claves de acceso para todos tus usuarios clientes.</p>
+
+<h2 data-text="8644459730891964801" id="hosting_your_access_information_as_an_ss_link" tabindex="-1">Aloja tu información de acceso como un vínculo ss://</h2>
+
+<p>A partir de la versión 1.8.1 del cliente de Outline, la información de acceso almacenada en el vínculo
+de clave de acceso dinámica puede ser simplemente un vínculo ss://. Anteriormente, la clave dinámica solo
+podía ser un objeto JSON como se describe abajo. Esta solución es adecuada para aquellas personas
+que no planean cambiar dinámicamente el servidor, el puerto o el método de encriptación,
+pero que de cualquier manera quieren poder cambiar el servidor estando conectadas sobre la
+marcha. Este cambio quita la necesidad de traducir la clave ss a un objeto JSON y tiene la
+ventaja de que la clave dinámica se puede almacenar en Hojas de cálculo de Google, una
+opción resistente a la censura en lugares donde se puede acceder al servicio.</p>
+
+<ul>
+<li>Cómo almacenar la información de acceso en <a l10n-placeholder4="4">Hojas de cálculo de Google</a>
+<ul>
+<li>Crea una Cuenta de Google.</li>
+<li>Inicia una nueva hoja de cálculo a través de <a l10n-placeholder5="5">https://sheets.new</a>.</li>
+<li>Pega el vínculo <code dir="ltr" translate="no">ss://</code> en la celda A1.</li>
+<li>Selecciona Archivo, Compartir y Publicar en la Web.</li>
+<li>En la pestaña Vínculo, selecciona Sheet1 y Valores separados por comas (.csv).</li>
+<li>Haz clic en Publicar.</li>
+<li>El vínculo se verá similar a esto: <code dir="ltr" translate="no">https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code>.</li>
+<li>Reemplaza <code dir="ltr" translate="no">https://</code> por <code dir="ltr" translate="no">ssconf://</code> para crear la clave de acceso dinámica,
+que se verá de esta forma:
+<code dir="ltr" translate="no">ssconf://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+</ul></li>
+<li>Sigue leyendo y conoce más opciones resistentes a la censura para almacenar
+la información de acceso.</li>
+</ul>
+
+<h2 data-text="16992700024475287942" id="hosting_your_access_information_as_a_json_object" tabindex="-1">Aloja tu información de acceso como un objeto JSON</h2>
+
+<p>La información de acceso también se puede almacenar como un objeto JSON que
+contenga las siguientes claves:</p>
+
+<ul>
+<li><p><strong>server:</strong> Es el dominio o la dirección IP del servidor en el que tu VPN se
+aloja, con comillas dobles.</p></li>
+<li><p><strong>server_port:</strong> Es el puerto en el cual se ejecuta tu servicio de VPN.</p>
+
+<p>De forma predeterminada, Outline Manager aloja tu VPN en un puerto efímero para no
+interferir en otros elementos que puedan estar ejecutándose en tu servidor. Si puedes,
+considera alojar tu VPN en un puerto estándar (como el 443), de manera que un escáner
+de puertos no pueda detectarlo fácilmente.</p></li>
+<li><p><strong>password:</strong> Es la frase o token secreto que se requiere para ingresar a la VPN, con comillas
+dobles. Por ejemplo, "Open Sesame!".</p>
+
+<p>Recuerda que, con las contraseñas, mientras mayor sea la entropía, mejor. Descifrar a través de fuerza bruta una contraseña que tenga
+veinte caracteres o más lleva, en promedio, toda la existencia del
+universo.</p></li>
+<li><p><strong>method:</strong> Es el método de encriptación que usa la VPN, con comillas dobles. Puedes
+obtener más información sobre los métodos que admitimos en el
+<a l10n-placeholder6="6">sitio web de Shadowsocks</a>.</p></li>
+</ul>
+
+<p>Ejemplo de JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p><strong>NOTA: Asegúrate de usar el carácter de comillas dobles " estándar. Muchas
+plataformas lo cambian por comillas más elegantes inclinadas como estas: ". Evita ese
+estilo de comillas, ya que no se podrá analizar.</strong></p>
+
+<p>Ahora mismo, depende de ti como administrador de VPN elegir una ubicación para almacenar tu
+información de acceso que no está bloqueada. Estos son algunos ejemplos
+de opciones resistentes a la censura entre las que elegir:</p>
+
+<ul>
+<li><p><a l10n-placeholder7="7">pad.riseup.net</a></p>
+
+<ul>
+<li>Esta opción no requiere que crees una cuenta nueva.</li>
+<li>Después de crear tu archivo, haz clic en el botón Compartir en la parte superior derecha y activa
+el botón "Solo lectura". Copia el vínculo, que se verá similar a
+este: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24</li>
+<li>Agrega /export/txt al final del vínculo, para que se vea similar a
+este: https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+<li>Reemplaza <code dir="ltr" translate="no">https://</code> por <code dir="ltr" translate="no">ssconf://</code> para crear la clave de acceso dinámica,
+que se verá de esta forma: ssconf://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+</ul></li>
+<li><p><a l10n-placeholder8="8">S3</a> (asegúrate de usar <a l10n-placeholder9="9">el acceso con estilo de ruta</a>)</p>
+
+<ul>
+<li>Crea una cuenta de AWS y un bucket nuevo.</li>
+<li>En la configuración del bucket "Permissions" ("Permisos"), para Object Ownership (Propiedad del objeto), selecciona
+"ACLs enabled" ("ACL activadas") y "Bucket owner preferred" ("Propietario del bucket preferido").</li>
+<li>En la Lista de control de acceso (ACL), asigna acceso de lectura ("Read") a Bucket ACL (ACL del bucket) para
+"Everyone (public access)" ("Todos [acceso público]").</li>
+<li>Agrega el archivo JSON al bucket (sugerencia: créalo en un editor de texto y, luego,
+guárdalo con una extensión <code dir="ltr" translate="no">.json</code>).</li>
+<li>Verifica que el archivo se puede ver. Para ello, selecciona el objeto, elige
+"Copy URL" ("Copiar URL") y pruébala en una ventana del navegador incógnita. La URL debería
+verse similar a esto:
+https://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+<li>Reemplaza la sección https:// por ssconf:// para crear la clave de acceso dinámica, que
+se ve similar a esto:
+ssconf://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+</ul></li>
+<li><p><a l10n-placeholder10="10">Netlify</a></p></li>
+</ul>
+
+<h2 data-text="8168403626127095668" id="rolling_your_own_dynamic_key_solution" tabindex="-1">Implementa tu propia solución de clave dinámica</h2>
+
+<p>Si eliges alojar tu clave dinámica por tu cuenta, deberás asegurarte
+de habilitar las solicitudes de origen cruzado (también conocidas como
+"<a l10n-placeholder11="11">CORS</a>"). Esto se puede hacer
+agregando el encabezado <a l10n-placeholder12="12">Access-Control-Allow-Origin</a>
+a todas las respuestas del servidor con un valor comodín (p. ej., "*"), que le indica
+al cliente que cualquiera puede acceder a tu clave dinámica.</p>
+
+<h2 data-text="5930897059554919762" id="getting_your_access_information_from_the_static_access_key" tabindex="-1">Obtén tu información de acceso a partir de una clave de acceso estática</h2>
+
+<p>Si apenas estás comenzando y quieres agregar una capa adicional de indirección a
+tu VPN de Outline existente en lugar de alguna implementación elegante personalizada, estás en el lugar correcto.
+Puedes extraer la información de acceso de una clave de acceso existente. En el ejemplo
+de abajo, se muestra dónde puedes encontrar cada uno de los datos pertinentes:
+"server", "server_port", "password" y "method".</p>
+
+<p>Ejemplo de clave de acceso estática:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1</code></p>
+
+<ol>
+<li><p><strong>Server</strong></p>
+
+<p>La ubicación "server" es la parte de la clave de acceso estática entre el símbolo "@"
+y el signo ":" siguiente</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@<strong>outline-server.example.com</strong>:17178/?outline=1</p></li>
+<li><p><strong>Server Port</strong></p>
+
+<p>La ubicación "server_port" es la parte de la clave de acceso estática entre el
+segundo signo ":" y el siguiente "/"</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:<strong>17178</strong>/?outline=1</p></li>
+<li><p><strong>Password</strong></p>
+
+<p>Aquí empiezan a dificultarse las cosas. La parte de la clave entre
+"ss://" y el símbolo "@" se codificó en un formato base64. Puedes usar un
+<a l10n-placeholder13="13">decodificador base64</a> para
+revelar lo que está oculto en esta parte:</p>
+
+<p>ss://<strong>Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw</strong>@outline-server.example.com:17178/?outline=1</p>
+
+<p>En nuestro caso, cuando decodificamos esta parte de la clave, obtenemos el resultado
+que aparece abajo, en el que la parte en negrita (después de ":") es la "password":</p>
+
+<p>chacha20-ietf-poly1305:<strong>5REfxTjltz2L</strong></p></li>
+<li><p><strong>Method</strong></p>
+
+<p>Y, como quizá suponías, la parte del mismo resultado de arriba antes de
+":" es el "method":</p>
+
+<p><strong>chacha20-ietf-poly1305</strong>:5REfxTjltz2L</p></li>
+</ol>
+
+<p>Ejemplo de clave de acceso dinámica</p>
+
+<p>Dicho todo esto, el objeto JSON final de información de acceso para nuestra clave de ejemplo se vería
+de esta forma:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5441970926354769528" id="creating_your_dynamic_access_key" tabindex="-1">Crea tu clave de acceso dinámica</h2>
+
+<p>Cuando tienes la URL en la que se almacena tu información de acceso, todo lo que necesitas
+hacer para crear tu clave de acceso dinámica es reemplazar el protocolo <code dir="ltr" translate="no">https://</code> por
+este otro <code dir="ltr" translate="no">ssconf://</code>. Esto le indica al cliente de Outline cómo debería manejar
+esta clave de acceso particular.</p>
+
+<p>ANTES (protocolo https)
+https://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>DESPUÉS (clave de acceso dinámica con protocolo ssconf)
+ssconf://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>Esta clave se puede agregar al Cliente de Outline.</p>
+
+<h2 data-text="481607094415320096" id="custom_errors" tabindex="-1">Errores personalizados</h2>
+
+<p>A partir de la versión 1.13 del cliente, puedes enviar mensajes de error personalizados a tus usuarios finales a través de
+claves de acceso dinámicas. Para hacerlo, agrega la clave de error a tu objeto JSON:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>La próxima vez que se conecte tu usuario final, la conexión fallará y este verá
+este mensaje de error en la parte inferior de su pantalla:</p>
+
+<p><img alt="Se excedió la cuota de uso" src="/static/outline/images/quota-exceeded.png" /></p>
+
+  
+</body></html>

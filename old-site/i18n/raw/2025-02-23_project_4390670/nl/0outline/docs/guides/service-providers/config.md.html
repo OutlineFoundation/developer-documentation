@@ -1,0 +1,29 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '918f5a98-1cc2-43c7-bb56-d47c0469f95a'}, 'string_id': '1234691844019891530', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline gebruikt een op YAML gebaseerde configuratie om VPN-parameters te definiëren en TCP-/UDP-verkeer af te handelen. De configuratie kan op verschillende niveaus worden aangepast, waardoor flexibele en uitgebreide installatie mogelijk wordt gemaakt.</p>
+
+<p>De configuratie op het hoogste niveau geeft een <a l10n-placeholder7="7">TunnelConfig</a> op.</p>
+
+<h2 data-text="14665129214657206841" id="examples" tabindex="-1">Voorbeelden</h2>
+
+<p>Zo ziet een typische Schadowsocks-configuratie eruit:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Je kunt TCP en UDP nu laten uitvoeren op verschillende poorten of eindpunten, met verschillende voorvoegsels.</p>
+
+<p>Je kunt YAML-ankers en de samenvoegingscode <code dir="ltr" translate="no">&lt;&lt;</code> gebruiken om dupliceren te voorkomen:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Het is nu mogelijk om strategieën op te stellen en multi-hops te maken:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>Als je 'look-like-nothing'-protocollen zoals Shadowsocks wilt blokkeren, kun je Shadowsocks-over-WebSockets gebruiken. Ga naar de <a l10n-placeholder8="8">voorbeeldconfiguratie voor een server</a> voor meer informatie over hoe je dit implementeert. Zo ziet een clientconfiguratie eruit:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Het WebSocket-eindpunt kan ook een eindpunt bevatten, dat je kunt gebruiken om op DNS gebaseerde blokkeringen te omzeilen.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Gebruik in je configuratie de optie <code dir="ltr" translate="no">first-supported</code> om te zorgen dat deze functie compatibel is met de verschillende Outlook-clientversies. Dit is met name belangrijk als er nieuwe strategieën en functies worden toegevoegd aan Outline, omdat misschien nog niet alle gebruikers hebben geüpdatet naar de nieuwste clientsoftware. Door <code dir="ltr" translate="no">first-supported</code> te gebruiken, kun je één configuratie maken die naadloos werkt op verschillende platforms en clientversies. Zo zorg je voor compatibiliteit met eerdere versies en een consistente gebruikerservaring.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+
+  
+</body></html>

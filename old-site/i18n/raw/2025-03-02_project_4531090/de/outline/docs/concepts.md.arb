@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '647eefc2-c044-4eb3-8baf-78942423d02a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'bfd5035c-df30-49fd-b9f9-000625a41c76'}, 'string_id': '9482496117195899923', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Serviceprovider und Endnutzer"
+}

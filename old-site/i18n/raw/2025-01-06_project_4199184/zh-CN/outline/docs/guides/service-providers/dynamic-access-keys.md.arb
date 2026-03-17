@@ -1,0 +1,10 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f1c5e0d9-33d8-4763-8246-52dbc05d3a0f'}, 'string_id': '8644459730891964801', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "以 ss:// 链接的形式托管访问信息",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'df755a35-990a-400b-ac13-e21959e98c5c'}, 'string_id': '16992700024475287942', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "以 JSON 对象的形式托管访问信息",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '78a23415-0bf9-49d0-a24f-a32c3cf551d5'}, 'string_id': '8168403626127095668', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "构建您自己的动态密钥解决方案",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '011c45ce-a195-496c-b9f6-a79435f98dec'}, 'string_id': '5930897059554919762', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "从静态访问密钥中获取您的访问信息",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '91841681-2d5c-4cff-aca1-e6da4fd1a267'}, 'string_id': '5441970926354769528', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "创建动态访问密钥",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6acbf3b7-ad47-4a71-a160-96f4701941db'}, 'string_id': '481607094415320096', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "自定义错误",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '884e1712-6b23-4444-9afa-a3ec3788d286'}, 'string_id': '13867626750959801949', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "动态访问密钥"
+}

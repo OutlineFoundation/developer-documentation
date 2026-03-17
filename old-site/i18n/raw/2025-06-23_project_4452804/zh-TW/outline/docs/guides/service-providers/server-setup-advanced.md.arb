@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'b296de75-88af-46ba-abb1-30d5fd45a19a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8aefc913-689d-4fd8-8351-2f38b5a94b2a'}, 'string_id': '6695886048768864588', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用安裝指令碼部署"
+}

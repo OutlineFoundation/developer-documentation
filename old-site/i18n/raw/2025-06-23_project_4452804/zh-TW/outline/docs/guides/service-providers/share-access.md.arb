@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5400df94-7420-4492-b671-9cd7989b98e1'}, 'string_id': '14615896034829982249', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "建立及共用存取金鑰",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3511618b-77a5-4535-942f-072e001f4637'}, 'string_id': '1795121274651331179', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "使用者邀請流程",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '570a3f3f-67b9-46af-896c-2103fe4deb34'}, 'string_id': '11189047250517590731', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "撤銷伺服器存取權",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '16c5e25b-39ed-4077-9815-4136f333d0c1'}, 'string_id': '12420990759181242084', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "分享伺服器存取權"
+}

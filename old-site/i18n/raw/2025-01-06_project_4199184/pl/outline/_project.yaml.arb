@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'aed27cd2-fc42-4601-a2f1-5413bf680d96', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3014993b-a4bf-4662-b8e1-e2203f72d9bc'}, 'string_id': '5820574533520724211', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline pozwala łatwo skonfigurować serwer VPN i zapewnić dostęp do otwartego, nieograniczonego restrykcjami internetu."
+}

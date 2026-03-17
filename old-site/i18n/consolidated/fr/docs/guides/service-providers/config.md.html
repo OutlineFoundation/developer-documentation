@@ -1,0 +1,30 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '21250117-2e87-486a-a091-64068dccf3bf', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ea07460c-af5b-42e1-a135-5fb52fc783a0'}, 'string_id': '1234691844019891530', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline utilise une configuration YAML pour définir les paramètres VPN et gérer le trafic TCP/UDP. Cette configuration permet une composabilité multiniveau, pour des configurations flexibles et extensibles.</p>
+
+<p>L'élément <a l10n-placeholder7="7">TunnelConfig</a> est indiqué dans la configuration de premier niveau.</p>
+
+<h2 data-text="14665129214657206841" id="examples" tabindex="-1">Exemples</h2>
+
+<p>Voici à quoi ressemble généralement une configuration Shadowsocks :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Les protocoles TCP et UDP peuvent désormais être exécutés sur différents ports ou points de terminaison, et avec différents préfixes.</p>
+
+<p>Vous pouvez utiliser des ancres YAML et la clé de fusion <code dir="ltr" translate="no">&lt;&lt;</code> pour éviter la duplication :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Il est maintenant possible de composer des stratégies et de faire des multisauts.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>En cas de protocoles bloquants ou difficiles à identifier comme Shadowsocks, vous pouvez utiliser Shadowsocks-over-Websockets. Découvrez un <a l10n-placeholder8="8">exemple de configuration de serveur</a>
+et comment le déployer. Voici à quoi ressemble une configuration client :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Le point de terminaison Websocket peut à son tour prendre un point de terminaison, lequel peut être utilisé pour contourner un blocage DNS :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Pour permettre une compatibilité avec différentes versions de client Outline, utilisez l'option <code dir="ltr" translate="no">first-supported</code> dans votre configuration. C'est particulièrement important lorsque de nouvelles stratégies et fonctionnalités sont ajoutées à Outline, car tous les utilisateurs n'ont peut-être pas la dernière version du logiciel client. En utilisant <code dir="ltr" translate="no">first-supported</code>, vous pouvez fournir une configuration unique qui fonctionne sur différentes plates-formes et versions de client, afin d'assurer une bonne rétrocompatibilité et une expérience utilisateur cohérente.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+
+  
+</body></html>

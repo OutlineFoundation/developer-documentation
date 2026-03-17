@@ -1,0 +1,72 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '49d5432e-202c-4d17-adc0-c81a247c4f1d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '47305d22-b7e0-4579-971f-b71e9cff2ce5'}, 'string_id': '9809964781874779152', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>À mesure que votre service Outline se développe, vous pouvez être amené à déléguer certaines tâches de gestion à des personnes de confiance. Ce document présente les diverses méthodes disponibles pour partager l'accès aux fonctionnalités de gestion avec d'autres administrateurs.</p>
+
+<p>La méthode à utiliser dépendra de la façon dont votre serveur Outline a été initialement déployé.</p>
+
+<h2 data-text="13728169041147034497" id="cloud_provider_deployments" tabindex="-1">Déploiements via des fournisseurs de services cloud</h2>
+
+<p>Pour les serveurs Outline déployés sur des plates-formes cloud comme DigitalOcean, AWS ou Google Cloud, l'accès aux fonctionnalités de gestion est généralement géré dans la solution de gestion de l'authentification et des accès (IAM) du fournisseur de services cloud. Cette approche vous offre davantage de contrôle et de sécurité que le partage manuel de la configuration.</p>
+
+<h3 data-text="11998350115201903559" id="digitalocean" tabindex="-1">DigitalOcean</h3>
+
+<p>DigitalOcean propose une fonctionnalité <strong>Teams</strong> performante qui vous permet d'inviter d'autres utilisateurs DigitalOcean à collaborer sur vos projets. Nous vous recommandons d'utiliser cette méthode pour autoriser d'autres personnes à gérer votre serveur Outline hébergé sur cette plate-forme.</p>
+
+<h4 data-text="17607204335383283215" id="1_grant_team_access" tabindex="-1">1. Accorder l'accès à une équipe</h4>
+
+<p>Le moyen le plus efficace de partager la gestion de votre serveur Outline hébergé sur DigitalOcean est d'utiliser la fonctionnalité <strong>Teams</strong> de la plate-forme.</p>
+
+<ul>
+<li>Connectez-vous à votre compte DigitalOcean.</li>
+<li>Accédez à la section <strong>Teams</strong> (Équipes).</li>
+<li>Créez une équipe (si ce n'est pas déjà fait) ou invitez d'autres utilisateurs DigitalOcean existants à rejoindre votre équipe.</li>
+<li>Lorsque vous invitez des membres, vous pouvez leur attribuer des rôles particuliers et leur accorder l'accès à des ressources précises, y compris les droplets qui exécutent Outline.</li>
+</ul>
+
+<h4 data-text="10945940193545886169" id="2_control_permissions" tabindex="-1">2. Définir les autorisations</h4>
+
+<p>Réfléchissez bien aux autorisations que vous accordez aux membres de l'équipe. Pour la gestion du serveur Outline, vous pourriez leur accorder un accès en lecture et en écriture aux droplets concernés. Ainsi, ils pourront :</p>
+
+<ul>
+<li>consulter les informations sur le droplet (adresse IP, état, etc.) ;</li>
+<li>accéder à la console du droplet (si nécessaire pour résoudre des problèmes) ;</li>
+<li>éventuellement effectuer des actions comme redémarrer le droplet (en fonction des autorisations accordées).</li>
+</ul>
+
+<p>Les utilisateurs qui connectent Outline Manager à leur compte DigitalOcean pourront désormais consulter et gérer tous les serveurs Outline associés à ce compte.</p>
+<aside class="tip"><strong>Conseil</strong><span> : Encouragez les nouveaux administrateurs à activer l'authentification multifacteur (MFA) dans leur compte de plate-forme cloud pour renforcer la sécurité.</span></aside>
+<h2 data-text="790790574632918007" id="manual_installations" tabindex="-1">Installations manuelles</h2>
+<aside class="caution"><strong>Attention</strong><span> : Dans le cas des installations manuelles, il est difficile de révoquer l'accès aux fonctionnalités de gestion une fois qu'il a été accordé. La méthode la plus simple pour cela consiste à réinstaller complètement le serveur, ce qui génère une nouvelle configuration, mais réinitialise aussi toutes les clés d'accès utilisateur.</span></aside>
+<p>Lorsque vous avez installé Outline manuellement sur vos propres serveurs à l'aide du <a l10n-placeholder3="3">script d'installation</a>, la principale méthode pour accorder l'accès aux fonctionnalités de gestion est de partager la <strong>configuration d'accès</strong>.</p>
+
+<p>L'application Outline Manager a besoin d'une chaîne de configuration spécifique pour se connecter à un serveur Outline et le gérer. Cette chaîne de configuration contient toutes les informations nécessaires, dont l'adresse du serveur, le port et une clé secrète pour l'authentification.</p>
+
+<h3 data-text="17272662573092759529" id="1_locate_the_accesstxt_file" tabindex="-1">1. Trouver le fichier <code dir="ltr" translate="no">access.txt</code></h3>
+
+<p>Sur le serveur où Outline est installé, accédez au répertoire Outline. L'emplacement exact du fichier peut varier légèrement selon la méthode d'installation utilisée, mais voici quelques emplacements courants :</p>
+
+<ul>
+<li><code dir="ltr" translate="no">/opt/outline/access.txt</code></li>
+<li><code dir="ltr" translate="no">/etc/outline/access.txt</code></li>
+<li>Dans le volume Docker utilisé par le conteneur du serveur Outline</li>
+</ul>
+
+<h3 data-text="6477120201181214791" id="2_retrieve_the_access_config" tabindex="-1">2. Récupérer la configuration d'accès</h3>
+
+<p>Lorsque vous avez trouvé le fichier <code dir="ltr" translate="no">access.txt</code>, convertissez-le en JSON. Il s'agit du format attendu par Outline Manager à l'étape suivante.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Le résultat contient l'empreinte du certificat autosigné (<code dir="ltr" translate="no">certSha256</code>) et le point de terminaison de l'API de gestion sur le serveur (<code dir="ltr" translate="no">apiUrl</code>) :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code><aside class="special"><strong>Important</strong><span> : Cette ligne contient des informations sensibles. Partagez-la uniquement avec des personnes de confiance ayant besoin d'accéder aux fonctionnalités de gestion.</span></aside>
+<h3 data-text="14920691555231850591" id="3_share_the_access_config_securely" tabindex="-1">3. Partager la configuration d'accès de façon sécurisée</h3>
+
+<p>Copiez la sortie et partagez-la avec le nouvel administrateur Outline de façon sécurisée. Évitez de l'envoyer par le biais de canaux non chiffrés comme un simple e-mail ou message instantané.
+Privilégiez la fonctionnalité de partage sécurisé d'un gestionnaire de mots de passe ou une autre méthode de communication chiffrée.</p>
+
+<p>Le nouvel administrateur colle la <strong>configuration d'accès</strong> fournie dans Outline Manager afin d'ajouter le serveur Outline et de pouvoir le gérer dans l'interface de l'application. Pour en savoir plus sur l'utilisation d'Outline Manager, consultez le <a l10n-placeholder4="4">Centre d'aide Outline</a>.</p>
+
+  
+</body></html>

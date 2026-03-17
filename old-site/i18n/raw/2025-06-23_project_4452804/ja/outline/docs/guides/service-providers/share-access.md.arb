@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ac32e67f-3c14-495a-9c3c-e4c402fb04a1'}, 'string_id': '14615896034829982249', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "アクセスキーの作成と共有",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6cddfe3f-8f89-4eaa-863d-3406b06bbcc3'}, 'string_id': '1795121274651331179', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ユーザー招待のプロセス",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd1d07573-2e0b-4e4a-a119-224097e8c8c4'}, 'string_id': '11189047250517590731', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "サーバーへのアクセスを取り消す",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '24a92856-d2a2-4682-b42c-d2aa3e37d36a'}, 'string_id': '12420990759181242084', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "サーバーへのアクセスを共有する"
+}

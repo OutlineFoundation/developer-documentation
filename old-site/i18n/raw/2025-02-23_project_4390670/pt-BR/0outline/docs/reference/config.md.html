@@ -1,0 +1,254 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'd3edbbc3-f17f-4b37-bf9d-2dfcc537c9fb', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e239165e-26f7-444c-89c5-3c32f6d6e33e'}, 'string_id': '11937512990099417919', 'target_locale_code': 'pt_br', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="7551542352463182819" id="tunnels" tabindex="-1">Túneis</h2>
+
+<h3 data-text="5334038409748665214" id="tunnelconfig" tabindex="-1">TunnelConfig</h3>
+
+<p>O túnel é o objeto de mais alto nível em uma configuração do Outline. Ele especifica como a
+VPN deve ser configurada.</p>
+
+<p><strong>Formato:</strong> <a l10n-placeholder9="9">ExplicitTunnelConfig</a> |
+<a l10n-placeholder10="10">LegacyShadowsocksConfig</a> |
+<a l10n-placeholder11="11">LegacyShadowsocksURI</a></p>
+
+<h3 data-text="17567925323603000549" id="explicittunnelconfig" tabindex="-1">ExplicitTunnelConfig</h3>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport</code> (<a l10n-placeholder12="12">TransportConfig</a>): o transporte a ser usado para
+trocar pacotes com o destino pretendido</li>
+<li><code dir="ltr" translate="no">error</code> (<em>struct</em>): informações a serem comunicadas ao usuário em caso de
+erro de serviço (por exemplo, chave expirada, cota esgotada)
+<ul>
+<li><code dir="ltr" translate="no">message</code> (<em>string</em>): mensagem simples para exibir ao usuário</li>
+<li><code dir="ltr" translate="no">details</code> (<em>string</em>): mensagem a ser exibida quando o usuário abrir os
+detalhes do erro; útil para solução de problemas</li>
+</ul></li>
+</ul>
+
+<p>Os campos <code dir="ltr" translate="no">error</code> e <code dir="ltr" translate="no">transport</code> são mutuamente exclusivos.</p>
+
+<p>Exemplo bem-sucedido:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Exemplo de erro:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5117449539369487677" id="transports" tabindex="-1">Transportes</h2>
+
+<h3 data-text="14190027968284396058" id="transportconfig" tabindex="-1">TransportConfig</h3>
+
+<p>Especifica como os pacotes devem ser trocados com o destino pretendido.</p>
+
+<p><strong>Formato:</strong> <a l10n-placeholder13="13">Interface</a></p>
+
+<p>Tipos de interface aceitos:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcpudp</code>: <a l10n-placeholder14="14">TCPUDPConfig</a></li>
+</ul>
+
+<h3 data-text="12455139361718416191" id="tcpudpconfig" tabindex="-1">TCPUDPConfig</h3>
+
+<p>O TCPUDPConfig permite definir estratégias TCP e UDP separadas.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcp</code> (<a l10n-placeholder15="15">DialerConfig</a>): o discador de fluxo a ser usado para
+conexões TCP.</li>
+<li><code dir="ltr" translate="no">udp</code> (<a l10n-placeholder16="16">PacketListenerConfig</a>): o listener de pacotes
+a ser usado para pacotes UDP.</li>
+</ul>
+
+<p>Exemplo de envio de TCP e UDP para diferentes endpoints:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<h2 data-text="659650101501710648" id="endpoints" tabindex="-1">Endpoints</h2>
+
+<p>Os endpoints estabelecem conexões com um endpoint fixo. São preferíveis aos discadores,
+porque permitem otimizações específicas. Existem endpoints
+de fluxo e de pacote.</p>
+
+<h3 data-text="11446759888020662416" id="endpointconfig" tabindex="-1">EndpointConfig</h3>
+
+<p><strong>Formato:</strong> <em>string</em> | <a l10n-placeholder17="17">Interface</a></p>
+
+<p>O endpoint <em>string</em> é o endereço host:porta do endpoint selecionado. A
+conexão é estabelecida usando o discador padrão.</p>
+
+<p>Tipos de interface aceitos para endpoints de fluxo e pacote:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">dial</code>: <a l10n-placeholder18="18">DialEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder19="19">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">websocket</code>: <a l10n-placeholder20="20">WebsocketEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder21="21">ShadowsocksConfig</a></li>
+</ul>
+
+<h3 data-text="11716336102764925006" id="dialendpointconfig" tabindex="-1">DialEndpointConfig</h3>
+
+<p>Estabelece conexões discando um endereço fixo. Pode usar um discador, o que
+permite a composição de estratégias.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">address</code> (<em>string</em>): endereço do endpoint a discar</li>
+<li><code dir="ltr" translate="no">dialer</code> (<a l10n-placeholder22="22">DialerConfig</a>): discador a ser usado para discar o
+endereço</li>
+</ul>
+
+<h3 data-text="17640163708559704415" id="websocketendpointconfig" tabindex="-1">WebsocketEndpointConfig</h3>
+
+<p>Conexões de fluxo e pacotes de túneis para um endpoint sobre Websockets.</p>
+
+<p>Para conexões de fluxo, cada gravação é transformada em uma mensagem do Websocket. Para
+conexões de pacotes, cada pacote é transformado em uma mensagem do Websocket.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">url</code> (<em>string</em>): URL do endpoint do Websocket. O esquema precisa ser
+<code dir="ltr" translate="no">https</code> ou <code dir="ltr" translate="no">wss</code> para Websocket sobre TLS e <code dir="ltr" translate="no">http</code> ou <code dir="ltr" translate="no">ws</code> para Websocket
+em texto simples.</li>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder23="23">EndpointConfig</a>): endpoint (do servidor da Web) para conexão. Se não houver um, ele se conectará ao endereço especificado no URL.</li>
+</ul>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Discadores</h2>
+
+<p>Os discadores estabelecem conexões de acordo com o endereço de um endpoint. Existem discadores de fluxo e
+de pacotes.</p>
+
+<h3 data-text="9627478273327751697" id="dialerconfig" tabindex="-1">DialerConfig</h3>
+
+<p><strong>Formato:</strong> <em>null</em> | <a l10n-placeholder24="24">Interface</a></p>
+
+<p>Um discador <em>null</em> (ausente) significa o discador padrão, que usa conexões diretas TCP
+para fluxo e conexões diretas UDP para pacotes.</p>
+
+<p>Tipos de interface aceitos para discadores de fluxo e de pacotes:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder25="25">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder26="26">ShadowsocksConfig</a></li>
+</ul>
+
+<h2 data-text="2039682242780633119" id="packet_listeners" tabindex="-1">Listeners de pacotes</h2>
+
+<p>Um listener de pacotes estabelece uma conexão de pacotes ilimitada que pode ser usada para
+enviar pacotes a vários destinos.</p>
+
+<h3 data-text="15852079316549004264" id="packetlistenerconfig" tabindex="-1">PacketListenerConfig</h3>
+
+<p><strong>Formato:</strong> <em>null</em> | <a l10n-placeholder27="27">Interface</a></p>
+
+<p>Um listener de pacotes <em>null</em> (ausente) significa o listener de pacotes padrão, que é
+um listener de pacotes UDP.</p>
+
+<p>Tipos de interface aceitos:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder28="28">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder29="29">ShadowsocksPacketListenerConfig</a></li>
+</ul>
+
+<h2 data-text="6016290251325397531" id="strategies" tabindex="-1">Estratégias</h2>
+
+<h3 data-text="16260889002875646941" id="shadowsocks" tabindex="-1">Shadowsocks</h3>
+
+<h4 data-text="13137755849223030902" id="legacyshadowsocksconfig" tabindex="-1">LegacyShadowsocksConfig</h4>
+
+<p>O LegacyShadowsocksConfig representa um túnel que usa o Shadowsocks como
+transporte. Ele implementa o formato legado para compatibilidade com versões anteriores.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">server</code> (<em>string</em>): o host para se conectar</li>
+<li><code dir="ltr" translate="no">server_port</code> (<em>number</em>): o número da porta para se conectar</li>
+<li><code dir="ltr" translate="no">method</code> (<em>string</em>): a <a l10n-placeholder30="30">criptografia
+AEAD</a> a ser usada (link em inglês)</li>
+<li><code dir="ltr" translate="no">password</code> (<em>string</em>): usada para gerar a chave de criptografia</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>string</em>): o <a l10n-placeholder31="31">disfarce de prefixo</a> (link em inglês) a ser usado;
+aceito apenas em conexões de fluxo</li>
+</ul>
+
+<p>Exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<h4 data-text="4781365069853549991" id="legacyshadowsocksuri" tabindex="-1">LegacyShadowsocksURI</h4>
+
+<p>O LegacyShadowsocksURI representa um túnel que usa o Shadowsocks como transporte.
+Ele implementa o formato legado de URL para compatibilidade com versões anteriores.</p>
+
+<p><strong>Formato:</strong> <em>string</em></p>
+
+<p>Consulte <a l10n-placeholder32="32">Formato de URI
+legado do Shadowsocks</a> e <a l10n-placeholder33="33">Esquema
+de URI SIP002</a> (links em inglês). Não oferecemos suporte a plug-ins.</p>
+
+<p>Exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<h4 data-text="10756671213903401832" id="shadowsocksconfig" tabindex="-1">ShadowsocksConfig</h4>
+
+<p>O ShadowsocksConfig pode representar discadores de fluxo ou de pacotes, bem como um listener de pacotes que usa o Shadowsocks.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder34="34">EndpointConfig</a>): o endpoint do Shadowsocks para
+se conectar</li>
+<li><code dir="ltr" translate="no">cipher</code> (<em>string</em>): a <a l10n-placeholder35="35">criptografia
+AEAD</a> a ser usada (link em inglês)</li>
+<li><code dir="ltr" translate="no">secret</code> (<em>string</em>): usada para gerar a chave de criptografia</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>string</em>, opcional): o <a l10n-placeholder36="36">disfarce de
+prefixo</a> (link em inglês) a ser usado;
+aceito apenas em conexões de fluxo</li>
+</ul>
+
+<p>Exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h2 data-text="10249180210045793508" id="meta_definitions" tabindex="-1">Metadefinições</h2>
+
+<h3 data-text="1718163546114050573" id="firstsupportedconfig" tabindex="-1">FirstSupportedConfig</h3>
+
+<p>Usa a primeira configuração aceita no aplicativo. Esta é uma maneira
+de incorporar novas configurações e, ao mesmo tempo, manter compatibilidade com outras antigas.</p>
+
+<p><strong>Formato:</strong> <em>struct</em></p>
+
+<p><strong>Campos:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">options</code> (<a l10n-placeholder37="37">EndpointConfig[]</a> |
+<a l10n-placeholder38="38">DialerConfig[]</a> |
+<a l10n-placeholder39="39">PacketListenerConfig[]</a>): lista de opções
+a considerar</li>
+</ul>
+
+<p>Exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h3 data-text="10701474329256839971" id="interface" tabindex="-1">Interface</h3>
+
+<p>As interfaces permitem escolher uma entre diversas implementações. Elas usam o campo
+<code dir="ltr" translate="no">$type</code> para especificar o tipo que a configuração representa.</p>
+
+<p>Exemplo:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code>
+
+  
+</body></html>

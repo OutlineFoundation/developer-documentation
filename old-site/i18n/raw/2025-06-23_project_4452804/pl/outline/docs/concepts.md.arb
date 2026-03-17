@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'e5e0f819-12dc-49cb-8af2-878c4e7a6993', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '204b9231-794d-4918-ada6-0906953b139d'}, 'string_id': '5764561982385948460', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Usługodawcy i użytkownicy",
+  "{'source_id': 'e5e0f819-12dc-49cb-8af2-878c4e7a6993', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'baddfd85-1185-4390-9004-b6d608bd5f57'}, 'string_id': '5213716419800865354', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Klucze dostępu"
+}

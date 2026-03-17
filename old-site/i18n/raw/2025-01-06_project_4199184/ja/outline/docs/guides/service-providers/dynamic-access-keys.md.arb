@@ -1,0 +1,10 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8687cbfd-98ee-4c1d-bdc1-377e020ebe9d'}, 'string_id': '8644459730891964801', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "アクセス情報を ss:// リンクとしてホストする",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '60281ac7-ab8e-46f3-84e9-f0a43919072b'}, 'string_id': '16992700024475287942', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "アクセス情報を JSON オブジェクトとしてホストする",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4580144b-11af-447c-9091-4e30ca60110a'}, 'string_id': '8168403626127095668', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "独自の動的キー ソリューションを展開する",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5a1f48ab-8fda-4c19-beae-ec0b7697b59a'}, 'string_id': '5930897059554919762', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "静的アクセスキーからアクセス情報を取得する",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5b8307b3-35f5-4b1a-895c-cf8dc8f0a658'}, 'string_id': '5441970926354769528', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "動的アクセスキーを作成する",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '7fa532d5-7e7c-4088-8a33-9ec51d159698'}, 'string_id': '481607094415320096', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "カスタムエラー",
+  "{'source_id': '182420d9-00ab-40da-9f5a-a54bc9944a16', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '39aeae15-f7c6-4589-b525-83b91ea214a4'}, 'string_id': '13867626750959801949', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "動的アクセスキー"
+}

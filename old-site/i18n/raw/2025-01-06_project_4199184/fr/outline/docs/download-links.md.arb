@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '62f164bc-b0b7-4dfa-b73c-006a269290f6'}, 'string_id': '16077083388317342628', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline Manager",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b0e618e8-8986-4a67-b38d-14c4a18d82d1'}, 'string_id': '15844218680809619184', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Client Outline",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '14a4c945-15c6-40bd-8102-c42834822d71'}, 'string_id': '5821125520337137333', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Autres liens de téléchargement"
+}

@@ -1,0 +1,81 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '1572f1e9-0d8f-47fb-bc2b-2dc03c289273'}, 'string_id': '7370928615664798887', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline 提供两种类型的访问密钥：静态和动态。静态密钥对密钥本身内的所有连接信息进行编码，而动态密钥对连接信息的位置进行编码，这可让您远程存储这些信息，并根据需要进行更改。这意味着您可以更新服务器配置，而无需生成新密钥并将其分发给用户。本文档介绍了如何使用动态访问密钥来更灵活、更高效地管理 Outline 服务器。</p>
+
+<p>您可以通过三种格式来指定动态访问密钥将使用的访问信息：</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">使用 <code dir="ltr" translate="no">ss://</code> 链接</h3>
+
+<p>Outline 客户端 1.8.1 及以上版本。<em></em></p>
+
+<p>您可以直接使用现有的 <code dir="ltr" translate="no">ss://</code> 链接。如果您不需要频繁更改服务器、端口或加密方法，但又希望能够灵活地更新服务器地址，那么此方式就是理想之选。</p>
+
+<p><strong>示例：</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">使用 JSON 对象</h3>
+
+<p>Outline 客户端 1.8.0 及以上版本。<em></em></p>
+
+<p>这种方式可以让您更灵活地管理用户 Outline 连接的各个方面。您可以通过这种方式更新服务器、端口、密码和加密方法。</p>
+
+<p><strong>示例：</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server：</strong>VPN 服务器的域名或 IP 地址。</li>
+<li><strong>server_port：</strong>运行 VPN 服务器的端口号。</li>
+<li><strong>password：</strong>连接到 VPN 所需的密码。</li>
+<li><strong>method：</strong>VPN 所用的加密方法。请参阅 Shadowsocks 支持的 <a l10n-placeholder5="5">AEAD 加密</a>。</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">使用 YAML 对象</h3>
+
+<p>Outline 客户端 1.15.0 及以上版本。<em></em></p>
+
+<p>此方式与前面的 JSON 方式类似，但通过利用 Outline 的高级配置格式增加了更多灵活性。您可以更新服务器、端口、密码、加密方法等等。</p>
+
+<p><strong>示例：</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport：</strong>定义要使用的传输协议（本例中为 TCP 和 UDP）。</li>
+<li><strong>tcp/udp：</strong>指定每种协议的配置。
+<ul>
+<li><strong>$type：</strong>表示配置的类型，本例中为 Shadowsocks。</li>
+<li><strong>endpoint：</strong>VPN 服务器的域名或 IP 地址和端口。</li>
+<li><strong>secret：</strong>连接到 VPN 所需的密码。</li>
+<li><strong>cipher：</strong>VPN 所用的加密方法。请参阅 Shadowsocks 支持的 <a l10n-placeholder6="6">AEAD 加密</a>。</li>
+</ul></li>
+</ul>
+
+<p>如需详细了解配置 Outline 服务器访问权限的所有方式（包括传输、端点、拨号器和数据包监听器），请参阅<a l10n-placeholder7="7">访问密钥配置</a>。</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">从静态密钥中提取访问信息</h2>
+
+<p>如果您已有静态访问密钥，则可以提取信息来创建基于 JSON 或 YAML 的动态访问密钥。静态访问密钥遵循以下模式：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>示例：</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>服务器：</strong><code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>服务器端口：</strong><code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>用户信息：</strong><code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> 使用 <a l10n-placeholder9="9">Google 管理员工具箱编码/解码</a>等工具以 <a l10n-placeholder8="8">base64</a> 方式解码</p>
+
+<ul>
+<li><strong>方法</strong>：<code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>密码</strong>：<code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">选择托管平台</h2>
+
+<p>现在您已经了解了如何创建动态访问密钥，为访问密钥配置选择合适的托管平台非常重要。在选择托管平台时，务必要考虑平台的可靠性、安全性、易用性和抗审查性等因素。平台能否始终如一地为您提供访问密钥信息而不会停机？平台是否会提供适当的安全措施来保护您的配置？在平台上管理访问密钥信息的难易程度如何？平台能否在实行网络审查制度的地区访问？</p>
+
+<p>如果访问信息可能会受到限制，不妨考虑托管在具有抗审查性的平台上，例如 <a l10n-placeholder10="10">Google 云端硬盘</a>、<a l10n-placeholder11="11">pad.riseup.net</a>、<a l10n-placeholder12="12">Amazon S3</a>（提供路径式访问）、<a l10n-placeholder13="13">Netlify</a> 或 <a l10n-placeholder14="14">GitHub 机密 Gist</a>。评估部署的具体需求，并根据您对可访问性和安全性的要求选择合适的平台。</p>
+
+  
+</body></html>

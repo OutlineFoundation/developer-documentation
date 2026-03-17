@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '98fbb446-430f-4322-8a08-0c746c88670a'}, 'string_id': '197316243681793442', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "การกำหนดค่าคีย์การเข้าถึง",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '484f7a4b-6666-4c7c-a951-b641a499ff2f'}, 'string_id': '11548199827800752885', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSockets",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '789f3c38-5838-43ca-b610-27f8cab5dd62'}, 'string_id': '3577165526612221809', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "HTTPS อัตโนมัติด้วย Caddy",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '55975415-7687-4196-948d-f21c4126ea0b'}, 'string_id': '184448021681782904', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "กำหนดค่า",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3a91c2cf-ce87-4b49-bbca-6ccf23f328a3'}, 'string_id': '11572796752844984969', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ข้อมูลอ้างอิง"
+}

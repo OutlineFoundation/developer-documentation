@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '84dc2596-556d-41f7-acfc-cd861fe7343b'}, 'string_id': '14753740374766196622', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "ss://-Link",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '33c7e423-fa26-4ae1-af4c-9240f94e1d04'}, 'string_id': '11158397983543878601', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "JSON-Objekt",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8c03684a-499e-468b-99f6-52b15c1ef966'}, 'string_id': '13953653058714610730', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "YAML-Objekt",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3f12cc0b-240b-46dd-a11d-61c431e8b718'}, 'string_id': '8073710844695383258', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Zugriffsinformationen aus einem statischen Schlüssel extrahieren",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'de63ab69-b727-4c0d-bde5-f61eaa322b81'}, 'string_id': '7529702666558473090', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Hostingplattform auswählen"
+}

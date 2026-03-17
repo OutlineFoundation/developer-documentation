@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f70698bb-ef9b-40a1-8bc1-8418c3d084d9'}, 'string_id': '16077083388317342628', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline-Manager",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'cb0dbdb0-ef1f-4a0a-9806-07ba80bb5f9a'}, 'string_id': '15844218680809619184', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Outline-Client",
+  "{'source_id': '28cc17fc-ec81-449d-aea0-9c1f7d11292d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ee5c3f45-14d8-4140-9e88-cfdc5674f0fb'}, 'string_id': '5821125520337137333', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Alternative Download-Links"
+}

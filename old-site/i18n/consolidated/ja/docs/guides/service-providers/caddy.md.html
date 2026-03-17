@@ -1,0 +1,62 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '79ec3d92-2daf-4576-ba37-0d88e3ba3374', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0c99755d-9652-4a3b-9bfd-8729c319ad02'}, 'string_id': '1771782244284931348', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>このガイドでは、強力でユーザー フレンドリーなウェブサーバーである <a l10n-placeholder6="6">Caddy</a> を使用して、Outline サーバーのセットアップを強化する方法を示します。Caddy には<a l10n-placeholder7="7">自動 HTTPS</a> 機能があり、柔軟性の高い構成を備えているため、Outline サーバーの機能を拡張し強化する手段として最適であり、特に WebSocket トランスポートを使用する場合におすすめです。</p>
+
+<h2 data-text="355743447653748466" id="what_is_caddy" tabindex="-1">Caddy とは何ですか？</h2>
+
+<p>Caddy は、使いやすさ、自動 HTTPS、さまざまなプロトコルのサポートという特長を持つオープンソース ウェブサーバーです。ウェブサーバーの構成を簡素化し、次のような機能を提供します。</p>
+
+<ul>
+<li><strong>自動 HTTPS:</strong> Caddy は TLS 証明書を自動的に取得し、更新して、安全な接続を維持します。</li>
+<li><strong>HTTP/3 のサポート:</strong> Caddy は最新の HTTP/3 プロトコルをサポートしており、ウェブ トラフィックの処理の高速化と効率化を図ることができます。</li>
+<li><strong>プラグインで拡張可能:</strong> Caddy をプラグインで拡張し、リバース プロキシやロード バランシングなどのさまざまな機能をサポートできます。</li>
+</ul>
+
+<h2 data-text="8657841238772566975" id="step_1_prerequisites" tabindex="-1">ステップ 1: 前提条件</h2>
+
+<ul>
+<li><a l10n-placeholder8="8"><code dir="ltr" translate="no">xcaddy</code></a> をダウンロードして、インストールします。</li>
+</ul>
+
+<h2 data-text="954093604514145141" id="step_2_configure_your_domain" tabindex="-1">ステップ 2: ドメインを構成する</h2>
+
+<p>Caddy を開始する前に、サーバーの IP アドレスを指すようにドメイン名が正しく構成されていることを確認します。</p>
+
+<ul>
+<li><strong>A/AAAA レコードの設定:</strong> DNS プロバイダにログインし、サーバーの IPv4 アドレスと IPv6 アドレスをそれぞれ指すようにドメインの A レコードと AAAA レコードを設定します。</li>
+<li><p><strong>DNS レコードの確認:</strong> 正式な DNS レコードをルックアップし、レコードが正しく設定されていることを確認します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+</ul>
+
+<h2 data-text="8552920132448623781" id="build-and-run" tabindex="-1">ステップ 3: Caddy のカスタムビルドを構築して実行する</h2>
+
+<p><code dir="ltr" translate="no">xcaddy</code> を使用して、Outline コアサーバー モジュールと必要な他のサーバー拡張機能モジュールを含む <code dir="ltr" translate="no">caddy</code> のカスタム バイナリを構築できます。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5300590180445875246" id="step_4_configure_and_run_the_caddy_server_with_outline" tabindex="-1">ステップ 4: Outline で Caddy サーバーを構成して実行する</h2>
+
+<p>新しい <code dir="ltr" translate="no">config.yaml</code> ファイルを作成し、次の構成を含めます。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code><aside class="special"><strong>重要:</strong><span> プローブを回避するため、<code dir="ltr" translate="no">path</code> をシークレットにしてください。これはシークレット エンドポイントとして機能します。長い、ランダムに生成されたパスの使用をおすすめします。</span></aside>
+<p>この構成は Shadowsocks-over-WebSockets 方式で、ウェブサーバーが <code dir="ltr" translate="no">443</code> ポートでリッスンし、Shadowsocks でラップした TCP および UDP トラフィックをそれぞれ <var translate="no">TCP_PATH</var> パスと <var translate="no">UDP_PATH</var> パスで受け入れることを意味します。</p>
+
+<p>作成した構成を使用して Outline とその拡張を含む Caddy サーバーを実行します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code><aside class="note"><strong>注:</strong><span> YAML の方が読みやすく、注釈を付けるのが容易であるため、この例では YAML を使用していますが、JSON（Caddy のネイティブ構成言語）を直接使用することもできます。これを使用する場合は、<code dir="ltr" translate="no">--adapter yaml</code> フラグを指定しないで実行し、<a l10n-placeholder9="9">ビルドおよび実行のステップ</a>で YAML アダプタの依存関係を解除することができます。</span></aside><p>他の構成例については、<a l10n-placeholder10="10">outline-ss-server/outlinecaddy GitHub
+repo</a> をご覧ください。</p>
+
+<h2 data-text="7010145673871148721" id="step_5_create_a_dynamic_access_key" tabindex="-1">ステップ 5: 動的アクセスキーを作成する</h2>
+
+<p><a l10n-placeholder11="11">高度な構成</a>の形式を使用してユーザーのクライアント アクセスキー ファイル（YAML）を生成し、サーバー側で以前に構成した WebSocket エンドポイントを含めます。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>動的アクセスキー ファイル（YAML）を生成したら、ユーザーに提供する必要があります。このファイルは静的なウェブ ホスティング サービスでホストすることも、動的に生成することもできます。<a l10n-placeholder12="12">動的アクセスキー</a>の使用方法を確認してください</p>
+
+<h2 data-text="15445614553436477202" id="step_6_connect_with_the_outline_client" tabindex="-1">ステップ 6: Outline クライアントで接続する</h2>
+
+<p>公式の <a l10n-placeholder13="13">Outline クライアント</a> アプリケーション（バージョン 1.15.0 以降）のいずれかを使用し、新しく作成した動的アクセスキーをサーバー エントリとして追加します。[<strong>接続</strong>] をクリックし、Shadowsocks-over-Websocket 構成を使用してサーバーへのトンネリングを開始します。</p>
+
+<p><a l10n-placeholder14="14">IPInfo</a> などのツールを使用して、Outline サーバー経由でインターネットをブラウジングしていることを確認します。</p>
+
+  
+</body></html>

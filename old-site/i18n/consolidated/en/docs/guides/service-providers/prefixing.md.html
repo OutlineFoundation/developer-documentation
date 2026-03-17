@@ -1,0 +1,113 @@
+<html devsite=""><head>
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '6f86f6ad-8e9a-4487-9a9b-6c4e1e8cb186', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9cce2d97-f431-43ba-8103-4393a218a168'}, 'string_id': '5183224559080815140', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>As of Outline Client version 1.9.0, access keys support the &quot;prefix&quot; option. The
+&quot;prefix&quot; is a list of bytes used as the first bytes of the
+<a l10n-placeholder4="4">salt</a> of a Shadowsocks TCP connection.
+This can make the connection look like a protocol that is allowed in the
+network, circumventing firewalls that reject protocols they don&#39;t recognize.</p>
+
+<h2 data-text="17610956299883319320" id="when_should_i_try_this" tabindex="-1">When should I try this?</h2>
+
+<p>If you suspect the users of your Outline deployment are still being blocked, you
+may want to consider trying a few different prefixes.</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">Instructions</h2>
+
+<p>The prefix should be no longer than 16 bytes. Longer prefixes may cause salt
+collisions, which can compromise the encryption safety and cause connections to
+be detected. Use the shortest prefix you can to bypass the blocking you are
+facing.</p>
+
+<p>The port you use should match the protocol that your prefix is pretending to be.
+IANA keeps a <a l10n-placeholder5="5">transport protocol port number registry</a>
+that maps protocols and port numbers.</p>
+
+<p>Some examples of effective prefixes look like common protocols:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Recommended Port</th>
+<th>JSON-encoded</th>
+<th>URL-encoded</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HTTP request</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;POST &quot;</code></td>
+<td><code dir="ltr" translate="no">POST%20</code></td>
+</tr>
+<tr>
+<td>HTTP response</td>
+<td>80 (http)</td>
+<td><code dir="ltr" translate="no">&quot;HTTP/1.1 &quot;</code></td>
+<td><code dir="ltr" translate="no">HTTP%2F1.1%20</code></td>
+</tr>
+<tr>
+<td>DNS-over-TCP request</td>
+<td>53 (dns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0005\u00DC\u005F\u00E0\u0001\u0020&quot;</code></td>
+<td><code dir="ltr" translate="no">%05%C3%9C_%C3%A0%01%20</code></td>
+</tr>
+<tr>
+<td>TLS ClientHello</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0001\u0000\u00a8\u0001\u0001&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%01%00%C2%A8%01%01</code></td>
+</tr>
+<tr>
+<td>TLS Application Data</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0013\u0003\u0003\u003F&quot;</code></td>
+<td><code dir="ltr" translate="no">%13%03%03%3F</code></td>
+</tr>
+<tr>
+<td>TLS ServerHello</td>
+<td>443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns)</td>
+<td><code dir="ltr" translate="no">&quot;\u0016\u0003\u0003\u0040\u0000\u0002&quot;</code></td>
+<td><code dir="ltr" translate="no">%16%03%03%40%00%02</code></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22 (ssh), 830 (netconf-ssh), 4334 (netconf-ch-ssh), 5162 (snmpssh-trap)</td>
+<td><code dir="ltr" translate="no">&quot;SSH-2.0\r\n&quot;</code></td>
+<td><code dir="ltr" translate="no">SSH-2.0%0D%0A</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 data-text="13867626750959801949" id="dynamic_access_keys" tabindex="-1">Dynamic Access Keys</h3>
+
+<p>To use the prefix feature with <a l10n-placeholder6="6">Dynamic Access Keys</a> (<code dir="ltr" translate="no">ssconf://</code>),
+add a &quot;prefix&quot; key to the JSON object, with a <strong>JSON-encoded</strong> value
+representing the prefix you want_ (see examples in the table above)_. You can
+use escape codes (like \u00FF) to represent non-printable Unicode codepoints in
+the <code dir="ltr" translate="no">U+0</code> to <code dir="ltr" translate="no">U+FF</code> range. For example:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="1939603936418792745" id="static_access_keys" tabindex="-1">Static Access Keys</h3>
+
+<p>To use prefixes with <strong>Static Access Keys</strong> (ss://), you&#39;ll need to modify your
+existing key before distributing it. If you have a Static Access Key generated
+by Outline Manager, grab a <strong>URL-encoded</strong> version of your prefix (see examples
+of these in the table above) and add it to the end of the access key like so:</p>
+
+<p><code dir="ltr" translate="no">ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&amp;prefix=&lt;your url-encoded prefix goes here&gt;</code></p>
+
+<p>For advanced users, you can use your browser&#39;s <code dir="ltr" translate="no">encodeURIComponent()</code> function
+to convert your <strong>JSON-encoded</strong> prefix to a <strong>URL-encoded</strong> one. To do this,
+open your web inspector console
+(*Developer &gt; Javascript Web Console *on Chrome), and type the following:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<p>Press enter. The value produced will be the *URL-encoded *version. For example:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+
+  
+</body></html>

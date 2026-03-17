@@ -1,0 +1,57 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '3d6e5b95-7c52-45ae-8c34-96d2fa5fac1a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd87d576f-3793-4efc-8210-5f544fe9d0f7'}, 'string_id': '2947989264774434818', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Это руководство поможет вам настроить среду Go и использовать Outline SDK в коде Go.</p>
+
+<p>Чтобы показать принцип работы функции SDK, мы создадим приложение под названием <code dir="ltr" translate="no">splitfetch</code> в качестве примера. Это приложение получает веб-страницу, но отправляет запрос не одним сетевым пакетом, а <strong>использует Outline SDK, чтобы разделить начальный TCP-поток на два отдельных пакета</strong>. Такой подход помогает обойти некоторые формы сетевых ограничений.</p>
+
+<p>Приложение можно запустить на устройствах с <strong>Linux, macOS или Windows</strong>.
+Вы также можете <a l10n-placeholder12="12">интегрировать Outline SDK в мобильные приложения</a>.</p>
+
+<h2 data-text="16661675211452763894" id="step_1_set_up_go" tabindex="-1">Шаг 1. Установите Go</h2>
+
+<p>Сначала необходимо установить <a l10n-placeholder13="13">язык программирования Go</a>.
+Если у вас уже установлен язык Go 1.21 или более поздней версии, перейдите к следующему шагу.</p>
+
+<p>Чтобы установить Go, следуйте <a l10n-placeholder14="14">инструкциям в официальном руководстве</a> или воспользуйтесь менеджером пакетов:</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="10206723175687340531" id="linux" tabindex="-1">Linux</h3><p>Следуйте инструкциям на странице <a l10n-placeholder15="15">Go Wiki: Ubuntu</a>.</p></section>
+<section><h3 data-text="6714864169727505999" id="mac" tabindex="-1">macOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></section>
+<section><h3 data-text="11089739881994701644" id="windows" tabindex="-1">Windows</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code></section>
+</div>
+<p>После установки Go вы можете проверить, что все работает корректно, выполнив в терминале следующую команду:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<h2 data-text="3023597709538309427" id="step_2_create_the_splitfetch_application" tabindex="-1">Шаг 2. Создайте приложение <code dir="ltr" translate="no">splitfetch</code></h2>
+
+<p>Сначала настройте проект <code dir="ltr" translate="no">splitfetch</code>. Создайте каталог проекта и инициализируйте модуль Go:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code><aside class="tip"><strong>Совет.</strong><span> Для общедоступных проектов используйте путь к своему хранилищу, например <code dir="ltr" translate="no">github.com/your-name/your-repo</code> вместо <code dir="ltr" translate="no">example/splitfetch</code>.</span></aside>
+<p>Затем добавьте в код зависимость Outline SDK и создайте файл <code dir="ltr" translate="no">main.go</code>:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<h2 data-text="17182550796958715326" id="step_3_use_outline_sdk_in_the_application" tabindex="-1">Шаг 3. Используйте Outline SDK в приложении</h2>
+
+<p>Откройте файл <code dir="ltr" translate="no">main.go</code> в предпочитаемом редакторе кода и вставьте в него указанный код. Этот код содержит всю логику приложения <code dir="ltr" translate="no">splitfetch</code>.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<p>Чтобы убедиться, что файл <code dir="ltr" translate="no">go.mod</code> был обновлен корректно, после сохранения кода выполните в терминале указанную ниже команду.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h2 data-text="7267145364279818799" id="step_4_run_the_application" tabindex="-1">Шаг 4. Запустите приложение</h2>
+
+<p>Добавив код, вы можете запустить приложение <code dir="ltr" translate="no">splitfetch</code>.</p>
+
+<p>Перейдите в каталог <code dir="ltr" translate="no">splitfetch</code> и выполните в терминале следующую команду, передав URL в качестве аргумента:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code>
+<p>Эта команда компилирует и запускает приложение, показывая HTML-код веб-страницы.</p>
+
+<p>Если вы хотите создать и распространить отдельную исполняемую программу, которую можно запускать без <code dir="ltr" translate="no">go</code>, используйте команду <code dir="ltr" translate="no">go build</code>:</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="4853434236971195657" id="linux-mac" tabindex="-1">Linux и macOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code></section>
+<section><h3 data-text="11089739881994701644" id="windows_1" tabindex="-1">Windows</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder10 --></devsite-code></section>
+</div>
+<p>После завершения сборки вы можете распространять и запускать свое приложение.
+Например:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder11 --></devsite-code>
+
+  
+</body></html>

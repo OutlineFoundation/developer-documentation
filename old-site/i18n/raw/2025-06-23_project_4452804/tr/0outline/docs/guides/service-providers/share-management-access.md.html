@@ -1,0 +1,72 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '49d5432e-202c-4d17-adc0-c81a247c4f1d', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5239d1d7-5d3d-487a-ab16-95480536d8a2'}, 'string_id': '9809964781874779152', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline hizmetiniz büyüdükçe, yönetim sorumluluklarını diğer güvenilir kişilere devretmeniz gerekebilir. Bu belgede, yönetici erişimini diğer yöneticilerle paylaşmak için kullanılabilecek çeşitli yöntemler açıklanmaktadır.</p>
+
+<p>Yönetim erişimini paylaşma yöntemi, Outline sunucunuzun ilk dağıtım şekline göre farklılık gösterir.</p>
+
+<h2 data-text="13728169041147034497" id="cloud_provider_deployments" tabindex="-1">Bulut sağlayıcı dağıtımları</h2>
+
+<p>DigitalOcean, AWS veya Google Cloud gibi bulut platformlarına dağıtılan Outline sunucuları için yönetim erişimi genellikle sağlayıcının entegre kimlik ve erişim yönetimi (IAM) özellikleri aracılığıyla yönetilir. Bu yöntem, manuel yapılandırma paylaşımına kıyasla daha güvenli ve kontrollü bir yaklaşım sağlar.</p>
+
+<h3 data-text="11998350115201903559" id="digitalocean" tabindex="-1">DigitalOcean</h3>
+
+<p>DigitalOcean'da, diğer DigitalOcean kullanıcılarını projelerinizde birlikte çalışmaya davet etmenizi sağlayan güçlü bir <strong>Teams</strong> (Ekipler) özelliği bulunur. DigitalOcean platformunda barındırılan Outline sunucunuza erişim yönetimi vermek için bu yöntemi kullanmanız önerilir.</p>
+
+<h4 data-text="17607204335383283215" id="1_grant_team_access" tabindex="-1">1. Ekibe erişim izni verme</h4>
+
+<p>DigitalOcean'da barındırılan Outline sunucunuzun yönetimini paylaşmak için en etkili yöntem, DigitalOcean'da bulunan <strong>Teams</strong> (Ekipler) özelliğidir.</p>
+
+<ul>
+<li>DigitalOcean hesabınızda oturum açın.</li>
+<li><strong>Teams</strong> (Ekipler) bölümüne gidin.</li>
+<li>Henüz oluşturmadıysanız bir ekip oluşturun veya mevcut DigitalOcean kullanıcılarınızı ekibinizin üyesi olmaları için davet edin.</li>
+<li>Üyeleri davet ederken her birine belirli bir rol atayabilir ve Outline'ı çalıştıran droplet'leriniz gibi belirli kaynaklara erişim izni verebilirsiniz.</li>
+</ul>
+
+<h4 data-text="10945940193545886169" id="2_control_permissions" tabindex="-1">2. Denetim izinleri</h4>
+
+<p>Ekip üyelerine vereceğiniz izinleri dikkatle değerlendirin. Outline sunucusunun yönetimi için üyelere ilgili droplet için "Okuma" ve "Yazma" izni verebilirsiniz. Bu sayede şunları yapabilirler:</p>
+
+<ul>
+<li>Droplet'in ayrıntılarını (IP adresi, durum vb.) görüntüleme</li>
+<li>Droplet'in konsoluna erişme (sorun giderme amacıyla gerekirse)</li>
+<li>Droplet'i yeniden başlatma gibi işlemleri (verilen izne bağlı olarak) gerçekleştirme</li>
+</ul>
+
+<p>Outline Manager'ı DigitalOcean hesaplarına bağlayan kullanıcılar artık bu hesaba bağlı tüm Outline sunucularını görüntüleyip yönetebilir.</p>
+<aside class="tip"><strong>İpucu:</strong><span> Yeni yöneticilere, gelişmiş güvenlik için bulut sağlayıcı hesaplarında çok öğeli kimlik doğrulamayı (MFA) etkinleştirmelerini tavsiye edin.</span></aside>
+<h2 data-text="790790574632918007" id="manual_installations" tabindex="-1">Manuel yüklemeler</h2>
+<aside class="caution"><strong>Dikkat:</strong><span> Manuel yüklemeler için yönetim erişimini paylaştığınızda, erişimin iptal edilmesi zor olabilir. En doğrudan yöntem, sunucuya tam yeniden yüklemedir. Bu yöntemde, yeni bir yapılandırma oluşturulur ancak tüm kullanıcı erişim anahtarları sıfırlanır.</span></aside>
+<p>Outline'ı <a l10n-placeholder3="3">yükleme komut dosyasını</a> kullanarak kendi sunucunuza manuel olarak yüklediyseniz yönetim erişimi vermek için kullanılması gereken birincil yöntem <strong>erişim yapılandırmasını</strong> paylaşmaktır.</p>
+
+<p>Outline Manager uygulamasının Outline sunucularına bağlanmak ve bu sunucuları yönetmek için özel bir yapılandırma dizesi gerekir. Bu onay dizesinde sunucu adresi, bağlantı noktası ve kimlik doğrulama için gizli anahtar gibi gerekli tüm bilgiler yer alır.</p>
+
+<h3 data-text="17272662573092759529" id="1_locate_the_accesstxt_file" tabindex="-1">1. <code dir="ltr" translate="no">access.txt</code> dosyasını bulma</h3>
+
+<p>Outline'ın yüklü olduğu sunucuda Outline dizinine gidin. Dizinin konumu yükleme yönteminize göre biraz farklılık gösterebilir ancak genellikle şu gibi konumlarda bulunur:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">/opt/outline/access.txt</code></li>
+<li><code dir="ltr" translate="no">/etc/outline/access.txt</code></li>
+<li>Outline sunucu kapsayıcısının kullandığı Docker birimi</li>
+</ul>
+
+<h3 data-text="6477120201181214791" id="2_retrieve_the_access_config" tabindex="-1">2. Erişim yapılandırmasını alma</h3>
+
+<p><code dir="ltr" translate="no">access.txt</code> dosyasını bulduğunuzda dosyayı JSON'a dönüştürün. Outline Manager bir sonraki adımda bu biçimi bekler.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Çıkışta kendinden imzalı sertifika parmak izi (<code dir="ltr" translate="no">certSha256</code>) ve sunucudaki yönetim API'sinin uç noktası (<code dir="ltr" translate="no">apiUrl</code>) bulunur:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code><aside class="special"><strong>Önemli:</strong><span> Bu satırda hassas bilgiler yer alır. Satırı yalnızca yönetim erişimine ihtiyacı olan güvenilir kişilerle paylaşın.</span></aside>
+<h3 data-text="14920691555231850591" id="3_share_the_access_config_securely" tabindex="-1">3. Erişim yapılandırmasını güvenle paylaşma</h3>
+
+<p>Çıkışı kopyalayıp yeni Outline yöneticisi ile güvenli bir şekilde paylaşın. Düz e-posta veya anlık mesajlaşma uygulamaları gibi şifrelenmemiş kanallardan göndermeyin.
+Parola yöneticilerinin güvenli paylaşma özelliklerini veya başka bir şifrelenmiş iletişim yöntemi kullanabilirsiniz.</p>
+
+<p>Sağlanan <strong>erişim kodu</strong> Outline Manager'a yapıştırıldığında, yeni yönetici Outline sunucusunu ekleyip uygulama arayüzünden yönetebilir. Outline Manager'ı kullanma hakkında daha fazla bilgiye <a l10n-placeholder4="4">Outline Yardım Merkezi</a>'nden ulaşılabilir.</p>
+
+  
+</body></html>

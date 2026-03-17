@@ -1,0 +1,47 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '084441b1-7379-4c1b-ad07-d6cdaac57070'}, 'string_id': '6201848709562429957', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>‫Outline SDK براساس برخی مفاهیم پایه ساخته شده است که به‌عنوان میاناهای
+هم‌کنش‌پذیر تعریف می‌شوند که اجازه می‌دهند به‌سادگی بنویسید و دوباره استفاده کنید.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">اتصال‌ها</h2>
+
+<p>اتصال‌ها ارتباط بین دو نقطه پایانی را با
+حمل‌ونقلی انتزاعی فعال می‌کنند. دو نوع اتصال وجود دارد:</p>
+
+<ul>
+<li>‫<code dir="ltr" translate="no">transport.StreamConn</code>: اتصال مبتنی بر جاری‌سازی،
+مثل TCP و نوع پریز Posix <code dir="ltr" translate="no">SOCK_STREAM</code></li>
+<li>‫<code dir="ltr" translate="no">transport.PacketConn</code>: اتصال مبتنی بر داده‌نگار،
+مثل UDP و نوع پریز Posix <code dir="ltr" translate="no">SOCK_DGRAM</code>.
+ما به‌جای «داده‌نگار» از «بسته» استفاده می‌کنیم زیرا در
+کتابخانه استاندارد Go مرسوم است.</li>
+</ul>
+
+<p>اتصال‌ها می‌توانند بسته‌بندی شوند تا اتصال‌های تودرتویی روی حمل‌ونقل جدید ساخته شود.
+برای نمونه، <code dir="ltr" translate="no">StreamConn</code> می‌تواند روی TCP، روی «امنیت لایه انتقال» روی TCP، روی HTTP روی
+«امنیت لایه انتقال» روی TCP، روی QUIC، بین گزینه‌های دیگر باشد.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">شماره‌گیرها</h2>
+
+<p>شماره‌گیرها ساختن اتصال‌های نشانی میزبان:درگاه ارائه‌شده را فعال می‌کنند، همچنان‌که
+انتقال زیرین یا پروتکل پراکسی را بسته‌بندی می‌کنند.
+انواع <code dir="ltr" translate="no">StreamDialer</code> و <code dir="ltr" translate="no">PacketDialer</code> باتوجه‌به نشانی داده‌شده به‌ترتیب اتصال‌های <code dir="ltr" translate="no">StreamConn</code> و <code dir="ltr" translate="no">PacketConn</code>
+را می‌سازند. شماره‌گیرها می‌توانند لانه‌گیری هم شوند.
+برای نمونه، «شماره‌گیر جاری‌سازی امنیت لایه انتقال» می‌تواند از شماره‌گیر TCP استفاده کند تا <code dir="ltr" translate="no">StreamConn</code> را بسازد
+که با اتصال TCP پشتیبانی می‌شود، سپس «امنیت لایه انتقال» <code dir="ltr" translate="no">StreamConn</code> را بسازد که با TCP
+<code dir="ltr" translate="no">StreamConn</code> پشتیبانی می‌شود. «شماره‌گیر SOCKS5-over-TLS» می‌تواند برای «شماره‌گیر امنیت لایه انتقال» استفاده شود تا
+«امنیت لایه انتقال» <code dir="ltr" translate="no">StreamConn</code> را برای پراکسی بسازد، پیش‌از اینکه اتصال SOCKS5 را در نشانی
+هدف ایجاد کند.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">رافع‌ها</h2>
+
+<p>رافع‌ها (<code dir="ltr" translate="no">dns.Resolver</code>) پاسخ‌دهی به پرسش‌های ساناد را فعال می‌کنند، همچنان‌که
+پروتکل یا الگوریتم زیرین را بسته‌بندی می‌کنند.
+رافع‌ها اصولاً برای تخصیص دادن نام‌های دامنه به نشانی‌های IP استفاده می‌شوند.</p>
+
+  
+</body></html>

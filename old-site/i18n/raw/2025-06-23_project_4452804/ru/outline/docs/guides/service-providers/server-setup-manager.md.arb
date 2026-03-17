@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '923d80f3-cf96-4d19-8793-6cf8227ae520'}, 'string_id': '14713100077450840501', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Дальнейшие действия",
+  "{'source_id': '0a419590-5b15-4603-badc-d1e060aec043', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '78bbfc05-a623-48a6-a125-7e337eaa5d4a'}, 'string_id': '6973735686693164871', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Как выполнить развертывание с помощью Менеджера Outline"
+}

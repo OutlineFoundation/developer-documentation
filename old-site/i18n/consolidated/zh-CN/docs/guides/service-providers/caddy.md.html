@@ -1,0 +1,62 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '79ec3d92-2daf-4576-ba37-0d88e3ba3374', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'aad67c3e-c833-4bcc-8647-ca39507dc1ed'}, 'string_id': '1771782244284931348', 'target_locale_code': 'zh_cn', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>本指南介绍了如何使用强大易用的 Web 服务器 <a l10n-placeholder6="6">Caddy</a> 来增强 Outline 服务器设置。Caddy 具有<a l10n-placeholder7="7">自动 HTTPS</a> 功能和灵活的配置，是为 Outline 服务器提供支持的理想选择，尤其适合使用 WebSocket 传输的应用场景。</p>
+
+<h2 data-text="355743447653748466" id="what_is_caddy" tabindex="-1">什么是 Caddy？</h2>
+
+<p>Caddy 是一种开源 Web 服务器，它易于使用、具备自动 HTTPS 功能且支持各种协议。该服务器简化了 Web 服务器配置，提供了以下实用功能：</p>
+
+<ul>
+<li><strong>自动 HTTPS</strong>：Caddy 可自动获取和续订 TLS 证书，确保连接安全性。</li>
+<li><strong>HTTP/3 支持</strong>：Caddy 支持最新 HTTP/3 协议，能够实现更快、更高效的网络流量传输。</li>
+<li><strong>支持插件扩展</strong>：Caddy 可通过插件进行扩展，以支持各种功能，包括反向代理和负载均衡。</li>
+</ul>
+
+<h2 data-text="8657841238772566975" id="step_1_prerequisites" tabindex="-1">第 1 步：前提条件</h2>
+
+<ul>
+<li>下载并安装 <a l10n-placeholder8="8"><code dir="ltr" translate="no">xcaddy</code></a></li>
+</ul>
+
+<h2 data-text="954093604514145141" id="step_2_configure_your_domain" tabindex="-1">第 2 步：配置域名</h2>
+
+<p>在启动 Caddy 之前，请务必正确配置域名，使其指向服务器的 IP 地址。</p>
+
+<ul>
+<li><strong>设置 A/AAAA 记录</strong>：登录 DNS 提供商的网站，设置域名的 A 记录和 AAAA 记录，确保它们分别指向服务器的 IPv4 地址和 IPv6 地址。</li>
+<li><p><strong>验证 DNS 记录</strong>：通过权威查找验证 DNS 记录是否设置正确：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+</ul>
+
+<h2 data-text="8552920132448623781" id="build-and-run" tabindex="-1">第 3 步：构建并运行自定义 Caddy build</h2>
+
+<p>使用 <code dir="ltr" translate="no">xcaddy</code>，您可以构建自定义 <code dir="ltr" translate="no">caddy</code> 二进制文件，并在其中添加 Outline 核心服务器模块和所需的其他服务器扩展模块。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5300590180445875246" id="step_4_configure_and_run_the_caddy_server_with_outline" tabindex="-1">第 4 步：使用 Outline 配置并运行 Caddy 服务器</h2>
+
+<p>创建一个包含以下配置的新 <code dir="ltr" translate="no">config.yaml</code> 文件：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code><aside class="special"><strong>重要提示</strong>：<span>请确保 <code dir="ltr" translate="no">path</code> 的机密性，以免被探测。它将充当秘密端点。建议使用随机生成的长路径。</span></aside>
+<p>此配置代表 Shadowsocks-over-WebSocket 策略，其中 Web 服务器监听端口 <code dir="ltr" translate="no">443</code>，并分别在路径 <var translate="no">TCP_PATH</var> 和 <var translate="no">UDP_PATH</var> 接受 TCP 和 UDP Shadowsocks 封装的流量。</p>
+
+<p>使用创建的配置运行使用 Outline 扩展的 Caddy 服务器：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code><aside class="note"><strong>注意：</strong><span>以上示例使用的是更易于读取和注释的 YAML，您也可以直接使用 JSON（Caddy 的原生配置语言）。如果使用 JSON，您无需 <code dir="ltr" translate="no">--adapter yaml</code> 标志即可运行 Caddy 服务器，并可在<a l10n-placeholder9="9">构建和运行步骤</a>中移除 YAML 适配器依赖项。</span></aside>
+<p>如需查看更多示例配置，请访问我们的 <a l10n-placeholder10="10">outline-ss-server/outlinecaddy GitHub 仓库</a>。</p>
+
+<h2 data-text="7010145673871148721" id="step_5_create_a_dynamic_access_key" tabindex="-1">第 5 步：创建动态访问密钥</h2>
+
+<p>使用<a l10n-placeholder11="11">高级配置</a>格式为用户生成客户端访问密钥 YAML 文件，并在其中添加之前在服务器端配置的 WebSocket 端点：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>生成动态访问密钥 YAML 文件后，您需要将其提供给用户。您可以将文件托管在静态网站托管服务中，也可以动态生成文件。详细了解如何使用<a l10n-placeholder12="12">动态访问密钥</a>。</p>
+
+<h2 data-text="15445614553436477202" id="step_6_connect_with_the_outline_client" tabindex="-1">第 6 步：连接到 Outline 客户端</h2>
+
+<p>使用某个官方 <a l10n-placeholder13="13">Outline 客户端</a>应用（1.15.0 及更高版本），将新创建的动态访问密钥添加为服务器条目。点击<strong>连接</strong>，开始使用 Shadowsocks-over-WebSocket 配置通过隧道技术连接到服务器。</p>
+
+<p>使用 <a l10n-placeholder14="14">IPInfo</a> 等工具验证您是否在通过 Outline 服务器浏览互联网。</p>
+
+  
+</body></html>

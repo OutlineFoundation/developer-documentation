@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '56598f3e-1813-4ad7-a129-758ca8fbc475'}, 'string_id': '5016549043304130312', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Szczegółowe instrukcje",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'cca73ed6-76d8-4229-9b1b-ceb34cf93c89'}, 'string_id': '16509802911453266336', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Konfigurowanie serwera Outline"
+}

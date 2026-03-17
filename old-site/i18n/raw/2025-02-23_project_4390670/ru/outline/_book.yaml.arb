@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e100232c-6805-4f93-b4f2-15398c9b4cfd'}, 'string_id': '197316243681793442', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Конфигурация ключей доступа",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd5103529-9c3d-4cdb-abf2-f850c67676c4'}, 'string_id': '11548199827800752885', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSockets",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '91b99aee-a6a5-4168-af64-999a386b148b'}, 'string_id': '3577165526612221809', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Caddy с автоматическим HTTPS",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9cccfc09-7290-4e6d-ab4d-eea3107b29cb'}, 'string_id': '184448021681782904', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Конфигурация"
+}

@@ -1,0 +1,8 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6dfd32c2-5db8-42d9-b2f8-a3330813be15'}, 'string_id': '14753740374766196622', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "استخدام رابط ss://‎",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '603ee354-b8b7-458b-9ac9-1fa97c159352'}, 'string_id': '11158397983543878601', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "استخدام عنصر JSON",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c1b7fbe9-3aac-4cc4-b84b-0e5706a65422'}, 'string_id': '13953653058714610730', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "استخدام عنصر YAML",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '052a65a4-6b30-41f0-93dc-6eddd2d0ac07'}, 'string_id': '8073710844695383258', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "استخراج معلومات الوصول من مفتاح وصول ثابت",
+  "{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4e2088a6-bbe0-4472-807f-954d4f49e557'}, 'string_id': '7529702666558473090', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "اختيار منصة استضافة"
+}

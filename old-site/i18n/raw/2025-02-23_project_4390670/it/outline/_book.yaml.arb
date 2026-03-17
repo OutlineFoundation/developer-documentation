@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '9e6d5932-e1c5-479c-a39f-8c5ab2b8f4c1'}, 'string_id': '197316243681793442', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Configurazione delle chiavi di accesso",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '403e0d97-abf1-4dad-9c74-f65dd3ead490'}, 'string_id': '11548199827800752885', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Shadowsocks-over-WebSockets",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'f12f1585-9737-40d8-bbf4-c4c9737e1a2a'}, 'string_id': '3577165526612221809', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "HTTPS automatico con Caddy",
+  "{'source_id': '1f83130a-3bcf-470f-9efe-daff90891d1b', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c889c4e0-723d-445a-bb38-6170accf3fb0'}, 'string_id': '184448021681782904', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Config"
+}

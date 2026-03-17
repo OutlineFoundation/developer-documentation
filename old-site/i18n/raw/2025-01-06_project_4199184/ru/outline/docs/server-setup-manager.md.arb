@@ -1,0 +1,5 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '137721cb-43b9-4cb1-80ec-12041e8c1e69'}, 'string_id': '5016549043304130312', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Пошаговые инструкции",
+  "{'source_id': '307c5ae5-0c04-4f3a-b68e-85ad346634ca', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2a782c16-9f40-4ab2-be3c-6ba112db51a5'}, 'string_id': '16509802911453266336', 'target_locale_code': 'ru', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Настройка сервера Outline"
+}

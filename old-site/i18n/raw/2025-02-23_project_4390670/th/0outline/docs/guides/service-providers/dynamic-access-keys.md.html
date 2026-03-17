@@ -1,0 +1,82 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'c7164d3c-0ae8-434f-b16b-9c3d464396fb'}, 'string_id': '7370928615664798887', 'target_locale_code': 'th', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline ให้บริการคีย์การเข้าถึง 2 ประเภท ได้แก่ แบบคงที่และแบบไดนามิก คีย์แบบคงที่จะเข้ารหัสข้อมูลการเชื่อมต่อทั้งหมดภายในตัวคีย์เอง ในขณะที่คีย์แบบไดนามิกจะเข้ารหัสตำแหน่งของข้อมูลการเชื่อมต่อ ช่วยให้คุณสามารถจัดเก็บข้อมูลดังกล่าวจากระยะไกลและเปลี่ยนแปลงข้อมูลได้หากจำเป็น ซึ่งหมายความว่าคุณสามารถอัปเดตการกำหนดค่าเซิร์ฟเวอร์ได้โดยไม่ต้องสร้างและแจกจ่ายคีย์ใหม่ให้กับผู้ใช้ เอกสารนี้จะอธิบายวิธีการใช้คีย์การเข้าถึงแบบไดนามิกเพื่อให้จัดการเซิร์ฟเวอร์ Outline ได้อย่างยืดหยุ่นและมีประสิทธิภาพมากขึ้น</p>
+
+<p>คุณมี 3 รูปแบบในการระบุข้อมูลการเข้าถึงเพื่อให้คีย์การเข้าถึงแบบไดนามิกนำไปใช้ ดังนี้</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">ใช้ลิงก์ <code dir="ltr" translate="no">ss://</code></h3>
+
+<p><em>ไคลเอ็นต์ Outline เวอร์ชัน 1.8.1 ขึ้นไป</em></p>
+
+<p>คุณสามารถใช้ลิงก์ <code dir="ltr" translate="no">ss://</code> ที่มีอยู่ได้โดยตรง วิธีนี้เหมาะอย่างยิ่งหากคุณไม่จำเป็นต้องเปลี่ยนเซิร์ฟเวอร์ พอร์ต หรือวิธีการเข้ารหัสบ่อยๆ แต่ยังต้องการความยืดหยุ่นในการอัปเดตที่อยู่เซิร์ฟเวอร์</p>
+
+<p><strong>ตัวอย่าง:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">ใช้ออบเจ็กต์ JSON</h3>
+
+<p><em>ไคลเอ็นต์ Outline เวอร์ชัน 1.8.0 ขึ้นไป</em></p>
+
+<p>วิธีนี้ช่วยเพิ่มความยืดหยุ่นในการจัดการการเชื่อมต่อ Outline ของผู้ใช้ในทุกๆ ด้าน คุณจึงอัปเดตเซิร์ฟเวอร์ พอร์ต รหัสผ่าน และวิธีการเข้ารหัสได้ด้วยวิธีนี้</p>
+
+<p><strong>ตัวอย่าง:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server:</strong> โดเมนหรือที่อยู่ IP ของเซิร์ฟเวอร์ VPN ของคุณ</li>
+<li><strong>server_port:</strong> หมายเลขพอร์ตที่เซิร์ฟเวอร์ VPN ของคุณกำลังทำงานอยู่</li>
+<li><strong>password:</strong> รหัสผ่านที่ต้องใช้ในการเชื่อมต่อกับ VPN</li>
+<li><strong>method:</strong> วิธีการเข้ารหัสที่ VPN ใช้ โปรดดู<a l10n-placeholder5="5">การเข้ารหัส AEAD</a> ที่ Shadowsocks รองรับ</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">ใช้ออบเจ็กต์ YAML</h3>
+
+<p><em>ไคลเอ็นต์ Outline เวอร์ชัน 1.15.0 ขึ้นไป</em></p>
+
+<p>วิธีนี้คล้ายกับวิธี JSON ก่อนหน้า แต่เพิ่มความยืดหยุ่นมากยิ่งขึ้นโดยใช้ประโยชน์จากรูปแบบการกำหนดค่าขั้นสูงของ Outline คุณจึงอัปเดตเซิร์ฟเวอร์ พอร์ต รหัสผ่าน วิธีการเข้ารหัส และอื่นๆ ได้อีกมากมาย</p>
+
+<p><strong>ตัวอย่าง:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport:</strong> กำหนดโปรโตคอลการรับส่งที่จะใช้ (TCP และ UDP ในกรณีนี้)</li>
+<li><strong>tcp/udp:</strong> ระบุการกำหนดค่าสำหรับแต่ละโปรโตคอล
+<ul>
+<li><strong>$type:</strong> ระบุประเภทของการกำหนดค่า ในที่นี้คือ shadowsocks</li>
+<li><strong>endpoint:</strong> โดเมนหรือที่อยู่ IP และพอร์ตของเซิร์ฟเวอร์ VPN ของคุณ</li>
+<li><strong>secret:</strong> รหัสผ่านที่ต้องใช้ในการเชื่อมต่อกับ VPN</li>
+<li><strong>cipher:</strong> วิธีการเข้ารหัสที่ VPN ใช้ โปรดดู<a l10n-placeholder6="6">การเข้ารหัส AEAD</a> ที่ Shadowsocks รองรับ</li>
+</ul></li>
+</ul>
+
+<p>ดู<a l10n-placeholder7="7">การกำหนดค่าคีย์การเข้าถึง</a>เพื่อดูรายละเอียดเกี่ยวกับวิธีการทั้งหมดที่คุณสามารถกำหนดค่าการเข้าถึงเซิร์ฟเวอร์ Outline ของคุณได้ ซึ่งรวมถึง Transport, Endpoint, Dialer และ Packet Listener</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">ดึงข้อมูลการเข้าถึงจากคีย์แบบคงที่</h2>
+
+<p>หากมีคีย์การเข้าถึงแบบคงที่อยู่แล้ว คุณสามารถดึงข้อมูลออกมาเพื่อสร้างคีย์การเข้าถึงแบบไดนามิกในรูปแบบ JSON หรือ YAML ได้ โดยคีย์การเข้าถึงแบบคงที่จะเป็นไปตามรูปแบบต่อไปนี้</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>ตัวอย่าง:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>เซิร์ฟเวอร์:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>พอร์ตของเซิร์ฟเวอร์:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>ข้อมูลผู้ใช้:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> ถอดรหัสเป็น <a l10n-placeholder8="8">base64</a> โดยใช้เครื่องมืออย่าง <a l10n-placeholder9="9">Google Admin Toolbox Encode/Decode</a></p>
+
+<ul>
+<li><strong>เมธอด</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>รหัสผ่าน</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">เลือกแพลตฟอร์มโฮสติ้ง</h2>
+
+<p>เมื่อเข้าใจวิธีการสร้างคีย์การเข้าถึงแบบไดนามิกแล้ว สิ่งสำคัญคือต้องเลือกแพลตฟอร์มโฮสติ้งที่เหมาะสมสำหรับการกำหนดค่าคีย์การเข้าถึงของคุณ เมื่อถึงเวลาต้องเลือก โปรดพิจารณาปัจจัยต่างๆ เช่น ความน่าเชื่อถือ ความปลอดภัย ความสะดวกในการใช้งาน และการป้องกันการเซ็นเซอร์ของแพลตฟอร์ม อีกทั้งต้องพิจารณาว่าแพลตฟอร์มจะให้บริการข้อมูลคีย์การเข้าถึงของคุณอย่างสม่ำเสมอโดยไม่ต้องหยุดทำงานหรือไม่ แพลตฟอร์มมีมาตรการรักษาความปลอดภัยที่เหมาะสมเพื่อปกป้องการกำหนดค่าของคุณหรือไม่ การจัดการข้อมูลคีย์การเข้าถึงบนแพลตฟอร์มทำได้ง่ายเพียงใด และแพลตฟอร์มเข้าถึงได้ในภูมิภาคที่มีการเซ็นเซอร์อินเทอร์เน็ตหรือไม่</p>
+
+<p>ในกรณีที่การเข้าถึงข้อมูลอาจถูกจำกัด ให้พิจารณาโฮสติ้งบนแพลตฟอร์มที่ป้องกันการเซ็นเซอร์ เช่น <a l10n-placeholder10="10">Google ไดรฟ์</a>, <a l10n-placeholder11="11">pad.riseup.net</a>, <a l10n-placeholder12="12">Amazon S3</a> (พร้อมการเข้าถึงแบบเส้นทาง), <a l10n-placeholder13="13">Netlify</a> หรือ <a l10n-placeholder14="14">GitHub secret gists</a>
+ประเมินความต้องการเฉพาะในการใช้งานของคุณและเลือกแพลตฟอร์มที่สอดคล้องกับข้อกำหนดสำหรับการเข้าถึงและความปลอดภัย</p>
+
+  
+</body></html>

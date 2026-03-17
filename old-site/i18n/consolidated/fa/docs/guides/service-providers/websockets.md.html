@@ -1,0 +1,79 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3e4c6c56-cde8-4ad1-9a14-556cdcb7e981'}, 'string_id': '8881571525508256907', 'target_locale_code': 'fa', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><em>کارخواه Outline نسخه ۱.۱۵.۰ به بالا.</em></p>
+
+<p>این آموزش گام‌به‌گام راهنمایی مشروح مرحله‌به‌مرحله‌ای را ارائه می‌دهد تا به شما کمک کند
+Shadowsocks-over-WebSockets را، تکنیک قدرتمندی برای دور زدن سانسور در
+محیط‌هایی که اتصال‌های معمول Shadowsocks مسدود است، اجرا کنید. با بسته‌بندی کردن
+ترافیک Shadowsocks درون WebSockets، می‌توانید آن را به‌عنوان ترافیک وب استاندارد مخفی کنید و
+تاب‌آوری و دسترس‌پذیری را بهبود دهید.</p>
+<aside class="note"><strong>نکته:</strong><span> Shadowsocks-over-WebSockets فقط برای کارخواهان Outline
+نسخه ۱.۱۵.۰ و بالاتر پشتیبانی می‌شود. باید پیکربندی‌های کنونی‌تان را حفظ کنید تا نسخه‌های قدیمی‌تر کارخواه
+را پشتیبانی کنید.</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">مرحله ۱: پیکربندی و اجرای سرور Outline</h2>
+
+<p>فایل <code dir="ltr" translate="no">config.yaml</code> جدیدی را با پیکربندی‌های زیر بسازید:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>نکته:</strong><span> <code dir="ltr" translate="no">path</code> را مخفی نگه دارید تا از تفحص پرهیز کنید. این فایل مثل یک نقطه پایانی رمزی است. مسیر
+تولیدشده طولانی و تصادفی توصیه می‌شود.</span></aside>
+<p>جدیدترین
+<a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a>
+را بارگیری کنید و آن را بااستفاده از پیکربندی ساخته‌شده اجرا کنید:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">مرحله ۲: افشا کردن سرور وب</h2>
+
+<p>برای اینکه سرور وب WebSocket شما دردسترس عموم قرار گیرد، باید آن را
+در اینترنت افشا کنید و
+<a l10n-placeholder6="6">امنیت لایه انتقال (TLS)</a> را پیکربندی کنید.
+برای دست‌یافتن به این امر چندین گزینه دارید. می‌توانید از سرور وب محلی‌ای مثل
+<a l10n-placeholder7="7">Caddy</a>،‏ <a l10n-placeholder8="8">nginx</a>، یا
+<a l10n-placeholder9="9">Apache</a> استفاده کنید تا مطمئن شوید دارای گواهینامه «امنیت لایه انتقال» معتبری است، یا
+از سرویس تونل‌زنی مثل <a l10n-placeholder10="10">تونل
+Cloudflare</a>
+یا <a l10n-placeholder11="11">ngrok</a> استفاده کنید.</p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">نمونه استفاده از TryCloudflare</h3>
+<aside class="caution"><strong>احتیاط کنید:</strong><span> TryCloudflare فقط برای آزمایش و نسخه نمایشی است.</span></aside>
+<p>برای این نمونه، بااستفاده از
+<a l10n-placeholder12="12">TryCloudflare</a>
+ساختن تونل سریع را نمایش می‌دهیم. این کار روشی راحت و ایمن را ارائه می‌کند تا
+سرور وب محلی‌تان بدون اینکه درگاه‌های ورودی‌اش باز شود افشا شود.</p>
+
+<ol>
+<li><p>بارگیری و نصب
+<a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a>.</p></li>
+<li><p>ساختن تونلی که به درگاه سرور وب محلی‌تان هدایت می‌کند:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>‫Cloudflare زیردامنه‌ای را ارائه می‌دهد (برای نمونه،
+<code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code>) تا به نقطه پایانی WebSocket دسترسی پیدا کند
+و به «امنیت لایه انتقال» به‌طور خودکار رسیدگی شود. این زیردامنه را یادداشت کنید زیرا
+بعداً به آن نیاز خواهید داشت.</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">مرحله ۳: ساختن کلید دسترسی پویا</h2>
+
+<p>بااستفاده از قالب <a l10n-placeholder14="14">پیکربندی کلید دسترسی</a>، فایل YAML مربوط به کلید دسترسی کارخواه را برای کاربرانتان تولید کنید
+و نقطه‌های پایانی WebSocket را که قبلاً
+در سمت سرور پیکربندی شده است به آن اضافه کنید:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>پس‌از تولید فایل YAML مربوط به کلید دسترسی پویا، باید آن را به
+کاربرانتان بدهید. این فایل را می‌توانید در سرویس میزبانی وب ثابت میزبانی کنید یا آن را به‌صورت پویا
+تولید کنید. درباره چگونگی استفاده از <a l10n-placeholder15="15">کلیدهای دسترسی
+پویا</a> بیشتر بدانید.</p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">مرحله ۴: اتصال با کارخواه Outline</h2>
+
+<p>از یکی از برنامه‌های <a l10n-placeholder16="16">کارخواه Outline</a> (نسخه ۱.۱۵.۰ یا بالاتر) رسمی استفاده کنید
+و کلید دسترسی پویایی را که به‌تازگی ساخته‌اید به‌عنوان
+ورودی سرور اضافه کنید. روی <strong>اتصال</strong> کلیک کنید تا تونل زدن به سرور خود را بااستفاده از
+پیکربندی Shadowsocks-over-Websocket آغاز کنید.</p>
+
+<p>از ابزاری مثل <a l10n-placeholder17="17">IPInfo</a> استفاده کنید تا تأیید کنید اکنون
+اینترنت را با سرور Outline مرور می‌کنید.</p>
+
+  
+</body></html>

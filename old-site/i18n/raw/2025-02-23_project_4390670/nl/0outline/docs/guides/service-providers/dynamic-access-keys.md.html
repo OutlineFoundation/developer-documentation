@@ -1,0 +1,82 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd3bfc44e-48df-4c21-a2d5-a8185d1fbf37'}, 'string_id': '7370928615664798887', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline biedt 2 typen toegangssleutels: statische en dynamische. Statische sleutels coderen alle verbindingsinformatie in de sleutel zelf. Dynamische sleutels coderen de locatie van de verbindingsinformatie, zodat je die op afstand kunt opslaan en indien nodig kunt wijzigen. Je kunt dan je serverconfiguratie updaten zonder nieuwe sleutels te hoeven maken en naar je gebruikers te sturen. In dit document staat uitgelegd hoe je dynamische toegangssleutels kunt gebruiken om je Outline-server flexibeler en efficiënter te beheren.</p>
+
+<p>Er zijn 3 indelingen om de toegangsinformatie op te geven die de dynamische toegangssleutels gebruiken:</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">Een <code dir="ltr" translate="no">ss://</code>-link gebruiken</h3>
+
+<p><em>Outline-client v1.8.1+.</em></p>
+
+<p>Je kunt een bestaande <code dir="ltr" translate="no">ss://</code>-link rechtstreeks gebruiken. Deze methode is ideaal als je de server, poort of versleutelingsmethode niet regelmatig hoeft te wijzigen, maar nog wel de flexibiliteit wilt hebben om het serveradres te updaten.</p>
+
+<p><strong>Voorbeeld:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">Een json-object gebruiken</h3>
+
+<p><em>Outline-client v1.8.0+.</em></p>
+
+<p>Met deze methode heb je de flexibiliteit om alle aspecten van de Outline-verbinding van je gebruikers te beheren. Hiermee kun je de server, de poort, het wachtwoord en de versleutelingsmethode updaten.</p>
+
+<p><strong>Voorbeeld:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server:</strong> Het domein of IP-adres van je VPN-server.</li>
+<li><strong>server_port:</strong> Het poortnummer waarop je VPN-server wordt uitgevoerd.</li>
+<li><strong>password:</strong> Het wachtwoord om verbinding te maken met de VPN.</li>
+<li><strong>method:</strong> De versleutelingsmethode die de VPN gebruikt. Controleer de door Shadowsocks ondersteunde <a l10n-placeholder5="5">AEAD-coderingen</a>.</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">Een YAML-object gebruiken</h3>
+
+<p><em>Outline-client v1.15.0+.</em></p>
+
+<p>Deze methode lijkt op de eerder genoemde json-methode, maar voegt nog meer flexibiliteit toe door de geavanceerde configuratie-indeling van Outline in te zetten. Je kunt de server, de poort, het wachtwoord, de versleutelingsmethode en nog veel meer updaten.</p>
+
+<p><strong>Voorbeeld:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport:</strong> De transportprotocollen die moeten worden gebruikt (in dit geval TCP en UDP).</li>
+<li><strong>tcp/udp:</strong> De configuratie voor elk protocol.
+<ul>
+<li><strong>$type:</strong> Het type configuratie, in dit geval shadowsocks.</li>
+<li><strong>endpoint:</strong> Het domein of IP-adres en de poort van je VPN-server.</li>
+<li><strong>secret:</strong> Het wachtwoord om verbinding te maken met de VPN.</li>
+<li><strong>cipher:</strong> De versleutelingsmethode die de VPN gebruikt. Controleer de door Shadowsocks ondersteunde <a l10n-placeholder6="6">AEAD-coderingen</a>.</li>
+</ul></li>
+</ul>
+
+<p>Ga naar <a l10n-placeholder7="7">Configuratie van toegangssleutel</a> voor informatie over alle manieren waarop je de toegang tot je Outline-server kunt instellen, inclusief transporten, eindpunten, dialers en pakketlisteners.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">Toegangsinformatie ophalen uit een statische sleutel</h2>
+
+<p>Als je een bestaande statische sleutel hebt, kun je de informatie daaruit ophalen om een op json of YAML gebaseerde dynamische toegangssleutel te maken. Statische toegangssleutels volgen dit patroon:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Voorbeeld:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>Server:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>Serverpoort:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>Gebruikersgegevens:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> Gedecodeerd als <a l10n-placeholder8="8">base64</a> via een tool als <a l10n-placeholder9="9">Encode/Decode in de Google Admin Toolbox</a></p>
+
+<ul>
+<li><strong>Methode</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>Wachtwoord</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">Een hostingplatform kiezen</h2>
+
+<p>Nu je weet hoe je dynamische toegangssleutels maakt, is het belangrijk dat je een geschikt hostingplatform kiest voor de configuratie van je toegangssleutel. Neem hierbij de betrouwbaarheid, de beveiliging, het gebruiksgemak en de weerbaarheid tegen censuur van het platform in overweging. Geeft het platform je toegangssleutel continu weer zonder downtime? Biedt het platform de juiste beveiligingsmaatregelen om je configuratie te beschermen? Hoe makkelijk is het om de gegevens van je toegangssleutel te beheren via het platform? Is het platform toegankelijk in regio's waar internet wordt gecensureerd?</p>
+
+<p>Voor situaties waar de toegang tot informatie mogelijk beperkt is, raden we je aan je configuratie te hosten op platforms die bestand zijn tegen censuur, zoals <a l10n-placeholder10="10">Google Drive</a>, <a l10n-placeholder11="11">pad.riseup.net</a>, <a l10n-placeholder12="12">Amazon S3</a> (met toegang in padvorm), <a l10n-placeholder13="13">Netlify</a> of <a l10n-placeholder14="14">geheime gists op GitHub</a>.
+Breng de specifieke behoeften van je implementatie in kaart en kies een platform dat voldoet aan je vereisten voor toegankelijkheid en beveiliging.</p>
+
+  
+</body></html>

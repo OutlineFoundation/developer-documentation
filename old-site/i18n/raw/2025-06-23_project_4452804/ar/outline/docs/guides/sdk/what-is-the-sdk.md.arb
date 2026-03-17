@@ -1,0 +1,6 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2c2d30e0-069d-4747-b630-212ba7117f02'}, 'string_id': '17850610955705022423', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "الإجراءات التي يمكن تنفيذها باستخدام Outline SDK",
+  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '3326bc50-7128-4652-ac13-954e5b32518e'}, 'string_id': '14026997848341032675', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "المزايا الرئيسية",
+  "{'source_id': 'fe11ad78-3e26-488b-907c-f43784aad0f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '8498904d-7d20-4289-b7b9-91825db293e1'}, 'string_id': '3492466098233101230', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "لمحة عن حزمة تطوير البرامج (SDK)"
+}

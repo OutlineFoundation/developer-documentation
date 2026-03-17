@@ -1,0 +1,97 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '11ce5384-efb1-4b52-9010-ec778de61ff2', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '71b7f3ca-da74-4054-a5cb-f1e0d261c401'}, 'string_id': '3525800959540017658', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Ce document explique comment intégrer le SDK Outline à des applications mobiles et se concentre sur la bibliothèque <code dir="ltr" translate="no">MobileProxy</code> afin de simplifier la gestion des proxys locaux.</p>
+
+<p><code dir="ltr" translate="no">MobileProxy</code> est une bibliothèque basée sur Go conçue pour simplifier l'intégration de fonctionnalités de proxy dans les applications mobiles. Elle utilise <a l10n-placeholder15="15">Go Mobile</a> pour générer des bibliothèques mobiles. Vous pouvez ainsi configurer les bibliothèques réseau de vos applications pour acheminer le trafic via un proxy local.</p>
+
+<p><strong>Application sans MobileProxy</strong></p>
+
+<p><img alt="Application de contenu sans MobileProxy" src="/static/outline/images/mobileproxy-before.png" /></p>
+
+<p><strong>Application avec MobileProxy</strong></p>
+
+<p><img alt="Application de contenu avec MobileProxy" src="/static/outline/images/mobileproxy-after.png" /></p>
+
+<h2 data-text="1718791822104478012" id="step_1_building_mobileproxy_mobile_libraries" tabindex="-1">Étape 1 : Créer des bibliothèques mobiles MobileProxy</h2>
+
+<p>Utilisez <a l10n-placeholder16="16">gomobile</a> pour compiler le code Go en bibliothèques pour Android et iOS.</p>
+<ol>
+<li><p>Clonez le dépôt du SDK Outline :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p>Créez les binaires Go Mobile avec <a l10n-placeholder17="17"><code dir="ltr" translate="no">go
+build</code></a> :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h4 data-text="5204948932184765095" id="adding_psiphon_support" tabindex="-1">Ajouter la compatibilité Psiphon</h4>
+
+<p>Vous pouvez rendre possible l'utilisation du réseau <a l10n-placeholder18="18">Psiphon</a> en suivant ces étapes :</p>
+
+<ul>
+<li>Contactez l'équipe Psiphon pour obtenir une configuration qui vous donne accès à son réseau. Un contrat peut être nécessaire.</li>
+<li>Ajoutez la configuration Psiphon reçue à la section <code dir="ltr" translate="no">fallback</code> de votre configuration <code dir="ltr" translate="no">SmartDialer</code>.</li>
+<li><p>Créez le MobileProxy à l'aide de l'option <code dir="ltr" translate="no">-tags psiphon</code> :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ul>
+
+<p>L'option <code dir="ltr" translate="no">-tags psiphon</code> est nécessaire, car le codebase Psiphon est sous licence GPL, ce qui peut imposer des restrictions de licence à votre propre code. Vous pouvez envisager d'obtenir une licence spéciale auprès de Psiphon.</p></li>
+<li><p>Générez les bibliothèques mobiles et ajoutez-les à votre projet :</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Dans Android Studio, sélectionnez <strong>File > Import Project</strong> (Fichier > Importer un projet) pour importer le bundle <code dir="ltr" translate="no">out/mobileproxy.aar</code> généré. Pour en savoir plus, consultez la section sur <a l10n-placeholder19="19">la création et le déploiement sur Android</a> de la documentation Go Mobile.</p></section>
+<section><h3 data-text="6603727412053336878" id="ios" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p>Faites glisser le bundle <code dir="ltr" translate="no">out/mobileproxy.xcframework</code> dans le projet Xcode. Pour en savoir plus, consultez la section sur <a l10n-placeholder20="20">la création et le déploiement sur iOS</a> de la documentation Go Mobile.</p></section>
+</div></li>
+</ol>
+<h2 data-text="4024228036659309866" id="step_2_run_the_mobileproxy" tabindex="-1">Étape 2 : Exécuter le MobileProxy</h2>
+
+<p>Initialisez et lancez le proxy local <code dir="ltr" translate="no">MobileProxy</code> dans l'environnement d'exécution de votre application.
+Vous pouvez utiliser une configuration de transport statique ou le Smart Proxy pour sélectionner une stratégie de façon dynamique.</p>
+<ul>
+<li><p><strong>Configuration de transport statique</strong> : utilisez la fonction <code dir="ltr" translate="no">RunProxy</code> en incluant une adresse locale et une configuration de transport.</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_1" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_1" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code></section>
+</div></li>
+<li><p><strong>Smart Proxy</strong> : le Smart Proxy sélectionne des stratégies DNS et TLS de façon dynamique en fonction des domaines de test spécifiés. Vous devez spécifier la stratégie de configuration au format YAML (<a l10n-placeholder21="21">exemple</a>).</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_2" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_2" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code></section>
+</div></li>
+</ul>
+<h2 data-text="13344055017641912209" id="step_3_configure_http_clients_and_networking_libraries" tabindex="-1">Étape 3 : Configurer les clients HTTP et les bibliothèques réseau</h2>
+
+<p>Configurez vos bibliothèques réseau pour qu'elles utilisent l'adresse et le port du proxy local.</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="300587700062067095" id="dartflutter-httpclient" tabindex="-1">HttpClient Dart/Flutter</h3><p>Configurez le proxy avec <a l10n-placeholder22="22"><code dir="ltr" translate="no">HttpClient.findProxy</code></a>.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder10 --></devsite-code></section>
+<section><h3 data-text="13799614901616739506" id="okhttp-android" tabindex="-1">OkHttp (Android)</h3><p>Configurez le proxy avec <a l10n-placeholder23="23"><code dir="ltr" translate="no">OkHttpClient.Builder.proxy</code></a>.</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder11 --></devsite-code></section>
+<section><h3 data-text="15870589425629705190" id="jvm-java,-kotlin" tabindex="-1">JVM (Java, Kotlin)</h3><p>Configurez le proxy avec les <a l10n-placeholder24="24">propriétés système</a> :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder12 --></devsite-code></section>
+<section><h3 data-text="17545990191176204585" id="android-web-view" tabindex="-1">WebView Android</h3><p>Appliquez une configuration de proxy à toutes les vues Web de votre application avec la bibliothèque <a l10n-placeholder25="25"><code dir="ltr" translate="no">androidx.webview</code></a> :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder13 --></devsite-code></section>
+<section><h3 data-text="7272650420158412024" id="ios-web-view" tabindex="-1">WebView iOS</h3><p></p>
+
+<p>À partir d'iOS 17, vous pouvez ajouter une configuration de proxy à une <code dir="ltr" translate="no">WKWebView</code> en utilisant sa <a l10n-placeholder26="26">propriété <code dir="ltr" translate="no">WKWebsiteDataStore</code></a> :</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder14 --></devsite-code></section>
+</div>
+<h2 data-text="8443850987242321729" id="advanced_generate_a_custom_mobile_library" tabindex="-1">Options avancées : générer une bibliothèque mobile personnalisée</h2>
+
+<p>Pour les cas d'utilisation avancés, vous pouvez générer vos propres bibliothèques mobiles :</p>
+
+<ol>
+<li><strong>Créez une bibliothèque Go</strong> : créez un package Go réunissant les fonctionnalités de SDK nécessaires.</li>
+<li><strong>Générez des bibliothèques mobiles</strong> : utilisez <code dir="ltr" translate="no">gomobile bind</code> pour créer des archives Android (AAR) et des frameworks Apple. Exemples :
+<ul>
+<li><a l10n-placeholder27="27">Archive Android Outline</a></li>
+<li><a l10n-placeholder28="28">Framework Apple Outline</a></li>
+</ul></li>
+<li><strong>Intégrez-les à votre application</strong> : ajoutez les bibliothèques générées à votre application mobile.</li>
+</ol>
+<aside class="note"><strong>Remarque</strong><span> : Utilisez <code dir="ltr" translate="no">gomobile bind</code> sur votre package personnalisé, et pas directement sur les packages du SDK.</span></aside>
+
+  
+</body></html>

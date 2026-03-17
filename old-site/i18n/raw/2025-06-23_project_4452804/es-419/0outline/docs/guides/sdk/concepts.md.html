@@ -1,0 +1,47 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5f4863f0-8ea0-444f-a498-8db713ab053b'}, 'string_id': '6201848709562429957', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>El SDK de Outline se basa en ciertos conceptos fundamentales definidos como interfaces
+interoperables que permiten la composición y una reutilización sencilla.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Conexiones</h2>
+
+<p>Las conexiones permiten la comunicación entre dos extremos a través de un transporte
+abstracto. Las hay de dos tipos:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: Es una conexión basada en transmisiones,
+como TCP y el tipo de socket <code dir="ltr" translate="no">SOCK_STREAM</code> de POSIX.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: Es una conexión basada en datagramas,
+como UDP y el tipo de socket <code dir="ltr" translate="no">SOCK_DGRAM</code> de POSIX.
+Usamos "Packet" en vez de "Datagram" porque seguimos la convención de la
+biblioteca estándar de Go.</li>
+</ul>
+
+<p>Las conexiones se pueden unir para crear conexiones anidadas a través de un nuevo transporte.
+Por ejemplo, una <code dir="ltr" translate="no">StreamConn</code> podría funcionar por TCP, por TLS sobre TCP, por HTTP sobre
+TLS sobre TCP o por QUIC, entre otras opciones.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Marcadores</h2>
+
+<p>Los marcadores permiten crear conexiones si se proporciona una dirección host:puerto
+y encapsulan el protocolo de proxy o transporte subyacente.
+Los tipos <code dir="ltr" translate="no">StreamDialer</code> y <code dir="ltr" translate="no">PacketDialer</code> crean conexiones <code dir="ltr" translate="no">StreamConn</code> y <code dir="ltr" translate="no">PacketConn</code>,
+respectivamente, si se proporciona una dirección. Los marcadores también pueden anidarse.
+Por ejemplo, un marcador de transmisión TLS puede usar un marcador TCP para crear una <code dir="ltr" translate="no">StreamConn</code>
+respaldada por una conexión TCP y, luego, crear una <code dir="ltr" translate="no">StreamConn</code> TLS respaldada por la <code dir="ltr" translate="no">StreamConn</code>
+TCP. Un marcador SOCKS5 sobre TLS podría usar el marcador TLS para crear la
+<code dir="ltr" translate="no">StreamConn</code> TLS al proxy antes de realizar la conexión SOCKS5 a la dirección de
+destino.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Agentes de resolución</h2>
+
+<p>Los agentes de resolución (<code dir="ltr" translate="no">dns.Resolver</code>) permiten responder las preguntas del DNS
+y encapsulan el algoritmo o protocolo subyacente.
+Se usan principalmente para asignar nombres de dominio a direcciones IP.</p>
+
+  
+</body></html>

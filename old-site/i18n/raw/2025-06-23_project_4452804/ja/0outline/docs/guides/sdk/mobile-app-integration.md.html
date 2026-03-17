@@ -1,0 +1,96 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '11ce5384-efb1-4b52-9010-ec778de61ff2', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'dce3af88-1640-4b24-a241-579998c000b7'}, 'string_id': '3525800959540017658', 'target_locale_code': 'ja', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>このドキュメントでは、Outline SDK をモバイル アプリケーションに統合する方法を概説します。特に、ローカル プロキシの管理を簡素化するための <code dir="ltr" translate="no">MobileProxy</code> ライブラリに重点を置きます。</p>
+
+<p><code dir="ltr" translate="no">MobileProxy</code> は、プロキシの機能を効率的にモバイルアプリに統合するための、Go をベースにしたライブラリです。<a l10n-placeholder15="15">Go Mobile</a> を使用してモバイル ライブラリを生成し、アプリのネットワーキング ライブラリを構成してトラフィックをローカル プロキシにルーティングできるようにします。</p>
+
+<p><strong>MobileProxy を使用しないアプリ</strong></p>
+
+<p><img alt="MobileProxy を使用しないコンテンツ アプリ" src="/static/outline/images/mobileproxy-before.png" /></p>
+
+<p><strong>MobileProxy を使用するアプリ</strong></p>
+
+<p><img alt="MobileProxy を使用するコンテンツ アプリ" src="/static/outline/images/mobileproxy-after.png" /></p>
+
+<h2 data-text="1718791822104478012" id="step_1_building_mobileproxy_mobile_libraries" tabindex="-1">ステップ 1: MobileProxy モバイル ライブラリをビルドする</h2>
+
+<p><a l10n-placeholder16="16">gomobile</a> を使用して Go 言語のコードをコンパイルし、Android 用と iOS 用のライブラリをビルドします。</p>
+<ol>
+<li><p>Outline SDK のリポジトリのクローンを作成します:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code></li>
+<li><p><a l10n-placeholder17="17"><code dir="ltr" translate="no">go
+build</code></a> を使用して Go Mobile のバイナリをビルドします:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h4 data-text="5204948932184765095" id="adding_psiphon_support" tabindex="-1">Psiphon サポートを追加する</h4>
+
+<p>以下の追加ステップを行うことにより、<a l10n-placeholder18="18">Psiphon</a> ネットワークを使用するためのサポートを追加できます:</p>
+
+<ul>
+<li>Psiphon のネットワークにアクセスするための構成を入手するには、Psiphon チームに問い合わせてください。これには、契約が必要になる場合があります。</li>
+<li>入手した Psiphon の構成を <code dir="ltr" translate="no">SmartDialer</code> の構成の <code dir="ltr" translate="no">fallback</code> セクションに追加します。</li>
+<li><p><code dir="ltr" translate="no">-tags psiphon</code> フラグを使用して Mobile Proxy をビルドします:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ul>
+
+<p><code dir="ltr" translate="no">-tags psiphon</code> フラグが必要なのは、Psiphon のコードベースのライセンスが GPL の元で付与されているからであり、そのため、あなたのコードにもライセンス制限が課される可能性があります。Psiphon から特別なライセンスを取得することも検討してください。</p></li>
+<li><p>モバイル ライブラリを生成し、プロジェクトに追加します:</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Android Studio で <strong>[File] > [Import Project…]</strong> を選択し、生成した <code dir="ltr" translate="no">out/mobileproxy.aar</code> バンドルをインポートします。詳しくは、Go Mobile の<a l10n-placeholder19="19">ビルドと Android へのデプロイ</a>をご覧ください。</p></section>
+<section><h3 data-text="6603727412053336878" id="ios" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<p><code dir="ltr" translate="no">out/mobileproxy.xcframework</code> バンドルを Xcode プロジェクトにドラッグします。詳しくは、Go Mobile の<a l10n-placeholder20="20">ビルドと iOS へのデプロイ</a>をご覧ください。</p></section>
+</div></li>
+</ol>
+<h2 data-text="4024228036659309866" id="step_2_run_the_mobileproxy" tabindex="-1">ステップ 2: MobileProxy を実行する</h2>
+
+<p>アプリのランタイム内で <code dir="ltr" translate="no">MobileProxy</code> ローカル プロキシを初期化し、開始します。静的なトランスポート構成を使用することも、動的な戦略選択のために Smart Proxy を使用することも可能です。</p>
+<ul>
+<li><p><strong>静的トランスポート構成</strong>: <code dir="ltr" translate="no">RunProxy</code> 関数を使用して、ローカル アドレスとトランスポートを構成します。</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_1" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_1" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code></section>
+</div></li>
+<li><p><strong>Smart Proxy</strong>: Smart Proxy は、指定したテストドメインに応じて DSN と TLS の戦略を動的に選択します。構成の戦略は YAML 形式で指定します（<a l10n-placeholder21="21">例</a>）。</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="17578291900889616530" id="android_2" tabindex="-1">Android</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code></section>
+<section><h3 data-text="6603727412053336878" id="ios_2" tabindex="-1">iOS</h3><div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder9 --></devsite-code></section>
+</div></li>
+</ul>
+<h2 data-text="13344055017641912209" id="step_3_configure_http_clients_and_networking_libraries" tabindex="-1">ステップ 3: HTTP クライアントとネットワーキング ライブラリを構成する</h2>
+
+<p>ローカル プロキシ アドレスとポートを使用するようにネットワーキング ライブラリを構成します。</p>
+<div class="ds-selector-tabs" data-ds-scope="code-sample">
+<section><h3 data-text="300587700062067095" id="dartflutter-httpclient" tabindex="-1">Dart/Flutter HttpClient</h3><p><a l10n-placeholder22="22"><code dir="ltr" translate="no">HttpClient.findProxy</code></a> を使用してプロキシを設定します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder10 --></devsite-code></section>
+<section><h3 data-text="13799614901616739506" id="okhttp-android" tabindex="-1">OkHttp（Android）</h3><p><a l10n-placeholder23="23"><code dir="ltr" translate="no">OkHttpClient.Builder.proxy</code></a> を使用してプロキシを設定します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder11 --></devsite-code></section>
+<section><h3 data-text="15870589425629705190" id="jvm-java,-kotlin" tabindex="-1">JVM（Java、Kotlin）</h3><p><a l10n-placeholder24="24">システム プロパティ</a>を使用してプロキシを構成します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder12 --></devsite-code></section>
+<section><h3 data-text="17545990191176204585" id="android-web-view" tabindex="-1">Android WebView</h3><p><a l10n-placeholder25="25"><code dir="ltr" translate="no">androidx.webview</code></a> ライブラリを使用して、アプリケーション内のすべての WebView にプロキシの構成を適用します。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder13 --></devsite-code></section>
+<section><h3 data-text="7272650420158412024" id="ios-web-view" tabindex="-1">iOS WebView</h3><p></p>
+
+<p>iOS 17 以降では、<a l10n-placeholder26="26"><code dir="ltr" translate="no">WKWebsiteDataStore</code> プロパティ</a>を使用して <code dir="ltr" translate="no">WKWebView</code> にプロキシの構成を追加できます。</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder14 --></devsite-code></section>
+</div>
+<h2 data-text="8443850987242321729" id="advanced_generate_a_custom_mobile_library" tabindex="-1">高度な用例: カスタム モバイル ライブラリを生成する</h2>
+
+<p>高度な用例として、独自のモバイル ライブラリを生成することも可能です。</p>
+
+<ol>
+<li><strong>Go ライブラリを作成する</strong>: 必要な SDK 機能をラップした Go パッケージを作成します。</li>
+<li><strong>モバイル ライブラリを生成する</strong>: <code dir="ltr" translate="no">gomobile bind</code> を使用して Android ARchive（AAR）と Apple フレームワークを作成します。例:
+<ul>
+<li><a l10n-placeholder27="27">Outline Android ARchive</a></li>
+<li><a l10n-placeholder28="28">Outline Apple フレームワーク</a></li>
+</ul></li>
+<li><strong>アプリに統合する</strong>: 生成したライブラリをモバイル アプリケーションに追加します。</li>
+</ol>
+<aside class="note"><strong>注:</strong><span> <code dir="ltr" translate="no">gomobile bind</code> は、SDK パッケージ上で直接使用するのではなく、カスタム パッケージ上で使用してください。</span></aside>
+
+  
+</body></html>

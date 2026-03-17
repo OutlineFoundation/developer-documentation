@@ -1,0 +1,4 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '3bce2967-c528-4f1d-b104-938be8251786', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd24cafe9-9f4d-4fc3-a4ac-d35252bf72b0'}, 'string_id': '6446132607157643581', 'target_locale_code': 'it', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Perché scegliere Outline"
+}

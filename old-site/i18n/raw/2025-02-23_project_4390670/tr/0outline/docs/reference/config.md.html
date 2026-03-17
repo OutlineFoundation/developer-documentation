@@ -1,0 +1,226 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'd3edbbc3-f17f-4b37-bf9d-2dfcc537c9fb', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4ef2bbf0-f1c1-49b6-b113-98c229d9e8a1'}, 'string_id': '11937512990099417919', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="7551542352463182819" id="tunnels" tabindex="-1">Tüneller (Tunnel)</h2>
+
+<h3 data-text="5334038409748665214" id="tunnelconfig" tabindex="-1">TunnelConfig</h3>
+
+<p>Tünel, bir Outline yapılandırmasındaki en üst düzey nesnedir. VPN'in nasıl yapılandırılması gerektiğini belirtir.</p>
+
+<p><strong>Biçim:</strong> <a l10n-placeholder9="9">ExplicitTunnelConfig</a> |
+<a l10n-placeholder10="10">LegacyShadowsocksConfig</a> |
+<a l10n-placeholder11="11">LegacyShadowsocksURI</a></p>
+
+<h3 data-text="17567925323603000549" id="explicittunnelconfig" tabindex="-1">ExplicitTunnelConfig</h3>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport</code> (<a l10n-placeholder12="12">TransportConfig</a>): hedef varış noktasıyla paket alışverişi yapmak için kullanılacak araç</li>
+<li><code dir="ltr" translate="no">error</code> (<em>struct</em>): hizmet hatası durumunda kullanıcıya iletilecek bilgiler (ör. anahtarın süresi doldu, kota tükendi)
+<ul>
+<li><code dir="ltr" translate="no">message</code> (<em>string</em>): kullanıcıya gösterilecek açıklayıcı mesaj</li>
+<li><code dir="ltr" translate="no">details</code> (<em>string</em>): hata ayrıntılarını açtığında kullanıcıya gösterilecek mesaj (Sorun giderme açısından yararlıdır.)</li>
+</ul></li>
+</ul>
+
+<p><code dir="ltr" translate="no">error</code> ve <code dir="ltr" translate="no">transport</code> alanları aynı anda olamaz.</p>
+
+<p>Başarılı örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p>Hatalı örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5117449539369487677" id="transports" tabindex="-1">Araçlar (Transport)</h2>
+
+<h3 data-text="14190027968284396058" id="transportconfig" tabindex="-1">TransportConfig</h3>
+
+<p>Paketlerin hedef varış noktasıyla nasıl değiştirilmesi gerektiğini belirtir.</p>
+
+<p><strong>Biçim:</strong> <a l10n-placeholder13="13">Interface</a></p>
+
+<p>Desteklenen Interface türleri:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcpudp</code>: <a l10n-placeholder14="14">TCPUDPConfig</a></li>
+</ul>
+
+<h3 data-text="12455139361718416191" id="tcpudpconfig" tabindex="-1">TCPUDPConfig</h3>
+
+<p>TCPUDPConfig, ayrı TCP ve UDP stratejilerinin ayarlanmasına izin verir.</p>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">tcp</code> (<a l10n-placeholder15="15">DialerConfig</a>): TCP bağlantıları için kullanılacak akış çevirici</li>
+<li><code dir="ltr" translate="no">udp</code> (<a l10n-placeholder16="16">PacketListenerConfig</a>): UDP paketleri için kullanılacak paket işleyici</li>
+</ul>
+
+<p>Farklı uç noktalara TCP ve UDP gönderme örneği:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<h2 data-text="659650101501710648" id="endpoints" tabindex="-1">Uç noktalar (Endpoint)</h2>
+
+<p>Uç noktalar, sabit bir uç nokta ile bağlantı kurar. Uç noktaya özgü optimizasyonlara izin verdiği için çeviricilerden daha çok tercih edilir. Akış ve paket uç noktaları vardır.</p>
+
+<h3 data-text="11446759888020662416" id="endpointconfig" tabindex="-1">EndpointConfig</h3>
+
+<p><strong>Biçim:</strong> <em>string</em> | <a l10n-placeholder17="17">Interface</a></p>
+
+<p><em>string</em> uç noktası, seçilen uç noktanın ana makine:bağlantı noktası adresidir. Bağlantı, varsayılan çevirici kullanılarak kurulur.</p>
+
+<p>Akış ve paket uç noktaları için desteklenen Interface türleri:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">dial</code>: <a l10n-placeholder18="18">DialEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder19="19">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">websocket</code>: <a l10n-placeholder20="20">WebsocketEndpointConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder21="21">ShadowsocksConfig</a></li>
+</ul>
+
+<h3 data-text="11716336102764925006" id="dialendpointconfig" tabindex="-1">DialEndpointConfig</h3>
+
+<p>Sabit bir adresi çevirerek bağlantı kurar. Çevirici kullanarak stratejilerin birleştirilmesine imkan tanıyabilir.</p>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">address</code> (<em>string</em>): çevrilecek uç nokta adresi</li>
+<li><code dir="ltr" translate="no">dialer</code> (<a l10n-placeholder22="22">DialerConfig</a>): adresi çevirmek için kullanılacak çevirici</li>
+</ul>
+
+<h3 data-text="17640163708559704415" id="websocketendpointconfig" tabindex="-1">WebsocketEndpointConfig</h3>
+
+<p>Akış ve paket bağlantıları ile bir uç nokta arasında Websockets üzerinden tünel açar.</p>
+
+<p>Akış bağlantıları için her yazma işlemi bir Websocket mesajına dönüştürülür. Paket bağlantıları için her paket bir Websocket mesajına dönüştürülür.</p>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">url</code> (<em>string</em>): Websocket uç noktasının URL'si. Şema, TLS kullanılan Websocket bağlantıları için <code dir="ltr" translate="no">https</code> veya <code dir="ltr" translate="no">wss</code>, şifrelenmemiş Websocket bağlantıları için <code dir="ltr" translate="no">http</code> ya da <code dir="ltr" translate="no">ws</code> şeklinde olmalıdır. </li>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder23="23">EndpointConfig</a>): Bağlanılacak web sunucusu uç noktası. Bu alan yoksa URL'de belirtilen adrese bağlanır.</li>
+</ul>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Çeviriciler (Dialer)</h2>
+
+<p>Çeviriciler, belirli bir uç nokta adresiyle bağlantı kurar. Akış ve paket çeviricileri kullanılır.</p>
+
+<h3 data-text="9627478273327751697" id="dialerconfig" tabindex="-1">DialerConfig</h3>
+
+<p><strong>Biçim:</strong> <em>null</em> | <a l10n-placeholder24="24">Interface</a></p>
+
+<p><em>null</em> (boş) çeviricisi, akış için doğrudan TCP bağlantılarını ve paketler için doğrudan UDP bağlantılarını kullanan varsayılan çevirici anlamına gelir.</p>
+
+<p>Akış ve paket çeviricileri için desteklenen Interface türleri:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder25="25">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder26="26">ShadowsocksConfig</a></li>
+</ul>
+
+<h2 data-text="2039682242780633119" id="packet_listeners" tabindex="-1">Paket işleyiciler (PacketListener)</h2>
+
+<p>Paket işleyiciler, birden fazla hedefe paket göndermek için kullanılabilecek sınırsız bir paket bağlantısı kurar.</p>
+
+<h3 data-text="15852079316549004264" id="packetlistenerconfig" tabindex="-1">PacketListenerConfig</h3>
+
+<p><strong>Biçim:</strong> <em>null</em> | <a l10n-placeholder27="27">Interface</a></p>
+
+<p><em>null</em> (boş) paket işleyicisi, bir UDP paket işleyici olan varsayılan paket işleyici anlamına gelir.</p>
+
+<p>Desteklenen Interface türleri:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">first-supported</code>: <a l10n-placeholder28="28">FirstSupportedConfig</a></li>
+<li><code dir="ltr" translate="no">shadowsocks</code>: <a l10n-placeholder29="29">ShadowsocksPacketListenerConfig</a></li>
+</ul>
+
+<h2 data-text="6016290251325397531" id="strategies" tabindex="-1">Stratejiler</h2>
+
+<h3 data-text="16260889002875646941" id="shadowsocks" tabindex="-1">Shadowsocks</h3>
+
+<h4 data-text="13137755849223030902" id="legacyshadowsocksconfig" tabindex="-1">LegacyShadowsocksConfig</h4>
+
+<p>LegacyShadowsocksConfig, araç olarak Shadowsocks kullanan bir tüneli temsil eder. Geriye dönük uyumluluk için eski biçimi uygular.</p>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">server</code> (<em>string</em>): bağlanılacak ana makine</li>
+<li><code dir="ltr" translate="no">server_port</code> (<em>number</em>): bağlanılacak bağlantı noktası numarası</li>
+<li><code dir="ltr" translate="no">method</code> (<em>string</em>): kullanılacak <a l10n-placeholder30="30">AEAD şifresi</a></li>
+<li><code dir="ltr" translate="no">password</code> (<em>string</em>): Şifreleme anahtarı oluşturmak için kullanılır.</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>string</em>): kullanılacak <a l10n-placeholder31="31">önek gizleme yöntemi</a>
+(Yalnızca akış bağlantılarında desteklenir.)</li>
+</ul>
+
+<p>Örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<h4 data-text="4781365069853549991" id="legacyshadowsocksuri" tabindex="-1">LegacyShadowsocksURI</h4>
+
+<p>LegacyShadowsocksURI, araç olarak Shadowsocks kullanan bir tüneli temsil eder.
+Geriye dönük uyumluluk için eski URL biçimini uygular.</p>
+
+<p><strong>Biçim:</strong> <em>string</em></p>
+
+<p><a l10n-placeholder32="32">LegacyShadowsocksURI biçimini</a> ve <a l10n-placeholder33="33">SIP002 URI şemasını</a> inceleyin. Eklentiler desteklenmez.</p>
+
+<p>Örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder5 --></devsite-code>
+<h4 data-text="10756671213903401832" id="shadowsocksconfig" tabindex="-1">ShadowsocksConfig</h4>
+
+<p>ShadowsocksConfig, akış veya paket çeviricilerinin yanı sıra Shadowsocks kullanan bir paket işleyici de temsil edebilir.</p>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">endpoint</code> (<a l10n-placeholder34="34">EndpointConfig</a>): bağlanılacak Shadowsocks uç noktası</li>
+<li><code dir="ltr" translate="no">cipher</code> (<em>string</em>): kullanılacak <a l10n-placeholder35="35">AEAD şifresi</a></li>
+<li><code dir="ltr" translate="no">secret</code> (<em>string</em>): Şifreleme anahtarı oluşturmak için kullanılır.</li>
+<li><code dir="ltr" translate="no">prefix</code> (<em>string</em>, isteğe bağlı): kullanılacak <a l10n-placeholder36="36">önek gizleme yöntemi</a>
+(Yalnızca akış bağlantılarında desteklenir.)</li>
+</ul>
+
+<p>Örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder6 --></devsite-code>
+<h2 data-text="10249180210045793508" id="meta_definitions" tabindex="-1">Meta tanımlar</h2>
+
+<h3 data-text="1718163546114050573" id="firstsupportedconfig" tabindex="-1">FirstSupportedConfig</h3>
+
+<p>Uygulama tarafından desteklenen ilk yapılandırmayı kullanır. Bu yöntem, eski yapılandırmalarla geriye dönük uyumludur ve yeni yapılandırmaları dahil eder.</p>
+
+<p><strong>Biçim:</strong> <em>struct</em></p>
+
+<p><strong>Alanlar:</strong></p>
+
+<ul>
+<li><code dir="ltr" translate="no">options</code> (<a l10n-placeholder37="37">EndpointConfig[]</a> |
+<a l10n-placeholder38="38">DialerConfig[]</a> |
+<a l10n-placeholder39="39">PacketListenerConfig[]</a>): dikkate alınacak seçenekler listesi</li>
+</ul>
+
+<p>Örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder7 --></devsite-code>
+<h3 data-text="10701474329256839971" id="interface" tabindex="-1">Interface</h3>
+
+<p>Arayüzler birden fazla uygulamadan birinin seçilmesine izin verir. Yapılandırmanın temsil ettiği türü belirtmek için <code dir="ltr" translate="no">$type</code> alanını kullanır.</p>
+
+<p>Örnek:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder8 --></devsite-code>
+
+  
+</body></html>

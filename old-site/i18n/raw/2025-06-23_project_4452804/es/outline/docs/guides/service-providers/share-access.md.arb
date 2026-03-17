@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'ea25d341-04f0-4fa2-a863-3e721d709a4c'}, 'string_id': '14615896034829982249', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Crear y compartir claves de acceso",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '21f104ea-1181-4837-8401-4cfe0435db70'}, 'string_id': '1795121274651331179', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Proceso de invitación a usuarios",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '6fa0c864-0ce5-435f-a991-63cc72b3c844'}, 'string_id': '11189047250517590731', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Revocar el acceso a tu servidor",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '615d1fd6-dd68-4aaf-af51-224fe79d65e1'}, 'string_id': '12420990759181242084', 'target_locale_code': 'es', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Compartir el acceso a tu servidor"
+}

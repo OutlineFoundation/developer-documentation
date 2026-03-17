@@ -1,0 +1,79 @@
+<html devsite=""><head>
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '977ae3fc-e8b4-4be3-9139-06333327d40c', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '07242341-b4a9-4d80-8656-1a0948847e33'}, 'string_id': '8881571525508256907', 'target_locale_code': 'fr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p><em>Outline Client v1.15.0+.</em></p>
+
+<p>This tutorial provides a detailed walkthrough to help you implement
+Shadowsocks-over-WebSockets, a powerful technique for bypassing censorship in
+environments where regular Shadowsocks connections are blocked. By encapsulating
+Shadowsocks traffic within WebSockets, you can disguise it as standard web
+traffic, enhancing resilience and accessibility.</p>
+<aside class="note"><strong>Note:</strong><span> Shadowsocks-over-WebSockets is only supported on the Outline clients
+v1.15.0+. You must maintain your existing configurations to support older client
+versions.</span></aside>
+<h2 data-text="3219292919370569962" id="step_1_configure_and_run_an_outline_server" tabindex="-1">Step 1: Configure and Run an Outline Server</h2>
+
+<p>Create a new <code dir="ltr" translate="no">config.yaml</code> file with the following configuration:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code><aside class="tip"><strong>Tip:</strong><span> Keep the <code dir="ltr" translate="no">path</code> secret to avoid probing. It acts as a secret endpoint. A
+long, randomly generated path is recommended.</span></aside>
+<p>Download the latest
+<a l10n-placeholder5="5"><code dir="ltr" translate="no">outline-ss-server</code></a>
+and run it using the created configuration:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="13863900454741714233" id="step_2_expose_the_web_server" tabindex="-1">Step 2: Expose the Web Server</h2>
+
+<p>To make your WebSocket web server publicly accessible, you&#39;ll need to expose it
+to the internet and configure
+<a l10n-placeholder6="6">TLS</a>.
+You have several options for achieving this. You can use a local web server like
+<a l10n-placeholder7="7">Caddy</a>, <a l10n-placeholder8="8">nginx</a> or
+<a l10n-placeholder9="9">Apache</a>, ensuring it has a valid TLS certificate, or
+employ a tunneling service such as <a l10n-placeholder10="10">Cloudflare
+Tunnel</a>
+or <a l10n-placeholder11="11">ngrok</a>.</p>
+
+<h3 data-text="3170636391706646543" id="example_using_trycloudflare" tabindex="-1">Example using TryCloudflare</h3>
+<aside class="caution"><strong>Caution:</strong><span> TryCloudflare is intended for demos and testing only.</span></aside>
+<p>For this example, we&#39;ll demonstrate using
+<a l10n-placeholder12="12">TryCloudflare</a>
+to create a quick tunnel. This provides a convenient and secure way to expose
+your local web server without opening inbound ports.</p>
+
+<ol>
+<li><p>Download and install
+<a l10n-placeholder13="13"><code dir="ltr" translate="no">cloudflared</code></a>.</p></li>
+<li><p>Create a tunnel pointing to your local web server port:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code></li>
+</ol>
+
+<p>Cloudflare will provide a subdomain (e.g.,
+<code dir="ltr" translate="no">acids-iceland-davidson-lb.trycloudflare.com</code>) to access your WebSocket endpoint
+and automatically handle TLS. Make note of this subdomain, as you&#39;ll need it
+later.</p>
+
+<h2 data-text="9658797778242291426" id="step_3_create_a_dynamic_access_key" tabindex="-1">Step 3: Create a Dynamic Access Key</h2>
+
+<p>Generate a client access key YAML file for your users using the <a l10n-placeholder14="14">Access Key
+Configuration</a> format and include the WebSocket endpoints previously
+configured on the server side:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>After generating the dynamic access key YAML file, you need to get it to your
+users. You can host the file on a static web hosting service or dynamically
+generate it. Learn more about how to use <a l10n-placeholder15="15">Dynamic Access
+Keys</a>.</p>
+
+<h2 data-text="2168107751447403705" id="step_4_connect_with_the_outline_client" tabindex="-1">Step 4: Connect with the Outline Client</h2>
+
+<p>Use one of the official <a l10n-placeholder16="16">Outline Client</a>
+applications (versions 1.15.0+) and add your newly created dynamic access key as
+a server entry. Click <strong>Connect</strong> to start tunneling to your server using the
+Shadowsocks-over-Websocket configuration.</p>
+
+<p>Use a tool like <a l10n-placeholder17="17">IPInfo</a> to verify you are now browsing the
+internet via your Outline server.</p>
+
+  
+</body></html>

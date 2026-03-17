@@ -1,0 +1,111 @@
+<html dir="rtl" devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '22cb0f2f-c859-45a8-ab8e-41647f78278a', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'fb14ad07-4f46-4613-be31-6e2edf1c4517'}, 'string_id': '5203438546915857294', 'target_locale_code': 'ar', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<h2 data-text="4874468153219405670" id="introduction" tabindex="-1">مقدمة</h2>
+
+<p>يمكن أن تواجه خوادم Outline أحيانًا مشكلة أن تُكشف هويتها وتُحظر
+من الوصول إلى الشبكات الخاضعة للرقابة العالية. ولن يكون من الصعب استرداد
+خادم محظور إذا كان قد تم إعداده بشكل صحيح. وسنفعل ذلك باستخدام نظام أسماء النطاقات،
+وهو تكنولوجيا على الإنترنت تعمل على ترجمة أسماء النطاقات (مثل <code dir="ltr" translate="no">getoutline.org</code>) إلى
+عناوين IP واقعية (مثل <code dir="ltr" translate="no">216.239.36.21</code>) و"عناوين IP عائمة"، وهي إحدى ميزات السحابة الإلكترونية
+والتي تسمح بتعيين أكثر من عنوان IP إلى خادم Outline واحد.</p>
+
+<h2 data-text="13686080004592407858" id="requirements" tabindex="-1">المتطلبات</h2>
+
+<p>لا بد من أن يكون لديك الحد الأدنى من المهارة الفنية لفهم هذا الدليل. وسيكون الإلمام
+بأساسيات نظام أسماء النطاقات مفيدًا، ولكنّه ليس ضروريًا. يُرجى الاطّلاع على دليل
+<a l10n-placeholder1="1">MDN</a>
+حول أسماء النطاق كبداية.</p>
+
+<p>كمثال حيّ، سنستخدم DigitalOcean وGoogle Domains، لكن يمكنك استخدام أي
+مقدّم خدمات سحابة إلكترونية يسمح بتعيين عناوين IP (مثل Google Cloud أو
+<a l10n-placeholder2="2">AWS Lightsail</a>)،
+وأي جهة تسجيل نطاقات (مثل
+<a l10n-placeholder3="3">AWS Route 53</a>).
+</p>
+
+<h2 data-text="12628245661512439499" id="instructions" tabindex="-1">التعليمات</h2>
+
+<ol>
+<li><p>تُلخص القائمة التالية خطوات تغيير عنوان IP الخاصّ بخادم:</p></li>
+<li><p>اشترِ اسم نطاق.</p></li>
+<li><p>اربط اسم النطاق بعنوان IP الخاصّ بالخادم.</p></li>
+<li><p>أصدِر مفاتيح الوصول باستخدام اسم النطاق.</p></li>
+<li><p>عيِّن عنوان IP عائمًا إلى Droplet الخاصّ بالخادم.</p></li>
+<li><p>غيِّر اسم النطاق ليشير إلى عنوان IP الجديد.</p></li>
+</ol>
+
+<h2 data-text="11461176644196079266" id="create_an_outline_server_on_digitalocean" tabindex="-1">كيف أنشئ خادم Outline على DigitalOcean؟</h2>
+
+<p>إذا كان لديك خادم DigitalOcean مُشغَّلاً، تخطَّ هذه الخطوة.</p>
+
+<ol>
+<li><p>افتح "مدير Outline" وانقر على رمز + في أسفل اليمين لفتح شاشة
+إنشاء الخادم.</p></li>
+<li><p>انقر على "إنشاء خادم" (Create Server) على زر DigitalOcean، واتّبِع التعليمات
+في التطبيق.</p></li>
+</ol>
+
+<p><img alt="إنشاء خادم" src="/static/outline/images/create-DO-server.png" /></p>
+
+<h2 data-text="4069928074011065574" id="make_a_hostname_for_your_server" tabindex="-1">إنشاء اسم مضيف للخادم</h2>
+
+<!-- TODO: Revamp now that Google Domains is no more. -->
+
+<ol>
+<li><p>انتقِل إلى <a l10n-placeholder4="4">Google Domains</a> ثمّ
+انقر على "البحث عن النطاق المناسب".</p></li>
+<li><p>أدخِل اسم نطاق في شريط البحث واختَر اسمًا. استخدمنا
+<code dir="ltr" translate="no">outlinedemo.info</code> كمثال.</p></li>
+<li><p>انتقِل إلى علامة تبويب "نظام أسماء النطاقات" في Google Domains. ضِمن "سجلّات الموارد المخصّصة"،
+اكتب عنوان IP الخاصّ بالخادم في الحقل المُسمى "عنوان IPV4".</p></li>
+<li><p>انتقِل إلى علامة التبويب "الإعدادات" (Settings) للخادم في "مدير Outline". ضِمن
+"اسم المضيف" (Hostname)، اكتب اسم المضيف للخادم الذي اشتريته ثم انقر على "حفظ" (Save). سيؤدي هذا الإجراء إلى
+جعل كل مفاتيح الوصول في المستقبل تستخدم اسم المضيف هذا بدلاً من عنوان IP الخاصّ بالخادم.</p></li>
+</ol>
+
+<p><img alt="ضبط اسم المضيف" src="/static/outline/images/set-hostname.png" /></p>
+
+<h2 data-text="607812462890340981" id="change_the_servers_ip_address" tabindex="-1">كيف أغير عنوان IP الخاصّ بالخادم؟</h2>
+
+<ol>
+<li><p>انتقِل إلى الخادم في صفحة Droplets على DigitalOcean.</p></li>
+<li><p>انقر على "التفعيل الآن" (Enable Now) في أعلى يسار النافذة بجانب "عنوان IP العائم" (Floating IP).</p></li>
+</ol>
+
+<p><img alt="تفعيل عنوان IP عائم" src="/static/outline/images/floating-ip-DO.png" /></p>
+
+<ol>
+<li>ابحث عن الخادم في قائمة Droplets ثم انقر على "تعيين عنوان IP عائم" (Assign Floating IP).</li>
+</ol>
+
+<p><img alt="تعيين عنوان IP عائم" src="/static/outline/images/assign-floating-ip-DO.png" /></p>
+
+<ol>
+<li><p>عُد إلى علامة التبويب "نظام أسماء النطاقات" في Google Domains.</p></li>
+<li><p>غيِّر عنوان IP مثلما سبق، لكن بعنوان IP
+عائم جديد. قد يستغرق تنفيذ هذا الإجراء مدّة تصل إلى 48 ساعة، لكن غالبًا ما يتم ذلك خلال
+بضع دقائق.</p></li>
+<li><p>انتقِل إلى <a l10n-placeholder5="5">أداة "نظام أسماء النطاق على الإنترنت" التابعة لـ Google</a>
+وأدخِل اسم النطاق لمعرفة متى حدث التغيير في الخطوة
+الأخيرة.</p></li>
+</ol>
+
+<p><img alt="البحث عن النطاق في أداة &amp;quot;نظام أسماء النطاق&amp;quot; التابعة لـ Google" src="/static/outline/images/google-dns.png" /></p>
+
+<p>عند نشر هذا التغيير، سيتم ربط العملاء الآن بعنوان IP الجديد. ويمكنك
+ربط الخادم بمفتاح جديد وفتح الرابط <a l10n-placeholder6="6">https://ipinfo.io</a> للتأكّد من
+ظهور عنوان IP الجديد الخاص بالخادم.</p>
+
+<p>في النهاية،
+يمكن أن يكون تغيير عناوين IP الخاصة بخادم Outline طريقة سريعة لإزالة حظر خادم
+وإعادة الخدمة إلى العملاء. لمزيد من الاستفسارات، يمكنك التعليق على
+<a l10n-placeholder7="7">منشور الإعلان</a> أو الانتقال إلى
+<a l10n-placeholder8="8">صفحة دعم Outline</a> أو
+<a l10n-placeholder9="9">التواصل معنا مباشرةً</a>.</p>
+
+  
+</body></html>

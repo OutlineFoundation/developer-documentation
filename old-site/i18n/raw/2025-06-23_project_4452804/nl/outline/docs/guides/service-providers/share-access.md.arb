@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '5a7c3e20-089e-4b58-853f-afe5a7e92d54'}, 'string_id': '14615896034829982249', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Toegangssleutels maken en delen",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'd814e02d-6c37-400c-95e7-2c7bce43b22e'}, 'string_id': '1795121274651331179', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Proces om gebruikers uit te nodigen",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '015e63fa-225c-4f54-9b31-ec5448c90f61'}, 'string_id': '11189047250517590731', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Toegang tot je server intrekken",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '0c849f16-8917-4d09-b71a-df137c4ad08b'}, 'string_id': '12420990759181242084', 'target_locale_code': 'nl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "Toegang geven tot je server"
+}

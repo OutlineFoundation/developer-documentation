@@ -1,0 +1,7 @@
+{
+  "@@x-turnoff_context_match_across_text_units": "true",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'cae7bc89-ed09-4087-80c7-847a288a5fa8'}, 'string_id': '14615896034829982249', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "액세스 키 생성 및 공유하기",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2339bb8b-5e9d-4b2f-b76f-a646853f9288'}, 'string_id': '1795121274651331179', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "사용자 초대 프로세스",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'a8e13a63-19ff-46fd-8d96-c296bfeba3a7'}, 'string_id': '11189047250517590731', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "서버에 대한 액세스 권한 취소하기",
+  "{'source_id': '0bbad2aa-f0ec-4ebe-a1d1-2ff6c9987059', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '34387d00-4e87-4825-9f64-1e880989e8da'}, 'string_id': '12420990759181242084', 'target_locale_code': 'ko', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}": "서버에 대한 액세스 권한 공유하기"
+}

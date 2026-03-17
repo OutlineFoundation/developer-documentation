@@ -1,0 +1,119 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'e03577c9-d9af-40c4-bbb3-4f879ad3ba03'}, 'string_id': '7370928615664798887', 'target_locale_code': 'es_419', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline ofrece dos tipos de claves de acceso: estáticas y dinámicas. Las estáticas codifican
+toda la información de conexión en sí mismas, mientras que las dinámicas codifican
+la ubicación de la información de conexión, lo que permite almacenar esos
+datos de forma remota y cambiarlos si es necesario. Esto significa que puedes actualizar la
+configuración del servidor sin tener que generar nuevas claves ni distribuirlas a los
+usuarios. En este documento, se explica cómo usar claves de acceso dinámicas para administrar
+el servidor de Outline con más flexibilidad y eficiencia.</p>
+
+<p>Dispones de tres formatos para especificar la información de acceso que utilizarán
+tus claves de acceso dinámicas:</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1">Usa un vínculo <code dir="ltr" translate="no">ss://</code></h3>
+
+<p><em>Cliente de Outline 1.8.1 y versiones posteriores.</em></p>
+
+<p>Puedes usar directamente un vínculo <code dir="ltr" translate="no">ss://</code> que ya tengas. Este método es ideal si no
+necesitas cambiar el servidor, el puerto o el método de encriptación con frecuencia, pero aún quieres
+disponer de flexibilidad para actualizar la dirección del servidor.</p>
+
+<p><strong>Ejemplo:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">Usa un objeto JSON</h3>
+
+<p><em>Cliente de Outline 1.8.0 y versiones posteriores.</em></p>
+
+<p>Este método ofrece más flexibilidad para administrar todos los aspectos de la
+conexión de Outline de los usuarios. Puedes actualizar el servidor, el puerto, la contraseña y el método de encriptación
+de esta manera.</p>
+
+<p><strong>Ejemplo:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server:</strong> Es el dominio o la dirección IP del servidor de VPN.</li>
+<li><strong>server_port:</strong> Es el número de puerto en el que se ejecuta el servidor de VPN.</li>
+<li><strong>password:</strong> Es la contraseña obligatoria para conectarse a la VPN.</li>
+<li><strong>method:</strong> Es el método de encriptación que usa la VPN. Consulta los
+<a l10n-placeholder5="5">algoritmos de cifrado de AEAD</a> que admite Shadowsocks.</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">Usa un objeto YAML</h3>
+
+<p><em>Cliente de Outline 1.15.0 y versiones posteriores.</em></p>
+
+<p>Este método es similar al método JSON anterior, pero agrega aún más
+flexibilidad aprovechando el formato de configuración avanzada de Outline. Puedes
+actualizar el servidor, el puerto, la contraseña, el método de encriptación y mucho más.</p>
+
+<p><strong>Ejemplo:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport:</strong> Define los protocolos de transporte que se usarán (TCP y UDP en
+este caso).</li>
+<li><strong>tcp/udp:</strong> Especifica la configuración para cada protocolo.
+<ul>
+<li><strong>$type:</strong> Indica el tipo de configuración (que en este caso es shadowsocks).</li>
+<li><strong>endpoint:</strong> Es el dominio o la dirección IP y el puerto del servidor de VPN.</li>
+<li><strong>secret:</strong> Es la contraseña obligatoria para conectarse a la VPN.</li>
+<li><strong>cipher:</strong> Es el método de encriptación que usa la VPN. Consulta los
+<a l10n-placeholder6="6">algoritmos de cifrado de AEAD</a>
+que admite Shadowsocks.</li>
+</ul></li>
+</ul>
+
+<p>Consulta <a l10n-placeholder7="7">Configuración de las claves de acceso</a> y conoce todas maneras en las que puedes
+configurar el acceso a tu servidor de Outline, incluidos transportes, extremos,
+marcadores y objetos de escucha de paquetes.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">Extrae información de acceso de una clave estática</h2>
+
+<p>Si ya tienes una clave de acceso estática, puedes extraer su información para
+crear una clave de acceso dinámica basada en JSON o YAML. Las claves de acceso estáticas siguen el
+siguiente patrón:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Ejemplo:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>Servidor:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>Puerto del servidor:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>Información del usuario:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code>; se decodifica como
+<a l10n-placeholder8="8">base64</a> con soluciones como <a l10n-placeholder9="9">Codificar/Decodificar de la Caja de herramientas para administradores de Google</a></p>
+
+<ul>
+<li><strong>Método</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>Contraseña</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">Elige una plataforma de hosting</h2>
+
+<p>Ahora que sabes crear claves de acceso dinámicas, es importante
+elegir una plataforma de hosting adecuada para la configuración de las claves de acceso. Cuando
+tomes esta decisión, considera factores como la confiabilidad de la plataforma,
+la seguridad, la facilidad de uso y la resistencia a la censura. ¿La plataforma entregará de manera coherente
+la información de las claves de acceso sin tiempos de inactividad? ¿Ofrece medidas
+de seguridad adecuadas para proteger la configuración? ¿Qué tan fácil es administrar
+la información de las claves de acceso en la plataforma? ¿Se puede acceder a la plataforma en regiones
+donde se censura Internet?</p>
+
+<p>Para situaciones en las que el acceso a la información pueda estar restringido, considera alojarlas
+en plataformas resistentes a la censura, como <a l10n-placeholder10="10">Google Drive</a>,
+<a l10n-placeholder11="11">pad.riseup.net</a>, <a l10n-placeholder12="12">Amazon
+S3</a>
+(con acceso con estilo de ruta),
+<a l10n-placeholder13="13">Netlify</a>
+o <a l10n-placeholder14="14">gists de GitHub
+secretos</a>.
+Evalúa las necesidades específicas de tu implementación y elige una plataforma que se ajuste
+a tus requisitos de accesibilidad y seguridad.</p>
+
+  
+</body></html>

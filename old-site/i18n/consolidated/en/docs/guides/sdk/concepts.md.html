@@ -1,0 +1,47 @@
+<html devsite=""><head>
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': 'b963ee4c-b621-4f42-aec9-baaed6670685'}, 'string_id': '6201848709562429957', 'target_locale_code': 'pl', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>The Outline SDK is built upon some basic concepts, defined as interoperable
+interfaces that allow for composition and easy reuse.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Connections</h2>
+
+<p>Connections enable communication between two endpoints over an abstract
+transport. There are two types of connections:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: stream-based connection,
+like TCP and the <code dir="ltr" translate="no">SOCK_STREAM</code> Posix socket type.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: datagram-based connection,
+like UDP and the <code dir="ltr" translate="no">SOCK_DGRAM</code> Posix socket type.
+We use &quot;Packet&quot; instead of &quot;Datagram&quot; because that is the convention in the
+Go standard library.</li>
+</ul>
+
+<p>Connections can be wrapped to create nested connections over a new transport.
+For example, a <code dir="ltr" translate="no">StreamConn</code> could be over TCP, over TLS over TCP, over HTTP over
+TLS over TCP, over QUIC, among other options.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Dialers</h2>
+
+<p>Dialers enable the creation of connections given a host:port address while
+encapsulating the underlying transport or proxy protocol.
+The <code dir="ltr" translate="no">StreamDialer</code> and <code dir="ltr" translate="no">PacketDialer</code> types create <code dir="ltr" translate="no">StreamConn</code> and <code dir="ltr" translate="no">PacketConn</code>
+connections, respectively, given an address. Dialers can also be nested.
+For example, a TLS Stream Dialer can use a TCP dialer to create a <code dir="ltr" translate="no">StreamConn</code>
+backed by a TCP connection, then create a TLS <code dir="ltr" translate="no">StreamConn</code> backed by the TCP
+<code dir="ltr" translate="no">StreamConn</code>. A SOCKS5-over-TLS Dialer could use the TLS Dialer to create the
+TLS <code dir="ltr" translate="no">StreamConn</code> to the proxy before doing the SOCKS5 connection to the target
+address.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Resolvers</h2>
+
+<p>Resolvers (<code dir="ltr" translate="no">dns.Resolver</code>) enable the answering of DNS questions while
+encapsulating the underlying algorithm or protocol.
+Resolvers are primarily used to map domain names to IP addresses.</p>
+
+  
+</body></html>

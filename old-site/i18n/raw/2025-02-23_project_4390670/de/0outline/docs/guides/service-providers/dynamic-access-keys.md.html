@@ -1,0 +1,82 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'f5687ec2-242f-4ac2-be05-1b9fbc3b38a3', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '78b3fcf7-3dc0-4998-b73d-6a97cde1c549'}, 'string_id': '7370928615664798887', 'target_locale_code': 'de', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline bietet zwei Arten von Zugriffsschlüsseln: statische und dynamische. Statische Schlüssel enthalten alle Verbindungsinformationen im Schlüssel selbst in codierter Form. Dynamische Schlüssel hingegen enthalten lediglich den Speicherort der Verbindungsinformationen, sodass Sie diese Informationen unabhängig vom Schlüssel speichern und bei Bedarf ändern können. Das heißt, Sie haben die Möglichkeit, Ihre Serverkonfiguration zu aktualisieren, ohne dass Sie neue Schlüssel generieren und an Ihre Nutzer verteilen müssen. In diesem Dokument wird erläutert, wie Sie Ihren Outline-Server mit dynamischen Zugriffsschlüsseln flexibler und effizienter verwalten können.</p>
+
+<p>Die Zugangsinformationen für die dynamischen Zugangsschlüssel lassen sich in drei verschiedenen Formaten angeben:</p>
+
+<h3 data-text="14753740374766196622" id="use_an_ss_link" tabindex="-1"><code dir="ltr" translate="no">ss://</code>-Link</h3>
+
+<p><em>Outline-Client v1.8.1+</em></p>
+
+<p>Sie können einen vorhandenen <code dir="ltr" translate="no">ss://</code>-Link direkt verwenden. Diese Methode ist ideal, wenn Sie den Server, den Port oder die Verschlüsselungsmethode nicht häufig ändern müssen, aber dennoch die Möglichkeit haben möchten, die Serveradresse zu aktualisieren.</p>
+
+<p><strong>Beispiel:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<h3 data-text="11158397983543878601" id="use_a_json_object" tabindex="-1">JSON-Objekt</h3>
+
+<p><em>Outline-Client v1.8.0+</em></p>
+
+<p>Diese Methode bietet flexiblere Möglichkeiten, alle Aspekte der Outline-Verbindungen Ihrer Nutzer zu verwalten. Hiermit können Sie Server, Port, Passwort und Verschlüsselungsmethode aktualisieren.</p>
+
+<p><strong>Beispiel:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<ul>
+<li><strong>server:</strong> die Domain oder IP-Adresse des VPN-Servers.</li>
+<li><strong>server_port:</strong> die Nummer des Ports, über die der VPN-Server erreichbar ist.</li>
+<li><strong>password:</strong> das Passwort, um eine Verbindung mit dem VPN herzustellen.</li>
+<li><strong>method:</strong> die vom VPN genutzte Verschlüsselungsmethode. Von Shadowsocks unterstützte <a l10n-placeholder5="5">AEAD-Chiffren finden Sie hier</a>.</li>
+</ul>
+
+<h3 data-text="13953653058714610730" id="use_a_yaml_object" tabindex="-1">YAML-Objekt</h3>
+
+<p><em>Outline-Client v1.15.0+</em></p>
+
+<p>Diese Methode ähnelt der Methode mit dem JSON-Objekt, bietet aber noch mehr Flexibilität, weil das erweiterte Konfigurationsformat von Outline genutzt wird. Hiermit können Sie Server, Port, Passwort, Verschlüsselungsmethode und mehr aktualisieren.</p>
+
+<p><strong>Beispiel:</strong></p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<ul>
+<li><strong>transport:</strong> definiert die zu verwendenden Transportprotokolle (in diesem Fall TCP und UDP).</li>
+<li><strong>tcp/udp:</strong> die Konfiguration der einzelnen Protokolle.
+<ul>
+<li><strong>$type:</strong> die Art der Konfiguration, in diesem Fall Shadowsocks.</li>
+<li><strong>endpoint:</strong> die Domain oder IP-Adresse und der Port Ihres VPN-Servers.</li>
+<li><strong>secret:</strong> das Passwort, um eine Verbindung mit dem VPN herzustellen.</li>
+<li><strong>cipher:</strong> die vom VPN genutzte Verschlüsselungsmethode. Von Shadowsocks unterstützte <a l10n-placeholder6="6">AEAD-Chiffren finden Sie hier</a>.</li>
+</ul></li>
+</ul>
+
+<p>Detaillierte Informationen über alle Möglichkeiten, den Zugriff auf Ihren Online-Server zu konfigurieren, einschließlich Transport, Endpunkte, Dialer und Packet Listener, finden Sie unter <a l10n-placeholder7="7">Zugriffsschlüsselkonfiguration</a>.</p>
+
+<h2 data-text="8073710844695383258" id="extract_access_information_from_a_static_key" tabindex="-1">Zugriffsinformationen aus einem statischen Schlüssel extrahieren</h2>
+
+<p>Wenn Sie einen vorhandenen statischen Zugriffsschlüssel haben, können Sie die Informationen extrahieren, um einen JSON- oder YAML-basierten dynamischen Zugriffsschlüssel zu erstellen. Statische Zugriffsschlüssel haben das folgende Muster:</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder4 --></devsite-code>
+<p>Beispiel:</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl@outline-server.example.com:8388/?outline=1</code></p>
+
+<ul>
+<li><strong>Server:</strong> <code dir="ltr" translate="no">outline-server.example.com</code></li>
+<li><strong>Server-Port:</strong> <code dir="ltr" translate="no">8388</code></li>
+<li><p><strong>Nutzerinfo:</strong> <code dir="ltr" translate="no">Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpleGFtcGxl</code> decodiert als <a l10n-placeholder8="8">base64</a> mit einem Tool wie der <a l10n-placeholder9="9">Codieren/Decodieren-Funktion der Google Admin Toolbox</a></p>
+
+<ul>
+<li><strong>Methode</strong>: <code dir="ltr" translate="no">chacha20-ietf-poly1305</code></li>
+<li><strong>Passwort</strong>: <code dir="ltr" translate="no">example</code></li>
+</ul></li>
+</ul>
+
+<h2 data-text="7529702666558473090" id="choose_a_hosting_platform" tabindex="-1">Hostingplattform auswählen</h2>
+
+<p>Jetzt wissen Sie, wie dynamische Zugriffsschlüssel erstellt werden. Als Nächstes müssen Sie eine geeignete Hostingplattform für die Konfiguration des Zugriffsschlüssels auswählen. Bei dieser Entscheidung sollten Sie Faktoren wie Zuverlässigkeit, Sicherheit, Nutzerfreundlichkeit und Zensurresistenz berücksichtigen. Sind Ihre Zugriffsschlüssel-Informationen auf der Plattform ohne Unterbrechung verfügbar? Bietet sie geeignete Sicherheitsmechanismen zum Schutz Ihrer Konfiguration? Wie einfach ist es, die Zugriffsschlüssel-Informationen auf der Plattform zu verwalten? Ist die Plattform in Regionen mit Internetzensur verfügbar?</p>
+
+<p>In Fällen, in denen der Zugriff auf Informationen möglicherweise eingeschränkt ist, erwägen Sie das Hosting auf einer zensurresistenten Plattform wie <a l10n-placeholder10="10">Google Drive</a>, <a l10n-placeholder11="11">pad.riseup.net</a>, <a l10n-placeholder12="12">Amazon S3</a> (mit Zugriffspfad), <a l10n-placeholder13="13">Netlify</a> oder <a l10n-placeholder14="14">GitHub secret gists</a>.
+Wählen Sie eine Plattform aus, die die Anforderungen Ihrer Bereitstellung insbesondere an Zugänglichkeit und Sicherheit erfüllt.</p>
+
+  
+</body></html>

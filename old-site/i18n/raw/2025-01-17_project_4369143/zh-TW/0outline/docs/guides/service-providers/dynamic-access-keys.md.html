@@ -1,0 +1,137 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': 'eb192da1-ff60-4b9d-ac4b-80d723177f76', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '4441a895-4411-4682-97a5-ba92968f3af7'}, 'string_id': '9197675375058541232', 'target_locale_code': 'zh_tw', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline 用戶端自 1.8.0 版起以 Beta 版形式支援動態存取金鑰。之前，存取 Outline VPN 所需的資訊是靜態儲存在存取金鑰中。現在透過動態存取金鑰，您可以將這些資訊託管於遠端位置，並動態更新。</p>
+
+<p>也就是說，您可以隨時更改 VPN 的位置、託管通訊埠、存取密碼及加密方法，無需重新向全體用戶端使用者發放存取金鑰！</p>
+
+<h2 data-text="8644459730891964801" id="hosting_your_access_information_as_an_ss_link" tabindex="-1">將存取資訊以 ss:// 連結形式託管</h2>
+
+<p>自 Outline 用戶端 1.8.1 版起，儲存在動態存取金鑰連結中的存取資訊可以直接採用 ss:// 連結格式 (在之前的版本中，動態金鑰只能是 JSON 物件，詳見下文)。如果您不打算動態調整伺服器、通訊埠或加密方法，但仍希望能隨時切換連線的伺服器，就很適合採用這個解決方案。這種方法免除了將 ss 金鑰轉換為 JSON 物件的步驟；此外，動態金鑰可以儲存在 Google 試算表中，因此在能夠存取 Google 試算表的地區，這是一種對抗審查的有效方式。</p>
+
+<ul>
+<li>將存取資訊儲存在 <a l10n-placeholder4="4">Google 試算表</a>中
+<ul>
+<li>建立 Google 帳戶</li>
+<li>透過 <a l10n-placeholder5="5">https://sheets.new</a> 建立新試算表</li>
+<li>將 <code dir="ltr" translate="no">ss://</code> 連結貼入 A1 儲存格</li>
+<li>依序選取「檔案」>「共用」>「發布到網路」</li>
+<li>在「連結」分頁，選取「工作表 1」和「逗號分隔值(.csv)」</li>
+<li>點選「發布」</li>
+<li>生成連結的格式如下：<code dir="ltr" translate="no">https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+<li>將 <code dir="ltr" translate="no">https://</code> 替換為 <code dir="ltr" translate="no">ssconf://</code> 即可建立動態存取金鑰，格式如下：<code dir="ltr" translate="no">ssconf://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nxRcUf52R6fq3JdVfNqIPr2GQU2wBGsG-xI4WTaYrliCElxp0ZAAjy0PDlf_-qvCT3pnSB2jVEo/pub?gid=0&amp;single=true&amp;output=csv</code></li>
+</ul></li>
+<li>下文還會介紹其他抗審查的存取資訊儲存方式。</li>
+</ul>
+
+<h2 data-text="16992700024475287942" id="hosting_your_access_information_as_a_json_object" tabindex="-1">將存取資訊以 JSON 物件形式託管</h2>
+
+<p>您也可以將存取資訊儲存為包含以下鍵值的 JSON 物件：</p>
+
+<ul>
+<li><p><strong>server：</strong>託管 VPN 伺服器的網域或 IP 位址，需用雙引號包夾。</p></li>
+<li><p><strong>server_port：</strong>VPN 服務運作的通訊埠。</p>
+
+<p>根據預設，Outline Manager 會將 VPN 託管於臨時通訊埠，避免與伺服器上可能運行的其他服務衝突。如果可以，建議將 VPN 託管於 443 之類的標準通訊埠，以免被通訊埠掃描工具輕易偵測到。</p></li>
+<li><p><strong>password：</strong>連線 VPN 所需的密語或權杖，需用雙引號包夾，類似於「芝麻開門！」。</p>
+
+<p>提醒您，密碼熵值越高越好。平均而言，長度 20 個字元以上的密碼，幾乎無法被暴力破解。</p></li>
+<li><p><strong>method：</strong>VPN 使用的加密方法，需用雙引號包夾。您可以前往 <a l10n-placeholder6="6">shadowsocks 網站</a>，進一步瞭解我們支援的加密方法。</p></li>
+</ul>
+
+<p>JSON 示例：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder1 --></devsite-code>
+<p><strong>注意：請務必使用標準的「"」雙引號字元。許多平台會改用「"」之類較為華麗的斜體引號，但是這類引號無法被剖析，因此不宜使用。</strong></p>
+
+<p>目前，VPN 管理員需要自行選擇一個不會遭到封鎖的位置來存放存取資訊。以下是一些適合對抗審查的存放位置選擇：</p>
+
+<ul>
+<li><p><a l10n-placeholder7="7">pad.riseup.net</a></p>
+
+<ul>
+<li>若選擇存放在這裡，就不需要建立新帳戶</li>
+<li>建立檔案後，點選右上方的「Share」按鈕，開啟「Read only」切換鈕。複製生成的連結，格式如下：https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24</li>
+<li>在連結末端加上 /export/txt，如下所示：https://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+<li>將 <code dir="ltr" translate="no">https://</code> 替換為 <code dir="ltr" translate="no">ssconf://</code> 即可建立動態存取金鑰，格式如下：ssconf://pad.riseup.net/p/r.9b3d9974b0fd86132c872eb8e5c84c24/export/txt</li>
+</ul></li>
+<li><p><a l10n-placeholder8="8">S3</a> (務必使用<a l10n-placeholder9="9">路徑樣式存取格式</a>)</p>
+
+<ul>
+<li>建立 AWS 帳戶和新 bucket</li>
+<li>在 bucket 的「Permissions」設定中，針對「Object Ownership」選取「ACLs enabled」和「Bucket owner preferred」</li>
+<li>在存取控管清單 (ACL) 中，針對「Everyone (public access)」指派 bucket ACL 的「Read」權限。</li>
+<li>將 JSON 檔案加入 bucket (提示：在文字編輯器中建立檔案，然後以 <code dir="ltr" translate="no">.json</code> 副檔名儲存)</li>
+<li>檢查是否能查看該檔案，方法是選取該物件、點選「Copy URL」，然後在瀏覽器無痕視窗中嘗試開啟網址。網址格式應如下：https://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+<li>將 https:// 替換為 ssconf:// 即可建立動態存取金鑰，格式如下：ssconf://my-bucket-name.s3.us-east-2.amazonaws.com/my_online_config_file.json</li>
+</ul></li>
+<li><p><a l10n-placeholder10="10">Netlify</a></p></li>
+</ul>
+
+<h2 data-text="8168403626127095668" id="rolling_your_own_dynamic_key_solution" tabindex="-1">自建動態金鑰解決方案</h2>
+
+<p>如果您選擇自行託管動態金鑰，請務必啟用跨來源要求 (也稱為「<a l10n-placeholder11="11">CORS</a>」)。您可以將 <a l10n-placeholder12="12">Access-Control-Allow-Origin</a> 標頭加入所有伺服器回應，並將其值設為萬用字元 (例如「*」)，告訴用戶端任何人都能存取您的動態金鑰。</p>
+
+<h2 data-text="5930897059554919762" id="getting_your_access_information_from_the_static_access_key" tabindex="-1">從靜態存取金鑰取得存取資訊</h2>
+
+<p>如果您剛開始使用，想在現有的 Outline VPN 中加入額外中介層，而非採用複雜的自訂部署配置，別擔心！您可以從現有的存取金鑰中擷取存取資訊。下方示例介紹了「server」、「server_port」、「password」和「method」分別位於何處。</p>
+
+<p>靜態存取金鑰示例：</p>
+
+<p><code dir="ltr" translate="no">ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:17178/?outline=1</code></p>
+
+<ol>
+<li><p><strong>伺服器</strong></p>
+
+<p>在靜態存取金鑰中，「server」是「@」符號與後方「:」之間的部分</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@<strong>outline-server.example.com</strong>:17178/?outline=1</p></li>
+<li><p><strong>伺服器通訊埠</strong></p>
+
+<p>在靜態存取金鑰中，「server_port」是第二個「:」符號與後方「/」之間的部分</p>
+
+<p>ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw@outline-server.example.com:<strong>17178</strong>/?outline=1</p></li>
+<li><p><strong>密碼</strong></p>
+
+<p>這部分稍微複雜。金鑰中介於「ss://」和「@」之間的部分是以 base64 格式編碼。您可以使用 <a l10n-placeholder13="13">base64 解碼器</a>解析此部分隱藏的內容：</p>
+
+<p>ss://<strong>Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1UkVmeFRqbHR6Mkw</strong>@outline-server.example.com:17178/?outline=1</p>
+
+<p>在我們的例子中，解碼後的結果如下，粗體部分 (「:」後面) 即為「password」：</p>
+
+<p>chacha20-ietf-poly1305:<strong>5REfxTjltz2L</strong></p></li>
+<li><p><strong>方法</strong></p>
+
+<p>您可能已猜到，以上結果中「:」前的部分就是「method」：</p>
+
+<p><strong>chacha20-ietf-poly1305</strong>:5REfxTjltz2L</p></li>
+</ol>
+
+<p>動態存取金鑰示例</p>
+
+<p>總結來說，金鑰示例最終的存取資訊 JSON 會像這樣：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder2 --></devsite-code>
+<h2 data-text="5441970926354769528" id="creating_your_dynamic_access_key" tabindex="-1">建立動態存取金鑰</h2>
+
+<p>具備存放存取資訊的網址後，只要將 <code dir="ltr" translate="no">https://</code> 替換為 <code dir="ltr" translate="no">ssconf://</code> 通訊協定，即可建立動態存取金鑰，並告知 Outline 用戶端如何處理這個存取金鑰。</p>
+
+<p>替換前 (https 通訊協定)
+https://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>替換後 (使用 ssconf 通訊協定的動態存取金鑰)
+ssconf://s3.amazonaws.com/a-cool-s3-bucket/my-access-key.json</p>
+
+<p>接下來，即可將此金鑰加入 Outline 用戶端！</p>
+
+<h2 data-text="481607094415320096" id="custom_errors" tabindex="-1">自訂錯誤訊息</h2>
+
+<p>自用戶端 1.13 版起，您可以利用動態存取金鑰向使用者傳送自訂錯誤訊息，方法是將錯誤鍵加入 JSON：</p>
+<div></div><devsite-code><!-- notranslate l10n-placeholder: l10n-placeholder3 --></devsite-code>
+<p>使用者下次連線時將會失敗，並在畫面底部看到這則錯誤訊息：</p>
+
+<p><img alt="快訊：超過配額" src="/static/outline/images/quota-exceeded.png" /></p>
+
+  
+</body></html>

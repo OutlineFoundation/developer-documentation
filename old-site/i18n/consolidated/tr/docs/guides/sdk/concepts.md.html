@@ -1,0 +1,34 @@
+<html devsite=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="devsite_continuous_localization_eels_id" value="{'source_id': '5f338590-a8c8-4642-a640-af11e3ab63f1', 'target_id_by_wf': {'WORKFLOW_STAGE_REVIEW': '2347ad78-f5e9-4b63-b7df-526218bcd585'}, 'string_id': '6201848709562429957', 'target_locale_code': 'tr', 'translation_service': 'SERVICE_L10N_STANDARD', 'has_html_tag': False}" /></head>
+  <body>
+    
+
+
+<p>Outline SDK’nın temelinde, birleştirmeye ve kolay yeniden kullanıma olanak sağlayan, birlikte çalışabilir arayüzler şeklinde tanımlanan bazı temel kavramlar yer alır.</p>
+
+<h2 data-text="11276258459484183404" id="connections" tabindex="-1">Bağlantılar</h2>
+
+<p>Bağlantılar, soyut bir araç üzerinden iki uç nokta arasında iletişimi sağlar. İki tür bağlantı bulunur:</p>
+
+<ul>
+<li><code dir="ltr" translate="no">transport.StreamConn</code>: TCP ve <code dir="ltr" translate="no">SOCK_STREAM</code> Posix yuvası türü gibi akış temelli bağlantı.</li>
+<li><code dir="ltr" translate="no">transport.PacketConn</code>: UDP ve <code dir="ltr" translate="no">SOCK_DGRAM</code> Posix yuvası türü gibi veri birimi temelli bağlantı.
+Go'nun standart kitaplığında kural bu şekilde olduğundan, "veri birimi" yerine "paket" terimini kullanıyoruz.</li>
+</ul>
+
+<p>Bağlantılar, yeni bir araç üzerinden iç içe bağlantılar oluşturmak için sarmalanabilir.
+Örneğin <code dir="ltr" translate="no">StreamConn</code> TCP, TCP üzerinden TLS, TCP üzerinden TLS üzerinden HTTP, QUIC vb. bağlantısını kullanabilir.</p>
+
+<h2 data-text="1791249273649434741" id="dialers" tabindex="-1">Çeviriciler</h2>
+
+<p>Çeviriciler, temel aktarım veya proxy protokolünü kapsüllemeyi sağlarken, bir ana makine:bağlantı noktası adresi verilen bağlantıların oluşturulmasını sağlar.
+<code dir="ltr" translate="no">StreamDialer</code> ve <code dir="ltr" translate="no">PacketDialer</code> türleri, belirli bir adreste sırasıyla <code dir="ltr" translate="no">StreamConn</code> ve <code dir="ltr" translate="no">PacketConn</code> bağlantıları oluşturur. Çeviriciler iç içe de yerleştirilebilir.
+Örneğin bir TLS akış çevirici, TCP çevirici kullanarak TCP bağlantısıyla desteklenen bir <code dir="ltr" translate="no">StreamConn</code> oluşturabilir. Daha sonra, TCP <code dir="ltr" translate="no">StreamConn</code> ile desteklenen bir TLS <code dir="ltr" translate="no">StreamConn</code> oluşturabilir. SOCKS5-over-TLS çevirici, TLS çevirici kullanarak proxy'ye TLS <code dir="ltr" translate="no">StreamConn</code> oluşturabilir ve daha sonra hedef adrese SOCKS5 bağlantısını kurar.</p>
+
+<h2 data-text="5859494196940423962" id="resolvers" tabindex="-1">Çözümleyiciler</h2>
+
+<p>Çözümleyiciler (<code dir="ltr" translate="no">dns.Resolver</code>), temel algoritmayı veya protokolü kapsüllerken DNS sorularının yanıtlanmasını etkinleştirir.
+Çözümleyiciler, çoğunlukla alan adlarının IP adresleriyle eşlenmesi için kullanılır.</p>
+
+  
+</body></html>
