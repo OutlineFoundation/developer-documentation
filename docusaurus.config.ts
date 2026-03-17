@@ -36,7 +36,7 @@ const config: Config = {
   onBrokenLinks: 'throw',
 
   markdown: {
-    format: 'md',
+    format: 'detect',
   },
 
   i18n: {

@@ -3,6 +3,10 @@ title: "Adicionar o SDK Outline ao seu app para dispositivos móveis"
 sidebar_label: "Adicionar o SDK Outline ao seu app para dispositivos móveis"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Este documento resume como integrar o SDK Outline aos seus aplicativos
 para dispositivos móveis, com foco na biblioteca `MobileProxy` para gerenciamento simplificado de proxies
 locais.
@@ -62,7 +66,8 @@ código. Pode ser uma boa ideia adquirir uma licença especial com eles.
 
 3. Gere bibliotecas para dispositivos móveis e adicione-as ao seu projeto:
 
-### Android {#android}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -70,7 +75,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 No Android Studio, selecione **File > Import Project…** para importar o pacote `out/mobileproxy.aar` gerado. Se quiser mais ajuda, confira [Como criar e implantar no Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) (em inglês) em Go Mobile.
 
-### iOS {#ios}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -80,6 +86,8 @@ Arraste o pacote `out/mobileproxy.xcframework` para o projeto Xcode. Se
 quiser mais ajuda, confira [Como criar e implantar no iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) (em inglês) em Go
 Mobile.
 
+</TabItem>
+</Tabs>
 ## Etapa 2: executar a MobileProxy {#step_2_run_the_mobileproxy}
 
 Abra o app e inicie o proxy local `MobileProxy` dentro do tempo de execução do seu app.
@@ -89,7 +97,8 @@ seleção dinâmica de estratégias.
 - **Configuração de transporte estática**: use a função `RunProxy` com uma configuração
 de transporte e endereço local.
 
-### Android {#android_1}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 import mobileproxy.*
@@ -104,7 +113,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_1}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -124,7 +134,10 @@ com base em domínios de teste especificados. Você precisa especificar a estrat
 de configuração no formato YAML
 ([exemplo](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml), em inglês).
 
-### Android {#android_2}
+</TabItem>
+</Tabs>
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -139,7 +152,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_2}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -163,11 +177,14 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
+</TabItem>
+</Tabs>
 ## Etapa 3: configurar as bibliotecas de rede e clientes HTTP {#step_3_configure_http_clients_and_networking_libraries}
 
 Configure suas bibliotecas de rede para usar a porta e endereço do proxy local.
 
-### Dart/Flutter HttpClient {#dartflutter-httpclient}
+<Tabs groupId="http-client">
+<TabItem value="dart" label="Dart/Flutter HttpClient">
 
 Defina o proxy com
 [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html) (em inglês).
@@ -179,7 +196,8 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp (Android) {#okhttp-android}
+</TabItem>
+<TabItem value="okhttp" label="OkHttp (Android)">
 
 Defina o proxy com
 [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/) (em inglês).
@@ -189,7 +207,8 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM (Java, Kotlin) {#jvm-java,-kotlin}
+</TabItem>
+<TabItem value="jvm" label="JVM (Java, Kotlin)">
 
 Configure o proxy para usar com [propriedades
 do sistema](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html) (em inglês):
@@ -201,7 +220,8 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### WebView do Android {#android-web-view}
+</TabItem>
+<TabItem value="android-webview" label="Android Web View">
 
 Aplique uma configuração de proxy para todas as visualizações da Web no seu aplicativo com
 a biblioteca
@@ -218,7 +238,8 @@ ProxyController.getInstance()
     )
 ```
 
-### WebView do iOS {#ios-web-view}
+</TabItem>
+<TabItem value="ios-webview" label="iOS Web View">
 
 Desde o iOS 17, é possível adicionar uma configuração de proxy a um `WKWebView` usando a
 [propriedade
@@ -233,6 +254,8 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
+</TabItem>
+</Tabs>
 ## Avançado: gere uma biblioteca para dispositivos móveis personalizada {#advanced_generate_a_custom_mobile_library}
 
 Para casos de uso avançados, você pode gerar suas próprias bibliotecas para dispositivos móveis:

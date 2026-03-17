@@ -15,7 +15,7 @@ initial TCP stream into two separate packets**. This may help bypass some forms
 of network intervention.
 
 You will be able to run the application on **Linux, Mac, and Windows**.
-For integrating with mobile apps, check out [Add Outline SDK to your mobile app](mobile-app-integration.md).
+For integrating with mobile apps, check out [Add Outline SDK to your mobile app](mobile-app-integration).
 
 ## Step 1: Set up Go
 

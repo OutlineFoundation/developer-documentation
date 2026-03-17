@@ -3,6 +3,10 @@ title: "Outline SDK'yı mobil uygulamanıza ekleme"
 sidebar_label: "Outline SDK'yı mobil uygulamanıza ekleme"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Bu belgede, Outline SDK'yı mobil uygulamalarınıza nasıl entegre edeceğiniz açıklanmaktadır. Basitleştirilmiş yerel proxy yönetimi için `MobileProxy` kitaplığına odaklanılmıştır.
 
 Go temelli bir kitaplık olan `MobileProxy`, proxy işlevlerini mobil uygulamalara entegrasyonunu iyileştirmek için tasarlanmıştır. Mobil uygulama kitaplıklarını oluşturmak için [Go Mobile](https://go.dev/wiki/Mobile)'dan yararlanır. Böylece, uygulamanızın ağ kitaplıklarını trafiği yerel bir proxy üzerinden yönlendirecek şekilde yapılandırabilirsiniz.
@@ -51,7 +55,8 @@ Psiphon kod tabanı GPL kapsamında lisanslandığından kodunuza lisans kısıt
 
 3. Mobil uygulama kitaplıklarını oluşturun ve projenize ekleyin:
 
-### Android {#android}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -59,7 +64,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 Oluşturulan `out/mobileproxy.aar` paketini içe aktarmak için Android Studio'da **Dosya > Projeyi İçe Aktar…** seçeneğini belirleyin. Daha fazla yardım için Go Mobile'ın [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1) (Uygulama derleme ve Android'e dağıtma) başlıklı bölümünü inceleyin.
 
-### iOS {#ios}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -67,6 +73,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 `out/mobileproxy.xcframework` paketini Xcode projesine sürükleyin. Daha fazla yardım için Go Mobile'ın [Building and deploying to Android](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1) (Uygulama derleme ve iOS'e dağıtma) başlıklı bölümünü inceleyin.
 
+</TabItem>
+</Tabs>
 ## 2. adım: MobileProxy'yi çalıştırın {#step_2_run_the_mobileproxy}
 
 `MobileProxy` yerel proxy'sini uygulamanızın çalışma zamanında başlatın.
@@ -74,7 +82,8 @@ Dinamik strateji seçimi için statik bir araç yapısı ya da akıllı proxy ku
 
 - **Statik araç yapılandırması**: Yerel bir adres ve araç yapılandırmasıyla `RunProxy` işlevini kullanın.
 
-### Android {#android_1}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 import mobileproxy.*
@@ -89,7 +98,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_1}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -106,7 +116,10 @@ proxy.stop()
 
 - **Akıllı proxy**: Akıllı proxy, DNS ve TLS stratejilerini belirtilen test alan adlarına göre dinamik olarak seçer. Yapılandırma stratejisini YAML biçiminde ([örnek](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)) belirtmeniz gerekir.
 
-### Android {#android_2}
+</TabItem>
+</Tabs>
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -121,7 +134,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_2}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -145,11 +159,14 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
+</TabItem>
+</Tabs>
 ## 3. adım: HTTP istemcilerini ve ağ kitaplıklarını yapılandırın {#step_3_configure_http_clients_and_networking_libraries}
 
 Ağ kitaplıklarınızı yerel proxy adresini ve bağlantı noktasını kullanacak şekilde yapılandırın.
 
-### Dart/Flutter HttpClient {#dartflutter-httpclient}
+<Tabs groupId="http-client">
+<TabItem value="dart" label="Dart/Flutter HttpClient">
 
 Proxy'yi [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html) ile ayarlayın.
 
@@ -160,7 +177,8 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp (Android) {#okhttp-android}
+</TabItem>
+<TabItem value="okhttp" label="OkHttp (Android)">
 
 Proxy'yi [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/) ile ayarlayın.
 
@@ -169,7 +187,8 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM (Java, Kotlin) {#jvm-java,-kotlin}
+</TabItem>
+<TabItem value="jvm" label="JVM (Java, Kotlin)">
 
 Proxy'yi [sistem özellikleriyle](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html) kullanılacak şekilde yapılandırın:
 
@@ -180,7 +199,8 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### Android Web Görünümü {#android-web-view}
+</TabItem>
+<TabItem value="android-webview" label="Android Web View">
 
 [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController) kitaplığını kullanarak uygulamanızdaki tüm web görünümlerine bir proxy yapılandırması uygulayın:
 
@@ -195,7 +215,8 @@ ProxyController.getInstance()
     )
 ```
 
-### iOS Web Görünümü {#ios-web-view}
+</TabItem>
+<TabItem value="ios-webview" label="iOS Web View">
 
 iOS 17 sürümünden itibaren, [`WKWebsiteDataStore` özelliğini](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration) kullanarak `WKWebView` görünümüne proxy yapılandırması uygulayabilirsiniz:
 
@@ -208,6 +229,8 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
+</TabItem>
+</Tabs>
 ## İleri düzey: Özel mobil uygulama kitaplığı oluşturma {#advanced_generate_a_custom_mobile_library}
 
 İleri düzey kullanım alanları için kendi mobil uygulama kitaplıklarınızı oluşturabilirsiniz:

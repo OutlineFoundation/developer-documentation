@@ -3,6 +3,10 @@ title: "Как добавить Outline SDK в мобильное приложе
 sidebar_label: "Как добавить Outline SDK в мобильное приложение"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 В этом руководстве описывается, как интегрировать Outline SDK в мобильные приложения с использованием библиотеки `MobileProxy`, которая упрощает работу с локальным прокси-сервером.
 
 `MobileProxy` – это библиотека на основе языка Go. Она упрощает интеграцию функций прокси-сервера в мобильные приложения. Библиотека использует инструмент [Go Mobile](https://go.dev/wiki/Mobile) для генерирования мобильных библиотек. Это позволяет настраивать сетевые библиотеки приложения так, чтобы трафик проходил через локальный прокси-сервер.
@@ -51,7 +55,8 @@ go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.
 
 3. Как создать мобильные библиотеки и добавить их в проект
 
-### Android {#android}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -59,7 +64,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 В Android Studio выберите **File > Import Project… (Файл > Импортировать проект…)**, чтобы импортировать сгенерированный пакет `out/mobileproxy.aar`. Дополнительная информация приведена в разделе Go Mobile на странице [Сборка и развертывание для Android](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1).
 
-### iOS {#ios}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -67,6 +73,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 Перетащите пакет `out/mobileproxy.xcframework` в проект Xcode. Дополнительная информация приведена в разделе Go Mobile на странице [Сборка и развертывание для iOS](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1).
 
+</TabItem>
+</Tabs>
 ## Шаг 2. Запустите MobileProxy {#step_2_run_the_mobileproxy}
 
 Инициализируйте и запустите локальный прокси-сервер `MobileProxy` в среде выполнения вашего приложения.
@@ -74,7 +82,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 - **Статическая конфигурация протокола:** используйте функцию `RunProxy`, указав локальный адрес и параметры конфигурации протокола.
 
-### Android {#android_1}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 import mobileproxy.*
@@ -89,7 +98,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_1}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -106,7 +116,10 @@ proxy.stop()
 
 - **SmartProxy:** эта технология динамически выбирает стратегии DNS и TLS на основе заданных тестовых доменов. Стратегию конфигурации необходимо указать в формате YAML ([пример](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
-### Android {#android_2}
+</TabItem>
+</Tabs>
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -121,7 +134,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_2}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -145,11 +159,14 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
+</TabItem>
+</Tabs>
 ## Шаг 3. Настройте HTTP-клиенты и сетевые библиотеки {#step_3_configure_http_clients_and_networking_libraries}
 
 Настройте сетевые библиотеки на использование локального адреса и порта прокси-сервера.
 
-### Dart/Flutter HttpClient {#dartflutter-httpclient}
+<Tabs groupId="http-client">
+<TabItem value="dart" label="Dart/Flutter HttpClient">
 
 Установите прокси-сервер с помощью [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html).
 
@@ -160,7 +177,8 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp (Android) {#okhttp-android}
+</TabItem>
+<TabItem value="okhttp" label="OkHttp (Android)">
 
 Установите прокси-сервер с помощью [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/).
 
@@ -169,7 +187,8 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM (Java, Kotlin) {#jvm-java,-kotlin}
+</TabItem>
+<TabItem value="jvm" label="JVM (Java, Kotlin)">
 
 Настройте прокси-сервер с использованием [системных свойств](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html):
 
@@ -180,7 +199,8 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### Android WebView {#android-web-view}
+</TabItem>
+<TabItem value="android-webview" label="Android Web View">
 
 Примените конфигурацию прокси-сервера ко всем WebView в приложении с помощью библиотеки [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController):
 
@@ -195,7 +215,8 @@ ProxyController.getInstance()
     )
 ```
 
-### iOS WebView {#ios-web-view}
+</TabItem>
+<TabItem value="ios-webview" label="iOS Web View">
 
 Начиная с iOS 17 и более поздних версий вы можете добавить прокси-конфигурацию для `WKWebView`, используя [свойство `WKWebsiteDataStore`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration):
 
@@ -208,6 +229,8 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
+</TabItem>
+</Tabs>
 ## Как создать собственную мобильную библиотеку (расширенная настройка) {#advanced_generate_a_custom_mobile_library}
 
 Если требуется расширенная настройка, вы можете сгенерировать собственные мобильные библиотеки.

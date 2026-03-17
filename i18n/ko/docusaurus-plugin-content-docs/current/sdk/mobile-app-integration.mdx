@@ -3,6 +3,10 @@ title: "모바일 앱에 Outline SDK 추가하기"
 sidebar_label: "모바일 앱에 Outline SDK 추가하기"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 이 문서에서는 모바일 애플리케이션에 Outline SDK를 통합하는 방법을 간략하게 설명하며, 특히 로컬 프록시 관리를 간소화하는 `MobileProxy` 라이브러리를 중점적으로 살펴봅니다.
 
 `MobileProxy`는 모바일 앱에 프록시 기능을 간편하게 통합하도록 설계된 Go 기반 라이브러리입니다. [Go Mobile](https://go.dev/wiki/Mobile)을 활용하여 모바일 라이브러리를 생성하고, 앱의 네트워킹 라이브러리를 구성하여 로컬 프록시를 통해 트래픽을 라우팅할 수 있습니다.
@@ -51,7 +55,8 @@ Psiphon 코드베이스는 GPL 라이선스를 따르므로, 사용자의 코드
 
 3. 모바일 라이브러리를 생성하여 다음과 같이 프로젝트에 추가합니다.
 
-### Android {#android}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -59,7 +64,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 Android 스튜디오에서 **파일 > 프로젝트 가져오기…**를 선택하여 생성된 `out/mobileproxy.aar` 번들을 가져옵니다. 도움이 더 필요하면 Go Mobile의 [Android 빌드 및 배포](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1)를 참고하세요.
 
-### iOS {#ios}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -67,6 +73,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 `out/mobileproxy.xcframework` 번들을 Xcode 프로젝트로 드래그합니다. 도움이 더 필요하면 Go Mobile의 [iOS 빌드 및 배포](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1)를 참고하세요.
 
+</TabItem>
+</Tabs>
 ## 2단계: MobileProxy 실행하기 {#step_2_run_the_mobileproxy}
 
 앱 런타임 내에서 `MobileProxy` 로컬 프록시를 초기화하고 시작합니다.
@@ -74,7 +82,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 - **정적 전송 구성**: 로컬 주소 및 전송 구성과 함께 `RunProxy` 기능을 사용합니다.
 
-### Android {#android_1}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 import mobileproxy.*
@@ -89,7 +98,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_1}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -106,7 +116,10 @@ proxy.stop()
 
 - **스마트 프록시**: 스마트 프록시는 지정된 테스트 도메인을 기반으로 DNS 및 TLS 전략을 동적으로 선택합니다. YAML 형식의 구성 전략을 지정해야 합니다([예](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)).
 
-### Android {#android_2}
+</TabItem>
+</Tabs>
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -121,7 +134,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_2}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -145,11 +159,14 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
+</TabItem>
+</Tabs>
 ## 3단계: HTTP 클라이언트 및 네트워킹 라이브러리 구성하기 {#step_3_configure_http_clients_and_networking_libraries}
 
 로컬 프록시 주소 및 포트를 사용하기 위한 네트워킹 라이브러리를 구성합니다.
 
-### Dart/Flutter HttpClient {#dartflutter-httpclient}
+<Tabs groupId="http-client">
+<TabItem value="dart" label="Dart/Flutter HttpClient">
 
 [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html)를 사용하여 프록시를 설정합니다.
 
@@ -160,7 +177,8 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp(Android) {#okhttp-android}
+</TabItem>
+<TabItem value="okhttp" label="OkHttp (Android)">
 
 [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/)를 사용하여 프록시를 설정합니다.
 
@@ -169,7 +187,8 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM(Java, Kotlin) {#jvm-java,-kotlin}
+</TabItem>
+<TabItem value="jvm" label="JVM (Java, Kotlin)">
 
 [시스템 속성](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html)과 함께 사용할 프록시를 구성합니다:
 
@@ -180,7 +199,8 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### Android 웹 뷰 {#android-web-view}
+</TabItem>
+<TabItem value="android-webview" label="Android Web View">
 
 [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController) 라이브러리를 사용하여 애플리케이션의 모든 웹 뷰에 프록시 구성을 적용합니다.
 
@@ -195,7 +215,8 @@ ProxyController.getInstance()
     )
 ```
 
-### iOS 웹 뷰 {#ios-web-view}
+</TabItem>
+<TabItem value="ios-webview" label="iOS Web View">
 
 iOS 17부터 [`WKWebsiteDataStore` 속성](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration)을 사용하여 `WKWebView`에 프록시 구성을 추가할 수 있습니다.
 
@@ -208,6 +229,8 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
+</TabItem>
+</Tabs>
 ## 고급: 맞춤 모바일 라이브러리 생성하기 {#advanced_generate_a_custom_mobile_library}
 
 고급 사용 사례의 경우 다음과 같이 직접 모바일 라이브러리를 생성할 수 있습니다.

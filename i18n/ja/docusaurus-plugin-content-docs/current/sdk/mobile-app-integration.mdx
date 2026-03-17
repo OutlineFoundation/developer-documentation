@@ -3,6 +3,10 @@ title: "Outline SDK をモバイル アプリに追加する"
 sidebar_label: "Outline SDK をモバイル アプリに追加する"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 このドキュメントでは、Outline SDK をモバイル アプリケーションに統合する方法を概説します。特に、ローカル プロキシの管理を簡素化するための `MobileProxy` ライブラリに重点を置きます。
 
 `MobileProxy` は、プロキシの機能を効率的にモバイルアプリに統合するための、Go をベースにしたライブラリです。[Go Mobile](https://go.dev/wiki/Mobile) を使用してモバイル ライブラリを生成し、アプリのネットワーキング ライブラリを構成してトラフィックをローカル プロキシにルーティングできるようにします。
@@ -51,7 +55,8 @@ go build -tags psiphon -o "$(pwd)/out/" golang.org/x/mobile/cmd/gomobile golang.
 
 3. モバイル ライブラリを生成し、プロジェクトに追加します:
 
-### Android {#android}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androidapi=21 -o "$(pwd)/out/mobileproxy.aar" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -59,7 +64,8 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=android -androida
 
 Android Studio で **[File] > [Import Project…]** を選択し、生成した `out/mobileproxy.aar` バンドルをインポートします。詳しくは、Go Mobile の[ビルドと Android へのデプロイ](https://go.dev/wiki/Mobile#building-and-deploying-to-android-1)をご覧ください。
 
-### iOS {#ios}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```sh
 PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=11.0 -o "$(pwd)/out/mobileproxy.xcframework" github.com/OutlineFoundation/outline-sdk/x/mobileproxy
@@ -67,13 +73,16 @@ PATH="$(pwd)/out:$PATH" gomobile bind -ldflags='-s -w' -target=ios -iosversion=1
 
 `out/mobileproxy.xcframework` バンドルを Xcode プロジェクトにドラッグします。詳しくは、Go Mobile の[ビルドと iOS へのデプロイ](https://go.dev/wiki/Mobile#building-and-deploying-to-ios-1)をご覧ください。
 
+</TabItem>
+</Tabs>
 ## ステップ 2: MobileProxy を実行する {#step_2_run_the_mobileproxy}
 
 アプリのランタイム内で `MobileProxy` ローカル プロキシを初期化し、開始します。静的なトランスポート構成を使用することも、動的な戦略選択のために Smart Proxy を使用することも可能です。
 
 - **静的トランスポート構成**: `RunProxy` 関数を使用して、ローカル アドレスとトランスポートを構成します。
 
-### Android {#android_1}
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 import mobileproxy.*
@@ -88,7 +97,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_1}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -105,7 +115,10 @@ proxy.stop()
 
 - **Smart Proxy**: Smart Proxy は、指定したテストドメインに応じて DSN と TLS の戦略を動的に選択します。構成の戦略は YAML 形式で指定します（[例](https://github.com/OutlineFoundation/outline-sdk/blob/master/x/examples/smart-proxy/config.yaml)）。
 
-### Android {#android_2}
+</TabItem>
+</Tabs>
+<Tabs groupId="platform">
+<TabItem value="android" label="Android">
 
 ```kotlin
 val testDomains = Mobileproxy.newListFromLines("www.youtube.com\ni.ytimg.com")
@@ -120,7 +133,8 @@ val proxy = Mobileproxy.runProxy("localhost:0", dialer)
 proxy.stop()
 ```
 
-### iOS {#ios_2}
+</TabItem>
+<TabItem value="ios" label="iOS">
 
 ```swift
 import Mobileproxy
@@ -144,11 +158,14 @@ MobileproxyRunProxy("localhost:0", dialer, &proxyError)
 proxy.stop()
 ```
 
+</TabItem>
+</Tabs>
 ## ステップ 3: HTTP クライアントとネットワーキング ライブラリを構成する {#step_3_configure_http_clients_and_networking_libraries}
 
 ローカル プロキシ アドレスとポートを使用するようにネットワーキング ライブラリを構成します。
 
-### Dart/Flutter HttpClient {#dartflutter-httpclient}
+<Tabs groupId="http-client">
+<TabItem value="dart" label="Dart/Flutter HttpClient">
 
 [`HttpClient.findProxy`](https://api.flutter.dev/flutter/dart-io/HttpClient/findProxy.html) を使用してプロキシを設定します。
 
@@ -159,7 +176,8 @@ client.findProxy = (Uri uri) {
 };
 ```
 
-### OkHttp（Android） {#okhttp-android}
+</TabItem>
+<TabItem value="okhttp" label="OkHttp (Android)">
 
 [`OkHttpClient.Builder.proxy`](https://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/-builder/proxy/) を使用してプロキシを設定します。
 
@@ -168,7 +186,8 @@ val proxyConfig = Proxy(Proxy.Type.HTTP, InetSocketAddress(proxy.host(), proxy.p
 val client = OkHttpClient.Builder().proxy(proxyConfig).build()
 ```
 
-### JVM（Java、Kotlin） {#jvm-java,-kotlin}
+</TabItem>
+<TabItem value="jvm" label="JVM (Java, Kotlin)">
 
 [システム プロパティ](https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html)を使用してプロキシを構成します。
 
@@ -179,7 +198,8 @@ System.setProperty("https.proxyHost", proxy.host())
 System.setProperty("https.proxyPort", String.valueOf(proxy.port()))
 ```
 
-### Android WebView {#android-web-view}
+</TabItem>
+<TabItem value="android-webview" label="Android Web View">
 
 [`androidx.webview`](https://developer.android.com/reference/androidx/webkit/ProxyController) ライブラリを使用して、アプリケーション内のすべての WebView にプロキシの構成を適用します。
 
@@ -194,7 +214,8 @@ ProxyController.getInstance()
     )
 ```
 
-### iOS WebView {#ios-web-view}
+</TabItem>
+<TabItem value="ios-webview" label="iOS Web View">
 
 iOS 17 以降では、[`WKWebsiteDataStore` プロパティ](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration)を使用して `WKWebView` にプロキシの構成を追加できます。
 
@@ -207,6 +228,8 @@ websiteDataStore.proxyConfigurations = [proxyConfig]
 let webview = WKWebView(configuration: configuration)
 ```
 
+</TabItem>
+</Tabs>
 ## 高度な用例: カスタム モバイル ライブラリを生成する {#advanced_generate_a_custom_mobile_library}
 
 高度な用例として、独自のモバイル ライブラリを生成することも可能です。
