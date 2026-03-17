@@ -1,7 +1,6 @@
 ---
 title: "Neden Outline?"
 sidebar_label: "Neden Outline?"
-slug: /
 ---
 
 Dijital özgürlükle ilgileniyor ve kullanıcıların sansürleri aşmasına yardımcı oluyorsanız

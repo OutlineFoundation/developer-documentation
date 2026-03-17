@@ -1,7 +1,6 @@
 ---
 title: "選用 Outline 的好處"
 sidebar_label: "選用 Outline 的好處"
-slug: /
 ---
 
 嚮往數位自由，想協助使用者避開審查嗎？Outline 正是您需要的解決方案。

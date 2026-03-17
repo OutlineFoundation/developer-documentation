@@ -1,7 +1,6 @@
 ---
 title: "Dlaczego Outline?"
 sidebar_label: "Dlaczego Outline?"
-slug: /
 ---
 
 Czy cenisz wolność cyfrową i chcesz pomóc użytkownikom omijać cenzurę?

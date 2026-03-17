@@ -1,0 +1,10 @@
+{
+  "hero.subtitle": "ユーザーがどこにいるかにかかわらず、検閲によるブロックを回避してオープンなインターネットにアクセスできるようにしましょう。",
+  "hero.title": "Outline の力で検閲に対するレジリエンスのあるアプリを構築する",
+  "vpn.description": "独自の VPN サーバーをデプロイ、構成、管理する方法を学びましょう。",
+  "vpn.title": "Outline を使ってみる",
+  "sdk.button": "SDK を確認する",
+  "sdk.description": "Outline の高度な戦略を独自のアプリケーションやサービスに統合できます。",
+  "sdk.title": "Outline SDK を使用して構築する",
+  "vpn.button": "今すぐ開始"
+}

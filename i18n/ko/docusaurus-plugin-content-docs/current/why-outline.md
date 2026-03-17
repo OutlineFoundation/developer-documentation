@@ -1,7 +1,6 @@
 ---
 title: "Outline을 사용해야 하는 이유"
 sidebar_label: "Outline을 사용해야 하는 이유"
-slug: /
 ---
 
 디지털 자유에 열정적이고 사용자가 검열을 우회하도록 돕고 싶으신가요?

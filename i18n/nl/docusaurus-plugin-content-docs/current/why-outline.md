@@ -1,7 +1,6 @@
 ---
 title: "Waarom Outline?"
 sidebar_label: "Waarom Outline?"
-slug: /
 ---
 
 Vind je digitale vrijheid en mensen helpen om censuur te omzeilen erg belangrijk?

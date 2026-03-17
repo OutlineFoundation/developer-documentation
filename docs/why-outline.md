@@ -1,7 +1,6 @@
 ---
 title: "Why Outline?"
 sidebar_label: "Why Outline?"
-slug: /
 ---
 
 # Why Outline?

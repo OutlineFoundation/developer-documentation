@@ -1,7 +1,6 @@
 ---
 title: "Por que usar o Outline?"
 sidebar_label: "Por que usar o Outline?"
-slug: /
 ---
 
 Você ama a liberdade digital e adora ajudar os usuários a contornar a censura?

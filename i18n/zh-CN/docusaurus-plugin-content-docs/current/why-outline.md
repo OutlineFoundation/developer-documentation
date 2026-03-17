@@ -1,7 +1,6 @@
 ---
 title: "为何选择 Outline？"
 sidebar_label: "为何选择 Outline？"
-slug: /
 ---
 
 您是否希望实现数字自由，帮助用户绕过审查？Outline 正是您需要的解决方案。

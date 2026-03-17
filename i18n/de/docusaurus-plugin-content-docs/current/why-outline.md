@@ -1,7 +1,6 @@
 ---
 title: "Vorteile von Outline"
 sidebar_label: "Vorteile von Outline"
-slug: /
 ---
 
 Ist digitale Freiheit Ihnen eine Herzensangelegenheit? Möchten Sie Nutzern helfen, Zensur zu umgehen?

@@ -1,7 +1,6 @@
 ---
 title: "Perché scegliere Outline"
 sidebar_label: "Perché scegliere Outline"
-slug: /
 ---
 
 Sostieni con passione la libertà digitale e vuoi aiutare gli utenti ad aggirare la censura?

@@ -1,7 +1,6 @@
 ---
 title: "Pourquoi choisir Outline ?"
 sidebar_label: "Pourquoi choisir Outline ?"
-slug: /
 ---
 
 Vous défendez l'Internet libre et vous souhaitez aider les utilisateurs à contourner la censure ?
