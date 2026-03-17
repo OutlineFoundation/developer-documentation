@@ -51,14 +51,18 @@ Droplet. This will allow them to:
 Users that connect the Outline Manager to their DigitalOcean account will now be
 able to view and manage all Outline servers linked to that account.
 
-Tip: Encourage new managers to enable multi-factor authentication (MFA) on their
+:::tip
+Encourage new managers to enable multi-factor authentication (MFA) on their
 cloud provider accounts for enhanced security.
+:::
 
 ## Manual installations
 
-Caution: Sharing management access to manual installations makes revoking access
+:::caution
+Sharing management access to manual installations makes revoking access
 challenging. The most direct method is a full server reinstallation, which
 generates a new configuration but also resets all user access keys.
+:::
 
 For those who have manually installed Outline on their own servers using the
 [installation script](../getting-started/server-setup-advanced.md), the primary way to grant
@@ -95,8 +99,10 @@ and the endpoint of the management API on the server (`apiUrl`):
 {"certSha256": "1DCC18CC9F6C34EBBB639255F4D1BC6984C2F6A47B15F7A49AA8AFB69B7E4DDE", "apiUrl": "https://1.1.1.1:12345/Fw-CkWFNSN7Ml8LLM8Pduw"}
 ```
 
-Important: This line contains sensitive information. Share it only with trusted
+:::warning[Important]
+This line contains sensitive information. Share it only with trusted
 individuals who need management access.
+:::
 
 ### 3. Share the access config securely
 

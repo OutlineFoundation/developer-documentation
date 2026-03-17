@@ -13,9 +13,11 @@ environments where regular Shadowsocks connections are blocked. By encapsulating
 Shadowsocks traffic within WebSockets, you can disguise it as standard web
 traffic, enhancing resilience and accessibility.
 
-Note: Shadowsocks-over-WebSockets is only supported on the Outline clients
+:::note
+Shadowsocks-over-WebSockets is only supported on the Outline clients
 v1.15.0+. You must maintain your existing configurations to support older client
 versions.
+:::
 
 ## Step 1: Configure and Run an Outline Server
 
@@ -41,8 +43,10 @@ services:
         secret: <SHADOWSOCKS_SECRET>
 ```
 
-Tip: Keep the `path` secret to avoid probing. It acts as a secret endpoint. A
+:::tip
+Keep the `path` secret to avoid probing. It acts as a secret endpoint. A
 long, randomly generated path is recommended.
+:::
 
 Download the latest
 [`outline-ss-server`](https://github.com/OutlineFoundation/outline-ss-server/releases)
@@ -66,7 +70,9 @@ or [ngrok](https://ngrok.com/).
 
 ### Example using TryCloudflare
 
-Caution: TryCloudflare is intended for demos and testing only.
+:::caution
+TryCloudflare is intended for demos and testing only.
+:::
 
 For this example, we'll demonstrate using
 [TryCloudflare](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/)

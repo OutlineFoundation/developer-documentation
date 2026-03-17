@@ -17,9 +17,11 @@ generating and managing access to your server using [access keys](../../concepts
     can click to get an invitation. Copy this invitation and distribute it to
     the intended user through your preferred messaging platform.
 
-Tip: Use a secure messaging platform such as encrypted email or a secure chat
+:::tip
+Use a secure messaging platform such as encrypted email or a secure chat
 application when sharing invitation links. Avoid using unsecured channels as
 this could compromise the access key.
+:::
 
 ### User invitation process
 

@@ -135,9 +135,11 @@ fallback:
     }
 ```
 
-Note: The Psiphon codebase is licensed under the GPL, which can impose license
+:::note
+The Psiphon codebase is licensed under the GPL, which can impose license
 restrictions on your own code. You may want to consider obtaining a special
 license from them.
+:::
 
 ### How to Use the Smart Dialer
 
