@@ -11,7 +11,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Outline Developer Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.8d1f0b1f.css">
-<script src="/assets/js/runtime~main.5a4b6f27.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ef093674.js" defer="defer"></script>
 <script src="/assets/js/main.6682ac27.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -66,7 +66,7 @@ pick from.</p>
 <li class="">Each TLS transport is a string that specifies the transport to use.</li>
 <li class="">For example, <code>override:host=cloudflare.net|tlsfrag:1</code> specifies a transport
 that uses domain fronting with Cloudflare and TLS fragmentation. See the
-<a href="https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Config_Format" target="_blank" rel="noopener noreferrer" class="">config documentation</a>
+<a href="https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Config_Format" target="_blank" rel="noopener noreferrer" class="">config documentation</a>
 for details.</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fallback-configuration">Fallback Configuration<a href="#fallback-configuration" class="hash-link" aria-label="Direct link to Fallback Configuration" title="Direct link to Fallback Configuration" translate="no">​</a></h3>
@@ -76,7 +76,7 @@ connection. Using a fallback will be slower to start, since first the other
 DNS/TLS strategies must fail/timeout.</p>
 <p>The fallback strings should be:</p>
 <ul>
-<li class="">A valid <code>StreamDialer</code> config string as defined in <a href="https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk/x/configurl#hdr-Proxy_Protocols" target="_blank" rel="noopener noreferrer" class=""><code>configurl</code></a>.</li>
+<li class="">A valid <code>StreamDialer</code> config string as defined in <a href="https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Proxy_Protocols" target="_blank" rel="noopener noreferrer" class=""><code>configurl</code></a>.</li>
 <li class="">A valid Psiphon configuration object as a child of a <code>psiphon</code> field.</li>
 </ul>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="shadowsocks-server-example">Shadowsocks server example<a href="#shadowsocks-server-example" class="hash-link" aria-label="Direct link to Shadowsocks server example" title="Direct link to Shadowsocks server example" translate="no">​</a></h4>
