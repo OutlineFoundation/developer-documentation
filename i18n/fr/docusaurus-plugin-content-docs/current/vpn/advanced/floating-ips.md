@@ -1,6 +1,6 @@
 ---
-title: "Configurer un serveur résistant aux blocages à l&apos;aide d&apos;adresses IP flottantes"
-sidebar_label: "Configurer un serveur résistant aux blocages à l&apos;aide d&apos;adresses IP flottantes"
+title: "Configurer un serveur résistant aux blocages à l'aide d'adresses IP flottantes"
+sidebar_label: "Configurer un serveur résistant aux blocages à l'aide d'adresses IP flottantes"
 ---
 
 ## Introduction {#introduction}

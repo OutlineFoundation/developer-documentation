@@ -1,6 +1,6 @@
 ---
-title: "Qu&apos;est-ce que le SDK Outline ?"
-sidebar_label: "Qu&apos;est-ce que le SDK Outline ?"
+title: "Qu'est-ce que le SDK Outline ?"
+sidebar_label: "Qu'est-ce que le SDK Outline ?"
 ---
 
 Le SDK Outline est une bibliothèque et un ensemble d'outils conçus pour aider les développeurs à créer des applications qui protègent contre la censure et les interférences au niveau du réseau.

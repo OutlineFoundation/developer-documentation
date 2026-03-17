@@ -1,6 +1,6 @@
 ---
-title: "Outline SDK&apos;yı Go kodunuza ekleme"
-sidebar_label: "Outline SDK&apos;yı Go kodunuza ekleme"
+title: "Outline SDK'yı Go kodunuza ekleme"
+sidebar_label: "Outline SDK'yı Go kodunuza ekleme"
 ---
 
 Bu kılavuzda, Go ortamınızı ayarlama ve Go kodunuzda Outline SDK'yı kullanma süreçleri adım adım açıklanmaktadır.

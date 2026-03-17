@@ -1,6 +1,6 @@
 ---
-title: "Condividi l&apos;accesso al tuo server"
-sidebar_label: "Condividi l&apos;accesso al tuo server"
+title: "Condividi l'accesso al tuo server"
+sidebar_label: "Condividi l'accesso al tuo server"
 ---
 
 Dopo aver completato l'installazione del server Outline, visualizzerai la pagina dei dettagli del server in Outline Manager. Questa pagina funge da hub centrale per generare le [chiavi di accesso](../../concepts#access-keys) e gestire l'accesso al server.

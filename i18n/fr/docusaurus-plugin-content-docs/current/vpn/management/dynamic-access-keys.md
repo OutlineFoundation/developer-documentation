@@ -1,6 +1,6 @@
 ---
-title: "Clés d&apos;accès dynamiques"
-sidebar_label: "Clés d&apos;accès dynamiques"
+title: "Clés d'accès dynamiques"
+sidebar_label: "Clés d'accès dynamiques"
 ---
 
 Outline propose deux types de clés d'accès : des clés statiques et des clés dynamiques. Les clés statiques encodent directement toutes les informations de connexion, tandis que les clés dynamiques encodent l'emplacement des informations de connexion, ce qui permet de stocker ces informations à distance et de les modifier si nécessaire. Vous pouvez ainsi modifier la configuration de votre serveur sans devoir générer de nouvelles clés ni les distribuer à vos utilisateurs. Ce document explique comment utiliser des clés d'accès dynamiques pour gérer votre serveur Outline de façon plus flexible et efficace.

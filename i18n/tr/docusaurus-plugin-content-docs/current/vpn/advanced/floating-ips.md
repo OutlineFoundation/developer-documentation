@@ -1,6 +1,6 @@
 ---
-title: "Kayan IP&apos;ler ile engellemeye dirençli sunucular oluşturma"
-sidebar_label: "Kayan IP&apos;ler ile engellemeye dirençli sunucular oluşturma"
+title: "Kayan IP'ler ile engellemeye dirençli sunucular oluşturma"
+sidebar_label: "Kayan IP'ler ile engellemeye dirençli sunucular oluşturma"
 ---
 
 ## Giriş {#introduction}

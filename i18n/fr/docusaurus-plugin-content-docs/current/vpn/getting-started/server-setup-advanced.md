@@ -1,6 +1,6 @@
 ---
-title: "Déployer avec un script d&apos;installation"
-sidebar_label: "Déployer avec un script d&apos;installation"
+title: "Déployer avec un script d'installation"
+sidebar_label: "Déployer avec un script d'installation"
 ---
 
 Ce guide vous explique comment configurer un serveur Outline pour fournir un accès sécurisé et sans restriction à Internet.

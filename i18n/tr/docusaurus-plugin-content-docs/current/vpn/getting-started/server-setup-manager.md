@@ -1,6 +1,6 @@
 ---
-title: "Outline Manager&apos;ı kullanarak dağıtma"
-sidebar_label: "Outline Manager&apos;ı kullanarak dağıtma"
+title: "Outline Manager'ı kullanarak dağıtma"
+sidebar_label: "Outline Manager'ı kullanarak dağıtma"
 ---
 
 Bu kılavuzda, internet erişimini güvenli ve sınırsız hale getirmek için Outline sunucusu kurma işlemi anlatılmaktadır.
