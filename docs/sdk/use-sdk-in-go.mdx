@@ -3,6 +3,9 @@ title: "Add Outline SDK to Your Go Code"
 sidebar_label: "Go Integration"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Add Outline SDK to your Go code
 
 This guide walks you through the process of setting up your Go environment and
@@ -26,21 +29,27 @@ next step.
 For installation, you can follow the [official guide](https://go.dev/doc/install);
 or, if you use a package manager:
 
-### Linux
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
-  Follow the steps in [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
+Follow the steps in [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### Mac
+</TabItem>
+<TabItem value="mac" label="Mac">
 
-  ```sh
-  brew install go
-  ```
+```sh
+brew install go
+```
 
-### Windows
+</TabItem>
+<TabItem value="windows" label="Windows">
 
-  ```powershell
-  winget install --id=GoLang.Go  -e
-  ```
+```powershell
+winget install --id=GoLang.Go  -e
+```
+
+</TabItem>
+</Tabs>
 
 After Go is installed, you can verify that it is installed correctly by running
 the following command in a terminal:
@@ -155,17 +164,22 @@ This compiles and runs the application, displaying the webpage's HTML content.
 If you want to create and distribute a standalone program that you can run
 without `go`, use the `go build` command:
 
-### Linux & Mac
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
-  ```sh
-  go build -o splitfetch .
-  ```
+```sh
+go build -o splitfetch .
+```
 
-### Windows
+</TabItem>
+<TabItem value="windows" label="Windows">
 
-  ```sh
-  go build -o splitfetch.exe .
-  ```
+```sh
+go build -o splitfetch.exe .
+```
+
+</TabItem>
+</Tabs>
 
 Once the build is finished, you can distribute and run your application.
 For example:

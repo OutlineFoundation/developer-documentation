@@ -3,6 +3,10 @@ title: "Agrega el SDK de Outline a tu código de Go"
 sidebar_label: "Agrega el SDK de Outline a tu código de Go"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 En esta guía, se explica el proceso de configuración de tu entorno de Go y
 cómo usar el SDK de Outline en ese lenguaje de programación.
 
@@ -24,21 +28,27 @@ siguiente paso.
 Para instalarlo, puedes seguir la [guía oficial](https://go.dev/doc/install)
 o seguir estos pasos si usas un administrador de paquetes:
 
-### Linux {#linux}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
 Sigue los pasos que se indican en [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### macOS {#mac}
+</TabItem>
+<TabItem value="mac" label="Mac">
 
 ```sh
 brew install go
 ```
 
-### Windows {#windows}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```powershell
 winget install --id=GoLang.Go  -e
 ```
+
+</TabItem>
+</Tabs>
 
 Luego, para verificar que Go se haya instalado correctamente,
 ejecuta este comando en la terminal:
@@ -46,7 +56,6 @@ ejecuta este comando en la terminal:
 ```sh
 go version
 ```
-
 ## Paso 2: Crea la aplicación `splitfetch` {#step_2_create_the_splitfetch_application}
 
 Configuremos el proyecto `splitfetch`. Primero, crea el directorio del proyecto y, luego,
@@ -150,17 +159,22 @@ Con esta acción, se compila y ejecuta la aplicación, que muestra el contenido 
 Si quieres crear y distribuir un programa independiente que puedas ejecutar
 sin `go`, usa el comando `go build`:
 
-### Linux y macOS {#linux-mac}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows {#windows_1}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```sh
 go build -o splitfetch.exe .
 ```
+
+</TabItem>
+</Tabs>
 
 Cuando se termine de compilar la aplicación, podrás distribuirla y ejecutarla.
 Por ejemplo:

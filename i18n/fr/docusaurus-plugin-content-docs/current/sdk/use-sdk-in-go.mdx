@@ -3,6 +3,10 @@ title: "Ajouter le SDK Outline à votre code Go"
 sidebar_label: "Ajouter le SDK Outline à votre code Go"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Ce guide vous explique comment configurer votre environnement Go et utiliser le SDK Outline dans votre code Go.
 
 Nous allons créer un exemple d'application nommée `splitfetch`, qui présente une fonctionnalité du SDK. Cette application récupère une page Web, mais au lieu d'envoyer la requête en un seul paquet réseau, **elle se sert du SDK Outline pour diviser le flux TCP initial en deux paquets distincts**. Cela peut permettre de contourner certaines formes d'interventions sur le réseau.
@@ -17,28 +21,33 @@ Si vous avez déjà installé Go (version 1.21 ou ultérieure), vous pouvez pass
 
 Pour installer Go, vous pouvez suivre le [guide officiel](https://go.dev/doc/install) ou procéder comme suit si vous utilisez un gestionnaire de paquets :
 
-### Linux {#linux}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
 Suivez les étapes figurant sur [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### Mac {#mac}
+</TabItem>
+<TabItem value="mac" label="Mac">
 
 ```sh
 brew install go
 ```
 
-### Windows {#windows}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```powershell
 winget install --id=GoLang.Go  -e
 ```
+
+</TabItem>
+</Tabs>
 
 Une fois l'installation terminée, vous pouvez vérifier que Go est bien installé en exécutant la commande suivante dans un terminal :
 
 ```sh
 go version
 ```
-
 ## Étape 2 : Créer l'application `splitfetch` {#step_2_create_the_splitfetch_application}
 
 Pour configurer le projet `splitfetch`, commencez par créer le répertoire du projet et initialiser un module Go :
@@ -137,17 +146,22 @@ Cette commande compile et exécute l'application, en affichant le contenu HTML d
 
 Si vous souhaitez créer et partager un programme autonome exécutable sans `go`, utilisez la commande `go build` :
 
-### Linux et Mac {#linux-mac}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows {#windows_1}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```sh
 go build -o splitfetch.exe .
 ```
+
+</TabItem>
+</Tabs>
 
 Une fois la compilation terminée, vous pouvez partager et exécuter votre application.
 Par exemple :

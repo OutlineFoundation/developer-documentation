@@ -3,6 +3,10 @@ title: "Как добавить Outline SDK в код Go"
 sidebar_label: "Как добавить Outline SDK в код Go"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 Это руководство поможет вам настроить среду Go и использовать Outline SDK в коде Go.
 
 Чтобы показать принцип работы функции SDK, мы создадим приложение под названием `splitfetch` в качестве примера. Это приложение получает веб-страницу, но отправляет запрос не одним сетевым пакетом, а **использует Outline SDK, чтобы разделить начальный TCP-поток на два отдельных пакета**. Такой подход помогает обойти некоторые формы сетевых ограничений.
@@ -17,28 +21,33 @@ sidebar_label: "Как добавить Outline SDK в код Go"
 
 Чтобы установить Go, следуйте [инструкциям в официальном руководстве](https://go.dev/doc/install) или воспользуйтесь менеджером пакетов:
 
-### Linux {#linux}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
 Следуйте инструкциям на странице [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu).
 
-### macOS {#mac}
+</TabItem>
+<TabItem value="mac" label="Mac">
 
 ```sh
 brew install go
 ```
 
-### Windows {#windows}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```powershell
 winget install --id=GoLang.Go  -e
 ```
+
+</TabItem>
+</Tabs>
 
 После установки Go вы можете проверить, что все работает корректно, выполнив в терминале следующую команду:
 
 ```sh
 go version
 ```
-
 ## Шаг 2. Создайте приложение `splitfetch` {#step_2_create_the_splitfetch_application}
 
 Сначала настройте проект `splitfetch`. Создайте каталог проекта и инициализируйте модуль Go:
@@ -137,17 +146,22 @@ go run . https://getoutline.org
 
 Если вы хотите создать и распространить отдельную исполняемую программу, которую можно запускать без `go`, используйте команду `go build`:
 
-### Linux и macOS {#linux-mac}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows {#windows_1}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```sh
 go build -o splitfetch.exe .
 ```
+
+</TabItem>
+</Tabs>
 
 После завершения сборки вы можете распространять и запускать свое приложение.
 Например:

@@ -3,6 +3,10 @@ title: "Outline SDK zu Ihrem Go-Code hinzufügen"
 sidebar_label: "Outline SDK zu Ihrem Go-Code hinzufügen"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 In diesem Leitfaden werden Sie Schritt für Schritt durch die Einrichtung Ihrer Go-Umgebung geführt und Sie erfahren, wie Sie das Outline SDK in Ihrem Go-Code verwenden.
 
 Wir werden eine Beispiel-App mit der Bezeichnung `splitfetch` erstellen, die eine Funktion des SDK vorstellt. Diese Anwendung ruft eine Webseite ab, doch anstatt die Anfrage in einem einzigen Netzwerk-Paket zu senden, **verwendet sie das Outline SDK, um den initialen TCP-Stream in zwei separate Pakete aufzuteilen**. Dies kann dazu beitragen, einige Formen der Netzintervention zu umgehen.
@@ -17,28 +21,33 @@ Wenn Sie Go bereits installiert haben (Version 1.21 oder höher), können Sie d
 
 Für die Installation können Sie den Schritten im [offiziellen Leitfaden](https://go.dev/doc/install) folgen oder, wenn Sie einen Paketmanager verwenden:
 
-### Linux {#linux}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
 Folgen Sie den in [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu) beschriebenen Schritten.
 
-### Mac {#mac}
+</TabItem>
+<TabItem value="mac" label="Mac">
 
 ```sh
 brew install go
 ```
 
-### Windows {#windows}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```powershell
 winget install --id=GoLang.Go  -e
 ```
+
+</TabItem>
+</Tabs>
 
 Nach der Installation von Go können Sie überprüfen, ob es korrekt installiert wurde, indem Sie den folgenden Befehl in einem Terminal ausführen:
 
 ```sh
 go version
 ```
-
 ## Schritt 2: `splitfetch`-App erstellen {#step_2_create_the_splitfetch_application}
 
 Richten Sie das `splitfetch`-Projekt ein. Dazu müssen Sie zuerst das Projektverzeichnis erstellen und ein Go-Modul initialisieren:
@@ -137,17 +146,22 @@ Damit wird die Anwendung kompiliert und ausgeführt und der HTML-Inhalt der Webs
 
 Wenn Sie ein eigenständiges Programm erstellen und verteilen möchten, das ohne `go` ausgeführt werden kann, verwenden Sie den Befehl `go build`:
 
-### Linux und Mac {#linux-mac}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows {#windows_1}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```sh
 go build -o splitfetch.exe .
 ```
+
+</TabItem>
+</Tabs>
 
 Sobald der Build erstellt ist, können Sie Ihre App verteilen und ausführen.
 Beispiel:

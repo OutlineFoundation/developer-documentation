@@ -3,6 +3,10 @@ title: "Outline SDK を Go コードに追加する"
 sidebar_label: "Outline SDK を Go コードに追加する"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 このガイドでは、Go 環境をセットアップして、Go コード内で Outline SDK を使用するプロセスについて説明します。
 
 ここでは、`splitfetch` というサンプル アプリケーションを作成し、SDK の機能を紹介します。このアプリケーションはウェブページを取得しますが、リクエストを 1 つのネットワーク パケットで送信するのではなく、**Outline SDK を使用して最初の TCP ストリームを 2 つのパケットに分割**します。これは、一部のネットワーク介入を回避するのに役立つことがあります。
@@ -15,28 +19,33 @@ sidebar_label: "Outline SDK を Go コードに追加する"
 
 インストールする際は、[公式ガイド](https://go.dev/doc/install)に従ってください。または、パッケージ管理システムを使用する場合は、以下を参照してください。
 
-### Linux {#linux}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
 [Go Wiki: Ubuntu](https://go.dev/wiki/Ubuntu) の手順に従います。
 
-### Mac {#mac}
+</TabItem>
+<TabItem value="mac" label="Mac">
 
 ```sh
 brew install go
 ```
 
-### Windows {#windows}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```powershell
 winget install --id=GoLang.Go  -e
 ```
+
+</TabItem>
+</Tabs>
 
 Go をインストールした後は、ターミナルで以下のコマンドを実行し、正しくインストールされていることを確認します。
 
 ```sh
 go version
 ```
-
 ## ステップ 2: `splitfetch` アプリケーションを作成する {#step_2_create_the_splitfetch_application}
 
 `splitfetch` プロジェクトをセットアップしましょう。最初にプロジェクト ディレクトリを作成し、Go モジュールを初期化します。
@@ -135,17 +144,22 @@ go run . https://getoutline.org
 
 `go` なしで実行可能なスタンドアロンのプログラムを作成して配布したい場合は、`go build` コマンドを使用します。
 
-### Linux と Mac {#linux-mac}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows {#windows_1}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```sh
 go build -o splitfetch.exe .
 ```
+
+</TabItem>
+</Tabs>
 
 ビルドが完了したら、アプリケーションを配布して実行することができます。次に例を示します。
 

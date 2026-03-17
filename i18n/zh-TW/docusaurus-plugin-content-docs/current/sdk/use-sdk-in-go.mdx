@@ -3,6 +3,10 @@ title: "在 Go 程式碼中加入 Outline SDK"
 sidebar_label: "在 Go 程式碼中加入 Outline SDK"
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 本指南將引導您逐步設定 Go 開發環境，並示範如何在 Go 程式碼中使用 Outline SDK。
 
 我們會建構名為 `splitfetch` 的範例應用程式來展示 SDK 的一項功能。這個應用程式會擷取網頁，但不是透過單一網路封包送出要求，而是**利用 Outline SDK，將初始的 TCP 串流拆成兩個封包傳送**。這有助於避開某些形式的網路干預。
@@ -15,28 +19,33 @@ sidebar_label: "在 Go 程式碼中加入 Outline SDK"
 
 安裝方式可參考[官方指南](https://go.dev/doc/install)，如果使用套件管理工具，也可依下列說明操作：
 
-### Linux {#linux}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux">
 
 執行「[Go Wiki：Ubuntu](https://go.dev/wiki/Ubuntu)」所列步驟。
 
-### Mac {#mac}
+</TabItem>
+<TabItem value="mac" label="Mac">
 
 ```sh
 brew install go
 ```
 
-### Windows {#windows}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```powershell
 winget install --id=GoLang.Go  -e
 ```
+
+</TabItem>
+</Tabs>
 
 Go 安裝完成後，在終端機上執行下列指令，就能檢查是否安裝成功：
 
 ```sh
 go version
 ```
-
 ## 步驟 2：建立 `splitfetch` 應用程式 {#step_2_create_the_splitfetch_application}
 
 接著要設定 `splitfetch` 專案。請先建立專案目錄，並初始化 Go 模組：
@@ -135,17 +144,22 @@ go run . https://getoutline.org
 
 如果想建立並發布無需安裝 `go` 就能執行的獨立程式，請使用 `go build` 指令：
 
-### Linux 和 Mac {#linux-mac}
+<Tabs groupId="os">
+<TabItem value="linux" label="Linux & Mac">
 
 ```sh
 go build -o splitfetch .
 ```
 
-### Windows {#windows_1}
+</TabItem>
+<TabItem value="windows" label="Windows">
 
 ```sh
 go build -o splitfetch.exe .
 ```
+
+</TabItem>
+</Tabs>
 
 建構完成後，即可發布並執行應用程式。
 例如：
