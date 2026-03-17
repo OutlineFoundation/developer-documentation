@@ -1,46 +1,42 @@
 {
-  "sidebar.docs.category.Outline SDK": {
-    "message": "Outline SDK",
-    "description": "The label for category 'Outline SDK' in sidebar 'docs'"
-  },
-  "sidebar.docs.category.vpn-discover": {
+  "sidebar.vpnSidebar.category.vpn-discover": {
     "message": "Scopri",
-    "description": "The label for category 'Discover' in sidebar 'docs'"
+    "description": "The label for category 'Discover' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.sdk-discover": {
+  "sidebar.sdkSidebar.category.sdk-discover": {
     "message": "Scopri",
-    "description": "The label for category 'Discover' in sidebar 'docs'"
+    "description": "The label for category 'Discover' in sidebar 'sdkSidebar'"
   },
-  "sidebar.docs.category.Integrate": {
+  "sidebar.sdkSidebar.category.Integrate": {
     "message": "Integra",
-    "description": "The label for category 'Integrate' in sidebar 'docs'"
+    "description": "The label for category 'Integrate' in sidebar 'sdkSidebar'"
   },
-  "sidebar.docs.category.Advanced Deployments": {
+  "sidebar.vpnSidebar.category.Advanced Deployments": {
     "message": "Distribuzioni avanzate",
-    "description": "The label for category 'Advanced Deployments' in sidebar 'docs'"
+    "description": "The label for category 'Advanced Deployments' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.Resilience Against Blocking": {
+  "sidebar.vpnSidebar.category.Resilience Against Blocking": {
     "message": "Aumenta la resilienza contro i blocchi",
-    "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+    "description": "The label for category 'Resilience Against Blocking' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.link.Management API": {
+  "sidebar.vpnSidebar.link.Management API": {
     "message": "API di gestione",
-    "description": "The label for link 'Management API' in sidebar 'docs', linking to 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/OutlineFoundation/outline-server/master/src/shadowbox/server/api.yml'"
+    "description": "The label for link 'Management API' in sidebar 'vpnSidebar', linking to 'https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/OutlineFoundation/outline-server/master/src/shadowbox/server/api.yml'"
   },
-  "sidebar.docs.category.Get Started": {
+  "sidebar.vpnSidebar.category.Get Started": {
     "message": "Per iniziare",
-    "description": "The label for category 'Get Started' in sidebar 'docs'"
+    "description": "The label for category 'Get Started' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.Manage & Scale": {
+  "sidebar.vpnSidebar.category.Manage & Scale": {
     "message": "Gestisci e fai crescere il tuo server",
-    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+    "description": "The label for category 'Manage & Scale' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.vpn-reference": {
+  "sidebar.vpnSidebar.category.vpn-reference": {
     "message": "Riferimento",
-    "description": "The label for category 'Reference' in sidebar 'docs'"
+    "description": "The label for category 'Reference' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.sdk-reference": {
+  "sidebar.sdkSidebar.category.sdk-reference": {
     "message": "Riferimento",
-    "description": "The label for category 'Reference' in sidebar 'docs'"
+    "description": "The label for category 'Reference' in sidebar 'sdkSidebar'"
   }
 }

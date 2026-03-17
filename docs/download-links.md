@@ -1,6 +1,6 @@
 ---
 title: "Download Links"
-sidebar_label: "Download Links"
+sidebar_label: "Alternative Download Links"
 ---
 
 # Alternative Download Links

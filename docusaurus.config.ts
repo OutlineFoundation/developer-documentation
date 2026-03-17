@@ -82,17 +82,19 @@ const config: Config = {
       },
       items: [
         {
+          type: 'docSidebar',
+          sidebarId: 'vpnSidebar',
+          label: 'Outline VPN',
+          position: 'left',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'sdkSidebar',
+          label: 'Outline SDK',
+          position: 'left',
+        },
+        {
           type: 'localeDropdown',
-          position: 'right',
-        },
-        {
-          href: 'https://getoutline.org',
-          label: 'Outline',
-          position: 'right',
-        },
-        {
-          href: 'https://github.com/OutlineFoundation/?q=outline',
-          label: 'GitHub',
           position: 'right',
         },
       ],

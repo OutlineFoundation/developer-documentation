@@ -82,12 +82,10 @@ KNOWN_UNTRANSLATABLE_KEYS = {
     # Brand names / technical terms (same in all languages)
     "link.item.label.GitHub",
     "link.item.label.Reddit",
-    "sidebar.docs.category.Outline VPN",
-    "sidebar.docs.category.Outline SDK",
-    "sidebar.docs.link.Management API",
-    "sidebar.docs.link.Go API Reference",
+    "sidebar.vpnSidebar.link.Management API",
+    "sidebar.sdkSidebar.link.Go API Reference",
     # New category with no old-site equivalent; falls back to English
-    "sidebar.docs.category.Tools",
+    "sidebar.sdkSidebar.category.Tools",
     # Internal label not shown to users
     "version.label",
 }

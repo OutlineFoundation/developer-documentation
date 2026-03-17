@@ -1,42 +1,38 @@
 {
-  "sidebar.docs.category.Outline SDK": {
-    "message": "SDK de Outline",
-    "description": "The label for category 'Outline SDK' in sidebar 'docs'"
-  },
-  "sidebar.docs.category.vpn-discover": {
+  "sidebar.vpnSidebar.category.vpn-discover": {
     "message": "Descubrimiento",
-    "description": "The label for category 'Discover' in sidebar 'docs'"
+    "description": "The label for category 'Discover' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.sdk-discover": {
+  "sidebar.sdkSidebar.category.sdk-discover": {
     "message": "Descubrimiento",
-    "description": "The label for category 'Discover' in sidebar 'docs'"
+    "description": "The label for category 'Discover' in sidebar 'sdkSidebar'"
   },
-  "sidebar.docs.category.Advanced Deployments": {
+  "sidebar.vpnSidebar.category.Advanced Deployments": {
     "message": "Implementaciones avanzadas",
-    "description": "The label for category 'Advanced Deployments' in sidebar 'docs'"
+    "description": "The label for category 'Advanced Deployments' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.Resilience Against Blocking": {
+  "sidebar.vpnSidebar.category.Resilience Against Blocking": {
     "message": "Aumenta la resiliencia contra los bloqueos",
-    "description": "The label for category 'Resilience Against Blocking' in sidebar 'docs'"
+    "description": "The label for category 'Resilience Against Blocking' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.Integrate": {
+  "sidebar.sdkSidebar.category.Integrate": {
     "message": "Integración",
-    "description": "The label for category 'Integrate' in sidebar 'docs'"
+    "description": "The label for category 'Integrate' in sidebar 'sdkSidebar'"
   },
-  "sidebar.docs.category.Get Started": {
+  "sidebar.vpnSidebar.category.Get Started": {
     "message": "Comenzar",
-    "description": "The label for category 'Get Started' in sidebar 'docs'"
+    "description": "The label for category 'Get Started' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.Manage & Scale": {
+  "sidebar.vpnSidebar.category.Manage & Scale": {
     "message": "Administra y escala tu servidor",
-    "description": "The label for category 'Manage & Scale' in sidebar 'docs'"
+    "description": "The label for category 'Manage & Scale' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.vpn-reference": {
+  "sidebar.vpnSidebar.category.vpn-reference": {
     "message": "Referencia",
-    "description": "The label for category 'Reference' in sidebar 'docs'"
+    "description": "The label for category 'Reference' in sidebar 'vpnSidebar'"
   },
-  "sidebar.docs.category.sdk-reference": {
+  "sidebar.sdkSidebar.category.sdk-reference": {
     "message": "Referencia",
-    "description": "The label for category 'Reference' in sidebar 'docs'"
+    "description": "The label for category 'Reference' in sidebar 'sdkSidebar'"
   }
 }
