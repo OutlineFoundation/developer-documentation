@@ -18,3 +18,7 @@
 .footer__links {
   justify-content: space-between;
 }
+
+.pagination-nav {
+  display: none;
+}
