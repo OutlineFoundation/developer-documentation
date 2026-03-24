@@ -115,5 +115,5 @@ de comunicación encriptado.
 
 Cuando el nuevo administrador pegue el **archivo de configuración de acceso**
 proporcionado en Outline Manager, podrá agregar y administrar el servidor de Outline a través de la
-interfaz de la aplicación. Consulta el [Centro de ayuda de Outline](https://support.google.com/outline)
+interfaz de la aplicación. Consulta el [Centro de ayuda de Outline](https://support.getoutline.org)
 si necesitas más información para usar Outline Manager.

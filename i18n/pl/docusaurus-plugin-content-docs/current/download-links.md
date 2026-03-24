@@ -28,7 +28,7 @@ linki poniżej to jedyne oficjalne źródła, z których można pobrać Menedże
 
 - **MacOS:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
 
-- **Linux:** <https://support.google.com/outline/answer/15331527>
+- **Linux:** <https://support.getoutline.org/client/getting-started/install-linux/>
 
     - **Alternatywne wersje:**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>

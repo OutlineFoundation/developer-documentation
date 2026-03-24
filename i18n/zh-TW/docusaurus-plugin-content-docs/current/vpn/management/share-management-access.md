@@ -88,4 +88,4 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 
 請複製輸出內容，並以安全方式分享給新的 Outline 管理員。建議避免使用未加密的管道，例如一般電子郵件或即時通訊軟體。您可以考慮使用密碼管理工具的安全分享功能，或其他具加密功能的通訊方式。
 
-將**存取設定**貼入 Outline Manager 後，新管理員就能透過這個介面新增並管理 Outline 伺服器。如需 Outline Manager 的更多操作說明，請前往 [Outline 說明中心](https://support.google.com/outline)。
+將**存取設定**貼入 Outline Manager 後，新管理員就能透過這個介面新增並管理 Outline 伺服器。如需 Outline Manager 的更多操作說明，請前往 [Outline 說明中心](https://support.getoutline.org)。

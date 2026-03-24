@@ -115,15 +115,15 @@ const config: Config = {
             },
             {
               label: 'Terms of Service',
-              href: 'https://s3.amazonaws.com/outline-vpn/static_downloads/Outline-Terms-of-Service.html',
+              href: 'https://getoutline.org/policies/terms-of-service',
             },
             {
               label: 'Data Collection Policy',
-              href: 'https://support.google.com/outline/answer/14915905',
+              href: 'https://getoutline.org/policies/data-collection',
             },
             {
               label: 'Branding Guidelines',
-              href: 'https://support.google.com/outline/answer/15331625',
+              href: 'https://support.getoutline.org/about/brand-usage/',
             },
           ],
         },

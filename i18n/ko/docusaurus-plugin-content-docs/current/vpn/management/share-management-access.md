@@ -89,4 +89,4 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 출력 결과를 복사하여 신규 Outline Manager와 안전하게 공유합니다. 일반 이메일이나 채팅과 같은 암호화되지 않은 채널을 통해 전송하지 마세요.
 비밀번호 관리자의 보안 공유 기능이나 다른 암호화된 통신 방법을 사용해 보세요.
 
-제공된 **액세스 구성**을 Outline Manager에 붙여넣으면 새 관리자가 애플리케이션 인터페이스를 통해 Outline 서버를 추가하고 관리할 수 있습니다. Outline Manager 사용에 관한 추가 지원은 [Outline 고객센터](https://support.google.com/outline)를 참고하세요.
+제공된 **액세스 구성**을 Outline Manager에 붙여넣으면 새 관리자가 애플리케이션 인터페이스를 통해 Outline 서버를 추가하고 관리할 수 있습니다. Outline Manager 사용에 관한 추가 지원은 [Outline 고객센터](https://support.getoutline.org)를 참고하세요.

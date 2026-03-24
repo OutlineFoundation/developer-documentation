@@ -114,4 +114,4 @@ communication method.
 Pasting the provided **access config** into the Outline Manager allows the new
 manager to add and subsequently manage the Outline server through the
 application's interface. Additional support for using the Outline Manager is
-available in the [Outline Help Center](https://support.google.com/outline).
+available in the [Outline Help Center](https://support.getoutline.org).

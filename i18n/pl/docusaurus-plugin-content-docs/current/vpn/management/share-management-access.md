@@ -89,4 +89,4 @@ ten wiersz zawiera informacje poufne. Należy go udostępnić tylko zaufanym oso
 Skopiuj dane wyjściowe i bezpiecznie przekaż je nowemu menedżerowi serwera Outline. Nie wysyłaj tych informacji przez niezaszyfrowane kanały, takie jak zwykła poczta e-mail czy komunikator.
 Rozważ użycie funkcji bezpiecznego udostępniania w menedżerze haseł lub innej szyfrowanej metody komunikacji.
 
-Wklejenie podanej **konfiguracji dostępu** w aplikacji Menedżer Outline umożliwi nowemu menedżerowi dodanie serwera Outline, a następnie zarządzanie w aplikacji. Dodatkowe informacje na temat korzystania z Menedżera Outline znajdziesz w [Centrum pomocy](https://support.google.com/outline).
+Wklejenie podanej **konfiguracji dostępu** w aplikacji Menedżer Outline umożliwi nowemu menedżerowi dodanie serwera Outline, a następnie zarządzanie w aplikacji. Dodatkowe informacje na temat korzystania z Menedżera Outline znajdziesz w [Centrum pomocy](https://support.getoutline.org).

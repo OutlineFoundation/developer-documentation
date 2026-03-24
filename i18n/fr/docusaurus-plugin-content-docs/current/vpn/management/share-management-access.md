@@ -89,4 +89,4 @@ Le résultat contient l'empreinte du certificat autosigné (`certSha256`) et le 
 Copiez la sortie et partagez-la avec le nouvel administrateur Outline de façon sécurisée. Évitez de l'envoyer par le biais de canaux non chiffrés comme un simple e-mail ou message instantané.
 Privilégiez la fonctionnalité de partage sécurisé d'un gestionnaire de mots de passe ou une autre méthode de communication chiffrée.
 
-Le nouvel administrateur colle la **configuration d'accès** fournie dans Outline Manager afin d'ajouter le serveur Outline et de pouvoir le gérer dans l'interface de l'application. Pour en savoir plus sur l'utilisation d'Outline Manager, consultez le [Centre d'aide Outline](https://support.google.com/outline).
+Le nouvel administrateur colle la **configuration d'accès** fournie dans Outline Manager afin d'ajouter le serveur Outline et de pouvoir le gérer dans l'interface de l'application. Pour en savoir plus sur l'utilisation d'Outline Manager, consultez le [Centre d'aide Outline](https://support.getoutline.org).

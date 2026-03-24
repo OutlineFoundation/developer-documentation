@@ -89,4 +89,4 @@ Diese Zeile enthält vertrauliche Daten. Geben Sie diese nur an vertrauenswürdi
 Kopieren Sie die Ausgabe und geben Sie sie sicher an den neuen Outline-Manager weiter. Versenden Sie sie möglichst nicht über unverschlüsselte Kanäle wie einfache E-Mail oder Chat.
 Nach Möglichkeit sollten Sie die sichere Freigabefunktion eines Passwortmanagers oder eine andere verschlüsselte Kommunikationsmethode nutzen.
 
-Durch Einfügen der bereitgestellten **access config** in den Outline-Manager kann der neue Verwalter den Outline-Server hinzufügen und anschließend über die Benutzeroberfläche der Anwendung verwalten. Zusätzlicher Support für die Verwendung des Outline-Managers ist in der [Outline-Hilfe](https://support.google.com/outline) verfügbar.
+Durch Einfügen der bereitgestellten **access config** in den Outline-Manager kann der neue Verwalter den Outline-Server hinzufügen und anschließend über die Benutzeroberfläche der Anwendung verwalten. Zusätzlicher Support für die Verwendung des Outline-Managers ist in der [Outline-Hilfe](https://support.getoutline.org) verfügbar.

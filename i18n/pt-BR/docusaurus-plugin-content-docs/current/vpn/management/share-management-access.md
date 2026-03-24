@@ -117,4 +117,4 @@ de comunicação criptografado.
 Ao colar a **configuração de acesso** fornecida no Outline Manager, o novo
 gerente poderá adicionar e depois gerenciar o servidor do Outline pela
 interface do aplicativo. Para mais ajuda sobre como usar o Outline Manager,
-visite a [Central de Ajuda do Outline](https://support.google.com/outline).
+visite a [Central de Ajuda do Outline](https://support.getoutline.org).

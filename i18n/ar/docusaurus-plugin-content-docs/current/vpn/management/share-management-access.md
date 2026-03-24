@@ -118,4 +118,4 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 عند لصق **إعدادات الوصول** المتوفّرة في "مدير Outline"، سيتمكّن المدير الجديد
 من إضافة خادم Outline وإدارته بعد ذلك من خلال
 واجهة التطبيق. ولمزيد من الدعم بشأن استخدام "مدير Outline"، يُرجى الانتقال
-إلى [مركز مساعدة Outline](https://support.google.com/outline).
+إلى [مركز مساعدة Outline](https://support.getoutline.org).

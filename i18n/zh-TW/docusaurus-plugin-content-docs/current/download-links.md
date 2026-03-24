@@ -24,7 +24,7 @@ sidebar_label: "備用下載連結"
 
 - **MacOS：**<https://itunes.apple.com/us/app/outline-app/id1356178125>
 
-- **Linux：**<https://support.google.com/outline/answer/15331527>
+- **Linux：**<https://support.getoutline.org/client/getting-started/install-linux/>
 
     - **備用連結：**<https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
 

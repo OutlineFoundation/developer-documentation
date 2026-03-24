@@ -89,4 +89,4 @@ questa riga contiene informazioni sensibili. Condividila solo con persone fidate
 Copia l'output e condividilo in modo sicuro con il nuovo gestore di Outline. Evita di inviarlo tramite canali non crittografati, ad esempio email in testo normale o messaggistica immediata.
 Valuta la possibilità di utilizzare la funzionalità di condivisione sicura di un gestore delle password o un altro metodo di comunicazione crittografato.
 
-Una volta incollata la **configurazione di accesso** fornita in Outline Manager, il nuovo gestore potrà aggiungere e successivamente gestire il server Outline attraverso l'interfaccia dell'applicazione. Ulteriore assistenza per l'utilizzo di Outline Manager è disponibile nel [Centro assistenza Outline](https://support.google.com/outline).
+Una volta incollata la **configurazione di accesso** fornita in Outline Manager, il nuovo gestore potrà aggiungere e successivamente gestire il server Outline attraverso l'interfaccia dell'applicazione. Ulteriore assistenza per l'utilizzo di Outline Manager è disponibile nel [Centro assistenza Outline](https://support.getoutline.org).

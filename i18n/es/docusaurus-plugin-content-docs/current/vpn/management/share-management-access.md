@@ -89,4 +89,4 @@ Esta línea incluye información sensible. Compártela únicamente con personas 
 Copia la salida y compártela con el nuevo administrador de Outline mediante un procedimiento seguro. Intenta no enviarla por canales que no estén cifrados, como el correo normal o una aplicación de mensajería instantánea.
 Te recomendamos que uses una función para compartir de forma segura del Gestor de contraseñas u otro método de comunicación cifrado.
 
-En cuanto el nuevo administrador pegue la **configuración de acceso** proporcionada en Administrador de Outline, podrá añadir y gestionar el servidor de Outline en la interfaz de la aplicación. Si necesitas más ayuda para usar Administrador de Outline, visita el [Centro de Ayuda de Outline](https://support.google.com/outline).
+En cuanto el nuevo administrador pegue la **configuración de acceso** proporcionada en Administrador de Outline, podrá añadir y gestionar el servidor de Outline en la interfaz de la aplicación. Si necesitas más ayuda para usar Administrador de Outline, visita el [Centro de Ayuda de Outline](https://support.getoutline.org).

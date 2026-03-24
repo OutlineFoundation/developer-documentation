@@ -5,7 +5,7 @@
   },
   "link.item.label.Data Collection Policy": {
     "message": "数据收集政策",
-    "description": "The label of footer link with label=Data Collection Policy linking to https://support.google.com/outline/answer/14915905"
+    "description": "The label of footer link with label=Data Collection Policy linking to https://getoutline.org/policies/data-collection"
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
@@ -29,7 +29,7 @@
   },
   "link.item.label.Terms of Service": {
     "message": "服务条款",
-    "description": "The label of footer link with label=Terms of Service linking to https://s3.amazonaws.com/outline-vpn/static_downloads/Outline-Terms-of-Service.html"
+    "description": "The label of footer link with label=Terms of Service linking to https://getoutline.org/policies/terms-of-service"
   },
   "link.item.label.Help Center": {
     "message": "帮助中心",
@@ -37,6 +37,6 @@
   },
   "link.item.label.Branding Guidelines": {
     "message": "品牌推广指南",
-    "description": "The label of footer link with label=Branding Guidelines linking to https://support.google.com/outline/answer/15331625"
+    "description": "The label of footer link with label=Branding Guidelines linking to https://support.getoutline.org/about/brand-usage/"
   }
 }

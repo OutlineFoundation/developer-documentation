@@ -89,4 +89,4 @@ Bu satırda hassas bilgiler yer alır. Satırı yalnızca yönetim erişimine ih
 Çıkışı kopyalayıp yeni Outline yöneticisi ile güvenli bir şekilde paylaşın. Düz e-posta veya anlık mesajlaşma uygulamaları gibi şifrelenmemiş kanallardan göndermeyin.
 Parola yöneticilerinin güvenli paylaşma özelliklerini veya başka bir şifrelenmiş iletişim yöntemi kullanabilirsiniz.
 
-Sağlanan **erişim kodu** Outline Manager'a yapıştırıldığında, yeni yönetici Outline sunucusunu ekleyip uygulama arayüzünden yönetebilir. Outline Manager'ı kullanma hakkında daha fazla bilgiye [Outline Yardım Merkezi](https://support.google.com/outline)'nden ulaşılabilir.
+Sağlanan **erişim kodu** Outline Manager'a yapıştırıldığında, yeni yönetici Outline sunucusunu ekleyip uygulama arayüzünden yönetebilir. Outline Manager'ı kullanma hakkında daha fazla bilgiye [Outline Yardım Merkezi](https://support.getoutline.org)'nden ulaşılabilir.

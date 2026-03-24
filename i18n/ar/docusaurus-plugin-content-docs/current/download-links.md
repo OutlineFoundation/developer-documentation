@@ -29,7 +29,7 @@ sidebar_label: "روابط التنزيل البديلة"
 
 - **نظام التشغيل MacOS‏:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
 
-- **نظام التشغيل Linux:‏** <https://support.google.com/outline/answer/15331527>
+- **نظام التشغيل Linux:‏** <https://support.getoutline.org/client/getting-started/install-linux/>
 
     - **رابط بديل:**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>

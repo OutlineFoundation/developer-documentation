@@ -89,4 +89,4 @@ Deze regel bevat gevoelige informatie. Deel deze alleen met mensen die je vertro
 Kopieer de uitvoer en deel deze beveiligd met de nieuwe Outline-beheerder. Stuur de uitvoer niet via onversleutelde kanalen zoals gewone e-mail of instant messaging.
 We raden je aan de functie voor beveiligd delen van een wachtwoordmanager of een andere versleutelde communicatiemethode te gebruiken.
 
-Als de nieuwe beheerder de ontvangen **toegangsconfiguratie** in Outline Manager plakt, kan deze de Outline-server toevoegen en daarna beheren via de app-interface. Je vindt meer hulp voor het gebruik van Outline Manager in het [Helpcentrum van Outline](https://support.google.com/outline).
+Als de nieuwe beheerder de ontvangen **toegangsconfiguratie** in Outline Manager plakt, kan deze de Outline-server toevoegen en daarna beheren via de app-interface. Je vindt meer hulp voor het gebruik van Outline Manager in het [Helpcentrum van Outline](https://support.getoutline.org).

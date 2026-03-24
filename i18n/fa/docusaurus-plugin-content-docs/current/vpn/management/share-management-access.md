@@ -118,4 +118,4 @@ sed -n '2s/^apiUrl://p; 1s/^certSha256://p' /opt/outline/access.txt | paste -d'\
 جای‌گذاری کردن **پیکربندی دسترسی** ارائه‌شده در «مدیر Outline» به
 مدیر جدید اجازه می‌دهد تا ازطریق میانای برنامه
 سرور Outline را اضافه کند و سپس آن را مدیریت کند. پشتیبانی اضافی برای استفاده کردن از «مدیر Outline» در
-در [مرکز راهنمایی Outline](https://support.google.com/outline) دردسترس است.
+در [مرکز راهنمایی Outline](https://support.getoutline.org) دردسترس است.

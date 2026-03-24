@@ -28,7 +28,7 @@ Los siguientes enlaces son las únicas fuentes oficiales para descargar las apli
 
 - **MacOS:** [https://itunes.apple.com/es/app/outline-app/id1356178125](https://itunes.apple.com/us/app/outline-app/id1356178125)
 
-- **Linux:** <https://support.google.com/outline/answer/15331527>
+- **Linux:** <https://support.getoutline.org/client/getting-started/install-linux/>
 
     - **Alternativa:**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
