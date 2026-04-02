@@ -1,5 +1,7 @@
-Project: /outline/_project.yaml
-Book: /outline/_book.yaml
+---
+title: "Disguise Connections with Prefixes"
+sidebar_label: "Connection Prefixes"
+---
 
 # Connection Prefix Disguises
 
