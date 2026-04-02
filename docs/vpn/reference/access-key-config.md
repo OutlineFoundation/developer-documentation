@@ -3,7 +3,7 @@ title: "Access Key Configuration Reference"
 sidebar_label: "Access Key Config"
 ---
 
-# Outline Config Reference
+# Config
 
 Outline uses a YAML-based configuration to define VPN parameters and handle
 TCP/UDP traffic. The configuration supports composability at multiple levels,
@@ -78,7 +78,7 @@ transport:
 ```
 
 In case of blocking of "look-like-nothing" protocols like Shadowsocks, you
-can use Shadowsocks over WebSockets. See the
+can use Shadowsocks over Websockets. See the
 [server example configuration](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)
 on how to deploy it. A client configuration will look like:
 
@@ -127,7 +127,7 @@ transport:
     secret: SS_SECRET
 ```
 
-Note that WebSockets is not yet supported on Windows. In order to have a single
+Note that Websockets is not yet supported on Windows. In order to have a single
 config for all platforms, use a `first-supported` for backwards-compatibility:
 
 ```yaml
@@ -279,18 +279,18 @@ allows for composition of strategies.
 
 ### WebsocketEndpointConfig
 
-Tunnels stream and packet connections to an endpoint over WebSockets.
+Tunnels stream and packet connections to an endpoint over Websockets.
 
-For stream connections, each write is turned into a WebSocket message. For
-packet connections, each packet is turned into a WebSocket message.
+For stream connections, each write is turned into a Websocket message. For
+packet connections, each packet is turned into a Websocket message.
 
 **Format:** _struct_
 
 **Fields:**
 
--   `url` (_string_): the URL for the WebSocket endpoint. The schema must be
-    `https` or `wss` for WebSocket over TLS, and `http` or `ws` for plaintext
-    WebSocket.
+-   `url` (_string_): the URL for the Websocket endpoint. The schema must be
+    `https` or `wss` for Websocket over TLS, and `http` or `ws` for plaintext
+    Websocket.
 -   `endpoint` ([EndpointConfig](#endpointconfig)): the web server endpoint to
     connect to. If absent, is connects to the address specified in the URL.
 
