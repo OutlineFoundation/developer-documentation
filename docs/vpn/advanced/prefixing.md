@@ -49,7 +49,7 @@ Some examples of effective UDP prefixes that look like common protocols:
 
 ### Dynamic Access Keys
 
-To use the prefix feature with [Dynamic Access Keys](/outline/docs/guides/service-providers/dynamic-access-keys.md) (`ssconf://`),
+To use the prefix feature with [Dynamic Access Keys](../management/dynamic-access-keys.md) (`ssconf://`),
 add a "prefix" key to the YAML object, with a **YAML-encoded** value
 representing the prefix you want_ (see examples in the table above)_. You can
 use escape codes (like \u00FF) to represent non-printable Unicode codepoints in
