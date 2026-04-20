@@ -20,7 +20,8 @@ Shadowsocks-over-WebSockets는 Outline 클라이언트 v1.15.0+에서만 지원�
 web:
   servers:
     - id: server1
-        listen: 127.0.0.1:<WEB_SERVER_PORT>
+      listen:
+        - "127.0.0.1:<WEB_SERVER_PORT>"
 
 services:
   - listeners:

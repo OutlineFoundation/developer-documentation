@@ -20,7 +20,8 @@ Utwórz nowy plik `config.yaml` o następującej konfiguracji:
 web:
   servers:
     - id: server1
-        listen: 127.0.0.1:<WEB_SERVER_PORT>
+      listen:
+        - "127.0.0.1:<WEB_SERVER_PORT>"
 
 services:
   - listeners:
