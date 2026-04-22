@@ -5,6 +5,157 @@ sidebar_label: "Access Key Config"
 
 # Config
 
+Outline uses a YAML-based configuration to define VPN parameters and handle
+TCP/UDP traffic. The configuration supports composability at multiple levels,
+enabling flexible and extensible setups.
+
+The top-level configuration specifies a [TunnelConfig](#tunnelconfig).
+
+## Examples
+
+A typical Shadowsocks configuration will look like this:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+    endpoint: ss.example.com:4321
+    cipher: chacha20-ietf-poly1305
+    secret: SECRET
+    prefix: "POST "
+
+  udp:
+    $type: shadowsocks
+    endpoint: ss.example.com:4321
+    cipher: chacha20-ietf-poly1305
+    secret: SECRET
+```
+
+Note how we can now have TCP and UDP running on different ports or endpoints.
+
+You can take advantage of YAML anchors and the `<<` merge key to avoid
+duplication:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    <<: &shared
+      $type: shadowsocks
+      endpoint: ss.example.com:4321
+      cipher: chacha20-ietf-poly1305
+      secret: SECRET
+    prefix: "POST "
+
+  udp: *shared
+```
+
+It's now possible to compose strategies and do multi-hops:
+
+```yaml
+transport:
+  $type: tcpudp
+
+  tcp:
+    $type: shadowsocks
+
+    endpoint:
+      $type: dial
+      address: exit.example.com:4321
+      dialer:
+        $type: shadowsocks
+        address: entry.example.com:4321
+        cipher: chacha20-ietf-poly1305
+        secret: ENTRY_SECRET
+
+    cipher: chacha20-ietf-poly1305
+    secret: EXIT_SECRET
+
+  udp: *shared
+```
+
+In case of blocking of "look-like-nothing" protocols like Shadowsocks, you
+can use Shadowsocks over Websockets. See the
+[server example configuration](https://github.com/Jigsaw-Code/outline-ss-server/blob/master/cmd/outline-ss-server/config_example.yml)
+on how to deploy it. A client configuration will look like:
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint:
+        $type: websocket
+        url: wss://legendary-faster-packs-und.trycloudflare.com/SECRET_PATH/tcp
+    cipher: chacha20-ietf-poly1305
+    secret: SS_SECRET
+
+  udp:
+    $type: shadowsocks
+    endpoint:
+        $type: websocket
+        url: wss://legendary-faster-packs-und.trycloudflare.com/SECRET_PATH/udp
+    cipher: chacha20-ietf-poly1305
+    secret: SS_SECRET
+```
+
+Note that the Websocket endpoint can, in turn, take an endpoint, which can be
+used to bypass DNS-based blocking:
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint:
+        $type: websocket
+        url: wss://legendary-faster-packs-und.trycloudflare.com/SECRET_PATH/tcp
+        endpoint: cloudflare.net:443
+    cipher: chacha20-ietf-poly1305
+    secret: SS_SECRET
+
+  udp:
+    $type: shadowsocks
+    endpoint:
+        $type: websocket
+        url: wss://legendary-faster-packs-und.trycloudflare.com/SECRET_PATH/udp
+        endpoint: cloudflare.net:443
+    cipher: chacha20-ietf-poly1305
+    secret: SS_SECRET
+```
+
+Note that Websockets is not yet supported on Windows. In order to have a single
+config for all platforms, use a `first-supported` for backwards-compatibility:
+
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    $type: shadowsocks
+    endpoint:
+      $type: first-supported
+      options:
+        - $type: websocket
+          url: wss://legendary-faster-packs-und.trycloudflare.com/SECRET_PATH/tcp
+        - ss.example.com:4321
+    cipher: chacha20-ietf-poly1305
+    secret: SS_SECRET
+
+  udp:
+    $type: shadowsocks
+    endpoint:
+      $type: first-supported
+      options:
+        - $type: websocket
+          url: wss://legendary-faster-packs-und.trycloudflare.com/SECRET_PATH/udp
+        - ss.example.com:4321
+    cipher: chacha20-ietf-poly1305
+    secret: SS_SECRET
+```
+
 ## Tunnels
 
 ### TunnelConfig
@@ -155,10 +306,16 @@ Packet Dialers.
 The _null_ (absent) Dialer means the default Dialer, which uses direct TCP
 connections for Stream and direct UDP connections for Packets.
 
-Supported Interface types for Stream and Packer Dialers:
+Supported Interface types for Stream and Packet dialers:
 
 -   `first-supported`: [FirstSupportedConfig](#firstsupportedconfig)
 -   `shadowsocks`: [ShadowsocksConfig](#shadowsocksconfig)
+
+Supported Interface types for Stream dialers:
+
+-   `iptable`: [IPTableConfig](#iptableconfig)
+-   `direct`: [Direct](#direct)
+-   `block`: [Block](#block)
 
 ## Packet Listeners
 
@@ -251,6 +408,79 @@ endpoint: example.com:80
 cipher: chacha20-ietf-poly1305
 secret: SECRET
 prefix: "POST "
+```
+
+### Selective Routing
+
+#### IPTableConfig
+
+Represents a Stream Dialer that routes connections based on the
+destination IP address. It matches the destination IP against a list of rules
+in the `table`. If a rule matches, the connection is handled by the `dialer`
+specified in that rule. If no rules match, the connection is handled by the
+`fallback` dialer.
+
+This is a Stream-only dialer and should be used for `tcp` transports.
+
+**Format:** _struct_
+
+**Fields:**
+
+  - `table` (*list*): A list of routing rules.
+      - `ips` (*list*): A list of IP addresses or CIDR ranges (e.g., `192.0.2.0/24`).
+      - `dialer` ([DialerConfig](#dialerconfig)): The dialer to use if the destination IP matches an entry in `ips`.
+  - `fallback` ([DialerConfig](#dialerconfig)): The dialer to use if the
+    destination IP does not match any rule in the `table`.
+
+Example:
+
+```yaml
+# This config blocks TCP connections to 192.0.2.0/24 and sends all
+# other TCP traffic directly.
+transport:
+  $type: tcpudp
+  tcp:
+    $type: iptable
+    table:
+      - ips:
+          - 192.0.2.0/24
+        dialer:
+          $type: block
+    fallback:
+      $type: direct
+  udp:
+    $type: shadowsocks
+    # ... udp config
+```
+
+## Utility Dialers
+
+### Direct
+
+Represents a direct Stream dialer.
+
+This is a Stream-only dialer and should be used for `tcp` transports.
+
+Example:
+
+```yaml
+dialer:
+  $type: direct
+```
+
+### Block
+
+Represents a dialer that blocks all connection attempts. This can be useful
+for explicitly denying traffic to specific destinations, especially when
+used with [IPTableConfig](#iptableconfig).
+
+This is a Stream-only dialer and should be used for `tcp` transports.
+
+Example:
+
+```yaml
+dialer:
+  $type: block
 ```
 
 ## Meta Definitions

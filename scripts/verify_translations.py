@@ -50,6 +50,18 @@ KNOWN_CODE_BLOCK_DIFFS = {
     "sdk/mobile-app-integration": (16, 14),
     # 1 RegisterErrorConfig example added to MD after translation export
     "sdk/reference/smart-dialer-config": (10, 9),
+    # 9 code blocks added to MD after translation export (expanded reference)
+    "vpn/reference/access-key-config": (17, 8),
+}
+
+# Known code block content differences: counts match but the content of
+# specific blocks differs because the English example was rewritten after
+# translation export. Format: doc_path -> set of block indices (0-based)
+# that are allowed to differ.
+KNOWN_CODE_BLOCK_CONTENT_DIFFS = {
+    # English example rewritten from Shadowsocks JSON to transport YAML
+    # after translation export
+    "vpn/advanced/prefixing": {0},
 }
 
 # Known link count differences: English MD has links (footnotes, escaped
@@ -58,8 +70,8 @@ KNOWN_CODE_BLOCK_DIFFS = {
 KNOWN_LINK_COUNT_DIFFS = {
     # 2 footnote refs ([^1] in "Alternative[^1]:") not captured by HTML export
     "download-links": (14, 12),
-    # 3 links with escaped brackets in text (e.g. [EndpointConfig\[\]]) not in HTML
-    "vpn/reference/access-key-config": (31, 28),
+    # 11 links added to MD after translation export (expanded reference)
+    "vpn/reference/access-key-config": (39, 28),
     # 1 link to advanced-config added to MD after translation export
     "vpn/advanced/caddy": (9, 8),
 }
@@ -412,8 +424,11 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
                     f"translation has {len(tr_blocks)}"
                 ))
         else:
+            allowed_block_diffs = KNOWN_CODE_BLOCK_CONTENT_DIFFS.get(doc_path, set())
             for idx, (en_block, tr_block) in enumerate(zip(en_blocks, tr_blocks)):
                 if en_block != tr_block:
+                    if idx in allowed_block_diffs:
+                        continue  # Known acceptable content difference
                     en_lines = en_block.split('\n')
                     tr_lines = tr_block.split('\n')
                     diff_line = None

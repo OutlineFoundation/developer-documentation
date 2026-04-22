@@ -7,7 +7,7 @@ sidebar_label: "Connection Prefixes"
 
 As of Outline Client version 1.9.0, access keys support the "prefix" option. The
 "prefix" is a list of bytes used as the first bytes of the
-[salt](https://shadowsocks.org/doc/aead.html) of a Shadowsocks TCP connection.
+[salt](https://shadowsocks.org/doc/aead.html) of a Shadowsocks connection.
 This can make the connection look like a protocol that is allowed in the
 network, circumventing firewalls that reject protocols they don't recognize.
 
@@ -27,9 +27,9 @@ The port you use should match the protocol that your prefix is pretending to be.
 IANA keeps a [transport protocol port number registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
 that maps protocols and port numbers.
 
-Some examples of effective prefixes look like common protocols:
+Some examples of effective TCP prefixes that look like common protocols:
 
-|                      | Recommended Port                                                                                                                                             | JSON-encoded                                 | URL-encoded              |
+|                      | Recommended Port                                                                                                                                             | YAML-encoded                                 | URL-encoded              |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|--------------------------|
 | HTTP request         | 80 (http)                                                                                                                                                    | `"POST "`                                      | `POST%20`                  |
 | HTTP response        | 80 (http)                                                                                                                                                    | `"HTTP/1.1 "`                                  | `HTTP%2F1.1%20`            |
@@ -39,22 +39,35 @@ Some examples of effective prefixes look like common protocols:
 | TLS ServerHello      | 443 (https), 463 (smtps), 563 (nntps), 636 (ldaps), 989 (ftps-data), 990 (ftps), 993 (imaps), 995 (pop3s), 5223 (Apple APN), 5228 (Play Store), 5349 (turns) | `"\u0016\u0003\u0003\u0040\u0000\u0002"`       | `%16%03%03%40%00%02`       |
 | SSH                  | 22 (ssh), 830 (netconf-ssh), 4334 (netconf-ch-ssh), 5162 (snmpssh-trap)                                                                                      | `"SSH-2.0\r\n"`                                | `SSH-2.0%0D%0A`            |
 
+Some examples of effective UDP prefixes that look like common protocols:
+
+|                      | Recommended Port                                                                                                                                             | YAML-encoded                                 |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| DNS request         | 53 (dns)                                                                                                                                                    | `"\u006b\u007b\u0001\u0020"` (note: randomize the first two bytes)                                     |
+| DNS response        | 53 (dns)                                                                                                                                                    | `"\u006b\u007b\u0081\u00a0\u0000\u0001"` (note: randomize the first two bytes)                                  |
+| QUIC Client Initial      | 443 (https) | `"\u00cd\u0000\u0000\u0000\u0001"` |
+
 ### Dynamic Access Keys
 
 To use the prefix feature with [Dynamic Access Keys](../management/dynamic-access-keys.md) (`ssconf://`),
-add a "prefix" key to the JSON object, with a **JSON-encoded** value
-representing the prefix you want (see examples in the table above). You can
+add a "prefix" key to the YAML object, with a **YAML-encoded** value
+representing the prefix you want_ (see examples in the table above)_. You can
 use escape codes (like \u00FF) to represent non-printable Unicode codepoints in
 the `U+0` to `U+FF` range. For example:
 
-```json
-{
-    "server": "example.com",
-    "server_port": 8388,
-    "password": "example",
-    "method": "chacha20-ietf-poly1305",
-    "prefix": "\u0005\u00DC\u005F\u00E0\u0001\u0020"
-}
+```yaml
+transport:
+  $type: tcpudp
+  tcp:
+    <<: &shared
+      $type: shadowsocks
+      endpoint: 147.182.248.224:20478
+      secret: cqXYJ2BtMyNHneQHjpIXyg
+      cipher: chacha20-ietf-poly1305
+    prefix: "\u0013\u0003\u0003\u003F"
+  udp:
+    <<: *shared
+    prefix: "\u006b\u007b\u0001\u0020"
 ```
 
 ### Static Access Keys
@@ -65,6 +78,8 @@ by Outline Manager, grab a **URL-encoded** version of your prefix (see examples
 of these in the table above) and add it to the end of the access key like so:
 
 `ss://Z34nthataITHiTNIHTohithITHbVBqQ1o3bkk@127.0.0.1:33142/?outline=1&prefix=<your url-encoded prefix goes here>`
+
+Prefixes in the URL format only work for TCP connections.
 
 For advanced users, you can use your browser's `encodeURIComponent()` function
 to convert your **JSON-encoded** prefix to a **URL-encoded** one. To do this,
