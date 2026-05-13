@@ -1,5 +1,5 @@
 ---
-title: "Deploy Using an AI Agent"
+title: "Deploy using an AI Agent"
 sidebar_label: "Using an AI Agent"
 ---
 
