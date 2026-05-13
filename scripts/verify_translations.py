@@ -40,7 +40,9 @@ LOCALES = [
 # Docs that only exist in English. If you add new documentation that does
 # not yet have translations, add the doc path here so the verifier won't
 # flag it as missing.
-ENGLISH_ONLY: set[str] = set()
+ENGLISH_ONLY: set[str] = {
+    "vpn/getting-started/server-setup-ai-agent",
+}
 
 # Known code block count differences: English MD has blocks added after
 # translation export. The converter uses h2-section matching to select

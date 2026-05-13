@@ -17,6 +17,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'vpn/getting-started/server-setup-manager',
         'vpn/getting-started/server-setup-advanced',
+        'vpn/getting-started/server-setup-ai-agent',
         'vpn/getting-started/share-access',
       ],
     },
