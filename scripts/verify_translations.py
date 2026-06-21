@@ -69,7 +69,7 @@ KNOWN_CODE_BLOCK_CONTENT_DIFFS = {
 # Format: doc_path -> (english_count, translated_count)
 KNOWN_LINK_COUNT_DIFFS = {
     # 2 footnote refs ([^1] in "Alternative[^1]:") not captured by HTML export
-    "download-links": (14, 12),
+    "download-links": (16, 14),
     # 11 links added to MD after translation export (expanded reference)
     "vpn/reference/access-key-config": (39, 28),
     # 1 link to advanced-config added to MD after translation export
