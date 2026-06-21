@@ -24,15 +24,21 @@ os links a seguir são as únicas fontes oficiais para fazer o download do Outli
 
 ## App cliente do Outline {#outline_client}
 
-- **Windows:**
+- **Windows (x64):**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
+
+    - **ARM64:**
+<https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client-arm64.exe>
 
 - **MacOS:** [https://itunes.apple.com/br/app/outline-app/id1356178125](https://itunes.apple.com/us/app/outline-app/id1356178125)
 
 - **Linux:** <https://support.getoutline.org/client/getting-started/install-linux/>
 
-    - **Alternativa:**
+    - **Alternativa (amd64 / x86-64):**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
+
+    - **Alternativa (arm64 / aarch64):**
+<https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_arm64.deb>
 
 - **ChromeOS:**
 <https://play.google.com/store/apps/details?id=org.outline.android.client>
