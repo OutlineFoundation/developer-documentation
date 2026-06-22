@@ -29,10 +29,6 @@ const config: Config = {
   url: 'https://developer.getoutline.org',
   baseUrl: '/',
 
-  organizationName: 'OutlineFoundation',
-  projectName: 'developer-documentation',
-  deploymentBranch: 'gh-pages',
-
   onBrokenLinks: 'throw',
 
   markdown: {

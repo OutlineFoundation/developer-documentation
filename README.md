@@ -61,12 +61,8 @@ Git integration enabled. Deployment is automatic:
 Cloudflare Pages builds with `npm run build` (output in `build/`) on the Node
 version pinned in `.nvmrc`. There is no manual deploy step.
 
-The legacy GitHub Pages deploy below is being retired:
-
-The site deploys to GitHub Pages via:
+To verify translations locally before opening a PR:
 
 ```sh
-npm run deploy
+npm run verify
 ```
-
-This builds all 18 locales and pushes to the `gh-pages` branch, which is served at https://developer.getoutline.org.
