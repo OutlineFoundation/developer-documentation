@@ -20,13 +20,17 @@ Outline 管理器和 Outline 客户端可以通过以下链接下载。如需详
 
 ## Outline 客户端 {#outline_client}
 
-- **Windows：**<https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
+- **Windows (x64)：**<https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
+
+    - **ARM64：**<https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client-arm64.exe>
 
 - **MacOS：**<https://itunes.apple.com/us/app/outline-app/id1356178125>
 
 - **Linux：**<https://support.getoutline.org/client/getting-started/install-linux/>
 
-    - **备用链接：**<https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
+    - **备用链接 (amd64 / x86-64)：**<https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
+
+    - **备用链接 (arm64 / aarch64)：**<https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_arm64.deb>
 
 - **ChromeOS：**<https://play.google.com/store/apps/details?id=org.outline.android.client>
 

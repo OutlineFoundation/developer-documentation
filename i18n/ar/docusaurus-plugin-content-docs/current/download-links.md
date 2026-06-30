@@ -24,15 +24,21 @@ sidebar_label: "روابط التنزيل البديلة"
 
 ## عميل Outline {#outline_client}
 
-- **نظام التشغيل Windows‏:**
+- **نظام التشغيل Windows (x64)‏:**
 <https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe>
+
+    - **ARM64:**
+<https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client-arm64.exe>
 
 - **نظام التشغيل MacOS‏:** <https://itunes.apple.com/us/app/outline-app/id1356178125>
 
 - **نظام التشغيل Linux:‏** <https://support.getoutline.org/client/getting-started/install-linux/>
 
-    - **رابط بديل:**
+    - **رابط بديل (amd64 / x86-64):**
 <https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_amd64.deb>
+
+    - **رابط بديل (arm64 / aarch64):**
+<https://s3.amazonaws.com/outline-releases/client/linux/stable/outline-client_arm64.deb>
 
 - **نظام التشغيل ChromeOS‏:**
 <https://play.google.com/store/apps/details?id=org.outline.android.client>
