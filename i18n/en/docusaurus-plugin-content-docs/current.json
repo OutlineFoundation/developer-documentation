@@ -49,6 +49,6 @@
   },
   "sidebar.sdkSidebar.link.Go API Reference": {
     "message": "Go API Reference",
-    "description": "The label for link 'Go API Reference' in sidebar 'sdkSidebar', linking to 'https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk'"
+    "description": "The label for link 'Go API Reference' in sidebar 'sdkSidebar', linking to 'https://pkg.go.dev/golang.getoutline.org/sdk'"
   }
 }

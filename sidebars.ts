@@ -97,7 +97,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'link',
           label: 'Go API Reference',
-          href: 'https://pkg.go.dev/github.com/OutlineFoundation/outline-sdk',
+          href: 'https://pkg.go.dev/golang.getoutline.org/sdk',
         },
       ],
     },
