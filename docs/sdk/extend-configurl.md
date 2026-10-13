@@ -219,4 +219,4 @@ To implement your own strategy, replace the duration parsing and wrapper with
 your configuration format and dialer implementation. For wrappers, keep the
 `BaseConfig` call so they compose with existing strategies. For the complete
 API, see [Defining custom strategies](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Defining_custom_strategies)
-and the [SDK's dialer concepts](concepts.md#dialers).
+and the [SDK's dialer concepts](/sdk/concepts#dialers).
