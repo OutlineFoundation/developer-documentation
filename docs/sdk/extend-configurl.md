@@ -288,8 +288,13 @@ func main() {
 	log.SetFlags(0)
 
 	providers := configurl.NewDefaultProviders()
+
+	// highlight-start
+	// Register the "delay" and "timeout" configuration types.
 	components.RegisterDelay(providers)
 	components.RegisterTimeout(providers)
+	// highlight-end
+
 	dialer, err := providers.NewStreamDialer(context.Background(), *configText)
 	if err != nil {
 		log.Fatal(err)
