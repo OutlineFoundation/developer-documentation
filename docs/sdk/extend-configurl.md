@@ -115,10 +115,7 @@ import (
 )
 
 // NewDelayDialer waits before opening each connection through base.
-func NewDelayDialer(
-	base transport.StreamDialer,
-	duration time.Duration,
-) (transport.StreamDialer, error) {
+func NewDelayDialer(base transport.StreamDialer, duration time.Duration) (transport.StreamDialer, error) {
 	if base == nil {
 		return nil, errors.New("delay: base dialer must not be nil")
 	}
@@ -140,10 +137,7 @@ func NewDelayDialer(
 
 // RegisterDelay adds the "delay:<duration>" configuration type.
 func RegisterDelay(providers *configurl.ProviderContainer) {
-	newInstance := func(
-		ctx context.Context,
-		config *configurl.Config,
-	) (transport.StreamDialer, error) {
+	newInstance := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
 		// In "delay:200ms", URL.Opaque is "200ms".
 		duration, err := time.ParseDuration(config.URL.Opaque)
 		if err != nil {
@@ -178,11 +172,7 @@ import (
 )
 
 // NewTimeoutDialer limits how long opening a connection through base can take.
-func NewTimeoutDialer(
-	base transport.StreamDialer,
-	duration time.Duration,
-	message string,
-) (transport.StreamDialer, error) {
+func NewTimeoutDialer(base transport.StreamDialer, duration time.Duration, message string) (transport.StreamDialer, error) {
 	if base == nil {
 		return nil, errors.New("timeout: base dialer must not be nil")
 	}
@@ -208,10 +198,7 @@ func NewTimeoutDialer(
 
 // RegisterTimeout adds the "timeout:t=<duration>&error=<message>" configuration type.
 func RegisterTimeout(providers *configurl.ProviderContainer) {
-	newInstance := func(
-		ctx context.Context,
-		config *configurl.Config,
-	) (transport.StreamDialer, error) {
+	newInstance := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
 		// In "timeout:t=1s&error=too+slow", parse the key=value options.
 		options, err := url.ParseQuery(config.URL.Opaque)
 		if err != nil {
@@ -296,11 +283,7 @@ import (
 )
 
 func main() {
-	configText := flag.String(
-		"transport",
-		"delay:200ms|timeout:t=1s&error=too+slow",
-		"configurl configuration",
-	)
+	configText := flag.String("transport", "delay:200ms|timeout:t=1s&error=too+slow", "configurl configuration")
 	flag.Parse()
 	log.SetFlags(0)
 
