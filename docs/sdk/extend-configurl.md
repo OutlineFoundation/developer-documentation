@@ -137,7 +137,7 @@ func NewDelayDialer(base transport.StreamDialer, duration time.Duration) (transp
 
 // RegisterDelay adds the "delay:<duration>" configuration type.
 func RegisterDelay(providers *configurl.ProviderContainer) {
-	buildDialer := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
+	newInstance := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
 		// In "delay:200ms", URL.Opaque is "200ms".
 		duration, err := time.ParseDuration(config.URL.Opaque)
 		if err != nil {
@@ -149,7 +149,7 @@ func RegisterDelay(providers *configurl.ProviderContainer) {
 		}
 		return NewDelayDialer(base, duration)
 	}
-	providers.StreamDialers.RegisterType("delay", buildDialer)
+	providers.StreamDialers.RegisterType("delay", newInstance)
 }
 ```
 
@@ -198,7 +198,7 @@ func NewTimeoutDialer(base transport.StreamDialer, duration time.Duration, messa
 
 // RegisterTimeout adds the "timeout:t=<duration>&error=<message>" configuration type.
 func RegisterTimeout(providers *configurl.ProviderContainer) {
-	buildDialer := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
+	newInstance := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
 		// In "timeout:t=1s&error=too+slow", parse the key=value options.
 		options, err := url.ParseQuery(config.URL.Opaque)
 		if err != nil {
@@ -214,7 +214,7 @@ func RegisterTimeout(providers *configurl.ProviderContainer) {
 		}
 		return NewTimeoutDialer(base, duration, options.Get("error"))
 	}
-	providers.StreamDialers.RegisterType("timeout", buildDialer)
+	providers.StreamDialers.RegisterType("timeout", newInstance)
 }
 ```
 
