@@ -362,19 +362,6 @@ only after it finishes does it call the timeout wrapper, starting the
 one-second timer for the local TCP connection. To include the delay in the time
 limit, put the timeout to its right, as in the previous example.
 
-### Reject invalid options early
-
-```sh
-go run . -transport 'timeout:t=invalid&error=too+slow'
-```
-
-The builder rejects the configuration before any connection is opened:
-
-```text
-timeout: t must be a duration, such as 1s
-exit status 1
-```
-
 ## Use components directly
 
 Expose components for direct use as well as through configuration. For example,
