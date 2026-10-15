@@ -1,0 +1,690 @@
+---
+title: "Deploy an Outline Server with Caddy"
+sidebar_label: "HTTPS / WebSocket with Caddy"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Deploy an Outline Server with Caddy
+
+This tutorial walks you through deploying an Outline server manually on a Linux
+server with a public IP address, using [Caddy](https://caddyserver.com/)
+extended with the
+[`outlinecaddy`](https://github.com/OutlineFoundation/tunnel-server/tree/master/outlinecaddy)
+module. The result is a single binary serving both transports at the same time,
+with the same access keys:
+
+-   **Direct TCP and UDP** — classic Shadowsocks connections, like the servers
+    the [Outline Manager](../getting-started/server-setup-manager) deploys.
+-   **[Shadowsocks-over-WebSockets](websockets)** — connections wrapped in
+    WebSockets behind automatic TLS on port `443`, making your VPN traffic look
+    like regular HTTPS web traffic. Useful where direct Shadowsocks connections
+    are blocked.
+
+<svg viewBox="0 0 760 230" role="img" aria-label="Architecture diagram: the Outline Client reaches Caddy on your server either over WebSocket on port 443 or over direct Shadowsocks on port 9000, and Caddy forwards the traffic to the internet." style={{maxWidth: '100%', height: 'auto', display: 'block', margin: '1.5rem auto'}}>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" strokeWidth="1.5">
+    <rect x="15" y="85" width="150" height="60" rx="8" />
+    <rect x="330" y="30" width="240" height="170" rx="8" />
+    <rect x="345" y="75" width="210" height="45" rx="6" strokeDasharray="4 3" opacity="0.7" />
+    <rect x="345" y="135" width="210" height="45" rx="6" strokeDasharray="4 3" opacity="0.7" />
+    <rect x="640" y="85" width="105" height="60" rx="8" />
+  </g>
+  <g stroke="currentColor" strokeWidth="1.5" markerEnd="url(#arrow)">
+    <line x1="165" y1="100" x2="340" y2="97" />
+    <line x1="165" y1="130" x2="340" y2="157" />
+    <line x1="570" y1="115" x2="635" y2="115" />
+  </g>
+  <g fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="13" textAnchor="middle">
+    <text x="90" y="112">Outline</text>
+    <text x="90" y="128">Client</text>
+    <text x="450" y="52">Your server</text>
+    <text x="450" y="66" fontSize="11" opacity="0.75">Caddy + outlinecaddy</text>
+    <text x="450" y="93" fontSize="11">WebSocket · TCP 443</text>
+    <text x="450" y="108" fontSize="11" opacity="0.75">looks like HTTPS</text>
+    <text x="450" y="153" fontSize="11">Direct Shadowsocks</text>
+    <text x="450" y="168" fontSize="11" opacity="0.75">TCP + UDP 9000</text>
+    <text x="692" y="120">Internet</text>
+  </g>
+</svg>
+
+For the WebSocket transport you need a TLS certificate, and you can get one in
+two ways — this guide covers both:
+
+-   **Domain certificate** — if you own a domain name, point it at your server
+    and Caddy obtains a standard Let's Encrypt certificate automatically.
+-   **IP certificate** — if you don't have a domain, Caddy can obtain a Let's
+    Encrypt certificate directly for your server's public IP address, using the
+    short-lived ACME certificate profile.
+
+## What is Caddy?
+
+Caddy is an open-source web server known for its ease of use, [automatic
+HTTPS](https://caddyserver.com/docs/automatic-https), and support for various
+protocols. It automatically obtains and renews TLS certificates, and can be
+extended with plugins — such as the Outline core server module used in this
+guide, which turns any Caddy server into an Outline Shadowsocks backend.
+
+## Prerequisites
+
+-   A Linux server with systemd and a public IP address. Common distributions
+    such as Debian 12+, Ubuntu 22.04+, Fedora 40+, Rocky Linux / AlmaLinux 9+,
+    and openSUSE Leap 15+ all work.
+-   Root or `sudo` access.
+-   Optionally, a domain name you control.
+
+The server needs inbound TCP ports `80` and `443`, plus one port of your choice
+open for both TCP and UDP for the direct Shadowsocks transport (`9000` in this
+guide). [Step 6](#step-6-open-the-firewall) provides the exact firewall
+commands.
+
+:::tip
+Run all the commands in this guide in a single terminal session, in order.
+Step 4 saves your generated secrets to `~/outline.env`; if you disconnect,
+run `source ~/outline.env` after logging back in and continue where you left
+off.
+:::
+
+## Step 1: Prepare Your Server
+
+Start from an up-to-date system, and make sure `curl` and `openssl` are
+available — the guide uses them to download Go and to generate your secrets:
+
+<Tabs groupId="distro">
+<TabItem value="apt" label="Debian, Ubuntu" default>
+
+```sh
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl openssl
+```
+
+</TabItem>
+<TabItem value="dnf" label="Fedora, Rocky">
+
+```sh
+sudo dnf upgrade -y
+sudo dnf install -y curl openssl
+```
+
+</TabItem>
+<TabItem value="zypper" label="openSUSE">
+
+```sh
+sudo zypper refresh && sudo zypper update -y
+sudo zypper install -y curl openssl
+```
+
+</TabItem>
+</Tabs>
+
+If the upgrade installed a new kernel, reboot before continuing.
+
+:::tip
+This guide assumes a freshly provisioned server. General hardening — SSH key
+authentication, automatic security updates, fail2ban — is out of scope here;
+see your distribution's server hardening guide.
+:::
+
+## Step 2: Install Go
+
+The Caddy binary with the Outline module is built from source, which requires a
+recent Go toolchain. The Go version packaged by most distributions is often too
+old, so install the latest release from [go.dev](https://go.dev/dl/):
+
+```sh
+curl -fsSL "https://go.dev/dl/$(curl -fsSL 'https://go.dev/VERSION?m=text' | head -n1).linux-amd64.tar.gz" -o /tmp/go.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+```
+
+:::note
+Replace `linux-amd64` with `linux-arm64` if your server runs on an ARM CPU.
+:::
+
+**Checkpoint** — verify Go is installed:
+
+```sh
+go version
+```
+
+You should see something like `go version go1.25.x linux/amd64`.
+
+## Step 3: Build Caddy with the Outline Module
+
+The `outlinecaddy` module ships a ready-made [Caddy main
+package](https://github.com/OutlineFoundation/tunnel-server/tree/master/outlinecaddy/cmd/caddy)
+that already bundles the Outline core server module, Caddy's standard modules,
+and a YAML config adapter. Build and install it with a single command:
+
+```sh
+go install -tags nomysql golang.getoutline.org/tunnel-server/outlinecaddy/cmd/caddy@master
+sudo mv "$HOME/go/bin/caddy" /usr/local/bin/caddy
+```
+
+Building Caddy compiles a lot of Go code, so this can take several minutes —
+especially on a small VPS. As long as the command hasn't returned, it's still
+working.
+
+:::note
+The `nomysql` build tag is required — it excludes MPL-licensed MySQL drivers
+from the Caddy binary.
+:::
+
+**Checkpoint** — verify the build:
+
+```sh
+caddy version
+caddy list-modules | grep outline
+```
+
+The first command prints the Caddy version (`v2.11.4` or later). The second
+lists the `outline` app and the `http.handlers.websocket2layer4` handler.
+
+<details>
+
+<summary>Alternative: build with xcaddy to add extra Caddy plugins</summary>
+
+If you want to compile in additional Caddy plugins beyond what `cmd/caddy`
+bundles, build a custom binary with
+[`xcaddy`](https://github.com/caddyserver/xcaddy):
+
+```sh
+xcaddy build \
+  --with github.com/iamd3vil/caddy_yaml_adapter \
+  --with golang.getoutline.org/tunnel-server/outlinecaddy \
+  --with <ANY_OTHER_CADDY_PLUGIN>
+```
+
+Note that xcaddy builds against the latest Caddy release (which may differ from
+the version `outlinecaddy` was tested with) and does not apply the `nomysql`
+tag; pass `XCADDY_GO_BUILD_FLAGS="-tags nomysql"` if the licensing exclusion
+matters to you.
+
+</details>
+
+## Step 4: Generate Your Secrets
+
+The server needs a Shadowsocks secret and two secret URL paths for the
+WebSocket endpoints. Generate them all at once and save them to a file so every
+later command can fill them in for you — no manual copying needed:
+
+```sh
+touch ~/outline.env
+chmod 600 ~/outline.env
+cat > ~/outline.env <<EOF
+SS_SECRET="$(openssl rand -base64 18)"
+TCP_PATH="$(openssl rand -hex 16)"
+UDP_PATH="$(openssl rand -hex 16)"
+SS_PORT="9000"
+EOF
+source ~/outline.env
+```
+
+The `chmod 600` makes the file readable only by your user — it holds the
+secrets that grant VPN access.
+
+**Checkpoint** — all four values are set:
+
+```sh
+cat ~/outline.env
+```
+
+Every line should have a non-empty value after the `=` sign.
+
+:::note
+Port `9000` for the direct Shadowsocks transport is just this guide's default —
+any free port works. To use a different one, change `SS_PORT` in the command
+above; every later step reads the port from `~/outline.env`, so nothing else
+needs editing.
+:::
+
+:::warning[Important]
+Keep the paths secret to avoid probing. They act as secret endpoints — anyone
+who doesn't know them just sees an ordinary web server. That's why they are
+long, randomly generated values.
+:::
+
+## Step 5: Configure Caddy
+
+The configuration has three parts, all present in the generated config below:
+
+-   The `layer4` app serves direct Shadowsocks TCP and UDP on port `9000`.
+-   The `http` app serves the WebSocket endpoints behind TLS on port `443`.
+-   The `outline` app defines the connection handler and access keys, shared by
+    both transports.
+
+Pick the tab matching your situation — the two options differ only in how the
+TLS certificate for the WebSocket transport is obtained.
+
+<Tabs groupId="cert-type">
+<TabItem value="domain" label="I have a domain name" default>
+
+First, sign in to your DNS provider and set the A (and AAAA, if you have IPv6)
+records for your domain to point to your server's public IP address.
+
+Then save your domain — **replace `www.example.com` with your domain before
+running this** (this is the only value in the guide you edit by hand):
+
+```sh
+echo 'SERVER_HOST="www.example.com"' >> ~/outline.env
+source ~/outline.env
+```
+
+**Checkpoint** — verify your DNS records with an authoritative lookup:
+
+```sh
+curl "https://cloudflare-dns.com/dns-query?name=${SERVER_HOST}&type=A" \
+  -H "accept: application/dns-json"
+```
+
+The response should contain your server's IP address. If it doesn't, wait a few
+minutes for DNS propagation and try again.
+
+Now generate the configuration file. Caddy's [automatic
+HTTPS](https://caddyserver.com/docs/automatic-https) obtains and renews the
+Let's Encrypt certificate for you — no extra TLS configuration is needed:
+
+```sh
+sudo mkdir -p /etc/caddy
+sudo touch /etc/caddy/config.yaml
+sudo chmod 600 /etc/caddy/config.yaml
+sudo tee /etc/caddy/config.yaml > /dev/null <<EOF
+apps:
+  layer4:
+    servers:
+      direct:
+        listen:
+          - tcp/[::]:${SS_PORT}
+          - udp/[::]:${SS_PORT}
+        routes:
+          - handle:
+              - handler: outline
+                connection_handler: ss1
+
+  http:
+    servers:
+      websocket:
+        listen:
+          - ":443"
+        routes:
+          - match:
+              - host:
+                  - ${SERVER_HOST}
+                path:
+                  - /${TCP_PATH}
+            handle:
+              - handler: websocket2layer4
+                type: stream
+                connection_handler: ss1
+          - match:
+              - host:
+                  - ${SERVER_HOST}
+                path:
+                  - /${UDP_PATH}
+            handle:
+              - handler: websocket2layer4
+                type: packet
+                connection_handler: ss1
+
+  outline:
+    shadowsocks:
+      replay_history: 10000
+    connection_handlers:
+      - name: ss1
+        handle:
+          handler: shadowsocks
+          keys:
+            - id: user-1
+              cipher: chacha20-ietf-poly1305
+              secret: "${SS_SECRET}"
+EOF
+```
+
+</TabItem>
+<TabItem value="ip" label="I only have an IP address">
+
+Let's Encrypt issues certificates for public IP addresses under its
+[short-lived certificate profile](https://letsencrypt.org/docs/profiles/)
+(valid for about 6 days; Caddy renews them automatically roughly every 2 days).
+This requires Caddy v2.11+, which the `outlinecaddy` build already includes.
+
+Save your server's public IP address and your email (Let's Encrypt uses it for
+expiry notices) — **replace `you@example.com` with your email before running
+this** (this is the only value in the guide you edit by hand):
+
+```sh
+echo "SERVER_HOST=\"$(curl -4fsS https://icanhazip.com)\"" >> ~/outline.env
+echo 'ACME_EMAIL="you@example.com"' >> ~/outline.env
+source ~/outline.env
+```
+
+**Checkpoint** — verify both values are set:
+
+```sh
+echo "IP: ${SERVER_HOST}  Email: ${ACME_EMAIL}"
+```
+
+The IP shown must be your server's public IPv4 address.
+
+Now generate the configuration file. Compared to the domain option, it adds a
+`tls` app section that requests the `shortlived` ACME profile for your IP:
+
+```sh
+sudo mkdir -p /etc/caddy
+sudo touch /etc/caddy/config.yaml
+sudo chmod 600 /etc/caddy/config.yaml
+sudo tee /etc/caddy/config.yaml > /dev/null <<EOF
+apps:
+  layer4:
+    servers:
+      direct:
+        listen:
+          - tcp/[::]:${SS_PORT}
+          - udp/[::]:${SS_PORT}
+        routes:
+          - handle:
+              - handler: outline
+                connection_handler: ss1
+
+  http:
+    servers:
+      websocket:
+        listen:
+          - ":443"
+        routes:
+          - match:
+              - host:
+                  - ${SERVER_HOST}
+                path:
+                  - /${TCP_PATH}
+            handle:
+              - handler: websocket2layer4
+                type: stream
+                connection_handler: ss1
+          - match:
+              - host:
+                  - ${SERVER_HOST}
+                path:
+                  - /${UDP_PATH}
+            handle:
+              - handler: websocket2layer4
+                type: packet
+                connection_handler: ss1
+
+  tls:
+    automation:
+      policies:
+        - subjects:
+            - ${SERVER_HOST}
+          issuers:
+            - module: acme
+              email: ${ACME_EMAIL}
+              profile: shortlived
+
+  outline:
+    shadowsocks:
+      replay_history: 10000
+    connection_handlers:
+      - name: ss1
+        handle:
+          handler: shadowsocks
+          keys:
+            - id: user-1
+              cipher: chacha20-ietf-poly1305
+              secret: "${SS_SECRET}"
+EOF
+```
+
+:::note
+Because short-lived certificates renew every couple of days, port `80` must
+remain permanently reachable from the internet for the ACME HTTP challenge.
+Also note that TLS connections to a bare IP address carry no SNI hostname, so
+they blend in with regular web traffic slightly less well than a domain does —
+prefer the domain option when you have one available.
+:::
+
+</TabItem>
+</Tabs>
+
+**Checkpoint** — validate the generated configuration:
+
+```sh
+sudo caddy validate --config /etc/caddy/config.yaml --adapter yaml
+```
+
+The last line should say `Valid configuration`.
+
+You can find more example configs in the [outlinecaddy GitHub
+repo](https://github.com/OutlineFoundation/tunnel-server/tree/master/outlinecaddy/examples).
+
+## Step 6: Open the Firewall
+
+Open TCP ports `80` and `443` (TLS and certificate issuance) plus port `9000`
+in TCP **and** UDP (direct Shadowsocks):
+
+<Tabs groupId="firewall">
+<TabItem value="ufw" label="ufw (Debian, Ubuntu)" default>
+
+```sh
+source ~/outline.env
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow ${SS_PORT}/tcp
+sudo ufw allow ${SS_PORT}/udp
+sudo ufw status
+```
+
+If `ufw status` reports `inactive`, your server has no local firewall enabled
+and nothing to open — that's fine. If you'd rather turn it on, allow SSH
+**first** so you don't lock yourself out, then enable it:
+
+```sh
+sudo ufw allow OpenSSH
+sudo ufw enable
+```
+
+The `allow` rules you added above are kept and take effect as soon as the
+firewall is enabled.
+
+</TabItem>
+<TabItem value="firewalld" label="firewalld (Fedora, Rocky, openSUSE)">
+
+```sh
+source ~/outline.env
+sudo firewall-cmd --permanent --add-service=http --add-service=https
+sudo firewall-cmd --permanent --add-port=${SS_PORT}/tcp --add-port=${SS_PORT}/udp
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-all
+```
+
+</TabItem>
+</Tabs>
+
+:::warning[Cloud provider firewalls]
+Most cloud providers (AWS, Google Cloud, Hetzner, Oracle, ...) have a **second
+firewall** in their web console — security groups, firewall rules, or network
+policies. Open the same ports there too, or your server will be unreachable
+even with the local firewall configured correctly.
+:::
+
+## Step 7: Run Caddy as a systemd Service
+
+Create a dedicated system user and give it ownership of the configuration and
+certificate storage directories:
+
+```sh
+sudo useradd --system --home /var/lib/caddy --create-home --shell /usr/sbin/nologin caddy
+sudo chown -R caddy:caddy /etc/caddy
+```
+
+Create the service file:
+
+```sh
+sudo tee /etc/systemd/system/caddy.service > /dev/null <<'EOF'
+[Unit]
+Description=Caddy web server with Outline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+User=caddy
+Group=caddy
+ExecStart=/usr/local/bin/caddy run --config /etc/caddy/config.yaml --adapter yaml
+ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/config.yaml --adapter yaml --force
+TimeoutStopSec=5s
+LimitNOFILE=1048576
+PrivateTmp=true
+ProtectSystem=full
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+Enable and start the service:
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable --now caddy
+```
+
+**Checkpoint** — the service is running and the certificate was obtained:
+
+```sh
+systemctl is-active caddy
+sudo journalctl -u caddy | grep "certificate obtained"
+curl -sI "https://${SERVER_HOST}" | head -n 1
+```
+
+Expected output: `active`, a `certificate obtained successfully` log line
+(issuance can take up to a minute after the first start), and an `HTTP/2 200`
+response line. Certificate renewal is fully automatic from here on. If
+something is off, see [Troubleshooting](#troubleshooting).
+
+## Step 8: Create the Access Keys
+
+Both transports use the same Shadowsocks secret, so you can hand out either
+kind of key — or both — to your users.
+
+### Direct TCP/UDP Access Key
+
+The direct transport uses a standard static Shadowsocks access key. Print your
+ready-to-share key:
+
+```sh
+source ~/outline.env
+echo "ss://$(echo -n "chacha20-ietf-poly1305:${SS_SECRET}" | base64 -w0)@${SERVER_HOST}:${SS_PORT}/?outline=1"
+```
+
+This key works with all Outline Client versions, but direct Shadowsocks
+connections are easier to detect and block than the WebSocket transport.
+
+### WebSocket Access Key
+
+The WebSocket transport uses a [dynamic access
+key](../management/dynamic-access-keys): a YAML file in the [access key
+configuration](../management/config) format that you host somewhere your users
+can reach. Generate it:
+
+```sh
+source ~/outline.env
+cat > ~/outline-ws-key.yaml <<EOF
+transport:
+  \$type: tcpudp
+
+  tcp:
+    \$type: shadowsocks
+
+    endpoint:
+      \$type: websocket
+      url: wss://${SERVER_HOST}/${TCP_PATH}
+    cipher: chacha20-ietf-poly1305
+    secret: "${SS_SECRET}"
+
+  udp:
+    \$type: shadowsocks
+
+    endpoint:
+      \$type: websocket
+      url: wss://${SERVER_HOST}/${UDP_PATH}
+    cipher: chacha20-ietf-poly1305
+    secret: "${SS_SECRET}"
+EOF
+cat ~/outline-ws-key.yaml
+```
+
+**Checkpoint** — the printed file must have no empty values: each `url:` ends
+with a long random path, and each `secret:` is filled in.
+
+:::note
+The WebSocket transport is only supported by Outline Clients v1.15.0+. Keep
+handing out the direct access key to users on older client versions.
+:::
+
+Host the YAML file on a static web hosting service or generate it dynamically,
+then share its URL (in the `ssconf://` format described in [Dynamic Access
+Keys](../management/dynamic-access-keys)) with your users.
+
+## Step 9: Connect with the Outline Client
+
+Use one of the official [Outline Client](../../download-links) applications and
+add one of your newly created access keys as a server entry. Click **Connect**
+to start tunneling to your server.
+
+**Checkpoint** — visit [IPInfo](https://ipinfo.io) while connected: it should
+show your server's IP address, not your own.
+
+## Troubleshooting
+
+#### The certificate is never obtained
+
+Watch the logs while Caddy retries: `sudo journalctl -u caddy -f`. Look for
+`acme` error lines. The usual causes:
+
+-   **Port 80 unreachable** — check both the local firewall
+    ([Step 6](#step-6-open-the-firewall)) and your cloud provider's console
+    firewall. Test from your own machine: `curl -sI http://<your-host>` should
+    get *some* response, not a timeout.
+-   **DNS not propagated yet** (domain option) — re-run the DNS checkpoint from
+    [Step 5](#step-5-configure-caddy); if your IP isn't in the answer, wait and
+    try again.
+-   **Let's Encrypt rate limits** — after ~5 failed attempts per hour, Let's
+    Encrypt temporarily refuses new orders for the same host. Fix the
+    underlying issue first, then restart with `sudo systemctl restart caddy`.
+
+#### `go: command not found` or `caddy: command not found`
+
+Your shell hasn't picked up the new `PATH`. Re-run the `export PATH=...` line
+from [Step 2](#step-2-install-go), or log out and back in.
+
+#### The client connects, but web pages don't load
+
+TCP works but UDP is probably blocked. Verify port `9000`/UDP (direct
+transport) is open in **both** firewalls, and confirm the server is listening:
+`sudo ss -lun | grep 9000`.
+
+#### Variables like `${SERVER_HOST}` print empty after reconnecting
+
+Your saved values live in `~/outline.env` — run `source ~/outline.env` in the
+new session and re-run the command.
+
+#### The service fails to start on Fedora / Rocky / AlmaLinux
+
+SELinux may be blocking the binary. Check for denials with
+`sudo ausearch -m avc -ts recent`, and restore the expected file context with
+`sudo restorecon -v /usr/local/bin/caddy`.
+
+## See Also
+
+-   [Disguise Connections as Web Traffic with
+    Shadowsocks-over-WebSockets](websockets)
+-   More example configs in the [outlinecaddy GitHub
+    repo](https://github.com/OutlineFoundation/tunnel-server/tree/master/outlinecaddy/examples)

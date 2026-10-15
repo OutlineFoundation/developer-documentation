@@ -43,6 +43,8 @@ LOCALES = [
 ENGLISH_ONLY: set[str] = {
     "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
+    # Reworked guide; previous translations were removed pending re-export
+    "vpn/advanced/caddy",
 }
 
 # Known code block count differences: English MD has blocks added after
