@@ -143,3 +143,49 @@ or [GitHub secret
 gists](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists).
 Evaluate the specific needs of your deployment and choose a platform that aligns
 with your requirements for accessibility and security.
+
+## Share the Key with Your Users
+
+Hosting the configuration is only half of a dynamic access key. What your users
+add to the Outline client is the _location_ of that configuration, written with
+the `ssconf://` scheme. Take the HTTPS URL the configuration is served from and
+replace `https://` with `ssconf://`.
+
+```none
+https://keys.example.com/a1b2c3d4e5f6.yml    <- where you host the config
+ssconf://keys.example.com/a1b2c3d4e5f6.yml   <- the access key you share
+```
+
+The client replaces the `ssconf://` scheme with `https://` before fetching, so the
+host, port, path and query string are all preserved as they are. A plain
+`https://` URL is also accepted as a dynamic access key; the `ssconf://` scheme
+exists so that the operating system opens the link with the Outline client
+instead of a browser.
+
+You can append a fragment to name the entry in the client's server list:
+
+```none
+ssconf://keys.example.com/a1b2c3d4e5f6.yml#My%20Server
+```
+
+The client shows this entry as "My Server"; the fragment is not part of the
+fetched URL.
+
+:::caution
+A dynamic access key URL is a credential. Anyone who has it can fetch your
+configuration and read the secret inside it. Serve it over HTTPS, give each user
+their own long, randomly generated path rather than a guessable one such as
+`/alice.yml`, and avoid platforms that publish or index what they host, such as
+public GitHub repositories or public gists. See [Choose a Hosting
+Platform](#choose-a-hosting-platform) for more factors to weigh when picking
+where to host.
+:::
+
+:::note
+Deleting the hosted configuration does not revoke access: the credentials it
+contained remain valid until you remove the key from the server, connected
+clients stay connected, and clients that reconnect automatically (at device
+boot or app launch) reuse the last configuration they fetched successfully. A
+connected client also keeps using the configuration it fetched at connect time.
+Edits to the hosted file take effect the next time it reconnects.
+:::

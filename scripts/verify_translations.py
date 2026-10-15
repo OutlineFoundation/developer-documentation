@@ -16,8 +16,9 @@ Checks:
 Known acceptable differences are documented and excluded:
 - Code block counts may differ where English MD was updated after translation
   export (content added post-export is not in translation HTML sources).
-- Link counts may differ where the English MD has footnotes or escaped brackets
-  that the HTML export did not preserve.
+- Specific English links may be absent from translations (footnotes the HTML
+  export did not preserve, or links added post-export); the remaining links
+  are still compared URL-by-URL.
 - Internal links may lack .md extensions (Docusaurus resolves both forms).
 - Some locales have link order swapped by the translator.
 """
@@ -55,6 +56,8 @@ KNOWN_CODE_BLOCK_DIFFS = {
     "sdk/reference/smart-dialer-config": (10, 9),
     # 9 code blocks added to MD after translation export (expanded reference)
     "vpn/reference/access-key-config": (17, 8),
+    # 2 code blocks added to MD after translation export (ssconf:// key section)
+    "vpn/management/dynamic-access-keys": (7, 5),
 }
 
 # Known code block content differences: counts match but the content of
@@ -67,21 +70,27 @@ KNOWN_CODE_BLOCK_CONTENT_DIFFS = {
     "vpn/advanced/prefixing": {0},
 }
 
-# Known link count differences: English MD has links (footnotes, escaped
-# brackets) that the HTML export did not preserve.
-# Format: doc_path -> (english_count, translated_count)
-KNOWN_LINK_COUNT_DIFFS = {
+# Links that only exist in the English version: added to the MD after
+# translation export, or footnotes/escaped brackets the HTML export did not
+# preserve. The listed English link indices (0-based, in document order) are
+# removed before comparison, after which every remaining link must still
+# match the translation URL-by-URL.
+# Format: doc_path -> set of English link indices
+KNOWN_ENGLISH_ONLY_LINKS: dict[str, set[int]] = {
     # 2 footnote refs ([^1] in "Alternative[^1]:") not captured by HTML export
-    "download-links": (16, 14),
+    "download-links": {13, 15},
     # 11 links added to MD after translation export (expanded reference)
-    "vpn/reference/access-key-config": (39, 28),
+    "vpn/reference/access-key-config": {0, 1, 20, 21, 22, 33, 34, 35, 36, 37, 38},
     # 1 link to advanced-config added to MD after translation export
-    "vpn/advanced/caddy": (9, 8),
+    "vpn/advanced/caddy": {3},
+    # 1 anchor link added to MD after translation export (ssconf:// key section)
+    "vpn/management/dynamic-access-keys": {10},
 }
 
 # Known link order swaps: some translators reordered text, causing link
-# URLs to appear in a different order. Format: doc_path -> set of link indices
-# (0-based) where order may differ.
+# URLs to appear in a different order. The URLs at the swapped positions must
+# still match as a set. Indices are 0-based positions after English-only
+# links have been removed. Format: doc_path -> set of link indices.
 KNOWN_LINK_SWAPS = {
     # Wikipedia Base64 link and Google encode/decode toolbox link swapped
     "vpn/management/dynamic-access-keys": {3, 4},
@@ -97,7 +106,10 @@ KNOWN_ENGLISH_ONLY_ANCHORS: dict[str, set[str]] = {}
 
 # Known admonition count differences: English has admonitions added after
 # translation export. Format: doc_path -> (english_count, translated_count)
-KNOWN_ADMONITION_DIFFS: dict[str, tuple[int, int]] = {}
+KNOWN_ADMONITION_DIFFS: dict[str, tuple[int, int]] = {
+    # 2 admonitions added to MD after translation export (ssconf:// key section)
+    "vpn/management/dynamic-access-keys": (2, 0),
+}
 
 # Threshold for content parity warnings. If the translation's non-code
 # content is less than this fraction of the English content length, flag it.
@@ -447,25 +459,37 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
                         f" (first diff at line {diff_line})"
                     ))
 
-        # Link URLs (normalized to strip .md extensions)
+        # Link URLs (normalized to strip .md extensions). English-only links
+        # (added after translation export) are removed first so the remaining
+        # links can still be compared URL-by-URL.
         en_links = [normalize_link_url(u) for u in extract_link_urls(en_text)]
         tr_links = [normalize_link_url(u) for u in extract_link_urls(tr_text)]
+        en_only = KNOWN_ENGLISH_ONLY_LINKS.get(doc_path, set())
+        en_links = [u for i, u in enumerate(en_links) if i not in en_only]
         if len(en_links) != len(tr_links):
-            known = KNOWN_LINK_COUNT_DIFFS.get(doc_path)
-            if known and known == (len(en_links), len(tr_links)):
-                pass  # Known acceptable difference
-            else:
-                issues.append(Issue(
-                    locale, doc_path, "LINKS",
-                    f"Count mismatch: English has {len(en_links)}, "
-                    f"translation has {len(tr_links)}"
-                ))
+            issues.append(Issue(
+                locale, doc_path, "LINKS",
+                f"Count mismatch: English has {len(en_links)}"
+                f"{f' (excluding {len(en_only)} English-only)' if en_only else ''}, "
+                f"translation has {len(tr_links)}"
+            ))
         else:
             swap_indices = KNOWN_LINK_SWAPS.get(doc_path, set())
+            if swap_indices:
+                # Swapped positions must still hold the same URLs, just
+                # possibly in a different order.
+                en_swapped = sorted(en_links[i] for i in swap_indices)
+                tr_swapped = sorted(tr_links[i] for i in swap_indices)
+                if en_swapped != tr_swapped:
+                    issues.append(Issue(
+                        locale, doc_path, "LINKS",
+                        f"Swapped links {sorted(swap_indices)} don't match: "
+                        f"English={en_swapped}, translation={tr_swapped}"
+                    ))
             for idx, (en_url, tr_url) in enumerate(zip(en_links, tr_links)):
                 if en_url != tr_url:
                     if idx in swap_indices:
-                        continue  # Known link order swap
+                        continue  # Known link order swap (validated above)
                     issues.append(Issue(
                         locale, doc_path, "LINKS",
                         f"Link {idx + 1} differs: "
