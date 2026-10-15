@@ -78,6 +78,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'sdk/mobile-app-integration',
         'sdk/use-sdk-in-go',
+        'sdk/extend-configurl',
       ],
     },
     {

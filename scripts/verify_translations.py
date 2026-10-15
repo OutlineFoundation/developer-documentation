@@ -41,6 +41,7 @@ LOCALES = [
 # not yet have translations, add the doc path here so the verifier won't
 # flag it as missing.
 ENGLISH_ONLY: set[str] = {
+    "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
 }
 
