@@ -42,8 +42,18 @@ LOCALES = [
 # not yet have translations, add the doc path here so the verifier won't
 # flag it as missing.
 ENGLISH_ONLY: set[str] = {
+    "sdk/dns-debugging",
+    "sdk/local-http-proxy",
+    "sdk/remote-measurement",
     "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
+}
+
+# Existing translations of this rewritten guide still describe the original
+# combined article. Validate them against the exact pre-split English source
+# until they are rewritten. Remove this baseline when all locales catch up.
+TRANSLATION_BASELINES = {
+    "sdk/command-line-debugging": SCRIPT_DIR / "translation-baselines",
 }
 
 # Known code block count differences: English MD has blocks added after
@@ -392,7 +402,7 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
 
     # Check each translated file against English
     for doc_path in sorted(translated_paths & english_paths):
-        en_text = read_doc(ENGLISH_DOCS_DIR, doc_path)
+        en_text = read_doc(TRANSLATION_BASELINES.get(doc_path, ENGLISH_DOCS_DIR), doc_path)
         tr_text = read_doc(locale_dir, doc_path)
 
         # Frontmatter: check that translated file has the same keys
@@ -627,6 +637,8 @@ def main():
     print(f"English docs: {len(english_paths)} files")
     print(f"English-only (no translation expected): {len(ENGLISH_ONLY)} files")
     print(f"Locales: {len(LOCALES)}")
+    for doc_path in TRANSLATION_BASELINES:
+        print(f"Pending retranslation (validated against saved source): {doc_path}")
     print()
 
     total_issues = 0

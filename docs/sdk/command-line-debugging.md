@@ -1,153 +1,184 @@
 ---
-title: "Command Line Debugging"
-sidebar_label: "Command Line Debugging"
+title: "Fetching Webpages from the Command Line"
+sidebar_label: "Fetch"
 ---
 
-# Remotely Characterizing and Bypassing Network Interference with the Outline SDK
+The Outline SDK is a library for building network connections with configurable
+strategies, such as proxies and TLS fragmentation. Its command-line tools let you
+try those strategies without writing an application: keep the request the same,
+change how it connects, and compare the result.
 
-This guide demonstrates how to use the Outline SDK's command line tools to
-understand and circumvent network interference from a remote perspective. You
-will learn how to use the SDK's tools to measure network interference, test
-circumvention strategies, and analyze the results. This guide will focus on the
-`resolve`, `fetch`, and `http2transport` tools.
+Start with `fetch` to inspect a connection to `getoutline.org`, then try HTTP/3
+over QUIC, encrypt the TLS server name with Encrypted Client Hello (ECH), and
+experiment with custom transports. You only need Go and an internet connection
+for this guide; no Outline server or account is required.
 
-## Getting Started with Outline SDK Tools
+For other tasks, see [DNS Lookups](dns-debugging.md),
+[Local HTTP Proxy](local-http-proxy.md), and
+[Remote Measurement](remote-measurement.md).
 
-You can start using the Outline SDK tools directly from the command line.
+## Get Started
 
-### Resolve DNS
-
-The `resolve` tool lets you perform DNS lookups with a specified resolver.
-
-To resolve a domain's A record:
-
-```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type A 1.2.3.4.nip.io
-```
-
-To resolve a CNAME record:
+Install [Go](https://go.dev/doc/install), then run:
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/resolve@latest -resolver 8.8.8.8 -type CNAME www.google.com
+go run golang.getoutline.org/sdk/x/tools/fetch@latest https://getoutline.org/cdn-cgi/trace
 ```
 
-### Fetch a Webpage
+`go run` downloads and runs the tool; the first run may take longer while Go
+compiles it. These examples use a POSIX shell, such as Bash or Zsh.
 
-The `fetch` tool can be used to retrieve the content of a webpage.
+The response is a short connection report from Cloudflare. Find `http` to see
+the HTTP version and `ip` to see your public IP address. Later, you will change
+the protocol and enable ECH, then see the differences in this same report.
+To fetch the site's HTML instead, use `https://getoutline.org` as the URL.
+
+Use `-help` to see all flags and their defaults:
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest https://example.com
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -help
 ```
 
-It can also force the connection to use QUIC.
+Put flags **before** the URL. To repeat a measurement with the same tool version,
+replace `@latest` with a specific release, such as `@v0.2.2`.
+
+## Inspect the Response
+
+Enable verbose output with `-v`. Use `-method HEAD` to request headers without
+downloading the response body:
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -proto=h3 https://www.youtube.com
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -method HEAD https://getoutline.org
 ```
 
-### Use a Local Proxy
-
-The `http2transport` tool creates a local proxy to route your traffic through.
-To start a local proxy with a Shadowsocks transport:
+Verbose output includes the HTTP version, status, and response headers. The tool
+writes diagnostics to standard error and the response body to standard output,
+so you can save them separately:
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/http2transport@latest -localAddr 127.0.0.1:8080 -transport "ss://{your_shadowsocks_credentials}"
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v https://getoutline.org \
+  > page.html 2> fetch.log
 ```
 
-You can then use this proxy with other tools like curl:
+The default request timeout is five seconds. Use `-timeout 15` for a slower
+connection. `fetch` does not follow redirects: inspect the status and `Location`
+header, then request the new URL if needed. A completed request can return an
+HTTP error status, so check the status as well as the tool's exit code.
+
+### Inspect the Connection with Cloudflare Trace
+
+`getoutline.org` uses Cloudflare, whose
+[`/cdn-cgi/trace` endpoint](https://developers.cloudflare.com/fundamentals/reference/cdn-cgi-endpoint/)
+returns connection details in a small text response:
 
 ```sh
-curl -p -x http://127.0.0.1:8080 https://ipinfo.io
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v https://getoutline.org/cdn-cgi/trace
 ```
 
-## Specify Circumvention Strategies
+Look for these fields in the response body:
 
-The Outline SDK allows for the specification of various circumvention strategies
-that can be combined to bypass different forms of network interference. The
-specification for these strategies is in the [go documentation](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
+| Field | What to check |
+|---|---|
+| `http` | HTTP version used for the request |
+| `tls` | Negotiated TLS version |
+| `sni` | Whether the server name was sent in plaintext or encrypted |
+| `ip` | Client IP address as seen by Cloudflare; a proxy's exit IP when using one |
+| `colo` | Cloudflare data center serving the request |
+| `loc` | Country associated with the client IP address |
 
-### Composable Strategies
+Use a GET request here (the default): `HEAD` omits the body containing these
+fields. Remove the `ip` value before sharing output if you do not want to disclose
+that address.
 
-These strategies can be combined to create more robust circumvention techniques.
+## Compare HTTP Versions
 
-* **DNS-over-HTTPS with TLS Fragmentation**: `doh:name=cloudflare-dns.com&address=cloudflare.net:443 | tlsfrag:1`
-* **SOCKS5-over-TLS with Domain Fronting**: `tls:sni=decoy.example.com&certname=[HOST] | socks5:[HOST]:[PORT]`
-* **Multi-hop Routing with Shadowsocks**: `ss://[USERINFO1]@[HOST1]:[PORT1] | ss://[USERINFO2]@[HOST2]:[PORT2] | ss://[USERINFO3]@[HOST3]:[PORT3]`
-
-## Remote Access and Measurement
-
-To measure network interference as it's experienced in different regions, you
-can use remote proxies. You can find or create remote proxies to connect to.
-
-### Remote Access Options
-
-Using the `fetch` tool you can test connections remotely in various ways.
-
-#### Outline Server
-
-Connect remotely to a standard Outline server with a Shadowsocks transport.
+Select the protocol with `-proto`. The default is `h1` (HTTP/1.1):
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "ss://{remote_shadowsocks_credentials}" https://ipinfo.io | jq
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -proto h1 https://getoutline.org/cdn-cgi/trace
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -proto h2 https://getoutline.org/cdn-cgi/trace
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -proto h3 https://getoutline.org/cdn-cgi/trace
 ```
 
-#### SOCKS5 over SSH
+HTTP/1.1 and HTTP/2 use TCP for these HTTPS requests. HTTP/3 uses QUIC over UDP.
+Check the reported HTTP version and the trace's `http` field. If HTTP/3 fails
+while HTTP/2 succeeds, check UDP reachability and any proxy's UDP support; a
+timeout alone does not establish blocking.
 
-Create a SOCKS5 proxy using an SSH tunnel.
+With `-v`, an HTTP/3 request also reports the negotiated QUIC version. QUIC
+versions are distinct from HTTP versions; the HTTP version here is HTTP/3.
+
+## Use Encrypted Client Hello (ECH)
+
+ECH encrypts the part of the TLS ClientHello that carries the destination server
+name. It requires a configuration published by the site. `fetch` accepts this
+configuration through `-ech-config`; it does not retrieve it automatically.
+
+Use `dig` to query the site's HTTPS DNS record. On Debian and Ubuntu, `dig` is
+provided by the `dnsutils` package.
 
 ```sh
-ssh -D 127.0.0.1:1080 -C -N $USER@$HOST:$PORT
+dig +short getoutline.org HTTPS
 ```
 
-Connect to that tunnel using fetch
+Find the base64 value of the `ech` parameter. Retrieve a fresh value rather than
+reusing one from an old example, since configurations can change. This shell
+snippet extracts the first advertised value and runs the request only if it
+found one:
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "socks5://localhost:1080" https://ipinfo.io | jq
+ECH_CONFIG=$(dig +short getoutline.org HTTPS | sed -nE 's/.* ech="?([^"[:space:]]+)"?.*/\1/p' | head -n 1)
+if [ -n "$ECH_CONFIG" ]; then
+  go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+    -v -proto h2 -ech-config "$ECH_CONFIG" https://getoutline.org/cdn-cgi/trace
+else
+  printf '%s\n' 'No ECH configuration found in the HTTPS record.' >&2
+fi
 ```
 
-## Case Study: Bypassing YouTube Blocking in Iran
+Check for `sni=encrypted` in the trace response. You can also use `-proto h3` in
+this command to try ECH over QUIC. If the configuration is rejected, retrieve the
+HTTPS record again and retry. An empty lookup may mean the resolver does not
+return HTTPS records or the site is not advertising ECH.
 
-Here's a practical example of detecting and bypassing network interference.
+ECH does not hide the destination IP address or encrypt DNS lookups. See
+[DNS Lookups](dns-debugging.md) for resolver experiments and
+[Cloudflare's ECH documentation](https://developers.cloudflare.com/ssl/edge-certificates/ech/)
+for how Cloudflare uses ECH.
 
-### Detect the Block
+## Try a Transport Configuration
 
-When trying to fetch the YouTube homepage through an Iranian proxy, the request
-times out, indicating a block.
+The `-transport` flag accepts a [config URL](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
+A config URL describes a connection strategy, such as a proxy or TLS
+fragmentation. Components separated by `|` build on the transport to their left.
+Quote the entire value so the shell does not interpret `|` or `&`.
+
+For example, `tlsfrag:1` splits the initial TLS ClientHello into two TLS records:
+the first carries one byte of the original record's payload, and the second
+carries the rest. Try it with HTTP/2:
 
 ```sh
-export TRANSPORT="ss://{remote_shadowsocks_credentials}"
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)" https://www.youtube.com
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -proto h2 \
+  -transport 'tlsfrag:1' https://getoutline.org/cdn-cgi/trace
 ```
 
-This command fails with a timeout.
+Compare success or failure with the direct HTTP/2 request above. On a working
+connection, the response can look identical: you changed the handshake's
+structure, not the HTTP request. On a network that interferes with TLS handshakes,
+that change may affect whether the request succeeds.
 
-### Bypass with TLS Fragmentation
-
-By adding TLS fragmentation to the transport, we can bypass this block.
+For HTTP/3, `quicprelude` sends extra datagrams before packets that may carry a
+QUIC ClientHello. Compare the result with the direct HTTP/3 request above:
 
 ```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|override:host=$(dig +short www.youtube.com | tail -1)|tlsfrag:1" https://www.youtube.com | grep -oe '<title>.*</title>'
+go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -proto h3 \
+  -transport 'quicprelude' https://getoutline.org/cdn-cgi/trace
 ```
 
-This command successfully retrieves the title of the YouTube homepage, which is
-`<title>YouTube</title>`.
+Transport components must support the kind of connection being tested:
+`tlsfrag` operates on TCP streams, while `quicprelude` operates on UDP packets.
+The [config URL reference](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl)
+lists available components and their parameters.
 
-### Bypass with TLS Fragmentation and DNS-over-HTTPS
-
-```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|tlsfrag:1|doh:name=cloudflare-dns.com&address=www.cloudflare.net" https://www.youtube.com | grep -oe '<title>.*</title>'
-```
-
-This also successfully returns `<title>YouTube</title>`.
-
-### Bypass with an Outline Server
-
-```sh
-go run github.com/OutlineFoundation/outline-sdk/x/tools/fetch@latest -timeout 15 -transport "${TRANSPORT}|ss://<your_shadowsocks_credentials>" https://www.youtube.com | grep -oe '<title>.*</title>'
-```
-
-This too returns `<title>YouTube</title>`.
-
-## Further Analysis and Resources
-
-For discussions and questions, visit the [Outline SDK Discussion Group](https://github.com/OutlineFoundation/outline-sdk/discussions).
+To test these strategies from another network, continue with
+[Remote Measurement](remote-measurement.md).
