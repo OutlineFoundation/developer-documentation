@@ -52,17 +52,63 @@ go run golang.getoutline.org/sdk/x/tools/http2transport@latest \
 Run the curl command again. The trace's `ip` field should now show the remote
 server's exit address.
 
-You can also test a strategy without a remote server. For example, restart the
-proxy with [TLS fragmentation](https://developer.getoutline.org/sdk/command-line-debugging/#try-a-transport-configuration):
-
-```sh
-go run golang.getoutline.org/sdk/x/tools/http2transport@latest \
-  -localAddr 127.0.0.1:8080 -transport 'tlsfrag:1'
-```
-
 Config URL components can be composed with `|`; quote the full configuration.
 See the [config URL reference](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl)
 for supported stream transports.
+
+## Proxyless Evasion with Encrypted DNS and TLS Fragmentation
+
+For an [Intra](https://getintra.org/)-style experiment, combine encrypted DNS with
+TLS fragmentation. This can help with DNS manipulation and some forms of TLS
+handshake blocking. Here, **proxyless** means that website traffic connects
+directly from your computer, with no remote proxy server or access key. The local
+HTTP proxy lets your applications use the strategy.
+
+Stop the previous listener with Ctrl+C, then start it with this configuration:
+
+```sh
+TRANSPORT='tlsfrag:1|doh:name=cloudflare-dns.com&address=1.1.1.1:443'
+go run golang.getoutline.org/sdk/x/tools/http2transport@latest \
+  -localAddr 127.0.0.1:8080 -transport "$TRANSPORT"
+```
+
+The two components work together:
+
+- `tlsfrag:1` splits the initial TLS ClientHello into two TLS records, with one
+  payload byte in the first and the remaining bytes in the second.
+- `doh:name=cloudflare-dns.com&address=1.1.1.1:443` resolves destination hostnames
+  using [Cloudflare DNS over HTTPS](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/).
+  `name` supplies the resolver's TLS server name and HTTP hostname. `address`
+  supplies its connection address, avoiding a local DNS lookup to find the
+  resolver itself.
+
+Order matters: placing `tlsfrag:1` **before** `doh:...` applies fragmentation to
+both the resolver's TLS connection and the website's TLS connection. With
+`doh:...|tlsfrag:1`, only the website's TLS connection gets fragmented.
+
+In another terminal, compare a direct request with one through the local proxy:
+
+```sh
+curl --max-time 15 --write-out '\nHTTP %{http_code}\n' \
+  --noproxy '*' https://getoutline.org/cdn-cgi/trace
+curl --max-time 15 --write-out '\nHTTP %{http_code}\n' \
+  --noproxy '' --proxy http://127.0.0.1:8080 https://getoutline.org/cdn-cgi/trace
+```
+
+`--noproxy '*'` bypasses proxy settings for the baseline; `--noproxy ''` makes the
+second request use the local proxy even if you have proxy-bypass rules. Curl
+passes `getoutline.org` to the proxy, which resolves it over HTTPS. Website
+traffic still leaves through your own network's public IP.
+
+On an unrestricted connection, both requests should succeed and their trace
+output may look alike. Trace does not report DNS encryption or TLS record
+boundaries. To investigate interference, repeat the comparison with an affected
+HTTPS URL and compare success, status, and errors. You can also restart the proxy
+with only `tlsfrag:1` or only the `doh:...` component to isolate which change helps.
+
+The resolver and destination IP addresses must be reachable. TLS fragmentation
+does not encrypt SNI or enable ECH; it changes the handshake's record boundaries.
+Only applications configured to use the local HTTP proxy get this behavior.
 
 ## What the Proxy Can Test
 
