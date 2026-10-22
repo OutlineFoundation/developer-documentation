@@ -21,9 +21,9 @@ You can [set up a server](/vpn/getting-started/server-setup-manager), or use
 Replace the placeholder with the access key:
 
 ```sh
-TRANSPORT='ss://YOUR_OUTLINE_ACCESS_KEY'
+TUNNEL='ss://YOUR_OUTLINE_ACCESS_KEY'
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -timeout 15 -transport "$TRANSPORT" https://getoutline.org/cdn-cgi/trace
+  -v -timeout 15 -transport "$TUNNEL" https://getoutline.org/cdn-cgi/trace
 ```
 
 Compare the trace's `ip`, `loc`, and `colo` fields with a direct request. The `ip`
@@ -43,9 +43,9 @@ ssh -N -D 127.0.0.1:1080 -p 22 USER@HOST
 Leave SSH running. In a second terminal:
 
 ```sh
-TRANSPORT='socks5://127.0.0.1:1080'
+TUNNEL='socks5://127.0.0.1:1080'
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -timeout 15 -transport "$TRANSPORT" https://getoutline.org/cdn-cgi/trace
+  -v -timeout 15 -transport "$TUNNEL" https://getoutline.org/cdn-cgi/trace
 ```
 
 An SSH dynamic forward carries TCP connections, so use it with `-proto h1` or
@@ -61,7 +61,7 @@ through the same transport to identify the proxy's exit, then test your target.
 
 Other IP lookup services can add network-operator and location information or
 provide an alternative when Cloudflare is unreachable. These examples use
-`TRANSPORT` from one of the preceding sections. Omit `-transport "$TRANSPORT"`
+`TUNNEL` from one of the preceding sections. Omit `-transport "$TUNNEL"`
 to check your own connection. Install [jq](https://jqlang.org/download/) to format
 the JSON, or omit `| jq` to see the raw response.
 
@@ -72,7 +72,7 @@ operator), `city`, `region`, and `country`:
 
 ```sh
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h2 -timeout 15 -transport "$TRANSPORT" https://ipinfo.io/json | jq
+  -v -proto h2 -timeout 15 -transport "$TUNNEL" https://ipinfo.io/json | jq
 ```
 
 Keep an alternative for measurements from Iran or China, where IPinfo may be
@@ -87,7 +87,7 @@ The [SOAX checker](https://checker.soax.com/api/ipinfo) returns details inside a
 
 ```sh
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h2 -timeout 15 -transport "$TRANSPORT" https://checker.soax.com/api/ipinfo | jq
+  -v -proto h2 -timeout 15 -transport "$TUNNEL" https://checker.soax.com/api/ipinfo | jq
 ```
 
 For just the exit IP, replace `jq` with `jq -r '.ip'` for IPinfo or
@@ -102,7 +102,7 @@ in a direct test on October 22, 2026:
 
 ```sh
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h3 -timeout 15 -transport "$TRANSPORT" https://ident.me/json | jq
+  -v -proto h3 -timeout 15 -transport "$TUNNEL" https://ident.me/json | jq
 ```
 
 Use a UDP-capable transport for this command; the SSH SOCKS listener above cannot
@@ -123,7 +123,7 @@ operator and geolocation fields as database estimates.
 ## Compare Connection Strategies
 
 Keep the destination, HTTP version, and timeout the same while changing the
-transport. For example, with `TRANSPORT` set to one of the proxies above:
+transport. For example, with `TUNNEL` set to one of the proxies above:
 
 ```sh
 # Direct connection from your computer.
@@ -132,11 +132,11 @@ go run golang.getoutline.org/sdk/x/tools/fetch@latest \
 
 # Connection through the remote proxy.
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h2 -timeout 15 -transport "$TRANSPORT" https://getoutline.org/cdn-cgi/trace
+  -v -proto h2 -timeout 15 -transport "$TUNNEL" https://getoutline.org/cdn-cgi/trace
 
 # Same proxy, with TLS fragmentation toward the destination.
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h2 -timeout 15 -transport "${TRANSPORT}|tlsfrag:1" https://getoutline.org/cdn-cgi/trace
+  -v -proto h2 -timeout 15 -transport "${TUNNEL}|tlsfrag:1" https://getoutline.org/cdn-cgi/trace
 ```
 
 The fragmenting transport wraps the connection provided by the proxy.
@@ -161,7 +161,7 @@ resolve it on your computer and supply it with `-address`. This example uses
 TARGET_IP=$(dig +short getoutline.org A | sed -n '/^[0-9][0-9.]*$/p' | head -n 1)
 if [ -n "$TARGET_IP" ]; then
   go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-    -v -proto h2 -timeout 15 -transport "$TRANSPORT" \
+    -v -proto h2 -timeout 15 -transport "$TUNNEL" \
     -address "$TARGET_IP" https://getoutline.org/cdn-cgi/trace
 else
   printf '%s\n' 'No IPv4 address found for getoutline.org.' >&2
@@ -176,20 +176,20 @@ See [DNS Lookups](dns-debugging.md) to query a specific resolver through a proxy
 ### Try ECH and QUIC
 
 Use the [ECH example](https://developer.getoutline.org/sdk/command-line-debugging/#use-encrypted-client-hello-ech)
-with `-transport "$TRANSPORT"` to test ECH through a proxy. The `dig` query in that
+with `-transport "$TUNNEL"` to test ECH through a proxy. The `dig` query in that
 example runs locally; ECH does not move DNS resolution to the remote network.
 
 To test HTTP/3, use an Outline server with UDP support or a SOCKS5 service that
-supports UDP ASSOCIATE with a reachable UDP relay. Set `TRANSPORT` to that service
+supports UDP ASSOCIATE with a reachable UDP relay. Set `TUNNEL` to that service
 first; the SSH listener above will not work. Compare the ordinary request with a
 QUIC prelude:
 
 ```sh
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h3 -timeout 15 -transport "$TRANSPORT" https://getoutline.org/cdn-cgi/trace
+  -v -proto h3 -timeout 15 -transport "$TUNNEL" https://getoutline.org/cdn-cgi/trace
 
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
-  -v -proto h3 -timeout 15 -transport "${TRANSPORT}|quicprelude" https://getoutline.org/cdn-cgi/trace
+  -v -proto h3 -timeout 15 -transport "${TUNNEL}|quicprelude" https://getoutline.org/cdn-cgi/trace
 ```
 
 Record the tool release, time, proxy exit, destination address, protocol, and
