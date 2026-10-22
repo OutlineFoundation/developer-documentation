@@ -45,6 +45,7 @@ ENGLISH_ONLY: set[str] = {
     "sdk/dns-debugging",
     "sdk/local-http-proxy",
     "sdk/remote-measurement",
+    "sdk/server-testing",
     "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
 }

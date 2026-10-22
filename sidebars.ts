@@ -88,6 +88,7 @@ const sidebars: SidebarsConfig = {
         'sdk/command-line-debugging',
         'sdk/dns-debugging',
         'sdk/local-http-proxy',
+        'sdk/server-testing',
         'sdk/remote-measurement',
       ],
     },

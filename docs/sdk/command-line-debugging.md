@@ -14,7 +14,8 @@ experiment with custom transports. You only need Go and an internet connection
 for this guide; no Outline server or account is required.
 
 For other tasks, see [DNS Lookups](dns-debugging.md),
-[Local HTTP Proxy](local-http-proxy.md), and
+[Local HTTP Proxy](local-http-proxy.md),
+[Testing Outline Servers](server-testing.md), and
 [Remote Measurement](remote-measurement.md).
 
 ## Get Started

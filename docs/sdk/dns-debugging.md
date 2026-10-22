@@ -77,6 +77,8 @@ go run golang.getoutline.org/sdk/x/tools/resolve@latest \
 Use a resolver address reachable from the proxy. UDP queries need a transport
 and server that support UDP; stream-only proxies require `-tcp`. See
 [Remote Measurement](remote-measurement.md) for more on choosing a remote path.
+For TCP and UDP checks of both Shadowsocks and Shadowsocks over WebSockets,
+see [Testing Outline Servers](server-testing.md).
 
 ## Look Up ECH Configurations
 

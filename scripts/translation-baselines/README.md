@@ -6,7 +6,8 @@ DNS Lookups, Local HTTP Proxy, and Remote Measurement.
 
 The existing 17 translations still describe that combined guide. The verifier
 compares them with this snapshot to retain code, link, and structure checks while
-making the pending retranslation explicit. The three new guides fall back to
+making the pending retranslation explicit. The new DNS, local HTTP proxy,
+remote measurement, and server-testing guides fall back to
 English through Docusaurus and are listed in `ENGLISH_ONLY`. Their links to Fetch
 use its canonical English URL because the translated guide does not yet have
 the new ECH and transport sections.
