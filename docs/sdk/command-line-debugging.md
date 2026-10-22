@@ -82,6 +82,7 @@ Look for these fields in the response body:
 | `http` | HTTP version used for the request |
 | `tls` | Negotiated TLS version |
 | `sni` | Whether the server name was sent in plaintext or encrypted |
+| `uag` | User-Agent header received by Cloudflare |
 | `ip` | Client IP address as seen by Cloudflare; a proxy's exit IP when using one |
 | `colo` | Cloudflare data center serving the request |
 | `loc` | Country associated with the client IP address |
@@ -89,6 +90,13 @@ Look for these fields in the response body:
 Use a GET request here (the default): `HEAD` omits the body containing these
 fields. Remove the `ip` value before sharing output if you do not want to disclose
 that address.
+
+You can set a User-Agent with `-H` and check that it appears in `uag`:
+
+```sh
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -H 'User-Agent: outline-cli-experiment' https://getoutline.org/cdn-cgi/trace
+```
 
 ## Compare HTTP Versions
 
@@ -136,10 +144,40 @@ else
 fi
 ```
 
-Check for `sni=encrypted` in the trace response. You can also use `-proto h3` in
-this command to try ECH over QUIC. If the configuration is rejected, retrieve the
-HTTPS record again and retry. An empty lookup may mean the resolver does not
-return HTTPS records or the site is not advertising ECH.
+For a quick experiment, this one-liner looks up the configuration and tries ECH
+over HTTP/3. Change `DOMAIN` to test another ECH-enabled site with a Cloudflare
+trace endpoint:
+
+```sh
+(DOMAIN=getoutline.org; ECH_CONFIG=$(dig +short "$DOMAIN" HTTPS | sed -nE 's/.* ech="?([^"[:space:]]+)"?.*/\1/p' | head -n 1); go run golang.getoutline.org/sdk/x/tools/fetch@latest -v -proto h3 -ech-config "${ECH_CONFIG:?No ECH configuration found}" "https://$DOMAIN/cdn-cgi/trace")
+```
+
+The `${ECH_CONFIG:?...}` check stops the command if the lookup returns no ECH
+configuration. The parentheses keep the variables local to this one-liner.
+
+Check for `sni=encrypted` in either trace response. If the configuration is
+rejected, retrieve the HTTPS record again and retry. An empty lookup may mean
+the resolver does not return HTTPS records or the site is not advertising ECH.
+
+### Inspect the Outer Server Name
+
+The ECH configuration is base64-encoded binary data. Its public name, used for
+the visible **outer SNI**, is stored as text inside it. Using `ECH_CONFIG` from
+the multiline example above, decode it and display the printable strings:
+
+```sh
+printf '%s' "$ECH_CONFIG" | base64 -d | strings -a
+```
+
+Look for `cloudflare-ech.com`, Cloudflare's shared public name. The inner server
+name, `getoutline.org`, is encrypted; observers can still see the outer name.
+`strings` is a quick inspection aid and may also print unrelated bytes from
+the binary configuration. It does not parse or validate the ECH structure, and
+decoding a configuration does not prove the server accepted it: check
+`sni=encrypted` in the response.
+
+On macOS, use `base64 -D` if `-d` is unavailable. On Debian and Ubuntu, `strings`
+is provided by the `binutils` package.
 
 ECH does not hide the destination IP address or encrypt DNS lookups. See
 [DNS Lookups](dns-debugging.md) for resolver experiments and

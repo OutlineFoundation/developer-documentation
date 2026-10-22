@@ -52,6 +52,74 @@ An SSH dynamic forward carries TCP connections, so use it with `-proto h1` or
 `-proto h2`. It does not support the UDP traffic needed for HTTP/3. Stop the SSH
 command with Ctrl+C when finished.
 
+## Identify the Exit IP and Network
+
+Cloudflare trace is usually the best starting point: it reports the exit IP
+together with HTTP, TLS, ECH, and serving-data-center details. The website you
+ultimately want to test does not have to use Cloudflare. Send a separate request
+through the same transport to identify the proxy's exit, then test your target.
+
+Other IP lookup services can add network-operator and location information or
+provide an alternative when Cloudflare is unreachable. These examples use
+`TRANSPORT` from one of the preceding sections. Omit `-transport "$TRANSPORT"`
+to check your own connection. Install [jq](https://jqlang.org/download/) to format
+the JSON, or omit `| jq` to see the raw response.
+
+### IPinfo and SOAX
+
+[IPinfo](https://ipinfo.io/json) returns fields such as `ip`, `org` (ASN and
+operator), `city`, `region`, and `country`:
+
+```sh
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "$TRANSPORT" https://ipinfo.io/json | jq
+```
+
+Keep an alternative for measurements from Iran or China, where IPinfo may be
+unreachable. IPinfo [documents GCP infrastructure restrictions affecting Iranian
+IP addresses](https://community.ipinfo.io/t/getting-403-forbidden-when-accessing-the-ipinfo-api-and-website/303);
+local filtering can also affect access. A failure to reach this service does not
+by itself mean the proxy is broken.
+
+The [SOAX checker](https://checker.soax.com/api/ipinfo) returns details inside a
+`data` object, including `ip`, `asn`, `aso` (AS operator), `isp`, `carrier`, `city`,
+`region`, and country information:
+
+```sh
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "$TRANSPORT" https://checker.soax.com/api/ipinfo | jq
+```
+
+For just the exit IP, replace `jq` with `jq -r '.ip'` for IPinfo or
+`jq -r '.data.ip'` for SOAX. To remove the IP and postal code from SOAX output
+before sharing, use `jq 'del(.data.ip, .data.zip)'`.
+
+### An HTTP/3 Alternative
+
+[`ident.me/json`](https://api.ident.me/) is an independent IP lookup service with
+JSON fields for the IP, ASN, operator, and location. It also worked over HTTP/3
+in a direct test on October 22, 2026:
+
+```sh
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h3 -timeout 15 -transport "$TRANSPORT" https://ident.me/json | jq
+```
+
+Use a UDP-capable transport for this command; the SSH SOCKS listener above cannot
+carry HTTP/3. Check `HTTP Proto version=HTTP/3.0` in verbose output and the `ip`
+field in the JSON. The `asn` and `aso` fields identify the network, and `cc` and
+`country` describe its geolocation.
+
+In the same direct checks, IPinfo also returned HTTP/3 successfully; SOAX
+returned HTTP/2 successfully but its HTTP/3 request timed out. Treat protocol
+support and reachability as properties to check from your measurement network.
+These checks do not establish availability from Iran or China.
+
+A lookup reports the address used for that request. A rotating proxy, different
+IPv4/IPv6 routes, or different TCP/UDP exits can produce another address for the
+next request. Use a stable proxy session when comparing results, and treat
+operator and geolocation fields as database estimates.
+
 ## Compare Connection Strategies
 
 Keep the destination, HTTP version, and timeout the same while changing the
