@@ -120,7 +120,85 @@ IPv4/IPv6 routes, or different TCP/UDP exits can produce another address for the
 next request. Use a stable proxy session when comparing results, and treat
 operator and geolocation fields as database estimates.
 
-## Compare Connection Strategies
+## Testing Outline Servers
+
+You can use a remote network to check whether people there can reach your
+Outline server. Keep two configurations separate: `TUNNEL` is your working
+connection to that network, and `SERVER` is the Outline server you want to test.
+Use an independent, working tunnel so a failure to reach the server does not
+also cut off your measurement path.
+
+### Test a Shadowsocks Server
+
+Set `SERVER` to the `ss://` access key for the server under test. Keep `TUNNEL`
+set to one of the working proxies above. Run these commands in the same terminal:
+
+```sh
+SERVER='ss://YOUR_SERVER_ACCESS_KEY'
+
+# Baseline: the measurement tunnel can reach the test website.
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "$TUNNEL" https://getoutline.org/cdn-cgi/trace
+
+# Your computer can reach the Outline server and fetch through it.
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "$SERVER" https://getoutline.org/cdn-cgi/trace
+
+# The remote network can reach the Outline server and fetch through it.
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "${TUNNEL}|${SERVER}" https://getoutline.org/cdn-cgi/trace
+```
+
+The last command takes the path **your computer → measurement tunnel → Outline
+server → getoutline.org**. The `|` inside the quoted config URL composes the two
+connections; it is not a shell pipe. On success, Cloudflare's `ip` field reports
+the Outline server's exit address, rather than the measurement tunnel's exit.
+
+If both baselines succeed but the chained request fails, investigate the path
+from the remote network to your Outline server. Repeat the tests and compare
+verbose errors; a timeout alone does not identify the cause. This tests the
+tunnel's exit network, which may differ from the networks your users are on.
+
+### Test Shadowsocks over WebSockets
+
+If your server already offers [Shadowsocks over WebSockets](/vpn/advanced/websockets),
+you can test that endpoint through the same measurement tunnel. You need its
+public TLS hostname, TCP WebSocket path, and the `cipher` and `secret` from its
+server configuration or access-key YAML. An ordinary Outline server needs the
+linked WebSocket setup before this example will work.
+
+Replace `YOUR_CIPHER` and `YOUR_SECRET` with those values (the setup guide uses
+`chacha20-ietf-poly1305` as its cipher). Replace `YOUR_WS_HOST` with the hostname
+from your `wss://` endpoint, and `/YOUR_TCP_PATH` with its TCP path, including the
+leading `/`. Use the actual TLS port if it differs from 443. Keep `TUNNEL` set to
+your working measurement tunnel:
+
+```sh
+SS_USERINFO=$(printf '%s' 'YOUR_CIPHER:YOUR_SECRET' | base64 | tr '/+' '_-' | tr -d '=\n')
+SERVER="tls|ws:tcp_path=/YOUR_TCP_PATH|ss://${SS_USERINFO}@YOUR_WS_HOST:443"
+
+# Test the WebSocket endpoint from your computer.
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "$SERVER" https://getoutline.org/cdn-cgi/trace
+
+# Test the same endpoint from the remote network.
+go run golang.getoutline.org/sdk/x/tools/fetch@latest \
+  -v -proto h2 -timeout 15 -transport "${TUNNEL}|${SERVER}" https://getoutline.org/cdn-cgi/trace
+```
+
+The first line encodes `cipher:secret` as unpadded URL-safe Base64. In `SERVER`,
+`tls` secures the WebSocket connection, `ws` selects the server's TCP WebSocket
+path, and `ss` supplies the Shadowsocks credentials and WebSocket hostname and
+port. This converts the values from the Outline Client's YAML configuration
+into the CLI's [config URL format](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
+
+These HTTP/2 commands test the TCP WebSocket endpoint. To experiment with
+HTTP/3 through this server, configure its UDP WebSocket endpoint too and add
+`&udp_path=/YOUR_UDP_PATH` to the `ws:` component. UDP packets are then carried
+inside WebSocket connections; successful HTTP/3 here does not show that the
+measurement network permits native QUIC traffic to your server.
+
+## Compare Other Connection Strategies
 
 Keep the destination, HTTP version, and timeout the same while changing the
 transport. For example, with `TUNNEL` set to one of the proxies above:
