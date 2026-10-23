@@ -46,6 +46,13 @@ ENGLISH_ONLY: set[str] = {
     "vpn/getting-started/server-setup-ai-agent",
 }
 
+# Existing translations of rewritten pages are checked against their exact
+# prior English source until retranslation. Remove each baseline when all
+# locales catch up; see translation-baselines/README.md.
+TRANSLATION_BASELINES = {
+    "sdk/concepts": SCRIPT_DIR / "translation-baselines",
+}
+
 # Known code block count differences: English MD has blocks added after
 # translation export. The converter uses h2-section matching to select
 # the correct subset. Format: doc_path -> (english_count, translated_count)
@@ -392,7 +399,7 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
 
     # Check each translated file against English
     for doc_path in sorted(translated_paths & english_paths):
-        en_text = read_doc(ENGLISH_DOCS_DIR, doc_path)
+        en_text = read_doc(TRANSLATION_BASELINES.get(doc_path, ENGLISH_DOCS_DIR), doc_path)
         tr_text = read_doc(locale_dir, doc_path)
 
         # Frontmatter: check that translated file has the same keys
@@ -627,6 +634,8 @@ def main():
     print(f"English docs: {len(english_paths)} files")
     print(f"English-only (no translation expected): {len(ENGLISH_ONLY)} files")
     print(f"Locales: {len(LOCALES)}")
+    for doc_path in TRANSLATION_BASELINES:
+        print(f"Pending retranslation (validated against saved source): {doc_path}")
     print()
 
     total_issues = 0
