@@ -21,10 +21,12 @@ The `-transport` examples below use the
 This option requires an existing Outline server and its `ss://` access key.
 You can [set up a server](/vpn/getting-started/server-setup-manager), or use
 [SSH](#connect-through-ssh) if you already have access to a remote machine.
-Replace the placeholder with the access key:
+Set `ACCESS_KEY` to your complete access key, including its `ss://` prefix,
+in place of the entire sample URI below. Use it as the measurement tunnel:
 
 ```sh
-TUNNEL='ss://YOUR_OUTLINE_ACCESS_KEY'
+ACCESS_KEY='ss://[credentials]@[host]:[port]'
+TUNNEL="$ACCESS_KEY"
 go run golang.getoutline.org/sdk/x/tools/fetch@latest \
   -v -timeout 15 -transport "$TUNNEL" https://getoutline.org/cdn-cgi/trace
 ```

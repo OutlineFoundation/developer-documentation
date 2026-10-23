@@ -3,11 +3,10 @@ title: "Testing Outline Servers"
 sidebar_label: "Test Outline Servers"
 ---
 
-Check that your Outline server carries both TCP connections and UDP packets
-before sharing it with users. The Outline SDK's command-line tools let you test
-plain Shadowsocks and Shadowsocks over WebSockets without installing the
-Outline Client. You can then repeat the tests from another network to explore
-where your server is reachable.
+Use the Outline SDK's command-line tools to understand your Outline server's
+connectivity and troubleshoot TCP and UDP forwarding. Test plain Shadowsocks
+and Shadowsocks over WebSockets without installing the Outline Client, then
+repeat the tests from another network to see where your server is reachable.
 
 Install [Go](https://go.dev/doc/install) and use a POSIX shell, such as Bash or
 Zsh. `go run` downloads and compiles the tool on its first run. See
@@ -18,20 +17,23 @@ Zsh. `go run` downloads and compiles the tool on its first run. See
 
 ## Choose Your Server Configuration
 
-Set `SERVER` using **one** of the following options, then run the tests below
-in the same terminal. To compare deployments, change `SERVER` and repeat the
-same commands.
+Set `SERVER` to the connection configuration using **one** of the following
+options, then run the tests below in the same terminal. To compare deployments,
+change `SERVER` and repeat the same commands.
 
 ### Shadowsocks
 
 Use an existing server's `ss://` access key, or
-[set up an Outline server](/vpn/getting-started/server-setup-manager). Replace
-the entire placeholder with your key:
+[set up an Outline server](/vpn/getting-started/server-setup-manager). Set
+`ACCESS_KEY` to the complete key: replace the entire sample URI below,
+including the bracketed placeholders, with your key including its `ss://` prefix.
 
 ```sh
-SERVER='ss://YOUR_SERVER_ACCESS_KEY'
+ACCESS_KEY='ss://[credentials]@[host]:[port]'
+SERVER="$ACCESS_KEY"
 ```
 
+For plain Shadowsocks, the access key itself is the connection configuration.
 The server must accept both TCP and UDP on the access key's port, including in
 its host and cloud firewall rules, and be able to forward both to the internet.
 

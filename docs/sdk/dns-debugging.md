@@ -65,13 +65,13 @@ Compare whether this query succeeds with the ordinary TCP query above. The DNS
 answer may be unchanged; this experiment changes how the query is sent.
 
 If you have an [Outline server](/vpn/getting-started/server-setup-manager),
-you can also supply its access key as the transport. Replace the placeholder
-with the server's `ss://` access key:
+you can also supply its access key as the transport. Replace the entire sample
+URI with the server's complete access key, including its `ss://` prefix:
 
 ```sh
-TRANSPORT='ss://YOUR_OUTLINE_ACCESS_KEY'
+ACCESS_KEY='ss://[credentials]@[host]:[port]'
 go run golang.getoutline.org/sdk/x/tools/resolve@latest \
-  -tcp -transport "$TRANSPORT" -resolver 1.1.1.1 -type A getoutline.org
+  -tcp -transport "$ACCESS_KEY" -resolver 1.1.1.1 -type A getoutline.org
 ```
 
 Use a resolver address reachable from the proxy. UDP queries need a transport

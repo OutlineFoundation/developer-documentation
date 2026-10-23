@@ -40,13 +40,14 @@ Ctrl+C in the proxy terminal to stop it.
 The `-transport` flag accepts a [config URL](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 For this example, you need an existing Outline server and its `ss://` access key;
 see [Set Up an Outline Server](/vpn/getting-started/server-setup-manager) if
-you need to create one. Stop the previous proxy and restart it with that key in
-place of the placeholder:
+you need to create one. Stop the previous proxy. Set `ACCESS_KEY` to your
+complete access key, including its `ss://` prefix, in place of the entire
+sample URI below, then restart the proxy:
 
 ```sh
-TRANSPORT='ss://YOUR_OUTLINE_ACCESS_KEY'
+ACCESS_KEY='ss://[credentials]@[host]:[port]'
 go run golang.getoutline.org/sdk/x/tools/http2transport@latest \
-  -localAddr 127.0.0.1:8080 -transport "$TRANSPORT"
+  -localAddr 127.0.0.1:8080 -transport "$ACCESS_KEY"
 ```
 
 Run the curl command again. The trace's `ip` field should now show the remote
