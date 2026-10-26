@@ -58,6 +58,7 @@ ENGLISH_ONLY: set[str] = {
 # when all locales have caught up.
 OUTDATED_TRANSLATIONS: dict[str, set[str]] = {
     "sdk/command-line-debugging": set(LOCALES),
+    "sdk/concepts": set(LOCALES),
 }
 
 # Known code block count differences: English MD has blocks added after
