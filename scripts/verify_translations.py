@@ -21,6 +21,8 @@ Known acceptable differences are documented and excluded:
   are still compared URL-by-URL.
 - Internal links may lack .md extensions (Docusaurus resolves both forms).
 - Some locales have link order swapped by the translator.
+- Outdated translations skip content comparisons until updated; file-presence,
+  frontmatter, and theme checks still apply.
 """
 
 import json
@@ -44,6 +46,14 @@ LOCALES = [
 ENGLISH_ONLY: set[str] = {
     "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
+}
+
+# Existing translations that predate an English rewrite. Skip content comparisons
+# for these page/locale pairs, but keep file-presence, frontmatter, and theme
+# checks. Remove each locale as its translation is updated; remove the entry
+# when all locales have caught up.
+OUTDATED_TRANSLATIONS: dict[str, set[str]] = {
+    "sdk/concepts": set(LOCALES),
 }
 
 # Known code block count differences: English MD has blocks added after
@@ -425,6 +435,9 @@ def verify_locale(locale: str, english_paths: set[str]) -> list[Issue]:
                     f"Frontmatter keys differ: {'; '.join(detail)}"
                 ))
 
+        if locale in OUTDATED_TRANSLATIONS.get(doc_path, set()):
+            continue
+
         # Code blocks
         en_blocks = extract_code_blocks(en_text)
         tr_blocks = extract_code_blocks(tr_text)
@@ -630,9 +643,15 @@ def main():
     print()
 
     total_issues = 0
+    outdated_count = 0
     issues_by_category: dict[str, int] = {}
 
     for locale in LOCALES:
+        outdated_docs = sorted(
+            doc_path for doc_path, locales in OUTDATED_TRANSLATIONS.items()
+            if locale in locales and doc_path in english_paths
+        )
+        outdated_count += len(outdated_docs)
         issues = verify_locale(locale, english_paths)
         issues += verify_theme_translations(locale)
 
@@ -645,7 +664,11 @@ def main():
                 )
             total_issues += len(issues)
         else:
-            print(f"OK   {locale}")
+            detail = (
+                f" (content checks skipped: {', '.join(outdated_docs)})"
+                if outdated_docs else ""
+            )
+            print(f"OK   {locale}{detail}")
 
     print()
     if total_issues:
@@ -654,7 +677,11 @@ def main():
             print(f"  {cat}: {count}")
         sys.exit(1)
     else:
-        print("PASSED: All translations verified")
+        summary = "PASSED: Translation checks passed"
+        if outdated_count:
+            noun = "translation" if outdated_count == 1 else "translations"
+            summary += f"; {outdated_count} {noun} awaiting updates"
+        print(summary)
         sys.exit(0)
 
 
