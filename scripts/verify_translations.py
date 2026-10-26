@@ -44,6 +44,10 @@ LOCALES = [
 # not yet have translations, add the doc path here so the verifier won't
 # flag it as missing.
 ENGLISH_ONLY: set[str] = {
+    "sdk/dns-debugging",
+    "sdk/local-http-proxy",
+    "sdk/remote-measurement",
+    "sdk/server-testing",
     "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
 }
@@ -53,6 +57,7 @@ ENGLISH_ONLY: set[str] = {
 # checks. Remove each locale as its translation is updated; remove the entry
 # when all locales have caught up.
 OUTDATED_TRANSLATIONS: dict[str, set[str]] = {
+    "sdk/command-line-debugging": set(LOCALES),
     "sdk/concepts": set(LOCALES),
 }
 
