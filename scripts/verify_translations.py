@@ -50,6 +50,8 @@ ENGLISH_ONLY: set[str] = {
     "sdk/server-testing",
     "sdk/extend-configurl",
     "vpn/getting-started/server-setup-ai-agent",
+    # Reworked guide; previous translations were removed pending re-export
+    "vpn/advanced/caddy",
 }
 
 # Existing translations that predate an English rewrite. Skip content comparisons
