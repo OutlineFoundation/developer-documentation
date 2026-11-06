@@ -459,7 +459,9 @@ To implement your own strategy, replace the option parsing and wrappers with
 your configuration format and dialer implementation. For wrappers, keep the
 `NewFromConfig` call on `BaseConfig` so they compose with existing strategies. For the complete
 API, see [Defining custom strategies](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Defining_custom_strategies)
-and the [SDK's dialer concepts](/sdk/concepts#dialers).
+and the [SDK's dialer concepts](/sdk/concepts#dialers). To use your components
+in Smart Dialer configs and mobile apps, continue with
+[Extending the Smart Dialer](/sdk/extend-smart-dialer).
 
 [new-default-registry]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#NewDefaultRegistry
 [built-in]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Built_in_components

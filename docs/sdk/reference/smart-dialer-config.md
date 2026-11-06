@@ -143,17 +143,18 @@ license from them.
 
 ### How to Use the Smart Dialer
 
-To use the Smart Dialer, create a `StrategyFinder` object and call the
-`NewDialer` method, passing in the list of test domains and the YAML config.
-The `NewDialer` method will return a `transport.StreamDialer` that can be used
-to create connections using the found strategy. For example:
+To use the Smart Dialer, create a `Finder` with `smart.NewFinderConfig().New()`
+and call the `NewDialer` method, passing in the list of test domains and the
+YAML config. The `NewDialer` method will return a `transport.StreamDialer` that
+can be used to create connections using the found strategy. For example:
 
 ```go
-finder := &smart.StrategyFinder{
-    TestTimeout:  5 * time.Second,
-    LogWriter:   os.Stdout,
-    StreamDialer: &transport.TCPDialer{},
-    PacketDialer: &transport.UDPDialer{},
+finder, err := smart.NewFinderConfig().
+    SetTestTimeout(5 * time.Second).
+    SetLogWriter(os.Stdout).
+    New()
+if err != nil {
+    // Handle an invalid config.
 }
 
 configBytes := []byte(`
@@ -189,6 +190,8 @@ This is a basic example and may need to be adapted for your specific use case.
 
 Fallback strategies are used when none of the proxyless strategies are
 successful. They are typically proxies that are expected to be more reliable.
+For a complete walkthrough, including custom config URL types and mobile apps,
+see [Extending the Smart Dialer](/sdk/extend-smart-dialer).
 
 To add a new fallback strategy:
 
