@@ -49,6 +49,7 @@ ENGLISH_ONLY: set[str] = {
     "sdk/remote-measurement",
     "sdk/server-testing",
     "sdk/extend-configurl",
+    "sdk/extend-smart-dialer",
     "vpn/getting-started/server-setup-ai-agent",
 }
 
@@ -100,6 +101,8 @@ KNOWN_ENGLISH_ONLY_LINKS: dict[str, set[int]] = {
     "vpn/advanced/caddy": {3},
     # 1 anchor link added to MD after translation export (ssconf:// key section)
     "vpn/management/dynamic-access-keys": {10},
+    # 1 link to extend-smart-dialer added to MD after translation export
+    "sdk/reference/smart-dialer-config": {3},
 }
 
 # Known link order swaps: some translators reordered text, causing link

@@ -79,6 +79,7 @@ const sidebars: SidebarsConfig = {
         'sdk/mobile-app-integration',
         'sdk/use-sdk-in-go',
         'sdk/extend-configurl',
+        'sdk/extend-smart-dialer',
       ],
     },
     {
