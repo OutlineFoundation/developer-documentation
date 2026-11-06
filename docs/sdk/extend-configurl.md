@@ -6,9 +6,9 @@ sidebar_label: "Custom Components"
 # Adding Custom Components
 
 You can build components for the Outline SDK and share them as a Go library in
-your own repository. A component provider—the author of that library—can expose
-`Register*` functions that apps call to add configuration types to the SDK's
-[`configurl` package](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
+your own repository. As the author of that library, you can expose `Register*`
+functions that apps call to add configuration types to their registry for the
+SDK's [`configurl` package](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl).
 This makes your components easy for other apps in the Outline ecosystem to use.
 
 Also expose constructors or types for direct use. An app should be able to
@@ -32,20 +32,28 @@ is required.
 ## How registration works
 
 A **stream dialer** is an object with a `DialStream(ctx, "host:port")` method
-that opens a connection, such as TCP. A **provider** builds dialers from
-configuration. This runtime provider is distinct from the component author who
-publishes the library. [`configurl.NewDefaultRegistry()`][new-default-registry]
-creates a [`Registry`][registry] with the built-in configuration types already
-registered. The registry holds separate providers for stream dialers, packet
-dialers, and packet listeners.
+that opens a connection, such as TCP. A **registry** maps each configuration
+type name, such as `delay`, to a **parser** for a given component type: a
+function that reads that part of
+the configuration and builds the component.
+[`configurl.NewDefaultRegistry()`][new-default-registry] creates a
+[`MutableRegistry`][mutable-registry] with the
+[built-in configuration types][built-in] already registered. A
+[`Registry`][registry] only looks up parsers; `MutableRegistry` adds
+registration. Parsers receive the read-only `Registry`.
 
-To add a type, call
-[`registry.StreamDialers.RegisterType`][register-type] with a name and a
-builder function, whose signature is [`configurl.BuildFunc`][build-func]. For
-`delay:200ms`, the name is `delay`, and the builder reads the duration, builds
-the underlying dialer, and returns a wrapper around it. Registering a builder
-does not open a connection; calling the resulting dialer's `DialStream` method
-does.
+Each part of a configuration string is parsed as a URL with Go's `net/url`.
+The type name is the URL scheme, and for `delay:200ms`, the text after the
+colon, `200ms`, is the URL's opaque part.
+
+To add a type, call [`configurl.Register`][register] with the registry, a name,
+and a parser function of type [`configurl.Parser`][parser]. For `delay:200ms`,
+the name is `delay`, and the parser reads the duration, builds the dialer it
+wraps, and returns the wrapper. A registry stores parsers by Go result type and
+name, so `delay` for `transport.StreamDialer` and `delay` for
+`transport.PacketDialer` are separate entries. `Register` infers the result
+type from the parser's signature, and the type argument of
+`configurl.New[T]` selects which entry to use.
 
 Configurations can be joined with `|`. Each part wraps the dialer built from
 the parts to its left. For example:
@@ -63,7 +71,7 @@ character describes composition, not a choice between strategies.
 ## Step 1: Create a Go module
 
 <!-- RELEASE BLOCKER: Before merging, replace the pseudo-version below with a
-released x module version containing OutlineFoundation/outline-sdk#646, then
+released x module version containing OutlineFoundation/outline-sdk#647, then
 rerun the examples and verify the Go doc links. -->
 
 Run these commands in a terminal:
@@ -72,7 +80,7 @@ Run these commands in a terminal:
 mkdir configurl-example
 cd configurl-example
 go mod init example.com/configurl-example
-go get golang.getoutline.org/sdk/x/configurl@v0.2.3-0.20261019112345-9b46f8f0fe2e
+go get golang.getoutline.org/sdk/x/configurl@v0.2.3-0.20261030210620-71f60768ef4c
 mkdir components
 ```
 
@@ -88,8 +96,8 @@ in a separate Go package. Keep each component in its own file:
 configurl-example/
 ├── go.mod
 ├── components/
-│   ├── delay.go       # Component library: delay dialer and registration
-│   └── timeout.go     # Component library: timeout dialer and registration
+│   ├── delay.go       # Component library: delay dialer, parser, and registration
+│   └── timeout.go     # Component library: timeout dialer, parser, and registration
 └── main.go            # App: imports the library and registers its components
 ```
 
@@ -100,8 +108,9 @@ its published package path instead of the local example path used below.
 ## Step 2: Write the component library
 
 The library exposes a constructor and a registration function for each
-component. The constructors take Go values and implement the behavior; the
-registration functions turn configurl text into constructor arguments.
+component. The constructors take Go values and implement the behavior. Each
+registration function registers a parser, which turns a configuration string
+into constructor arguments.
 
 ### Delay component
 
@@ -140,21 +149,22 @@ func NewDelayDialer(base transport.StreamDialer, duration time.Duration) (transp
 	return transport.FuncStreamDialer(dialStream), nil
 }
 
-// RegisterDelay adds the "delay:<duration>" configuration type.
-func RegisterDelay(registry *configurl.Registry) {
-	newInstance := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
-		// In "delay:200ms", URL.Opaque is "200ms".
-		duration, err := time.ParseDuration(config.URL.Opaque)
-		if err != nil {
-			return nil, errors.New("delay: expected a duration, such as 200ms")
-		}
-		base, err := registry.StreamDialers.NewInstance(ctx, config.BaseConfig)
-		if err != nil {
-			return nil, err
-		}
-		return NewDelayDialer(base, duration)
+func parseDelayDialer(ctx context.Context, registry configurl.Registry, config *configurl.Config) (transport.StreamDialer, error) {
+	// In "delay:200ms", URL.Opaque is "200ms".
+	duration, err := time.ParseDuration(config.URL.Opaque)
+	if err != nil {
+		return nil, errors.New("delay: expected a duration, such as 200ms")
 	}
-	registry.StreamDialers.RegisterType("delay", newInstance)
+	base, err := configurl.NewFromConfig[transport.StreamDialer](ctx, registry, config.BaseConfig)
+	if err != nil {
+		return nil, err
+	}
+	return NewDelayDialer(base, duration)
+}
+
+// RegisterDelay adds the "<name>:<duration>" configuration type, such as "delay:200ms".
+func RegisterDelay(registry configurl.MutableRegistry, name string) {
+	configurl.Register(registry, name, parseDelayDialer)
 }
 ```
 
@@ -201,31 +211,34 @@ func NewTimeoutDialer(base transport.StreamDialer, duration time.Duration, messa
 	return transport.FuncStreamDialer(dialStream), nil
 }
 
-// RegisterTimeout adds the "timeout:t=<duration>&error=<message>" configuration type.
-func RegisterTimeout(registry *configurl.Registry) {
-	newInstance := func(ctx context.Context, config *configurl.Config) (transport.StreamDialer, error) {
-		// In "timeout:t=1s&error=too+slow", parse the key=value options.
-		options, err := url.ParseQuery(config.URL.Opaque)
-		if err != nil {
-			return nil, fmt.Errorf("timeout: invalid options: %w", err)
-		}
-		duration, err := time.ParseDuration(options.Get("t"))
-		if err != nil {
-			return nil, errors.New("timeout: t must be a duration, such as 1s")
-		}
-		base, err := registry.StreamDialers.NewInstance(ctx, config.BaseConfig)
-		if err != nil {
-			return nil, err
-		}
-		return NewTimeoutDialer(base, duration, options.Get("error"))
+func parseTimeoutDialer(ctx context.Context, registry configurl.Registry, config *configurl.Config) (transport.StreamDialer, error) {
+	// In "timeout:t=1s&error=too+slow", parse the key=value options.
+	options, err := url.ParseQuery(config.URL.Opaque)
+	if err != nil {
+		return nil, fmt.Errorf("timeout: invalid options: %w", err)
 	}
-	registry.StreamDialers.RegisterType("timeout", newInstance)
+	duration, err := time.ParseDuration(options.Get("t"))
+	if err != nil {
+		return nil, errors.New("timeout: t must be a duration, such as 1s")
+	}
+	base, err := configurl.NewFromConfig[transport.StreamDialer](ctx, registry, config.BaseConfig)
+	if err != nil {
+		return nil, err
+	}
+	return NewTimeoutDialer(base, duration, options.Get("error"))
+}
+
+// RegisterTimeout adds the "<name>:t=<duration>&error=<message>" configuration type,
+// such as "timeout:t=1s&error=too+slow".
+func RegisterTimeout(registry configurl.MutableRegistry, name string) {
+	configurl.Register(registry, name, parseTimeoutDialer)
 }
 ```
 
 ### Parse your configuration
 
-Each builder receives a parsed [`configurl.Config`][config]:
+Each parser receives a context, a registry, and a parsed
+[`configurl.Config`][config]:
 
 - `config.URL` describes the current part. For `delay:200ms`, its `Scheme` is
   `delay` and its `Opaque` field is `200ms`.
@@ -235,19 +248,29 @@ Each builder receives a parsed [`configurl.Config`][config]:
   These options follow the colon directly; there is no `?`, so `URL.Query()`
   would not read them.
 - `config.BaseConfig` describes the parts to the left. Passing it to
-  [`StreamDialers.NewInstance`][new-instance] preserves composition. When there
-  are no parts to the left, it is `nil`, and the provider returns its default
-  TCP dialer.
+  [`configurl.NewFromConfig`][new-from-config] builds the dialer that your
+  wrapper uses, which preserves composition. When there are no parts to the
+  left, it is `nil`, and the registry returns its default TCP dialer.
 
 The `error` option uses URL query encoding: `too+slow` becomes `too slow`.
 Encode literal `&`, `|`, and `+` in values as `%26`, `%7C`, and `%2B`, respectively,
-so they do not become separators or spaces. When creating configurations in Go,
-use `url.Values.Encode()` to encode the option values.
+so they do not become separators or spaces. Also encode `?`, `#`, and `%`: URL
+parsing removes text after an unencoded `?` or `#` from the opaque part. When
+creating configurations in Go, use `url.Values.Encode()` to encode the option
+values.
 
-Use [`registry.NewStreamDialer`][new-stream-dialer] for a configuration
-**string** and [`NewInstance`][new-instance] for an already parsed
-`*configurl.Config`. Inside a builder, pass `config.BaseConfig`, not `config`
-itself: passing the current config would call the same builder again indefinitely.
+Use [`configurl.New`][new] for a configuration **string** and
+[`NewFromConfig`][new-from-config] for an already parsed `*configurl.Config`.
+The type argument, `transport.StreamDialer` here, selects which kind of
+component to build. Inside a parser, pass `config.BaseConfig`, not `config`
+itself: passing the current config would call the same parser again
+indefinitely.
+
+Build dependencies with the `registry` and `ctx` your parser receives, never a
+registry captured when you registered. An app's registry customizations, such
+as a different default dialer, then also apply to your dependencies. The
+context is for construction only: the returned dialer uses the context of each
+`DialStream` call.
 
 ### Apply the behavior when dialing
 
@@ -263,15 +286,15 @@ and earlier caller deadlines from being relabeled with our message.
 
 Both wrappers affect opening a connection; they do not delay data transfer or
 set read or write deadlines on the returned connection. The underlying dialer
-must honor its context for the timeout to take effect. The local listener is
-only used to complete the TCP handshake; the example does not send application
-data.
+must honor its context for the timeout to take effect.
 
 ## Step 3: Import and register the components in your app
 
 Create `main.go` at the module root, alongside the `components` directory. The
 app imports the library and calls its exported `Register*` functions on the
-app's registry before building a dialer:
+app's registry before building a dialer. The app chooses each configuration
+type's name, which lets it avoid collisions with built-in types or other
+libraries:
 
 ```go title="main.go"
 package main
@@ -284,6 +307,7 @@ import (
 	"net"
 
 	"example.com/configurl-example/components"
+	"golang.getoutline.org/sdk/transport"
 	"golang.getoutline.org/sdk/x/configurl"
 )
 
@@ -296,11 +320,11 @@ func main() {
 
 	// highlight-start
 	// Register the "delay" and "timeout" configuration types.
-	components.RegisterDelay(registry)
-	components.RegisterTimeout(registry)
+	components.RegisterDelay(registry, "delay")
+	components.RegisterTimeout(registry, "timeout")
 	// highlight-end
 
-	dialer, err := registry.NewStreamDialer(context.Background(), *configText)
+	dialer, err := configurl.New[transport.StreamDialer](context.Background(), registry, *configText)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -385,7 +409,7 @@ func newDialer() (transport.StreamDialer, error) {
 ```
 
 An app can call this helper in place of creating a registry and
-parsing a configurl string. Both approaches use the same component
+parsing a configuration string. Both approaches use the same component
 implementations and validation.
 
 ## Share your components with the ecosystem
@@ -406,28 +430,44 @@ it does not download a library or register new code automatically.
 
 ### Registration scope
 
-Keep the registry you configured and use it to build your dialers.
-Registration belongs to that registry: a new `NewDefaultRegistry()` call
+Registration belongs to the registry you configured: a new `NewDefaultRegistry()` call
 does not inherit your custom types, and registering here does not add `delay`
 or `timeout` to other applications or prebuilt SDK tools. Register types during
-application setup, before any goroutines use the registry. Use a distinct
-lowercase name; registering an existing name replaces its builder.
+application setup, before building or using components from the registry. Use
+a distinct lowercase name: URL parsing lowercases schemes, so a type registered
+as `Delay` never matches. Registering an existing name for the same result type
+replaces its parser.
 
-These examples register stream dialers only. For datagram connections, register
-a builder returning `transport.PacketDialer` with `registry.PacketDialers`;
-packet listeners have a separate `registry.PacketListeners` provider. A stream
-registration does not automatically enable the same name in those providers.
+To replace a default base underneath every configuration (the TCP stream
+dialer, UDP packet dialer, or UDP packet listener), for example with one that
+protects sockets on Android, call [`configurl.RegisterBase`][register-base]
+with a parser for that result type. See
+[Custom base components](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Custom_base_components).
+
+If a configuration names a type that the registry doesn't have,
+`configurl.New` returns an error matching `errors.ErrUnsupported`, which you
+can check with `errors.Is`. Malformed options return your parser's error
+instead.
+
+These examples register stream dialers only. Registrations are specific to a
+parser's Go result type. For datagram connections, write a parser that returns
+`transport.PacketDialer` or `transport.PacketListener` and register it with the
+same `configurl.Register` function. A stream registration does not enable the
+same name for packet dialers or packet listeners.
 
 To implement your own strategy, replace the option parsing and wrappers with
 your configuration format and dialer implementation. For wrappers, keep the
-`BaseConfig` call so they compose with existing strategies. For the complete
+`NewFromConfig` call on `BaseConfig` so they compose with existing strategies. For the complete
 API, see [Defining custom strategies](https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Defining_custom_strategies)
 and the [SDK's dialer concepts](/sdk/concepts#dialers).
 
 [new-default-registry]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#NewDefaultRegistry
+[built-in]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#hdr-Built_in_components
 [registry]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#Registry
-[register-type]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#ExtensibleProvider.RegisterType
-[build-func]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#BuildFunc
+[register-base]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#RegisterBase
+[mutable-registry]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#MutableRegistry
+[register]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#Register
+[parser]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#Parser
 [config]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#Config
-[new-instance]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#ExtensibleProvider.NewInstance
-[new-stream-dialer]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#Registry.NewStreamDialer
+[new-from-config]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#NewFromConfig
+[new]: https://pkg.go.dev/golang.getoutline.org/sdk/x/configurl#New
