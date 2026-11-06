@@ -66,3 +66,11 @@ To verify translations locally before opening a PR:
 ```sh
 npm run verify
 ```
+
+English-only documents are listed in `ENGLISH_ONLY` in
+`scripts/verify_translations.py`. When an English rewrite leaves existing
+translations outdated, list the affected page and locales in
+`OUTDATED_TRANSLATIONS`. File-presence, frontmatter, and theme checks still run;
+content comparisons are skipped for those page/locale pairs and reported in the
+verification output. Remove each locale from the entry as its translation is
+updated, then remove the entry when all locales have caught up.

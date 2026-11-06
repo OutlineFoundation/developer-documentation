@@ -1,3 +1,4 @@
+import type {JSX} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
@@ -28,12 +29,17 @@ function Cards(): JSX.Element {
   return (
     <section className={styles.cards}>
       <div className={styles.card}>
-        <img
-          src="/images/landing-guides.png"
-          alt=""
-          className={styles.cardImage}
-        />
-        <h2 className={styles.cardTitle}>
+        <Link
+          className={styles.cardImageLink}
+          to="/why-outline"
+          aria-labelledby="vpn-card-title">
+          <img
+            src="/images/landing-guides.png"
+            alt=""
+            className={styles.cardImage}
+          />
+        </Link>
+        <h2 id="vpn-card-title" className={styles.cardTitle}>
           <Translate id="homepage.vpn.title">
             Get Started with Outline
           </Translate>
@@ -48,12 +54,17 @@ function Cards(): JSX.Element {
         </Link>
       </div>
       <div className={styles.card}>
-        <img
-          src="/images/landing-reference.png"
-          alt=""
-          className={styles.cardImage}
-        />
-        <h2 className={styles.cardTitle}>
+        <Link
+          className={styles.cardImageLink}
+          to="/sdk/what-is-the-sdk"
+          aria-labelledby="sdk-card-title">
+          <img
+            src="/images/landing-reference.png"
+            alt=""
+            className={styles.cardImage}
+          />
+        </Link>
+        <h2 id="sdk-card-title" className={styles.cardTitle}>
           <Translate id="homepage.sdk.title">
             Build with Outline SDK
           </Translate>
